@@ -11,7 +11,7 @@ defaults:
 
 jobs:
   app:
-    name: Type-check, lint, build
+    name: Type-check, lint, test, build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,11 +22,22 @@ jobs:
           cache: npm
           cache-dependency-path: platform/package-lock.json
 
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
       - run: npm ci
 
       - run: npm run typecheck
 
       - run: npm run lint
+
+      # Integration tests need the local stack; migrations are applied on start.
+      - name: Start Supabase
+        run: supabase start
+
+      - name: Write test env
+        run: cp .env.example .env.local
 
       - run: npm run test
 
