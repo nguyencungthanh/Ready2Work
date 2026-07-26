@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready2Work - Educational Technology & Career Preparation</title>
+    <meta name="description" content="Discover your career path, follow a personalized AI roadmap, and practice with real-world job simulations and mentors.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"></span> Ready<span class="highlight">2</span>Work
+            </a>
+            
+            <div class="nav-links">
+                <a href="#discovery" class="nav-link">Career Discovery</a>
+                <a href="#roadmap" class="nav-link">AI Roadmap</a>
+                <a href="#simulations" class="nav-link">Job Simulations</a>
+                <a href="#mentors" class="nav-link">Mentors</a>
+                <a href="#educators" class="nav-link">For Educators</a>
+            </div>
+            
+            <div class="nav-auth">
+                <a href="#" class="btn btn-outline">Sign In</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-nav-links">
+            <a href="#discovery" class="mobile-nav-link">Career Discovery</a>
+            <a href="#roadmap" class="mobile-nav-link">AI Roadmap</a>
+            <a href="#simulations" class="mobile-nav-link">Job Simulations</a>
+            <a href="#mentors" class="mobile-nav-link">Mentors</a>
+            <a href="#educators" class="mobile-nav-link">For Educators</a>
+            <div class="mobile-auth-links">
+                <a href="#" class="btn btn-outline">Sign In</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="badge">Next-Gen Career Prep</div>
+                <h1 class="hero-title">Get noticed.<br><span class="highlight">Get hired.</span></h1>
+                <p class="hero-subtitle">Explore careers and prepare for the job market with AI-driven roadmaps, real-world job simulations, and expert mentorship.</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary btn-large">Start Assessment <span class="arrow">→</span></a>
+                    <a href="#" class="btn btn-secondary btn-large">View Features</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Universities</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Top Employers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper fade-in-up delay-2">
+                <div class="image-glow"></div>
+                <img src="first_image.jpg" alt="Student using educational technology" class="hero-image">
+            </div>
+        </div>
+    </header>
+
+    <!-- Logo Ticker Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p class="trusted-text">Trusted by leading educational institutions and top employers</p>
+            <div class="logo-ticker">
+                <div class="logo-track">
+                    <!-- Placeholder text for logos to keep it clean without external SVGs -->
+                    <div class="ticker-item font-bold text-2xl">Deloitte Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">PwC Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">EY Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">KPMG Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Vietcombank</div>
+                    <div class="ticker-item font-bold text-2xl">Techcombank</div>
+                    <div class="ticker-item font-bold text-2xl">MB Bank</div>
+                    <div class="ticker-item font-bold text-2xl">VPBank</div>
+                    <div class="ticker-item font-bold text-2xl">FPT Software</div>
+                    <div class="ticker-item font-bold text-2xl">Viettel Solutions</div>
+                    <div class="ticker-item font-bold text-2xl">VNG Corporation</div>
+                    <div class="ticker-item font-bold text-2xl">KMS Technology</div>
+                    <div class="ticker-item font-bold text-2xl">Unilever Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Nestlé Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Shopee Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Masan Consumer</div>
+                    <div class="ticker-item font-bold text-2xl">DHL Supply Chain</div>
+                    <div class="ticker-item font-bold text-2xl">Maersk Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Gemadept</div>
+                    <div class="ticker-item font-bold text-2xl">Viettel Post</div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="ticker-item font-bold text-2xl">Deloitte Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">PwC Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">EY Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">KPMG Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Vietcombank</div>
+                    <div class="ticker-item font-bold text-2xl">Techcombank</div>
+                    <div class="ticker-item font-bold text-2xl">MB Bank</div>
+                    <div class="ticker-item font-bold text-2xl">VPBank</div>
+                    <div class="ticker-item font-bold text-2xl">FPT Software</div>
+                    <div class="ticker-item font-bold text-2xl">Viettel Solutions</div>
+                    <div class="ticker-item font-bold text-2xl">VNG Corporation</div>
+                    <div class="ticker-item font-bold text-2xl">KMS Technology</div>
+                    <div class="ticker-item font-bold text-2xl">Unilever Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Nestlé Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Shopee Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Masan Consumer</div>
+                    <div class="ticker-item font-bold text-2xl">DHL Supply Chain</div>
+                    <div class="ticker-item font-bold text-2xl">Maersk Vietnam</div>
+                    <div class="ticker-item font-bold text-2xl">Gemadept</div>
+                    <div class="ticker-item font-bold text-2xl">Viettel Post</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Courses Section -->
+    <section class="partner-courses" id="courses">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Top <span class="highlight">Courses & Programs</span></h2>
+                <p class="section-subtitle">Explore verified courses and simulations directly from our educational partners and top tech companies.</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <a href="https://online.stanford.edu/courses" class="course-card fade-in-up" target="_blank" rel="noopener">
+                    <div class="course-org">Stanford University</div>
+                    <h3 class="course-title">Machine Learning Fundamentals</h3>
+                    <p class="course-desc">A foundational course on AI and Machine learning algorithms and statistical models.</p>
+                    <span class="course-link">View Course &rarr;</span>
+                </a>
+                
+                <!-- Course 2 -->
+                <a href="https://grow.google/certificates/" class="course-card fade-in-up delay-1" target="_blank" rel="noopener">
+                    <div class="course-org">Google</div>
+                    <h3 class="course-title">Data Analytics Professional Certificate</h3>
+                    <p class="course-desc">Learn how to analyze and process data to gain key business insights.</p>
+                    <span class="course-link">View Course &rarr;</span>
+                </a>
+                
+                <!-- Course 3 -->
+                <a href="https://learning.edx.org/course/course-v1:HarvardX+CS50" class="course-card fade-in-up delay-2" target="_blank" rel="noopener">
+                    <div class="course-org">Harvard University</div>
+                    <h3 class="course-title">CS50: Introduction to Computer Science</h3>
+                    <p class="course-desc">The essential introduction to the intellectual enterprises of computer science.</p>
+                    <span class="course-link">View Course &rarr;</span>
+                </a>
+                
+                <!-- Course 4 -->
+                <a href="https://www.microsoft.com/en-us/learning" class="course-card fade-in-up" target="_blank" rel="noopener">
+                    <div class="course-org">Microsoft</div>
+                    <h3 class="course-title">Azure Cloud Developer Simulation</h3>
+                    <p class="course-desc">Experience a real-world task building and deploying scalable web apps on Azure.</p>
+                    <span class="course-link">View Course &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Your Complete <span class="highlight">Career Journey</span></h2>
+                <p class="section-subtitle">Everything you need to discover, prepare, and land your dream job in one platform.</p>
+            </div>
+            
+            <div class="feature-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon icon-discovery"></div>
+                    <h3 class="feature-title">Career Discovery</h3>
+                    <p class="feature-desc">Identify suitable career paths based on your personality, interests, and strengths using our advanced AI assessments.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card fade-in-up delay-1">
+                    <div class="feature-icon icon-roadmap"></div>
+                    <h3 class="feature-title">AI Roadmap</h3>
+                    <p class="feature-desc">Get a personalized learning and career preparation roadmap tailored to your specific profile and career goals.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card fade-in-up delay-2">
+                    <div class="feature-icon icon-simulation"></div>
+                    <h3 class="feature-title">Job Simulation</h3>
+                    <p class="feature-desc">Experience realistic work tasks directly from partner companies and receive AI evaluation on your performance.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon icon-interview"></div>
+                    <h3 class="feature-title">Interview Practice</h3>
+                    <p class="feature-desc">Prepare for interviews using unbiased AI evaluation or schedule one-on-one sessions with experienced mentors.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card fade-in-up delay-1">
+                    <div class="feature-icon icon-mentor"></div>
+                    <h3 class="feature-title">Mentor Community</h3>
+                    <p class="feature-desc">Connect with industry professionals for career guidance, interview preparation, and long-term networking.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card fade-in-up delay-2">
+                    <div class="feature-icon icon-cert"></div>
+                    <h3 class="feature-title">Certification</h3>
+                    <p class="feature-desc">Earn verified digital certificates upon completing your personalized roadmap and job simulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Highlight: AI Roadmap -->
+    <section class="highlight-section" id="roadmap">
+        <div class="container highlight-container">
+            <div class="highlight-content fade-in-right">
+                <div class="badge">Personalized AI Roadmap</div>
+                <h2 class="section-title">Your unique path to <span class="highlight">success</span></h2>
+                <p class="highlight-desc">Our AI analyzes your Career Discovery results, current skills, and career goals to generate a comprehensive roadmap. Track your learning progress, discover recommended resources, and identify skill gaps automatically.</p>
+                <ul class="feature-list">
+                    <li><span class="check-icon">✓</span> Learning roadmap by stage</li>
+                    <li><span class="check-icon">✓</span> CV vs Job Description gap analysis</li>
+                    <li><span class="check-icon">✓</span> Direct access to simulations & mentors</li>
+                </ul>
+                <a href="#" class="btn btn-outline mt-4">Generate Roadmap</a>
+            </div>
+            <div class="highlight-image fade-in-left">
+                <div class="image-glow teal-glow"></div>
+                <img src="images/roadmap.png" alt="Personalized AI Roadmap" class="floating-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Highlight: Mentorship -->
+    <section class="highlight-section reverse" id="mentors">
+        <div class="container highlight-container">
+            <div class="highlight-content fade-in-left">
+                <div class="badge">Mentor Community</div>
+                <h2 class="section-title">Learn from those who have <span class="highlight">been there</span></h2>
+                <p class="highlight-desc">Connect with experienced professionals for one-on-one guidance. Whether you need advice on a job simulation, interview prep, or general career direction, our mentor network is here to help.</p>
+                <ul class="feature-list">
+                    <li><span class="check-icon">✓</span> Book one-on-one mentoring sessions</li>
+                    <li><span class="check-icon">✓</span> Send direct messages and get quick advice</li>
+                    <li><span class="check-icon">✓</span> Access exclusive case studies and resources</li>
+                </ul>
+                <a href="#" class="btn btn-primary mt-4">Find a Mentor</a>
+            </div>
+            <div class="highlight-image fade-in-right">
+                <div class="image-glow gold-glow"></div>
+                <img src="images/mentor.png" alt="Mentor Community Video Call" class="floating-img slow">
+            </div>
+        </div>
+    </section>
+
+    <!-- For Educators / Enterprise -->
+    <section class="cta-banner" id="educators">
+        <div class="container">
+            <div class="banner-content fade-in-up">
+                <h2>Are you an Educator or Employer?</h2>
+                <p>Partner with Ready2Work to track student outcomes, provide realistic job simulations, and identify top talent through skill-based assessments.</p>
+                <div class="banner-buttons">
+                    <a href="#" class="btn btn-primary">For Educators</a>
+                    <a href="#" class="btn btn-outline white">For Employers</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon"></span> Ready<span class="highlight">2</span>Work
+                    </a>
+                    <p class="footer-desc">Bridging the gap between education and employment through AI-driven career preparation.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="#">Career Discovery</a>
+                    <a href="#">AI Roadmap</a>
+                    <a href="#">Job Simulations</a>
+                    <a href="#">Interview Practice</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <a href="#">Find a Mentor</a>
+                    <a href="#">Become a Mentor</a>
+                    <a href="#">Success Stories</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Partners</h4>
+                    <a href="#">For Educators</a>
+                    <a href="#">For Employers</a>
+                    <a href="#">Create a Simulation</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ready2Work. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
