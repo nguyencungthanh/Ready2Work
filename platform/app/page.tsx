@@ -1,41 +1,64 @@
-import Link from "next/link";
 import { getSessionUser } from "@/lib/auth/session";
+import { Navbar } from "@/components/landing/navbar";
+import { Hero } from "@/components/landing/hero";
+import { LogoTicker } from "@/components/landing/logo-ticker";
+import { PartnerCourses } from "@/components/landing/partner-courses";
+import { FeaturesGrid } from "@/components/landing/features-grid";
+import { HighlightSection } from "@/components/landing/highlight-section";
+import { CtaBanner } from "@/components/landing/cta-banner";
+import { Footer } from "@/components/landing/footer";
 
 export default async function HomePage() {
   const user = await getSessionUser();
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-6 py-12">
-      <h1 className="text-3xl font-bold text-foreground">Ready2Work</h1>
-      <p className="mt-3 text-base text-muted">
-        Career discovery, roadmaps, and job simulations for people deciding what to do next.
-      </p>
-
-      <div className="mt-8 flex gap-3">
-        {user ? (
-          <Link
-            href="/dashboard"
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
-          >
-            Go to dashboard
-          </Link>
-        ) : (
-          <>
-            <Link
-              href="/signup"
-              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
-            >
-              Create account
-            </Link>
-            <Link
-              href="/signin"
-              className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface transition-colors duration-200"
-            >
-              Sign in
-            </Link>
-          </>
-        )}
-      </div>
-    </main>
+    <>
+      <Navbar signedIn={!!user} />
+      <main>
+        <Hero />
+        <LogoTicker />
+        <PartnerCourses />
+        <FeaturesGrid />
+        <HighlightSection
+          id="roadmap"
+          badge="Personalized AI Roadmap"
+          title="Your unique path to"
+          highlight="success"
+          description="Our AI analyzes your Career Discovery results, current skills, and career goals to generate a comprehensive roadmap. Track your learning progress, discover recommended resources, and identify skill gaps automatically."
+          points={[
+            "Learning roadmap by stage",
+            "CV vs Job Description gap analysis",
+            "Direct access to simulations & mentors",
+          ]}
+          ctaLabel="Generate Roadmap"
+          ctaHref="/roadmap/new"
+          ctaVariant="outline"
+          image="/landing-roadmap.jpg"
+          imageAlt="Personalized AI Roadmap"
+          glow="teal"
+        />
+        <HighlightSection
+          id="simulations"
+          badge="Job Simulations"
+          title="Practice the job before you"
+          highlight="get the job"
+          description="Complete realistic work tasks drawn from real roles and get instant, rubric-based AI feedback on your performance — no waiting for a hiring manager to reply."
+          points={[
+            "Real-world task briefs by industry",
+            "Instant AI-scored feedback per criterion",
+            "Build a portfolio of completed simulations",
+          ]}
+          ctaLabel="Try a Simulation"
+          ctaHref="/simulations"
+          ctaVariant="primary"
+          image="/landing-mentor.jpg"
+          imageAlt="Job simulation feedback"
+          reverse
+          glow="gold"
+        />
+        <CtaBanner />
+      </main>
+      <Footer />
+    </>
   );
 }
