@@ -6,7 +6,7 @@ export default async function HomePage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-6 py-12">
-      <h1 className="text-3xl font-semibold text-foreground">Ready2Work</h1>
+      <h1 className="text-3xl font-bold text-foreground">Ready2Work</h1>
       <p className="mt-3 text-base text-muted">
         Career discovery, roadmaps, and job simulations for people deciding what to do next.
       </p>
@@ -15,7 +15,7 @@ export default async function HomePage() {
         {user ? (
           <Link
             href="/dashboard"
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
           >
             Go to dashboard
           </Link>
@@ -23,7 +23,7 @@ export default async function HomePage() {
           <>
             <Link
               href="/signup"
-              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
             >
               Create account
             </Link>

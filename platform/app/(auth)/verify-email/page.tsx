@@ -5,7 +5,7 @@ export const metadata = { title: "Check your email" };
 export default function VerifyEmailPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
-      <h1 className="text-2xl font-semibold text-foreground">Check your email</h1>
+      <h1 className="text-2xl font-bold text-foreground">Check your email</h1>
       <p className="mt-3 text-sm text-muted">
         We sent you a verification link. Open it to activate your account and finish signing up.
       </p>

@@ -13,7 +13,7 @@ export default async function SignInPage({
 
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
-      <h1 className="text-2xl font-semibold text-foreground">Sign in</h1>
+      <h1 className="text-2xl font-bold text-foreground">Sign in</h1>
       <p className="mt-2 mb-6 text-sm text-muted">Welcome back.</p>
 
       {error === "expired_link" && (
