@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { requireUser } from "@/lib/auth/session";
 import { signOutAction } from "../(auth)/actions";
 
@@ -40,6 +41,17 @@ export default async function DashboardPage() {
         Career discovery, roadmaps, and simulations are not built yet. This dashboard confirms the
         authentication, profile, and role foundation works end to end.
       </p>
+
+      <div className="mt-6 flex gap-4 text-sm">
+        <Link href="/account" className="font-medium text-gray-900 underline">
+          Account settings
+        </Link>
+        {(user.roles.includes("admin") || user.roles.includes("super_admin")) && (
+          <Link href="/admin/role-applications" className="font-medium text-gray-900 underline">
+            Review role applications
+          </Link>
+        )}
+      </div>
     </main>
   );
 }

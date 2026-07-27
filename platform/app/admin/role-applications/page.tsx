@@ -1,0 +1,36 @@
+import { requireRole } from "@/lib/auth/session";
+import { createServiceRoleClient } from "@/lib/supabase/service-role-client";
+import { ApplicationDecisionForm } from "./decision-form";
+
+export const metadata = { title: "Role applications" };
+
+export default async function RoleApplicationsPage() {
+  await requireRole("admin", "super_admin");
+
+  const service = createServiceRoleClient();
+  const { data: applications } = await service
+    .from("role_applications")
+    .select("id, user_id, requested_role, status, justification, created_at")
+    .in("status", ["submitted", "under_review"])
+    .order("created_at", { ascending: true });
+
+  return (
+    <main className="mx-auto max-w-3xl px-6 py-12">
+      <h1 className="text-2xl font-semibold text-gray-900">Role applications</h1>
+
+      {(applications ?? []).length === 0 ? (
+        <p className="mt-6 text-sm text-gray-600">Nothing waiting for review.</p>
+      ) : (
+        <ul className="mt-6 space-y-4">
+          {(applications ?? []).map((application) => (
+            <li key={application.id} className="rounded-lg border border-gray-200 p-5">
+              <p className="text-sm font-medium text-gray-900">{application.requested_role}</p>
+              <p className="mt-1 text-sm text-gray-600">{application.justification}</p>
+              <ApplicationDecisionForm applicationId={application.id} />
+            </li>
+          ))}
+        </ul>
+      )}
+    </main>
+  );
+}

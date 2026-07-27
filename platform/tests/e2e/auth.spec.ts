@@ -180,6 +180,7 @@ test.describe("password reset", () => {
     await page.getByRole("button", { name: "Create account" }).click();
     await openLatestEmailLink(request, email, page);
     await page.getByRole("button", { name: "Sign out" }).click();
+    await expect(page).toHaveURL("/");
 
     await page.goto("/reset-password");
     await page.getByLabel("Email").fill(email);
@@ -195,6 +196,7 @@ test.describe("password reset", () => {
     await expect(page).toHaveURL(/\/dashboard/);
 
     await page.getByRole("button", { name: "Sign out" }).click();
+    await expect(page).toHaveURL("/");
     await page.goto("/signin");
     await page.getByLabel("Email").fill(email);
     await page.getByLabel("Password").fill(newPassword);

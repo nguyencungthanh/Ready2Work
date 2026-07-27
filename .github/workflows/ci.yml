@@ -43,6 +43,12 @@ jobs:
 
       - run: npm run build
 
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run auth E2E suite
+        run: npm run e2e
+
   database:
     name: Supabase migrations
     runs-on: ubuntu-latest

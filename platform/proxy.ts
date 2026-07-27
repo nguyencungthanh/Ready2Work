@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 // Routes requiring a signed-in user (AUTH-008). Everything else is public.
-const PROTECTED_PREFIXES = ["/dashboard", "/profile", "/admin", "/onboarding"];
+const PROTECTED_PREFIXES = ["/dashboard", "/profile", "/account", "/admin", "/onboarding"];
 
 // Signed-in users have no reason to revisit these.
 const AUTH_ROUTES = ["/signin", "/signup", "/reset-password"];
