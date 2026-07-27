@@ -4,8 +4,12 @@ import { createClient } from "@supabase/supabase-js";
 // Section 26.5 "Role access": a mentee must not reach admin routes, and an
 // admin must. Uses the service role to grant the role directly, since the
 // approval UI is exercised by the integration tests.
-const SUPABASE_URL = "http://127.0.0.1:54321";
-const SERVICE_KEY = "sb_secret_N7UND0UgjKTVK-Uodkm0Hg_xSvEMPvz";
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "http://127.0.0.1:54321";
+
+if (!process.env.SUPABASE_SECRET_KEY) {
+  throw new Error("SUPABASE_SECRET_KEY must be set to run role-access e2e tests.");
+}
+const SERVICE_KEY: string = process.env.SUPABASE_SECRET_KEY;
 const PASSWORD = "Ready2Work-Test-1";
 
 function admin() {

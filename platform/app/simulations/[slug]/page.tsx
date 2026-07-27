@@ -31,10 +31,10 @@ export default async function SimulationDetailPage({ params }: PageProps) {
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
       <p className="text-sm font-medium text-muted">{simulation.industry}</p>
-      <h1 className="mt-1 text-2xl font-semibold text-foreground">{simulation.position_title}</h1>
+      <h1 className="mt-1 text-2xl font-bold text-foreground">{simulation.position_title}</h1>
       <p className="mt-3 text-muted">{simulation.brief}</p>
 
-      <section className="mt-6 rounded-md border border-border bg-surface p-4">
+      <section className="mt-6 rounded-2xl border border-border bg-surface p-4 shadow-sm">
         <h2 className="text-sm font-semibold text-foreground">Task</h2>
         <p className="mt-1 whitespace-pre-line text-sm text-muted">
           {simulation.task_instructions}

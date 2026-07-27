@@ -60,12 +60,12 @@ export default async function InterviewFeedbackPage({
       <p className="text-xs font-medium uppercase tracking-wide text-muted">
         Interview feedback
       </p>
-      <h1 className="mt-1 text-2xl font-semibold text-foreground">
+      <h1 className="mt-1 text-2xl font-bold text-foreground">
         {interviewSet?.position_title}
         {interviewSet?.company_name ? ` at ${interviewSet.company_name}` : ""}
       </h1>
 
-      <div className="mt-6 rounded-lg border border-border bg-white p-6">
+      <div className="mt-6 rounded-2xl border border-border bg-white p-6 shadow-sm">
         <p className="text-sm text-muted">Overall score</p>
         <p className="mt-1 text-4xl font-semibold text-foreground">{session.overall_score}/100</p>
         <p className="mt-3 text-xs text-muted">
@@ -76,7 +76,7 @@ export default async function InterviewFeedbackPage({
 
       <div className="mt-8 space-y-6">
         {rows.map((row, index) => (
-          <div key={row.question_id} className="rounded-lg border border-border bg-white p-6">
+          <div key={row.question_id} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
             <p className="text-sm font-medium text-foreground">
               Question {index + 1}: {row.question?.prompt}
             </p>

@@ -28,7 +28,7 @@ export default async function InterviewsPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
-      <h1 className="text-2xl font-semibold text-foreground">Interview Practice</h1>
+      <h1 className="text-2xl font-bold text-foreground">Interview Practice</h1>
       <p className="mt-2 text-sm text-muted">
         Choose an industry, then a general or company-specific interview round. Answers are
         scored on content only - accent, voice, and identity are never scoring criteria.
@@ -48,7 +48,7 @@ export default async function InterviewsPage() {
                   <Link
                     key={set.id}
                     href={`/interviews/${set.slug}`}
-                    className="rounded-lg border border-border p-4 hover:border-primary transition-colors duration-200"
+                    className="rounded-2xl border border-border p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg"
                   >
                     <p className="font-medium text-foreground">
                       {set.company_name ? `${set.company_name} - ` : ""}

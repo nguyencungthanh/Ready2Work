@@ -29,13 +29,13 @@ export default async function InterviewSetPage({
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
       <p className="text-sm font-medium text-muted">{set.industry}</p>
-      <h1 className="mt-1 text-2xl font-semibold text-foreground">
+      <h1 className="mt-1 text-2xl font-bold text-foreground">
         {set.company_name ? `${set.company_name} - ` : ""}
         {set.position_title}
       </h1>
       <p className="mt-3 text-muted">{set.description}</p>
 
-      <div className="mt-6 rounded-lg border border-border bg-surface p-4 text-sm text-muted">
+      <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-sm text-muted shadow-sm">
         <p className="font-medium text-foreground">Before you start</p>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li>{count ?? 0} questions, answered by text.</li>
@@ -48,7 +48,7 @@ export default async function InterviewSetPage({
         <input type="hidden" name="setId" value={set.id} />
         <button
           type="submit"
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
         >
           Start Interview
         </button>

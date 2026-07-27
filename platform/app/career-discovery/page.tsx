@@ -28,13 +28,13 @@ export default async function CareerDiscoveryPage() {
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-foreground">Career Discovery</h1>
+      <h1 className="mt-4 text-2xl font-bold text-foreground">Career Discovery</h1>
       <p className="mt-2 text-sm text-muted">
         Answer {count ?? 30} short questions about how you like to work. We score your interests
         across six dimensions and match them against career profiles.
       </p>
 
-      <div className="mt-6 rounded-lg border border-border p-5 text-sm text-muted">
+      <div className="mt-6 rounded-2xl border border-border p-5 text-sm text-muted shadow-sm">
         <h2 className="font-medium text-foreground">How scoring works</h2>
         <p className="mt-2">
           Your answers are scored with a fixed formula, not an AI guess, so the same answers always
@@ -57,7 +57,7 @@ export default async function CareerDiscoveryPage() {
       <form action={startAssessmentAction} className="mt-6">
         <button
           type="submit"
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
         >
           Start Assessment
         </button>

@@ -23,7 +23,7 @@ export default async function SimulationsPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <h1 className="text-2xl font-semibold text-foreground">Job simulation</h1>
+      <h1 className="text-2xl font-bold text-foreground">Job simulation</h1>
       <p className="mt-2 text-sm text-muted">
         Choose an industry and position, then complete a realistic work task and get
         rubric-based feedback.
@@ -40,7 +40,7 @@ export default async function SimulationsPage() {
                 <Link
                   key={sim.id}
                   href={`/simulations/${sim.slug}`}
-                  className="block rounded-md border border-border p-4 hover:border-primary transition-colors duration-200"
+                  className="block rounded-2xl border border-border p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg"
                 >
                   <p className="font-medium text-foreground">{sim.position_title}</p>
                   <p className="mt-1 text-sm text-muted">

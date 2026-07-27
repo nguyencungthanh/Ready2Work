@@ -44,15 +44,18 @@ export default async function SimulationSubmissionPage({
       <p className="text-xs font-medium uppercase tracking-wide text-muted">
         Simulation feedback
       </p>
-      <h1 className="mt-1 text-2xl font-semibold text-foreground">
+      <h1 className="mt-1 text-2xl font-bold text-foreground">
         {simulation?.position_title} ({simulation?.industry})
       </h1>
 
-      <div className="mt-6 rounded-lg border border-border bg-surface p-6">
+      <div className="mt-6 rounded-2xl border border-border bg-surface p-6 shadow-sm">
         <p className="text-sm text-muted">Overall score</p>
-        <p className="mt-1 text-4xl font-semibold text-foreground">
-          {submission.overall_score}/100 · {submission.overall_band}
-        </p>
+        <div className="mt-1 flex items-center gap-3">
+          <p className="text-4xl font-semibold text-foreground">{submission.overall_score}/100</p>
+          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+            {submission.overall_band}
+          </span>
+        </div>
         {stored.summary && (
           <p className="mt-3 text-sm text-foreground">{stored.summary}</p>
         )}
@@ -64,10 +67,15 @@ export default async function SimulationSubmissionPage({
 
       <div className="mt-8 space-y-4">
         {criteria.map((criterion) => (
-          <div key={criterion.criterionId} className="rounded-lg border border-border bg-surface p-6">
-            <p className="text-sm font-semibold text-foreground">
-              {criterion.label} — {criterion.band} ({criterion.score}/{criterion.maxScore})
-            </p>
+          <div key={criterion.criterionId} className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
+            <div className="flex items-center gap-2">
+              <p className="text-sm font-semibold text-foreground">
+                {criterion.label} ({criterion.score}/{criterion.maxScore})
+              </p>
+              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                {criterion.band}
+              </span>
+            </div>
             <p className="mt-2 text-sm text-muted">{criterion.description}</p>
             {criterion.feedback && (
               <p className="mt-2 text-sm text-foreground">{criterion.feedback}</p>

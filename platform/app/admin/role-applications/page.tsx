@@ -16,14 +16,14 @@ export default async function RoleApplicationsPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <h1 className="text-2xl font-semibold text-foreground">Role applications</h1>
+      <h1 className="text-2xl font-bold text-foreground">Role applications</h1>
 
       {(applications ?? []).length === 0 ? (
         <p className="mt-6 text-sm text-muted">Nothing waiting for review.</p>
       ) : (
         <ul className="mt-6 space-y-4">
           {(applications ?? []).map((application) => (
-            <li key={application.id} className="rounded-lg border border-border p-5">
+            <li key={application.id} className="rounded-2xl border border-border p-5 shadow-sm">
               <p className="text-sm font-medium text-foreground">{application.requested_role}</p>
               <p className="mt-1 text-sm text-muted">{application.justification}</p>
               <ApplicationDecisionForm applicationId={application.id} />

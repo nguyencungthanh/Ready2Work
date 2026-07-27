@@ -35,7 +35,7 @@ export default async function NewRoadmapPage({
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-foreground">Generate your roadmap</h1>
+      <h1 className="mt-4 text-2xl font-bold text-foreground">Generate your roadmap</h1>
       <p className="mt-2 text-sm text-muted">
         Pick the career you want to prepare for. We build a staged plan from that career&apos;s
         required skills, so you can see exactly why each step is there.
@@ -62,7 +62,7 @@ export default async function NewRoadmapPage({
 
         <button
           type="submit"
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
         >
           Generate Roadmap
         </button>

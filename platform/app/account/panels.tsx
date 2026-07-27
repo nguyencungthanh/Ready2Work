@@ -28,7 +28,7 @@ export function AccountPanels({ applications }: { applications: Application[] })
 
   return (
     <div className="mt-8 space-y-8">
-      <section className="rounded-lg border border-border p-5">
+      <section className="rounded-2xl border border-border p-5 shadow-sm">
         <h2 className="text-lg font-medium text-foreground">Apply for a role</h2>
         <p className="mt-1 text-sm text-muted">
           Mentor and employer access requires admin approval.
@@ -86,14 +86,14 @@ export function AccountPanels({ applications }: { applications: Application[] })
           <button
             type="submit"
             disabled={applying}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md disabled:opacity-60 transition-all duration-300"
           >
             {applying ? "Submitting…" : "Submit application"}
           </button>
         </form>
       </section>
 
-      <section className="rounded-lg border border-border p-5">
+      <section className="rounded-2xl border border-border p-5 shadow-sm">
         <h2 className="text-lg font-medium text-foreground">Your data</h2>
         <form action={exportAction} className="mt-3">
           <button
@@ -111,7 +111,7 @@ export function AccountPanels({ applications }: { applications: Application[] })
         )}
       </section>
 
-      <section className="rounded-lg border border-red-200 p-5">
+      <section className="rounded-2xl border border-red-200 p-5 shadow-sm">
         <h2 className="text-lg font-medium text-foreground">Delete account</h2>
         <p className="mt-1 text-sm text-muted">
           This signs you out and schedules your data for removal.

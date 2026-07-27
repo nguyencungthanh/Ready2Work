@@ -74,7 +74,7 @@ export function AssessmentForm({
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
       <div className="flex items-baseline justify-between">
-        <h1 className="text-2xl font-semibold text-foreground">Career Assessment</h1>
+        <h1 className="text-2xl font-bold text-foreground">Career Assessment</h1>
         <p className="text-sm text-muted">
           Page {page + 1} of {totalPages}
         </p>
@@ -155,7 +155,7 @@ export function AssessmentForm({
             type="button"
             onClick={submit}
             disabled={pending}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md disabled:opacity-60 transition-all duration-300"
           >
             {pending ? "Scoring…" : "Submit"}
           </button>
@@ -164,7 +164,7 @@ export function AssessmentForm({
             type="button"
             onClick={goNext}
             disabled={pending}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md disabled:opacity-60 transition-all duration-300"
           >
             Next
           </button>

@@ -54,12 +54,12 @@ export default async function RoadmapPage({
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-foreground">
+      <h1 className="mt-4 text-2xl font-bold text-foreground">
         Roadmap: {career?.title}
       </h1>
       <p className="mt-1 text-sm text-muted">{career?.industry}</p>
 
-      <section className="mt-6 rounded-lg border border-border p-5">
+      <section className="mt-6 rounded-2xl border border-border p-5 shadow-sm">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-medium text-foreground">Overall progress</h2>
           <span className="text-sm font-medium text-foreground">{percent}%</span>
@@ -113,7 +113,7 @@ export default async function RoadmapPage({
                 {stageSteps.map((step) => (
                   <li
                     key={step.id}
-                    className="flex items-start gap-3 rounded-lg border border-border p-4"
+                    className="flex items-start gap-3 rounded-2xl border border-border p-4 shadow-sm"
                   >
                     <StepToggle stepId={step.id} initialCompleted={step.completed} />
                     <div className="flex-1">

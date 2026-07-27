@@ -66,7 +66,7 @@ export default async function ResultsPage({
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-foreground">Your results</h1>
+      <h1 className="mt-4 text-2xl font-bold text-foreground">Your results</h1>
 
       <section className="mt-8">
         <h2 className="text-lg font-medium text-foreground">Your interest profile</h2>
@@ -104,7 +104,7 @@ export default async function ResultsPage({
             if (!career) return null;
 
             return (
-              <li key={recommendation.id} className="rounded-lg border border-border p-5">
+              <li key={recommendation.id} className="rounded-2xl border border-border p-5 shadow-sm">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-medium text-foreground">
@@ -112,7 +112,7 @@ export default async function ResultsPage({
                     </h3>
                     <p className="text-sm text-muted">{career.industry}</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-navy-700 px-3 py-1 text-sm font-medium text-foreground">
+                  <span className="inline-block shrink-0 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
                     {recommendation.match_score}% match
                   </span>
                 </div>
@@ -147,7 +147,7 @@ export default async function ResultsPage({
                   />
                   <Link
                     href={`/roadmap/new?careerId=${career.id}`}
-                    className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+                    className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
                   >
                     Continue to AI Roadmap
                   </Link>

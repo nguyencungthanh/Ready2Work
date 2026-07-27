@@ -50,7 +50,7 @@ export default async function InterviewSessionPage({
   if (!next) {
     return (
       <div className="mx-auto max-w-2xl px-6 py-12">
-        <h1 className="text-xl font-semibold text-foreground">All questions answered</h1>
+        <h1 className="text-xl font-bold text-foreground">All questions answered</h1>
         <p className="mt-2 text-sm text-muted">
           You have answered all {total} questions. Finish the session to see your feedback.
         </p>
@@ -58,7 +58,7 @@ export default async function InterviewSessionPage({
           <input type="hidden" name="sessionId" value={sessionId} />
           <button
             type="submit"
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
           >
             Finish and see feedback
           </button>
@@ -74,7 +74,7 @@ export default async function InterviewSessionPage({
       <p className="text-sm text-muted">
         Question {currentIndex + 1} of {total}
       </p>
-      <h1 className="mt-2 text-xl font-semibold text-foreground">{next.prompt}</h1>
+      <h1 className="mt-2 text-xl font-bold text-foreground">{next.prompt}</h1>
       {next.guidance && <p className="mt-2 text-sm text-muted">{next.guidance}</p>}
 
       <AnswerForm key={next.id} sessionId={sessionId} questionId={next.id} />
