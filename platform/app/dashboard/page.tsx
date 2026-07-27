@@ -37,12 +37,49 @@ export default async function DashboardPage() {
         </div>
       </dl>
 
-      <p className="mt-8 text-sm text-gray-600">
-        Career discovery, roadmaps, and simulations are not built yet. This dashboard confirms the
-        authentication, profile, and role foundation works end to end.
-      </p>
+      <section className="mt-10">
+        <h2 className="text-lg font-medium text-gray-900">Get started</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <Link
+            href="/career-discovery"
+            className="rounded-lg border border-gray-200 p-5 hover:border-gray-400"
+          >
+            <p className="font-medium text-gray-900">Career Discovery</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Take the RIASEC assessment and see your top 3 career matches.
+            </p>
+          </Link>
+          <Link
+            href="/roadmap/new"
+            className="rounded-lg border border-gray-200 p-5 hover:border-gray-400"
+          >
+            <p className="font-medium text-gray-900">Personalized Roadmap</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Generate a staged learning plan for a career you're targeting.
+            </p>
+          </Link>
+          <Link
+            href="/simulations"
+            className="rounded-lg border border-gray-200 p-5 hover:border-gray-400"
+          >
+            <p className="font-medium text-gray-900">Job Simulation</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Complete a realistic work task and get rubric-based feedback.
+            </p>
+          </Link>
+          <Link
+            href="/interviews"
+            className="rounded-lg border border-gray-200 p-5 hover:border-gray-400"
+          >
+            <p className="font-medium text-gray-900">Interview Practice</p>
+            <p className="mt-1 text-sm text-gray-600">
+              Practice interview questions and get content-based feedback.
+            </p>
+          </Link>
+        </div>
+      </section>
 
-      <div className="mt-6 flex gap-4 text-sm">
+      <div className="mt-8 flex gap-4 text-sm">
         <Link href="/account" className="font-medium text-gray-900 underline">
           Account settings
         </Link>
