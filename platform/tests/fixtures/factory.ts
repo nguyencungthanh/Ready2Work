@@ -93,6 +93,28 @@ export class TestFixtureFactory {
     this.createdFlagKeys.push(key);
   }
 
+  /** Grants a role directly, bypassing the application approval flow. */
+  async grantRole(user: TestUser, role: string): Promise<void> {
+    const { error } = await this.admin
+      .from("user_roles")
+      .insert({ user_id: user.id, role });
+
+    if (error) {
+      throw new Error(`Failed to grant role ${role}: ${error.message}`);
+    }
+  }
+
+  async setAccountStatus(user: TestUser, status: string): Promise<void> {
+    const { error } = await this.admin
+      .from("profiles")
+      .update({ account_status: status })
+      .eq("id", user.id);
+
+    if (error) {
+      throw new Error(`Failed to set account status: ${error.message}`);
+    }
+  }
+
   /** Removes everything this factory created. Safe to call more than once. */
   async cleanup(): Promise<void> {
     if (this.createdFlagKeys.length > 0) {
