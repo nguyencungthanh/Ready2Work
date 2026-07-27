@@ -74,14 +74,14 @@ export function AssessmentForm({
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
       <div className="flex items-baseline justify-between">
-        <h1 className="text-2xl font-semibold text-gray-900">Career Assessment</h1>
-        <p className="text-sm text-gray-600">
+        <h1 className="text-2xl font-semibold text-foreground">Career Assessment</h1>
+        <p className="text-sm text-muted">
           Page {page + 1} of {totalPages}
         </p>
       </div>
 
       <div
-        className="mt-3 h-2 w-full overflow-hidden rounded-full bg-gray-200"
+        className="mt-3 h-2 w-full overflow-hidden rounded-full bg-border"
         role="progressbar"
         aria-valuenow={answeredCount}
         aria-valuemin={0}
@@ -89,11 +89,11 @@ export function AssessmentForm({
         aria-label="Questions answered"
       >
         <div
-          className="h-full bg-gray-900 transition-all"
+          className="h-full bg-primary transition-all"
           style={{ width: `${(answeredCount / questions.length) * 100}%` }}
         />
       </div>
-      <p className="mt-2 text-sm text-gray-600">
+      <p className="mt-2 text-sm text-muted">
         {answeredCount} of {questions.length} answered
       </p>
 
@@ -107,7 +107,7 @@ export function AssessmentForm({
         {pageQuestions.map((question) => (
           <li key={question.id}>
             <fieldset>
-              <legend className="text-sm font-medium text-gray-900">
+              <legend className="text-sm font-medium text-foreground">
                 {question.position}. {question.prompt}
               </legend>
               <div className="mt-3 flex flex-wrap gap-2">
@@ -116,10 +116,10 @@ export function AssessmentForm({
                   return (
                     <label
                       key={option.value}
-                      className={`cursor-pointer rounded-md border px-3 py-2 text-sm ${
+                      className={`cursor-pointer rounded-md border px-3 py-2 text-sm transition-colors duration-200 ${
                         selected
-                          ? "border-gray-900 bg-gray-900 text-white"
-                          : "border-gray-300 text-gray-700 hover:bg-gray-50"
+                          ? "border-primary bg-primary text-white"
+                          : "border-border text-muted hover:bg-surface"
                       }`}
                     >
                       <input
@@ -145,7 +145,7 @@ export function AssessmentForm({
           type="button"
           onClick={goPrevious}
           disabled={page === 0 || pending}
-          className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-50"
+          className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface disabled:opacity-50 transition-colors duration-200"
         >
           Previous
         </button>
@@ -155,7 +155,7 @@ export function AssessmentForm({
             type="button"
             onClick={submit}
             disabled={pending}
-            className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-60"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
           >
             {pending ? "Scoring…" : "Submit"}
           </button>
@@ -164,7 +164,7 @@ export function AssessmentForm({
             type="button"
             onClick={goNext}
             disabled={pending}
-            className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-60"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
           >
             Next
           </button>

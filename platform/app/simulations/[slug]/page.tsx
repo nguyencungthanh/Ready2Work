@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { SubmissionForm } from "./submission-form";
-import type { RubricCriterion } from "@/lib/simulation/evaluator";
+import type { RubricCriterion } from "@/lib/simulation/ai-evaluator";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -30,26 +30,26 @@ export default async function SimulationDetailPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <p className="text-sm font-medium text-gray-500">{simulation.industry}</p>
-      <h1 className="mt-1 text-2xl font-semibold text-gray-900">{simulation.position_title}</h1>
-      <p className="mt-3 text-gray-700">{simulation.brief}</p>
+      <p className="text-sm font-medium text-muted">{simulation.industry}</p>
+      <h1 className="mt-1 text-2xl font-semibold text-foreground">{simulation.position_title}</h1>
+      <p className="mt-3 text-muted">{simulation.brief}</p>
 
-      <section className="mt-6 rounded-md border border-gray-200 bg-gray-50 p-4">
-        <h2 className="text-sm font-semibold text-gray-900">Task</h2>
-        <p className="mt-1 whitespace-pre-line text-sm text-gray-700">
+      <section className="mt-6 rounded-md border border-border bg-surface p-4">
+        <h2 className="text-sm font-semibold text-foreground">Task</h2>
+        <p className="mt-1 whitespace-pre-line text-sm text-muted">
           {simulation.task_instructions}
         </p>
-        <p className="mt-2 text-xs text-gray-500">
+        <p className="mt-2 text-xs text-muted">
           Estimated time: ~{simulation.estimated_minutes} min. Write at least{" "}
           {simulation.min_words} words.
         </p>
       </section>
 
       <section className="mt-6">
-        <h2 className="text-sm font-semibold text-gray-900">
+        <h2 className="text-sm font-semibold text-foreground">
           Scoring rubric (visible before you submit)
         </h2>
-        <ul className="mt-2 space-y-1 text-sm text-gray-700">
+        <ul className="mt-2 space-y-1 text-sm text-muted">
           {rubric.map((c) => (
             <li key={c.id}>
               {c.label} — {c.weight}%. {c.description}

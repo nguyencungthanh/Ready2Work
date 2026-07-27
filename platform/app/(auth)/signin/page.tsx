@@ -13,8 +13,8 @@ export default async function SignInPage({
 
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
-      <h1 className="text-2xl font-semibold text-gray-900">Sign in</h1>
-      <p className="mt-2 mb-6 text-sm text-gray-600">Welcome back.</p>
+      <h1 className="text-2xl font-semibold text-foreground">Sign in</h1>
+      <p className="mt-2 mb-6 text-sm text-muted">Welcome back.</p>
 
       {error === "expired_link" && (
         <p role="alert" className="mb-4 rounded-md bg-amber-50 p-3 text-sm text-amber-800">
@@ -42,15 +42,15 @@ export default async function SignInPage({
         ]}
       />
 
-      <div className="mt-6 space-y-2 text-sm text-gray-600">
+      <div className="mt-6 space-y-2 text-sm text-muted">
         <p>
-          <Link href="/reset-password" className="font-medium text-gray-900 underline">
+          <Link href="/reset-password" className="font-medium text-primary underline transition-colors duration-200">
             Forgot your password?
           </Link>
         </p>
         <p>
           No account?{" "}
-          <Link href="/signup" className="font-medium text-gray-900 underline">
+          <Link href="/signup" className="font-medium text-primary underline transition-colors duration-200">
             Create one
           </Link>
         </p>

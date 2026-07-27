@@ -7,8 +7,8 @@ export const metadata = { title: "Create account" };
 export default function SignUpPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
-      <h1 className="text-2xl font-semibold text-gray-900">Create your account</h1>
-      <p className="mt-2 mb-6 text-sm text-gray-600">
+      <h1 className="text-2xl font-semibold text-foreground">Create your account</h1>
+      <p className="mt-2 mb-6 text-sm text-muted">
         Start with career discovery. You can apply to be a mentor or employer later.
       </p>
 
@@ -34,9 +34,9 @@ export default function SignUpPage() {
         checkbox={{ name: "acceptTerms", label: "I accept the terms of service and privacy policy" }}
       />
 
-      <p className="mt-6 text-sm text-gray-600">
+      <p className="mt-6 text-sm text-muted">
         Already have an account?{" "}
-        <Link href="/signin" className="font-medium text-gray-900 underline">
+        <Link href="/signin" className="font-medium text-primary underline transition-colors duration-200">
           Sign in
         </Link>
       </p>

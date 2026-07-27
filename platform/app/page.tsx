@@ -6,8 +6,8 @@ export default async function HomePage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-6 py-12">
-      <h1 className="text-3xl font-semibold text-gray-900">Ready2Work</h1>
-      <p className="mt-3 text-base text-gray-600">
+      <h1 className="text-3xl font-semibold text-foreground">Ready2Work</h1>
+      <p className="mt-3 text-base text-muted">
         Career discovery, roadmaps, and job simulations for people deciding what to do next.
       </p>
 
@@ -15,7 +15,7 @@ export default async function HomePage() {
         {user ? (
           <Link
             href="/dashboard"
-            className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
           >
             Go to dashboard
           </Link>
@@ -23,13 +23,13 @@ export default async function HomePage() {
           <>
             <Link
               href="/signup"
-              className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+              className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
             >
               Create account
             </Link>
             <Link
               href="/signin"
-              className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50"
+              className="rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface transition-colors duration-200"
             >
               Sign in
             </Link>

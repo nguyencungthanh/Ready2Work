@@ -31,26 +31,26 @@ export default async function NewRoadmapPage({
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
-      <Link href="/dashboard" className="text-sm text-gray-600 underline">
+      <Link href="/dashboard" className="text-sm text-muted underline transition-colors duration-200">
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-gray-900">Generate your roadmap</h1>
-      <p className="mt-2 text-sm text-gray-600">
+      <h1 className="mt-4 text-2xl font-semibold text-foreground">Generate your roadmap</h1>
+      <p className="mt-2 text-sm text-muted">
         Pick the career you want to prepare for. We build a staged plan from that career&apos;s
         required skills, so you can see exactly why each step is there.
       </p>
 
       <form action={generate} className="mt-8 space-y-4">
         <div>
-          <label htmlFor="careerId" className="block text-sm font-medium text-gray-800">
+          <label htmlFor="careerId" className="block text-sm font-medium text-foreground">
             Target career
           </label>
           <select
             id="careerId"
             name="careerId"
             defaultValue={selected?.id ?? ""}
-            className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+            className="mt-1 w-full rounded-md border border-border px-3 py-2 text-sm"
           >
             {(careers ?? []).map((career) => (
               <option key={career.id} value={career.id}>
@@ -62,7 +62,7 @@ export default async function NewRoadmapPage({
 
         <button
           type="submit"
-          className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
         >
           Generate Roadmap
         </button>

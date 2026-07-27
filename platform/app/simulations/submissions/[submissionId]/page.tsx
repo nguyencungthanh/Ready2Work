@@ -2,7 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import type { CriterionResult } from "@/lib/simulation/evaluator";
+import type { CriterionResult } from "@/lib/simulation/ai-evaluator";
+
+interface StoredScores {
+  summary: string;
+  criteria: CriterionResult[];
+}
 
 /** Submission feedback (feature spec section 3: score, feedback, improvement suggestions). */
 export default async function SimulationSubmissionPage({
@@ -28,55 +33,54 @@ export default async function SimulationSubmissionPage({
     .eq("id", submission.simulation_id)
     .maybeSingle();
 
-  const criteria = (submission.criterion_scores as CriterionResult[] | null) ?? [];
+  const stored = (submission.criterion_scores as StoredScores | null) ?? {
+    summary: "",
+    criteria: [],
+  };
+  const criteria = stored.criteria ?? [];
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
+      <p className="text-xs font-medium uppercase tracking-wide text-muted">
         Simulation feedback
       </p>
-      <h1 className="mt-1 text-2xl font-semibold text-gray-900">
+      <h1 className="mt-1 text-2xl font-semibold text-foreground">
         {simulation?.position_title} ({simulation?.industry})
       </h1>
 
-      <div className="mt-6 rounded-lg border border-gray-200 bg-white p-6">
-        <p className="text-sm text-gray-500">Overall score</p>
-        <p className="mt-1 text-4xl font-semibold text-gray-900">
+      <div className="mt-6 rounded-lg border border-border bg-surface p-6">
+        <p className="text-sm text-muted">Overall score</p>
+        <p className="mt-1 text-4xl font-semibold text-foreground">
           {submission.overall_score}/100 · {submission.overall_band}
         </p>
-        <p className="mt-3 text-xs text-gray-500">
-          This is an automated learning evaluation, not a hiring decision. The rubric and evidence
-          below are fully visible.
+        {stored.summary && (
+          <p className="mt-3 text-sm text-foreground">{stored.summary}</p>
+        )}
+        <p className="mt-3 text-xs text-muted">
+          This is an AI-assisted learning evaluation, not a hiring decision. The rubric and
+          feedback below are fully visible.
         </p>
       </div>
 
       <div className="mt-8 space-y-4">
         {criteria.map((criterion) => (
-          <div key={criterion.criterionId} className="rounded-lg border border-gray-200 bg-white p-6">
-            <p className="text-sm font-semibold text-gray-900">
+          <div key={criterion.criterionId} className="rounded-lg border border-border bg-surface p-6">
+            <p className="text-sm font-semibold text-foreground">
               {criterion.label} — {criterion.band} ({criterion.score}/{criterion.maxScore})
             </p>
-            <p className="mt-2 text-sm text-gray-600">{criterion.description}</p>
-            {criterion.matched.length > 0 && (
-              <p className="mt-2 text-sm text-gray-700">
-                <span className="font-medium">Covered:</span> {criterion.matched.join(", ")}
-              </p>
-            )}
-            {criterion.missing.length > 0 && (
-              <p className="mt-1 text-sm text-gray-700">
-                <span className="font-medium">Consider addressing:</span>{" "}
-                {criterion.missing.join(", ")}
-              </p>
+            <p className="mt-2 text-sm text-muted">{criterion.description}</p>
+            {criterion.feedback && (
+              <p className="mt-2 text-sm text-foreground">{criterion.feedback}</p>
             )}
           </div>
         ))}
       </div>
 
       <div className="mt-8 flex gap-4">
-        <Link href="/simulations" className="text-sm font-medium text-gray-900 underline">
+        <Link href="/simulations" className="text-sm font-medium text-primary underline">
           Try another simulation
         </Link>
-        <Link href="/dashboard" className="text-sm font-medium text-gray-900 underline">
+        <Link href="/dashboard" className="text-sm font-medium text-primary underline">
           Back to dashboard
         </Link>
       </div>

@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { evaluateSubmission, type RubricCriterion } from "@/lib/simulation/evaluator";
+import { evaluateSubmissionWithAI, type RubricCriterion } from "@/lib/simulation/ai-evaluator";
 import { logger } from "@/lib/observability/logger";
 
 export interface FormState {
@@ -31,7 +31,7 @@ export async function submitSimulationAction(
 
   const { data: simulation } = await supabase
     .from("simulations")
-    .select("rubric, min_words")
+    .select("brief, task_instructions, rubric, min_words")
     .eq("id", simulationId)
     .maybeSingle();
 
@@ -40,7 +40,24 @@ export async function submitSimulationAction(
   }
 
   const rubric = (simulation.rubric ?? []) as RubricCriterion[];
-  const result = evaluateSubmission(content, rubric, simulation.min_words);
+
+  let result;
+  try {
+    result = await evaluateSubmissionWithAI(
+      content,
+      simulation.brief,
+      simulation.task_instructions,
+      rubric,
+      simulation.min_words,
+    );
+  } catch (err) {
+    logger.error("simulation_evaluation_failed", {
+      operation: "submitSimulationAction",
+      domain: "simulations",
+      error_code: err instanceof Error ? err.message : "UNKNOWN",
+    });
+    return { error: "Could not score your submission right now. Please try again." };
+  }
 
   const { data: submission, error } = await supabase
     .from("simulation_submissions")
@@ -50,7 +67,7 @@ export async function submitSimulationAction(
       content,
       overall_score: result.overallScore,
       overall_band: result.overallBand,
-      criterion_scores: result.criteria,
+      criterion_scores: { summary: result.summary, criteria: result.criteria },
     })
     .select("id")
     .single();

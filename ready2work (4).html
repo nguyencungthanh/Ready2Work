@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ready2Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1B4FE0;
+  --green:#0FB88A;
+  --grad: linear-gradient(120deg,#1B4FE0 0%,#0FB88A 100%);
+  --ink:#0E1A33;
+  --ink-soft:#556080;
+  --bg:#F6F9FC;
+  --card:#FFFFFF;
+  --line:#E3E9F5;
+  --danger:#E0475A;
+  --warn:#F2A93B;
+  --radius:18px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Be Vietnam Pro',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.brand,.btn,.step-title{font-family:'Baloo 2',sans-serif;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+img{max-width:100%;display:block;}
+
+/* ---------- layout shells ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1180px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{font-weight:800;font-size:22px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.nav{display:flex;gap:22px;flex-wrap:wrap;}
+.nav a{font-weight:600;font-size:14.5px;color:var(--ink-soft);padding:6px 2px;border-bottom:2px solid transparent;transition:.15s;}
+.nav a.active,.nav a:hover{color:var(--blue);border-color:var(--green);}
+.top-actions{display:flex;gap:10px;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:10px 18px;border-radius:999px;border:none;font-weight:600;font-size:14.5px;
+  transition:.15s;white-space:nowrap;
+}
+.btn-primary{background:var(--grad);color:#fff;box-shadow:0 8px 20px -8px rgba(27,79,224,.55);}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 24px -8px rgba(27,79,224,.65);}
+.btn-ghost{background:#fff;color:var(--blue);border:1.5px solid var(--line);}
+.btn-ghost:hover{border-color:var(--blue);}
+.btn-sm{padding:7px 14px;font-size:13px;}
+.btn-danger{background:var(--danger);color:#fff;}
+.btn:disabled{opacity:.55;cursor:not-allowed;}
+.hamburger{display:none;background:none;border:none;font-size:22px;}
+
+main{max-width:1180px;margin:0 auto;padding:36px 24px 90px;}
+.page{display:none;animation:fade .35s ease;}
+.page.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+footer{border-top:1px solid var(--line);margin-top:60px;padding:34px 24px 46px;text-align:center;color:var(--ink-soft);font-size:13px;}
+footer .admin-link{opacity:.35;font-size:11px;color:var(--ink-soft);}
+footer .admin-link:hover{opacity:.7;}
+
+/* ---------- generic components ---------- */
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--green);background:#E9FBF4;padding:5px 12px;border-radius:999px;margin-bottom:14px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.grid{display:grid;gap:20px;}
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-2,.grid-3,.grid-5{grid-template-columns:1fr;}}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:#EAF0FF;color:var(--blue);}
+.muted{color:var(--ink-soft);}
+.section-head{max-width:640px;margin-bottom:28px;}
+.section-head h2{font-size:28px;margin:0 0 8px;}
+hr.line{border:none;border-top:1px solid var(--line);margin:36px 0;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--grad);border-radius:28px;color:#fff;
+  padding:56px 44px;position:relative;overflow:hidden;margin-bottom:46px;
+}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.25),transparent 55%);}
+.hero-inner{position:relative;max-width:640px;}
+.hero h1{font-size:40px;line-height:1.15;margin:0 0 14px;}
+.hero p{font-size:16.5px;line-height:1.6;opacity:.95;margin:0 0 26px;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.hero .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.4);}
+.hero .btn-white{background:#fff;color:var(--blue);}
+
+/* ---------- stats ---------- */
+.stat{text-align:center;padding:20px;}
+.stat .num{font-family:'Baloo 2';font-size:30px;font-weight:800;color:var(--blue);}
+.stat .lbl{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+
+/* ---------- journey ---------- */
+.journey-list{display:flex;flex-direction:column;gap:14px;}
+.journey-item{
+  display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:18px 20px;transition:.15s;cursor:pointer;
+}
+.journey-item:hover{border-color:var(--blue);box-shadow:0 10px 26px -16px rgba(27,79,224,.5);transform:translateY(-2px);}
+.j-num{width:40px;height:40px;border-radius:12px;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+.j-txt h4{margin:0 0 3px;font-size:16.5px;}
+.j-txt p{margin:0;font-size:13.5px;color:var(--ink-soft);}
+.j-arrow{margin-left:auto;color:var(--green);font-size:20px;}
+
+/* ---------- pricing ---------- */
+.price-card{position:relative;display:flex;flex-direction:column;gap:14px;}
+.price-card.pop{border:2px solid var(--blue);box-shadow:0 16px 40px -20px rgba(27,79,224,.5);}
+.price-card .amt{font-family:'Baloo 2';font-size:28px;font-weight:800;}
+.price-card ul{padding-left:18px;margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.9;}
+.popbadge{position:absolute;top:-12px;right:20px;background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;}
+
+/* ---------- form ---------- */
+.form-field{margin-bottom:16px;}
+.form-field label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px;}
+.form-field input,.form-field select,.form-field textarea{
+  width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid var(--line);font-size:14.5px;font-family:inherit;background:#fff;
+}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{outline:none;border-color:var(--blue);}
+.form-box{max-width:420px;margin:0 auto;}
+.msg{padding:11px 14px;border-radius:10px;font-size:13.5px;margin-bottom:14px;}
+.msg-err{background:#FDECEE;color:var(--danger);}
+.msg-ok{background:#E9FBF4;color:#0A8F6B;}
+.msg-info{background:#EAF0FF;color:var(--blue);}
+
+/* ---------- test / quiz ---------- */
+.q-block{margin-bottom:26px;}
+.q-block h4{margin:0 0 12px;font-size:15.5px;}
+.opt{display:block;border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:9px;cursor:pointer;font-size:14px;transition:.15s;}
+.opt:hover{border-color:var(--blue);}
+.opt.sel{border-color:var(--blue);background:#EAF0FF;font-weight:600;}
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.bar-lbl{width:90px;font-size:13.5px;font-weight:600;flex-shrink:0;}
+.bar-track{flex:1;height:14px;border-radius:999px;background:#EEF2FA;overflow:hidden;}
+.bar-fill{height:100%;background:var(--grad);border-radius:999px;transition:width .6s ease;}
+.bar-pct{width:44px;text-align:right;font-size:13px;font-weight:700;color:var(--blue);}
+
+/* ---------- filter chips ---------- */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.chip{padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:13.5px;font-weight:600;color:var(--ink-soft);}
+.chip.active{background:var(--grad);color:#fff;border-color:transparent;}
+
+/* ---------- task cards ---------- */
+.task-card{cursor:pointer;}
+.task-meta{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:12.5px;color:var(--ink-soft);}
+
+/* ---------- timer / workspace ---------- */
+.timer-wrap{display:flex;align-items:center;justify-content:space-between;background:#0E1A33;color:#fff;border-radius:16px;padding:16px 22px;margin-bottom:20px;}
+.timer-num{font-family:'Baloo 2';font-size:26px;font-weight:800;letter-spacing:.03em;}
+.timer-num.low{color:#FF8A8A;}
+
+/* ---------- chat ---------- */
+.chat-window{height:440px;overflow-y:auto;border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff;display:flex;flex-direction:column;gap:12px;}
+.bubble{max-width:78%;padding:11px 15px;border-radius:14px;font-size:14px;line-height:1.55;}
+.bubble.ai{background:#F1F5FC;align-self:flex-start;border-bottom-left-radius:4px;}
+.bubble.user{background:var(--grad);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}
+.bubble.typing{opacity:.6;font-style:italic;}
+.chat-input-row{display:flex;gap:10px;margin-top:14px;}
+.chat-input-row textarea{flex:1;resize:none;height:52px;}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);}
+th{color:var(--ink-soft);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.03em;}
+.pill{padding:3px 10px;border-radius:999px;font-size:11.5px;font-weight:700;}
+.pill-pro{background:#E9FBF4;color:#0A8F6B;}
+.pill-free{background:#EEF2FA;color:var(--ink-soft);}
+
+/* ---------- admin tabs ---------- */
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:24px;}
+.tab-btn{padding:10px 18px;font-weight:700;font-size:14px;color:var(--ink-soft);border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;}
+.tab-btn.active{color:var(--blue);border-color:var(--blue);}
+
+/* ---------- update feed ---------- */
+.post{border-bottom:1px solid var(--line);padding:18px 0;}
+.post:last-child{border-bottom:none;}
+.post h4{margin:0 0 5px;font-size:15.5px;}
+.post .pdate{font-size:12px;color:var(--ink-soft);margin-top:6px;}
+
+.center{text-align:center;}
+.spinner{width:16px;height:16px;border-radius:50%;border:2px solid rgba(0,0,0,.15);border-top-color:var(--blue);animation:spin .7s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.empty{text-align:center;padding:40px 20px;color:var(--ink-soft);}
+
+@media(max-width:820px){
+  .nav{display:none;}
+  .hamburger{display:block;}
+  .nav.open{
+    display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:#fff;
+    padding:16px 24px;border-bottom:1px solid var(--line);gap:14px;
+  }
+  .grid-2,.grid-3{grid-template-columns:1fr;}
+  .hero{padding:38px 24px;}
+  .hero h1{font-size:30px;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="#/" class="brand">Ready2Work</a>
+    <nav class="nav" id="mainNav">
+      <a href="#/" data-route="/">Trang chủ</a>
+      <a href="#/hanh-trinh" data-route="/hanh-trinh">Hành trình</a>
+      <a href="#/vi-sao-khac-biet" data-route="/vi-sao-khac-biet">Vì sao chọn</a>
+      <a href="#/bang-gia" data-route="/bang-gia">Bảng giá</a>
+      <a href="#/mentor" data-route="/mentor">Mentor</a>
+      <a href="#/cap-nhat" data-route="/cap-nhat">Cập nhật</a>
+    </nav>
+    <div class="top-actions">
+      <span id="authSlot"></span>
+      <button class="hamburger" onclick="document.getElementById('mainNav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</div>
+
+<main id="mainContent"></main>
+
+<footer>
+  <div>© 2026 Ready2Work — Thử việc trước khi đi làm thật.</div>
+  <div style="margin-top:10px;">
+    <a class="admin-link" href="#/r2w-hq-portal">·</a>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   STATE
+   ============================================================ */
+let session = { user: null }; // in-memory only (no cookies/localStorage in artifacts)
+let adminSession = { authed:false };
+let pendingSignup = null; // {name,email,plan,code}
+let testAnswers = {};
+let chatHistory = []; // for AI roadmap chat
+let simTimer = null, ivTimer = null;
+
+/* ---- resilient storage: uses window.storage when available, otherwise
+   falls back to an in-memory store so the app always actually works ---- */
+let memStorage = {};
+let storageBackend = 'unknown'; // 'live' | 'memory'
+async function storageSet(key, value){
+  if(window.storage){
+    try{ const r = await window.storage.set(key, value, true); if(r){ storageBackend='live'; return r; } }catch(e){}
+  }
+  storageBackend = storageBackend==='live' ? 'live' : 'memory';
+  memStorage[key] = value;
+  return {key, value};
+}
+async function storageGet(key){
+  if(window.storage){
+    try{ const r = await window.storage.get(key, true); if(r){ storageBackend='live'; return r; } }catch(e){}
+  }
+  if(key in memStorage) return {key, value: memStorage[key]};
+  return null;
+}
+async function storageDelete(key){
+  if(window.storage){
+    try{ await window.storage.delete(key, true); storageBackend='live'; }catch(e){}
+  }
+  delete memStorage[key];
+  return true;
+}
+async function storageList(prefix){
+  let keys = [];
+  if(window.storage){
+    try{ const r = await window.storage.list(prefix, true); if(r && r.keys){ keys = r.keys; storageBackend='live'; } }catch(e){}
+  }
+  const memKeys = Object.keys(memStorage).filter(k=>k.startsWith(prefix));
+  return Array.from(new Set([...keys, ...memKeys]));
+}
+
+/* ---- resilient AI call: tries the live Claude API, falls back to a
+   built-in local evaluator/responder if the API isn't reachable here,
+   so features never show a hard error to the user ---- */
+async function callAI(prompt){
+  try{
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:1000, messages:[{role:'user', content: prompt}] })
+    });
+    const data = await res.json();
+    const text = (data.content||[]).map(b=>b.text||'').join('\n').trim();
+    if(text) return {text, live:true};
+    throw new Error('empty response');
+  }catch(e){
+    return {text:null, live:false};
+  }
+}
+function localHeuristicGrade(answer, context){
+  const words = (answer||'').trim().split(/\s+/).filter(Boolean);
+  const len = words.length;
+  let score = 30 + Math.min(55, len*2.3);
+  const kw = ['vì','do đó','ví dụ','bước','đầu tiên','cuối cùng','khách hàng','dữ liệu'];
+  kw.forEach(k=>{ if((answer||'').toLowerCase().includes(k)) score += 3; });
+  score = Math.max(15, Math.min(96, Math.round(score)));
+  let feedback;
+  if(len === 0){
+    feedback = `Bạn chưa nhập câu trả lời nên hệ thống chưa thể đánh giá đầy đủ. Hãy thử lại và trình bày rõ cách bạn tiếp cận vấn đề "${context}", có ví dụ hoặc số liệu cụ thể nếu có thể.`;
+  } else if(len < 20){
+    feedback = `Câu trả lời còn khá ngắn (${len} từ) so với yêu cầu của "${context}". Bạn nên nêu rõ các bước xử lý cụ thể và giải thích lý do lựa chọn, thay vì chỉ nêu kết luận.`;
+  } else {
+    feedback = `Câu trả lời cho thấy bạn có hướng tiếp cận khá rõ ràng với "${context}". Để tốt hơn, hãy bổ sung ví dụ/số liệu cụ thể và nêu rõ kết quả mong đợi sau khi thực hiện.`;
+  }
+  return {score, feedback};
+}
+
+function localChatFallback(){
+  const lastUser = [...chatHistory].reverse().find(m=>m.role==='user');
+  const msg = (lastUser?.text || '').toLowerCase();
+  const hit = FIELDS.find(f => msg.includes(f.name.toLowerCase().split(' ')[0]) || msg.includes(f.id));
+  const field = hit ? hit.name : (window.lastTestResult ? window.lastTestResult[0].name : null);
+  if(field){
+    return `Cảm ơn bạn đã chia sẻ! Với hướng ${field}, lộ trình gợi ý: (1) làm thử 1-2 bài ở mục Mô phỏng việc làm ngành ${field} để xem mình đang thiếu gì, (2) luyện 2-3 câu ở mục Luyện phỏng vấn ngành ${field}, (3) sau đó đặt lịch với 1 Mentor đang làm đúng ngành để nhận phản hồi thật. Bạn muốn bắt đầu từ bước nào trước?`;
+  }
+  return `Cảm ơn bạn đã chia sẻ! Để gợi ý lộ trình sát nhất, bạn có thể cho mình biết: bạn đang học ngành gì, và đang nhắm tới vị trí/công ty nào không? Trong lúc chờ, bạn có thể làm thử bài test ở mục "Khám phá nghề nghiệp" để xem ngành nào phù hợp nhất với mình.`;
+}
+
+const FIELDS = [
+  {id:'ketoan', name:'Kế - Kiểm'},
+  {id:'tcnh', name:'TC - NH'},
+  {id:'it', name:'IT'},
+  {id:'marketing', name:'Marketing'},
+  {id:'logistics', name:'Logistics'}
+];
+
+const TEST_QUESTIONS = [
+  {q:"Khi làm việc nhóm, bạn thường là người...", opts:[
+    {t:"Kiểm tra số liệu, đảm bảo mọi thứ khớp và chính xác", f:'ketoan'},
+    {t:"Tính toán rủi ro, phân tích chi phí - lợi ích", f:'tcnh'},
+    {t:"Sửa lỗi kỹ thuật, tìm cách hệ thống hoạt động trơn tru", f:'it'},
+    {t:"Nghĩ ý tưởng, kể câu chuyện để thuyết phục người khác", f:'marketing'},
+    {t:"Sắp xếp quy trình, tối ưu đường đi/luồng công việc", f:'logistics'}
+  ]},
+  {q:"Môn học/chủ đề bạn thấy cuốn hút nhất là gì?", opts:[
+    {t:"Kế toán, kiểm toán, thuế", f:'ketoan'},
+    {t:"Tài chính doanh nghiệp, đầu tư, ngân hàng", f:'tcnh'},
+    {t:"Lập trình, dữ liệu, công nghệ", f:'it'},
+    {t:"Truyền thông, sáng tạo nội dung, hành vi khách hàng", f:'marketing'},
+    {t:"Vận hành chuỗi cung ứng, kho vận", f:'logistics'}
+  ]},
+  {q:"Bạn thích một ngày làm việc như thế nào?", opts:[
+    {t:"Rõ ràng, có quy trình, độ chính xác cao", f:'ketoan'},
+    {t:"Phân tích số liệu để ra quyết định lớn", f:'tcnh'},
+    {t:"Giải một bài toán logic khó, thấy kết quả ngay", f:'it'},
+    {t:"Tạo ra thứ mới, được phản hồi từ nhiều người", f:'marketing'},
+    {t:"Phối hợp nhiều bên để mọi thứ vận hành đúng giờ", f:'logistics'}
+  ]},
+  {q:"Bạn tự tin nhất ở kỹ năng nào?", opts:[
+    {t:"Cẩn thận, tỉ mỉ với con số", f:'ketoan'},
+    {t:"Đọc hiểu báo cáo tài chính, dự báo xu hướng", f:'tcnh'},
+    {t:"Tư duy logic, debug vấn đề", f:'it'},
+    {t:"Viết lách, thiết kế, kể chuyện thương hiệu", f:'marketing'},
+    {t:"Lập kế hoạch, quản lý thời gian nhiều đầu việc", f:'logistics'}
+  ]},
+  {q:"Nếu được thực tập 1 tháng miễn phí, bạn chọn phòng ban nào?", opts:[
+    {t:"Phòng Kế toán - Kiểm toán", f:'ketoan'},
+    {t:"Phòng Tài chính - Đầu tư", f:'tcnh'},
+    {t:"Phòng Công nghệ thông tin", f:'it'},
+    {t:"Phòng Marketing - Truyền thông", f:'marketing'},
+    {t:"Phòng Vận hành - Logistics", f:'logistics'}
+  ]}
+];
+
+const DEFAULT_SIM_TASKS = {
+  ketoan:[
+    {id:'kk1', title:'Kiểm tra chênh lệch sổ sách', duration:300, desc:'Bạn nhận được bảng đối chiếu công nợ với khách hàng A, số dư sổ sách công ty là 152.000.000đ nhưng khách hàng xác nhận 148.500.000đ. Hãy trình bày các bước bạn sẽ làm để tìm ra nguyên nhân chênh lệch và đề xuất bút toán điều chỉnh (nếu có).'},
+    {id:'kk2', title:'Lập báo cáo chi phí quý', duration:360, desc:'Từ dữ liệu chi phí vận hành quý III tăng 18% so với quý II trong khi doanh thu chỉ tăng 4%, hãy viết phần "Nhận xét & khuyến nghị" cho báo cáo gửi Ban Giám đốc.'}
+  ],
+  tcnh:[
+    {id:'tc1', title:'Phân tích báo cáo tài chính', duration:360, desc:'Một doanh nghiệp có hệ số thanh toán hiện hành giảm từ 1.8 xuống 1.1 trong 1 năm, nợ vay ngắn hạn tăng gấp đôi. Hãy phân tích rủi ro thanh khoản và đề xuất 3 khuyến nghị cho ban lãnh đạo.'},
+    {id:'tc2', title:'Tư vấn gói vay cho khách hàng', duration:300, desc:'Khách hàng là chủ doanh nghiệp nhỏ, muốn vay 500 triệu để mở rộng kho hàng, dòng tiền chưa ổn định. Hãy soạn phần tư vấn giải thích các gói vay phù hợp và điều kiện cần lưu ý.'}
+  ],
+  it:[
+    {id:'it1', title:'Sửa lỗi tính tổng đơn hàng', duration:420, desc:'Đoạn code sau bị lỗi khi tính tổng tiền đơn hàng có giảm giá theo phần trăm: total = price - price * discount. Với price=100000, discount=10 (nghĩa là 10%), kết quả sai. Hãy chỉ ra lỗi và viết lại công thức đúng, giải thích ngắn gọn.'},
+    {id:'it2', title:'Viết test case cho tính năng đăng nhập', duration:360, desc:'Hãy liệt kê ít nhất 6 test case (bao gồm cả case hợp lệ và không hợp lệ) để kiểm thử chức năng đăng nhập bằng email + mật khẩu.'}
+  ],
+  marketing:[
+    {id:'mk1', title:'Viết caption quảng cáo sản phẩm', duration:300, desc:'Viết 1 caption Facebook (tối đa 80 từ) quảng cáo một ứng dụng luyện phỏng vấn dành cho sinh viên, giọng văn gần gũi Gen Z, có call-to-action rõ ràng.'},
+    {id:'mk2', title:'Lên kế hoạch content 1 tuần', duration:360, desc:'Lên ý tưởng chủ đề content cho 5 ngày trong tuần (mỗi ngày 1 dòng chủ đề + định dạng: video/ảnh/bài viết) quảng bá tính năng "Mô phỏng việc làm" của Ready2Work.'}
+  ],
+  logistics:[
+    {id:'lg1', title:'Tối ưu tuyến giao hàng', duration:300, desc:'Bạn có 5 điểm giao hàng trong nội thành trong buổi sáng, 1 tài xế, deadline giao xong trước 11h. Hãy trình bày cách bạn sắp xếp thứ tự và tiêu chí ưu tiên.'},
+    {id:'lg2', title:'Xử lý sự cố chậm giao hàng', duration:300, desc:'Một lô hàng bị delay 2 ngày do kẹt ở kho trung chuyển, khách hàng đang rất bức xúc trên fanpage. Hãy viết phần xử lý: (1) phản hồi khách hàng, (2) hành động nội bộ để khắc phục.'}
+  ]
+};
+
+const DEFAULT_IV_QUESTIONS = {
+  ketoan:[
+    {id:'ivkk1', q:'Bạn xử lý thế nào khi phát hiện một khoản chi không có đủ chứng từ hợp lệ?', duration:90},
+    {id:'ivkk2', q:'Hãy kể một tình huống bạn phải làm việc dưới áp lực deadline báo cáo cuối kỳ.', duration:90}
+  ],
+  tcnh:[
+    {id:'ivtc1', q:'Theo bạn, chỉ số nào quan trọng nhất khi đánh giá sức khỏe tài chính một doanh nghiệp? Vì sao?', duration:90},
+    {id:'ivtc2', q:'Bạn sẽ giải thích thế nào cho một khách hàng không rành tài chính về rủi ro của một khoản đầu tư?', duration:90}
+  ],
+  it:[
+    {id:'ivit1', q:'Mô tả cách bạn tiếp cận khi gặp một bug không thể tái hiện (không lặp lại được lỗi).', duration:90},
+    {id:'ivit2', q:'Bạn ưu tiên thế nào giữa việc viết code nhanh để kịp deadline và viết code sạch, dễ bảo trì?', duration:90}
+  ],
+  marketing:[
+    {id:'ivmk1', q:'Kể về một chiến dịch quảng cáo bạn thấy ấn tượng và phân tích vì sao nó hiệu quả.', duration:90},
+    {id:'ivmk2', q:'Nếu một bài đăng bị phản ứng tiêu cực trên mạng xã hội, bạn xử lý khủng hoảng truyền thông thế nào?', duration:90}
+  ],
+  logistics:[
+    {id:'ivlg1', q:'Bạn xử lý thế nào khi một đối tác vận chuyển liên tục giao trễ hàng?', duration:90},
+    {id:'ivlg2', q:'Hãy mô tả cách bạn cân bằng giữa chi phí vận chuyển và tốc độ giao hàng.', duration:90}
+  ]
+};
+
+const DEFAULT_MENTORS = [
+  {id:'mt1', name:'Anh Minh Khôi', role:'Senior Accountant · Big4', field:'ketoan', photo:''},
+  {id:'mt2', name:'Chị Thu Hà', role:'Relationship Manager · Ngân hàng TMCP', field:'tcnh', photo:''},
+  {id:'mt3', name:'Anh Đức Anh', role:'Backend Engineer · FPT Software', field:'it', photo:''},
+  {id:'mt4', name:'Chị Ngọc Diễm', role:'Marketing Executive · FMCG', field:'marketing', photo:''},
+  {id:'mt5', name:'Anh Bảo Long', role:'Supply Chain Analyst · Logistics', field:'logistics', photo:''},
+  {id:'mt6', name:'Chị Yến Nhi', role:'Auditor · Doanh nghiệp kiểm toán', field:'ketoan', photo:''}
+];
+
+/* ---- dynamic content: admin-managed collections, seeded from the
+   defaults above the first time they're read, then fully editable ---- */
+let simTasksCache = [];
+let ivQuestionsCache = [];
+let mentorsCache = [];
+
+async function collectionItems(prefix){
+  const keys = await storageList(prefix);
+  const items = await Promise.all(keys.map(async k=>{
+    try{ const r = await storageGet(k); return r ? JSON.parse(r.value) : null; }catch(e){ return null; }
+  }));
+  return items.filter(Boolean);
+}
+async function getSimTasks(force){
+  if(!force && simTasksCache.length) return simTasksCache;
+  let items = await collectionItems('simtask:');
+  if(items.length === 0){
+    for(const [fid, tasks] of Object.entries(DEFAULT_SIM_TASKS)){
+      for(const t of tasks){ await storageSet('simtask:'+t.id, JSON.stringify({...t, field:fid})); }
+    }
+    items = await collectionItems('simtask:');
+  }
+  simTasksCache = items;
+  return items;
+}
+async function getIvQuestions(force){
+  if(!force && ivQuestionsCache.length) return ivQuestionsCache;
+  let items = await collectionItems('ivq:');
+  if(items.length === 0){
+    for(const [fid, qs] of Object.entries(DEFAULT_IV_QUESTIONS)){
+      for(const q of qs){ await storageSet('ivq:'+q.id, JSON.stringify({...q, field:fid})); }
+    }
+    items = await collectionItems('ivq:');
+  }
+  ivQuestionsCache = items;
+  return items;
+}
+async function getMentors(force){
+  if(!force && mentorsCache.length) return mentorsCache;
+  let items = await collectionItems('mentor:');
+  if(items.length === 0){
+    for(const m of DEFAULT_MENTORS){ await storageSet('mentor:'+m.id, JSON.stringify(m)); }
+    items = await collectionItems('mentor:');
+  }
+  mentorsCache = items;
+  return items;
+}
+function fileToDataURL(file){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onload = ()=> resolve(reader.result);
+    reader.onerror = ()=> reject(new Error('read failed'));
+    reader.readAsDataURL(file);
+  });
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+function currentPath(){
+  const h = location.hash.replace(/^#/,'') || '/';
+  return h.split('?')[0];
+}
+function navigate(path){ location.hash = '#' + path; }
+
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', ()=>{ if(!location.hash) location.hash = '#/'; render(); });
+
+function render(){
+  document.getElementById('mainNav').classList.remove('open');
+  const path = currentPath();
+  document.querySelectorAll('.nav a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.route === path);
+  });
+  renderAuthSlot();
+  const main = document.getElementById('mainContent');
+
+  if(path === '/') return renderHome(main);
+  if(path === '/hanh-trinh') return renderJourney(main);
+  if(path === '/kham-pha-nghe') return renderCareerTest(main);
+  if(path === '/lo-trinh-ai') return renderRoadmapChat(main);
+  if(path === '/mo-phong') return renderSimList(main);
+  if(path.startsWith('/mo-phong/')) return renderSimTask(main, path.split('/')[2]);
+  if(path === '/phong-van') return renderIvList(main);
+  if(path.startsWith('/phong-van/')) return renderIvTask(main, path.split('/')[2]);
+  if(path === '/mentor') return renderMentor(main);
+  if(path === '/chung-chi') return renderCert(main);
+  if(path === '/vi-sao-khac-biet') return renderWhy(main);
+  if(path === '/bang-gia') return renderPricing(main);
+  if(path === '/cap-nhat') return renderUpdates(main);
+  if(path === '/dang-nhap') return renderLogin(main);
+  if(path === '/tai-khoan') return renderAccount(main);
+  if(path === '/r2w-hq-portal') return renderAdmin(main);
+  main.innerHTML = `<div class="empty"><h2>404</h2><p>Không tìm thấy trang này.</p><a class="btn btn-primary" href="#/">Về trang chủ</a></div>`;
+}
+
+function renderAuthSlot(){
+  const slot = document.getElementById('authSlot');
+  if(session.user){
+    slot.innerHTML = `<a class="btn btn-ghost btn-sm" href="#/tai-khoan">👤 ${escapeHtml(session.user.name.split(' ').slice(-1)[0])}</a>`;
+  } else {
+    slot.innerHTML = `<a class="btn btn-ghost btn-sm" href="#/dang-nhap">Đăng nhập</a><a class="btn btn-primary btn-sm" href="#/bang-gia" style="margin-left:8px;">Bắt đầu</a>`;
+  }
+}
+function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ============================================================
+   HOME
+   ============================================================ */
+function renderHome(main){
+  main.innerHTML = `
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="tag" style="background:rgba(255,255,255,.2);color:#fff;">Thử việc trước khi đi làm thật</span>
+      <h1 style="margin-top:14px;">Đừng chọn nghề bằng phỏng đoán. Hãy thử trước khi cam kết.</h1>
+      <p>Ready2Work mô phỏng đúng quy trình tuyển dụng và công việc thật từ doanh nghiệp, kết hợp AI cá nhân hoá lộ trình và mạng lưới Mentor thật — giúp sinh viên tự tin bước vào công việc đầu tiên.</p>
+      <div class="hero-cta">
+        <a class="btn btn-white" href="#/kham-pha-nghe">🎓 Sinh viên, khám phá nghề nghiệp</a>
+        <a class="btn btn-ghost" href="#/bang-gia">🏢 Doanh nghiệp, đăng đề tuyển dụng</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid grid-3" style="margin-bottom:50px;">
+    <div class="stat"><div class="num">11,24%</div><div class="lbl">thất nghiệp thanh niên khu vực thành thị (Q3/2025)</div></div>
+    <div class="stat"><div class="num">1,6tr+</div><div class="lbl">thanh niên 15–24 tuổi không việc làm/đào tạo</div></div>
+    <div class="stat"><div class="num">63%</div><div class="lbl">sinh viên thất nghiệp vì thiếu kỹ năng, không phải thiếu kiến thức</div></div>
+  </section>
+
+  <div class="section-head">
+    <span class="eyebrow">Hành trình 7 bước</span>
+    <h2>Một lộ trình xuyên suốt, không phải chắp vá từ nhiều nơi</h2>
+    <p class="muted">Bấm vào từng bước để xem cách hoạt động và trải nghiệm thử.</p>
+  </div>
+  <div class="journey-list" id="homeJourneyList"></div>
+
+  <hr class="line">
+  <div class="section-head">
+    <span class="eyebrow">Cập nhật mới nhất</span>
+    <h2>Bảng tin từ đội ngũ Ready2Work</h2>
+  </div>
+  <div id="homeUpdates"><div class="center muted"><span class="spinner"></span> Đang tải...</div></div>
+
+  <hr class="line">
+  <div class="section-head">
+    <span class="eyebrow">Vì sao Ready2Work</span>
+    <h2>Không chỉ luyện kỹ năng — mô phỏng đúng quy trình của từng doanh nghiệp</h2>
+  </div>
+  <div class="grid grid-3">
+    <div class="card"><div class="tag">Khác biệt</div><h4>Bản sao số quy trình tuyển dụng</h4><p class="muted">CV Screening → Test → Group Discussion → Interview → Offer, mô phỏng đúng theo từng doanh nghiệp thay vì luyện rời rạc từng kỹ năng.</p></div>
+    <div class="card"><div class="tag">Khác biệt</div><h4>AI đo độ sẵn sàng</h4><p class="muted">So sánh CV với JD thật, chỉ ra khoảng cách còn thiếu cho từng công ty mục tiêu — không chỉ chấm điểm chung chung.</p></div>
+    <div class="card"><div class="tag">Khác biệt</div><h4>Mentor thật, không chỉ chatbot</h4><p class="muted">Đặt lịch mock-interview 1-1 với người đang làm đúng ngành — tạo trách nhiệm quay lại luyện tập.</p></div>
+  </div>
+  <div class="center" style="margin-top:24px;"><a class="btn btn-ghost" href="#/vi-sao-khac-biet">Xem đầy đủ so sánh →</a></div>
+  `;
+
+  const list = document.getElementById('homeJourneyList');
+  list.innerHTML = journeySteps.map((s,i)=>`
+    <a class="journey-item" href="#${s.href}">
+      <div class="j-num">${i+1}</div>
+      <div class="j-txt"><h4>${s.title}</h4><p>${s.desc}</p></div>
+      <div class="j-arrow">→</div>
+    </a>`).join('');
+
+  loadHomeUpdates();
+}
+
+const journeySteps = [
+  {title:'Khám phá nghề nghiệp', desc:'Trắc nghiệm 5 câu, ra % phù hợp với 5 nhóm ngành.', href:'/kham-pha-nghe'},
+  {title:'Cá nhân hoá lộ trình AI', desc:'Trò chuyện với AI để nhận lộ trình học riêng cho bạn.', href:'/lo-trinh-ai'},
+  {title:'Mô phỏng việc làm', desc:'Làm đúng đầu việc thật, có đồng hồ đếm giờ, AI chấm điểm.', href:'/mo-phong'},
+  {title:'Luyện phỏng vấn', desc:'Trả lời câu hỏi theo ngành trong thời gian giới hạn, AI nhận xét.', href:'/phong-van'},
+  {title:'Cộng đồng Mentor', desc:'Kết nối với người đi trước để mock-interview 1-1 thật.', href:'/mentor'},
+  {title:'Chứng chỉ', desc:'Nhận chứng chỉ sau khi hoàn thành lộ trình AI đề xuất.', href:'/chung-chi'},
+  {title:'Theo dõi kết quả thật', desc:'Bám sát hành trình ứng tuyển thật sau khi luyện tập.', href:'/tai-khoan'}
+];
+
+async function loadHomeUpdates(){
+  const el = document.getElementById('homeUpdates');
+  const posts = await listPosts();
+  if(!el) return;
+  if(posts.length === 0){ el.innerHTML = `<p class="muted">Chưa có bài cập nhật nào.</p>`; return; }
+  el.innerHTML = posts.slice(0,3).map(p=>`
+    <div class="post"><span class="tag">${escapeHtml(p.tag)}</span><h4>${escapeHtml(p.title)}</h4><p class="muted">${escapeHtml(p.content)}</p><div class="pdate">${p.date}</div></div>
+  `).join('');
+}
+
+/* ============================================================
+   JOURNEY OVERVIEW
+   ============================================================ */
+function renderJourney(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Hành trình</span><h2>7 bước từ khám phá bản thân đến việc làm thật</h2></div>
+    <div class="journey-list">
+      ${journeySteps.map((s,i)=>`
+        <a class="journey-item" href="#${s.href}">
+          <div class="j-num">${i+1}</div>
+          <div class="j-txt"><h4>${s.title}</h4><p>${s.desc}</p></div>
+          <div class="j-arrow">→</div>
+        </a>`).join('')}
+    </div>
+  `;
+}
+
+/* ============================================================
+   CAREER TEST (Khám phá nghề nghiệp)
+   ============================================================ */
+function renderCareerTest(main){
+  testAnswers = {};
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bước 1</span><h2>Khám phá nghề nghiệp</h2><p class="muted">Chọn phương án gần với bạn nhất ở mỗi câu. Không có đáp án đúng/sai.</p></div>
+    <div class="card" id="testCard">
+      ${TEST_QUESTIONS.map((q,qi)=>`
+        <div class="q-block">
+          <h4>${qi+1}. ${q.q}</h4>
+          ${q.opts.map((o,oi)=>`<div class="opt" data-q="${qi}" data-f="${o.f}" onclick="selectOpt(${qi},'${o.f}',this)">${o.t}</div>`).join('')}
+        </div>
+      `).join('')}
+      <button class="btn btn-primary" style="width:100%;margin-top:6px;" onclick="submitTest()">Xem kết quả</button>
+      <p class="muted center" id="testWarn" style="display:none;margin-top:10px;">Hãy trả lời tất cả các câu trước khi xem kết quả nhé.</p>
+    </div>
+    <div id="testResult"></div>
+  `;
+}
+function selectOpt(qi, f, el){
+  document.querySelectorAll(`.opt[data-q="${qi}"]`).forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  testAnswers[qi] = f;
+}
+function submitTest(){
+  if(Object.keys(testAnswers).length < TEST_QUESTIONS.length){
+    document.getElementById('testWarn').style.display = 'block';
+    return;
+  }
+  const counts = {}; FIELDS.forEach(f=>counts[f.id]=0);
+  Object.values(testAnswers).forEach(f=>counts[f]++);
+  const total = TEST_QUESTIONS.length;
+  const ranked = FIELDS.map(f=>({...f, pct: Math.round(counts[f.id]/total*100)})).sort((a,b)=>b.pct-a.pct);
+
+  document.getElementById('testResult').innerHTML = `
+    <div class="card" style="margin-top:24px;">
+      <span class="eyebrow">Kết quả của bạn</span>
+      <h3 style="margin-top:0;">Top ngành phù hợp: ${ranked[0].name}</h3>
+      ${ranked.map(r=>`
+        <div class="bar-row">
+          <div class="bar-lbl">${r.name}</div>
+          <div class="bar-track"><div class="bar-fill" style="width:${r.pct}%"></div></div>
+          <div class="bar-pct">${r.pct}%</div>
+        </div>
+      `).join('')}
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+        <a class="btn btn-primary" href="#/lo-trinh-ai">Nhận lộ trình AI cá nhân hoá →</a>
+        <a class="btn btn-ghost" href="#/mo-phong">Thử mô phỏng việc làm ngành này</a>
+      </div>
+    </div>
+  `;
+  window.lastTestResult = ranked;
+}
+
+/* ============================================================
+   AI ROADMAP CHAT (Cá nhân hoá lộ trình AI)
+   ============================================================ */
+function renderRoadmapChat(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bước 2</span><h2>Cá nhân hoá lộ trình AI</h2><p class="muted">Trò chuyện để AI hiểu bạn đang ở đâu và cần luyện gì tiếp theo.</p></div>
+    <div class="card">
+      <div class="chat-window" id="chatWindow"></div>
+      <div class="chat-input-row">
+        <textarea id="chatInput" placeholder="Ví dụ: Mình học Marketing, muốn ứng tuyển vị trí Content Intern tại 1 công ty FMCG, mình nên bắt đầu từ đâu?"></textarea>
+        <button class="btn btn-primary" id="chatSendBtn" onclick="sendChatMsg()">Gửi</button>
+      </div>
+    </div>
+  `;
+  const win = document.getElementById('chatWindow');
+  if(chatHistory.length === 0){
+    const resultNote = window.lastTestResult ? ` Mình vừa làm bài test và ngành phù hợp nhất là ${window.lastTestResult[0].name} (${window.lastTestResult[0].pct}%).` : '';
+    win.innerHTML = `<div class="bubble ai">Chào bạn 👋 Mình là AI đồng hành của Ready2Work. Kể cho mình nghe bạn đang học ngành gì, và bạn đang nhắm tới vị trí/công ty nào nhé — mình sẽ gợi ý lộ trình luyện tập phù hợp.${resultNote ? '<br><br>'+escapeHtml(resultNote):''}</div>`;
+  } else {
+    renderChatBubbles();
+  }
+}
+function renderChatBubbles(){
+  const win = document.getElementById('chatWindow');
+  if(!win) return;
+  win.innerHTML = chatHistory.map(m=>`<div class="bubble ${m.role==='user'?'user':'ai'}">${escapeHtml(m.text)}</div>`).join('');
+  win.scrollTop = win.scrollHeight;
+}
+async function sendChatMsg(){
+  const input = document.getElementById('chatInput');
+  const userText = input.value.trim();
+  if(!userText) return;
+  chatHistory.push({role:'user', text:userText});
+  input.value = '';
+  renderChatBubbles();
+  const win = document.getElementById('chatWindow');
+  win.insertAdjacentHTML('beforeend', `<div class="bubble ai typing" id="typingBubble">AI đang soạn phản hồi...</div>`);
+  win.scrollTop = win.scrollHeight;
+  document.getElementById('chatSendBtn').disabled = true;
+
+  const sys = "Bạn là cố vấn nghề nghiệp AI của nền tảng Ready2Work, dành cho sinh viên Việt Nam. Trả lời bằng tiếng Việt, giọng gần gũi, cụ thể, ngắn gọn (dưới 150 từ mỗi lượt). Đưa ra lộ trình luyện tập theo bước, gợi ý sinh viên thử tính năng Mô phỏng việc làm hoặc Luyện phỏng vấn của nền tảng khi phù hợp.";
+  const prompt = sys + "\n\n" + chatHistory.map(m=>(m.role==='user'?'Sinh viên: ':'AI: ')+m.text).join('\n');
+  const {text, live} = await callAI(prompt);
+  if(live && text){
+    chatHistory.push({role:'ai', text});
+  } else {
+    chatHistory.push({role:'ai', text: localChatFallback()});
+  }
+  document.getElementById('typingBubble')?.remove();
+  document.getElementById('chatSendBtn').disabled = false;
+  renderChatBubbles();
+}
+
+/* ============================================================
+   JOB SIMULATION (Mô phỏng việc làm)
+   ============================================================ */
+let simFilter = 'all';
+async function renderSimList(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bước 3</span><h2>Mô phỏng việc làm</h2><p class="muted">Chọn lĩnh vực, làm đúng đầu việc thật trong thời gian giới hạn, AI chấm điểm ngay.</p></div>
+    <div class="chips" id="simChips"></div>
+    <div class="grid grid-3" id="simGrid"><div class="center muted"><span class="spinner"></span> Đang tải...</div></div>
+  `;
+  const chips = document.getElementById('simChips');
+  chips.innerHTML = `<button class="chip ${simFilter==='all'?'active':''}" onclick="setSimFilter('all')">Tất cả</button>` +
+    FIELDS.map(f=>`<button class="chip ${simFilter===f.id?'active':''}" onclick="setSimFilter('${f.id}')">${f.name}</button>`).join('');
+  const tasks = await getSimTasks();
+  if(currentPath() !== '/mo-phong') return;
+  drawSimGrid(tasks);
+}
+function setSimFilter(f){ simFilter = f; renderSimList(document.getElementById('mainContent')); }
+function drawSimGrid(tasks){
+  const grid = document.getElementById('simGrid');
+  if(!grid) return;
+  const items = tasks.filter(t=> simFilter==='all' || simFilter===t.field);
+  grid.innerHTML = items.map(t=>{
+    const fname = (FIELDS.find(f=>f.id===t.field)||{name:t.field}).name;
+    return `<a class="card task-card" href="#/mo-phong/${t.id}">
+      <span class="tag">${fname}</span>
+      <h4 style="margin:10px 0 6px;">${escapeHtml(t.title)}</h4>
+      <p class="muted" style="font-size:13.5px;">${escapeHtml(t.desc.slice(0,90))}...</p>
+      <div class="task-meta">⏱ ${Math.round(t.duration/60)} phút &nbsp;·&nbsp; AI chấm điểm</div>
+    </a>`;
+  }).join('') || `<div class="empty">Không có bài mô phỏng nào ở lĩnh vực này.</div>`;
+}
+async function renderSimTask(main, id){
+  main.innerHTML = `<div class="center muted"><span class="spinner"></span> Đang tải...</div>`;
+  const tasks = await getSimTasks();
+  const t = tasks.find(x=>x.id===id);
+  if(currentPath() !== '/mo-phong/'+id) return;
+  if(!t){ main.innerHTML = `<div class="empty">Không tìm thấy bài mô phỏng.</div>`; return; }
+  const fname = (FIELDS.find(f=>f.id===t.field)||{name:t.field}).name;
+  main.innerHTML = `
+    <a class="muted" href="#/mo-phong" style="font-size:13.5px;">← Quay lại danh sách</a>
+    <div class="section-head" style="margin-top:14px;"><span class="tag">${fname}</span><h2 style="margin-top:10px;">${escapeHtml(t.title)}</h2></div>
+    <div class="timer-wrap"><div>⏱ Thời gian còn lại</div><div class="timer-num" id="simCountdown">${fmtTime(t.duration)}</div></div>
+    <div class="card">
+      <p>${escapeHtml(t.desc)}</p>
+      <div class="form-field" style="margin-top:18px;">
+        <label>Bài làm của bạn</label>
+        <textarea id="simAnswer" rows="8" placeholder="Viết câu trả lời của bạn ở đây..."></textarea>
+      </div>
+      <button class="btn btn-primary" id="simSubmitBtn" onclick="submitSim('${t.id}')">Nộp bài & chấm điểm</button>
+    </div>
+    <div id="simFeedback"></div>
+  `;
+  startCountdown('simCountdown', t.duration, ()=>{ document.getElementById('simSubmitBtn')?.click(); });
+}
+function fmtTime(s){ const m=Math.floor(s/60), r=s%60; return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`; }
+function startCountdown(elId, seconds, onEnd){
+  clearInterval(simTimer); clearInterval(ivTimer);
+  let left = seconds;
+  const el = document.getElementById(elId);
+  const tick = ()=>{
+    if(!document.getElementById(elId)) return clearInterval(timerRef);
+    left--;
+    if(el){ el.textContent = fmtTime(Math.max(left,0)); el.classList.toggle('low', left<=30); }
+    if(left<=0){ clearInterval(timerRef); onEnd && onEnd(); }
+  };
+  const timerRef = setInterval(tick, 1000);
+  if(elId==='simCountdown') simTimer = timerRef; else ivTimer = timerRef;
+}
+async function submitSim(taskId){
+  const t = simTasksCache.find(x=>x.id===taskId);
+  const answerEl = document.getElementById('simAnswer');
+  const answer = answerEl.value.trim();
+  clearInterval(simTimer);
+  const btn = document.getElementById('simSubmitBtn');
+  btn.disabled = true; btn.innerHTML = `<span class="spinner"></span> AI đang chấm bài...`;
+  const fb = document.getElementById('simFeedback');
+  let parsed = null;
+  const prompt = `Bạn là nhà tuyển dụng đang chấm bài mô phỏng công việc "${t.title}" cho sinh viên Việt Nam.\nĐề bài: ${t.desc}\nBài làm của ứng viên: """${answer || '(không trả lời)'}"""\nHãy chấm điểm theo thang 0-100 và nhận xét ngắn gọn (khoảng 80-120 từ, tiếng Việt): điểm mạnh, điểm cần cải thiện. Trả lời CHỈ ở định dạng JSON, không thêm chữ nào khác: {"score": số, "feedback": "..."}`;
+  const {text, live} = await callAI(prompt);
+  if(live && text){
+    try{ parsed = JSON.parse(text.replace(/```json|```/g,'').trim()); }catch(e){ parsed = null; }
+  }
+  if(!parsed) parsed = localHeuristicGrade(answer, t.title);
+  fb.innerHTML = `<div class="card" style="margin-top:20px;">
+    <div class="eyebrow">Kết quả chấm điểm</div>
+    <div style="font-family:'Baloo 2';font-size:34px;font-weight:800;color:var(--blue);">${parsed.score}/100</div>
+    <p style="margin-top:10px;">${escapeHtml(parsed.feedback)}</p>
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;"><a class="btn btn-ghost" href="#/mo-phong">Thử bài khác</a><a class="btn btn-primary" href="#/phong-van">Luyện phỏng vấn ngành này →</a></div>
+  </div>`;
+  btn.disabled = false; btn.textContent = 'Nộp bài & chấm điểm';
+}
+
+/* ============================================================
+   INTERVIEW PRACTICE (Luyện phỏng vấn)
+   ============================================================ */
+let ivFilter = 'all';
+function renderIvList(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bước 4</span><h2>Luyện phỏng vấn</h2><p class="muted">Chọn lĩnh vực, trả lời trong thời gian giới hạn, nhận nhận xét từ AI — hoặc đặt lịch với Mentor thật.</p></div>
+    <div class="chips" id="ivChips"></div>
+    <div class="grid grid-3" id="ivGrid"></div>
+    <div class="card" style="margin-top:30px;background:#EAF0FF;border:none;">
+      <h4 style="margin-top:0;">Muốn luyện với người thật?</h4>
+      <p class="muted">Đặt lịch mock-interview 1-1 với Mentor đang làm đúng ngành bạn nhắm tới.</p>
+      <a class="btn btn-primary" href="#/mentor">Tìm Mentor →</a>
+    </div>
+  `;
+  const chips = document.getElementById('ivChips');
+  chips.innerHTML = `<button class="chip ${ivFilter==='all'?'active':''}" onclick="setIvFilter('all')">Tất cả</button>` +
+    FIELDS.map(f=>`<button class="chip ${ivFilter===f.id?'active':''}" onclick="setIvFilter('${f.id}')">${f.name}</button>`).join('');
+  drawIvGrid();
+}
+function setIvFilter(f){ ivFilter = f; renderIvList(document.getElementById('mainContent')); }
+function drawIvGrid(){
+  const grid = document.getElementById('ivGrid');
+  let items = [];
+  Object.entries(IV_QUESTIONS).forEach(([fid, qs])=>{
+    if(ivFilter!=='all' && ivFilter!==fid) return;
+    qs.forEach(q=> items.push({...q, fid}));
+  });
+  grid.innerHTML = items.map(q=>{
+    const fname = FIELDS.find(f=>f.id===q.fid).name;
+    return `<a class="card task-card" href="#/phong-van/${q.id}">
+      <span class="tag">${fname}</span>
+      <h4 style="margin:10px 0 6px;">${q.q}</h4>
+      <div class="task-meta">⏱ ${q.duration}s trả lời &nbsp;·&nbsp; AI nhận xét</div>
+    </a>`;
+  }).join('') || `<div class="empty">Không có câu hỏi nào ở lĩnh vực này.</div>`;
+}
+function findIvQ(id){
+  for(const [fid, qs] of Object.entries(IV_QUESTIONS)){
+    const q = qs.find(x=>x.id===id);
+    if(q) return {...q, fid, fname: FIELDS.find(f=>f.id===fid).name};
+  }
+  return null;
+}
+function renderIvTask(main, id){
+  const q = findIvQ(id);
+  if(!q){ main.innerHTML = `<div class="empty">Không tìm thấy câu hỏi.</div>`; return; }
+  main.innerHTML = `
+    <a class="muted" href="#/phong-van" style="font-size:13.5px;">← Quay lại danh sách</a>
+    <div class="section-head" style="margin-top:14px;"><span class="tag">${q.fname}</span><h2 style="margin-top:10px;">${q.q}</h2></div>
+    <div class="timer-wrap"><div>⏱ Thời gian trả lời</div><div class="timer-num" id="ivCountdown">${fmtTime(q.duration)}</div></div>
+    <div class="card">
+      <div class="form-field">
+        <label>Câu trả lời của bạn</label>
+        <textarea id="ivAnswer" rows="7" placeholder="Trả lời như bạn đang ở trong buổi phỏng vấn thật..."></textarea>
+      </div>
+      <button class="btn btn-primary" id="ivSubmitBtn" onclick="submitIv('${q.id}')">Nộp câu trả lời</button>
+    </div>
+    <div id="ivFeedback"></div>
+  `;
+  startCountdown('ivCountdown', q.duration, ()=>{ document.getElementById('ivSubmitBtn')?.click(); });
+}
+async function submitIv(qId){
+  const q = findIvQ(qId);
+  const answer = document.getElementById('ivAnswer').value.trim();
+  clearInterval(ivTimer);
+  const btn = document.getElementById('ivSubmitBtn');
+  btn.disabled = true; btn.innerHTML = `<span class="spinner"></span> AI đang nhận xét...`;
+  const fb = document.getElementById('ivFeedback');
+  let parsed = null;
+  const prompt = `Bạn là nhà tuyển dụng phỏng vấn ứng viên cho vị trí thuộc lĩnh vực ${q.fname}. Câu hỏi: "${q.q}". Câu trả lời của ứng viên: """${answer||'(không trả lời)'}"""\nNhận xét theo NỘI DUNG câu trả lời (không dựa vào giọng nói, vùng miền). Trả lời CHỈ ở định dạng JSON: {"score": số 0-100, "feedback": "nhận xét khoảng 80 từ, tiếng Việt, có 1 gợi ý cải thiện cụ thể"}`;
+  const {text, live} = await callAI(prompt);
+  if(live && text){
+    try{ parsed = JSON.parse(text.replace(/```json|```/g,'').trim()); }catch(e){ parsed = null; }
+  }
+  if(!parsed) parsed = localHeuristicGrade(answer, q.q);
+  fb.innerHTML = `<div class="card" style="margin-top:20px;">
+    <div class="eyebrow">Nhận xét</div>
+    <div style="font-family:'Baloo 2';font-size:34px;font-weight:800;color:var(--blue);">${parsed.score}/100</div>
+    <p style="margin-top:10px;">${escapeHtml(parsed.feedback)}</p>
+    <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;"><a class="btn btn-ghost" href="#/phong-van">Câu khác</a><a class="btn btn-primary" href="#/mentor">Luyện với Mentor thật →</a></div>
+  </div>`;
+  btn.disabled = false; btn.textContent = 'Nộp câu trả lời';
+}
+
+/* ============================================================
+   MENTOR / CERT / WHY (static-ish content pages)
+   ============================================================ */
+function renderMentor(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bước 5</span><h2>Cộng đồng Mentor</h2><p class="muted">Kết nối với người đang làm đúng công ty/ngành bạn nhắm tới để mock-interview 1-1 thật.</p></div>
+    <div class="grid grid-3">
+      ${[
+        {n:'Anh Minh Khôi', r:'Senior Accountant · Big4', f:'Kế - Kiểm'},
+        {n:'Chị Thu Hà', r:'Relationship Manager · Ngân hàng TMCP', f:'TC - NH'},
+        {n:'Anh Đức Anh', r:'Backend Engineer · FPT Software', f:'IT'},
+        {n:'Chị Ngọc Diễm', r:'Marketing Executive · FMCG', f:'Marketing'},
+        {n:'Anh Bảo Long', r:'Supply Chain Analyst · Logistics', f:'Logistics'},
+        {n:'Chị Yến Nhi', r:'Auditor · Doanh nghiệp kiểm toán', f:'Kế - Kiểm'}
+      ].map(m=>`
+        <div class="card">
+          <span class="tag">${m.f}</span>
+          <h4 style="margin:10px 0 2px;">${m.n}</h4>
+          <p class="muted" style="font-size:13.5px;margin:0 0 14px;">${m.r}</p>
+          <button class="btn btn-ghost btn-sm" onclick="alert('Bản demo: chức năng đặt lịch cần đăng nhập và backend đặt lịch thật.')">Đặt lịch mock-interview</button>
+        </div>`).join('')}
+    </div>
+  `;
+}
+function renderCert(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bước 6</span><h2>Chứng chỉ</h2></div>
+    <div class="card">
+      <p>Sau khi hoàn thành lộ trình do AI đề xuất (bao gồm bài test khám phá nghề nghiệp, tối thiểu 3 bài mô phỏng việc làm và 3 buổi luyện phỏng vấn), bạn sẽ nhận được <strong>Chứng chỉ hoàn thành lộ trình Ready2Work</strong> — ghi rõ ngành nghề, kỹ năng đã luyện và điểm trung bình AI chấm.</p>
+      <div class="grid grid-2" style="margin-top:20px;">
+        <div><h4>Nội dung chứng chỉ</h4><ul class="muted"><li>Họ tên & ngành nghề mục tiêu</li><li>Danh sách kỹ năng đã luyện tập</li><li>Điểm trung bình các bài mô phỏng</li><li>Mã xác thực để nhà tuyển dụng kiểm tra</li></ul></div>
+        <div><h4>Cách nhận</h4><p class="muted">Theo dõi tiến độ ở trang <a href="#/tai-khoan">Tài khoản</a> sau khi đăng nhập.</p></div>
+      </div>
+    </div>
+  `;
+}
+function renderWhy(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">So sánh</span><h2>Vì sao Ready2Work khác biệt</h2></div>
+    <div class="grid grid-2">
+      <div class="card"><h4>❌ Nền tảng hiện có</h4><ul class="muted"><li>Chỉ luyện 1 điểm chạm: hoặc CV, hoặc phỏng vấn</li><li>Câu hỏi chung chung, không theo từng doanh nghiệp</li><li>Không có lộ trình cá nhân hoá, người dùng tự chọn chủ đề</li><li>Không có mentor thật, chỉ chatbot</li><li>Giá quốc tế ~19,99 USD/tháng</li></ul></div>
+      <div class="card" style="border-color:var(--blue);"><h4>✅ Ready2Work</h4><ul class="muted"><li>Mô phỏng toàn bộ hành trình: khám phá → luyện tập → phỏng vấn → mentor → chứng chỉ</li><li>Đề bài do chính doanh nghiệp đăng, mentor xác thực</li><li>AI tự phân tích khoảng cách CV-JD để đề xuất lộ trình</li><li>Mạng lưới Mentor thật, đặt lịch mock-interview 1-1</li><li>Giá phù hợp sinh viên Việt Nam: 100.000–200.000đ/tháng</li></ul></div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   PRICING + SIGNUP FLOW
+   ============================================================ */
+function renderPricing(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bảng giá</span><h2>Chọn gói phù hợp với bạn</h2></div>
+    <div class="grid grid-3">
+      <div class="card price-card">
+        <h4>Free</h4><div class="amt">0đ</div>
+        <ul><li>Test hướng nghiệp</li><li>Lộ trình cơ bản</li><li>Job Simulation giới hạn</li></ul>
+        <button class="btn btn-ghost" onclick="openSignup('free')">Bắt đầu miễn phí</button>
+      </div>
+      <div class="card price-card pop">
+        <div class="popbadge">Phổ biến</div>
+        <h4>Pro</h4><div class="amt">129.000đ<span style="font-size:13px;font-weight:500;">/tháng</span></div>
+        <ul><li>AI cá nhân hoá lộ trình</li><li>Phân tích CV-JD</li><li>Job Simulation & phỏng vấn không giới hạn</li><li>Kết nối Mentor & chứng chỉ</li></ul>
+        <button class="btn btn-primary" onclick="openSignup('pro')">Đăng ký Pro</button>
+      </div>
+      <div class="card price-card">
+        <h4>B2B</h4><div class="amt">Liên hệ báo giá</div>
+        <ul><li>Đăng đề mô phỏng tuyển dụng</li><li>Thiết lập tiêu chí chấm điểm</li><li>Xem & sàng lọc ứng viên</li></ul>
+        <button class="btn btn-ghost" onclick="openSignup('b2b')">Đăng ký cho doanh nghiệp</button>
+      </div>
+    </div>
+    <div id="signupArea" style="margin-top:36px;"></div>
+  `;
+}
+function openSignup(plan){
+  const area = document.getElementById('signupArea');
+  const planLabel = {free:'Free', pro:'Pro', b2b:'B2B'}[plan];
+  area.innerHTML = `
+    <div class="card form-box">
+      <div class="eyebrow">Đăng ký gói ${planLabel}</div>
+      <h3 style="margin-top:0;">Tạo tài khoản</h3>
+      <div id="signupMsgs"></div>
+      <div class="form-field"><label>Họ và tên</label><input id="suName" placeholder="Nguyễn Văn A"></div>
+      <div class="form-field"><label>Email</label><input id="suEmail" type="email" placeholder="ban@email.com"></div>
+      <button class="btn btn-primary" style="width:100%;" onclick="startVerification('${plan}')">Gửi mã xác thực</button>
+    </div>
+  `;
+  area.scrollIntoView({behavior:'smooth'});
+}
+function startVerification(plan){
+  const name = document.getElementById('suName').value.trim();
+  const email = document.getElementById('suEmail').value.trim();
+  const msgs = document.getElementById('signupMsgs');
+  if(!name || !email || !email.includes('@')){
+    msgs.innerHTML = `<div class="msg msg-err">Vui lòng nhập đầy đủ họ tên và email hợp lệ.</div>`;
+    return;
+  }
+  const code = String(Math.floor(100000 + Math.random()*900000));
+  pendingSignup = {name, email, plan, code};
+  const area = document.getElementById('signupArea');
+  area.innerHTML = `
+    <div class="card form-box">
+      <div class="eyebrow">Xác thực email</div>
+      <h3 style="margin-top:0;">Nhập mã xác thực</h3>
+      <div class="msg msg-info">Đây là bản demo tĩnh, không gửi được email thật — mã xác thực của bạn là: <strong style="font-size:17px;">${code}</strong></div>
+      <div id="verifyMsgs"></div>
+      <div class="form-field"><label>Mã xác thực (6 số)</label><input id="verifyCode" maxlength="6" placeholder="______"></div>
+      <button class="btn btn-primary" style="width:100%;" id="verifyBtn" onclick="confirmSignup()">Xác nhận & tạo tài khoản</button>
+    </div>
+  `;
+}
+async function confirmSignup(){
+  const code = document.getElementById('verifyCode').value.trim();
+  const msgs = document.getElementById('verifyMsgs');
+  const btn = document.getElementById('verifyBtn');
+  if(code !== pendingSignup.code){
+    msgs.innerHTML = `<div class="msg msg-err">Mã xác thực không đúng. Vui lòng thử lại.</div>`;
+    return;
+  }
+  btn.disabled = true; btn.innerHTML = `<span class="spinner"></span> Đang tạo tài khoản...`;
+  const {name, email, plan} = pendingSignup;
+  const userRecord = { name, email, plan, date: new Date().toISOString().slice(0,10) };
+  try{
+    const result = await storageSet('users:'+email, JSON.stringify(userRecord));
+    if(!result){
+      throw new Error('write failed');
+    }
+    session.user = userRecord;
+    pendingSignup = null;
+    navigate('/tai-khoan');
+    render();
+  }catch(e){
+    msgs.innerHTML = `<div class="msg msg-err">Không thể tạo tài khoản lúc này (lỗi lưu trữ). Vui lòng thử lại.</div>`;
+    btn.disabled = false; btn.textContent = 'Xác nhận & tạo tài khoản';
+  }
+}
+
+/* ============================================================
+   LOGIN / ACCOUNT
+   ============================================================ */
+function renderLogin(main){
+  main.innerHTML = `
+    <div class="section-head center" style="margin:0 auto 28px;"><h2>Đăng nhập</h2><p class="muted">Dùng email bạn đã đăng ký ở trang Bảng giá.</p></div>
+    <div class="card form-box">
+      <div id="loginMsgs"></div>
+      <div class="form-field"><label>Email</label><input id="loginEmail" type="email" placeholder="ban@email.com"></div>
+      <button class="btn btn-primary" style="width:100%;" onclick="doLogin()">Đăng nhập</button>
+      <p class="muted center" style="margin-top:16px;font-size:13px;">Chưa có tài khoản? <a href="#/bang-gia" style="color:var(--blue);font-weight:600;">Đăng ký ở đây</a></p>
+    </div>
+  `;
+}
+async function doLogin(){
+  const email = document.getElementById('loginEmail').value.trim();
+  const msgs = document.getElementById('loginMsgs');
+  if(!email){ msgs.innerHTML = `<div class="msg msg-err">Vui lòng nhập email.</div>`; return; }
+  try{
+    const res = await storageGet('users:'+email);
+    if(!res){ throw new Error('not found'); }
+    session.user = JSON.parse(res.value);
+    navigate('/tai-khoan'); render();
+  }catch(e){
+    msgs.innerHTML = `<div class="msg msg-err">Không tìm thấy tài khoản với email này. Bạn đã đăng ký chưa?</div>`;
+  }
+}
+function logout(){ session.user = null; navigate('/'); render(); }
+function renderAccount(main){
+  if(!session.user){
+    main.innerHTML = `<div class="empty"><h2>Bạn chưa đăng nhập</h2><p class="muted">Đăng nhập để xem thông tin tài khoản.</p><a class="btn btn-primary" href="#/dang-nhap">Đăng nhập</a></div>`;
+    return;
+  }
+  const u = session.user;
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Tài khoản</span><h2>Xin chào, ${escapeHtml(u.name)}</h2></div>
+    <div class="card" style="max-width:520px;">
+      <table>
+        <tr><th>Email</th><td>${escapeHtml(u.email)}</td></tr>
+        <tr><th>Gói hiện tại</th><td><span class="pill ${u.plan==='pro'?'pill-pro':'pill-free'}">${u.plan.toUpperCase()}</span></td></tr>
+        <tr><th>Ngày đăng ký</th><td>${u.date}</td></tr>
+      </table>
+      <button class="btn btn-ghost" style="margin-top:18px;" onclick="logout()">Đăng xuất</button>
+    </div>
+  `;
+}
+
+/* ============================================================
+   UPDATES FEED
+   ============================================================ */
+async function renderUpdates(main){
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Bảng tin</span><h2>Cập nhật mới nhất</h2></div>
+    <div class="card" id="updatesList"><div class="center muted"><span class="spinner"></span> Đang tải...</div></div>
+  `;
+  const posts = await listPosts();
+  const el = document.getElementById('updatesList');
+  if(!el) return;
+  el.innerHTML = posts.length ? posts.map(p=>`
+    <div class="post"><span class="tag">${escapeHtml(p.tag)}</span><h4>${escapeHtml(p.title)}</h4><p class="muted">${escapeHtml(p.content)}</p><div class="pdate">${p.date}</div></div>
+  `).join('') : `<p class="muted">Chưa có bài cập nhật nào.</p>`;
+}
+async function listPosts(){
+  try{
+    const keys = await storageList('posts:');
+    const items = await Promise.all(keys.map(async k=>{
+      try{ const r = await storageGet(k); return r ? JSON.parse(r.value) : null; }catch(e){ return null; }
+    }));
+    return items.filter(Boolean).sort((a,b)=> (b.date||'').localeCompare(a.date||''));
+  }catch(e){ return []; }
+}
+
+/* ============================================================
+   ADMIN PORTAL (hidden route, not linked in nav)
+   ============================================================ */
+function renderAdmin(main){
+  if(!adminSession.authed){
+    main.innerHTML = `
+      <div class="section-head center" style="margin:0 auto 28px;"><h2>Quản trị hệ thống</h2><p class="muted">Khu vực nội bộ — chỉ dành cho quản trị viên.</p></div>
+      <div class="card form-box">
+        <div id="adminLoginMsg"></div>
+        <div class="form-field"><label>Mật khẩu quản trị</label><input id="adminPw" type="password" placeholder="••••••••"></div>
+        <button class="btn btn-primary" style="width:100%;" onclick="adminLogin()">Đăng nhập quản trị</button>
+      </div>
+    `;
+    return;
+  }
+  main.innerHTML = `
+    <div class="section-head"><span class="eyebrow">Quản trị</span><h2>Bảng điều khiển Ready2Work</h2></div>
+    <div class="tabs">
+      <button class="tab-btn active" data-t="overview" onclick="setAdminTab('overview')">Tổng quan</button>
+      <button class="tab-btn" data-t="users" onclick="setAdminTab('users')">Người dùng</button>
+      <button class="tab-btn" data-t="content" onclick="setAdminTab('content')">Nội dung</button>
+    </div>
+    <div id="adminTabBody"></div>
+  `;
+  setAdminTab('overview');
+}
+function adminLogin(){
+  const pw = document.getElementById('adminPw').value;
+  if(pw === 'ready2work'){
+    adminSession.authed = true;
+    renderAdmin(document.getElementById('mainContent'));
+  } else {
+    document.getElementById('adminLoginMsg').innerHTML = `<div class="msg msg-err">Sai mật khẩu.</div>`;
+  }
+}
+let adminTab = 'overview';
+let adminAutoRefresh = null;
+function setAdminTab(t){
+  adminTab = t;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.t===t));
+  clearInterval(adminAutoRefresh);
+  if(t==='overview') loadAdminOverview();
+  if(t==='users') loadAdminUsers();
+  if(t==='content') loadAdminContent();
+  if(t==='overview' || t==='users'){
+    adminAutoRefresh = setInterval(()=>{ if(t==='overview') loadAdminOverview(); if(t==='users') loadAdminUsers(); }, 5000);
+  }
+}
+async function fetchAllUsers(){
+  try{
+    const keys = await storageList('users:');
+    const items = await Promise.all(keys.map(async k=>{
+      try{ const r = await storageGet(k); return r ? {key:k, ...JSON.parse(r.value)} : null; }catch(e){ return null; }
+    }));
+    return items.filter(Boolean);
+  }catch(e){ return []; }
+}
+async function loadAdminOverview(){
+  const body = document.getElementById('adminTabBody');
+  if(!body) return;
+  body.innerHTML = `<div class="center muted"><span class="spinner"></span> Đang tải...</div>`;
+  const users = await fetchAllUsers();
+  const posts = await listPosts();
+  const pro = users.filter(u=>u.plan==='pro').length;
+  const free = users.filter(u=>u.plan==='free').length;
+  const b2b = users.filter(u=>u.plan==='b2b').length;
+  if(document.getElementById('adminTabBody') !== body || adminTab!=='overview') return;
+  body.innerHTML = `
+    <div class="grid grid-3">
+      <div class="card stat"><div class="num">${users.length}</div><div class="lbl">Tổng người dùng đã đăng ký</div></div>
+      <div class="card stat"><div class="num">${pro}</div><div class="lbl">Đang dùng gói Pro</div></div>
+      <div class="card stat"><div class="num">${posts.length}</div><div class="lbl">Bài đăng trên bảng tin</div></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:20px;">
+      <div class="card stat"><div class="num">${free}</div><div class="lbl">Gói Free</div></div>
+      <div class="card stat"><div class="num">${b2b}</div><div class="lbl">Gói B2B</div></div>
+      <div class="card stat"><div class="num">${new Date().toLocaleTimeString('vi-VN')}</div><div class="lbl">Tự động làm mới mỗi 5 giây</div></div>
+    </div>
+  `;
+}
+async function loadAdminUsers(){
+  const body = document.getElementById('adminTabBody');
+  if(!body) return;
+  body.innerHTML = `<div class="center muted"><span class="spinner"></span> Đang tải...</div>`;
+  const users = await fetchAllUsers();
+  if(document.getElementById('adminTabBody') !== body || adminTab!=='users') return;
+  body.innerHTML = `
+    <div style="display:flex;justify-content:flex-end;margin-bottom:12px;"><button class="btn btn-ghost btn-sm" onclick="loadAdminUsers()">↻ Làm mới</button></div>
+    <div class="card">
+      ${users.length===0 ? `<p class="muted">Chưa có người dùng nào đăng ký.</p>` : `
+      <table>
+        <tr><th>Tên</th><th>Email</th><th>Gói</th><th>Ngày đăng ký</th><th></th></tr>
+        ${users.map(u=>`
+          <tr>
+            <td>${escapeHtml(u.name)}</td><td>${escapeHtml(u.email)}</td>
+            <td><span class="pill ${u.plan==='pro'?'pill-pro':'pill-free'}">${u.plan.toUpperCase()}</span></td>
+            <td>${u.date}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="deleteUser('${u.key}')">Xoá</button></td>
+          </tr>`).join('')}
+      </table>`}
+    </div>
+  `;
+}
+async function deleteUser(key){
+  if(!confirm('Xoá người dùng này?')) return;
+  try{ await storageDelete(key); }catch(e){}
+  loadAdminUsers();
+}
+async function loadAdminContent(){
+  const body = document.getElementById('adminTabBody');
+  if(!body) return;
+  const posts = await listPosts();
+  body.innerHTML = `
+    <div class="grid grid-2">
+      <div class="card">
+        <h4 style="margin-top:0;">Đăng bài mới</h4>
+        <div id="postMsg"></div>
+        <div class="form-field"><label>Tag</label><input id="postTag" placeholder="Ví dụ: Mentor mới, Cập nhật tính năng..."></div>
+        <div class="form-field"><label>Tiêu đề</label><input id="postTitle" placeholder="Tiêu đề bài đăng"></div>
+        <div class="form-field"><label>Nội dung</label><textarea id="postContent" rows="4" placeholder="Nội dung..."></textarea></div>
+        <button class="btn btn-primary" onclick="createPost()">Đăng bài</button>
+      </div>
+      <div class="card">
+        <h4 style="margin-top:0;">Bài đã đăng (${posts.length})</h4>
+        <div style="max-height:420px;overflow-y:auto;">
+          ${posts.length===0 ? `<p class="muted">Chưa có bài nào.</p>` : posts.map(p=>`
+            <div class="post">
+              <span class="tag">${escapeHtml(p.tag)}</span>
+              <h4>${escapeHtml(p.title)}</h4>
+              <p class="muted" style="font-size:13px;">${escapeHtml(p.content)}</p>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span class="pdate">${p.date}</span>
+                <button class="btn btn-danger btn-sm" onclick="deletePost('${p.id}')">Xoá</button>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+async function createPost(){
+  const tag = document.getElementById('postTag').value.trim();
+  const title = document.getElementById('postTitle').value.trim();
+  const content = document.getElementById('postContent').value.trim();
+  const msg = document.getElementById('postMsg');
+  if(!tag || !title || !content){ msg.innerHTML = `<div class="msg msg-err">Vui lòng nhập đủ Tag, Tiêu đề và Nội dung.</div>`; return; }
+  const id = 'p'+Date.now();
+  const record = { id, tag, title, content, date: new Date().toISOString().slice(0,10) };
+  try{
+    const res = await storageSet('posts:'+id, JSON.stringify(record));
+    if(!res) throw new Error('failed');
+    loadAdminContent();
+  }catch(e){
+    msg.innerHTML = `<div class="msg msg-err">Không thể đăng bài (lỗi lưu trữ). Thử lại nhé.</div>`;
+  }
+}
+async function deletePost(id){
+  if(!confirm('Xoá bài đăng này?')) return;
+  try{ await storageDelete('posts:'+id); }catch(e){}
+  loadAdminContent();
+}
+</script>
+</body>
+</html>

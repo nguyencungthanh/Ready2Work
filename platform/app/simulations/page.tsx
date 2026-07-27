@@ -23,8 +23,8 @@ export default async function SimulationsPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <h1 className="text-2xl font-semibold text-gray-900">Job simulation</h1>
-      <p className="mt-2 text-sm text-gray-600">
+      <h1 className="text-2xl font-semibold text-foreground">Job simulation</h1>
+      <p className="mt-2 text-sm text-muted">
         Choose an industry and position, then complete a realistic work task and get
         rubric-based feedback.
       </p>
@@ -32,7 +32,7 @@ export default async function SimulationsPage() {
       <div className="mt-8 space-y-8">
         {[...byIndustry.entries()].map(([industry, items]) => (
           <section key={industry}>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
               {industry}
             </h2>
             <div className="mt-3 space-y-3">
@@ -40,10 +40,10 @@ export default async function SimulationsPage() {
                 <Link
                   key={sim.id}
                   href={`/simulations/${sim.slug}`}
-                  className="block rounded-md border border-gray-200 p-4 hover:border-gray-400"
+                  className="block rounded-md border border-border p-4 hover:border-primary transition-colors duration-200"
                 >
-                  <p className="font-medium text-gray-900">{sim.position_title}</p>
-                  <p className="mt-1 text-sm text-gray-600">
+                  <p className="font-medium text-foreground">{sim.position_title}</p>
+                  <p className="mt-1 text-sm text-muted">
                     ~{sim.estimated_minutes} min · {sim.brief}
                   </p>
                 </Link>
@@ -54,7 +54,7 @@ export default async function SimulationsPage() {
       </div>
 
       {(simulations ?? []).length === 0 && (
-        <p className="mt-8 text-sm text-gray-500">No simulations are published yet.</p>
+        <p className="mt-8 text-sm text-muted">No simulations are published yet.</p>
       )}
     </main>
   );

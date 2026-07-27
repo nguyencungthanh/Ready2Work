@@ -50,15 +50,15 @@ export default async function InterviewSessionPage({
   if (!next) {
     return (
       <div className="mx-auto max-w-2xl px-6 py-12">
-        <h1 className="text-xl font-semibold text-gray-900">All questions answered</h1>
-        <p className="mt-2 text-sm text-gray-600">
+        <h1 className="text-xl font-semibold text-foreground">All questions answered</h1>
+        <p className="mt-2 text-sm text-muted">
           You have answered all {total} questions. Finish the session to see your feedback.
         </p>
         <form action={completeInterviewSessionAction} className="mt-6">
           <input type="hidden" name="sessionId" value={sessionId} />
           <button
             type="submit"
-            className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
           >
             Finish and see feedback
           </button>
@@ -71,13 +71,13 @@ export default async function InterviewSessionPage({
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-12">
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-muted">
         Question {currentIndex + 1} of {total}
       </p>
-      <h1 className="mt-2 text-xl font-semibold text-gray-900">{next.prompt}</h1>
-      {next.guidance && <p className="mt-2 text-sm text-gray-600">{next.guidance}</p>}
+      <h1 className="mt-2 text-xl font-semibold text-foreground">{next.prompt}</h1>
+      {next.guidance && <p className="mt-2 text-sm text-muted">{next.guidance}</p>}
 
-      <AnswerForm sessionId={sessionId} questionId={next.id} />
+      <AnswerForm key={next.id} sessionId={sessionId} questionId={next.id} />
     </div>
   );
 }

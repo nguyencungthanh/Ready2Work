@@ -45,7 +45,7 @@ export function AuthForm({ action, fields, submitLabel, checkbox, hidden }: Auth
         const fieldError = state.fieldErrors?.[field.name];
         return (
           <div key={field.name}>
-            <label htmlFor={field.name} className="block text-sm font-medium text-gray-800">
+            <label htmlFor={field.name} className="block text-sm font-medium text-foreground">
               {field.label}
             </label>
             <input
@@ -56,7 +56,7 @@ export function AuthForm({ action, fields, submitLabel, checkbox, hidden }: Auth
               required={field.required ?? true}
               aria-invalid={fieldError ? true : undefined}
               aria-describedby={fieldError ? errorId : undefined}
-              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900"
+              className="mt-1 w-full rounded-md border border-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors duration-200"
             />
             {fieldError && (
               <p id={errorId} className="mt-1 text-sm text-red-700">
@@ -69,7 +69,7 @@ export function AuthForm({ action, fields, submitLabel, checkbox, hidden }: Auth
 
       {checkbox && (
         <div>
-          <label htmlFor={checkbox.name} className="flex items-start gap-2 text-sm text-gray-800">
+          <label htmlFor={checkbox.name} className="flex items-start gap-2 text-sm text-foreground">
             <input
               id={checkbox.name}
               name={checkbox.name}
@@ -77,7 +77,7 @@ export function AuthForm({ action, fields, submitLabel, checkbox, hidden }: Auth
               aria-describedby={
                 state.fieldErrors?.[checkbox.name] ? `${checkbox.name}-error` : undefined
               }
-              className="mt-1"
+              className="mt-1 transition-colors duration-200"
             />
             <span>{checkbox.label}</span>
           </label>
@@ -92,7 +92,7 @@ export function AuthForm({ action, fields, submitLabel, checkbox, hidden }: Auth
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-60"
+        className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
       >
         {pending ? "Working…" : submitLabel}
       </button>

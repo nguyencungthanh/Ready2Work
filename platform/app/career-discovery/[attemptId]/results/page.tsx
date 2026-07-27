@@ -62,68 +62,68 @@ export default async function ResultsPage({
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <Link href="/dashboard" className="text-sm text-gray-600 underline">
+      <Link href="/dashboard" className="text-sm text-muted underline transition-colors duration-200">
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-gray-900">Your results</h1>
+      <h1 className="mt-4 text-2xl font-semibold text-foreground">Your results</h1>
 
       <section className="mt-8">
-        <h2 className="text-lg font-medium text-gray-900">Your interest profile</h2>
+        <h2 className="text-lg font-medium text-foreground">Your interest profile</h2>
         <dl className="mt-4 space-y-3">
           {RIASEC_DIMENSIONS.map((dimension) => (
             <div key={dimension} className="flex items-center gap-4">
-              <dt className="w-64 shrink-0 text-sm text-gray-700">
+              <dt className="w-64 shrink-0 text-sm text-muted">
                 {DIMENSION_LABELS[dimension]}
               </dt>
               <dd className="flex flex-1 items-center gap-3">
-                <div className="h-2 flex-1 overflow-hidden rounded-full bg-gray-200">
+                <div className="h-2 flex-1 overflow-hidden rounded-full bg-border">
                   <div
-                    className="h-full bg-gray-900"
+                    className="h-full bg-primary"
                     style={{ width: `${scores[dimension]}%` }}
                   />
                 </div>
-                <span className="w-10 text-right text-sm tabular-nums text-gray-900">
+                <span className="w-10 text-right text-sm tabular-nums text-foreground">
                   {scores[dimension]}
                 </span>
               </dd>
             </div>
           ))}
         </dl>
-        <p className="mt-4 text-sm text-gray-600">
+        <p className="mt-4 text-sm text-muted">
           Your strongest areas are{" "}
           <strong>{strongest.map((d) => DIMENSION_LABELS[d].split(" (")[0]).join(", ")}</strong>.
         </p>
       </section>
 
       <section className="mt-10">
-        <h2 className="text-lg font-medium text-gray-900">Top 3 career matches</h2>
+        <h2 className="text-lg font-medium text-foreground">Top 3 career matches</h2>
         <ul className="mt-4 space-y-4">
           {(recommendations ?? []).map((recommendation) => {
             const career = recommendation.careers as unknown as CareerRow;
             if (!career) return null;
 
             return (
-              <li key={recommendation.id} className="rounded-lg border border-gray-200 p-5">
+              <li key={recommendation.id} className="rounded-lg border border-border p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-medium text-gray-900">
+                    <h3 className="font-medium text-foreground">
                       {recommendation.rank}. {career.title}
                     </h3>
-                    <p className="text-sm text-gray-600">{career.industry}</p>
+                    <p className="text-sm text-muted">{career.industry}</p>
                   </div>
-                  <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-900">
+                  <span className="shrink-0 rounded-full bg-navy-700 px-3 py-1 text-sm font-medium text-foreground">
                     {recommendation.match_score}% match
                   </span>
                 </div>
 
-                <p className="mt-3 text-sm text-gray-700">{career.summary}</p>
+                <p className="mt-3 text-sm text-muted">{career.summary}</p>
 
                 <details className="mt-3">
-                  <summary className="cursor-pointer text-sm font-medium text-gray-900">
+                  <summary className="cursor-pointer text-sm font-medium text-foreground">
                     Why this result?
                   </summary>
-                  <div className="mt-2 space-y-1 text-sm text-gray-700">
+                  <div className="mt-2 space-y-1 text-sm text-muted">
                     <p>
                       Match compares your six scores against this career&apos;s expected profile.
                       A perfect match scores 100.
@@ -147,7 +147,7 @@ export default async function ResultsPage({
                   />
                   <Link
                     href={`/roadmap/new?careerId=${career.id}`}
-                    className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-700"
+                    className="rounded-md bg-primary px-3 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
                   >
                     Continue to AI Roadmap
                   </Link>
@@ -160,12 +160,12 @@ export default async function ResultsPage({
 
       {majors.length > 0 && (
         <section className="mt-10">
-          <h2 className="text-lg font-medium text-gray-900">Recommended academic majors</h2>
+          <h2 className="text-lg font-medium text-foreground">Recommended academic majors</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
             {majors.map((major) => (
               <li
                 key={major}
-                className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-800"
+                className="rounded-full bg-navy-700 px-3 py-1 text-sm text-foreground"
               >
                 {major}
               </li>
@@ -174,7 +174,7 @@ export default async function ResultsPage({
         </section>
       )}
 
-      <p className="mt-10 text-sm text-gray-600">
+      <p className="mt-10 text-sm text-muted">
         These are suggestions to explore, not predictions. Your interests can change, and this
         assessment measures preference rather than ability.
       </p>

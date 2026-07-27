@@ -28,8 +28,8 @@ export default async function InterviewsPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
-      <h1 className="text-2xl font-semibold text-gray-900">Interview Practice</h1>
-      <p className="mt-2 text-sm text-gray-600">
+      <h1 className="text-2xl font-semibold text-foreground">Interview Practice</h1>
+      <p className="mt-2 text-sm text-muted">
         Choose an industry, then a general or company-specific interview round. Answers are
         scored on content only - accent, voice, and identity are never scoring criteria.
       </p>
@@ -40,7 +40,7 @@ export default async function InterviewsPage() {
           if (industrySets.length === 0) return null;
           return (
             <section key={industry}>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
                 {industry}
               </h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
@@ -48,13 +48,13 @@ export default async function InterviewsPage() {
                   <Link
                     key={set.id}
                     href={`/interviews/${set.slug}`}
-                    className="rounded-lg border border-gray-200 p-4 hover:border-gray-400"
+                    className="rounded-lg border border-border p-4 hover:border-primary transition-colors duration-200"
                   >
-                    <p className="font-medium text-gray-900">
+                    <p className="font-medium text-foreground">
                       {set.company_name ? `${set.company_name} - ` : ""}
                       {set.position_title}
                     </p>
-                    <p className="mt-1 text-sm text-gray-600">{set.description}</p>
+                    <p className="mt-1 text-sm text-muted">{set.description}</p>
                   </Link>
                 ))}
               </div>

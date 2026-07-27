@@ -24,7 +24,7 @@ export function SaveResultButton({
           setSaved(next);
         })
       }
-      className="rounded-md border border-gray-300 px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50 disabled:opacity-60"
+      className="rounded-md border border-border px-3 py-2 text-sm font-medium text-foreground hover:bg-surface disabled:opacity-60 transition-colors duration-200"
     >
       {saved ? "Saved ✓" : "Save Result"}
     </button>

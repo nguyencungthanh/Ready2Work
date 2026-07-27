@@ -15,7 +15,7 @@ export function SubmissionForm({ simulationId }: { simulationId: string }) {
         </p>
       )}
 
-      <label htmlFor="content" className="block text-sm font-medium text-gray-800">
+      <label htmlFor="content" className="block text-sm font-medium text-foreground">
         Your submission
       </label>
       <textarea
@@ -23,13 +23,13 @@ export function SubmissionForm({ simulationId }: { simulationId: string }) {
         name="content"
         rows={14}
         required
-        className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900"
+        className="w-full rounded-md border border-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
       />
 
       <button
         type="submit"
         disabled={pending}
-        className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700 disabled:opacity-60"
+        className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover disabled:opacity-60 transition-colors duration-200"
       >
         {pending ? "Submitting…" : "Submit"}
       </button>

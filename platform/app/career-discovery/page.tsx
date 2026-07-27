@@ -24,18 +24,18 @@ export default async function CareerDiscoveryPage() {
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
-      <Link href="/dashboard" className="text-sm text-gray-600 underline">
+      <Link href="/dashboard" className="text-sm text-muted underline transition-colors duration-200">
         ← Dashboard
       </Link>
 
-      <h1 className="mt-4 text-2xl font-semibold text-gray-900">Career Discovery</h1>
-      <p className="mt-2 text-sm text-gray-600">
+      <h1 className="mt-4 text-2xl font-semibold text-foreground">Career Discovery</h1>
+      <p className="mt-2 text-sm text-muted">
         Answer {count ?? 30} short questions about how you like to work. We score your interests
         across six dimensions and match them against career profiles.
       </p>
 
-      <div className="mt-6 rounded-lg border border-gray-200 p-5 text-sm text-gray-700">
-        <h2 className="font-medium text-gray-900">How scoring works</h2>
+      <div className="mt-6 rounded-lg border border-border p-5 text-sm text-muted">
+        <h2 className="font-medium text-foreground">How scoring works</h2>
         <p className="mt-2">
           Your answers are scored with a fixed formula, not an AI guess, so the same answers always
           give the same result. You can see every factor behind your matches on the results page.
@@ -43,11 +43,11 @@ export default async function CareerDiscoveryPage() {
       </div>
 
       {previous && (
-        <p className="mt-6 text-sm text-gray-600">
+        <p className="mt-6 text-sm text-muted">
           You completed this before.{" "}
           <Link
             href={`/career-discovery/${previous.id}/results`}
-            className="font-medium text-gray-900 underline"
+            className="font-medium text-primary underline transition-colors duration-200"
           >
             View your previous results
           </Link>
@@ -57,7 +57,7 @@ export default async function CareerDiscoveryPage() {
       <form action={startAssessmentAction} className="mt-6">
         <button
           type="submit"
-          className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-700"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover transition-colors duration-200"
         >
           Start Assessment
         </button>
