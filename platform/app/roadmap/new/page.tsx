@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import { generateRoadmapAction } from "../actions";
+import { RoadmapPlanner } from "./roadmap-planner";
 
 export const metadata = { title: "Generate roadmap" };
 
@@ -19,15 +19,9 @@ export default async function NewRoadmapPage({
     .select("id, title, industry, summary")
     .order("industry");
 
-  const selected = careerId ? careers?.find((c) => c.id === careerId) : undefined;
-
-  async function generate(formData: FormData) {
-    "use server";
-    const id = formData.get("careerId");
-    if (typeof id === "string") {
-      await generateRoadmapAction(id);
-    }
-  }
+  const careerOptions = careers ?? [];
+  const selected = careerId ? careerOptions.find((career) => career.id === careerId) : undefined;
+  const initialCareerId = selected?.id ?? careerOptions[0]?.id ?? "";
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">
@@ -41,32 +35,7 @@ export default async function NewRoadmapPage({
         required skills, so you can see exactly why each step is there.
       </p>
 
-      <form action={generate} className="mt-8 space-y-4">
-        <div>
-          <label htmlFor="careerId" className="block text-sm font-medium text-foreground">
-            Target career
-          </label>
-          <select
-            id="careerId"
-            name="careerId"
-            defaultValue={selected?.id ?? ""}
-            className="mt-1 w-full rounded-md border border-border px-3 py-2 text-sm"
-          >
-            {(careers ?? []).map((career) => (
-              <option key={career.id} value={career.id}>
-                {career.title} — {career.industry}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button
-          type="submit"
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
-        >
-          Generate Roadmap
-        </button>
-      </form>
+      <RoadmapPlanner careers={careerOptions} initialCareerId={initialCareerId} />
     </main>
   );
 }

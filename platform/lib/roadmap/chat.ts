@@ -27,15 +27,26 @@ function buildSystemContext(career: RoadmapChatCareer, steps: RoadmapStepSummary
     )
     .join("\n");
 
+  const roadmapContext =
+    steps.length > 0
+      ? [
+          "The user's current roadmap steps are:",
+          stepList,
+          "",
+          "Answer questions about the roadmap, explain why a step matters, suggest how to approach a step, or give general career-preparation advice.",
+        ]
+      : [
+          "The user has not generated their roadmap yet.",
+          "Help them understand this career, decide what to prioritize, and ask useful questions before creating a roadmap.",
+        ];
+
   return [
     "You are a career coach helping a student follow their personalized roadmap toward a target career.",
     `Target career: ${career.title} (${career.industry}).`,
     `Key skills for this career: ${career.key_skills.join(", ")}.`,
-    "The user's current roadmap steps are:",
-    stepList,
-    "",
-    "Answer questions about the roadmap, explain why a step matters, suggest how to approach a step, or give general career-preparation advice.",
+    ...roadmapContext,
     "Keep replies concise (a few sentences, or a short list). Do not invent facts about the user beyond what is given here.",
+    "Format the answer for direct display: preserve intentional line breaks and use '- ' bullets for lists. Do not wrap the answer in a code block.",
     "Make clear this is coaching advice, not a guarantee of employment, if relevant.",
   ].join("\n");
 }

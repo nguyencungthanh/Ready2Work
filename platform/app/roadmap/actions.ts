@@ -67,6 +67,15 @@ export async function generateRoadmapAction(careerId: string): Promise<void> {
   redirect(`/roadmap/${roadmap.id}`);
 }
 
+/** Form-compatible entry point used by the client-side roadmap planner. */
+export async function generateRoadmapFromFormAction(formData: FormData): Promise<void> {
+  const careerId = formData.get("careerId");
+  if (typeof careerId !== "string" || careerId.length === 0) {
+    throw new Error("Choose a career before generating your roadmap.");
+  }
+  await generateRoadmapAction(careerId);
+}
+
 /** Marks a step complete or incomplete (the "Update Progress" button). */
 export async function toggleStepAction(stepId: string, completed: boolean): Promise<void> {
   await requireUser();
@@ -82,6 +91,75 @@ export async function toggleStepAction(stepId: string, completed: boolean): Prom
 
 export interface ChatFormState {
   error?: string;
+}
+
+export interface PlanningChatFormState {
+  messages: RoadmapChatMessage[];
+  error?: string;
+}
+
+/**
+ * Career coaching before a roadmap exists. The conversation is intentionally
+ * ephemeral; once the roadmap is generated, its grounded chat is persisted.
+ */
+export async function sendPlanningChatMessageAction(
+  previous: PlanningChatFormState,
+  formData: FormData,
+): Promise<PlanningChatFormState> {
+  await requireUser();
+  const careerId = String(formData.get("careerId") ?? "");
+  const message = String(formData.get("message") ?? "").trim();
+
+  if (!careerId) {
+    return { messages: previous.messages, error: "Choose a career first." };
+  }
+  if (!message) {
+    return { messages: previous.messages, error: "Write a message before sending." };
+  }
+  if (message.length > 2_000) {
+    return { messages: previous.messages, error: "Keep your message under 2,000 characters." };
+  }
+
+  const supabase = await createServerSupabaseClient();
+  const { data: career } = await supabase
+    .from("careers")
+    .select("title, industry, key_skills")
+    .eq("id", careerId)
+    .maybeSingle();
+
+  if (!career) {
+    return { messages: previous.messages, error: "That career could not be found." };
+  }
+
+  const safePreviousMessages = previous.messages
+    .slice(-10)
+    .filter((entry) => entry.role === "user" || entry.role === "assistant")
+    .map((entry) => ({
+      role: entry.role,
+      content: String(entry.content).slice(0, 4_000),
+    }));
+
+  const history: RoadmapChatMessage[] = [
+    ...safePreviousMessages,
+    { role: "user", content: message },
+  ];
+
+  try {
+    const reply = await replyToRoadmapChat(career, [], history);
+    return {
+      messages: [...history, { role: "assistant", content: reply }],
+    };
+  } catch (err) {
+    logger.error("roadmap_planning_chat_failed", {
+      operation: "sendPlanningChatMessageAction",
+      domain: "roadmap",
+      error_code: err instanceof Error ? err.message : "UNKNOWN",
+    });
+    return {
+      messages: previous.messages,
+      error: "Could not get a reply right now. Please try again.",
+    };
+  }
 }
 
 /** Sends a chat message about the roadmap and stores the AI's reply. */
