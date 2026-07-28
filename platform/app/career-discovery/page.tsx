@@ -9,18 +9,17 @@ export default async function CareerDiscoveryPage() {
   const user = await requireUser();
   const supabase = await createServerSupabaseClient();
 
-  const { data: previous } = await supabase
-    .from("assessment_attempts")
-    .select("id, submitted_at")
-    .eq("user_id", user.id)
-    .not("submitted_at", "is", null)
-    .order("submitted_at", { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  const { count } = await supabase
-    .from("assessment_questions")
-    .select("id", { count: "exact", head: true });
+  const [{ data: previous }, { count }] = await Promise.all([
+    supabase
+      .from("assessment_attempts")
+      .select("id, submitted_at")
+      .eq("user_id", user.id)
+      .not("submitted_at", "is", null)
+      .order("submitted_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
+    supabase.from("assessment_questions").select("id", { count: "exact", head: true }),
+  ]);
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12">

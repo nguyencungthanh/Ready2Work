@@ -11,7 +11,7 @@ const PROTECTED_PREFIXES = [
   "/career-discovery",
   "/roadmap",
   "/simulations",
-  "/interview",
+  "/interviews",
 ];
 
 // Signed-in users have no reason to revisit these.
@@ -45,22 +45,24 @@ export async function proxy(request: NextRequest) {
   });
 
   // Validates the token with the auth server and refreshes it when needed.
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // getClaims verifies the session JWT against Supabase's cached signing
+  // keys. Unlike getUser(), it does not put the regional Auth server in the
+  // hot path for every request when asymmetric signing keys are enabled.
+  const { data, error } = await supabase.auth.getClaims();
+  const isAuthenticated = !error && Boolean(data?.claims.sub);
 
   const pathname = request.nextUrl.pathname;
   const isProtected = PROTECTED_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
 
-  if (isProtected && !user) {
+  if (isProtected && !isAuthenticated) {
     const signInUrl = new URL("/signin", request.url);
     signInUrl.searchParams.set("next", pathname);
     return NextResponse.redirect(signInUrl);
   }
 
-  if (user && AUTH_ROUTES.includes(pathname)) {
+  if (isAuthenticated && AUTH_ROUTES.includes(pathname)) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
@@ -68,5 +70,21 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"],
+  // Keep Proxy off public pages and health/static requests. Next.js Proxy is
+  // not intended for slow data fetching; only routes that need an optimistic
+  // auth redirect should pay the session-verification cost.
+  matcher: [
+    "/dashboard/:path*",
+    "/profile/:path*",
+    "/account/:path*",
+    "/admin/:path*",
+    "/onboarding/:path*",
+    "/career-discovery/:path*",
+    "/roadmap/:path*",
+    "/simulations/:path*",
+    "/interviews/:path*",
+    "/signin",
+    "/signup",
+    "/reset-password",
+  ],
 };

@@ -32,16 +32,14 @@ export default async function InterviewSessionPage({
     redirect(`/interviews/sessions/${sessionId}/feedback`);
   }
 
-  const { data: questions } = await supabase
-    .from("interview_questions")
-    .select("id, position, prompt, guidance")
-    .eq("set_id", session.set_id)
-    .order("position");
-
-  const { data: answered } = await supabase
-    .from("interview_answers")
-    .select("question_id")
-    .eq("session_id", sessionId);
+  const [{ data: questions }, { data: answered }] = await Promise.all([
+    supabase
+      .from("interview_questions")
+      .select("id, position, prompt, guidance")
+      .eq("set_id", session.set_id)
+      .order("position"),
+    supabase.from("interview_answers").select("question_id").eq("session_id", sessionId),
+  ]);
 
   const answeredIds = new Set((answered ?? []).map((a) => a.question_id));
   const next = (questions ?? []).find((q) => !answeredIds.has(q.id));

@@ -29,22 +29,22 @@ export default async function InterviewFeedbackPage({
     notFound();
   }
 
-  const { data: interviewSet } = await supabase
-    .from("interview_sets")
-    .select("position_title, company_name, industry")
-    .eq("id", session.set_id)
-    .maybeSingle();
-
-  const { data: answers } = await supabase
-    .from("interview_answers")
-    .select("answer_text, score, criteria, question_id")
-    .eq("session_id", sessionId);
-
-  const { data: questions } = await supabase
-    .from("interview_questions")
-    .select("id, position, prompt")
-    .eq("set_id", session.set_id)
-    .order("position");
+  const [{ data: interviewSet }, { data: answers }, { data: questions }] = await Promise.all([
+    supabase
+      .from("interview_sets")
+      .select("position_title, company_name, industry")
+      .eq("id", session.set_id)
+      .maybeSingle(),
+    supabase
+      .from("interview_answers")
+      .select("answer_text, score, criteria, question_id")
+      .eq("session_id", sessionId),
+    supabase
+      .from("interview_questions")
+      .select("id, position, prompt")
+      .eq("set_id", session.set_id)
+      .order("position"),
+  ]);
 
   const promptById = new Map((questions ?? []).map((q) => [q.id, q]));
 

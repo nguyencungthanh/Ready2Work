@@ -1,5 +1,6 @@
 import "server-only";
 
+import { cache } from "react";
 import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
@@ -37,15 +38,13 @@ export interface SessionUser {
  * cookie contents without contacting the auth server, so a forged cookie
  * could pass. getUser() validates the token server-side (section 9.4).
  */
-export async function getSessionUser(): Promise<SessionUser | null> {
+export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
   const supabase = await createServerSupabaseClient();
 
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
+  const { data, error } = await supabase.auth.getClaims();
+  const claims = data?.claims;
 
-  if (error || !user) {
+  if (error || !claims?.sub) {
     return null;
   }
 
@@ -53,19 +52,30 @@ export async function getSessionUser(): Promise<SessionUser | null> {
     supabase
       .from("profiles")
       .select("display_name, account_status")
-      .eq("id", user.id)
+      .eq("id", claims.sub)
       .maybeSingle(),
-    supabase.from("user_roles").select("role").eq("user_id", user.id),
+    supabase.from("user_roles").select("role").eq("user_id", claims.sub),
   ]);
 
   return {
-    id: user.id,
-    email: user.email ?? "",
+    id: claims.sub,
+    email: typeof claims.email === "string" ? claims.email : "",
     displayName: profile?.display_name ?? "",
     accountStatus: (profile?.account_status ?? "active") as AccountStatus,
     roles: (roleRows ?? []).map((row) => row.role as AppRole),
   };
-}
+});
+
+/**
+ * Verifies whether a request has an authenticated session without loading the
+ * user's profile and roles. Use this for presentation-only decisions such as
+ * the landing-page navbar.
+ */
+export const hasAuthenticatedSession = cache(async (): Promise<boolean> => {
+  const supabase = await createServerSupabaseClient();
+  const { data, error } = await supabase.auth.getClaims();
+  return !error && Boolean(data?.claims.sub);
+});
 
 /**
  * Requires a usable signed-in account. Suspended and deleted accounts are

@@ -32,21 +32,22 @@ export default async function RoadmapPage({
     key_skills: string[];
   };
 
-  const { data: steps } = await supabase
-    .from("roadmap_steps")
-    .select("id, position, stage, title, objective, resource_label, resource_url, completed")
-    .eq("roadmap_id", roadmapId)
-    .order("position");
+  const [{ data: steps }, { data: chatMessages }] = await Promise.all([
+    supabase
+      .from("roadmap_steps")
+      .select("id, position, stage, title, objective, resource_label, resource_url, completed")
+      .eq("roadmap_id", roadmapId)
+      .order("position"),
+    supabase
+      .from("roadmap_chat_messages")
+      .select("id, role, content")
+      .eq("roadmap_id", roadmapId)
+      .order("created_at"),
+  ]);
 
   const allSteps = steps ?? [];
   const percent = completionPercent(allSteps);
   const nextStep = allSteps.find((step) => !step.completed);
-
-  const { data: chatMessages } = await supabase
-    .from("roadmap_chat_messages")
-    .select("id, role, content")
-    .eq("roadmap_id", roadmapId)
-    .order("created_at");
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">

@@ -1,4 +1,4 @@
-import { getSessionUser } from "@/lib/auth/session";
+import { hasAuthenticatedSession } from "@/lib/auth/session";
 import { Navbar } from "@/components/landing/navbar";
 import { Hero } from "@/components/landing/hero";
 import { LogoTicker } from "@/components/landing/logo-ticker";
@@ -9,11 +9,11 @@ import { CtaBanner } from "@/components/landing/cta-banner";
 import { Footer } from "@/components/landing/footer";
 
 export default async function HomePage() {
-  const user = await getSessionUser();
+  const signedIn = await hasAuthenticatedSession();
 
   return (
     <>
-      <Navbar signedIn={!!user} />
+      <Navbar signedIn={signedIn} />
       <main>
         <Hero />
         <LogoTicker />
