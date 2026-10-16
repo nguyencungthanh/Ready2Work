@@ -1,10 +1,12 @@
-# Integration notes
+# Architecture and implementation notes
+
+Current scope: [Master Plan 2.0](../career_platform_ai_agent_master_plan.md). Requirements: [Ready2Work.pdf](requirements/Ready2Work.pdf). UI baseline and cleanup: [current interface](UI-REFERENCE.md).
 
 ## Foundation and ownership
 
-Three agents divided the work into theme/auth presentation, candidate workflows/scoring/reports, and architecture/data/business/deployment. The existing Next.js 16.2.12, React 19.2.4 and Supabase SSR foundation was retained. The base project's password authentication, email verification, reset flow, database identities and DB-backed roles were preserved. Auth routing was extended for business onboarding; return URLs are restricted to paths inside the application.
+The existing Next.js 16.2.12, React 19.2.4 and Supabase SSR foundation was retained. The base project's password authentication, email verification, reset flow, database identities and DB-backed roles were preserved. Auth routing was extended for business onboarding; return URLs are restricted to paths inside the application.
 
-The existing application at `/Users/thanhnguyen/Documents/Personal Project/Ready2Work/platform` is updated in place. The theme source is `/Users/thanhnguyen/Documents/ready2work`. Legacy HTML and its localStorage demo accounts are not imported as real identities or activity history.
+The application in `platform/` is updated in place. Its current interface is the sole design baseline. Previous static UI code and old-render comparison materials have been removed; prototype localStorage demo accounts were never imported as real identities or history.
 
 ## Content and scoring
 
@@ -38,9 +40,9 @@ The project uses Turbopack for normal builds and standalone tracing for self-hos
 
 ## Validation and external checks
 
-Validated locally: TypeScript, ESLint, 103 unit tests, 10 source-import tests, eight production-browser checks, actual PDF/DOCX text extraction, migration application, RLS/column grants, private storage ownership, completion immutability, timed submission replay, and approved business publication in isolated PostgreSQL.
+See [validation records](VALIDATION.md). Earlier UI/auth checks passed on local Supabase; they are historical evidence and do not claim a hosted deployment or new live AI evaluation. The latest cleanup uses import/asset reference checks and one production build, without rerunning unrelated browser, database or provider suites.
 
-The configured old development Supabase URL points to a local service that was offline during validation. The database test engine exercises PostgreSQL logic with compatible auth/storage schema stubs; it does not replace a full Supabase/PostgREST/Storage integration test. No hosted migration, email delivery, live provider scoring or Vercel deployment was executed. After backend setup, run the existing integration/auth tests and verify the candidate and business journeys on that environment.
+Use the scope-based verification policy in Master Plan §9. No hosted migration or Vercel deployment is performed as part of a documentation/UI cleanup change.
 
 ## Research used
 

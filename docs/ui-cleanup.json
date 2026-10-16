@@ -1,0 +1,458 @@
+{
+  "reason": "Keep the current platform UI as the sole version; remove unused previous UI and old-render comparison materials.",
+  "removed_file_count": 108,
+  "removed_bytes": 17227819,
+  "removed": [
+    {
+      "path": "index.html",
+      "bytes": 19066
+    },
+    {
+      "path": "styles.css",
+      "bytes": 19732
+    },
+    {
+      "path": "script.js",
+      "bytes": 1931
+    },
+    {
+      "path": "images/first_image.jpg",
+      "bytes": 59761
+    },
+    {
+      "path": "images/hero.png",
+      "bytes": 676786
+    },
+    {
+      "path": "images/mentor.png",
+      "bytes": 753040
+    },
+    {
+      "path": "images/roadmap.png",
+      "bytes": 793648
+    },
+    {
+      "path": "scratch/courses.css",
+      "bytes": 1200
+    },
+    {
+      "path": "platform/components/landing/home-content.tsx",
+      "bytes": 9608
+    },
+    {
+      "path": "platform/components/landing/navbar.tsx",
+      "bytes": 1556
+    },
+    {
+      "path": "platform/components/landing/footer.tsx",
+      "bytes": 1240
+    },
+    {
+      "path": "platform/components/landing/landing.module.css",
+      "bytes": 13220
+    },
+    {
+      "path": "platform/app/(auth)/auth.module.css",
+      "bytes": 1389
+    },
+    {
+      "path": "platform/public/landing-hero.jpg",
+      "bytes": 50499
+    },
+    {
+      "path": "platform/public/landing-mentor.jpg",
+      "bytes": 89723
+    },
+    {
+      "path": "platform/public/landing-roadmap.jpg",
+      "bytes": 98178
+    },
+    {
+      "path": "platform/public/theme/career-students.png",
+      "bytes": 579444
+    },
+    {
+      "path": "platform/public/theme/mission.png",
+      "bytes": 610396
+    },
+    {
+      "path": "platform/public/file.svg",
+      "bytes": 391
+    },
+    {
+      "path": "platform/public/globe.svg",
+      "bytes": 1035
+    },
+    {
+      "path": "platform/public/window.svg",
+      "bytes": 385
+    },
+    {
+      "path": "platform/public/next.svg",
+      "bytes": 1375
+    },
+    {
+      "path": "platform/public/vercel.svg",
+      "bytes": 128
+    },
+    {
+      "path": "docs/ui-audit/source-inventory.json",
+      "bytes": 71864
+    },
+    {
+      "path": "docs/ui-audit/comparison.html",
+      "bytes": 8682
+    },
+    {
+      "path": "docs/ui-audit/AUDIT.md",
+      "bytes": 12838
+    },
+    {
+      "path": "docs/ui-audit/screen-parity.json",
+      "bytes": 14096
+    },
+    {
+      "path": "docs/ui-audit/screen-parity.csv",
+      "bytes": 8691
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-screen-login.png",
+      "bytes": 302591
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-interview-waiting.png",
+      "bytes": 106099
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-dashboard.png",
+      "bytes": 213258
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-report.png",
+      "bytes": 126910
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-page-dashboard.png",
+      "bytes": 103872
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-page-jobsim.png",
+      "bytes": 55022
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-interview-waiting.png",
+      "bytes": 109881
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-cv-setup.png",
+      "bytes": 116441
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-interview-landing.png",
+      "bytes": 384740
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-interview-landing.png",
+      "bytes": 425547
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-sim-workspace.png",
+      "bytes": 163015
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-sim-hub.png",
+      "bytes": 182010
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-interview-explore.png",
+      "bytes": 186293
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-signup.png",
+      "bytes": 592144
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-interview-explore.png",
+      "bytes": 106260
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-mobile-cv-setup.png",
+      "bytes": 4958
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-sim-select.png",
+      "bytes": 65774
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-mobile-interview-landing.png",
+      "bytes": 4957
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-interview-room.png",
+      "bytes": 83355
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-login.png",
+      "bytes": 645123
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-screen-b2c-1.png",
+      "bytes": 213362
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-sim-waiting.png",
+      "bytes": 182813
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-screen-b2c-2.png",
+      "bytes": 213362
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-page-interview.png",
+      "bytes": 67619
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-interview-report.png",
+      "bytes": 153535
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-landing.png",
+      "bytes": 396626
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-sim-workspace.png",
+      "bytes": 58887
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-landing.png",
+      "bytes": 8525
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-cv-result.png",
+      "bytes": 154375
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-dashboard.png",
+      "bytes": 194199
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-mobile-dashboard.png",
+      "bytes": 4962
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-business.png",
+      "bytes": 81016
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-screen-b2b-2.png",
+      "bytes": 213362
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-sim-report.png",
+      "bytes": 105012
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-screen-role.png",
+      "bytes": 396626
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-cv-setup.png",
+      "bytes": 70882
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-interview-room.png",
+      "bytes": 126584
+    },
+    {
+      "path": "docs/ui-audit/screenshots/old-sim-select.png",
+      "bytes": 75506
+    },
+    {
+      "path": "docs/ui-audit/screenshots/reference-render-errors.json",
+      "bytes": 2
+    },
+    {
+      "path": "docs/ui-audit/screenshots/current-observations.json",
+      "bytes": 196
+    },
+    {
+      "path": "docs/ui-restoration/status.csv",
+      "bytes": 11443
+    },
+    {
+      "path": "docs/ui-restoration/comparison.html",
+      "bytes": 14827
+    },
+    {
+      "path": "docs/ui-restoration/README.md",
+      "bytes": 6660
+    },
+    {
+      "path": "docs/ui-restoration/validation.json",
+      "bytes": 686
+    },
+    {
+      "path": "docs/ui-restoration/status.json",
+      "bytes": 17472
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-signup.png",
+      "bytes": 191941
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/interviews.png",
+      "bytes": 273099
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/interview-report.png",
+      "bytes": 528742
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/interview-voice-mobile.png",
+      "bytes": 130421
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/cv-result.png",
+      "bytes": 226110
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/dashboard.png",
+      "bytes": 8297
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/cv-result-mobile.png",
+      "bytes": 203208
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/interview-report-mobile.png",
+      "bytes": 440611
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/simulation-report-mobile.png",
+      "bytes": 161234
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/signup-role.png",
+      "bytes": 193415
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/onboarding-education.png",
+      "bytes": 156563
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/simulation-workspace-mobile.png",
+      "bytes": 140517
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/interview-voice.png",
+      "bytes": 144202
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-onboarding-pending.png",
+      "bytes": 128162
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/onboarding-welcome.png",
+      "bytes": 163589
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-ranking.png",
+      "bytes": 166770
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/landing.png",
+      "bytes": 899960
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-interview-editor.png",
+      "bytes": 84884
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/interview-waiting.png",
+      "bytes": 162403
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-interview-editor-mobile.png",
+      "bytes": 57300
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/simulation-report.png",
+      "bytes": 175830
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-dashboard.png",
+      "bytes": 8297
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-interview-library.png",
+      "bytes": 90100
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-interview-library-mobile.png",
+      "bytes": 79535
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-onboarding-company-mobile.png",
+      "bytes": 50789
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/simulations.png",
+      "bytes": 505306
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-dashboard-mobile.png",
+      "bytes": 4735
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/signin.png",
+      "bytes": 190933
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/roadmap-cv.png",
+      "bytes": 149120
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-onboarding-company.png",
+      "bytes": 152270
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-simulation-editor.png",
+      "bytes": 81023
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/report.png",
+      "bytes": 231607
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/simulation-workspace.png",
+      "bytes": 155603
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/signup-form.png",
+      "bytes": 189730
+    },
+    {
+      "path": "docs/ui-restoration/screenshots/business-simulation-editor-mobile.png",
+      "bytes": 54822
+    }
+  ],
+  "preserved": [
+    "platform/components/reference/",
+    "platform/public/reference/",
+    "platform/public/fonts/",
+    "platform/public/theme/logo.png",
+    "platform/public/theme/interview.png",
+    "platform/lib/",
+    "platform/supabase/",
+    "platform/tests/"
+  ],
+  "requirements_pdf_sha256": "c20a9c8d967b3d739bc22a2488033a4a151a9a39c408ca56f12723ad72eb970d",
+  "verification": {
+    "active_reference_scan": "passed",
+    "documentation_links_checked": 15,
+    "exact_active_asset_paths_checked": 19,
+    "requirements_copy_sha256": "matches original",
+    "production_build": "passed (includes TypeScript)",
+    "broad_test_suites": "not rerun; no business logic changed"
+  }
+}

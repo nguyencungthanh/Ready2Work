@@ -1,0 +1,258 @@
+.reference-auth .ob-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    animation: obFadeIn .25s ease;
+  }
+  @keyframes obFadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+  .reference-auth .ob-screen { display: none; width: 100%; max-width: 520px; animation: obSlideIn .3s ease; }
+  .reference-auth .ob-screen.active { display: flex; justify-content: center; }
+  @keyframes obSlideIn { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+  .reference-auth .ob-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px 40px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+    position: relative;
+  }
+  .reference-auth .ob-card--role { max-width: 680px; }
+  .reference-auth .ob-card--wide { max-width: 680px; }
+  .reference-auth .ob-card--welcome { max-width: 520px; text-align: center; }
+  .reference-auth .ob-card--pending { max-width: 520px; }
+  .reference-auth .ob-close {
+    position: fixed; top: 20px; right: 24px; z-index: 10000;
+    width: 40px; height: 40px;
+    border-radius: 50%; border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff; font-size: 22px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .reference-auth .ob-close:hover { background: rgba(255,255,255,0.3); }
+  .reference-auth .ob-logo-row {
+    display: flex; align-items: center; gap: 10px;
+    justify-content: center; margin-bottom: 28px;
+  }
+  .reference-auth .ob-logo-img { width: 40px; height: 40px; object-fit: contain; }
+  .reference-auth .ob-logo-text { font-size: 20px; font-weight: 800; color: #1E293B; }
+  .reference-auth .ob-logo-text span { color: #0EBFB8; }
+  .reference-auth .ob-progress-bar {
+    background: #E8EDF5; border-radius: 4px; height: 5px;
+    margin-bottom: 16px; overflow: hidden;
+  }
+  .reference-auth .ob-progress-fill { height: 100%; background: #1D4ED8; border-radius: 4px; transition: width .4s ease; }
+  .reference-auth .ob-progress-bar--biz .ob-progress-fill,
+  .reference-auth .ob-progress-fill--biz { background: #0EBFB8; }
+  .reference-auth .ob-step-label { font-size: 12px; color: #94A3B8; font-weight: 500; margin-bottom: 20px; letter-spacing: .3px; }
+  .reference-auth .ob-step-icon { font-size: 36px; margin-bottom: 12px; }
+  .reference-auth .ob-main-title { font-size: 26px; font-weight: 800; color: #1E293B; text-align: center; margin-bottom: 8px; }
+  .reference-auth .ob-main-sub { font-size: 14px; color: #64748B; text-align: center; margin-bottom: 32px; }
+  .reference-auth .ob-title { font-size: 22px; font-weight: 800; color: #1E293B; margin-bottom: 6px; }
+  .reference-auth .ob-title--welcome { font-size: 26px; }
+  .reference-auth .ob-sub { font-size: 14px; color: #64748B; margin-bottom: 24px; line-height: 1.6; }
+  .reference-auth .ob-brand-text { color: #0EBFB8; }
+  .reference-auth .role-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .reference-auth .role-card {
+    border: 2px solid #E2E8F0; border-radius: 16px;
+    padding: 28px 24px; text-align: center; cursor: pointer;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .reference-auth .role-card:hover { border-color: #0EBFB8; box-shadow: 0 4px 20px rgba(14,191,184,0.15); }
+  .reference-auth .role-icon { font-size: 44px; margin-bottom: 12px; }
+  .reference-auth .role-card h3 { font-size: 17px; font-weight: 700; color: #1E293B; margin-bottom: 8px; }
+  .reference-auth .role-card p { font-size: 13px; color: #64748B; margin-bottom: 20px; line-height: 1.5; }
+
+  .reference-auth .btn-role-start {
+    display: inline-block; padding: 10px 24px;
+    background: #1D4ED8; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background .2s;
+    width: 100%;
+  }
+  .reference-auth .btn-role-start:hover { background: #1A3FA5; }
+  .reference-auth .btn-role-start--biz { background: #0EBFB8; }
+  .reference-auth .btn-role-start--biz:hover { background: #0AADA6; }
+  .reference-auth .btn-social {
+    width: 100%; padding: 12px 20px; margin-bottom: 12px;
+    border-radius: 10px; font-size: 14px; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: background .2s, border-color .2s;
+  }
+  .reference-auth .btn-google { background: #fff; border: 1.5px solid #E2E8F0; color: #1E293B; }
+  .reference-auth .btn-google:hover { background: #F8FAFC; border-color: #CBD5E1; }
+  .reference-auth .btn-linkedin { background: #EBF5FF; border: 1.5px solid #BFDBFE; color: #1E40AF; }
+  .reference-auth .btn-linkedin:hover { background: #DBEAFE; }
+  .reference-auth .ob-divider {
+    text-align: center; position: relative;
+    color: #94A3B8; font-size: 13px;
+    margin: 4px 0 16px;
+  }
+  .reference-auth .ob-divider::before, .reference-auth .ob-divider::after {
+    content: ''; position: absolute; top: 50%;
+    width: 38%; height: 1px; background: #E2E8F0;
+  }
+  .reference-auth .ob-divider::before { left: 0; }
+  .reference-auth .ob-divider::after { right: 0; }
+  .reference-auth .ob-form-group { margin-bottom: 16px; }
+  .reference-auth .ob-form-group label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
+  .reference-auth .ob-input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #E2E8F0; border-radius: 8px;
+    font-size: 14px; color: #1E293B;
+    font-family: 'Inter', sans-serif;
+    transition: border-color .2s;
+    outline: none;
+  }
+  .reference-auth .ob-input:focus { border-color: #1D4ED8; box-shadow: 0 0 0 3px rgba(29,78,216,.1); }
+  .reference-auth .ob-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+  .reference-auth .ob-hint { font-size: 11.5px; color: #94A3B8; margin-top: 4px; }
+  .reference-auth .ob-required { color: #EF4444; }
+  .reference-auth .ob-checkbox-row { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0 20px; }
+  .reference-auth .ob-checkbox-row input[type=checkbox] { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; accent-color: #1D4ED8; cursor: pointer; }
+  .reference-auth .ob-checkbox-row label { font-size: 13px; color: #475569; line-height: 1.5; cursor: pointer; }
+  .reference-auth .btn-ob-primary {
+    width: 100%; padding: 13px 24px;
+    background: #1D4ED8; color: #fff;
+    border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: background .2s; font-family: 'Inter', sans-serif;
+  }
+  .reference-auth .btn-ob-primary:hover { background: #1A3FA5; }
+  .reference-auth .btn-ob-primary--biz { background: #0EBFB8; }
+  .reference-auth .btn-ob-primary--biz:hover { background: #0AADA6; }
+  .reference-auth .btn-ob-primary--wide { max-width: 360px; margin: 0 auto; display: block; }
+  .reference-auth .btn-ob-primary--welcome { background: #1D4ED8; font-size: 16px; padding: 15px 32px; }
+  .reference-auth .btn-ob-secondary {
+    flex: 1; padding: 12px 20px;
+    background: #F8FAFC; color: #475569;
+    border: 1.5px solid #E2E8F0; border-radius: 10px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background .2s; font-family: 'Inter', sans-serif;
+  }
+  .reference-auth .btn-ob-secondary:hover { background: #F1F5F9; }
+  .reference-auth .btn-ob-skip {
+    display: block; width: 100%; margin-top: 12px;
+    background: none; border: none; color: #94A3B8;
+    font-size: 13px; cursor: pointer; text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+  .reference-auth .btn-ob-skip:hover { color: #64748B; }
+  .reference-auth .ob-btn-row { display: flex; gap: 12px; margin-top: 24px; }
+  .reference-auth .ob-btn-row .btn-ob-primary { flex: 2; }
+  .reference-auth .ob-signin-link { text-align: center; font-size: 13px; color: #64748B; margin-top: 16px; }
+  .reference-auth .ob-link { color: #1D4ED8; text-decoration: none; font-weight: 500; }
+  .reference-auth .ob-link:hover { text-decoration: underline; }
+  .reference-auth .tag-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+  .reference-auth .tag-item {
+    padding: 9px 16px; border: 2px solid #E2E8F0;
+    border-radius: 24px; font-size: 13.5px; font-weight: 500;
+    color: #475569; cursor: pointer; transition: all .2s;
+    user-select: none;
+  }
+  .reference-auth .tag-item:hover { border-color: #1D4ED8; color: #1D4ED8; background: #EFF6FF; }
+  .reference-auth .tag-item.selected { border-color: #1D4ED8; background: #1D4ED8; color: #fff; }
+  .reference-auth .readiness-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .reference-auth .readiness-item {
+    border: 2px solid #E2E8F0; border-radius: 12px;
+    padding: 16px 14px; cursor: pointer; text-align: center;
+    transition: all .2s;
+  }
+  .reference-auth .readiness-item:hover { border-color: #1D4ED8; background: #EFF6FF; }
+  .reference-auth .readiness-item.selected { border-color: #1D4ED8; background: #1D4ED8; color: #fff; }
+  .reference-auth .readiness-item.selected .readiness-desc { color: rgba(255,255,255,0.75); }
+  .reference-auth .readiness-emoji { font-size: 28px; margin-bottom: 6px; }
+  .reference-auth .readiness-label { font-size: 13px; font-weight: 700; color: #1E293B; margin-bottom: 3px; }
+  .reference-auth .readiness-item.selected .readiness-label { color: #fff; }
+  .reference-auth .readiness-desc { font-size: 11px; color: #94A3B8; }
+  .reference-auth .cv-upload-box {
+    border: 2px dashed #CBD5E1; border-radius: 12px;
+    padding: 24px; text-align: center; background: #F8FAFC;
+    margin-bottom: 12px; transition: border-color .2s;
+  }
+  .reference-auth .cv-upload-box:hover { border-color: #1D4ED8; }
+  .reference-auth .cv-upload-icon { font-size: 32px; margin-bottom: 8px; }
+  .reference-auth .cv-upload-title { font-size: 14px; font-weight: 600; color: #1E293B; margin-bottom: 4px; }
+  .reference-auth .cv-upload-sub { font-size: 12px; color: #94A3B8; margin-bottom: 14px; }
+  .reference-auth .btn-upload {
+    display: inline-block; padding: 9px 20px;
+    background: #fff; border: 1.5px solid #1D4ED8;
+    color: #1D4ED8; border-radius: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    transition: background .2s;
+  }
+  .reference-auth .btn-upload:hover { background: #EFF6FF; }
+  .reference-auth .cv-progress-wrap { margin-bottom: 12px; }
+  .reference-auth .cv-reading-text { font-size: 13px; color: #1D4ED8; font-weight: 500; margin-bottom: 8px; }
+  .reference-auth .cv-progress-track { background: #E8EDF5; border-radius: 6px; height: 8px; overflow: hidden; }
+  .reference-auth .cv-progress-fill { height: 100%; background: linear-gradient(90deg,#1D4ED8,#0EBFB8); border-radius: 6px; animation: cvFill 2s ease forwards; }
+  @keyframes cvFill { from { width:0 } to { width:80% } }
+  .reference-auth .ai-result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .reference-auth .ai-result-card { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 18px; }
+  .reference-auth .ai-result-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .reference-auth .ai-card-icon { font-size: 20px; }
+  .reference-auth .ai-card-title { font-size: 13.5px; font-weight: 700; color: #1E293B; }
+  .reference-auth .ai-card-sub { font-size: 12.5px; color: #64748B; margin-bottom: 10px; }
+  .reference-auth .skill-gap-list { display: flex; flex-direction: column; gap: 8px; }
+  .reference-auth .skill-gap-item { font-size: 12.5px; padding: 8px 12px; border-radius: 8px; font-weight: 500; }
+  .reference-auth .skill-gap--red { background: #FEF2F2; color: #DC2626; }
+  .reference-auth .skill-gap--orange { background: #FFFBEB; color: #D97706; }
+  .reference-auth .ai-card-note { font-size: 11px; color: #94A3B8; margin-top: 8px; }
+  .reference-auth .task-card-suggest { background: #EFF6FF; border-radius: 10px; padding: 14px; }
+  .reference-auth .task-suggest-badge { display: inline-block; background: #DBEAFE; color: #1D4ED8; font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 8px; }
+  .reference-auth .task-suggest-title { font-size: 13px; font-weight: 700; color: #1E293B; margin-bottom: 6px; }
+  .reference-auth .task-suggest-desc { font-size: 12px; color: #475569; margin-bottom: 8px; line-height: 1.5; }
+  .reference-auth .task-suggest-meta { font-size: 11.5px; color: #94A3B8; }
+  .reference-auth .profile-completion-card { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 18px; }
+  .reference-auth .profile-completion-header { display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; font-weight: 600; color: #1E293B; margin-bottom: 10px; }
+  .reference-auth .profile-pct { color: #1D4ED8; font-size: 18px; font-weight: 800; }
+  .reference-auth .profile-progress-track { background: #E8EDF5; border-radius: 6px; height: 8px; overflow: hidden; margin-bottom: 10px; }
+  .reference-auth .profile-progress-fill { height: 100%; background: linear-gradient(90deg,#1D4ED8,#0EBFB8); border-radius: 6px; }
+  .reference-auth .profile-completion-tip { font-size: 12px; color: #64748B; }
+  .reference-auth .welcome-checklist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .reference-auth .welcome-check-item { font-size: 14px; color: #1E293B; font-weight: 500; }
+  .reference-auth .welcome-next-steps { background: #F8FAFC; border-radius: 14px; padding: 20px; margin-bottom: 28px; text-align: left; }
+  .reference-auth .welcome-next-title { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 14px; }
+  .reference-auth .welcome-step-card { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+  .reference-auth .welcome-step-card:last-child { margin-bottom: 0; }
+  .reference-auth .welcome-step-num { width: 28px; height: 28px; border-radius: 50%; background: #1D4ED8; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .reference-auth .welcome-step-name { font-size: 13.5px; font-weight: 600; color: #1E293B; margin-bottom: 2px; }
+  .reference-auth .welcome-step-desc { font-size: 12px; color: #64748B; }
+  .reference-auth .ob-checkbox-card-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+  .reference-auth .ob-checkbox-card { display: block; border: 2px solid #E2E8F0; border-radius: 12px; padding: 16px; cursor: pointer; transition: border-color .2s, background .2s; }
+  .reference-auth .ob-checkbox-card:hover { border-color: #0EBFB8; background: #F0FDFB; }
+  .reference-auth .ob-checkbox-card input[type=checkbox] { display: none; }
+  .reference-auth .ob-checkbox-card input[type=checkbox]:checked + .ob-checkbox-card-inner { color: #0AADA6; }
+  .reference-auth .ob-checkbox-card:has(input:checked) { border-color: #0EBFB8; background: #F0FDFB; }
+  .reference-auth .ob-checkbox-card-inner { display: flex; align-items: center; gap: 14px; }
+  .reference-auth .ob-checkbox-card-icon { font-size: 28px; flex-shrink: 0; }
+  .reference-auth .ob-checkbox-card-title { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 3px; }
+  .reference-auth .ob-checkbox-card-sub { font-size: 12px; color: #64748B; }
+  .reference-auth .ob-info-box { display: flex; gap: 10px; background: #FFFBEB; border: 1.5px solid #FDE68A; border-radius: 10px; padding: 12px 14px; margin: 16px 0; font-size: 13px; color: #92400E; }
+  .reference-auth .ob-info-icon { font-size: 16px; flex-shrink: 0; }
+  .reference-auth .pending-icon-wrap { width: 80px; height: 80px; border-radius: 50%; background: #FFFBEB; border: 3px solid #FDE68A; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+  .reference-auth .pending-icon { font-size: 36px; }
+  .reference-auth .pending-status-badge { display: inline-block; background: #FEF3C7; color: #D97706; font-size: 13px; font-weight: 700; padding: 6px 18px; border-radius: 20px; margin: 12px 0 16px; }
+  .reference-auth .pending-desc { font-size: 15px; color: #475569; line-height: 1.65; margin-bottom: 20px; }
+  .reference-auth .pending-reason-box { display: flex; gap: 12px; background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 16px; text-align: left; margin-bottom: 24px; }
+  .reference-auth .pending-reason-icon { font-size: 22px; flex-shrink: 0; }
+  .reference-auth .pending-reason-text { font-size: 13px; color: #475569; line-height: 1.6; }
+  .reference-auth .pending-next-steps { background: #F8FAFC; border-radius: 14px; padding: 20px; margin-bottom: 24px; }
+  .reference-auth .pending-next-title { font-size: 14px; font-weight: 700; color: #1E293B; margin-bottom: 14px; }
+  .reference-auth .pending-step { font-size: 13.5px; color: #475569; margin-bottom: 10px; }
+  .reference-auth .pending-step:last-child { margin-bottom: 0; }
+  @media (max-width: 640px) {
+    .reference-auth .ob-card { padding: 24px 20px; }
+    .reference-auth .role-cards { grid-template-columns: 1fr; }
+    .reference-auth .ai-result-grid { grid-template-columns: 1fr; }
+    .reference-auth .readiness-grid { grid-template-columns: 1fr; }
+    .reference-auth .ob-btn-row { flex-direction: column; }
+    .reference-auth .ob-overlay { padding: 12px; }
+  }

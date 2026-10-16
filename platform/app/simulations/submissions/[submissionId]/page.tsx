@@ -1,5 +1,6 @@
 import { AppShell } from "@/components/app-shell";
 import Link from "next/link";
+import { Radar } from "@/components/reference/ui";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -40,61 +41,6 @@ export default async function SimulationSubmissionPage({
   };
   const criteria = stored.criteria ?? [];
 
-  return (
-    <AppShell active="simulations" displayName={user.displayName}><main className="mx-auto max-w-4xl px-6 py-10">
-      <p className="text-xs font-medium uppercase tracking-wide text-muted">
-        Simulation feedback
-      </p>
-      <h1 className="mt-1 text-2xl font-bold text-foreground">
-        {simulation?.position_title} ({simulation?.industry})
-      </h1>
-
-      <div className="mt-6 rounded-2xl border border-border bg-surface p-6 shadow-sm">
-        <p className="text-sm text-muted">Overall score</p>
-        <div className="mt-1 flex items-center gap-3">
-          <p className="text-4xl font-semibold text-foreground">{submission.overall_score}/100</p>
-          <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-            {submission.overall_band}
-          </span>
-        </div>
-        {submission.actual_duration_seconds !== null && <p className="mt-3 text-xs text-muted">Thời gian làm bài được ghi nhận: {Math.floor(submission.actual_duration_seconds / 60)} phút {submission.actual_duration_seconds % 60} giây.</p>}
-        {stored.summary && (
-          <p className="mt-3 text-sm text-foreground">{stored.summary}</p>
-        )}
-        <p className="mt-3 text-xs text-muted">
-          This is an AI-assisted learning evaluation, not a hiring decision. The rubric and
-          feedback below are fully visible.
-        </p>
-      </div>
-
-      <div className="mt-8 space-y-4">
-        {criteria.map((criterion) => (
-          <div key={criterion.criterionId} className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
-            <div className="flex items-center gap-2">
-              <p className="text-sm font-semibold text-foreground">
-                {criterion.label} ({criterion.score}/{criterion.maxScore})
-              </p>
-              <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
-                {criterion.band}
-              </span>
-            </div>
-
-            {criterion.feedback && (
-              <p className="mt-2 text-sm text-foreground">{criterion.feedback}</p>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <Link href="/report" className="text-sm font-medium text-primary underline">Xem báo cáo năng lực</Link>
-        <Link href="/simulations" className="text-sm font-medium text-primary underline">
-          Try another simulation
-        </Link>
-        <Link href="/dashboard" className="text-sm font-medium text-primary underline">
-          Back to dashboard
-        </Link>
-      </div>
-    </main></AppShell>
-  );
+  const values=criteria.filter(c=>c.maxScore>0).map(c=>({label:c.skill||c.label,score:c.score/c.maxScore*100}));
+  return <AppShell active="simulations" displayName={user.displayName}><main className="d-main"><div id="dash-tab-simulation"><section className="page-screen active"><div className="report-card"><div className="report-header"><div><h1 className="text-[22px] font-extrabold">Báo cáo kết quả (Performance Review)</h1><p className="text-xs text-muted mt-2">{new Date(submission.submitted_at).toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh"})} · {user.displayName} · {simulation?.position_title}</p></div><div className="flex gap-3 flex-wrap"><Link href="/simulations" className="submit-btn">Trở về Simulation Hub</Link><Link href="/dashboard" className="back-btn">Về Tổng quan</Link></div></div><div className="score-summary-grid"><section className="score-box"><h2 className="text-xs font-bold uppercase text-green-800">Thẻ Điểm Tổng (Overall Score)</h2><div className="score-number">{submission.overall_score??"—"}<span className="text-xl">/100</span></div><p className="text-xs font-semibold text-green-700">{submission.overall_band||"Chưa có dữ liệu đánh giá"}</p></section><section className="percentile-box"><h2 className="text-sm font-bold text-blue-900">Xếp hạng (Percentile Ranking)</h2><p className="mt-3 text-sm leading-6 text-blue-900">Chưa có dữ liệu tổng hợp ứng viên để xác định percentile. Điểm của bạn được tính theo tiêu chí riêng của nhiệm vụ.</p></section><section className="radar-chart-box"><Radar values={values}/></section></div><section className="sim-overall-feedback"><h2>✧ Tổng quan nhận xét từ AI</h2><p>{stored.summary||"Chưa có nhận xét tổng hợp."}</p>{submission.actual_duration_seconds!==null&&<p className="mt-3 text-xs">Thời gian làm bài: {Math.floor(submission.actual_duration_seconds/60)} phút {submission.actual_duration_seconds%60} giây.</p>}</section><div className="sim-strengths-gaps"><section><h2>✓ Điểm mạnh ghi nhận</h2><ul>{criteria.filter(c=>c.maxScore>0&&c.score/c.maxScore>=.75).map(c=><li key={c.criterionId}><strong>{c.label}</strong><p>{c.feedback}</p></li>)}</ul>{!values.some(v=>v.score>=75)&&<p className="text-xs text-muted">Chưa có tiêu chí đạt mức 75% trở lên.</p>}</section><section><h2>⚠ Khoảng cách kỹ năng (Skill Gaps)</h2><ul>{criteria.filter(c=>c.maxScore>0&&c.score/c.maxScore<.75).map(c=><li key={c.criterionId}><strong>{c.label}</strong><p>{c.feedback}</p></li>)}</ul>{!values.some(v=>v.score<75)&&<p className="text-xs text-muted">Không có tiêu chí dưới mức 75%.</p>}</section></div><section className="rubric-breakdown"><h2>Chi tiết Đánh giá theo Barem Tiêu chí (Criteria Breakdown)</h2>{criteria.map(c=><article className="sim-criterion" key={c.criterionId}><div><strong>{c.label}</strong><span>{c.score}/{c.maxScore} · {c.band}</span></div><p>{c.feedback}</p></article>)}</section><Link href="/report" className="reference-link mt-6 block">Xem báo cáo năng lực tổng hợp →</Link></div></section></div></main></AppShell>;
 }

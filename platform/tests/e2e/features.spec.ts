@@ -45,15 +45,17 @@ async function signUpAndVerify(
   label: string,
 ): Promise<string> {
   const email = uniqueEmail(label);
-  await page.goto("/signup");
-  await page.getByLabel("Full name").fill(`Test ${label}`);
+  await page.goto("/signup?type=candidate");
+  await page.getByLabel("Họ và tên").fill(`Test ${label}`);
   await page.getByLabel("Email").fill(email);
-  await page.getByLabel("Password (at least 12 characters)").fill(PASSWORD);
-  await page.getByLabel("Confirm password").fill(PASSWORD);
-  await page.getByLabel(/accept the terms/i).check();
-  await page.getByRole("button", { name: "Create account" }).click();
+  await page.getByLabel("Mật khẩu (ít nhất 12 ký tự)").fill(PASSWORD);
+  await page.getByLabel("Xác nhận mật khẩu").fill(PASSWORD);
+  await page.getByLabel(/Tôi đồng ý với Điều khoản/i).check();
+  await page.getByRole("button", { name: "Tạo tài khoản →" }).click();
   await openLatestEmailLink(request, email, page);
   await expect(page).toHaveURL(/\/dashboard/);
+  await page.getByRole("button",{name:"Tạm đóng thiết lập",exact:true}).click();
+  await page.evaluate(()=>sessionStorage.removeItem("r2w:onboarding"));
   return email;
 }
 
@@ -128,26 +130,27 @@ test.describe("Feature 3: Job Simulation", () => {
   test("submits a simulation and receives rubric-based feedback", async ({ page, request }) => {
     await signUpAndVerify(page, request, "simulation");
 
-    await page.goto("/simulations");
-    await expect(page.getByRole("heading", { name: "Job simulation" })).toBeVisible();
+    await page.goto("/simulations?position=IT-03");
+    await expect(page.getByRole("heading", { name: /KHÔNG GIAN/ })).toBeVisible();
 
     // Click the first simulation link in the catalog.
     await page.locator('a[href^="/simulations/"]').first().click();
     await expect(page).toHaveURL(/\/simulations\/[^/]+$/);
-    await expect(page.getByText("Scoring rubric")).toBeVisible();
+    await page.getByRole("button",{name:"Nhận việc & Bắt đầu tính giờ",exact:true}).click();
+    await expect(page).toHaveURL(/attempt=/);
 
     await page
-      .getByLabel("Your submission")
+      .getByRole("textbox",{name:"Nội dung bài làm"})
       .fill(
         "This is a detailed submission that addresses the task requirements with specific " +
           "reasoning, concrete examples, and a clear structure covering the key points expected " +
           "by the rubric criteria, including budget, timeline, risk, and stakeholder communication " +
           "considerations relevant to this role and industry context.".repeat(2),
       );
-    await page.getByRole("button", { name: "Submit" }).click();
+    await page.getByRole("button", { name: "Nộp báo cáo",exact:true }).click();
 
     await expect(page).toHaveURL(/\/simulations\/submissions\/.+/, { timeout: 10_000 });
-    await expect(page.getByText(/score/i).first()).toBeVisible();
+    await expect(page.getByRole("heading",{name:/Performance Review/})).toBeVisible();
   });
 });
 
@@ -158,18 +161,18 @@ test.describe("Feature 4: Interview Practice", () => {
   }) => {
     await signUpAndVerify(page, request, "interview");
 
-    await page.goto("/interviews");
-    await expect(page.getByRole("heading", { name: "Interview Practice" })).toBeVisible();
+    await page.goto("/interviews?explore=1");
+    await expect(page.getByRole("heading", { name: "Luyện phỏng vấn theo ngành nghề" })).toBeVisible();
 
     await page.locator('a[href^="/interviews/"]').first().click();
     await expect(page).toHaveURL(/\/interviews\/[^/]+$/);
-    await page.getByRole("button", { name: "Start Interview" }).click();
+    await page.getByRole("button", { name: "Bắt đầu Phỏng vấn" }).click();
 
     await expect(page).toHaveURL(/\/interviews\/sessions\/.+/);
 
     // Answer every question until the session offers "Finish".
     for (let i = 0; i < 10; i++) {
-      const finishButton = page.getByRole("button", { name: "Finish and see feedback" });
+      const finishButton = page.getByRole("button", { name: "Kết thúc & Xem báo cáo" });
       if (await finishButton.isVisible().catch(() => false)) {
         await finishButton.click();
         break;
@@ -181,15 +184,17 @@ test.describe("Feature 4: Interview Practice", () => {
             "for example a slow database query, and specifically optimized it, resulting in a " +
             "30% speed improvement for our users.",
         );
-      const submitButton = page.getByRole("button", { name: "Next Question" });
+      const submitButton = page.getByRole("button", { name: "Chốt câu trả lời & Chuyển câu tiếp →" });
+      const currentQuestion=await page.locator(".iv-q-title").innerText();
       await submitButton.click();
+      await expect(page.getByRole("heading",{name:currentQuestion,exact:true})).not.toBeVisible();
       // The form submits via a transition + router.refresh() rather than a
       // navigation, so wait for the pending state to resolve before the next
       // iteration re-queries the (now re-rendered) page.
-      await expect(page.getByRole("button", { name: "Saving…" })).toHaveCount(0);
+      await expect(page.getByRole("button", { name: "Đang đánh giá và lưu…" })).toHaveCount(0);
     }
 
     await expect(page).toHaveURL(/\/interviews\/sessions\/.+\/feedback/, { timeout: 10_000 });
-    await expect(page.getByText(/Overall score/i)).toBeVisible();
+    await expect(page.getByRole("heading",{name:"Báo cáo đánh giá phỏng vấn",exact:true})).toBeVisible();
   });
 });

@@ -17,13 +17,14 @@ interface AuthFormProps {
   submitLabel: string;
   checkbox?: { name: string; label: string };
   hidden?: Record<string, string>;
+  onStart?: () => void;
 }
 
-export function AuthForm({ action, fields, submitLabel, checkbox, hidden }: AuthFormProps) {
+export function AuthForm({ action, fields, submitLabel, checkbox, hidden, onStart }: AuthFormProps) {
   const [state, formAction, pending] = useActionState(action, {});
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form action={formAction} onSubmit={onStart} className="auth-form space-y-4">
       {hidden &&
         Object.entries(hidden).map(([name, value]) => (
           <input key={name} type="hidden" name={name} value={value} />

@@ -1,0 +1,32 @@
+{
+  "build": "passed",
+  "lint": "passed",
+  "typecheck": "passed",
+  "unit": {
+    "passed": 103,
+    "files": 19
+  },
+  "browser": {
+    "passed": 29,
+    "failed": 0,
+    "duration_seconds": 45.2,
+    "suites": [
+      "public.spec.ts",
+      "auth.spec.ts",
+      "restoration.spec.ts",
+      "role-access.spec.ts"
+    ]
+  },
+  "environment": "production preview + isolated local Supabase/Mailpit",
+  "live_ai_evaluation": false,
+  "physical_microphone_test": false,
+  "pushed": false,
+  "deployed": false,
+  "final_business_draft_recheck": {
+    "build": "passed",
+    "lint": "passed",
+    "typecheck": "passed",
+    "browser_passed": 1,
+    "browser_duration_seconds": 6.4
+  }
+}

@@ -1,40 +1,12 @@
 "use client";
-
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { submitSimulationAction, type FormState } from "../actions";
-
-export function SubmissionForm({ simulationId, attemptId }: { simulationId: string; attemptId: string }) {
-  const action = submitSimulationAction.bind(null, simulationId);
-  const [state, formAction, pending] = useActionState<FormState, FormData>(action, {});
-
-  return (
-    <form action={formAction} className="mt-8 space-y-4">
-      <input type="hidden" name="attemptId" value={attemptId} />
-      {state.error && (
-        <p role="alert" className="rounded-md bg-red-50 p-3 text-sm text-red-700">
-          {state.error}
-        </p>
-      )}
-
-      <label htmlFor="content" className="block text-sm font-medium text-foreground">
-        Your submission · Nội dung bài làm
-      </label>
-      <textarea
-        id="content"
-        name="content"
-        rows={14}
-        required
-        maxLength={50000}
-        className="w-full rounded-md border border-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-      />
-
-      <button
-        type="submit"
-        disabled={pending}
-        className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md disabled:opacity-60 transition-all duration-300"
-      >
-        {pending ? "Đang chấm điểm và lưu kết quả…" : "Submit"}
-      </button>
-    </form>
-  );
+import { AttemptTimer } from "./attempt-timer";
+import { PendingPanel } from "@/components/reference/ui";
+import { ReferenceIcon } from "@/components/reference/icon";
+export function SubmissionForm({simulationId,attemptId,startedAt,minutes,title,industry,instructions}:{simulationId:string;attemptId:string;startedAt:string;minutes:number;title:string;industry:string;instructions:string}){
+ const [state,action,pending]=useActionState<FormState,FormData>(submitSimulationAction.bind(null,simulationId),{});const [tab,setTab]=useState("task");const [answer,setAnswer]=useState("");const editor=useRef<HTMLDivElement>(null);const split=instructions.split("## Dữ liệu đầu vào");const resources=split.slice(1).join("## Dữ liệu đầu vào");
+ useEffect(()=>{const draft=sessionStorage.getItem('r2w:attempt:'+attemptId);if(draft&&editor.current){editor.current.innerText=draft;setAnswer(draft)}},[attemptId]);
+ function format(command:string,value?:string){editor.current?.focus();document.execCommand(command,false,value);if(editor.current)setAnswer(editor.current.innerText)}
+ return <form action={action} id="simulation-submission"><input type="hidden" name="attemptId" value={attemptId}/><input type="hidden" name="content" value={answer}/><div className="test-header"><div className="test-badge"><strong>{title}</strong><br/><span>{industry}</span></div><AttemptTimer startedAt={startedAt} minutes={minutes} compact/><button className="submit-exam-btn" disabled={pending||!answer.trim()||answer.length>50000}>Nộp báo cáo</button></div>{answer.length>50000&&<p role="alert" className="auth-error">Bài làm tối đa 50.000 ký tự. Vui lòng rút gọn trước khi nộp.</p>}{state.error&&<p role="alert" className="auth-error">{state.error}</p>}<div className="workspace-split"><section className="left-resource-panel"><div className="panel-tabs"><button type="button" className={`panel-tab ${tab==="task"?"active":""}`} onClick={()=>setTab("task")}>Tab 1 Đề bài</button><button type="button" className={`panel-tab ${tab==="resources"?"active":""}`} onClick={()=>setTab("resources")}>Tab 2 Tài liệu tham khảo</button></div><div className="panel-content">{tab==="task"?<p>{split[0]}</p>:resources?<><h2 className="font-bold mb-4">Dữ liệu đầu vào</h2><pre className="whitespace-pre-wrap break-words text-xs leading-6">{resources}</pre><a download="du-lieu-dau-vao.txt" className="reference-link" href={`data:text/plain;charset=utf-8,${encodeURIComponent(resources)}`}>Tải dữ liệu đầu vào ↓</a></>:<p>Nhiệm vụ này sử dụng thông tin trong đề bài; không có tệp dữ liệu bổ sung.</p>}</div></section><section className="right-editor-panel"><div className="editor-toolbar">{[{label:"B",command:"bold"},{label:"I",command:"italic"},{label:"U",command:"underline"},{label:"List",command:"insertUnorderedList"}].map(t=><button type="button" key={t.command} className="tool-btn" aria-label={t.command==="bold"?"In đậm":t.command==="italic"?"In nghiêng":t.command==="underline"?"Gạch chân":"Danh sách"} onMouseDown={e=>e.preventDefault()} onClick={()=>format(t.command)}>{t.label}</button>)}<button type="button" className="tool-btn" onMouseDown={e=>e.preventDefault()} onClick={()=>format("insertHTML","<table border='1'><tr><td>Chỉ tiêu</td><td>Kết quả</td></tr><tr><td>…</td><td>…</td></tr></table><p><br></p>")}>Table</button></div><div ref={editor} role="textbox" aria-label="Nội dung bài làm" aria-multiline="true" contentEditable={!pending} suppressContentEditableWarning className="editor-textarea" data-placeholder="Trình soạn thảo văn bản: Trình bày phân tích, kết quả và đề xuất của bạn…" onInput={e=>{const text=e.currentTarget.innerText;setAnswer(text);sessionStorage.setItem('r2w:attempt:'+attemptId,text)}}/><div className="upload-zone"><p className="text-xs text-muted">Bài làm được lưu và chấm theo nội dung văn bản. Hãy dán bảng tính hoặc kết quả vào phần soạn thảo.</p><button type="button" disabled className="upload-btn" title="Backend hiện tại nhận bài làm bằng văn bản"><ReferenceIcon name="upload" size={14}/> Tệp đính kèm chưa được hỗ trợ</button><span className="text-xs text-muted">{answer.length.toLocaleString("vi-VN")} / 50.000 ký tự</span></div></section></div>{pending&&<PendingPanel title="AI đang đánh giá độ chính xác…" steps={["Phân tích lập luận","Đối chiếu với barem nhiệm vụ","Lưu điểm và tổng hợp báo cáo"]}/>}</form>;
 }

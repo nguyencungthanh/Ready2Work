@@ -49,6 +49,6 @@ jobs:
       - run: npm --workspace platform run test -- tests/integration
       - run: npx --workspace platform playwright install --with-deps chromium
       - name: Email auth and database role access
-        run: npm --workspace platform run e2e -- tests/e2e/auth.spec.ts tests/e2e/role-access.spec.ts
+        run: npm --workspace platform run e2e -- tests/e2e/auth.spec.ts tests/e2e/role-access.spec.ts tests/e2e/restoration.spec.ts
       - name: Verify clean migration replay
         run: supabase --workdir platform db reset

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@/components/reference/fonts.css";
 
 export const metadata: Metadata = {
   title: { default: "Ready2Work – Sẵn sàng cho nghề nghiệp tương lai", template: "%s | Ready2Work" },
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className="h-full antialiased">
+    <html data-scroll-behavior="smooth" lang="vi" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
     </html>
   );

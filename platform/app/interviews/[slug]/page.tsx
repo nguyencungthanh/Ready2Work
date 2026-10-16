@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { MicCheck } from "./mic-check";
 import { AppShell } from "@/components/app-shell";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
@@ -27,36 +29,5 @@ export default async function InterviewSetPage({
     .select("id", { count: "exact", head: true })
     .eq("set_id", set.id);
 
-  return (
-    <AppShell active="interviews" displayName={user.displayName}><main className="mx-auto max-w-3xl px-6 py-12">
-      <p className="text-sm font-medium text-muted">{set.industry}</p>
-      <h1 className="mt-1 text-2xl font-bold text-foreground">
-        {set.company_name ? `${set.company_name} - ` : ""}
-        {set.position_title}
-      </h1>
-      <p className="mt-3 text-muted">{set.description}</p>
-
-      <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-sm text-muted shadow-sm">
-        <p className="font-medium text-foreground">Before you start</p>
-        <ul className="mt-2 list-disc space-y-1 pl-5">
-          <li>{count ?? 0} questions, answered by text.</li>
-          <li>Ba vòng: tổng quan, chuyên môn và tình huống. Mỗi vòng được quy đổi về 100 điểm.</li>
-          <li>Câu trả lời được chấm theo tiêu chí riêng của từng câu hỏi.</li>
-          <li>Voice, accent, and identity are never scored.</li>
-        </ul>
-      </div>
-
-      {!set.is_available && <p role="status" className="mt-5 rounded-xl bg-amber-50 p-4 text-sm text-amber-900">Bộ câu hỏi gốc chưa có đủ ba vòng. Nội dung sẽ được mở khi hoàn tất; hệ thống không tự tạo câu hỏi hoặc điểm thay thế.</p>}
-      <form action={startInterviewSessionAction} className="mt-6">
-        <input type="hidden" name="setId" value={set.id} />
-        <button
-          type="submit"
-          disabled={!set.is_available}
-          className="disabled:opacity-40 rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md transition-all duration-300"
-        >
-          Start Interview
-        </button>
-      </form>
-    </main></AppShell>
-  );
+  return <AppShell active="interviews" displayName={user.displayName}><main className="d-main"><div id="dash-tab-interview"><div className="iv-page-screen iv-active"><div className="iv-waiting-top"><Link className="iv-back-link" href="/interviews?explore=1">← Quay lại danh sách</Link></div><header className="iv-waiting-hero"><span className="iv-hero-badge">Interview</span><h1 className="iv-waiting-title">Phòng chờ phỏng vấn</h1><p className="iv-waiting-pos-info">{set.company_name?`${set.company_name} · `:""}{set.position_title}</p></header><div className="iv-waiting-split"><section className="iv-wait-panel"><h2 className="iv-wait-panel-title">Cấu trúc buổi phỏng vấn</h2><p className="iv-wait-panel-sub">{count??0} câu hỏi qua ba vòng. Trả lời từng câu và nhận đánh giá theo tiêu chí của vị trí.</p><div className="iv-rounds-row">{["Câu hỏi Tổng quan","Chuyên môn","Tình huống"].map((name,i)=><div key={name} className="iv-round-card"><span className="iv-round-num">{i+1}</span><h3 className="iv-round-label">Vòng {i+1}</h3><p className="iv-round-name">{name}</p></div>)}</div><div className="iv-alert-box"><span>ⓘ</span><div><h3 className="iv-alert-box-title">Lưu ý quan trọng</h3><p className="iv-alert-box-text">Chuẩn bị không gian yên tĩnh, đọc kỹ câu hỏi và trả lời bằng trải nghiệm của bạn. Điểm đánh giá dựa trên nội dung trả lời; giọng nói và danh tính không được dùng để chấm.</p></div></div>{!set.is_available&&<p role="status" className="auth-error">Bộ câu hỏi gốc chưa đủ ba vòng. Nội dung sẽ mở khi hoàn tất.</p>}</section><section className="iv-wait-panel"><h2 className="iv-wait-panel-title">Kiểm tra thiết bị</h2><p className="iv-wait-panel-sub">Kiểm tra microphone nếu bạn muốn nhập câu trả lời bằng giọng nói. Bạn luôn có thể sử dụng văn bản.</p><MicCheck/></section></div><form action={startInterviewSessionAction} className="text-center"><input type="hidden" name="setId" value={set.id}/><button disabled={!set.is_available} className="iv-start-btn disabled:opacity-40">Bắt đầu Phỏng vấn</button></form></div></div></main></AppShell>;
 }

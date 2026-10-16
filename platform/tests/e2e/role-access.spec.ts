@@ -37,8 +37,8 @@ async function createConfirmedUser(role?: string) {
 async function signIn(page: import("@playwright/test").Page, email: string) {
   await page.goto("/signin");
   await page.getByLabel("Email").fill(email);
-  await page.getByLabel("Password").fill(PASSWORD);
-  await page.getByRole("button", { name: "Sign in" }).click();
+  await page.getByLabel("Mật khẩu",{exact:true}).fill(PASSWORD);
+  await page.getByRole("button", { name: "Đăng nhập →" }).click();
   await expect(page).toHaveURL(/\/dashboard/);
 }
 

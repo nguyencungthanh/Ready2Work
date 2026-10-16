@@ -1,8 +1,8 @@
 # Ready2Work
 
-The existing Next.js / Supabase application in **`platform/`** now uses the Vietnamese Ready2Work theme and prepared assessment content from `/Users/thanhnguyen/Documents/ready2work`.
+The Next.js / Supabase application in **`platform/`** is the only active application and UI. The previous root HTML/CSS/JS landing, unused landing components/assets and old-render comparison folders have been removed.
 
-Changes are applied in place in `Personal Project/Ready2Work`. The original static landing files remain as reference material; the default commands run the authenticated application.
+Product requirements: [Ready2Work.pdf](docs/requirements/Ready2Work.pdf). Scope and future work: [Master Plan 2.0](career_platform_ai_agent_master_plan.md). The current UI is the design baseline; new features in the plan are not implemented merely by updating the plan. Existing authentication, backend and stored accounts/history are retained.
 
 ## Run
 
@@ -52,27 +52,18 @@ Three logistics interview sets are intentionally unavailable because their suppl
 
 CV analysis uses the supplied Golden Profile weights and certification priorities. Without `GEMINI_API_KEY`, CV matching offers a clearly labeled keyword preview. Simulation/interview AI scoring requires a configured provider; a provider failure does not produce a fabricated score. `GEMINI_MODEL` can override the base project's model.
 
-## Validate
+## Validate only what changed
 
-```sh
-npm run typecheck
-npm run lint
-npm test
-npm run test:content
-npm run test:database
-npm run build
-npm start
-```
+Do not run every suite after each small change. Follow the change-based policy in [Master Plan §9](career_platform_ai_agent_master_plan.md#9-kiểm-tra-vừa-đủ-có-điểm-dừng).
 
-`npm test` runs the unit tests. `test:database` applies every migration in an isolated PostgreSQL engine and checks account/storage isolation, protected grading fields, three-round completion, atomic timed submissions, and business publication. It does not contact Supabase.
+- Documentation only: check content and links; no application tests.
+- Removing unused UI/assets: verify references and run `npm run build` once (includes TypeScript).
+- UI interaction: run the affected browser scenario, without re-running unrelated signup/reset/AI flows.
+- Scoring or rubric changes: run the relevant unit/content tests.
+- Auth, RLS or migrations: run the affected auth/database/integration checks.
+- Release: one focused candidate/business smoke pass on the final deployment environment.
 
-Browser tests:
-
-```sh
-npm --workspace platform run e2e -- tests/e2e/public.spec.ts
-```
-
-The remaining existing authentication/integration tests require a running local Supabase stack, email catcher and test credentials. Full email confirmation and live AI evaluation were not executed against a hosted service during this merge.
+Available checks remain `npm run typecheck`, `npm run lint`, `npm test`, `npm run test:content`, `npm run test:database` and targeted Playwright tests. Use them when relevant, not as an obligatory sequence. Existing browser/integration suites require local Supabase and Mailpit; live AI acceptance is a separate check and must not be claimed from fixture rendering.
 
 ## Deploy
 

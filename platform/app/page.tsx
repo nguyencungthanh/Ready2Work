@@ -1,10 +1,7 @@
-import { Navbar } from "@/components/landing/navbar";
-import { HomeContent } from "@/components/landing/home-content";
-import { Footer } from "@/components/landing/footer";
+import { landingMarkup } from "@/components/reference/static-markup";
+import "@/components/reference/reference-landing.css";
+import "@/components/reference/adaptations.css";
 
 export default function HomePage() {
-  // Public marketing HTML is identical for everyone and can be served at the CDN.
-  // The existing auth proxy sends signed-in visitors from auth routes to their app.
-  const signedIn = false;
-  return <><Navbar signedIn={signedIn} /><HomeContent signedIn={signedIn} /><Footer /></>;
+  return <main id="main-content" className="reference-landing" dangerouslySetInnerHTML={{ __html: landingMarkup }} />;
 }
