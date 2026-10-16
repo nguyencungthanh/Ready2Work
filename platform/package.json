@@ -5,25 +5,32 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/start.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:database": "node scripts/check-database.mjs",
+    "test:content": "node --test scripts/import-content.test.mjs && node scripts/import-content.mjs --check",
+    "content:generate": "node scripts/import-content.mjs",
     "e2e": "playwright test"
   },
   "dependencies": {
     "@google/genai": "2.13.0",
     "@supabase/ssr": "0.12.3",
     "@supabase/supabase-js": "2.110.8",
+    "mammoth": "^1.13.0",
     "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "server-only": "0.0.1",
+    "unpdf": "^1.9.0",
     "zod": "4.4.3"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
     "@playwright/test": "1.62.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

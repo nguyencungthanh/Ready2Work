@@ -1,0 +1,1727 @@
+{
+  "schema_version": "1.0",
+  "project": "Ready2Work",
+  "document_purpose": "Barem chấm điểm chuẩn hóa cho 15 task Job Simulation (5 ngành x 3 vị trí), dùng làm dữ liệu tham chiếu để AI (OpenAI API) đọc bài làm của người dùng, đối chiếu với đề bài + rubric của từng vị trí, và trả về điểm số trên thang 100 kèm giải trình chi tiết theo từng tiêu chí.",
+  "linked_dataset": "ready2work_golden_profile.json",
+  "linked_dataset_note": "Mỗi task dùng chung 'position_id' với Golden Profile của cùng vị trí (VD: TCNH-01, MKT-02, IT-03...). Antigravity/hệ thống AI có thể join 2 file theo 'position_id' để vừa chấm điểm task, vừa đối chiếu năng lực thí sinh với Golden Profile khi cần gợi ý lộ trình học tiếp theo.",
+  "fields_legend": {
+    "scale": "Thang điểm 100 cho mỗi task, chia thành 3-6 tiêu chí (criteria); tổng max_points của các tiêu chí trong 1 task luôn bằng 100.",
+    "checklist_note": "Mỗi tiêu chí có mảng 'checklist' liệt kê các ý/điểm số cụ thể cộng dồn đúng bằng max_points của tiêu chí đó — dùng để AI chấm điểm minh bạch, có thể giải trình điểm số theo từng ý nhỏ thay vì chỉ cho 1 điểm số tổng.",
+    "answer_key_note": "Các số liệu/đáp án tham chiếu (đúng/sai, công thức, kết quả tính toán) được nêu trực tiếp trong 'checklist' hoặc 'answer_key' để AI đối chiếu với bài làm của người dùng thay vì tự suy luận đáp án.",
+    "public_display_note": "Giao diện B2C (người dùng cuối) chỉ hiển thị tên tiêu chí in đậm và điểm đạt được/điểm tối đa; phần 'checklist' chi tiết + 'answer_key' chỉ dùng nội bộ cho AI chấm và cho Mentor/BGK xem khi cần đối chiếu.",
+    "checklist_id_note": "Mỗi checklist item có 'checklist_id' duy nhất, định dạng '{position_id}-{criterion_id}-{số thứ tự trong criterion}' (VD: TCNH-01-C1-1). AI phải trả điểm, trạng thái (status) và evidence riêng cho từng checklist_id, sau đó cộng lên điểm criterion và total_score (xem 'ai_output_schema').",
+    "scoring_source_note": "Mỗi checklist item có 'scoring_source': 'ai' (AI đọc bài làm để chấm), 'system' (hệ thống tự chấm bằng dữ liệu khách quan, ví dụ thời gian làm bài — xem 'time_scoring_rule'), hoặc 'hybrid' (một phần do hệ thống xác định, một phần do AI đánh giá nội dung — xem 'scoring_source_note' của từng item).",
+    "input_artifacts_note": "Với các task có dữ liệu Excel/bảng số liệu/file đính kèm riêng theo đề thi, trường 'input_artifacts' khai báo cấu trúc (artifact_id, type, description, required) để hệ thống map file thực tế của thí sinh/đề thi vào task tương ứng; bản thân file rubric này KHÔNG chứa dữ liệu mẫu hay file đính kèm thật.",
+    "hard_constraints_note": "Trường 'hard_constraints' (mảng, có thể rỗng) liệt kê các quy tắc đặc biệt/bắt buộc/điều kiện 0-điểm đã có sẵn trong nội dung checklist gốc, được cấu trúc hóa lại (constraint_id, type, trigger_checklist_id, condition, effect) để hệ thống/AI kiểm tra và áp dụng nhất quán. Không thay đổi điểm hay nội dung rubric gốc."
+  },
+  "scoring_guideline": {
+    "method": "Với mỗi task, AI đọc bài làm của người dùng và chấm từng 'checklist' item trong từng tiêu chí (criterion) của rubric — cho đủ điểm nếu bài làm đáp ứng đúng ý đó, cho một phần điểm nếu đáp ứng một phần, cho 0 điểm nếu không đề cập/sai. Cộng dồn điểm các checklist item để ra points_awarded của từng criterion (không vượt quá max_points), rồi cộng dồn toàn bộ criteria để ra total_score trên thang 100.",
+    "ai_output_schema_example": {
+      "task_id": "TCNH-01",
+      "total_score": 82,
+      "max_score": 100,
+      "criteria_scores": [
+        {
+          "criterion_id": "C1",
+          "criterion_name": "Mức độ chính xác và chiều sâu trong tính toán chỉ số tài chính",
+          "points_awarded": 20,
+          "max_points": 25,
+          "checklist_scores": [
+            {
+              "checklist_id": "TCNH-01-C1-1",
+              "status": "full",
+              "points_awarded": 10,
+              "max_points": 10,
+              "scoring_source": "ai",
+              "evidence": "Tính đủ và đúng cả 5 tỷ số tài chính yêu cầu, khớp đáp án tham chiếu."
+            },
+            {
+              "checklist_id": "TCNH-01-C1-2",
+              "status": "full",
+              "points_awarded": 5,
+              "max_points": 5,
+              "scoring_source": "ai",
+              "evidence": "Phân tích rõ xu hướng từng chỉ số qua cả 4 quý."
+            },
+            {
+              "checklist_id": "TCNH-01-C1-3",
+              "status": "full",
+              "points_awarded": 5,
+              "max_points": 5,
+              "scoring_source": "ai",
+              "evidence": "Giải thích được nguyên nhân tăng/giảm và ý nghĩa với sức khỏe doanh nghiệp."
+            },
+            {
+              "checklist_id": "TCNH-01-C1-4",
+              "status": "zero",
+              "points_awarded": 0,
+              "max_points": 5,
+              "scoring_source": "ai",
+              "evidence": "Không đề cập đến đánh giá chất lượng dòng tiền (bền vững hay nhất thời)."
+            }
+          ],
+          "justification": "Tính đúng 4/5 chỉ số yêu cầu, thiếu phân tích chất lượng dòng tiền."
+        }
+      ],
+      "hard_constraints_check": [],
+      "strengths": [
+        "..."
+      ],
+      "gaps": [
+        "..."
+      ],
+      "overall_feedback": "..."
+    },
+    "checklist_scoring_note": "Mỗi checklist item (định danh bằng 'checklist_id') được AI (hoặc hệ thống, theo 'scoring_source') chấm độc lập: trả về 'status' (theo 'partial_credit_policy'), 'points_awarded' và 'evidence' (bằng chứng/diễn giải ngắn từ bài làm). points_awarded của 1 checklist item không được vượt quá 'points' (max) của item đó. points_awarded của 1 criterion = tổng points_awarded của các checklist item thuộc criterion đó, và không được vượt quá 'max_points' của criterion. total_score = tổng points_awarded của toàn bộ criteria trong task, không vượt quá 100.",
+    "partial_credit_policy": {
+      "description": "Chính sách chấm điểm từng phần (partial credit) áp dụng thống nhất cho MỌI checklist item của MỌI task trong file này.",
+      "levels": [
+        {
+          "status": "full",
+          "score_ratio": 1.0,
+          "meaning": "Đáp ứng đầy đủ, chính xác yêu cầu của checklist item."
+        },
+        {
+          "status": "partial_75",
+          "score_ratio": 0.75,
+          "meaning": "Đáp ứng phần lớn yêu cầu, chỉ thiếu/sai chi tiết nhỏ, không ảnh hưởng bản chất."
+        },
+        {
+          "status": "partial_50",
+          "score_ratio": 0.5,
+          "meaning": "Đáp ứng một phần yêu cầu, còn thiếu ý hoặc số liệu quan trọng."
+        },
+        {
+          "status": "partial_25",
+          "score_ratio": 0.25,
+          "meaning": "Chỉ đề cập sơ sài/chạm nhẹ tới yêu cầu, thiếu phần lớn nội dung cần thiết."
+        },
+        {
+          "status": "zero",
+          "score_ratio": 0.0,
+          "meaning": "Không đề cập, sai hoàn toàn, hoặc bị hard_constraint liên quan quy về 0 điểm."
+        }
+      ],
+      "rounding_rule": "points_awarded (của 1 checklist item) = round(item.points × score_ratio tương ứng với status), làm tròn đến số nguyên gần nhất.",
+      "cap_rule": "points_awarded của từng checklist item không được vượt quá 'points' (max) của item; tổng points_awarded trong 1 criterion không vượt 'max_points' của criterion; tổng total_score không vượt 100.",
+      "no_negative_rule": "points_awarded không bao giờ âm; mức thấp nhất là 'zero' (0 điểm)."
+    },
+    "time_scoring_rule": {
+      "description": "Quy tắc hệ thống (không do AI phán đoán) để chấm các checklist item có scoring_source = 'system' hoặc phần hệ thống của các item 'hybrid'.",
+      "inputs": [
+        "time_limit_minutes: lấy từ field cùng cấp trong task tương ứng (VD: TCNH-01.time_limit_minutes = 60).",
+        "actual_duration_seconds: thời gian làm bài thực tế của thí sinh (tính bằng giây), do hệ thống ghi nhận qua timestamp bắt đầu/nộp bài."
+      ],
+      "rule": "Nếu actual_duration_seconds <= time_limit_minutes × 60 → status = 'full' (đủ điểm phần thời gian của checklist item). Nếu actual_duration_seconds > time_limit_minutes × 60 → status = 'zero' (0 điểm phần thời gian của checklist item).",
+      "applies_to": "Các checklist item có scoring_source = 'system' (chấm toàn bộ điểm của item theo quy tắc này) hoặc scoring_source = 'hybrid' (chỉ phần thời gian của item áp dụng quy tắc này; phần nội dung còn lại vẫn do AI chấm theo 'ai' như checklist gốc mô tả)."
+    },
+    "ai_output_schema": {
+      "description": "Schema hình thức (định nghĩa cấu trúc/kiểu dữ liệu) cho JSON mà AI/hệ thống phải trả về khi chấm 1 task. Xem 'ai_output_schema_example' bên dưới để có ví dụ cụ thể.",
+      "type": "object",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Bằng đúng 'position_id' của task."
+        },
+        "total_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "max_score": {
+          "type": "number",
+          "const": 100
+        },
+        "criteria_scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "criterion_id": {
+                "type": "string"
+              },
+              "criterion_name": {
+                "type": "string"
+              },
+              "points_awarded": {
+                "type": "number",
+                "minimum": 0
+              },
+              "max_points": {
+                "type": "number"
+              },
+              "checklist_scores": {
+                "type": "array",
+                "description": "Điểm chi tiết theo từng checklist_id thuộc criterion này.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "checklist_id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "enum": [
+                        "full",
+                        "partial_75",
+                        "partial_50",
+                        "partial_25",
+                        "zero"
+                      ]
+                    },
+                    "points_awarded": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "max_points": {
+                      "type": "number"
+                    },
+                    "scoring_source": {
+                      "enum": [
+                        "ai",
+                        "system",
+                        "hybrid"
+                      ]
+                    },
+                    "evidence": {
+                      "type": "string",
+                      "description": "Trích dẫn/diễn giải ngắn từ bài làm chứng minh cho điểm số, hoặc diễn giải kết quả kiểm tra hệ thống (nếu scoring_source = system)."
+                    }
+                  },
+                  "required": [
+                    "checklist_id",
+                    "status",
+                    "points_awarded",
+                    "max_points",
+                    "scoring_source",
+                    "evidence"
+                  ]
+                }
+              },
+              "justification": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "criterion_id",
+              "criterion_name",
+              "points_awarded",
+              "max_points",
+              "checklist_scores"
+            ]
+          }
+        },
+        "hard_constraints_check": {
+          "type": "array",
+          "description": "Chỉ áp dụng nếu task có khai báo 'hard_constraints' (mảng không rỗng). Với mỗi constraint, AI/hệ thống xác định có bị kích hoạt hay không.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "constraint_id": {
+                "type": "string"
+              },
+              "triggered": {
+                "type": "boolean"
+              },
+              "explanation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "constraint_id",
+              "triggered",
+              "explanation"
+            ]
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "overall_feedback": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "task_id",
+        "total_score",
+        "max_score",
+        "criteria_scores"
+      ]
+    }
+  },
+  "industries": [
+    {
+      "industry_id": "TCNH",
+      "industry_name": "Tài chính - Ngân hàng",
+      "tasks": [
+        {
+          "position_id": "TCNH-01",
+          "position_name": "Financial Analyst (Chuyên viên Phân tích Tài chính)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là một chuyên viên phân tích tài chính. Khách hàng của bạn là một doanh nghiệp bán lẻ ABC — một chuỗi cửa hàng bán lẻ sản phẩm tiêu dùng nhanh. Doanh nghiệp ghi nhận doanh thu tăng trưởng liên tục trong 4 quý gần nhất. Tuy nhiên, khi đối chiếu lại thì thấy lợi nhuận sau thuế lại giảm. Bạn được cung cấp bộ hồ sơ bao gồm: Doanh thu, Giá vốn hàng bán, Chi phí vận hành, EBITDA, Lợi nhuận sau thuế, Dòng tiền từ hoạt động kinh doanh, Số lượng khách hàng, Giá trị đơn hàng trung bình — theo từng quý trong 4 quý gần nhất.",
+          "context_data_note": "Bộ số liệu chi tiết theo 4 quý được đính kèm riêng theo từng đề thi (bảng dữ liệu/file excel đề bài). AI cần tự tính lại các chỉ số từ dữ liệu thô đó để có đáp án tham chiếu trước khi đối chiếu với bài làm của thí sinh.",
+          "requirements": [
+            "Tính toán các chỉ số tài chính: Biên lợi nhuận gộp, Biên lợi nhuận EBITDA, Biên lợi nhuận ròng, Tốc độ tăng trưởng doanh thu quý/quý, Tốc độ tăng trưởng chi phí quý/quý.",
+            "Xác định nguyên nhân khiến lợi nhuận giảm dù doanh thu tăng.",
+            "Đưa ra ít nhất 3 nhận định có số liệu chứng minh.",
+            "Đề xuất 3 giải pháp để cải thiện hiệu quả kinh doanh.",
+            "Xác định chỉ số nào cần tiếp tục theo dõi trong quý tiếp theo."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Mức độ chính xác và chiều sâu trong tính toán chỉ số tài chính",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Tính toán chính xác và đầy đủ tất cả các tỷ số tài chính yêu cầu",
+                  "points": 10,
+                  "checklist_id": "TCNH-01-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Phân tích được xu hướng của từng chỉ số qua 4 quý",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C1-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Giải thích được nguyên nhân tăng/giảm và ý nghĩa đối với sức khỏe doanh nghiệp",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C1-3",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Đánh giá được chất lượng dòng tiền (bền vững hay nhất thời)",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C1-4",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Lý luận và xác định nguyên nhân lợi nhuận giảm",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Xác định được các nguyên nhân gốc rễ (đáp án tham chiếu: 3-4 nguyên nhân trọng yếu trong số 5-8 nguyên nhân khả dĩ)",
+                  "points": 15,
+                  "checklist_id": "TCNH-01-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Có phân tích định lượng cụ thể cho từng nguyên nhân",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C2-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Kết nối được các nguyên nhân với nhau trong lập luận tổng thể",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C2-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Chất lượng và độ thuyết phục của các nhận định",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Xác định đúng 3-4 nhận định (đáp án tham chiếu có khoảng 5-8 nhận định khả dĩ)",
+                  "points": 15,
+                  "checklist_id": "TCNH-01-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Các nhận định có số liệu chứng minh cụ thể",
+                  "points": 3,
+                  "checklist_id": "TCNH-01-C3-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Có đưa ra hàm ý chiến lược cho mỗi nhận định (cộng điểm)",
+                  "points": 2,
+                  "checklist_id": "TCNH-01-C3-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Đề xuất giải pháp cải thiện và chỉ số theo dõi",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Đề xuất đúng 3 giải pháp (đáp án tham chiếu có 5-8 giải pháp khả dĩ)",
+                  "points": 8,
+                  "checklist_id": "TCNH-01-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Mỗi giải pháp có hành động cụ thể và thời gian thực hiện rõ ràng",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C4-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Giải pháp nhắm đúng vào các nguyên nhân đã nêu ở Tiêu chí 2",
+                  "points": 4,
+                  "checklist_id": "TCNH-01-C4-3",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Đề xuất danh sách chỉ số cần theo dõi, phân loại theo tần suất theo dõi",
+                  "points": 3,
+                  "checklist_id": "TCNH-01-C4-4",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C5",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 10,
+              "checklist": [
+                {
+                  "text": "Bài làm có cấu trúc rõ ràng, logic theo đúng thứ tự các phần yêu cầu",
+                  "points": 5,
+                  "checklist_id": "TCNH-01-C5-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Sử dụng bảng biểu, ngôn ngữ tài chính chính xác, chuyên nghiệp",
+                  "points": 3,
+                  "checklist_id": "TCNH-01-C5-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hoàn thành bài làm trong đúng thời gian 60 phút",
+                  "points": 2,
+                  "checklist_id": "TCNH-01-C5-3",
+                  "scoring_source": "system"
+                }
+              ]
+            }
+          ],
+          "input_artifacts": [
+            {
+              "artifact_id": "TCNH-01-DATA-01",
+              "type": "table_or_excel",
+              "description": "Bảng số liệu theo 4 quý gần nhất: Doanh thu, Giá vốn hàng bán, Chi phí vận hành, EBITDA, Lợi nhuận sau thuế, Dòng tiền từ hoạt động kinh doanh, Số lượng khách hàng, Giá trị đơn hàng trung bình.",
+              "required": true,
+              "mapping_note": "File thực tế của đề thi sẽ được hệ thống map vào task này theo position_id; không tự tạo dữ liệu mẫu."
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "TCNH-02",
+          "position_name": "Credit Analyst (Chuyên viên Tín dụng / Phân tích Tín dụng)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là một Chuyên viên Thẩm định Tín dụng. Khách hàng của bạn là một doanh nghiệp SME — Công ty Cổ phần Con Sứa. Họ đang đề nghị ngân hàng cấp khoản vay 5 tỷ đồng để mở rộng hoạt động. Bạn được cung cấp bộ hồ sơ bao gồm: Báo cáo tài chính 3 năm gần nhất, Dòng tiền/Báo cáo lưu chuyển tiền tệ, Lịch sử tín dụng, Thông tin tài sản đảm bảo, Phương án sử dụng vốn của công ty.",
+          "context_data_note": "Bộ hồ sơ tài chính chi tiết 3 năm được đính kèm riêng theo từng đề thi. AI cần tự tính lại các chỉ số từ dữ liệu thô đó để có đáp án tham chiếu.",
+          "requirements": [
+            "Tính các chỉ số: Tỷ số nợ/VCSH, Khả năng trả lãi (ICR), Lợi nhuận ròng, ROA, ROE, và đánh giá xu hướng qua 3 năm.",
+            "Đánh giá năng lực tài chính của doanh nghiệp thông qua các chỉ số trên.",
+            "Đánh giá khả năng trả nợ của doanh nghiệp.",
+            "Xác định các rủi ro tín dụng chính.",
+            "Đưa ra quyết định Có/Không cấp tín dụng. Nếu có, đề xuất cụ thể: Hạn mức, kỳ hạn, lãi suất, điều kiện đi kèm (nếu có)."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác và chiều sâu trong phân tích tài chính",
+              "max_points": 35,
+              "checklist": [
+                {
+                  "text": "Tính toán chính xác và đầy đủ các tỷ số tài chính yêu cầu cho cả 3 năm",
+                  "points": 15,
+                  "checklist_id": "TCNH-02-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Phân tích được xu hướng của từng chỉ số và ý nghĩa đối với sức khỏe tài chính doanh nghiệp",
+                  "points": 10,
+                  "checklist_id": "TCNH-02-C1-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Đánh giá được sức khỏe dòng tiền của doanh nghiệp",
+                  "points": 5,
+                  "checklist_id": "TCNH-02-C1-3",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Xác định đúng các rủi ro tín dụng trọng yếu nhất",
+                  "points": 5,
+                  "checklist_id": "TCNH-02-C1-4",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Lý do, lập luận rõ ràng, bám sát tiêu chí đề bài",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Mỗi luận điểm trong bài đều có dẫn chứng từ số liệu và thông tin được cung cấp",
+                  "points": 15,
+                  "checklist_id": "TCNH-02-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Nhận diện được các rủi ro trọng yếu nhất trong tổng thể hồ sơ",
+                  "points": 10,
+                  "checklist_id": "TCNH-02-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Khả năng xử lý sâu vấn đề phát sinh trong tình huống",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Quyết định cấp vốn (Đồng ý/Từ chối) rõ ràng và nhất quán với toàn bộ phần phân tích phía trước",
+                  "points": 15,
+                  "checklist_id": "TCNH-02-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Đề xuất điều kiện tín dụng hợp lý, khả thi (VD: kỳ hạn, lãi suất, tài sản thế chấp bổ sung để đảm bảo an toàn cho ngân hàng)",
+                  "points": 10,
+                  "checklist_id": "TCNH-02-C3-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 15,
+              "checklist": [
+                {
+                  "text": "Báo cáo có cấu trúc rõ ràng, logic",
+                  "points": 7,
+                  "checklist_id": "TCNH-02-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Sử dụng ngôn ngữ tài chính - ngân hàng chính xác, chuyên nghiệp",
+                  "points": 6,
+                  "checklist_id": "TCNH-02-C4-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hoàn thành bài làm trong đúng thời gian 60 phút",
+                  "points": 2,
+                  "checklist_id": "TCNH-02-C4-3",
+                  "scoring_source": "system"
+                }
+              ]
+            }
+          ],
+          "input_artifacts": [
+            {
+              "artifact_id": "TCNH-02-DATA-01",
+              "type": "table_or_excel",
+              "description": "Bộ hồ sơ tài chính 3 năm gần nhất: Báo cáo tài chính, Dòng tiền/Báo cáo lưu chuyển tiền tệ, Lịch sử tín dụng, Thông tin tài sản đảm bảo, Phương án sử dụng vốn.",
+              "required": true,
+              "mapping_note": "File thực tế của đề thi sẽ được hệ thống map vào task này theo position_id; không tự tạo dữ liệu mẫu."
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "TCNH-03",
+          "position_name": "Risk Analyst (Chuyên viên Quản trị Rủi ro)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là 1 chuyên viên phân tích rủi ro tại Bộ phận Quản trị Rủi ro tín dụng của Ngân hàng Đại Dương. Hiện tại, Phòng Tín dụng đang đề xuất cấp khoản vay trung hạn 400 tỷ VNĐ cho Công ty CP Con Cua (sản xuất thép xây dựng) để mở rộng nhà máy tại Khu công nghiệp Phố Nối A, tỉnh Hưng Yên. Bạn được cung cấp bộ hồ sơ bao gồm: Doanh thu 2024: 2.500 tỷ VNĐ, lợi nhuận sau thuế: 150 tỷ VNĐ; Hệ số nợ vay/VCSH (D/E): 4,2; Hệ số thanh toán hiện hành: 0,85; Tỷ lệ nợ xấu nội bộ: 2%. Ngành thép đang đối mặt với biến động giá nguyên liệu (quặng sắt, than cốc) và cạnh tranh gay gắt từ thép nhập khẩu Trung Quốc. Ngân hàng yêu cầu bạn đánh giá toàn diện rủi ro và đưa ra khuyến nghị về việc cấp tín dụng.",
+          "requirements": [
+            "Phân tích rủi ro tín dụng dựa trên các chỉ số D/E, Thanh khoản, Lợi nhuận biên và các yếu tố vĩ mô/ngành.",
+            "Đề xuất ít nhất 3 biện pháp bảo vệ ngân hàng và giải thích cơ chế của từng biện pháp.",
+            "Viết báo cáo ngắn (tối đa 200 từ) gửi Hội đồng Tín dụng với kết luận: Đồng ý cho vay / Cho vay có điều kiện / Từ chối."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Mức độ chính xác và chiều sâu trong phân tích rủi ro tài chính",
+              "max_points": 40,
+              "checklist": [
+                {
+                  "text": "Phân tích đúng và đầy đủ các chỉ số D/E (4,2), Thanh khoản (0,85), Lợi nhuận biên và kết luận đúng về mức rủi ro tài chính",
+                  "points": 25,
+                  "checklist_id": "TCNH-03-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Phân tích được các yếu tố rủi ro vĩ mô/ngành (biến động giá nguyên liệu, cạnh tranh thép nhập khẩu Trung Quốc) và liên hệ với khả năng trả nợ của doanh nghiệp",
+                  "points": 15,
+                  "checklist_id": "TCNH-03-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Đề xuất giải pháp bảo vệ ngân hàng",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Đề xuất chính xác ít nhất 3 giải pháp và nêu được cơ chế của từng biện pháp đối với ngân hàng (VD: tài sản thế chấp bổ sung, giải ngân theo tiến độ, covenant tài chính, bảo lãnh của công ty mẹ)",
+                  "points": 20,
+                  "checklist_id": "TCNH-03-C2-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Năng lực viết báo cáo, lập luận",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Có tiêu đề, người nhận, mở đầu - kết thúc đầy đủ",
+                  "points": 10,
+                  "checklist_id": "TCNH-03-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Khuyến nghị rõ ràng kèm lý do",
+                  "points": 10,
+                  "checklist_id": "TCNH-03-C3-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Ngôn ngữ súc tích, không lan man, đúng giới hạn tối đa 200 từ",
+                  "points": 10,
+                  "checklist_id": "TCNH-03-C3-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày cấu trúc và thời gian",
+              "max_points": 10,
+              "checklist": [
+                {
+                  "text": "Bài làm có cấu trúc rõ ràng, logic theo thứ tự các phần yêu cầu",
+                  "points": 5,
+                  "checklist_id": "TCNH-03-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Sử dụng bảng biểu, ngôn ngữ tài chính chính xác",
+                  "points": 3,
+                  "checklist_id": "TCNH-03-C4-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hoàn thành bài làm trong đúng thời gian 60 phút",
+                  "points": 2,
+                  "checklist_id": "TCNH-03-C4-3",
+                  "scoring_source": "system"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        }
+      ]
+    },
+    {
+      "industry_id": "MKT",
+      "industry_name": "Marketing",
+      "tasks": [
+        {
+          "position_id": "MKT-01",
+          "position_name": "Marketing Intern (Thực tập sinh Marketing)",
+          "level": "Intern",
+          "time_limit_minutes": 45,
+          "context": "Một thương hiệu thời trang địa phương (Local Brand) bán sản phẩm qua Fanpage và Shopee. Nhãn hàng sắp ra mắt BST Thu-Đông dành cho sinh viên. Lượng tương tác trên Fanpage bị sụt giảm 30%, bài đăng lặp lại hình ảnh sản phẩm đơn điệu, chưa có kế hoạch nội dung bài bản và chưa khai thác kênh video ngắn (TikTok/Reels).",
+          "requirements": [
+            "Xây dựng kế hoạch nội dung 7 ngày ra mắt BST.",
+            "Viết 01 bài Copywriting hoàn chỉnh cho mẫu sản phẩm chủ đạo.",
+            "Đề xuất 02 kịch bản video ngắn (TikTok Script 30s) bắt trend."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác trong quyết định/đề xuất chính",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Kế hoạch 7 ngày có đủ 7 ngày nội dung, đa dạng định dạng (không lặp lại kiểu bài cũ đã bị nêu là đơn điệu trong đề bài)",
+                  "points": 15,
+                  "checklist_id": "MKT-01-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Nội dung Copywriting và 2 kịch bản TikTok bám đúng đặc điểm BST Thu-Đông và đúng insight sinh viên (đối tượng mục tiêu)",
+                  "points": 15,
+                  "checklist_id": "MKT-01-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Giải thích được vì sao chọn định dạng/kênh/thời điểm đăng cho từng ngày trong kế hoạch",
+                  "points": 15,
+                  "checklist_id": "MKT-01-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Copywriting và 2 kịch bản TikTok có lập luận rõ về thông điệp, CTA và lý do bắt trend phù hợp",
+                  "points": 15,
+                  "checklist_id": "MKT-01-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Khả năng xử lý sâu vấn đề phát sinh trong tình huống",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Đề xuất giải quyết trực tiếp 2 vấn đề nêu trong bối cảnh — tương tác Fanpage giảm 30% và nội dung hình ảnh lặp lại đơn điệu — chứ không làm nội dung chung chung",
+                  "points": 20,
+                  "checklist_id": "MKT-01-C3-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Bài làm có cấu trúc rõ ràng (lịch 7 ngày dạng bảng, copywriting và kịch bản tách bạch)",
+                  "points": 12,
+                  "checklist_id": "MKT-01-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hoàn thành đúng thời gian quy định (45 phút)",
+                  "points": 8,
+                  "checklist_id": "MKT-01-C4-2",
+                  "scoring_source": "system"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "MKT-02",
+          "position_name": "Digital Marketing Executive (Chuyên viên Marketing Số)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 45,
+          "context": "Một trung tâm tiếng Anh giao tiếp tung ra khóa học mới với mục tiêu thu về 100 Lead trong 14 ngày. Ngân sách chạy thử 3 ngày đầu là 5.000.000 VNĐ nhưng chỉ thu được 8 Lead, CPL bị đội lên 625.000 VNĐ/Lead (mục tiêu tối đa 200.000 VNĐ/Lead), CTR chỉ đạt 0,8%.",
+          "requirements": [
+            "Đánh giá và chỉ ra 3 nguyên nhân chính khiến CPL tăng cao.",
+            "Đề xuất phương án tối ưu chiến dịch (A/B Testing Target, Creative, Landing Page).",
+            "Lập kế hoạch phân bổ 15.000.000 VNĐ còn lại cho 11 ngày tiếp theo để đạt đủ 100 Lead."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác trong quyết định/đề xuất chính",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Chỉ ra đúng 3 nguyên nhân có căn cứ từ số liệu đề bài (CTR 0,8% thấp, CPL 625.000đ vượt xa mục tiêu 200.000đ, ngân sách/thời gian thử nghiệm ngắn)",
+                  "points": 15,
+                  "checklist_id": "MKT-02-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Kế hoạch phân bổ 15.000.000 VNĐ cho 11 ngày có con số cụ thể, khả thi để đạt 100 Lead đúng mục tiêu CPL",
+                  "points": 15,
+                  "checklist_id": "MKT-02-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Mỗi nguyên nhân CPL cao được lập luận gắn với chỉ số cụ thể (CTR, CPL, ngân sách)",
+                  "points": 15,
+                  "checklist_id": "MKT-02-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Phương án tối ưu A/B Testing nêu rõ biến số thử nghiệm (Target/Creative/Landing Page) và cách đo lường kết quả",
+                  "points": 15,
+                  "checklist_id": "MKT-02-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Khả năng xử lý sâu vấn đề phát sinh trong tình huống",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Có tính đến ràng buộc thời gian còn lại (11 ngày) và ngân sách còn lại (15.000.000đ) khi đề xuất giải pháp, không đề xuất chung chung thiếu tính khả thi",
+                  "points": 20,
+                  "checklist_id": "MKT-02-C3-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Có bảng/số liệu minh họa cho kế hoạch phân bổ ngân sách theo ngày/giai đoạn",
+                  "points": 12,
+                  "checklist_id": "MKT-02-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Trình bày rõ ràng, hoàn thành đúng thời gian làm bài (45 phút)",
+                  "points": 8,
+                  "checklist_id": "MKT-02-C4-2",
+                  "scoring_source": "hybrid",
+                  "scoring_source_note": "Phần \"hoàn thành đúng thời gian\" trong ý này do HỆ THỐNG tự động xác định dựa trên time_limit_minutes và actual_duration_seconds (xem time_scoring_rule); phần nội dung còn lại của ý này vẫn do AI đánh giá như checklist gốc."
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "MKT-03",
+          "position_name": "Content Marketing Specialist (Chuyên viên Sáng tạo Nội dung)",
+          "level": "Junior",
+          "time_limit_minutes": 60,
+          "context": "Một công ty SaaS kinh doanh Phần mềm Quản lý Bán hàng cho cửa hàng F&B vừa và nhỏ chuẩn bị ra mắt tính năng \"Tự động quản lý nguyên vật liệu & cảnh báo tồn kho\". Lượng Organic Traffic vào Website hiện rất thấp, Blog thiếu các bài viết chuyên sâu giải quyết đúng \"nỗi đau\" khách hàng.",
+          "requirements": [
+            "Xây dựng Kế hoạch Nội dung 1 tháng áp dụng mô hình Phễu Marketing (TOFU - MOFU - BOFU) với 6 chủ đề.",
+            "Chọn bộ 5 từ khóa SEO chủ đạo.",
+            "Viết 01 bài viết chuẩn SEO (~800-1000 từ) cho giai đoạn MOFU."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác trong quyết định/đề xuất chính",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "6 chủ đề được phân bổ đúng và hợp lý theo 3 giai đoạn phễu TOFU - MOFU - BOFU",
+                  "points": 15,
+                  "checklist_id": "MKT-03-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Bộ 5 từ khóa SEO liên quan trực tiếp đến tính năng \"Tự động quản lý nguyên vật liệu & cảnh báo tồn kho\" và đúng ý định tìm kiếm (search intent) của khách hàng F&B mục tiêu",
+                  "points": 15,
+                  "checklist_id": "MKT-03-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Giải thích được vì sao mỗi chủ đề thuộc đúng giai đoạn phễu đã chọn",
+                  "points": 15,
+                  "checklist_id": "MKT-03-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Bài viết MOFU giải quyết đúng \"nỗi đau\" tồn kho/nguyên vật liệu của chủ cửa hàng F&B đã nêu trong bối cảnh, có tối ưu từ khóa SEO tự nhiên trong bài",
+                  "points": 15,
+                  "checklist_id": "MKT-03-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Khả năng xử lý sâu vấn đề phát sinh trong tình huống",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Nội dung đề xuất có hướng giải quyết trực tiếp vấn đề Organic Traffic thấp và thiếu bài viết chuyên sâu đã nêu trong bối cảnh, không chỉ liệt kê chủ đề chung chung",
+                  "points": 20,
+                  "checklist_id": "MKT-03-C3-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Bài viết SEO đạt đúng khoảng 800-1000 từ, có cấu trúc heading rõ ràng (H1/H2)",
+                  "points": 12,
+                  "checklist_id": "MKT-03-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Kế hoạch nội dung trình bày dạng bảng theo tuần/giai đoạn; hoàn thành đúng thời gian (60 phút)",
+                  "points": 8,
+                  "checklist_id": "MKT-03-C4-2",
+                  "scoring_source": "hybrid",
+                  "scoring_source_note": "Phần \"hoàn thành đúng thời gian\" trong ý này do HỆ THỐNG tự động xác định dựa trên time_limit_minutes và actual_duration_seconds (xem time_scoring_rule); phần nội dung còn lại của ý này vẫn do AI đánh giá như checklist gốc."
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        }
+      ]
+    },
+    {
+      "industry_id": "IT",
+      "industry_name": "Công nghệ thông tin",
+      "tasks": [
+        {
+          "position_id": "IT-01",
+          "position_name": "Business Analyst (IT BA / Chuyên viên Phân tích Nghiệp vụ)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Một trung tâm đào tạo hiện quản lý học viên bằng Excel. Khi học viên đăng ký khóa học, nhân viên phải nhập thông tin thủ công, kiểm tra lớp còn chỗ và xác nhận học phí. Việc này dẫn đến dữ liệu bị trùng, cập nhật trạng thái chậm và khó theo dõi số lượng học viên theo lớp. Trung tâm muốn xây dựng chức năng đăng ký khóa học trực tuyến trên hệ thống quản lý học viên, với các yêu cầu từ quản lý: (1) Học viên có thể xem danh sách khóa học và số chỗ còn lại; (2) Học viên chọn khóa học và gửi đăng ký; (3) Hệ thống kiểm tra điều kiện đăng ký và số chỗ; (4) Sau khi đăng ký, hệ thống ghi nhận thông tin và chuyển trạng thái sang \"Chờ xác nhận học phí\"; (5) Nhân viên có thể xem danh sách đăng ký và cập nhật trạng thái học phí.",
+          "requirements": [
+            "Xác định 5 yêu cầu chức năng chính (Functional Requirements) từ mô tả nghiệp vụ trên.",
+            "Viết 3 User Stories cho các nhóm người dùng liên quan.",
+            "Viết Acceptance Criteria (AC) cho cả 3 User Stories."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác và đầy đủ của Yêu cầu chức năng",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Xác định đủ 5 yêu cầu chức năng, mỗi yêu cầu bám sát đúng 5 gạch đầu dòng nghiệp vụ đã mô tả (không bỏ sót, không suy diễn thêm yêu cầu không có căn cứ)",
+                  "points": 20,
+                  "checklist_id": "IT-01-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Yêu cầu chức năng được viết rõ ràng, có thể chuyển giao trực tiếp cho đội phát triển",
+                  "points": 10,
+                  "checklist_id": "IT-01-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Chất lượng User Stories",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Đúng định dạng chuẩn \"Là [vai trò], tôi muốn [hành động], để [giá trị/lợi ích]\" cho cả 3 story",
+                  "points": 10,
+                  "checklist_id": "IT-01-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "3 User Stories bao phủ đủ các vai trò liên quan (Học viên, Nhân viên, góc nhìn hệ thống/quản lý)",
+                  "points": 10,
+                  "checklist_id": "IT-01-C2-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Mỗi story độc lập, có giá trị nghiệp vụ rõ ràng, không trùng lặp nội dung",
+                  "points": 5,
+                  "checklist_id": "IT-01-C2-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Chất lượng Acceptance Criteria",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "AC viết theo cấu trúc rõ ràng (khuyến khích Given-When-Then hoặc gạch đầu dòng điều kiện đạt/không đạt)",
+                  "points": 10,
+                  "checklist_id": "IT-01-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "AC bao phủ được trường hợp chính (happy path) và ít nhất 1 trường hợp ngoại lệ mỗi story (VD: hết chỗ, sai điều kiện đăng ký)",
+                  "points": 10,
+                  "checklist_id": "IT-01-C3-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "AC nhất quán với User Story và Yêu cầu chức năng tương ứng",
+                  "points": 5,
+                  "checklist_id": "IT-01-C3-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Tài liệu có cấu trúc rõ ràng, đúng thứ tự (Yêu cầu chức năng → User Stories → Acceptance Criteria), dễ theo dõi để bàn giao cho đội phát triển",
+                  "points": 10,
+                  "checklist_id": "IT-01-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Dùng đúng thuật ngữ BA chuẩn; hoàn thành đúng thời gian 60 phút",
+                  "points": 10,
+                  "checklist_id": "IT-01-C4-2",
+                  "scoring_source": "hybrid",
+                  "scoring_source_note": "Phần \"hoàn thành đúng thời gian\" trong ý này do HỆ THỐNG tự động xác định dựa trên time_limit_minutes và actual_duration_seconds (xem time_scoring_rule); phần nội dung còn lại của ý này vẫn do AI đánh giá như checklist gốc."
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "IT-02",
+          "position_name": "Software Tester / QA (Chuyên viên Kiểm thử / Đảm bảo Chất lượng)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 45,
+          "context": "Một ứng dụng đặt đồ ăn vừa phát triển xong tính năng \"Giỏ hàng & Thanh toán\". Trong vòng test nội bộ, đội QA ghi nhận 2 lỗi sau: Lỗi 1 - Sai tổng tiền: Giỏ hàng 2 ly trà sữa (35.000đ/ly) + phí giao hàng 15.000đ. Khách nhập mã giảm giá SALE20 (giảm 20% trên tổng đơn hàng, không áp dụng cho phí ship). Hệ thống hiển thị tổng thanh toán = 68.000đ (số đúng phải là (70.000 × 0,8) + 15.000 = 71.000đ). Lỗi 2 - Đơn hàng bị trùng: Khách bấm nút \"Đặt hàng\" lúc mạng chập chờn (loading xoay hơn 3 giây). Khách bấm thêm lần 2 vì tưởng chưa nhận. Sau đó vào mục \"Đơn hàng của tôi\" thấy xuất hiện 2 đơn giống hệt nhau, cùng bị trừ tiền 2 lần trong lịch sử giao dịch.",
+          "requirements": [
+            "Viết 2 Bug Report theo mẫu chuẩn cho 2 lỗi đã mô tả, mỗi report gồm: Tiêu đề, Các bước tái hiện, Kết quả mong đợi, Kết quả thực tế, Mức độ nghiêm trọng, Đề xuất hướng xử lý."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác trong mô tả lỗi",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Bug 1: tính đúng số tiền kỳ vọng (70.000 × 0,8 + 15.000 = 71.000đ) và chỉ rõ nguyên nhân là mã giảm giá bị áp dụng nhầm luôn cho phí ship",
+                  "points": 15,
+                  "checklist_id": "IT-02-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Bug 2: mô tả đúng nguyên nhân khả dĩ (double-click/timeout khi mạng chập chờn khiến gọi API đặt hàng 2 lần) và hệ quả bị trừ tiền 2 lần",
+                  "points": 15,
+                  "checklist_id": "IT-02-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Chất lượng các bước tái hiện lỗi (Steps to Reproduce)",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Các bước được viết tuần tự, rõ ràng, người khác có thể làm theo để tái hiện đúng lỗi, không bỏ sót điều kiện tiên quyết (VD: áp mã SALE20; điều kiện mạng chập chờn) cho cả 2 report",
+                  "points": 25,
+                  "checklist_id": "IT-02-C2-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Đánh giá Mức độ nghiêm trọng (Severity) và Đề xuất hướng xử lý",
+              "max_points": 25,
+              "checklist": [
+                {
+                  "text": "Đánh giá đúng mức độ nghiêm trọng phù hợp bản chất lỗi (cả 2 lỗi liên quan trực tiếp giao dịch tài chính nên cần xếp mức Nghiêm trọng/Critical-High, có giải thích lý do)",
+                  "points": 15,
+                  "checklist_id": "IT-02-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Đề xuất hướng xử lý hợp lý cho từng lỗi (VD: sửa logic tính giảm giá loại trừ phí ship; thêm cơ chế chống double-submit/idempotency key khi đặt hàng)",
+                  "points": 10,
+                  "checklist_id": "IT-02-C3-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày đúng mẫu Bug Report và thời gian",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Mỗi report có đủ 5 trường bắt buộc (Tiêu đề, Các bước tái hiện, Kết quả mong đợi, Kết quả thực tế, Mức độ nghiêm trọng) và Đề xuất hướng xử lý",
+                  "points": 12,
+                  "checklist_id": "IT-02-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Tiêu đề report ngắn gọn, nêu được bản chất lỗi; hoàn thành đúng thời gian (45 phút)",
+                  "points": 8,
+                  "checklist_id": "IT-02-C4-2",
+                  "scoring_source": "hybrid",
+                  "scoring_source_note": "Phần \"hoàn thành đúng thời gian\" trong ý này do HỆ THỐNG tự động xác định dựa trên time_limit_minutes và actual_duration_seconds (xem time_scoring_rule); phần nội dung còn lại của ý này vẫn do AI đánh giá như checklist gốc."
+                }
+              ]
+            }
+          ],
+          "hard_constraints": [
+            {
+              "constraint_id": "IT-02-HC1",
+              "type": "required_elements",
+              "trigger_checklist_id": "IT-02-C4-1",
+              "condition": "Mỗi Bug Report phải có đủ 5 trường bắt buộc: Tiêu đề, Các bước tái hiện, Kết quả mong đợi, Kết quả thực tế, Mức độ nghiêm trọng (và Đề xuất hướng xử lý).",
+              "effect": "Thiếu trường nào thì không được tính đủ 12đ của checklist item C4-1 (đánh giá theo mức độ đầy đủ của biểu mẫu).",
+              "source_note": "Chuyển thể từ ràng buộc gốc trong checklist C4, không thay đổi điểm/nội dung rubric."
+            }
+          ]
+        },
+        {
+          "position_id": "IT-03",
+          "position_name": "Data Analyst (Chuyên viên Phân tích Dữ liệu)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 45,
+          "context": "Một chuỗi cà phê triển khai app đặt hàng trước (mobile order) tại 4 chi nhánh (Q1, Q3, Bình Thạnh, Thủ Đức) trong 4 tháng gần nhất (Tháng 5-8), có dữ liệu số đơn và doanh thu theo từng tháng cho mỗi chi nhánh. Ghi chú quan trọng: chi nhánh Bình Thạnh có chương trình khuyến mãi \"mua 1 tặng 1\" trong tuần đầu tháng 7; các chi nhánh còn lại không có khuyến mãi trong giai đoạn này.",
+          "context_data_note": "Bảng dữ liệu chi tiết số đơn/doanh thu theo tháng của 4 chi nhánh được đính kèm riêng theo đề thi.",
+          "requirements": [
+            "Tính tốc độ tăng trưởng doanh thu (%) từng chi nhánh qua các tháng.",
+            "Xác định chi nhánh tăng trưởng tốt nhất và chi nhánh trì trệ nhất, nêu rõ căn cứ số liệu.",
+            "Đề xuất 3 insight/khuyến nghị hành động cho ban quản lý, mỗi insight gắn với 1 con số cụ thể từ bảng dữ liệu."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác trong tính toán tốc độ tăng trưởng",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Tính đúng công thức tăng trưởng doanh thu (%) tháng sau so với tháng trước cho cả 4 chi nhánh",
+                  "points": 20,
+                  "checklist_id": "IT-03-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Nhận diện được dữ liệu khuyến mãi \"mua 1 tặng 1\" của chi nhánh Bình Thạnh trong tháng 7 là yếu tố ngoại lai (outlier) cần loại trừ hoặc chú thích riêng khi so sánh tốc độ tăng trưởng thực chất giữa các chi nhánh",
+                  "points": 10,
+                  "checklist_id": "IT-03-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Xác định đúng chi nhánh tăng trưởng tốt nhất/trì trệ nhất",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Chọn đúng chi nhánh dựa trên số liệu đã tính toán (chi nhánh có xu hướng tăng đều qua các tháng là ứng viên tăng trưởng tốt nhất; chi nhánh Thủ Đức có doanh thu giảm dần qua các tháng là chi nhánh trì trệ nhất)",
+                  "points": 10,
+                  "checklist_id": "IT-03-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Có trích dẫn số liệu cụ thể (số đơn/doanh thu, % tăng trưởng) làm căn cứ, không kết luận cảm tính",
+                  "points": 10,
+                  "checklist_id": "IT-03-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Chất lượng insight/khuyến nghị hành động",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Đề xuất đúng 3 insight, mỗi insight gắn với 1 con số cụ thể trích từ bảng dữ liệu",
+                  "points": 15,
+                  "checklist_id": "IT-03-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Mỗi insight đi kèm khuyến nghị hành động cụ thể cho ban quản lý (VD: nhân rộng chương trình khuyến mãi hiệu quả, rà soát nguyên nhân sụt giảm tại chi nhánh trì trệ), không chỉ dừng ở nhận xét số liệu",
+                  "points": 15,
+                  "checklist_id": "IT-03-C3-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Trình bày mạch lạc, đúng thời gian",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Có bảng/số liệu tính toán minh họa rõ ràng cho từng chi nhánh, trình bày logic theo đúng 3 yêu cầu của đề bài",
+                  "points": 12,
+                  "checklist_id": "IT-03-C4-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hoàn thành đúng thời gian (45 phút)",
+                  "points": 8,
+                  "checklist_id": "IT-03-C4-2",
+                  "scoring_source": "system"
+                }
+              ]
+            }
+          ],
+          "input_artifacts": [
+            {
+              "artifact_id": "IT-03-DATA-01",
+              "type": "table_or_excel",
+              "description": "Bảng số đơn hàng và doanh thu theo tháng (Tháng 5-8) của 4 chi nhánh (Q1, Q3, Bình Thạnh, Thủ Đức), có ghi chú chương trình khuyến mãi \"mua 1 tặng 1\" tại Bình Thạnh trong tuần đầu tháng 7.",
+              "required": true,
+              "mapping_note": "File thực tế của đề thi sẽ được hệ thống map vào task này theo position_id; không tự tạo dữ liệu mẫu."
+            }
+          ],
+          "hard_constraints": []
+        }
+      ]
+    },
+    {
+      "industry_id": "KK",
+      "industry_name": "Kế toán - Kiểm toán",
+      "tasks": [
+        {
+          "position_id": "KK-01",
+          "position_name": "Kế Toán Viên (Accounting)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là Kế toán tổng hợp (chuyên bán lẻ đồ điện tử). Công ty áp dụng chế độ kế toán theo Thông tư 200/2014/TT-BTC, kê khai thuế GTGT theo phương pháp khấu trừ. Hôm nay là ngày 31/12/2026, bạn cần rà soát và hạch toán lô chứng từ cuối cùng để khóa sổ lập Báo cáo tài chính. Dữ liệu cung cấp gồm 3 chứng từ: (1) Hóa đơn GTGT mua 1 chiếc ô tô 9 chỗ ngồi phục vụ đi lại của Giám đốc — giá chưa thuế GTGT: 2.500.000.000 VNĐ, thuế GTGT 10%: 250.000.000 VNĐ. (2) Hóa đơn GTGT tiếp khách tại nhà hàng sang trọng, tổng thanh toán 22.000.000 VNĐ (đã bao gồm 10% VAT), nhưng bị sai một chữ số trong Mã số thuế của công ty Alpha (thanh toán bằng thẻ tín dụng công ty). (3) Giấy báo Có của Ngân hàng Vietcombank nhận thanh toán từ khách hàng nước ngoài Công ty X, số tiền nhận 50.000 USD. Biết: khoản phải thu của khách hàng X trên sổ có số dư 50.000 USD, tỷ giá ghi sổ 24.200 VNĐ/USD; tỷ giá mua chuyển khoản của Vietcombank ngày 31/12/2026 là 25.100 VNĐ/USD; ngân hàng nước ngoài đã thu phí chuyển tiền trực tiếp 50 USD (Công ty Alpha chịu phí theo hợp đồng), thực tế tiền vào tài khoản chỉ là 49.950 USD.",
+          "requirements": [
+            "Xử lý chứng từ: trình bày cách xử lý (về mặt thủ tục giấy tờ/thuế) đối với Chứng từ số 2 (hóa đơn sai MST). Hóa đơn này có được khấu trừ thuế và tính vào chi phí hợp lý không?",
+            "Định khoản kế toán: lập bút toán hạch toán (Nợ/Có) cho cả 3 nghiệp vụ trên.",
+            "Đặc biệt lưu ý: xác định đúng Nguyên giá tài sản cố định và Thuế GTGT được khấu trừ của Chứng từ 1 theo đúng Luật Thuế hiện hành (ô tô dưới 9 chỗ không kinh doanh vận tải)."
+          ],
+          "public_display_note": "Đối với B2C, giao diện chỉ hiện các tên mục in đậm (criterion_name) và số điểm (max_points), ẩn phần checklist chi tiết bên dưới.",
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Xử lý Chứng từ 2",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Nêu đúng thủ tục xử lý hóa đơn điện tử sai sót: lập biên bản điều chỉnh/thông báo mẫu 04/SS-HĐĐT, yêu cầu xuất hóa đơn điều chỉnh",
+                  "points": 10,
+                  "checklist_id": "KK-01-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Khẳng định đúng: khi chưa điều chỉnh thì chưa được khấu trừ thuế và tính chi phí hợp lệ",
+                  "points": 10,
+                  "checklist_id": "KK-01-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Định khoản Ô tô 9 chỗ (Chứng từ 1)",
+              "max_points": 35,
+              "checklist": [
+                {
+                  "text": "Nhận định đúng luật: ô tô dưới 9 chỗ không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu)",
+                  "points": 15,
+                  "checklist_id": "KK-01-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hạch toán đúng Nợ TK 211 (Nguyên giá = 2,5 tỷ + phần VAT không được khấu trừ 90 triệu = 2.590.000.000đ)",
+                  "points": 10,
+                  "checklist_id": "KK-01-C2-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Hạch toán đúng Nợ TK 1332 (160 triệu) / Có TK 331 (2,75 tỷ)",
+                  "points": 10,
+                  "checklist_id": "KK-01-C2-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Hạch toán chênh lệch tỷ giá & Phí ngân hàng (Chứng từ 3)",
+              "max_points": 45,
+              "checklist": [
+                {
+                  "text": "Ghi nhận đúng phí ngân hàng: Nợ TK 642: 50 USD × 25.100",
+                  "points": 10,
+                  "checklist_id": "KK-01-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Ghi nhận đúng tiền thực nhận: Nợ TK 1122: 49.950 USD × 25.100",
+                  "points": 10,
+                  "checklist_id": "KK-01-C3-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Xóa sổ công nợ: Có TK 131: 50.000 USD × 24.200",
+                  "points": 10,
+                  "checklist_id": "KK-01-C3-3",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Ghi nhận Lãi chênh lệch tỷ giá: Có TK 515: phần chênh lệch còn lại",
+                  "points": 15,
+                  "checklist_id": "KK-01-C3-4",
+                  "scoring_source": "ai"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "KK-02",
+          "position_name": "Kiểm Toán Viên (Auditing - Target Big4 & Non-Big4)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là Trợ lý kiểm toán năm nhất (Audit Assistant) tham gia Job kiểm toán BCTC năm 2026. Bạn được giao phụ trách phần hành Tiền (Cash) và Phải thu khách hàng (AR). Tình huống 1 (Tiền gửi Ngân hàng): số dư cuối kỳ trên Sổ cái TK 1121 (Vietinbank) của công ty là 5.500.000.000 VNĐ; Thư xác nhận từ ngân hàng (Bank Confirmation) gửi thẳng cho Kiểm toán viên báo số dư là 5.445.000.000 VNĐ. Khi yêu cầu kế toán đối chiếu, kế toán cung cấp Sổ phụ ngân hàng tháng 12 phát hiện 2 khoản: (1) Ngân hàng đã thu phí duy trì tài khoản năm 2026 là 5.000.000 VNĐ, kế toán chưa hạch toán; (2) Khách hàng Công ty Z đã chuyển khoản trả nợ 50.000.000 VNĐ vào chiều ngày 31/12, ngân hàng đã ghi Có, nhưng kế toán công ty Beta chưa nhận được giấy báo Có nên chưa ghi sổ. Tình huống 2 (Phải thu khách hàng): khách hàng trọng yếu Công ty M có số dư Nợ TK 131 là 2.000.000.000 VNĐ. Đã gửi Thư xác nhận công nợ (Circularization) lần 1 và lần 2 nhưng hoàn toàn không nhận được phản hồi (Non-response).",
+          "requirements": [
+            "Chỉnh hợp ngân hàng: lập \"Bảng chỉnh hợp số dư tiền gửi ngân hàng\" (Bank Reconciliation) để giải thích chênh lệch giữa Sổ kế toán và Sổ ngân hàng.",
+            "Bút toán điều chỉnh: dựa vào Bảng chỉnh hợp, đưa ra các Bút toán điều chỉnh kiểm toán (AJE - Audit Journal Entries) để báo cáo số liệu đúng trên BCTC.",
+            "Thủ tục thay thế: trình bày chi tiết các \"Thủ tục kiểm toán thay thế\" (Alternative Audit Procedures) sẽ thực hiện để xác minh tính hiện hữu và quyền sở hữu của khoản phải thu 2 tỷ từ Công ty M khi không nhận được thư xác nhận."
+          ],
+          "public_display_note": "Đối với B2C, giao diện chỉ hiện các tên mục in đậm (criterion_name) và số điểm (max_points), ẩn phần checklist chi tiết bên dưới.",
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Lập Bảng chỉnh hợp số dư",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Bắt đầu từ số dư Sổ kế toán (5.500M) - trừ phí ngân hàng chưa hạch toán (5M) + cộng tiền khách hàng trả chưa hạch toán (50M) = 5.545M",
+                  "points": 15,
+                  "checklist_id": "KK-02-C1-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Tự nhận ra số dư sau chỉnh hợp (5.545M) không khớp với Bank Confirmation (5.445M) — chênh lệch 100M chưa rõ nguyên nhân; điểm tuyệt đối nếu chỉ ra đúng chênh lệch này và đề xuất thủ tục hỏi Giám đốc Tài chính để làm rõ",
+                  "points": 15,
+                  "checklist_id": "KK-02-C1-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Bút toán điều chỉnh AJE",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Nợ TK 642 / Có TK 112: 5.000.000 VNĐ",
+                  "points": 15,
+                  "checklist_id": "KK-02-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Nợ TK 112 / Có TK 131 (Công ty Z): 50.000.000 VNĐ",
+                  "points": 15,
+                  "checklist_id": "KK-02-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Thủ tục thay thế cho khoản Phải thu",
+              "max_points": 40,
+              "checklist": [
+                {
+                  "text": "Kiểm tra việc thu tiền sau ngày kết thúc niên độ (Subsequent cash receipts) bằng cách xem sao kê ngân hàng tháng 1/2027 xem Công ty M có trả tiền không",
+                  "points": 20,
+                  "checklist_id": "KK-02-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Kiểm tra bộ chứng từ gốc phát sinh công nợ (Vouching): hợp đồng, hóa đơn, phiếu xuất kho, biên bản bàn giao hàng hóa có chữ ký hai bên",
+                  "points": 10,
+                  "checklist_id": "KK-02-C3-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Đánh giá khả năng lập dự phòng nợ phải thu khó đòi đối với khoản này",
+                  "points": 10,
+                  "checklist_id": "KK-02-C3-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        },
+        {
+          "position_id": "KK-03",
+          "position_name": "Trợ Lý Thuế (Tax Assistant)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là Tư vấn viên thuế (Tax Assistant) đang làm việc với khách hàng là Công ty TNHH Một thành viên Gamma (do 1 cá nhân làm chủ, đồng thời là Giám đốc trực tiếp điều hành công ty). Kế toán của Gamma vừa gửi Bảng cân đối tài khoản năm 2026. Lợi nhuận kế toán trước thuế (LNKTTT) hiện đang là 5.000.000.000 VNĐ. Trong quá trình rà soát Sổ cái các tài khoản chi phí (TK 641, 642, 811), phát hiện các khoản chi sau đã được kế toán trừ hết vào chi phí trong kỳ: (1) Chi phí đồng phục bằng tiền mặt cho 100 nhân viên: 600.000.000 VNĐ (bình quân 6 triệu/người/năm); (2) Chi phí phạt vi phạm hợp đồng kinh tế (giao hàng chậm cho đối tác): 150.000.000 VNĐ; (3) Chi phí phạt vi phạm hành chính (chậm nộp tờ khai thuế GTGT và lấn chiếm lòng lề đường): 35.000.000 VNĐ; (4) Tiền lương và Bảo hiểm của Giám đốc (chủ sở hữu Công ty TNHH 1 thành viên): 480.000.000 VNĐ/năm; (5) Chi tài trợ cho phường xây dựng nhà văn hóa khu phố: 50.000.000 VNĐ (có biên bản xác nhận của UBND Phường).",
+          "requirements": [
+            "Rà soát loại trừ chi phí: phân tích từng khoản chi (từ 1 đến 5); khoản nào được tính là Chi phí hợp lý (Deductible), khoản nào Không hợp lý (Non-deductible)? Giải thích căn cứ pháp lý ngắn gọn dựa trên Thông tư 78/2014/TT-BTC & 96/2015/TT-BTC.",
+            "Tính Thuế TNDN: tính tổng các khoản điều chỉnh tăng (chỉ tiêu B4) và xác định Thuế TNDN phải nộp năm 2026, biết thuế suất Thuế TNDN là 20% và công ty không có khoản lỗ kết chuyển hay ưu đãi thuế."
+          ],
+          "public_display_note": "Đối với B2C, giao diện chỉ hiện các tên mục in đậm (criterion_name) và số điểm (max_points), ẩn phần checklist chi tiết bên dưới.",
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Rà soát Chi phí 1 — Đồng phục bằng tiền mặt",
+              "max_points": 10,
+              "checklist": [
+                {
+                  "text": "Nhận định đúng: luật quy định tối đa 5 triệu/người/năm. Khoản không hợp lý (B4) = (6tr - 5tr) × 100 người = 100.000.000 VNĐ",
+                  "points": 10,
+                  "checklist_id": "KK-03-C1-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Rà soát Chi phí 2 — Phạt vi phạm hợp đồng kinh tế",
+              "max_points": 10,
+              "checklist": [
+                {
+                  "text": "Nhận định đúng: được tính vào chi phí hợp lệ (hoặc bù trừ với thu nhập phạt hợp đồng); không bị loại (0 VNĐ)",
+                  "points": 10,
+                  "checklist_id": "KK-03-C2-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Rà soát Chi phí 3 — Phạt vi phạm hành chính",
+              "max_points": 10,
+              "checklist": [
+                {
+                  "text": "Nhận định đúng: phạt vi phạm hành chính, luật pháp KHÔNG được tính vào chi phí hợp lệ. Khoản không hợp lý (B4) = 35.000.000 VNĐ",
+                  "points": 10,
+                  "checklist_id": "KK-03-C3-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C4",
+              "criterion_name": "Rà soát Chi phí 4 — Tiền lương Chủ DNTN/Chủ công ty TNHH 1 thành viên",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Nhận định đúng: tiền lương của chủ DNTN/chủ công ty TNHH 1 thành viên (dù có tham gia điều hành) KHÔNG được tính vào chi phí hợp lệ. Khoản không hợp lý (B4) = 480.000.000 VNĐ. Đây là lỗi rất nhiều kế toán mới ra trường mắc phải — cần chấm nghiêm mục này",
+                  "points": 20,
+                  "checklist_id": "KK-03-C4-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C5",
+              "criterion_name": "Rà soát Chi phí 5 — Tài trợ địa phương",
+              "max_points": 10,
+              "checklist": [
+                {
+                  "text": "Nhận định đúng: tài trợ không thuộc diện tài trợ Y tế, Giáo dục, Xây nhà tình nghĩa, Khắc phục thiên tai theo quy định nên KHÔNG được tính vào chi phí hợp lý. Khoản không hợp lý (B4) = 50.000.000 VNĐ",
+                  "points": 10,
+                  "checklist_id": "KK-03-C5-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C6",
+              "criterion_name": "Tổng hợp & Tính Thuế TNDN",
+              "max_points": 40,
+              "checklist": [
+                {
+                  "text": "Tính đúng Tổng chi phí bị loại (chỉ tiêu B4) = 100M + 35M + 480M + 50M = 665.000.000 VNĐ",
+                  "points": 20,
+                  "checklist_id": "KK-03-C6-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Thu nhập tính thuế = LNKTTT + B4 = 5.000M + 665M = 5.665.000.000 VNĐ",
+                  "points": 10,
+                  "checklist_id": "KK-03-C6-2",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Thuế TNDN phải nộp = 5.665M × 20% = 1.133.000.000 VNĐ",
+                  "points": 10,
+                  "checklist_id": "KK-03-C6-3",
+                  "scoring_source": "ai"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": []
+        }
+      ]
+    },
+    {
+      "industry_id": "LOG",
+      "industry_name": "Logistics",
+      "tasks": [
+        {
+          "position_id": "LOG-01",
+          "position_name": "Logistics Operations Executive (Chuyên viên Vận hành/Điều phối)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 30,
+          "context": "Bạn là Ops Executive. Lô hàng của khách là 02 container lạnh (40'RF) chở Thanh Long ruột đỏ xuất khẩu đi cảng Tokyo (Nhật Bản) qua hãng tàu ONE — yêu cầu bảo quản ngặt nghèo: nhiệt độ cài đặt +3°C, mở thông gió (Ventilation) 15%. Hàng đã hạ bãi thành công tại cảng Cát Lái vào sáng nay. Hiện tại là 14:00 chiều Thứ Sáu. Giờ cắt máng (CY Cut-off) của hãng tàu là 16:00 cùng ngày. Tuy nhiên, hệ thống hải quan V5 vừa phản hồi tờ khai bị bẻ sang Luồng Đỏ (bắt buộc kiểm hóa thực tế 100%). Đội hiện trường báo cáo bãi kiểm hóa đang quá tải, dự kiến sớm nhất 17:30 mới kiểm xong. Hậu quả nếu rớt tàu: chuyến tiếp theo đi Tokyo phải đợi đến Thứ Năm tuần sau. Thanh long có nguy cơ chín rục, công ty phải đền bù hợp đồng 200 triệu VNĐ, kèm theo phí lưu bãi (DEM/DET) phát sinh rất lớn.",
+          "requirements": [
+            "Trong vòng 30 phút, soạn 1 Email khẩn cấp gửi Trưởng phòng Ops và Hãng tàu để báo cáo sự cố.",
+            "Đề xuất 3 bước xử lý/chỉ đạo ngay lập tức tại hiện trường để giảm thiểu thiệt hại."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác nghiệp vụ",
+              "max_points": 40,
+              "checklist": [
+                {
+                  "text": "Quét đủ 3 từ khóa hành động bắt buộc: (1) xin \"Late come\" (lùi giờ cắt máng) với hãng tàu ONE vì kẹt kiểm hóa; (2) yêu cầu hiện trường đăng ký kiểm hóa khẩn cấp/chi ngoài để đẩy nhanh tiến độ; (3) lên phương án xin \"Roll-over\" (đảo tàu/đi chuyến sau) nếu hãng tàu không đồng ý Late come. Đủ 3 ý đạt trọn 40đ (thiếu ý nào trừ điểm tương ứng theo tỷ lệ 1/3)",
+                  "points": 40,
+                  "checklist_id": "LOG-01-C1-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Khả năng quản trị rủi ro chuyên sâu",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Có nhắc đến thao tác \"cắm điện (Plug-in) container lạnh tại bãi chờ kiểm hóa\" để giữ nhiệt độ +3°C. Nếu ứng viên chỉ lo xử lý giấy tờ hải quan mà quên đặc thù hàng nông sản lạnh bị mất nhiệt → trừ 20/30đ của tiêu chí này",
+                  "points": 30,
+                  "checklist_id": "LOG-01-C2-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Giao tiếp chuyên nghiệp",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Tiêu đề email phải có yếu tố khẩn (URGENT/ASAP)",
+                  "points": 10,
+                  "checklist_id": "LOG-01-C3-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Chia gạch đầu dòng rõ ràng ai làm việc gì — Ops văn phòng làm gì, Ops hiện trường làm gì",
+                  "points": 20,
+                  "checklist_id": "LOG-01-C3-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": [
+            {
+              "constraint_id": "LOG-01-HC1",
+              "type": "required_elements",
+              "trigger_checklist_id": "LOG-01-C1-1",
+              "condition": "Bài làm phải có đủ 3 từ khóa hành động bắt buộc: (1) xin Late come với hãng tàu ONE, (2) yêu cầu đăng ký kiểm hóa khẩn cấp/chi ngoài, (3) phương án xin Roll-over.",
+              "effect": "Thiếu ý nào thì trừ điểm tương ứng theo tỷ lệ 1/3 trên tổng 40đ của C1 (không phải zero toàn bài, đây là quy tắc trừ điểm theo tỷ lệ đã có sẵn trong checklist gốc).",
+              "source_note": "Chuyển thể từ ràng buộc gốc trong checklist C1, không thay đổi điểm/nội dung rubric."
+            },
+            {
+              "constraint_id": "LOG-01-HC2",
+              "type": "condition_penalty",
+              "trigger_checklist_id": "LOG-01-C2-1",
+              "condition": "Ứng viên chỉ xử lý giấy tờ hải quan mà quên nhắc đến thao tác cắm điện (Plug-in) giữ nhiệt cho container lạnh.",
+              "effect": "Trừ 20/30đ của tiêu chí C2 (Khả năng quản trị rủi ro chuyên sâu).",
+              "source_note": "Chuyển thể từ ràng buộc gốc trong checklist C2, không thay đổi điểm/nội dung rubric."
+            }
+          ]
+        },
+        {
+          "position_id": "LOG-02",
+          "position_name": "Supply Chain Analyst (Chuyên viên Phân tích Chuỗi cung ứng)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Bạn là Chuyên viên Phân tích tại công ty. Công ty đang chuẩn bị lập kế hoạch sản xuất mặt hàng \"Nước tăng lực lon\" cho đợt cao điểm Tết Nguyên Đán. Thời gian giao hàng (Lead-time) bình thường từ nhà máy đến kho phân phối là 7 ngày. Nhưng Giám đốc Vận tải vừa cảnh báo: tháng cận Tết sẽ thiếu xe tải, thời gian giao hàng chậm nhất (Max Lead-time) có thể kéo dài lên tới 11 ngày.",
+          "context_data_note": "Dữ liệu lịch sử bán hàng 6 tháng gần nhất được cung cấp qua bảng tính đính kèm riêng theo đề thi; trong dữ liệu có một tuần \"Flash Sale\" (khuyến mãi ngắn hạn) làm tăng đột biến số lượng bán.",
+          "requirements": [
+            "Xử lý dữ liệu tuần Flash Sale khi tính Average Daily Sales (mức bán trung bình ngày).",
+            "Đề xuất Mức tồn kho an toàn (Safety Stock).",
+            "Tính Điểm đặt hàng lại (Reorder Point - ROP) để kho không bị đứt hàng mùa Tết, cũng không bị Over-stock (tồn kho quá mức)."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Xử lý dữ liệu & Lập luận số liệu",
+              "max_points": 40,
+              "checklist": [
+                {
+                  "text": "Xác định được tuần \"Flash Sale\" là dữ liệu nhiễu (outlier) và đề xuất loại bỏ hoặc điều chỉnh dữ liệu tuần này ra khỏi mức tính Average Daily Sales. Nếu lấy trung bình cộng có chứa cả số lượng của đợt Sale → kết quả dự báo bị sai lệch (ảo), dẫn đến ôm hàng quá nhiều → chấm 0 điểm phần lập luận này",
+                  "points": 40,
+                  "checklist_id": "LOG-02-C1-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Độ chính xác của Công thức",
+              "max_points": 40,
+              "checklist": [
+                {
+                  "text": "Tính Safety Stock có sử dụng tham số (Max Leadtime - Average Leadtime), tức khoảng trễ 11 - 7 = 4 ngày",
+                  "points": 20,
+                  "checklist_id": "LOG-02-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Sử dụng đúng công thức ROP = (Average Leadtime × Average Daily Sales) + Safety Stock",
+                  "points": 20,
+                  "checklist_id": "LOG-02-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Trình bày báo cáo",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Cấu trúc chuẩn 3 phần: Nhận định Data → Kết quả tính toán → Đề xuất phương án dự phòng (VD: thuê thêm 3PLs để bù đắp việc thiếu xe tải)",
+                  "points": 20,
+                  "checklist_id": "LOG-02-C3-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            }
+          ],
+          "input_artifacts": [
+            {
+              "artifact_id": "LOG-02-DATA-01",
+              "type": "table_or_excel",
+              "description": "Dữ liệu lịch sử bán hàng 6 tháng gần nhất của mặt hàng \"Nước tăng lực lon\", trong đó có 1 tuần \"Flash Sale\" gây tăng đột biến số lượng bán.",
+              "required": true,
+              "mapping_note": "File thực tế của đề thi sẽ được hệ thống map vào task này theo position_id; không tự tạo dữ liệu mẫu."
+            }
+          ],
+          "hard_constraints": [
+            {
+              "constraint_id": "LOG-02-HC1",
+              "type": "auto_zero_criterion",
+              "trigger_checklist_id": "LOG-02-C1-1",
+              "condition": "Thí sinh tính Average Daily Sales bằng cách lấy trung bình cộng có bao gồm cả số liệu của tuần \"Flash Sale\" (không loại trừ outlier).",
+              "effect": "Chấm 0 điểm cho phần lập luận của tiêu chí C1 (Xử lý dữ liệu & Lập luận số liệu), tối đa 40đ của C1 = 0.",
+              "source_note": "Chuyển thể từ ràng buộc gốc trong checklist C1, không thay đổi điểm/nội dung rubric."
+            }
+          ]
+        },
+        {
+          "position_id": "LOG-03",
+          "position_name": "Procurement / Purchasing Executive (Chuyên viên Thu mua)",
+          "level": "Fresher/Junior",
+          "time_limit_minutes": 60,
+          "context": "Nhà máy sản xuất bao bì VN đang cần nhập khẩu 50 tấn hạt nhựa LLDPE để chạy đơn hàng cho đối tác. Kho nhà máy báo cáo: tồn kho hiện tại chỉ còn đủ chạy máy trong đúng 7 ngày. Nếu quá 7 ngày không có hạt nhựa, máy phải dừng hoạt động, thiệt hại ước tính 100 triệu VNĐ/ngày. Đồng thời, Phòng Tài chính thông báo: công ty đang kẹt dòng tiền mặt nghiêm trọng, trong 30 ngày tới không có ngân sách thanh toán ngay cho nhà cung cấp (chờ đối tác trả nợ). Có 3 báo giá: NCC A (Trung Quốc) — giá 1.000 USD/tấn, Lead-time 30 ngày, thanh toán T/T 100% ứng trước. NCC B (Thái Lan) — giá 1.100 USD/tấn, Lead-time 15 ngày, thanh toán L/C trả chậm 30 ngày (sau 30 ngày từ khi nhận hàng mới phải trả tiền). NCC C (Việt Nam - Công ty Thương mại) — giá 1.300 USD/tấn (đắt nhất), Lead-time 3 ngày, thanh toán Công nợ (Net 60 ngày).",
+          "requirements": [
+            "Lập bảng so sánh 3 nhà cung cấp dựa trên 3 tiêu chí: Giá, Thời gian giao hàng (Lead-time), Dòng tiền (điều khoản thanh toán).",
+            "Đưa ra quyết định mua 50 tấn hạt nhựa này như thế nào để tối ưu nhất cho công ty (không dừng máy & không vi phạm dòng tiền)."
+          ],
+          "rubric": [
+            {
+              "criterion_id": "C1",
+              "criterion_name": "Độ chính xác trong loại trừ phương án không khả thi",
+              "max_points": 30,
+              "checklist": [
+                {
+                  "text": "Loại ngay lập tức phương án mua toàn bộ từ NCC A. Lý do: vi phạm nghiêm trọng về Lead-time (30 ngày hàng mới về → nhà máy dừng máy 23 ngày → phạt 2,3 tỷ VNĐ) và vi phạm dòng tiền (bắt trả T/T 100% ngay trong khi công ty đang kẹt tiền mặt). Nếu ứng viên chọn NCC A → bài thi bị 0 điểm toàn bộ",
+                  "points": 30,
+                  "checklist_id": "LOG-03-C1-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C2",
+              "criterion_name": "Phân tích & Xử lý sâu vấn đề",
+              "max_points": 50,
+              "checklist": [
+                {
+                  "text": "Nếu chọn mua toàn bộ từ NCC C: không bị dừng máy, tốt cho dòng tiền, nhưng giá quá đắt (mất thêm 10.000 USD chi phí so với NCC B) → đạt 20/50đ",
+                  "points": 20,
+                  "checklist_id": "LOG-03-C2-1",
+                  "scoring_source": "ai"
+                },
+                {
+                  "text": "Nếu đưa ra chiến lược Split-Order (chia nhỏ đơn hàng): mua 10-15 tấn từ NCC C (Việt Nam) để giao trong 3 ngày giúp nhà máy có hàng chạy ngay, thanh toán Net 60 khớp yêu cầu kế toán; đồng thời đặt 35-40 tấn còn lại từ NCC B (Thái Lan) — giá rẻ hơn, 15 ngày sau hàng về khớp đúng lúc dùng hết hàng của NCC C, thanh toán L/C trả chậm cũng không vi phạm dòng tiền hiện tại → đạt 50/50đ tuyệt đối",
+                  "points": 30,
+                  "checklist_id": "LOG-03-C2-2",
+                  "scoring_source": "ai"
+                }
+              ]
+            },
+            {
+              "criterion_id": "C3",
+              "criterion_name": "Trình bày mạch lạc",
+              "max_points": 20,
+              "checklist": [
+                {
+                  "text": "Có kẻ bảng (matrix) so sánh Tổng chi phí sở hữu (Total Cost of Ownership), tính cả rủi ro dừng máy 100 triệu/ngày vào bài toán so sánh giá; lập luận sắc bén, thuyết phục",
+                  "points": 20,
+                  "checklist_id": "LOG-03-C3-1",
+                  "scoring_source": "ai"
+                }
+              ]
+            }
+          ],
+          "hard_constraints": [
+            {
+              "constraint_id": "LOG-03-HC1",
+              "type": "auto_zero_task",
+              "trigger_checklist_id": "LOG-03-C1-1",
+              "condition": "Thí sinh chọn phương án mua toàn bộ 50 tấn hạt nhựa từ NCC A (vi phạm nghiêm trọng cả Lead-time lẫn dòng tiền).",
+              "effect": "total_score = 0 cho TOÀN BỘ bài thi (áp dụng cho mọi tiêu chí, ghi đè mọi điểm số khác đã tính).",
+              "source_note": "Chuyển thể từ ràng buộc gốc trong checklist C1: 'Nếu ứng viên chọn NCC A → bài thi bị 0 điểm toàn bộ'. Không thay đổi điểm/nội dung rubric."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

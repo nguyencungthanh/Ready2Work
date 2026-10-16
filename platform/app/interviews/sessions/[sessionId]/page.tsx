@@ -1,3 +1,4 @@
+import { AppShell } from "@/components/app-shell";
 import { notFound, redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
@@ -35,9 +36,9 @@ export default async function InterviewSessionPage({
   const [{ data: questions }, { data: answered }] = await Promise.all([
     supabase
       .from("interview_questions")
-      .select("id, position, prompt, guidance")
+      .select("id, position, prompt, round_number")
       .eq("set_id", session.set_id)
-      .order("position"),
+      .order("round_number").order("position"),
     supabase.from("interview_answers").select("question_id").eq("session_id", sessionId),
   ]);
 
@@ -47,7 +48,7 @@ export default async function InterviewSessionPage({
 
   if (!next) {
     return (
-      <div className="mx-auto max-w-2xl px-6 py-12">
+      <AppShell active="interviews" displayName={user.displayName}><main className="mx-auto max-w-3xl px-6 py-12">
         <h1 className="text-xl font-bold text-foreground">All questions answered</h1>
         <p className="mt-2 text-sm text-muted">
           You have answered all {total} questions. Finish the session to see your feedback.
@@ -61,21 +62,22 @@ export default async function InterviewSessionPage({
             Finish and see feedback
           </button>
         </form>
-      </div>
+      </main></AppShell>
     );
   }
 
   const currentIndex = (questions ?? []).findIndex((q) => q.id === next.id);
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-12">
+    <AppShell active="interviews" displayName={user.displayName}><main className="mx-auto max-w-3xl px-6 py-12">
+      <div className="mb-7 grid grid-cols-3 gap-2">{[1, 2, 3].map((round) => <div key={round} className={`rounded-xl border p-3 text-center text-sm font-semibold ${round === next.round_number ? "border-primary bg-primary/10 text-primary" : "border-border text-muted"}`}>Vòng {round}<span className="mt-1 block text-xs font-normal">{round === 1 ? "Tổng quan" : round === 2 ? "Chuyên môn" : "Tình huống"}</span></div>)}</div>
       <p className="text-sm text-muted">
         Question {currentIndex + 1} of {total}
       </p>
       <h1 className="mt-2 text-xl font-bold text-foreground">{next.prompt}</h1>
-      {next.guidance && <p className="mt-2 text-sm text-muted">{next.guidance}</p>}
+      <p className="mt-3 text-sm leading-6 text-muted">Trả lời bằng trải nghiệm và lập luận của bạn. Với câu hỏi tình huống, trình bày bối cảnh, hành động và kết quả cụ thể.</p>
 
       <AnswerForm key={next.id} sessionId={sessionId} questionId={next.id} />
-    </div>
+    </main></AppShell>
   );
 }

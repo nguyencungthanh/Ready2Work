@@ -1,0 +1,22 @@
+{
+  "name": "ready2work",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Ready2Work - authenticated career preparation platform",
+  "workspaces": ["platform"],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "start": "npm --workspace platform run start",
+    "dev": "npm --workspace platform run dev",
+    "build": "npm --workspace platform run build",
+    "lint": "npm --workspace platform run lint",
+    "typecheck": "npm --workspace platform run typecheck",
+    "test": "npm --workspace platform run test:unit",
+    "test:database": "npm --workspace platform run test:database",
+    "test:content": "npm --workspace platform run test:content",
+    "legacy:dev": "node server.js"
+  },
+  "dependencies": { "next": "16.2.12", "react": "19.2.4", "react-dom": "19.2.4" }
+}

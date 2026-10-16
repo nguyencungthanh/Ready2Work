@@ -1,14 +1,16 @@
 import "server-only";
 import { GoogleGenAI } from "@google/genai";
 
-const MODEL = "gemini-3.5-flash";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+let sharedClient: GoogleGenAI | undefined;
 
 function getClient(): GoogleGenAI {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     throw new Error("GEMINI_API_KEY is not set.");
   }
-  return new GoogleGenAI({ apiKey });
+  sharedClient ??= new GoogleGenAI({ apiKey, httpOptions: { timeout: 25_000 } });
+  return sharedClient;
 }
 
 /**

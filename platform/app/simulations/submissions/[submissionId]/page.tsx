@@ -1,3 +1,4 @@
+import { AppShell } from "@/components/app-shell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
@@ -21,7 +22,7 @@ export default async function SimulationSubmissionPage({
 
   const { data: submission } = await supabase
     .from("simulation_submissions")
-    .select("id, user_id, simulation_id, overall_score, overall_band, criterion_scores, submitted_at")
+    .select("id, user_id, simulation_id, overall_score, overall_band, criterion_scores, submitted_at, actual_duration_seconds")
     .eq("id", submissionId)
     .maybeSingle();
 
@@ -40,7 +41,7 @@ export default async function SimulationSubmissionPage({
   const criteria = stored.criteria ?? [];
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
+    <AppShell active="simulations" displayName={user.displayName}><main className="mx-auto max-w-4xl px-6 py-10">
       <p className="text-xs font-medium uppercase tracking-wide text-muted">
         Simulation feedback
       </p>
@@ -56,6 +57,7 @@ export default async function SimulationSubmissionPage({
             {submission.overall_band}
           </span>
         </div>
+        {submission.actual_duration_seconds !== null && <p className="mt-3 text-xs text-muted">Thời gian làm bài được ghi nhận: {Math.floor(submission.actual_duration_seconds / 60)} phút {submission.actual_duration_seconds % 60} giây.</p>}
         {stored.summary && (
           <p className="mt-3 text-sm text-foreground">{stored.summary}</p>
         )}
@@ -76,7 +78,7 @@ export default async function SimulationSubmissionPage({
                 {criterion.band}
               </span>
             </div>
-            <p className="mt-2 text-sm text-muted">{criterion.description}</p>
+
             {criterion.feedback && (
               <p className="mt-2 text-sm text-foreground">{criterion.feedback}</p>
             )}
@@ -84,7 +86,8 @@ export default async function SimulationSubmissionPage({
         ))}
       </div>
 
-      <div className="mt-8 flex gap-4">
+      <div className="mt-8 flex flex-wrap gap-4">
+        <Link href="/report" className="text-sm font-medium text-primary underline">Xem báo cáo năng lực</Link>
         <Link href="/simulations" className="text-sm font-medium text-primary underline">
           Try another simulation
         </Link>
@@ -92,6 +95,6 @@ export default async function SimulationSubmissionPage({
           Back to dashboard
         </Link>
       </div>
-    </main>
+    </main></AppShell>
   );
 }

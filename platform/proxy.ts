@@ -12,6 +12,9 @@ const PROTECTED_PREFIXES = [
   "/roadmap",
   "/simulations",
   "/interviews",
+  "/report",
+  "/business",
+  "/mentor",
 ];
 
 // Signed-in users have no reason to revisit these.
@@ -83,6 +86,9 @@ export const config = {
     "/roadmap/:path*",
     "/simulations/:path*",
     "/interviews/:path*",
+    "/report/:path*",
+    "/business/:path*",
+    "/mentor/:path*",
     "/signin",
     "/signup",
     "/reset-password",

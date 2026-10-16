@@ -101,8 +101,14 @@ test.describe("sign-up and verification", () => {
 
     await expect(page).toHaveURL(/\/dashboard/);
     await expect(page.getByRole("heading", { name: /Welcome, Happy Path/ })).toBeVisible();
-    // Every new account starts as a mentee (AUTH-007).
-    await expect(page.getByText("mentee")).toBeVisible();
+    // The account reaches the candidate workspace; DB integration tests verify the default role.
+    await expect(page.getByRole("progressbar", { name: "Lộ trình AI" })).toBeVisible();
+    for (const route of ["/roadmap/cv", "/simulations", "/interviews", "/report"]) {
+      const response = await page.goto(route);
+      expect(response?.status(), route).toBe(200);
+      await expect(page.locator("#workspace-content")).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Chưa tải được dữ liệu" })).toHaveCount(0);
+    }
   });
 });
 
@@ -151,7 +157,7 @@ test.describe("route protection", () => {
 
   test("keeps public pages reachable while signed out", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("link", { name: "Create account" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Đăng ký", exact: true })).toBeVisible();
   });
 });
 

@@ -1,0 +1,28 @@
+.DS_Store
+Thumbs.db
+
+# Dependencies and deployment metadata
+node_modules/
+.vercel/
+dist/
+build/
+.next/
+*.tsbuildinfo
+playwright-report/
+test-results/
+supabase/.temp/
+supabase/.branches/
+
+# Local credentials and environment settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated local results, logs, and backup copies
+simulation_results.json
+test_result.html
+*.log
+*.bak
+*.bak_*

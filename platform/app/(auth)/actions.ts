@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
+import { safeReturnPath } from "@/lib/auth/redirect";
 import {
   requestPasswordResetSchema,
   signInSchema,
@@ -26,7 +27,7 @@ function toFieldErrors(issues: readonly { path: PropertyKey[]; message: string }
 }
 
 function siteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  return process.env.NEXT_PUBLIC_SITE_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
 }
 
 export async function signUpAction(
@@ -50,7 +51,7 @@ export async function signUpAction(
     email: parsed.data.email,
     password: parsed.data.password,
     options: {
-      data: { display_name: parsed.data.displayName },
+      data: { display_name: parsed.data.displayName, account_intent: formData.get("accountType") === "business" ? "business" : "candidate" },
       emailRedirectTo: `${siteUrl()}/auth/confirm`,
     },
   });
@@ -102,7 +103,8 @@ export async function signInAction(
 
   const next = formData.get("next");
   revalidatePath("/", "layout");
-  redirect(typeof next === "string" && next.startsWith("/") ? next : "/dashboard");
+  // Account intent chooses the onboarding screen; all permissions still use DB roles.
+  redirect(safeReturnPath(next, data.user.user_metadata.account_intent === "business" ? "/business" : "/dashboard"));
 }
 
 export async function signOutAction(): Promise<void> {

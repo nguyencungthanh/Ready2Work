@@ -1,0 +1,16 @@
+.report-card { break-inside: avoid; }
+@media print {
+  @page { size: A4; margin: 14mm; }
+  html, body { height: auto !important; background: white !important; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 10pt; }
+  .app-navigation, .report-controls, footer, body > div > a { display: none !important; }
+  #workspace-content, #workspace-content > main { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+  .report-document { gap: 16px !important; }
+  .report-document h1 { font-size: 23pt; }
+  .report-document section { box-shadow: none !important; }
+  .report-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .report-document a { color: inherit !important; text-decoration: none !important; }
+  .report-task-list { break-inside: auto; }
+  .report-task-list li { break-inside: avoid; }
+  .report-document svg { max-height: 250px; }
+}

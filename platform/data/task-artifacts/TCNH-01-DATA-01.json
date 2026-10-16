@@ -1,0 +1,54 @@
+{
+  "artifact_id": "TCNH-01-DATA-01",
+  "position_id": "TCNH-01",
+  "company": "Doanh nghiệp bán lẻ ABC (Chuỗi cửa hàng FMCG)",
+  "period": "4 quý gần nhất",
+  "unit": "Triệu VNĐ",
+  "financial_data": [
+    {
+      "quarter": "Q1",
+      "revenue": 10000,
+      "cogs": 6500,
+      "operating_expenses": 2000,
+      "ebitda": 1500,
+      "net_profit": 1200,
+      "operating_cash_flow": 1100,
+      "customer_count": 85000,
+      "aov": 117647
+    },
+    {
+      "quarter": "Q2",
+      "revenue": 12000,
+      "cogs": 8000,
+      "operating_expenses": 2700,
+      "ebitda": 1300,
+      "net_profit": 1040,
+      "operating_cash_flow": 950,
+      "customer_count": 98000,
+      "aov": 122448
+    },
+    {
+      "quarter": "Q3",
+      "revenue": 14500,
+      "cogs": 10000,
+      "operating_expenses": 3400,
+      "ebitda": 1100,
+      "net_profit": 880,
+      "operating_cash_flow": 720,
+      "customer_count": 115000,
+      "aov": 126086
+    },
+    {
+      "quarter": "Q4",
+      "revenue": 17000,
+      "cogs": 12200,
+      "operating_expenses": 4200,
+      "ebitda": 600,
+      "net_profit": 480,
+      "operating_cash_flow": 350,
+      "customer_count": 130000,
+      "aov": 130769
+    }
+  ],
+  "notes": "Doanh thu tăng liên tục qua 4 quý nhưng giá vốn hàng bán và chi phí vận hành (mở rộng chuỗi mặt bằng, khuyến mãi) tăng nhanh hơn tốc độ tăng doanh thu, khiến biên lợi nhuận và dòng tiền hoạt động kinh doanh suy giảm rõ rệt."
+}

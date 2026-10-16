@@ -1,3 +1,4 @@
+import { AppShell } from "@/components/app-shell";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
@@ -21,7 +22,7 @@ export default async function InterviewFeedbackPage({
 
   const { data: session } = await supabase
     .from("interview_sessions")
-    .select("id, user_id, overall_score, completed_at, set_id")
+    .select("id, user_id, overall_score, completed_at, set_id, round_scores")
     .eq("id", sessionId)
     .maybeSingle();
 
@@ -41,7 +42,7 @@ export default async function InterviewFeedbackPage({
       .eq("session_id", sessionId),
     supabase
       .from("interview_questions")
-      .select("id, position, prompt")
+      .select("id, position, prompt, round_number")
       .eq("set_id", session.set_id)
       .order("position"),
   ]);
@@ -56,7 +57,7 @@ export default async function InterviewFeedbackPage({
     .sort((a, b) => (a.question?.position ?? 0) - (b.question?.position ?? 0));
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
+    <AppShell active="interviews" displayName={user.displayName}><main className="mx-auto max-w-4xl px-6 py-12">
       <p className="text-xs font-medium uppercase tracking-wide text-muted">
         Interview feedback
       </p>
@@ -74,11 +75,12 @@ export default async function InterviewFeedbackPage({
         </p>
       </div>
 
+      <div className="mt-6 grid gap-3 sm:grid-cols-3">{((session.round_scores ?? []) as {round:number;score:number;questionCount:number}[]).map((round) => <section key={round.round} className="rounded-2xl border border-border bg-white p-5"><p className="text-sm text-muted">Vòng {round.round} · {round.questionCount} câu hỏi</p><p className="mt-2 text-3xl font-bold text-primary">{round.score}<span className="text-sm text-muted">/100</span></p></section>)}</div>
       <div className="mt-8 space-y-6">
         {rows.map((row, index) => (
           <div key={row.question_id} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
             <p className="text-sm font-medium text-foreground">
-              Question {index + 1}: {row.question?.prompt}
+              Vòng {row.question?.round_number} · Question {index + 1}: {row.question?.prompt}
             </p>
             <p className="mt-2 whitespace-pre-wrap rounded-md bg-surface p-3 text-sm text-muted">
               {row.answer_text}
@@ -104,6 +106,6 @@ export default async function InterviewFeedbackPage({
           Back to dashboard
         </Link>
       </div>
-    </main>
+    </main></AppShell>
   );
 }

@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
   }
 
   const supabase = await createServerSupabaseClient();
-  const { error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
+  const { data, error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
 
   if (error) {
     return NextResponse.redirect(`${origin}/signin?error=expired_link`);
@@ -24,6 +24,6 @@ export async function GET(request: NextRequest) {
 
   // Recovery links must land on the password form, not the dashboard,
   // otherwise the user is signed in without ever setting a new password.
-  const destination = type === "recovery" ? "/update-password" : "/dashboard";
+  const destination = type === "recovery" ? "/update-password" : data.user?.user_metadata.account_intent === "business" ? "/business" : "/dashboard";
   return NextResponse.redirect(`${origin}${destination}`);
 }

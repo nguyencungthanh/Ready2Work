@@ -1,0 +1,116 @@
+{
+  "counts": {
+    "profiles": 15,
+    "simulations": 15,
+    "interviewSets": 14,
+    "interviewQuestions": 88,
+    "incompleteInterviews": 3,
+    "checklistItems": 119,
+    "artifacts": 4
+  },
+  "errors": [],
+  "warnings": [
+    {
+      "kind": "round_normalization",
+      "slug": "digital-marketing",
+      "roundNumber": 1,
+      "sourceMaxScore": 20,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "digital-marketing",
+      "roundNumber": 2,
+      "sourceMaxScore": 40,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "digital-marketing",
+      "roundNumber": 3,
+      "sourceMaxScore": 40,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "incomplete_interview",
+      "positionId": "LOG-01",
+      "slug": "logistics-ops",
+      "message": "Bộ câu hỏi nguồn chưa có câu hỏi vòng 1. Cần bổ sung đủ ba vòng trước khi luyện tập."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "logistics-ops",
+      "roundNumber": 2,
+      "sourceMaxScore": 40,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "logistics-ops",
+      "roundNumber": 3,
+      "sourceMaxScore": 60,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "marketing-intern",
+      "roundNumber": 1,
+      "sourceMaxScore": 20,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "marketing-intern",
+      "roundNumber": 2,
+      "sourceMaxScore": 30,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "marketing-intern",
+      "roundNumber": 3,
+      "sourceMaxScore": 20,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "incomplete_interview",
+      "positionId": "LOG-03",
+      "slug": "purchasing",
+      "message": "Bộ câu hỏi nguồn chưa có câu hỏi vòng 1. Cần bổ sung đủ ba vòng trước khi luyện tập."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "purchasing",
+      "roundNumber": 2,
+      "sourceMaxScore": 40,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "purchasing",
+      "roundNumber": 3,
+      "sourceMaxScore": 60,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "incomplete_interview",
+      "positionId": "LOG-02",
+      "slug": "supply-chain",
+      "message": "Bộ câu hỏi nguồn chưa có câu hỏi vòng 1. Cần bổ sung đủ ba vòng trước khi luyện tập."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "supply-chain",
+      "roundNumber": 2,
+      "sourceMaxScore": 40,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    },
+    {
+      "kind": "round_normalization",
+      "slug": "supply-chain",
+      "roundNumber": 3,
+      "sourceMaxScore": 60,
+      "message": "Keep source maxima; normalize this round independently to 100."
+    }
+  ]
+}

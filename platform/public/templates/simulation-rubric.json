@@ -1,0 +1,16 @@
+[
+  {
+    "id": "accuracy",
+    "label": "Độ chính xác",
+    "description": "Phân tích và kết luận đúng, dựa trên dữ kiện được cung cấp.",
+    "weight": 60,
+    "keywords": []
+  },
+  {
+    "id": "reasoning",
+    "label": "Lập luận và trình bày",
+    "description": "Lý giải rõ ràng, có bằng chứng và đề xuất hành động khả thi.",
+    "weight": 40,
+    "keywords": []
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "artifact_id": "IT-03-DATA-01",
+  "position_id": "IT-03",
+  "company": "Chuỗi cà phê Mobile Order",
+  "period": "Tháng 5 đến Tháng 8 (4 tháng gần nhất)",
+  "branches_data": [
+    {
+      "branch_id": "Q1",
+      "branch_name": "Chi nhánh Quận 1",
+      "promotions": "Không có chương trình khuyến mãi riêng",
+      "monthly_metrics": [
+        { "month": "Tháng 5", "orders": 420, "revenue_million_vnd": 21.0 },
+        { "month": "Tháng 6", "orders": 460, "revenue_million_vnd": 23.0 },
+        { "month": "Tháng 7", "orders": 510, "revenue_million_vnd": 25.5 },
+        { "month": "Tháng 8", "orders": 560, "revenue_million_vnd": 28.0 }
+      ],
+      "growth_rate_mom": ["+9.52%", "+10.87%", "+9.80%"],
+      "total_growth": "+33.33%"
+    },
+    {
+      "branch_id": "Q3",
+      "branch_name": "Chi nhánh Quận 3",
+      "promotions": "Không có chương trình khuyến mãi riêng",
+      "monthly_metrics": [
+        { "month": "Tháng 5", "orders": 380, "revenue_million_vnd": 19.0 },
+        { "month": "Tháng 6", "orders": 400, "revenue_million_vnd": 20.0 },
+        { "month": "Tháng 7", "orders": 390, "revenue_million_vnd": 19.5 },
+        { "month": "Tháng 8", "orders": 405, "revenue_million_vnd": 20.3 }
+      ],
+      "growth_rate_mom": ["+5.26%", "-2.50%", "+4.10%"],
+      "total_growth": "+6.84%"
+    },
+    {
+      "branch_id": "BINH_THANH",
+      "branch_name": "Chi nhánh Bình Thạnh",
+      "promotions": "Khuyến mãi 'Mua 1 tặng 1' trong tuần đầu Tháng 7 (Outlier)",
+      "monthly_metrics": [
+        { "month": "Tháng 5", "orders": 300, "revenue_million_vnd": 15.0 },
+        { "month": "Tháng 6", "orders": 340, "revenue_million_vnd": 17.0 },
+        { "month": "Tháng 7", "orders": 400, "revenue_million_vnd": 20.0 },
+        { "month": "Tháng 8", "orders": 470, "revenue_million_vnd": 23.5 }
+      ],
+      "growth_rate_mom": ["+13.33%", "+17.65%", "+17.50%"],
+      "total_growth": "+56.67%"
+    },
+    {
+      "branch_id": "THU_DUC",
+      "branch_name": "Chi nhánh Thủ Đức",
+      "promotions": "Không có chương trình khuyến mãi riêng",
+      "monthly_metrics": [
+        { "month": "Tháng 5", "orders": 250, "revenue_million_vnd": 12.5 },
+        { "month": "Tháng 6", "orders": 245, "revenue_million_vnd": 12.3 },
+        { "month": "Tháng 7", "orders": 240, "revenue_million_vnd": 12.0 },
+        { "month": "Tháng 8", "orders": 238, "revenue_million_vnd": 11.9 }
+      ],
+      "growth_rate_mom": ["-1.60%", "-2.44%", "-0.83%"],
+      "total_growth": "-4.80%"
+    }
+  ],
+  "benchmark_insights": {
+    "best_growth_branch": "Chi nhánh Quận 1 (Tăng trưởng thực chất bền vững nhất +33.33%)",
+    "stagnant_branch": "Chi nhánh Thủ Đức (Suy giảm liên tục qua 4 tháng, tổng giảm -4.80%)",
+    "promotion_impact_branch": "Chi nhánh Bình Thạnh (Tăng trưởng nhanh nhờ khuyến mãi Mua 1 tặng 1 tuần đầu T7)"
+  }
+}

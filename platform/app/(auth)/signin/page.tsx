@@ -12,7 +12,7 @@ export default async function SignInPage({
   const { next, error } = await searchParams;
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
+    <main className="w-full">
       <h1 className="text-2xl font-bold text-foreground">Sign in</h1>
       <p className="mt-2 mb-6 text-sm text-muted">Welcome back.</p>
 
@@ -50,7 +50,7 @@ export default async function SignInPage({
         </p>
         <p>
           No account?{" "}
-          <Link href="/signup" className="font-medium text-primary underline transition-colors duration-200">
+          <Link href={next?.startsWith("/business") ? "/signup?type=business" : "/signup"} className="font-medium text-primary underline transition-colors duration-200">
             Create one
           </Link>
         </p>

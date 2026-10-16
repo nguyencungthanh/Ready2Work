@@ -5,61 +5,50 @@ on:
   push:
     branches: [main]
 
-defaults:
-  run:
-    working-directory: platform
-
 jobs:
   app:
-    name: Type-check, lint, test, build
+    name: Typecheck, lint, unit/content/database checks, build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: platform/package-lock.json
-
-      - uses: supabase/setup-cli@v1
-        with:
-          version: latest
-
+          cache-dependency-path: package-lock.json
       - run: npm ci
-
       - run: npm run typecheck
-
       - run: npm run lint
-
-      # Integration tests need the local stack; migrations are applied on start.
-      - name: Start Supabase
-        run: supabase start
-
-      - name: Write test env
-        run: cp .env.example .env.local
-
-      - run: npm run test
-
+      - run: npm test
+      - run: npm run test:content
+      - run: npm run test:database
       - run: npm run build
+      - run: npx --workspace platform playwright install --with-deps chromium
+      - name: Public UI and route protection
+        run: npm --workspace platform run e2e -- tests/e2e/public.spec.ts
 
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
-
-      - name: Run auth E2E suite
-        run: npm run e2e
-
-  database:
-    name: Supabase migrations
+  integration:
+    name: Local Supabase identity and auth integration
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
       - uses: supabase/setup-cli@v1
         with:
           version: latest
-
-      - run: supabase start
-
-      - name: Verify migrations apply cleanly
-        run: supabase db reset
+      - run: npm ci
+      - run: supabase --workdir platform start
+      - name: Configure isolated local test connection
+        run: |
+          supabase --workdir platform status --output env > "$RUNNER_TEMP/ready2work-supabase.env"
+          node platform/scripts/write-ci-env.mjs "$RUNNER_TEMP/ready2work-supabase.env"
+      - run: npm --workspace platform run test -- tests/integration
+      - run: npx --workspace platform playwright install --with-deps chromium
+      - name: Email auth and database role access
+        run: npm --workspace platform run e2e -- tests/e2e/auth.spec.ts tests/e2e/role-access.spec.ts
+      - name: Verify clean migration replay
+        run: supabase --workdir platform db reset

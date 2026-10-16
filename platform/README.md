@@ -1,36 +1,7 @@
-Ready2Work career readiness platform. Next.js app built with strict TypeScript, following the implementation plan in `../career_platform_ai_agent_master_plan.md`.
+# Ready2Work application
 
-## Getting Started
+This is the combined Next.js/Supabase application. Start from the repository [setup guide](../README.md) and [implementation notes](../docs/IMPLEMENTATION.md).
 
-First, run the development server:
+From this directory, `npm run dev`, `npm run build`, `npm start`, `npm run typecheck`, `npm run lint`, `npm run test:unit`, `npm run test:content` and `npm run test:database` operate on the app directly.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use the existing Supabase project to retain working accounts. Apply the three `20261016` additive migrations before using the new CV, business, interview and report features. Configuration is documented in `.env.example`; never commit `.env.local`.

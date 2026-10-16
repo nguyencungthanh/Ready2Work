@@ -34,11 +34,11 @@ export interface SessionUser {
 /**
  * Resolves the current user from the session cookie, or null when signed out.
  *
- * Always uses getUser() rather than getSession(): getSession() trusts the
- * cookie contents without contacting the auth server, so a forged cookie
- * could pass. getUser() validates the token server-side (section 9.4).
+ * Uses verified JWT claims, never an unverified getSession() result. Supabase
+ * validates the signature with cached signing keys and refreshes expired claims.
  */
 export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) return null;
   const supabase = await createServerSupabaseClient();
 
   const { data, error } = await supabase.auth.getClaims();
@@ -72,6 +72,7 @@ export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
  * the landing-page navbar.
  */
 export const hasAuthenticatedSession = cache(async (): Promise<boolean> => {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) return false;
   const supabase = await createServerSupabaseClient();
   const { data, error } = await supabase.auth.getClaims();
   return !error && Boolean(data?.claims.sub);

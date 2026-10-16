@@ -1,0 +1,4119 @@
+{
+  "ke-toan-vien": {
+    "positionId": "ke-toan-vien",
+    "positionTitle": "Kế toán viên",
+    "industryId": "accounting",
+    "industryName": "Kế toán – Kiểm toán",
+    "skills": [
+      "Accuracy",
+      "Accounting Knowledge",
+      "Integrity",
+      "Attention to Detail",
+      "Problem Solving"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "ACC-KTV-R1-Q1",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc kế toán?",
+            "referenceAnswer": "Ứng viên nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán; lý do chọn nghề cụ thể (yêu thích số liệu, quan tâm tài chính - kế toán); liên hệ tối thiểu 2 điểm mạnh phù hợp như cẩn thận, chính xác, trung thực, trách nhiệm.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Giới thiệu đúng thông tin cá nhân",
+                "maxScore": 12,
+                "description": "Nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do chọn nghề đúng bản chất",
+                "maxScore": 10,
+                "description": "Nêu được lý do cụ thể như yêu thích số liệu, quan tâm đến tài chính - kế toán hoặc muốn phát triển chuyên môn.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Liên hệ điểm mạnh với công việc",
+                "maxScore": 8,
+                "description": "Nêu tối thiểu 2 điểm mạnh phù hợp như cẩn thận, chính xác, trung thực, trách nhiệm và giải thích được sự phù hợp.",
+                "skill": "Accuracy"
+              }
+            ],
+            "skills": [
+              "Accounting Knowledge",
+              "Accuracy"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV-R1-Q2",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Theo bạn, một kế toán viên cần có những kỹ năng quan trọng nào?",
+            "referenceAnswer": "Kế toán viên cần tính chính xác và cẩn thận do thường xuyên làm việc với số liệu, chứng từ; nắm vững kiến thức chuyên môn (hạch toán, sổ sách, doanh thu - chi phí); có phẩm chất trung thực và trách nhiệm đối với số liệu.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Chính xác và cẩn thận",
+                "maxScore": 15,
+                "description": "Hiểu rằng kế toán thường xuyên làm việc với số liệu, hóa đơn và chứng từ nên cần hạn chế sai sót.",
+                "skill": "Accuracy"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiến thức chuyên môn",
+                "maxScore": 12,
+                "description": "Đề cập được hạch toán, chứng từ, sổ sách, doanh thu - chi phí hoặc nghiệp vụ kế toán cơ bản.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Trung thực và trách nhiệm",
+                "maxScore": 8,
+                "description": "Hiểu trách nhiệm của kế toán đối với số liệu và không cố tình làm sai lệch thông tin.",
+                "skill": "Integrity"
+              }
+            ],
+            "skills": [
+              "Accuracy",
+              "Accounting Knowledge",
+              "Integrity"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV-R1-Q3",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Theo bạn, công việc của một kế toán viên trong doanh nghiệp thường bao gồm những nhiệm vụ gì?",
+            "referenceAnswer": "Công việc bao gồm: tiếp nhận và kiểm tra tính hợp lệ của chứng từ, hóa đơn; nhập liệu và hạch toán các nghiệp vụ kinh tế phát sinh; đối chiếu số liệu giữa chứng từ, sổ sách và các tài khoản ngân hàng, công nợ.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra chứng từ",
+                "maxScore": 15,
+                "description": "Nêu được việc tiếp nhận, kiểm tra hóa đơn và chứng từ liên quan.",
+                "skill": "Attention to Detail"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Nhập liệu & hạch toán",
+                "maxScore": 12,
+                "description": "Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh vào phần mềm kế toán.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Đối chiếu số liệu",
+                "maxScore": 8,
+                "description": "Biết cần đối chiếu giữa chứng từ, sổ sách và các nguồn dữ liệu liên quan.",
+                "skill": "Accuracy"
+              }
+            ],
+            "skills": [
+              "Attention to Detail",
+              "Accounting Knowledge",
+              "Accuracy"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "ACC-KTV-R2-Q1",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Khi phát hiện số liệu trên hóa đơn và chứng từ không khớp, bạn sẽ xử lý như thế nào?",
+            "referenceAnswer": "Kiểm tra và đối chiếu hóa đơn với hợp đồng, phiếu nhập/xuất, biên bản giao nhận hoặc chứng từ thanh toán; xác định nguyên nhân chênh lệch (số tiền, số lượng, thông tin, thời điểm); xử lý đúng quy trình bằng việc điều chỉnh/bổ sung chứng từ theo quy định trước khi ghi nhận chính thức.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra và đối chiếu",
+                "maxScore": 15,
+                "description": "Đối chiếu hóa đơn với hợp đồng, phiếu nhập/xuất, biên bản giao nhận hoặc chứng từ thanh toán.",
+                "skill": "Attention to Detail"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Xác định nguyên nhân",
+                "maxScore": 12,
+                "description": "Xác định chênh lệch về số tiền, số lượng, thông tin, thời điểm hoặc chứng từ.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Xử lý đúng quy trình",
+                "maxScore": 8,
+                "description": "Điều chỉnh/bổ sung chứng từ theo quy định trước khi ghi nhận chính thức.",
+                "skill": "Accounting Knowledge"
+              }
+            ],
+            "skills": [
+              "Attention to Detail",
+              "Problem Solving",
+              "Accounting Knowledge"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV-R2-Q2",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Hãy phân biệt doanh thu, chi phí và lợi nhuận trong hoạt động của doanh nghiệp.",
+            "referenceAnswer": "Doanh thu là tổng giá trị các lợi ích kinh tế doanh nghiệp thu được trong kỳ từ hoạt động SXKD thông thường. Chi phí là các khoản suy giảm lợi ích kinh tế phát sinh liên quan đến việc tạo ra doanh thu. Lợi nhuận là phần chênh lệch giữa doanh thu và chi phí (Lợi nhuận = Doanh thu - Chi phí).",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Hiểu bản chất doanh thu",
+                "maxScore": 15,
+                "description": "Giải thích đúng bản chất doanh thu từ hoạt động kinh doanh.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Hiểu bản chất chi phí",
+                "maxScore": 12,
+                "description": "Nêu được chi phí là các khoản phát sinh liên quan đến hoạt động tạo doanh thu.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Hiểu bản chất lợi nhuận",
+                "maxScore": 3,
+                "description": "Hiểu lợi nhuận được xác định dựa trên doanh thu và chi phí.",
+                "skill": "Accounting Knowledge"
+              }
+            ],
+            "skills": [
+              "Accounting Knowledge"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV-R2-Q3",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Bạn sẽ làm gì nếu phát hiện một nghiệp vụ đã được ghi nhận sai?",
+            "referenceAnswer": "Xác định rõ nội dung sai sót (sai tài khoản, số tiền, thời điểm hoặc nội dung); đánh giá mức độ ảnh hưởng đến các tài khoản liên quan, doanh thu, chi phí, thuế và BCTC; thực hiện bút toán điều chỉnh (bút toán đảo, ghi âm hoặc ghi bổ sung) và hoàn thiện hồ sơ chứng từ theo đúng chuẩn mực kế toán.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định sai sót",
+                "maxScore": 18,
+                "description": "Kiểm tra sai tài khoản, số tiền, thời điểm hoặc nội dung nghiệp vụ.",
+                "skill": "Accuracy"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đánh giá ảnh hưởng",
+                "maxScore": 7,
+                "description": "Xem xét ảnh hưởng đến tài khoản, doanh thu/chi phí, thuế hoặc báo cáo.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Điều chỉnh đúng quy trình",
+                "maxScore": 10,
+                "description": "Thực hiện bút toán điều chỉnh hoặc xử lý chứng từ theo quy định.",
+                "skill": "Problem Solving"
+              }
+            ],
+            "skills": [
+              "Accuracy",
+              "Accounting Knowledge",
+              "Problem Solving"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "ACC-KTV-R3-Q1",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Cuối ngày, bạn phát hiện một chứng từ quan trọng có sai sót nhưng quản lý đang yêu cầu hoàn thành báo cáo gấp. Bạn sẽ xử lý như thế nào?",
+            "referenceAnswer": "Thể hiện tính trung thực, chủ động báo cáo ngay với quản lý về sai sót phát hiện được chứ không che giấu hay tự ý sửa số liệu; đánh giá nhanh phạm vi ảnh hưởng của chứng từ đó lên báo cáo; ưu tiên hoàn thiện các phần báo cáo không bị ảnh hưởng trong lúc phối hợp xử lý dứt điểm sai sót.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Trung thực, không che giấu",
+                "maxScore": 20,
+                "description": "Thông báo về sai sót, không bỏ qua hoặc cố tình sửa số liệu.",
+                "skill": "Integrity"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đánh giá mức độ ảnh hưởng",
+                "maxScore": 20,
+                "description": "Xác định chứng từ ảnh hưởng đến phần nào của báo cáo.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Ưu tiên công việc hợp lý",
+                "maxScore": 10,
+                "description": "Có thể hoàn thành phần báo cáo không bị ảnh hưởng trong khi xử lý sai sót.",
+                "skill": "Attention to Detail"
+              }
+            ],
+            "skills": [
+              "Integrity",
+              "Problem Solving",
+              "Attention to Detail"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV-R3-Q2",
+            "industryId": "accounting",
+            "positionId": "ke-toan-vien",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Nếu đồng nghiệp đề nghị bạn bỏ qua một sai sót nhỏ trong chứng từ để kịp thời hạn báo cáo, bạn sẽ làm gì?",
+            "referenceAnswer": "Nhận diện rõ ràng ngay cả sai sót nhỏ nếu tích lũy cũng có thể dẫn đến lệch sổ sách hoặc rủi ro pháp lý; kiên định từ chối một cách lịch sự, giải thích rõ cho đồng nghiệp lý do cần đối chiếu chuẩn xác; đặt tính chính xác và trung thực nghề nghiệp lên trên áp lực đối phó deadline.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nhận diện rủi ro sai sót",
+                "maxScore": 20,
+                "description": "Hiểu rằng sai sót nhỏ vẫn có thể gây ảnh hưởng nếu không được xử lý.",
+                "skill": "Accounting Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trao đổi với đồng nghiệp",
+                "maxScore": 20,
+                "description": "Giải thích lý do cần xử lý thay vì bỏ qua.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Tính trung thực nghề nghiệp",
+                "maxScore": 10,
+                "description": "Đặt tính chính xác và trung thực của số liệu lên trên việc đối phó với deadline.",
+                "skill": "Integrity"
+              }
+            ],
+            "skills": [
+              "Accounting Knowledge",
+              "Problem Solving",
+              "Integrity"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "kiem-toan-vien": {
+    "positionId": "kiem-toan-vien",
+    "positionTitle": "Kiểm toán viên",
+    "industryId": "accounting",
+    "industryName": "Kế toán – Kiểm toán",
+    "skills": [
+      "Analytical Thinking",
+      "Audit Knowledge",
+      "Evidence Assessment",
+      "Independence",
+      "Risk Assessment"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "ACC-KTV2-R1-Q1",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc kiểm toán.",
+            "referenceAnswer": "Nêu được nền tảng học vấn, thực tập/kinh nghiệm kiểm toán; nêu lý do cụ thể đúng bản chất nghề nghiệp (thích tư duy phân tích, tìm tòi bản chất số liệu, kiểm chứng giao dịch); hiểu kiểm toán liên quan đến việc thu thập bằng chứng đầy đủ, thích hợp để đưa ra ý kiến đánh giá.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Giới thiệu bản thân",
+                "maxScore": 12,
+                "description": "Nêu được ngành học, thực tập hoặc kinh nghiệm liên quan.",
+                "skill": "Audit Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do đúng bản chất nghề",
+                "maxScore": 10,
+                "description": "Nêu lý do cụ thể như yêu thích phân tích, kiểm tra số liệu, tìm hiểu hoạt động doanh nghiệp.",
+                "skill": "Analytical Thinking"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Hiểu công việc kiểm toán",
+                "maxScore": 8,
+                "description": "Hiểu kiểm toán liên quan đến việc thu thập bằng chứng và đánh giá thông tin tài chính.",
+                "skill": "Evidence Assessment"
+              }
+            ],
+            "skills": [
+              "Audit Knowledge",
+              "Analytical Thinking",
+              "Evidence Assessment"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV2-R1-Q2",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Theo bạn, một kiểm toán viên cần có những phẩm chất và kỹ năng nào?",
+            "referenceAnswer": "Cần tư duy phân tích sâu sắc để nhận diện bất thường; tính khách quan và độc lập để đưa ra đánh giá dựa trên bằng chứng mà không bị chi phối; tính cẩn thận, thận trọng nghề nghiệp khi kiểm tra mẫu hồ sơ và tài liệu.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Tư duy phân tích",
+                "maxScore": 15,
+                "description": "Hiểu cần phân tích số liệu và tìm nguyên nhân của biến động.",
+                "skill": "Analytical Thinking"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Khách quan và độc lập",
+                "maxScore": 12,
+                "description": "Hiểu kiểm toán viên cần đưa ra đánh giá dựa trên bằng chứng, không thiên vị.",
+                "skill": "Independence"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Cẩn thận, thận trọng nghề nghiệp",
+                "maxScore": 8,
+                "description": "Nhận thức được việc kiểm tra hồ sơ và bằng chứng cần chính xác.",
+                "skill": "Evidence Assessment"
+              }
+            ],
+            "skills": [
+              "Analytical Thinking",
+              "Independence",
+              "Evidence Assessment"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV2-R1-Q3",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Theo bạn, sự khác nhau cơ bản giữa kế toán và kiểm toán là gì?",
+            "referenceAnswer": "Kế toán mang tính kiến tạo và phản ánh (ghi nhận, phân loại, tổng hợp các nghiệp vụ phát sinh thành BCTC). Kiểm toán mang tính kiểm tra và đánh giá độc lập (thu thập bằng chứng để xác minh xem BCTC do kế toán lập có phản ánh trung thực, hợp lý hay không).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Hiểu vai trò kế toán",
+                "maxScore": 20,
+                "description": "Nêu đúng kế toán thực hiện ghi nhận và tổng hợp các nghiệp vụ.",
+                "skill": "Audit Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Hiểu vai trò kiểm toán",
+                "maxScore": 10,
+                "description": "Nêu đúng kiểm toán kiểm tra và đánh giá thông tin tài chính.",
+                "skill": "Audit Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Ví dụ minh họa",
+                "maxScore": 5,
+                "description": "Có thể đưa ra ví dụ thực tế để phân biệt rõ ràng hai vai trò.",
+                "skill": "Analytical Thinking"
+              }
+            ],
+            "skills": [
+              "Audit Knowledge",
+              "Analytical Thinking"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "ACC-KTV2-R2-Q1",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Theo bạn, mục tiêu chính của một cuộc kiểm toán báo cáo tài chính là gì?",
+            "referenceAnswer": "Mục tiêu chính là thu thập đầy đủ bằng chứng kiểm toán thích hợp để KTV đưa ra ý kiến chuyên môn về việc liệu BCTC có được lập trên các khía cạnh trọng yếu phù hợp với khuôn khổ về lập và trình bày BCTC áp dụng hay không; giúp gia tăng độ tin cậy cho người sử dụng BCTC.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định đúng mục tiêu",
+                "maxScore": 18,
+                "description": "Nêu được mục tiêu đưa ra ý kiến về báo cáo tài chính dựa trên kết quả kiểm toán.",
+                "skill": "Audit Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Sai sót trọng yếu",
+                "maxScore": 10,
+                "description": "Hiểu kiểm toán tập trung vào những sai sót có thể ảnh hưởng đáng kể đến người sử dụng báo cáo.",
+                "skill": "Risk Assessment"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Bằng chứng kiểm toán",
+                "maxScore": 7,
+                "description": "Hiểu cần thu thập bằng chứng kiểm toán thích hợp và đầy đủ.",
+                "skill": "Evidence Assessment"
+              }
+            ],
+            "skills": [
+              "Audit Knowledge",
+              "Risk Assessment",
+              "Evidence Assessment"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV2-R2-Q2",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Nếu phát hiện một giao dịch có giá trị bất thường gần ngày kết thúc năm tài chính, bạn sẽ làm gì?",
+            "referenceAnswer": "Nhận diện rủi ro sai lệch niên độ (cut-off) hoặc giao dịch giả tạo nhằm làm đẹp BCTC; tiến hành kiểm tra chi tiết hồ sơ chứng từ gốc (hợp đồng, phiếu xuất, biên bản bàn giao, thanh toán); đối chiếu ngày chuyển giao quyền sở hữu/rủi ro thực tế với ngày ghi nhận trên sổ sách.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nhận diện rủi ro",
+                "maxScore": 15,
+                "description": "Nhận thấy giao dịch lớn và gần ngày khóa sổ có thể có rủi ro ghi nhận sai kỳ hoặc bất thường.",
+                "skill": "Risk Assessment"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiểm tra hồ sơ chứng từ",
+                "maxScore": 10,
+                "description": "Kiểm tra hợp đồng, hóa đơn, phiếu xuất kho, biên bản giao nhận và thanh toán.",
+                "skill": "Evidence Assessment"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Kiểm tra thời điểm ghi nhận",
+                "maxScore": 5,
+                "description": "Đối chiếu ngày giao hàng/chuyển giao với ngày ghi nhận doanh thu/chi phí.",
+                "skill": "Analytical Thinking"
+              }
+            ],
+            "skills": [
+              "Risk Assessment",
+              "Evidence Assessment",
+              "Analytical Thinking"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV2-R2-Q3",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Bạn sẽ đánh giá rủi ro của một khoản mục như thế nào?",
+            "referenceAnswer": "Tìm hiểu bản chất, nguồn gốc phát sinh và mức độ phức tạp của khoản mục; phân tích xu hướng biến động so với kỳ trước, ngân sách và bình quân ngành; xác định các khả năng sai sót tiềm ẩn (định giá sai, thiếu chứng từ, trích lập dự phòng không đủ hoặc gian lận).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Tìm hiểu khoản mục",
+                "maxScore": 20,
+                "description": "Hiểu bản chất và nguồn gốc phát sinh của khoản mục.",
+                "skill": "Audit Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Phân tích biến động",
+                "maxScore": 10,
+                "description": "So sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan.",
+                "skill": "Analytical Thinking"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Xác định khả năng sai sót",
+                "maxScore": 5,
+                "description": "Xem xét ghi nhận sai, thiếu chứng từ, định giá sai hoặc gian lận.",
+                "skill": "Risk Assessment"
+              }
+            ],
+            "skills": [
+              "Audit Knowledge",
+              "Analytical Thinking",
+              "Risk Assessment"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "ACC-KTV2-R3-Q1",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Nếu khách hàng không cung cấp đầy đủ bằng chứng kiểm toán, bạn sẽ xử lý như thế nào?",
+            "referenceAnswer": "Xác định rõ danh sách chứng từ, tài liệu còn thiếu và khoản mục bị ảnh hưởng; chủ động gửi yêu cầu bằng văn bản và giải thích rõ thời hạn, tầm quan trọng; nếu khách hàng vẫn không đáp ứng, tìm kiếm thủ tục kiểm toán thay thế (xác nhận ngân hàng, đối chiếu bên thứ 3) hoặc báo cáo trưởng nhóm kiểm toán để đánh giá phạm vi giới hạn kiểm toán.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định bằng chứng thiếu",
+                "maxScore": 20,
+                "description": "Xác định tài liệu nào chưa được cung cấp và liên quan khoản mục nào.",
+                "skill": "Evidence Assessment"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Yêu cầu khách hàng bổ sung",
+                "maxScore": 20,
+                "description": "Chủ động liên hệ và nêu rõ tài liệu cần cung cấp.",
+                "skill": "Independence"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Tìm bằng chứng thay thế",
+                "maxScore": 10,
+                "description": "Có thể tìm xác nhận bên ngoài, chứng từ ngân hàng hoặc hồ sơ liên quan.",
+                "skill": "Analytical Thinking"
+              }
+            ],
+            "skills": [
+              "Evidence Assessment",
+              "Independence",
+              "Analytical Thinking"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-KTV2-R3-Q2",
+            "industryId": "accounting",
+            "positionId": "kiem-toan-vien",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Khách hàng đưa ra lời giải thích nhưng bằng chứng không hoàn toàn phù hợp với lời giải thích đó. Bạn sẽ làm gì?",
+            "referenceAnswer": "Duy trì thái độ hoài nghi nghề nghiệp, không chấp nhận giải thích bằng miệng nếu không có chứng từ chứng minh; mở rộng phạm vi kiểm tra, đối chiếu hợp đồng, chứng từ giao nhận, thanh toán thực tế; đánh giá khả năng có sai sót trọng yếu hoặc gian lận và báo cáo cấp quản lý.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Không chấp nhận ngay lời giải thích",
+                "maxScore": 20,
+                "description": "Hiểu rằng lời giải thích bằng miệng không thay thế hoàn toàn bằng chứng kiểm toán.",
+                "skill": "Independence"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiểm tra thêm bằng chứng",
+                "maxScore": 20,
+                "description": "Đối chiếu hợp đồng, hóa đơn, thanh toán, giao nhận hoặc nguồn độc lập.",
+                "skill": "Evidence Assessment"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Đánh giá rủi ro gian lận",
+                "maxScore": 10,
+                "description": "Xem xét có dấu hiệu sai sót hoặc gian lận hay không.",
+                "skill": "Risk Assessment"
+              }
+            ],
+            "skills": [
+              "Independence",
+              "Evidence Assessment",
+              "Risk Assessment"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "tro-ly-thue": {
+    "positionId": "tro-ly-thue",
+    "positionTitle": "Trợ lý thuế",
+    "industryId": "accounting",
+    "industryName": "Kế toán – Kiểm toán",
+    "skills": [
+      "Tax Knowledge",
+      "Document Verification",
+      "Regulatory Compliance",
+      "Attention to Detail",
+      "Professional Communication"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "ACC-TLT-R1-Q1",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc Trợ lý thuế?",
+            "dataSourceNote": "File Word hiển thị tiêu đề nhầm lẫn với dòng tiêu chí, hệ thống chuẩn hóa theo đúng tiêu chí đạt điểm của file Word gốc.",
+            "referenceAnswer": "Nêu rõ chuyên ngành học, kinh nghiệm/thực tập liên quan; lý do lựa chọn ngành thuế (hứng thú với chính sách thuế, các quy định pháp luật và tối ưu hóa tuân thủ cho DN); trình bày tự tin, mạch lạc, có cấu trúc rõ ràng.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Giới thiệu đúng trọng tâm",
+                "maxScore": 14,
+                "description": "Nêu ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan.",
+                "skill": "Tax Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do chọn nghề thuế",
+                "maxScore": 11,
+                "description": "Nêu được lý do cụ thể như quan tâm chính sách thuế, thích số liệu và quy định.",
+                "skill": "Regulatory Compliance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Trình bày rõ ràng",
+                "maxScore": 5,
+                "description": "Rõ ràng, có cấu trúc, không lan man.",
+                "skill": "Professional Communication"
+              }
+            ],
+            "skills": [
+              "Tax Knowledge",
+              "Regulatory Compliance",
+              "Professional Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-TLT-R1-Q2",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Theo bạn, trợ lý thuế cần có những kỹ năng quan trọng nào?",
+            "referenceAnswer": "Cần nắm vững kiến thức thuế cơ bản (GTGT, TNDN, TNCN, hóa đơn điện tử); kỹ năng kiểm tra và đối chiếu hóa đơn chứng từ chính xác; tinh thần chủ động cập nhật các thay đổi của Luật và Thông tư hướng dẫn.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiến thức thuế cơ bản",
+                "maxScore": 20,
+                "description": "Hiểu sự cần thiết của kiến thức về các sắc thuế và quy định liên quan.",
+                "skill": "Tax Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiểm tra chứng từ",
+                "maxScore": 10,
+                "description": "Biết kiểm tra hóa đơn, chứng từ và đối chiếu số liệu.",
+                "skill": "Document Verification"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Cập nhật quy định",
+                "maxScore": 5,
+                "description": "Nhận thức chính sách thuế có thể thay đổi thường xuyên.",
+                "skill": "Regulatory Compliance"
+              }
+            ],
+            "skills": [
+              "Tax Knowledge",
+              "Document Verification",
+              "Regulatory Compliance"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-TLT-R1-Q3",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Vì sao việc cập nhật các quy định thuế lại quan trọng đối với một trợ lý thuế?",
+            "referenceAnswer": "Chính sách thuế Việt Nam thường xuyên sửa đổi, bổ sung; việc không cập nhật kịp thời sẽ dẫn đến kê khai sai, áp dụng sai thuế suất, gây truy thu và phạt vi phạm cho khách hàng; nêu được các nguồn cập nhật chính thống như Cổng TT Tổng cục Thuế, Thư viện pháp luật, công văn hướng dẫn.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nhận thức về thay đổi chính sách",
+                "maxScore": 18,
+                "description": "Hiểu quy định thuế có thể được cập nhật/thay đổi liên tục.",
+                "skill": "Regulatory Compliance"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Ảnh hưởng đến công việc",
+                "maxScore": 10,
+                "description": "Biết thay đổi chính sách có thể ảnh hưởng đến cách kê khai và xử lý hồ sơ.",
+                "skill": "Tax Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Chủ động cập nhật nguồn chính thống",
+                "maxScore": 7,
+                "description": "Nêu được cách cập nhật từ nguồn chính thống, tài liệu chuyên môn hoặc hướng dẫn của doanh nghiệp.",
+                "skill": "Attention to Detail"
+              }
+            ],
+            "skills": [
+              "Regulatory Compliance",
+              "Tax Knowledge",
+              "Attention to Detail"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "ACC-TLT-R2-Q1",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Khi kiểm tra một hóa đơn chứng từ để phục vụ kê khai thuế, bạn sẽ thực hiện những bước kiểm tra và đối chiếu nào?",
+            "dataSourceNote": "File Word hiển thị tiêu đề nhầm lẫn với dòng tiêu chí, chuẩn hóa dựa theo tiêu chí đạt điểm của file gốc.",
+            "referenceAnswer": "Kiểm tra tính hợp lệ của hóa đơn (tên người mua/bán, mã số thuế, số tiền, thuế suất, thời điểm lập, mã cơ quan thuế); đối chiếu hóa đơn với hợp đồng, phiếu nhập kho, biên bản giao nhận và chứng từ thanh toán không dùng tiền mặt (nếu trên 20 triệu); xử lý các sai sót trước khi kê khai.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra hóa đơn hợp lệ",
+                "maxScore": 20,
+                "description": "Kiểm tra tên, mã số thuế, số tiền, thuế suất, ngày và nội dung.",
+                "skill": "Document Verification"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đối chiếu chứng từ liên quan",
+                "maxScore": 10,
+                "description": "So sánh với hợp đồng, phiếu nhập/xuất, biên bản giao nhận và sổ kế toán.",
+                "skill": "Attention to Detail"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Xử lý trước khi kê khai",
+                "maxScore": 5,
+                "description": "Trao đổi với người phụ trách/khách hàng và xử lý theo quy định.",
+                "skill": "Regulatory Compliance"
+              }
+            ],
+            "skills": [
+              "Document Verification",
+              "Attention to Detail",
+              "Regulatory Compliance"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-TLT-R2-Q2",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Nếu số liệu trên sổ kế toán không khớp với số liệu dùng để kê khai thuế, bạn sẽ làm gì?",
+            "referenceAnswer": "Đối chiếu chi tiết giữa sổ cái, bảng kê hóa đơn và tờ khai thuế; xác định nguyên nhân (do sai sót nhập liệu, hóa đơn sót kỳ trước, khoản chi phí không được trừ theo luật thuế); báo cáo với quản lý và thực hiện điều chỉnh theo quy định.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Đối chiếu số liệu chi tiết",
+                "maxScore": 15,
+                "description": "So sánh sổ kế toán, hóa đơn, bảng kê và hồ sơ khai thuế.",
+                "skill": "Document Verification"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Xác định nguyên nhân chênh lệch",
+                "maxScore": 10,
+                "description": "Kiểm tra lỗi nhập liệu, thiếu hóa đơn, sai kỳ hoặc xử lý chưa phù hợp.",
+                "skill": "Tax Knowledge"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Báo cáo và xử lý điều chỉnh",
+                "maxScore": 5,
+                "description": "Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần.",
+                "skill": "Regulatory Compliance"
+              }
+            ],
+            "skills": [
+              "Document Verification",
+              "Tax Knowledge",
+              "Regulatory Compliance"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-TLT-R2-Q3",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Khi kiểm tra hồ sơ thuế, bạn phát hiện số liệu doanh thu giữa hóa đơn và bảng tổng hợp không khớp. Bạn sẽ kiểm tra những gì?",
+            "referenceAnswer": "Rà soát lại danh sách hóa đơn xuất ra (số lượng và giá trị từng số hóa đơn); kiểm tra lại công thức tính toán và dữ liệu nhập trên bảng tổng hợp; xác định hóa đơn bị sót hoặc hủy mà chưa cập nhật và báo cáo quản lý để xử lý.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra danh sách hóa đơn",
+                "maxScore": 18,
+                "description": "Đối chiếu số lượng và giá trị các hóa đơn đã phát hành.",
+                "skill": "Document Verification"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiểm tra công thức và nhập liệu",
+                "maxScore": 10,
+                "description": "Kiểm tra công thức, dữ liệu nhập và các khoản đã tổng hợp.",
+                "skill": "Attention to Detail"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Xử lý đúng quy trình",
+                "maxScore": 7,
+                "description": "Báo cáo người phụ trách và điều chỉnh khi xác định được nguyên nhân.",
+                "skill": "Regulatory Compliance"
+              }
+            ],
+            "skills": [
+              "Document Verification",
+              "Attention to Detail",
+              "Regulatory Compliance"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "ACC-TLT-R3-Q1",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Gần đến hạn nộp hồ sơ thuế nhưng khách hàng chưa cung cấp đầy đủ chứng từ. Bạn sẽ xử lý như thế nào?",
+            "referenceAnswer": "Lập danh sách cụ thể các chứng từ, hóa đơn còn thiếu; chủ động liên hệ nhắc nhở khách hàng qua email và điện thoại, nêu rõ hạn chót nộp tờ khai và rủi ro phạt nộp chậm; tuyệt đối không tự ý bịa đặt số liệu để nộp thay.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định chứng từ thiếu",
+                "maxScore": 20,
+                "description": "Lập danh sách hóa đơn, chứng từ hoặc thông tin còn thiếu.",
+                "skill": "Attention to Detail"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Chủ động liên hệ khách hàng",
+                "maxScore": 20,
+                "description": "Nhắc khách hàng về tài liệu và thời hạn cần cung cấp.",
+                "skill": "Professional Communication"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Không tự ý kê khai khống",
+                "maxScore": 10,
+                "description": "Không tự tạo số liệu hoặc kê khai khi chưa có đủ cơ sở.",
+                "skill": "Regulatory Compliance"
+              }
+            ],
+            "skills": [
+              "Attention to Detail",
+              "Professional Communication",
+              "Regulatory Compliance"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "ACC-TLT-R3-Q2",
+            "industryId": "accounting",
+            "positionId": "tro-ly-thue",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Khách hàng yêu cầu bạn đưa một khoản chi phí vào hồ sơ thuế nhưng chứng từ cung cấp chưa đủ để xác định khoản chi phí đó có phù hợp hay không. Bạn sẽ làm gì?",
+            "referenceAnswer": "Kiểm tra kỹ lưỡng các điều kiện để chi phí được trừ theo Luật thuế TNDN; giải thích rõ cho khách hàng về rủi ro bị cơ quan thuế xuất toán và xử phạt nếu không có đủ hồ sơ hợp lệ; yêu cầu bổ sung chứng từ hoặc xin ý kiến của quản lý cấp trên.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra tính hợp lệ của chi phí",
+                "maxScore": 20,
+                "description": "Kiểm tra hóa đơn và các tài liệu chứng minh liên quan.",
+                "skill": "Tax Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Yêu cầu bổ sung chứng từ",
+                "maxScore": 20,
+                "description": "Chủ động yêu cầu khách hàng cung cấp tài liệu còn thiếu.",
+                "skill": "Document Verification"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Trao đổi với người phụ trách",
+                "maxScore": 10,
+                "description": "Báo cáo cấp quản lý nếu chưa thể xác định cách xử lý phù hợp.",
+                "skill": "Regulatory Compliance"
+              }
+            ],
+            "skills": [
+              "Tax Knowledge",
+              "Document Verification",
+              "Regulatory Compliance"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "credit-analyst": {
+    "positionId": "credit-analyst",
+    "positionTitle": "Credit Analyst",
+    "industryId": "finance",
+    "industryName": "Tài chính – Ngân hàng",
+    "skills": [
+      "Credit Analysis",
+      "Financial Analysis",
+      "Credit Risk",
+      "Repayment Capacity",
+      "Risk Mitigation"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "FIN-CA-R1-Q1",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Giới thiệu bản thân và lý do bạn muốn theo đuổi vị trí Credit Analyst",
+            "referenceAnswer": "Nêu cụ thể ngành học/dự án tài chính - ngân hàng; chỉ rõ đặc thù công việc Credit Analyst là phân tích sức khỏe tài chính, dòng tiền và đánh giá khả năng trả nợ của khách hàng để phòng ngừa rủi ro tín dụng; sử dụng thành thạo các thuật ngữ Credit Risk, Financial Statements, Repayment Capacity.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nền tảng chuyên môn liên quan",
+                "maxScore": 12,
+                "description": "Nêu cụ thể ngành học/dự án đã làm liên quan trực tiếp đến tài chính, ngân hàng, phân tích số liệu.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do chọn nghề đúng bản chất",
+                "maxScore": 10,
+                "description": "Phải chỉ ra đúng đặc thù công việc Credit Analyst là phân tích, đánh giá khả năng trả nợ, sức khỏe tài chính và mức độ tín nhiệm của khách hàng.",
+                "skill": "Credit Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Trình bày mạch lạc, sử dụng được các thuật ngữ như Credit Risk, Financial Statements, Repayment Capacity, Creditworthiness.",
+                "skill": "Credit Risk"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Credit Analysis",
+              "Credit Risk"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-CA-R1-Q2",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Bạn hiểu vai trò của một Credit Analyst là gì?",
+            "referenceAnswer": "Credit Analyst là người phân tích thông tin tài chính và phi tài chính của khách hàng để hỗ trợ Hội đồng tín dụng ra quyết định cấp tín dụng; các đầu việc cốt lõi gồm phân tích BCTC, đánh giá dòng tiền, lịch sử tín dụng (CIC), khả năng trả nợ và xác định rủi ro tín dụng.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định đúng vai trò",
+                "maxScore": 15,
+                "description": "Nêu rõ Credit Analyst là người phân tích thông tin tài chính và phi tài chính của khách hàng để hỗ trợ quyết định cấp tín dụng của ngân hàng.",
+                "skill": "Credit Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Liệt kê đủ đầu việc cốt lõi",
+                "maxScore": 12,
+                "description": "Nêu tối thiểu 3/5 nội dung: phân tích BCTC, đánh giá dòng tiền, lịch sử tín dụng, khả năng trả nợ, xác định rủi ro tín dụng.",
+                "skill": "Repayment Capacity"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ: Credit Assessment, Cash Flow, Debt Service, Collateral, Credit Risk.",
+                "skill": "Credit Risk"
+              }
+            ],
+            "skills": [
+              "Credit Analysis",
+              "Repayment Capacity",
+              "Credit Risk"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-CA-R1-Q3",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích tài chính chưa?",
+            "referenceAnswer": "Nêu dự án/bài tập thẩm định tín dụng cụ thể theo cấu trúc STAR (Situation -> Task -> Action -> Result); nêu rõ phương pháp phân tích chỉ số, đánh giá dòng tiền và rút ra bài học kinh nghiệm.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Ví dụ dự án cụ thể",
+                "maxScore": 15,
+                "description": "Không trả lời “chưa có kinh nghiệm” chung chung - phải nêu tên/bối cảnh dự án hoặc bài tập cụ thể, vai trò đảm nhận rõ ràng.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trình bày theo cấu trúc STAR",
+                "maxScore": 12,
+                "description": "Bối cảnh (Situation) → Nhiệm vụ (Task) → Hành động cụ thể (Action) → Kết quả đo lường được (Result).",
+                "skill": "Credit Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Rút ra bài học cụ thể",
+                "maxScore": 8,
+                "description": "Chỉ ra được 1 bài học nghiệp vụ cụ thể khi thẩm định tài chính.",
+                "skill": "Risk Mitigation"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Credit Analysis",
+              "Risk Mitigation"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "FIN-CA-R2-Q1",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Khi phân tích khả năng trả nợ của một doanh nghiệp, bạn sẽ xem xét những chỉ tiêu nào ?",
+            "referenceAnswer": "Xem xét các nhóm chỉ tiêu: Thanh khoản (Current Ratio, Quick Ratio), Đòn bẩy tài chính (Debt/Equity, Debt/EBITDA), Khả năng thanh toán lãi vay và nợ gốc (ICR, DSCR), và Dòng tiền hoạt động kinh doanh (CFO); biết liên hệ số liệu với chu kỳ kinh doanh thực tế.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nhóm chỉ tiêu chính",
+                "maxScore": 15,
+                "description": "Nêu được các nhóm chỉ tiêu chính: thanh khoản, đòn bẩy, khả năng sinh lời, dòng tiền.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Liên hệ khả năng trả nợ",
+                "maxScore": 12,
+                "description": "Biết liên hệ chỉ tiêu với khả năng trả nợ thực tế thay vì chỉ đọc số liệu thuần túy.",
+                "skill": "Repayment Capacity"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 3,
+                "description": "Dùng đúng các thuật ngữ Liquidity, Leverage, Profitability, Cash Flow.",
+                "skill": "Credit Analysis"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Repayment Capacity",
+              "Credit Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-CA-R2-Q2",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Trình bày quy trình thẩm định tín dụng một khách hàng doanh nghiệp",
+            "referenceAnswer": "Quy trình chuẩn gồm: Thu thập hồ sơ -> Thẩm định tư cách pháp lý & uy tín -> Phân tích tài chính & dòng tiền -> Đánh giá phương án kinh doanh -> Định giá tài sản bảo đảm -> Xếp hạng tín dụng & Đề xuất điều kiện cấp tín dụng -> Quản lý, giám sát sau cho vay.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đúng các bước",
+                "maxScore": 15,
+                "description": "Thu thập hồ sơ → phân tích tài chính/phi tài chính → đánh giá tài sản bảo đảm → xếp hạng tín dụng → đề xuất cấp tín dụng → giám sát sau vay.",
+                "skill": "Credit Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích mục đích từng bước",
+                "maxScore": 12,
+                "description": "Nêu rõ mỗi bước nhằm đánh giá khả năng trả nợ, mức độ rủi ro và điều kiện cấp tín dụng.",
+                "skill": "Credit Risk"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên môn",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ: Credit Appraisal, Due Diligence, Credit Rating, Covenant.",
+                "skill": "Risk Mitigation"
+              }
+            ],
+            "skills": [
+              "Credit Analysis",
+              "Credit Risk",
+              "Risk Mitigation"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-CA-R2-Q3",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Làm thế nào để đánh giá tài sản bảo đảm và tỷ lệ LTV?",
+            "referenceAnswer": "LTV (Loan to Value) là tỷ lệ giữa khoản dư nợ vay và giá trị định giá của tài sản bảo đảm; cần kiểm tra tính pháp lý của tài sản, thuê định giá độc lập, đánh giá tính thanh khoản của tài sản khi xử lý nợ; quy định tỷ lệ LTV phù hợp với từng loại tài sản (BĐS 70-80%, máy móc 40-50%).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Định nghĩa đúng LTV",
+                "maxScore": 18,
+                "description": "LTV là tỷ lệ dư nợ trên giá trị tài sản bảo đảm; ảnh hưởng trực tiếp đến hạn mức cho vay.",
+                "skill": "Credit Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Quy trình định giá và pháp lý",
+                "maxScore": 10,
+                "description": "Kiểm tra pháp lý, định giá độc lập, đánh giá tính thanh khoản của tài sản.",
+                "skill": "Risk Mitigation"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 7,
+                "description": "Dùng đúng thuật ngữ: Collateral, LTV, Valuation, Liquidity.",
+                "skill": "Financial Analysis"
+              }
+            ],
+            "skills": [
+              "Credit Analysis",
+              "Risk Mitigation",
+              "Financial Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "FIN-CA-R3-Q1",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Khách hàng có tài sản bảo đảm tốt nhưng dòng tiền yếu, bạn có đề xuất cho vay không?",
+            "referenceAnswer": "Nguyên tắc cốt lõi: Nguồn trả nợ chính phải đến từ dòng tiền hoạt động SXKD của khách hàng, tài sản bảo đảm chỉ là nguồn thu hồi nợ thứ cấp khi rủi ro xảy ra; do đó không thể duyệt khoản vay chỉ dựa vào TSBĐ; nếu muốn cho vay cần giảm hạn mức, kiểm soát chặt dòng tiền, tăng điều kiện covenant.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Đánh giá dòng tiền là cốt lõi",
+                "maxScore": 20,
+                "description": "Không chỉ dựa vào tài sản bảo đảm; phân tích dòng tiền, nguồn trả nợ chính.",
+                "skill": "Repayment Capacity"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Phương án giảm thiểu rủi ro",
+                "maxScore": 20,
+                "description": "Giảm hạn mức, tăng tài sản bảo đảm, thêm điều kiện covenant, giám sát chặt dòng tiền.",
+                "skill": "Risk Mitigation"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 10,
+                "description": "Dùng đúng thuật ngữ: DSCR, Covenant, Collateral, Risk Mitigation.",
+                "skill": "Credit Risk"
+              }
+            ],
+            "skills": [
+              "Repayment Capacity",
+              "Risk Mitigation",
+              "Credit Risk"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-CA-R3-Q2",
+            "industryId": "finance",
+            "positionId": "credit-analyst",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Cấp trên yêu cầu bạn nhanh chóng phê duyệt một khoản vay lớn nhưng hồ sơ tài chính còn thiếu thông tin. Bạn xử lý thế nào?",
+            "referenceAnswer": "Giữ vững nguyên tắc quản trị rủi ro độc lập; thẳng thắn giải trình với cấp trên về những lỗ hổng thông tin và rủi ro tiềm ẩn nếu phê duyệt nóng; chủ động lập danh mục thông tin tối thiểu cần bổ sung gấp trong ngày để khách hàng cung cấp trước khi trình ký có điều kiện.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Tuân thủ nguyên tắc rủi ro",
+                "maxScore": 20,
+                "description": "Không chấp nhận phê duyệt cảm tính khi thiếu thông tin trọng yếu, giữ tính độc lập của KTV/Analyst.",
+                "skill": "Credit Risk"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải pháp xử lý khẩn cấp",
+                "maxScore": 20,
+                "description": "Lập danh sách thông tin trọng yếu cần bổ sung ngay và trao đổi minh bạch với cấp trên.",
+                "skill": "Risk Mitigation"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 10,
+                "description": "Dùng đúng các thuật ngữ: Credit Risk, Due Diligence, Approval Condition, Risk Tolerance.",
+                "skill": "Credit Analysis"
+              }
+            ],
+            "skills": [
+              "Credit Risk",
+              "Risk Mitigation",
+              "Credit Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "financial-analyst": {
+    "positionId": "financial-analyst",
+    "positionTitle": "Financial Analyst",
+    "industryId": "finance",
+    "industryName": "Tài chính – Ngân hàng",
+    "skills": [
+      "Financial Analysis",
+      "Data Analysis",
+      "Forecasting",
+      "Business Acumen",
+      "Communication"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "FIN-FA-R1-Q1",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Giới thiệu bản thân và vì sao bạn chọn nghề Financial Analyst",
+            "referenceAnswer": "Nêu cụ thể ngành học/dự án tài chính doanh nghiệp, định giá, mô hình tài chính; nêu rõ đặc thù công việc FA là phân tích dữ liệu, đánh giá hiệu quả kinh doanh, xây dựng mô hình dự báo để hỗ trợ lãnh đạo ra quyết định đầu tư và phân bổ vốn.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nền tảng chuyên môn cụ thể",
+                "maxScore": 12,
+                "description": "Nêu cụ thể ngành học/dự án đã làm liên quan trực tiếp đến phân tích tài chính, báo cáo tài chính, định giá hoặc mô hình tài chính.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do đúng bản chất nghề",
+                "maxScore": 10,
+                "description": "Chỉ ra đúng đặc thù công việc Financial Analyst là phân tích dữ liệu tài chính, đánh giá hiệu quả kinh doanh, hỗ trợ ra quyết định đầu tư/ngân sách.",
+                "skill": "Business Acumen"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 8,
+                "description": "Trình bày mạch lạc, dùng các thuật ngữ cơ bản: Financial Statement, Ratio, Forecast, Budgeting.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Business Acumen",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-FA-R1-Q2",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Bạn hiểu vai trò của một Chuyên viên Phân tích Tài chính trong doanh nghiệp/ngân hàng là gì?",
+            "referenceAnswer": "FA là người xây dựng mô hình tài chính, dự báo doanh thu - chi phí, phân tích độ lệch ngân sách (Variance Analysis), tính toán các chỉ số sinh lời và đánh giá tính khả thi của các dự án đầu tư.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định đúng vai trò",
+                "maxScore": 15,
+                "description": "Nêu rõ FA phân tích BCTC, xây dựng mô hình tài chính, dự báo và hỗ trợ lãnh đạo ra quyết định kinh doanh.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Liệt kê đủ đầu việc cốt lõi",
+                "maxScore": 12,
+                "description": "Nêu tối thiểu 3/5 đầu việc: thu thập dữ liệu tài chính, phân tích tỷ số, xây dựng mô hình dự báo, lập ngân sách, báo cáo biến động.",
+                "skill": "Forecasting"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ: Financial Modeling, Variance Analysis, Budgeting, Forecasting, Financial Statements.",
+                "skill": "Business Acumen"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Forecasting",
+              "Business Acumen"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-FA-R1-Q3",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích tài chính chưa?",
+            "referenceAnswer": "Nêu dự án/case study cụ thể (xây mô hình DCF, định giá cổ phiếu, phân tích chi phí dự án); trình bày rõ ràng theo mô hình STAR và nêu rõ bài học về việc kiểm tra chéo số liệu và tính hợp lý của các giả định.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Ví dụ dự án cụ thể",
+                "maxScore": 15,
+                "description": "Nêu tên/bối cảnh dự án hoặc bài tập cụ thể, vai trò đảm nhận rõ ràng.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trình bày theo mô hình STAR",
+                "maxScore": 12,
+                "description": "Bối cảnh (Situation) → Nhiệm vụ (Task) → Hành động cụ thể (Action) → Kết quả đo lường được (Result).",
+                "skill": "Communication"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Bài học nghiệp vụ rút ra",
+                "maxScore": 8,
+                "description": "Chỉ ra được 1 bài học nghiệp vụ cụ thể, ví dụ: 'phải kiểm tra chéo số liệu và ghi rõ giả định trước khi kết luận'.",
+                "skill": "Business Acumen"
+              }
+            ],
+            "skills": [
+              "Data Analysis",
+              "Communication",
+              "Business Acumen"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "FIN-FA-R2-Q1",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Các nhóm chỉ số tài chính quan trọng thường dùng để phân tích doanh nghiệp là gì?",
+            "referenceAnswer": "Nêu 5 nhóm chỉ số: Khả năng thanh toán (Current, Quick Ratio); Cơ cấu vốn & Đòn bẩy (D/E, D/A); Hiệu quả hoạt động (Vòng quay tồn kho, Vòng quay khoản phải thu); Khả năng sinh lời (Gross Margin, Net Margin, ROE, ROA); và Định giá thị trường (P/E, P/B, EV/EBITDA).",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đủ các nhóm chỉ số",
+                "maxScore": 15,
+                "description": "Chỉ số khả năng thanh khoản, cơ cấu vốn và nợ, hiệu quả hoạt động, khả năng sinh lời, định giá thị trường.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích ý nghĩa và ví dụ",
+                "maxScore": 12,
+                "description": "Giải thích được các chỉ số này có ý nghĩa như thế nào khi đánh giá sức khỏe doanh nghiệp.",
+                "skill": "Business Acumen"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 3,
+                "description": "Dùng đúng thuật ngữ: Liquidity, Profitability, Leverage, Valuation.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Business Acumen",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-FA-R2-Q2",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Quy trình xây dựng một mô hình dự báo tài chính đơn giản gồm những bước nào?",
+            "referenceAnswer": "Quy trình: 1) Xác định mục tiêu & phạm vi mô hình -> 2) Thu thập và làm sạch dữ liệu lịch sử (3-5 năm) -> 3) Đặt các giả định (Assumptions về tăng trưởng doanh thu, chi phí biên, CAPEX) -> 4) Dự phóng 3 báo cáo tài chính -> 5) Phân tích độ nhạy (Sensitivity Analysis) & Kịch bản (Scenarios).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đúng các bước",
+                "maxScore": 18,
+                "description": "Xác định mục tiêu → thu thập dữ liệu lịch sử → đặt giả định → dự phóng doanh thu/chi phí → lập báo cáo dự phóng → kiểm tra độ nhạy.",
+                "skill": "Forecasting"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Vai trò của giả định (Assumptions)",
+                "maxScore": 10,
+                "description": "Assumption là nền tảng của mô hình, cần có căn cứ thực tế và kiểm chứng, không đặt cảm tính.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 7,
+                "description": "Dùng đúng thuật ngữ: Assumption, Revenue Forecast, Sensitivity Analysis, Scenario.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Forecasting",
+              "Financial Analysis",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-FA-R2-Q3",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Trình bày 3 báo cáo tài chính chính và mối liên hệ giữa chúng",
+            "referenceAnswer": "Bảng cân đối kế toán (Balance Sheet), Báo cáo kết quả kinh doanh (Income Statement) và Báo cáo lưu chuyển tiền tệ (Cash Flow Statement). Lợi nhuận sau thuế từ IS chảy vào Lợi nhuận giữ lại trên BS; dòng tiền thuần trên CFS khớp với biến động Tiền mặt trên BS; chi phí khấu hao trên IS được cộng lại trong dòng tiền hoạt động CFO trên CFS.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đúng 3 báo cáo",
+                "maxScore": 15,
+                "description": "Bảng cân đối kế toán (Balance Sheet), Báo cáo kết quả kinh doanh (Income Statement), Báo cáo lưu chuyển tiền tệ (Cash Flow Statement).",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích mối liên hệ chính xác",
+                "maxScore": 12,
+                "description": "Lợi nhuận ảnh hưởng đến vốn chủ sở hữu; dòng tiền phản ánh tiền thực thu/chi; các báo cáo liên kết với nhau qua tài sản, nợ và dòng tiền.",
+                "skill": "Financial Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ: Assets, Liabilities, Equity, Revenue, Expense, Cash Flow.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "FIN-FA-R3-Q1",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Sếp yêu cầu báo cáo tài chính gấp nhưng số liệu từ các phòng ban không khớp, bạn xử lý thế nào?",
+            "referenceAnswer": "Tuyệt đối không tự ý chỉnh sửa số liệu để làm tròn số; báo cáo ngay với sếp tình trạng số liệu không khớp, nêu rõ nguyên nhân và timeline giải quyết; tổ chức họp nhanh với đại diện các phòng ban để đối soát (reconcile); gửi báo cáo sơ bộ kèm ghi chú rõ ràng các phần số liệu chưa xác nhận.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác minh và đối chiếu nguồn",
+                "maxScore": 20,
+                "description": "Không được tự ý sửa đổi số liệu, kiểm tra chéo và làm việc rõ với phòng ban liên quan.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Minh bạch và quản lý kỳ vọng",
+                "maxScore": 20,
+                "description": "Báo ngay với sếp về tình trạng số liệu, đề xuất timeline giải quyết và đánh dấu phần chưa chắc chắn.",
+                "skill": "Communication"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 10,
+                "description": "Dùng đúng thuật ngữ: Data Reconciliation, Variance, Data Integrity, Deadline.",
+                "skill": "Business Acumen"
+              }
+            ],
+            "skills": [
+              "Data Analysis",
+              "Communication",
+              "Business Acumen"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-FA-R3-Q2",
+            "industryId": "finance",
+            "positionId": "financial-analyst",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Kết quả phân tích cho thấy dự án thua lỗ nhưng sếp muốn tiếp tục, bạn làm gì?",
+            "referenceAnswer": "Giữ vững tính trung thực và khách quan nghề nghiệp, không xào xáo số liệu để làm đẹp lòng sếp; phân tích kịch bản đa chiều (Best/Base/Worst Case) và phân tích độ nhạy (Sensitivity) để chỉ ra các điều kiện cần có để dự án có lãi; đề xuất các giải pháp tối ưu chi phí hoặc phương án tái cấu trúc dự án.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Giữ nguyên tính khách quan",
+                "maxScore": 20,
+                "description": "Không điều chỉnh số liệu để vừa ý cấp trên; trình bày đúng như dữ liệu thể hiện.",
+                "skill": "Business Acumen"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đề xuất kịch bản và giải pháp",
+                "maxScore": 20,
+                "description": "Phân tích độ nhạy, kịch bản, rủi ro, cơ hội; đề xuất phương án cải thiện tính khả thi.",
+                "skill": "Forecasting"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 10,
+                "description": "Dùng đúng thuật ngữ: Scenario Analysis, Risk, ROI, NPV, Payback Period.",
+                "skill": "Financial Analysis"
+              }
+            ],
+            "skills": [
+              "Business Acumen",
+              "Forecasting",
+              "Financial Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "risk-analyst": {
+    "positionId": "risk-analyst",
+    "positionTitle": "Risk Analyst",
+    "industryId": "finance",
+    "industryName": "Tài chính – Ngân hàng",
+    "skills": [
+      "Risk Management",
+      "Risk Identification",
+      "Quantitative Analysis",
+      "Stress Testing",
+      "Risk Mitigation"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "FIN-RA-R1-Q1",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Giới thiệu bản thân và vì sao bạn theo đuổi Risk Analyst",
+            "referenceAnswer": "Nêu cụ thể ngành học tài chính, toán kinh tế, thống kê; lý do chọn nghề đúng bản chất (nhận diện, đo lường và kiểm soát các loại rủi ro nhằm bảo vệ an toàn vốn của tổ chức); sử dụng thành thạo các thuật ngữ Risk, Risk Management, Mitigation.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nền tảng chuyên môn liên quan",
+                "maxScore": 12,
+                "description": "Nêu ngành học/dự án cụ thể có liên quan đến tài chính, rủi ro, thống kê hoặc phân tích dữ liệu.",
+                "skill": "Quantitative Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do đúng bản chất nghề",
+                "maxScore": 10,
+                "description": "Chỉ ra đặc thù công việc là nhận diện, đo lường, kiểm soát rủi ro; không nhầm với Kiểm toán hoặc Compliance thuần túy.",
+                "skill": "Risk Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Dùng được các thuật ngữ: Risk, Risk Management, Mitigation.",
+                "skill": "Risk Identification"
+              }
+            ],
+            "skills": [
+              "Quantitative Analysis",
+              "Risk Management",
+              "Risk Identification"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-RA-R1-Q2",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Vai trò của Risk Analyst trong ngân hàng là gì?",
+            "referenceAnswer": "Nhận diện, đo lường các loại rủi ro (tín dụng, thị trường, thanh khoản, vận hành); xây dựng và kiểm định mô hình rủi ro; thực hiện stress test danh mục; theo dõi hạn mức rủi ro và đề xuất các biện pháp phòng ngừa, trích lập dự phòng.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định đúng vai trò",
+                "maxScore": 15,
+                "description": "Nhận diện rủi ro tín dụng, thị trường, vận hành; đo lường, mô hình hóa, báo cáo và đề xuất biện pháp.",
+                "skill": "Risk Identification"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Liệt kê đủ đầu việc cốt lõi",
+                "maxScore": 12,
+                "description": "Thu thập dữ liệu, tính toán chỉ số, stress test, báo cáo rủi ro, giám sát hạn mức.",
+                "skill": "Stress Testing"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ: Credit Risk, Market Risk, Operational Risk, Stress Testing.",
+                "skill": "Risk Management"
+              }
+            ],
+            "skills": [
+              "Risk Identification",
+              "Stress Testing",
+              "Risk Management"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-RA-R1-Q3",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến quản trị rủi ro chưa?",
+            "referenceAnswer": "Nêu dự án mô hình rủi ro (VaR, tính xác suất vỡ nợ PD, stress test thanh khoản); trình bày theo STAR và nêu rõ bài học về chất lượng dữ liệu và tính chặt chẽ của các giả định rủi ro.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Ví dụ dự án cụ thể",
+                "maxScore": 15,
+                "description": "Nêu rõ bối cảnh, vai trò và kết quả bài tập/dự án quản trị rủi ro.",
+                "skill": "Quantitative Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trình bày theo STAR",
+                "maxScore": 12,
+                "description": "Bối cảnh → Nhiệm vụ → Hành động → Kết quả.",
+                "skill": "Risk Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Bài học cụ thể rút ra",
+                "maxScore": 8,
+                "description": "Ví dụ: 'Dữ liệu và giả định đầu vào quyết định độ tin cậy của mô hình rủi ro.'",
+                "skill": "Risk Mitigation"
+              }
+            ],
+            "skills": [
+              "Quantitative Analysis",
+              "Risk Management",
+              "Risk Mitigation"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "FIN-RA-R2-Q1",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Phân biệt các loại rủi ro chính trong ngân hàng",
+            "referenceAnswer": "Các loại rủi ro chính: 1) Rủi ro tín dụng (Credit Risk - người vay vỡ nợ); 2) Rủi ro thị trường (Market Risk - biến động lãi suất, tỷ giá, giá chứng khoán); 3) Rủi ro thanh khoản (Liquidity Risk - thiếu tiền mặt chi trả); 4) Rủi ro vận hành (Operational Risk - lỗi hệ thống, gian lận, quy trình).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đúng các loại rủi ro",
+                "maxScore": 18,
+                "description": "Rủi ro tín dụng, rủi ro thị trường, rủi ro thanh khoản, rủi ro vận hành, rủi ro lãi suất, rủi ro tỷ giá.",
+                "skill": "Risk Identification"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích kèm ví dụ",
+                "maxScore": 10,
+                "description": "Nêu ví dụ thực tế cho từng loại rủi ro trong hoạt động ngân hàng.",
+                "skill": "Risk Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 7,
+                "description": "Dùng đúng thuật ngữ: Credit, Market, Liquidity, Operational Risk.",
+                "skill": "Quantitative Analysis"
+              }
+            ],
+            "skills": [
+              "Risk Identification",
+              "Risk Management",
+              "Quantitative Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-RA-R2-Q2",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Các chỉ số đo lường rủi ro tín dụng thường dùng là gì",
+            "referenceAnswer": "Các chỉ số cốt lõi theo chuẩn Basel: Tỷ lệ nợ xấu NPL (Non-Performing Loans); PD (Probability of Default - Xác suất vỡ nợ); LGD (Loss Given Default - Tỷ lệ tổn thất khi vỡ nợ); EAD (Exposure at Default - Dư nợ tại thời điểm vỡ nợ); và EL (Expected Loss = PD x LGD x EAD).",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đúng các chỉ số",
+                "maxScore": 15,
+                "description": "NPL, PD, LGD, EAD, EL theo chuẩn mực quản trị rủi ro.",
+                "skill": "Quantitative Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích ý nghĩa từng chỉ số",
+                "maxScore": 10,
+                "description": "Nêu rõ cách dùng và ý nghĩa kinh tế của từng chỉ số đối với trích lập dự phòng.",
+                "skill": "Risk Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuẩn tiếng Anh",
+                "maxScore": 5,
+                "description": "Dùng đúng tên viết tắt và thuật ngữ tiếng Anh trong Basel.",
+                "skill": "Risk Mitigation"
+              }
+            ],
+            "skills": [
+              "Quantitative Analysis",
+              "Risk Management",
+              "Risk Mitigation"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-RA-R2-Q3",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Stress testing là gì? Quy trình cơ bản gồm những bước nào?",
+            "referenceAnswer": "Stress testing là kỹ thuật kiểm tra sức chịu đựng của danh mục hoặc toàn bộ ngân hàng dưới các kịch bản kinh tế vĩ mô cực đoan nhưng có thể xảy ra; Quy trình gồm: Thiết kế kịch bản (Scenario design) -> Xác định các biến số gây sốc (Shock variables) -> Chạy mô hình lượng hóa tổn thất -> Đánh giá mức độ suy giảm an toàn vốn CAR -> Đề xuất kế hoạch dự phòng vốn.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Định nghĩa đúng Stress Testing",
+                "maxScore": 18,
+                "description": "Là phương pháp kiểm tra danh mục dưới các kịch bản bất lợi nghiêm trọng.",
+                "skill": "Stress Testing"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Quy trình thực hiện cơ bản",
+                "maxScore": 10,
+                "description": "Chọn kịch bản → xác định biến số → chạy mô hình → đánh giá an toàn vốn → báo cáo.",
+                "skill": "Quantitative Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 7,
+                "description": "Dùng đúng thuật ngữ: Stress Test, Scenario, Capital Adequacy, Shock.",
+                "skill": "Risk Management"
+              }
+            ],
+            "skills": [
+              "Stress Testing",
+              "Quantitative Analysis",
+              "Risk Management"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "FIN-RA-R3-Q1",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Phát hiện khoản vay lớn có dấu hiệu suy giảm, bạn xử lý thế nào?",
+            "referenceAnswer": "Kích hoạt quy trình cảnh báo sớm; rà soát lại dòng tiền, tình trạng kinh doanh của khách hàng và tính pháp lý của tài sản bảo đảm; phối hợp bộ phận quan hệ khách hàng và quản lý nợ đề xuất biện pháp xử lý: thu hồi nợ trước hạn, bổ sung tài sản hoặc chuyển nhóm nợ để trích lập dự phòng đầy đủ.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra và đánh giá rủi ro",
+                "maxScore": 20,
+                "description": "Rà soát toàn diện tình trạng khách hàng, dòng tiền và tài sản bảo đảm.",
+                "skill": "Risk Identification"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đề xuất biện pháp xử lý nợ",
+                "maxScore": 20,
+                "description": "Chủ động đề xuất thu hồi nợ, tăng TSBĐ, cơ cấu lại hoặc chuyển nhóm nợ.",
+                "skill": "Risk Mitigation"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Tính kịp thời và minh bạch",
+                "maxScore": 10,
+                "description": "Báo cáo trung thực, kịp thời lên Ủy ban Quản lý rủi ro mà không chậm trễ.",
+                "skill": "Risk Management"
+              }
+            ],
+            "skills": [
+              "Risk Identification",
+              "Risk Mitigation",
+              "Risk Management"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "FIN-RA-R3-Q2",
+            "industryId": "finance",
+            "positionId": "risk-analyst",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Mô hình rủi ro cho kết quả khác thực tế, bạn xử lý thế nào?",
+            "referenceAnswer": "Tiến hành backtesting để kiểm tra độ tin cậy của mô hình; rà soát dữ liệu đầu vào xem có bị sai lệch hoặc thiếu cập nhật không; kiểm tra lại các giả định toán học; báo cáo minh bạch cho cấp quản lý và tiến hành hiệu chỉnh lại tham số (Model Calibration).",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kiểm tra dữ liệu và giả định",
+                "maxScore": 20,
+                "description": "Rà soát dữ liệu đầu vào, giả định toán học và phương pháp tính toán.",
+                "skill": "Quantitative Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Hiệu chỉnh và Backtesting",
+                "maxScore": 20,
+                "description": "Thực hiện Backtesting, báo cáo minh bạch và hiệu chỉnh lại mô hình.",
+                "skill": "Stress Testing"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên môn",
+                "maxScore": 10,
+                "description": "Dùng đúng thuật ngữ: Backtesting, Model Validation, Assumption, Calibration.",
+                "skill": "Risk Management"
+              }
+            ],
+            "skills": [
+              "Quantitative Analysis",
+              "Stress Testing",
+              "Risk Management"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "marketing-intern": {
+    "positionId": "marketing-intern",
+    "positionTitle": "Marketing Intern",
+    "industryId": "marketing",
+    "industryName": "Marketing",
+    "skills": [
+      "Marketing Fundamentals",
+      "Creativity",
+      "Communication",
+      "Learning Agility",
+      "Trend Awareness"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi cơ bản",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "MKT-INT-R1-Q1",
+            "industryId": "marketing",
+            "positionId": "marketing-intern",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn theo đuổi công việc Marketing Intern.",
+            "referenceAnswer": "Em là sinh viên chuyên ngành Marketing, có nền tảng về nghiên cứu thị trường, viết content cơ bản và thiết kế Canva. Em chọn vị trí Marketing Intern vì đam mê tạo ra các nội dung truyền cảm hứng, muốn áp dụng lý thuyết đã học vào thực tế doanh nghiệp và rèn luyện kỹ năng thực chiến dưới sự hướng dẫn của các anh chị đi trước.",
+            "maxScore": 10,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Giới thiệu bản thân rõ ràng, tự tin",
+                "maxScore": 2,
+                "description": "Trình bày rõ ràng, phong thái tự tin.",
+                "skill": "Communication"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Nêu nền tảng/kỹ năng sẵn có",
+                "maxScore": 2,
+                "description": "Nêu được nền tảng/kỹ năng sẵn có (nghiên cứu thị trường, viết content, thiết kế cơ bản).",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Lý do chọn ngành thuyết phục",
+                "maxScore": 3,
+                "description": "Lý do lựa chọn ngành Marketing thuyết phục, gắn với đam mê và định hướng.",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Thái độ học hỏi, cầu tiến",
+                "maxScore": 2,
+                "description": "Thể hiện thái độ học hỏi, cầu tiến và tinh thần trách nhiệm.",
+                "skill": "Learning Agility"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Trình bày mạch lạc",
+                "maxScore": 1,
+                "description": "Trình bày mạch lạc, đúng thời gian quy định.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Communication",
+              "Marketing Fundamentals",
+              "Learning Agility"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "MKT-INT-R1-Q2",
+            "industryId": "marketing",
+            "positionId": "marketing-intern",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Theo bạn, một Marketing Intern cần có những yếu tố hoặc kỹ năng quan trọng nào để hoàn thành tốt công việc?",
+            "referenceAnswer": "Theo em, một Marketing Intern cần có tư duy chủ động và tinh thần học hỏi nhanh. Về kỹ năng, cần có khả năng viết lách, sự nhạy bén với các xu hướng trên mạng xã hội (Social Trends), kỹ năng quản lý thời gian để hoàn thành deadline, và khả năng làm việc nhóm tốt để phối hợp linh hoạt với các bộ phận khác.",
+            "maxScore": 10,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Chủ động và ham học hỏi",
+                "maxScore": 2,
+                "description": "Chủ động và tinh thần ham học hỏi nhanh trong môi trường mới.",
+                "skill": "Learning Agility"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kỹ năng tạo nội dung",
+                "maxScore": 2,
+                "description": "Kỹ năng tạo nội dung (viết/thiết kế cơ bản).",
+                "skill": "Creativity"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Sự nhạy bén với xu hướng",
+                "maxScore": 2,
+                "description": "Sự nhạy bén với xu hướng thị trường/Gen Z trên mạng xã hội.",
+                "skill": "Trend Awareness"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Quản lý thời gian, deadline",
+                "maxScore": 2,
+                "description": "Quản lý thời gian, đảm bảo hoàn thành deadline.",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Giao tiếp và làm việc nhóm",
+                "maxScore": 2,
+                "description": "Giao tiếp và làm việc nhóm linh hoạt.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Learning Agility",
+              "Creativity",
+              "Trend Awareness",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "MKT-INT-R2-Q1",
+            "industryId": "marketing",
+            "positionId": "marketing-intern",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Khi được giao nhiệm vụ viết bài đăng cho Fanpage nhưng bài viết đạt lượng tương tác (Reach/Engagement) rất thấp, bạn sẽ xử lý như thế nào?",
+            "referenceAnswer": "Trước tiên, em sẽ phân tích số liệu bài viết để tìm nguyên nhân: do tiêu đề chưa thu hút, hình ảnh chưa nổi bật, sai khung giờ đăng hay nội dung chưa đánh đúng tâm lý khách hàng. Sau đó, em sẽ tham khảo các bài viết có tương tác tốt của đối thủ và đề xuất với Mentor thử nghiệm phương án mới (A/B testing hình ảnh/tiêu đề) hoặc điều chỉnh lại góc nhìn bài viết trong các lần sau.",
+            "maxScore": 15,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Chủ động phân tích chỉ số",
+                "maxScore": 3,
+                "description": "Không chán nản, chủ động phân tích chỉ số bài viết (Reach, CTR, Engagement).",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Xác định nguyên nhân cốt lõi",
+                "maxScore": 4,
+                "description": "Xác định các nguyên nhân cốt lõi (Content, Visual, Thời gian đăng).",
+                "skill": "Creativity"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Nghiên cứu đối thủ/thị trường",
+                "maxScore": 3,
+                "description": "Nghiên cứu đối thủ/thị trường để tìm góc nhìn mới.",
+                "skill": "Trend Awareness"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Đề xuất cải thiện cụ thể",
+                "maxScore": 3,
+                "description": "Đề xuất phương án cải thiện cụ thể (A/B testing headline, visual).",
+                "skill": "Creativity"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Báo cáo và xin ý kiến Mentor",
+                "maxScore": 2,
+                "description": "Báo cáo và xin ý kiến của Mentor/Quản lý.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Marketing Fundamentals",
+              "Creativity",
+              "Trend Awareness",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "MKT-INT-R2-Q2",
+            "industryId": "marketing",
+            "positionId": "marketing-intern",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Bạn sử dụng phương pháp nào để cập nhật các xu hướng (Trends) mới trên mạng xã hội và đưa chúng vào bài viết của thương hiệu?",
+            "referenceAnswer": "Em thường xuyên theo dõi các kênh TikTok Trend, Social Trend Group và báo chí ngành Marketing. Khi thấy một trend mới, em sẽ phân tích xem trend đó có phù hợp với Brand Voice và tệp khách hàng của thương hiệu hay không. Nếu phù hợp, em sẽ biến tấu nội dung (Lồng ghép sản phẩm một cách khéo léo) chứ không đu trend mù quáng gây ảnh hưởng đến hình ảnh thương hiệu.",
+            "maxScore": 15,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Kênh/công cụ theo dõi trend",
+                "maxScore": 3,
+                "description": "Nêu được các kênh/công cụ theo dõi trend thực tế (TikTok, Social Groups, Social Listening).",
+                "skill": "Trend Awareness"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đánh giá Brand Voice phù hợp",
+                "maxScore": 4,
+                "description": "Đánh giá mức độ phù hợp của trend với Brand Voice và đối tượng mục tiêu.",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Biến tấu trend gắn liền sản phẩm",
+                "maxScore": 4,
+                "description": "Tư duy biến tấu trend gắn liền với sản phẩm và thông điệp thương hiệu.",
+                "skill": "Creativity"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Nhận thức rủi ro truyền thông",
+                "maxScore": 2,
+                "description": "Nhận thức về rủi ro truyền thông và an toàn thương hiệu khi đu trend.",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Trình bày sáng tạo",
+                "maxScore": 2,
+                "description": "Trình bày sáng tạo, mạch lạc, có ví dụ cụ thể.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Trend Awareness",
+              "Marketing Fundamentals",
+              "Creativity",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "MKT-INT-R3-Q1",
+            "industryId": "marketing",
+            "positionId": "marketing-intern",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Tối nay có một sự kiện/trend vô cùng hot bùng nổ trên mạng xã hội, nếu đu trend ngay sẽ mang lại tương tác rất lớn nhưng đã hết giờ làm việc và bạn không liên lạc được với Quản lý để duyệt bài. Bạn sẽ xử lý như thế nào?",
+            "referenceAnswer": "Em sẽ nhanh chóng soạn sẵn khung nội dung/hình ảnh đu trend. Sau đó, em tự kiểm tra kỹ lưỡng theo Brand Guideline xem nội dung có vi phạm thuần phong mỹ tục, pháp luật hay đụng chạm đến đối thủ không. Em sẽ gửi tin nhắn/email cho Quản lý trình bày ngắn gọn cơ hội tương tác và bản nháp. Nếu trend mang tính an toàn cao và đúng tông giọng thương hiệu, em sẽ cân nhắc đăng bài và chịu trách nhiệm theo dõi sát phản hồi, đồng thời báo cáo ngay cho Quản lý khi họ phản hồi.",
+            "maxScore": 20,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Chủ động chuẩn bị nội dung",
+                "maxScore": 5,
+                "description": "Linh hoạt, chủ động chuẩn bị sẵn nội dung và hình ảnh nháp.",
+                "skill": "Learning Agility"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiểm tra Brand Safety",
+                "maxScore": 4,
+                "description": "Kiểm tra tính an toàn thương hiệu (Brand Safety) và tôn trọng pháp luật/thuần phong mỹ tục.",
+                "skill": "Marketing Fundamentals"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Chủ động liên hệ quản lý",
+                "maxScore": 4,
+                "description": "Chủ động liên hệ và để lại thông tin đầy đủ cho Quản lý.",
+                "skill": "Communication"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Quyết định dựa trên rủi ro",
+                "maxScore": 4,
+                "description": "Đưa ra quyết định hợp lý dựa trên mức độ rủi ro và Brand Guideline.",
+                "skill": "Creativity"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Trách nhiệm theo dõi và báo cáo",
+                "maxScore": 3,
+                "description": "Trách nhiệm theo dõi phản hồi cộng đồng và báo cáo sau khi xử lý.",
+                "skill": "Learning Agility"
+              }
+            ],
+            "skills": [
+              "Learning Agility",
+              "Marketing Fundamentals",
+              "Communication",
+              "Creativity"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "digital-marketing": {
+    "positionId": "digital-marketing",
+    "positionTitle": "Digital Marketing Executive",
+    "industryId": "marketing",
+    "industryName": "Marketing",
+    "skills": [
+      "Performance Marketing",
+      "Data Analysis",
+      "A/B Testing",
+      "Budget Optimization",
+      "Multi-channel Management"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Tổng quan & Kinh nghiệm thực chiến",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "MKT-DME-R1-Q1",
+            "industryId": "marketing",
+            "positionId": "digital-marketing",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Hãy chia sẻ về một chiến dịch Digital Marketing bạn từng tối ưu thành công hoặc một sự cố chết tài khoản Ads/lỗi Tracking mà bạn đã giải quyết.",
+            "referenceAnswer": "Nêu bối cảnh sự cố/mục tiêu chiến dịch -> Phân tích dữ liệu tìm ra nguyên nhân gốc rễ (nghiệm thu Pixel, lỗi CVR trên trang đích, Ad Fatigue) -> Các hành động kỹ thuật can thiệp -> Kết quả đo lường cụ thể (CPL giảm %, ROAS tăng) -> Bài học rút ra cho các chiến dịch sau.",
+            "maxScore": 20,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Tình huống thực tế & con số",
+                "maxScore": 4,
+                "description": "Tình huống thực tế, con số minh họa rõ ràng (CPL, ROAS, tỷ lệ chuyển đổi).",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Phân tích nguyên nhân kỹ thuật",
+                "maxScore": 4,
+                "description": "Khả năng bình tĩnh & phân tích nguyên nhân kỹ thuật (Tracking, Pixel, Audience Overlap).",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Hành động xử lý dứt điểm",
+                "maxScore": 5,
+                "description": "Hành động xử lý dứt điểm, đúng chuyên môn Digital Marketing.",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Kết quả đo lường được",
+                "maxScore": 4,
+                "description": "Kết quả đo lường được bằng số liệu định lượng cụ thể.",
+                "skill": "Budget Optimization"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Bài học kinh nghiệm",
+                "maxScore": 3,
+                "description": "Bài học rút ra cho các chiến dịch tương lai.",
+                "skill": "Multi-channel Management"
+              }
+            ],
+            "skills": [
+              "Performance Marketing",
+              "Data Analysis",
+              "Budget Optimization",
+              "Multi-channel Management"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Chuyên môn & Tối ưu hóa hiệu suất",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "MKT-DME-R2-Q1",
+            "industryId": "marketing",
+            "positionId": "digital-marketing",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Bạn sẽ thực hiện những bước nào để phân tích và tìm nguyên nhân khi một chiến dịch quảng cáo Facebook/Google bị sụt giảm hiệu quả nghiêm trọng (CPL tăng gấp đôi)?",
+            "referenceAnswer": "Em sẽ rà soát từ tổng quan đến chi tiết: Kiểm tra xem tệp đối tượng có bị trùng lặp (Audience Overlap) hoặc quá bão hòa (Ad Fatigue - Tần suất Frequency quá cao) không. Sau đó kiểm tra chỉ số CTR và CPC để đánh giá chất lượng Content/Creative. Tiếp theo là kiểm tra Tỷ lệ chuyển đổi (CR) trên Landing Page để xem lỗi do Ads hay do trang đích. Cuối cùng, em kiểm tra các yếu tố bên ngoài như biến động thị trường hoặc thuật toán kênh.",
+            "maxScore": 20,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Rà soát tần suất & đối tượng",
+                "maxScore": 4,
+                "description": "Rà soát chỉ số tần suất & đối tượng (Frequency/Audience Overlap).",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Phân tích chỉ số sáng tạo",
+                "maxScore": 4,
+                "description": "Phân tích chỉ số sáng tạo (CTR/CPC).",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Kiểm tra chuyển đổi Landing Page",
+                "maxScore": 4,
+                "description": "Kiểm tra tỷ lệ chuyển đổi Landing Page (CR).",
+                "skill": "A/B Testing"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Yếu tố kỹ thuật & thuật toán",
+                "maxScore": 4,
+                "description": "Đánh giá yếu tố kỹ thuật & thuật toán kênh quảng cáo.",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Trình bày logic, có quy trình",
+                "maxScore": 4,
+                "description": "Trình bày có quy trình, logic, giải thích rõ ràng.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Data Analysis",
+              "Performance Marketing",
+              "A/B Testing"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "MKT-DME-R2-Q2",
+            "industryId": "marketing",
+            "positionId": "digital-marketing",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Bạn hãy mô tả quy trình thực hiện một chiến dịch A/B Testing cho quảng cáo.",
+            "referenceAnswer": "Đầu tiên, em xác định rõ giả thuyết và chỉ chọn 1 biến duy nhất để thử nghiệm (ví dụ: Hình ảnh, Headline hoặc Target Audience). Tiếp theo, phân bổ ngân sách đều nhau cho các nhóm test và chạy trong cùng một khoảng thời gian đủ dài để đạt đủ mẫu thống kê. Sau đó, em đo lường các chỉ số quyết định (CPL/CPA/CTR), chọn ra phương án thắng cuộc (Winner) và scale up ngân sách cho phương án đó.",
+            "maxScore": 20,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định 1 biến độc lập duy nhất",
+                "maxScore": 4,
+                "description": "Xác định biến độc lập duy nhất khi test (Creative, Copy, Audience).",
+                "skill": "A/B Testing"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Phân bổ ngân sách & thời gian",
+                "maxScore": 4,
+                "description": "Phân bổ ngân sách & thời gian thử nghiệm công bằng giữa các nhóm.",
+                "skill": "Budget Optimization"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Đo lường ý nghĩa thống kê",
+                "maxScore": 4,
+                "description": "Đo lường dựa trên ý nghĩa thống kê (Statistical Significance) và KPI cốt lõi.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Quyết định Scale up hợp lý",
+                "maxScore": 4,
+                "description": "Đưa ra quyết định Scale up ngân sách cho phương án chiến thắng.",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Quy trình chuẩn khoa học",
+                "maxScore": 4,
+                "description": "Trình bày quy trình chuẩn khoa học, bài bản.",
+                "skill": "A/B Testing"
+              }
+            ],
+            "skills": [
+              "A/B Testing",
+              "Budget Optimization",
+              "Data Analysis",
+              "Performance Marketing"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Tình huống & Quản trị rủi ro ngân sách",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "MKT-DME-R3-Q1",
+            "industryId": "marketing",
+            "positionId": "digital-marketing",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Nếu ngân sách chiến dịch bị cắt giảm 30% nhưng mục tiêu về số lượng Lead không đổi, bạn sẽ điều chỉnh kế hoạch như thế nào?",
+            "referenceAnswer": "Em sẽ tập trung tối ưu hóa chi phí bằng cách: Tắt ngay các nhóm quảng cáo/Content kém hiệu quả và dồn ngân sách cho các Adset có Conversion Rate cao nhất. Thực hiện Remarketing lại tệp khách hàng ấm (Website Visitors, Engagement Page) vì tệp này có CPL rẻ hơn. Đồng thời, tối ưu lại Headline và Form trên Landing Page để tăng tỷ lệ chuyển đổi nhằm bù đắp cho việc giảm ngân sách.",
+            "maxScore": 20,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Cắt giảm chi phí thừa",
+                "maxScore": 4,
+                "description": "Cắt giảm chi phí thừa (Tắt Adset kém hiệu quả, target rộng không tạo lead).",
+                "skill": "Budget Optimization"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Dồn ngân sách cho tệp hiệu quả",
+                "maxScore": 4,
+                "description": "Tập trung ngân sách cho kênh/tệp có Conversion Rate cao nhất.",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Đẩy mạnh Remarketing tệp ấm",
+                "maxScore": 4,
+                "description": "Đẩy mạnh Remarketing/Retargeting tệp ấm để hạ CPL.",
+                "skill": "Multi-channel Management"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Tối ưu chuyển đổi On-page (CRO)",
+                "maxScore": 4,
+                "description": "Tối ưu tỷ lệ chuyển đổi On-page trên trang đích (CRO).",
+                "skill": "A/B Testing"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Tư duy tối ưu bài bản",
+                "maxScore": 4,
+                "description": "Tư duy tối ưu hóa chi phí và bảo toàn mục tiêu kinh doanh.",
+                "skill": "Budget Optimization"
+              }
+            ],
+            "skills": [
+              "Budget Optimization",
+              "Performance Marketing",
+              "Multi-channel Management",
+              "A/B Testing"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "MKT-DME-R3-Q2",
+            "industryId": "marketing",
+            "positionId": "digital-marketing",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Trong mùa chiến dịch cao điểm (Mega Sale), bạn cùng lúc phải quản lý nhiều kênh (Facebook, TikTok, Google) với deadline gấp. Bạn ưu tiên công việc như thế nào?",
+            "referenceAnswer": "Em sẽ phân loại công việc theo Ma trận Eisenhower: Ưu tiên số 1 là kiểm tra ngân sách, trạng thái phê duyệt quảng cáo và luồng Tracking data trên tất cả các kênh trước giờ G. Tiếp theo, em ưu tiên theo dõi kịch bản phân bổ ngân sách cho kênh mang lại doanh thu chính. Lập Dashboard tự động để theo dõi chỉ số real-time và chuẩn bị sẵn phương án dự phòng (Backup Ads) nếu có tài khoản bị vô hiệu hóa.",
+            "maxScore": 20,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Ma trận ưu tiên rõ ràng",
+                "maxScore": 5,
+                "description": "Phương pháp phân loại công việc ưu tiên rõ ràng (Ma trận Eisenhower).",
+                "skill": "Multi-channel Management"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Kiểm tra kỹ thuật & Tracking",
+                "maxScore": 4,
+                "description": "Kiểm tra hệ thống kỹ thuật & luồng Tracking trước giờ G.",
+                "skill": "Performance Marketing"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Tập trung kênh doanh thu cốt lõi",
+                "maxScore": 4,
+                "description": "Tập trung vào kênh tạo doanh thu và số lượng đơn cốt lõi.",
+                "skill": "Budget Optimization"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Sử dụng Dashboard theo dõi",
+                "maxScore": 3,
+                "description": "Sử dụng công cụ theo dõi tự động (Dashboard real-time).",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_5",
+                "name": "Phương án dự phòng (Backup)",
+                "maxScore": 4,
+                "description": "Có phương án quản trị rủi ro (Backup tài khoản Ads/Thẻ thanh toán).",
+                "skill": "Multi-channel Management"
+              }
+            ],
+            "skills": [
+              "Multi-channel Management",
+              "Performance Marketing",
+              "Budget Optimization",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "logistics-ops": {
+    "positionId": "logistics-ops",
+    "positionTitle": "Logistics Operations Executive",
+    "industryId": "logistics",
+    "industryName": "Logistics",
+    "skills": [
+      "Incoterms",
+      "Transport Risk Management",
+      "Crisis Management",
+      "Insurance Process",
+      "Incident Communication"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Tổng quan",
+        "type": "general",
+        "duration": 15,
+        "dataSourceNote": "File Word chỉ thiết kế 2 cụm câu hỏi Chuyên môn (Vòng 2) và Tình huống (Vòng 3). Hệ thống chuẩn hóa cấu trúc 3 vòng, ghi chú miễn thi Vòng 1.",
+        "questions": []
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn tư vấn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "LOG-OPS-R2-Q1",
+            "industryId": "logistics",
+            "positionId": "logistics-ops",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Chào em. Công ty mình đang chuẩn bị xuất khẩu một lô hàng Nông sản tươi (giá trị thấp, dễ hư hỏng) sang Châu Âu và nhập khẩu một lô Linh kiện điện tử (giá trị rất cao) từ Nhật Bản về. Theo em, với 2 lô hàng này, mình nên ưu tiên chọn điều kiện FOB hay CIF cho từng lô? Tại sao?",
+            "referenceAnswer": "Lô Nông sản xuất khẩu: Đề xuất bán CIF. Vì mặt hàng này giá trị thấp và dễ hư hỏng, công ty chủ động book cước tàu (Ocean Freight) số lượng lớn sẽ chọn được thời gian vận chuyển nhanh nhất, giảm rủi ro hư hỏng. Đồng thời, công ty có thể thu thêm lợi nhuận từ chênh lệch cước phí.\nLô Linh kiện điện tử nhập khẩu: Đề xuất mua FOB (hoặc FCA/EXW). Do hàng có giá trị rất cao và rủi ro lớn, mua FOB giúp công ty chủ động tự mua bảo hiểm hàng hóa tại Việt Nam và tự book tàu theo dõi lịch trình. Nếu xảy ra mất mát, việc đền bù và khiếu nại bảo hiểm trong nước sẽ thuận tiện hơn phụ thuộc vào bên bán nước ngoài.",
+            "maxScore": 40,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xử lý lô Nông sản xuất (CIF + Lý do cước/thời gian)",
+                "maxScore": 15,
+                "description": "Đề xuất CIF, giải thích vì nông sản dễ hỏng nên cần chủ động book tàu để kiểm soát thời gian vận chuyển nhanh nhất và tối ưu cước phí.",
+                "skill": "Incoterms"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Xử lý lô Linh kiện nhập (FOB + Lý do bảo hiểm/kiểm soát)",
+                "maxScore": 15,
+                "description": "Đề xuất FOB, giải thích vì hàng giá trị cao nên cần tự mua bảo hiểm trong nước và kiểm soát hãng tàu để chủ động khiếu nại nếu rủi ro.",
+                "skill": "Transport Risk Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành & Phong thái tự tin",
+                "maxScore": 10,
+                "description": "Sử dụng đúng các thuật ngữ Risk, Freight, Insurance, THC, hải quan với phong thái tự tin.",
+                "skill": "Incident Communication"
+              }
+            ],
+            "skills": [
+              "Incoterms",
+              "Transport Risk Management",
+              "Incident Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống áp lực cao",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "LOG-OPS-R3-Q1",
+            "industryId": "logistics",
+            "positionId": "logistics-ops",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Giả sử lúc này là 2h sáng. Tài xế gọi điện cho em báo xe đầu kéo chở container thịt bò đông lạnh (-18°C) của công ty bị tai nạn lật ngang trên dốc cầu Phú Mỹ (TP.HCM). Thùng container bị móp, máy lạnh báo lỗi ngừng hoạt động. Tài xế đang hoảng loạn chờ cảnh sát giao thông. Là Ops trực ca đó, em hãy nêu từng bước hành động của em ngay trong đêm nay.",
+            "referenceAnswer": "Bước 1 (Kiểm soát hiện trường): Trấn an tài xế bình tĩnh, yêu cầu chụp ảnh hiện trường, bảng đồng hồ nhiệt độ và chỗ móp để làm bằng chứng. Yêu cầu tuyệt đối không tự ý mở cửa container tránh làm thoát nhiệt.\nBước 2 (Cứu hàng): Điều động ngay 1 xe cẩu và 1 xe container lạnh dự phòng (hoặc xe tải lạnh) đến hiện trường để sang hàng (cross-docking) hoặc cẩu nguyên thùng lên xe mới, cắm điện lại càng sớm càng tốt để duy trì mốc -18°C.\nBước 3 (Pháp lý & Bảo hiểm): Hướng dẫn tài xế phối hợp lập biên bản hiện trường với CSGT. Liên hệ ngay hotline công ty Bảo hiểm hàng hóa để cử giám định viên xuống ghi nhận.\nBước 4 (Truyền thông & Báo cáo): Báo cáo sếp trực tiếp và gửi email thông báo rủi ro trễ tiến độ cho khách hàng vào sáng hôm sau một cách minh bạch.",
+            "maxScore": 60,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Bước 1 - Kiểm soát tài xế & Bằng chứng hiện trường",
+                "maxScore": 15,
+                "description": "Trấn an tài xế, chụp ảnh hiện trường, bảng nhiệt độ, không tự ý mở cửa thùng container.",
+                "skill": "Crisis Management"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Bước 2 - Phương án cứu nhiệt độ hàng hóa khẩn cấp",
+                "maxScore": 20,
+                "description": "Điều xe cẩu, xe lạnh dự phòng sang hàng khẩn cấp duy trì nhiệt độ -18°C.",
+                "skill": "Transport Risk Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Bước 3 - Thủ tục CSGT & Bảo hiểm",
+                "maxScore": 15,
+                "description": "Phối hợp biên bản CSGT, gọi hotline giám định viên bảo hiểm ngay trong đêm.",
+                "skill": "Insurance Process"
+              },
+              {
+                "id": "criterion_4",
+                "name": "Bước 4 - Báo cáo nội bộ & Khách hàng",
+                "maxScore": 10,
+                "description": "Báo cáo sếp trực tiếp, thông báo minh bạch rủi ro trễ tiến độ cho khách hàng vào sáng hôm sau.",
+                "skill": "Incident Communication"
+              }
+            ],
+            "skills": [
+              "Crisis Management",
+              "Transport Risk Management",
+              "Insurance Process",
+              "Incident Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "supply-chain": {
+    "positionId": "supply-chain",
+    "positionTitle": "Supply Chain Analyst",
+    "industryId": "logistics",
+    "industryName": "Logistics",
+    "skills": [
+      "Supply Chain Analysis",
+      "Data Analysis",
+      "Bullwhip Effect",
+      "Data Storytelling",
+      "Inventory Optimization"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Tổng quan",
+        "type": "general",
+        "duration": 15,
+        "dataSourceNote": "File Word chỉ thiết kế 2 cụm câu hỏi Chuyên môn (Vòng 2) và Data Storytelling (Vòng 3). Hệ thống chuẩn hóa 3 vòng.",
+        "questions": []
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn ứng dụng",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "LOG-SCA-R2-Q1",
+            "industryId": "logistics",
+            "positionId": "supply-chain",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Trong giai đoạn đại dịch COVID-19, em hẳn đã thấy hiện tượng người dân đổ xô đi mua giấy vệ sinh và mì tôm, dẫn đến các nhà máy sản xuất ồ ạt, nhưng sau đó lại tồn kho chất đống. Đây là ví dụ của Hiệu ứng Bullwhip (Cái roi da). Nếu em làm Analyst tại nhà máy mì tôm đó, em đề xuất giải pháp cốt lõi nào để công ty không bị sập bẫy 'sản xuất thừa' khi có biến động giá như vậy?",
+            "referenceAnswer": "Phân tích nguyên nhân: Hiện tượng mua tích trữ là nhu cầu hoảng loạn (Panic buying) ngắn hạn, không đại diện cho sức mua tiêu dùng thực tế bền vững. Thông tin bị bóp méo gia tăng qua từng cấp trong chuỗi (Đại lý -> Nhà phân phối -> Nhà máy).\nGiải pháp Data cốt lõi:\nThu thập dữ liệu POS (Point of Sale): Căn cứ vào dữ liệu bán hàng thực tế tại máy tính tiền của các siêu thị/điểm bán lẻ thay vì chỉ dựa vào đơn đặt hàng dồn dập từ đại lý.\nTriển khai mô hình CPFR/VMI: Phối hợp lập kế hoạch và chia sẻ dữ liệu tồn kho minh bạch toàn chuỗi với các bên bán lẻ (Vendor Managed Inventory).",
+            "maxScore": 40,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Phân tích bản chất Panic buying & sự sai lệch thông tin",
+                "maxScore": 15,
+                "description": "Nhận diện nhu cầu hoảng loạn ngắn hạn và hiện tượng bóp méo thông tin qua các cấp trong chuỗi.",
+                "skill": "Bullwhip Effect"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đề xuất giải pháp POS Data thực tế",
+                "maxScore": 15,
+                "description": "Lấy dữ liệu bán lẻ thực tế tại điểm bán (POS Data) để phản ánh sức mua tiêu dùng thực.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Đề xuất giải pháp CPFR/VMI & Minh bạch dữ liệu",
+                "maxScore": 10,
+                "description": "Phối hợp lập kế hoạch và chia sẻ dữ liệu tồn kho minh bạch toàn chuỗi (CPFR/VMI).",
+                "skill": "Supply Chain Analysis"
+              }
+            ],
+            "skills": [
+              "Bullwhip Effect",
+              "Data Analysis",
+              "Supply Chain Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi kỹ năng Dịch thuật Dữ liệu (Data Storytelling)",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "LOG-SCA-R3-Q1",
+            "industryId": "logistics",
+            "positionId": "supply-chain",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "\"Chị là Giám đốc Kinh doanh. Chị vừa nhận báo cáo chi phí Logistics tháng này tăng vọt 40% so với tháng trước. Chị không có thời gian đọc file Excel dài 1000 dòng của em. Em hãy giải thích cho chị nghe bằng giọng nói: Tại sao chi phí tăng, nguyên nhân từ phòng ban nào, và đề xuất 1 hành động ngay ngày mai để giải quyết?\"",
+            "referenceAnswer": "Diễn giải kinh doanh: \"Sếp ơi, chi phí tháng này tăng 40% nguyên nhân chính nằm ở Phí lưu kho ngoài (Storage cost) do chênh lệch Forecast giữa Sales và thực tế. Tháng trước team Sales dự báo bán 10,000 thùng nên nhà máy đã sản xuất và đẩy hàng ra kho. Tuy nhiên, thực tế Sales chốt được 6,000 thùng, dẫn đến 4,000 thùng tồn đọng phải thuê kho ngoài phát sinh.\"\nHành động ngay ngày mai: \"Để xả nhanh lô 4,000 thùng cận date này, ngay ngày mai em đề xuất mình làm chương trình Bundling (Bán bia tặng ly / Mua 5 tặng 1) hoặc Điều chuyển nội bộ (Transfer) sang chi nhánh miền Tây – nơi đang có tốc độ bán hàng tốt hơn.\"",
+            "maxScore": 60,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Trình bày phi kỹ thuật (Ngôn ngữ kinh doanh)",
+                "maxScore": 15,
+                "description": "Tránh từ ngữ quá phức tạp, dùng ngôn ngữ kinh doanh ngắn gọn, trực diện cho Leadership.",
+                "skill": "Data Storytelling"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Xác định chính xác nguyên nhân & Quy trách nhiệm logic",
+                "maxScore": 20,
+                "description": "Chỉ rõ phí kho ngoài tăng do chênh lệch dự báo Sales (10.000 vs 6.000 thùng thực tế).",
+                "skill": "Supply Chain Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Đề xuất giải pháp hành động cụ thể (Bundling / Transfer)",
+                "maxScore": 25,
+                "description": "Hành động ngay ngày mai: Bundling xả hàng hoặc chuyển vùng sang chi nhánh có sức mua tốt.",
+                "skill": "Inventory Optimization"
+              }
+            ],
+            "skills": [
+              "Data Storytelling",
+              "Supply Chain Analysis",
+              "Inventory Optimization"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "purchasing": {
+    "positionId": "purchasing",
+    "positionTitle": "Purchasing Executive",
+    "industryId": "logistics",
+    "industryName": "Logistics",
+    "skills": [
+      "Sourcing",
+      "Vendor Management",
+      "Procurement Risk",
+      "Negotiation",
+      "Trade-off / Win-Win"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Tổng quan",
+        "type": "general",
+        "duration": 15,
+        "dataSourceNote": "File Word chỉ thiết kế 2 cụm câu hỏi Quy trình Sourcing (Vòng 2) và Role-play Đàm phán (Vòng 3). Hệ thống chuẩn hóa 3 vòng.",
+        "questions": []
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn quy trình",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "LOG-PUR-R2-Q1",
+            "industryId": "logistics",
+            "positionId": "purchasing",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Công ty mình đang cần tìm một nhà cung cấp Bao bì carton mới vì bên cũ liên tục giao hàng lỗi. Em hãy trình bày quy trình các bước em sẽ làm để chọn được nhà cung cấp mới. Trong đó, theo em bước nào là quan trọng nhất để phòng tránh rủi ro 'bắt tay ngầm' (Kickback/Hoa hồng)?",
+            "referenceAnswer": "Quy trình Sourcing chuẩn: Tìm kiếm nhà cung cấp (Sourcing) -> Gửi Yêu cầu báo giá (RFI/RFQ cho ít nhất 3 bên) -> Nhận báo giá & Lập bảng so sánh -> Yêu cầu gửi hàng mẫu (Sample) -> Đánh giá năng lực nhà máy (Audit) -> Đàm phán -> Ký Hợp đồng nguyên tắc.\nBước chống rủi ro/minh bạch quan trọng nhất: Áp dụng cơ chế Đánh giá chéo & Bảng tiêu chí rõ ràng (Vendor Scorecard). Thu mua chỉ chịu trách nhiệm tìm giá và thương lượng, việc kiểm định chất lượng bao bì phải do phòng QA/QC độc lập thực hiện. Bảng tổng hợp điểm số được trình Giám đốc phê duyệt chứ Thu mua không tự mình đưa ra quyết định chọn bên nào.",
+            "maxScore": 40,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Trình bày đủ & đúng quy trình Sourcing chuẩn",
+                "maxScore": 20,
+                "description": "Nêu đủ các bước: Tìm kiếm, RFI/RFQ tối thiểu 3 bên, so sánh giá, test mẫu, audit nhà máy, đàm phán, ký HĐ.",
+                "skill": "Sourcing"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đề xuất cơ chế Đánh giá chéo / Vendor Scorecard minh bạch",
+                "maxScore": 20,
+                "description": "Cơ chế đánh giá chéo giữa Thu mua và QA/QC độc lập, phê duyệt cấp Giám đốc để phòng tránh kickback.",
+                "skill": "Procurement Risk"
+              }
+            ],
+            "skills": [
+              "Sourcing",
+              "Procurement Risk"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi Role-play Đàm phán trực tiếp",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "LOG-PUR-R3-Q1",
+            "industryId": "logistics",
+            "positionId": "purchasing",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "(AI đóng vai Giám đốc xưởng Bao Bì với giọng căng thẳng): \"Chào em. Chị nói thẳng luôn nhé. Tháng này giá bột giấy thế giới tăng sốc 30% rồi. Chị buộc phải tăng giá bán thùng carton cho bên em lên 15% bắt đầu từ đơn hàng sáng ngày mai. Nếu bên em không đồng ý thì chị đành ngừng cung cấp hàng vì chị bán giá cũ là lỗ nặng. Em tính sao?\"",
+            "referenceAnswer": "Hạ nhiệt & Đòi chứng cứ: \"Em rất chia sẻ khó khăn với xưởng mình. Tuy nhiên để em trình Ban Giám đốc phê duyệt mức tăng, chị vui lòng gửi Văn bản thông báo tăng giá chính thức kèm số liệu chứng minh giá nguyên liệu đầu vào tăng giúp em.\" (Dùng kỹ thuật câu giờ để chuẩn bị phương án dự phòng BATNA).\nSử dụng Hợp đồng bảo vệ ngắn hạn: \"Theo Hợp đồng hiện tại giữa hai bên, mọi điều chỉnh về giá phải thông báo trước 30 ngày. Vì vậy, em đề nghị chị giữ nguyên giá cũ cho đơn hàng sáng mai và các đơn trong 30 ngày tới đúng theo cam kết.\"\nĐàm phán đổi giá trị (Trade-off): \"Nếu sau 30 ngày bắt đầu áp dụng mức tăng, bên em có thể hỗ trợ điều chỉnh nhưng đổi lại, xưởng phải nâng thời hạn công nợ (Payment terms) từ 30 ngày lên 60 ngày cho bên em. HOẶC bên em cam kết tăng sản lượng đặt hàng (Volume) gấp rưỡi để chị giữ mức tăng giá chỉ ở mốc 5% thay vì 15%.\"",
+            "maxScore": 60,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Chiến thuật 1 - Hạ nhiệt, câu giờ & Đòi chứng cứ",
+                "maxScore": 20,
+                "description": "Hạ nhiệt, yêu cầu công văn chính thức kèm số liệu chứng minh giá bột giấy thế giới tăng để kéo dài thời gian.",
+                "skill": "Negotiation"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Chiến thuật 2 - Áp dụng điều khoản Hợp đồng ràng buộc",
+                "maxScore": 20,
+                "description": "Áp dụng điều khoản thông báo trước 30 ngày trong HĐ hiện tại để giữ giá đơn hàng ngày mai.",
+                "skill": "Vendor Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Chiến thuật 3 - Đàm phán Trade-off Win-Win (Công nợ/Sản lượng)",
+                "maxScore": 20,
+                "description": "Đổi giá trị win-win: tăng hạn mức công nợ lên 60 ngày hoặc cam kết tăng sản lượng để giữ mức tăng thấp.",
+                "skill": "Trade-off / Win-Win"
+              }
+            ],
+            "skills": [
+              "Negotiation",
+              "Vendor Management",
+              "Trade-off / Win-Win"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "business-analyst": {
+    "positionId": "business-analyst",
+    "positionTitle": "Business Analyst",
+    "industryId": "it",
+    "industryName": "Công nghệ thông tin",
+    "skills": [
+      "Requirement Analysis",
+      "Stakeholder Management",
+      "Problem Solving",
+      "Communication",
+      "Domain Modeling"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "IT-BA-R1-Q1",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Giới thiệu bản thân và lý do bạn muốn theo đuổi vị trí Business Analyst",
+            "referenceAnswer": "Nêu cụ thể ngành học/dự án đã làm liên quan trực tiếp đến phân tích nghiệp vụ; chỉ ra đúng đặc thù công việc BA là phân tích vấn đề kinh doanh và làm cầu nối với đội kỹ thuật; trình bày mạch lạc, sử dụng thuật ngữ yêu cầu nghiệp vụ, stakeholder.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nền tảng chuyên môn liên quan",
+                "maxScore": 12,
+                "description": "Nêu cụ thể ngành học/dự án đã làm liên quan trực tiếp đến phân tích nghiệp vụ, không nói chung chung.",
+                "skill": "Requirement Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do chọn nghề đúng bản chất",
+                "maxScore": 10,
+                "description": "Phải chỉ ra đúng đặc thù công việc Business Analyst là phân tích vấn đề kinh doanh và làm cầu nối với đội kỹ thuật.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Trình bày mạch lạc, có dùng một số thuật ngữ cơ bản (yêu cầu nghiệp vụ/requirement, stakeholder).",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Requirement Analysis",
+              "Problem Solving",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-BA-R1-Q2",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Bạn hiểu vai trò của một Business Analyst trong dự án phần mềm là gì?",
+            "referenceAnswer": "BA là người trung gian giữa khách hàng/doanh nghiệp và đội phát triển; các đầu việc cốt lõi gồm thu thập yêu cầu, phân tích nghiệp vụ, viết tài liệu đặc tả (BRD/SRS), kiểm soát phạm vi (scope) và hỗ trợ nghiệm thu (UAT).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xác định đúng vai trò cầu nối",
+                "maxScore": 15,
+                "description": "Nêu rõ BA là người trung gian giữa khách hàng/doanh nghiệp và đội phát triển, không lẫn với PM hay Dev.",
+                "skill": "Stakeholder Management"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Liệt kê đủ đầu việc cốt lõi",
+                "maxScore": 12,
+                "description": "Nêu tối thiểu 3/5 đầu việc: thu thập yêu cầu, phân tích nghiệp vụ, viết tài liệu đặc tả (BRD/SRS), kiểm soát phạm vi (scope), hỗ trợ nghiệm thu (UAT).",
+                "skill": "Requirement Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ: Requirement, Stakeholder, Scope, UAT, BRD/SRS.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Stakeholder Management",
+              "Requirement Analysis",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-BA-R1-Q3",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích nghiệp vụ chưa?",
+            "referenceAnswer": "Nêu tên/bối cảnh dự án phần mềm cụ thể theo mô hình STAR; chỉ rõ các bước phỏng vấn người dùng, vẽ wireframe hoặc viết use case và bài học nghiệp vụ rút ra.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Ví dụ dự án cụ thể",
+                "maxScore": 15,
+                "description": "Nêu tên/bối cảnh dự án hoặc bài tập cụ thể, vai trò đảm nhận rõ ràng.",
+                "skill": "Domain Modeling"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trình bày theo STAR",
+                "maxScore": 12,
+                "description": "Bối cảnh (Situation) → Nhiệm vụ (Task) → Hành động cụ thể (Action) → Kết quả đo lường được (Result).",
+                "skill": "Communication"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Rút ra bài học cụ thể",
+                "maxScore": 8,
+                "description": "Chỉ ra được 1 bài học nghiệp vụ cụ thể, ví dụ: 'phải xác nhận lại yêu cầu bằng văn bản trước khi triển khai'.",
+                "skill": "Problem Solving"
+              }
+            ],
+            "skills": [
+              "Domain Modeling",
+              "Communication",
+              "Problem Solving"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "IT-BA-R2-Q1",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Phân biệt yêu cầu chức năng (Functional) và phi chức năng (Non-functional), cho ví dụ",
+            "referenceAnswer": "Functional Requirement là yêu cầu mô tả hệ thống làm gì (chức năng, tính năng, hành vi), ví dụ: cho phép người dùng đăng nhập bằng Google hoặc gửi email OTP. Non-functional Requirement là yêu cầu mô tả hệ thống vận hành tốt đến mức nào (hiệu năng, bảo mật, khả dụng), ví dụ: hệ thống đáp ứng 1.000 request/giây với thời gian phản hồi dưới 200ms.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Định nghĩa đúng Functional Requirement",
+                "maxScore": 15,
+                "description": "Là yêu cầu mô tả HỆ THỐNG LÀM GÌ, kèm ví dụ cụ thể không chung chung.",
+                "skill": "Requirement Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Định nghĩa đúng Non-functional Requirement",
+                "maxScore": 12,
+                "description": "Là yêu cầu mô tả hệ thống VẬN HÀNH TỐT ĐẾN MỨC NÀO (hiệu năng, bảo mật, khả dụng), kèm số liệu cụ thể.",
+                "skill": "Domain Modeling"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Dùng đúng các thuật ngữ Functional/Non-functional Requirement, Performance, Security, Availability.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Requirement Analysis",
+              "Domain Modeling",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-BA-R2-Q2",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Bạn sẽ dùng phương pháp nào để thu thập yêu cầu từ khách hàng (phỏng vấn, workshop, khảo sát...)?",
+            "referenceAnswer": "Tùy thuộc vào bối cảnh: Phỏng vấn 1-1 khi cần đào sâu quy trình chuyên môn với chuyên gia hoặc chủ đề nhạy cảm; Workshop khi có nhiều bên liên quan (stakeholders) với quan điểm trái ngược cần ngồi lại để thống nhất; Khảo sát (Survey) khi cần thu thập phản hồi từ số lượng lớn người dùng cuối.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Khi nào dùng Phỏng vấn 1-1",
+                "maxScore": 15,
+                "description": "Dùng khi cần đào sâu nghiệp vụ với người có chuyên môn cao, hoặc chủ đề nhạy cảm cần trao đổi riêng.",
+                "skill": "Requirement Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Khi nào dùng Workshop",
+                "maxScore": 12,
+                "description": "Dùng khi có nhiều stakeholder với quan điểm khác nhau cần thống nhất trong cùng buổi họp để tránh yêu cầu mâu thuẫn.",
+                "skill": "Stakeholder Management"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 3,
+                "description": "Dùng đúng các thuật ngữ Stakeholder, Workshop, Elicitation (khai thác yêu cầu).",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Requirement Analysis",
+              "Stakeholder Management",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-BA-R2-Q3",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Trình bày các thành phần chính trong một tài liệu SRS/BRD",
+            "referenceAnswer": "Một tài liệu đặc tả chuẩn gồm: 1) Mục tiêu & Phạm vi dự án (Scope); 2) Mô tả người dùng & Stakeholder; 3) Yêu cầu chức năng chi tiết (Use case, User stories); 4) Yêu cầu phi chức năng (Performance, Security); 5) Ràng buộc & Giả định; 6) Tiêu chí nghiệm thu (Acceptance Criteria) làm căn cứ bàn giao UAT.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đủ thành phần cốt lõi",
+                "maxScore": 18,
+                "description": "Nêu tối thiểu 4/5: mục tiêu & phạm vi, yêu cầu chức năng chi tiết, yêu cầu phi chức năng, ràng buộc/giả định, tiêu chí nghiệm thu (acceptance criteria).",
+                "skill": "Domain Modeling"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích Acceptance Criteria",
+                "maxScore": 10,
+                "description": "Nêu được đây là căn cứ để xác nhận sản phẩm đạt yêu cầu trước khi khách hàng nghiệm thu UAT.",
+                "skill": "Requirement Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 7,
+                "description": "Dùng đúng các thuật ngữ SRS, BRD, Acceptance Criteria, Constraint.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Domain Modeling",
+              "Requirement Analysis",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "IT-BA-R3-Q1",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Khách hàng liên tục thay đổi yêu cầu giữa dự án, bạn xử lý thế nào?",
+            "referenceAnswer": "Không phản đối hay chấp nhận theo cảm tính; ghi nhận yêu cầu mới bằng văn bản và áp dụng quy trình Quản lý thay đổi (Change Request); thực hiện phân tích tác động (Impact Analysis) lên phạm vi (scope), tiến độ và ngân sách dự án; trình bày các phương án để khách hàng và PM cùng quyết định đánh đổi.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Quy trình Change Request chính thức",
+                "maxScore": 20,
+                "description": "Không phản đối/chấp nhận cảm tính, đề xuất ghi nhận yêu cầu bằng văn bản qua quy trình Change Request.",
+                "skill": "Stakeholder Management"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đánh giá tác động (Impact Analysis)",
+                "maxScore": 20,
+                "description": "Đánh giá impact lên scope, thời gian, chi phí trước khi quyết định, phối hợp với PM và Dev.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 10,
+                "description": "Dùng đúng các thuật ngữ Change Request, Scope Creep, Impact Analysis.",
+                "skill": "Requirement Analysis"
+              }
+            ],
+            "skills": [
+              "Stakeholder Management",
+              "Problem Solving",
+              "Requirement Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-BA-R3-Q2",
+            "industryId": "it",
+            "positionId": "business-analyst",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Đội Dev và khách hàng bất đồng về một yêu cầu, là Business Analyst bạn sẽ làm gì?",
+            "referenceAnswer": "Đóng vai trò trung gian khách quan dựa trên tài liệu yêu cầu (SRS/BRD) đã được hai bên ký duyệt (Sign-off); tổ chức cuộc họp 3 bên để làm rõ bản chất khúc mắc; sử dụng wireframe, prototype hoặc user story để trực quan hóa giải pháp trung hòa, tránh tranh cãi suông.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Trung gian dựa trên tài liệu gốc",
+                "maxScore": 20,
+                "description": "Đề xuất quay lại tài liệu yêu cầu đã ký duyệt để làm rõ ý định ban đầu, không thiên vị cảm tính.",
+                "skill": "Stakeholder Management"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải pháp cụ thể để thống nhất",
+                "maxScore": 20,
+                "description": "Tổ chức họp ba bên hoặc làm prototype/wireframe để minh hoạ trực quan giúp cả hai bên hình dung.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 10,
+                "description": "Dùng đúng các thuật ngữ Traceability, Prototype, Sign-off.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Stakeholder Management",
+              "Problem Solving",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "qa-tester": {
+    "positionId": "qa-tester",
+    "positionTitle": "Software Tester/QA",
+    "industryId": "it",
+    "industryName": "Công nghệ thông tin",
+    "skills": [
+      "Testing Knowledge",
+      "Defect Analysis",
+      "Quality Assurance",
+      "Problem Solving",
+      "Communication"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "IT-QA-R1-Q1",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Giới thiệu bản thân và vì sao bạn chọn nghề Tester/Quality Assurance (QA)",
+            "referenceAnswer": "Nêu cụ thể kinh nghiệm kiểm thử phần mềm; chỉ ra đặc thù công việc là tìm lỗi, đảm bảo chất lượng, tư duy phản biện để bảo vệ trải nghiệm người dùng cuối; không nhầm lẫn công việc kiểm thử với lập trình phần mềm.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nền tảng liên quan cụ thể",
+                "maxScore": 12,
+                "description": "Nêu cụ thể kinh nghiệm/dự án đã từng kiểm thử, không nói chung chung.",
+                "skill": "Testing Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do đúng bản chất nghề",
+                "maxScore": 10,
+                "description": "Chỉ ra đặc thù công việc là tìm lỗi, đảm bảo chất lượng, tư duy phản biện - không nhầm với lập trình.",
+                "skill": "Quality Assurance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Trả lời mạch lạc, dùng được thuật ngữ Bug/Defect, Quality cơ bản.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Testing Knowledge",
+              "Quality Assurance",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-QA-R1-Q2",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Bạn hãy phân biệt Testing và Quality Assurance",
+            "referenceAnswer": "Testing (Kiểm thử) là hoạt động kiểm tra sản phẩm cụ thể để tìm lỗi (mang tính phản ứng - reactive). QA (Đảm bảo chất lượng) là tập hợp các hoạt động giám sát quy trình phát triển phần mềm để phòng ngừa lỗi ngay từ đầu (mang tính chủ động - proactive).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Định nghĩa đúng Testing",
+                "maxScore": 15,
+                "description": "Là hoạt động PHÁT HIỆN lỗi trên sản phẩm cụ thể đã hoàn thành - mang tính phản ứng (reactive).",
+                "skill": "Testing Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Định nghĩa đúng QA",
+                "maxScore": 12,
+                "description": "Là tập hợp hoạt động đảm bảo QUY TRÌNH đúng chuẩn để PHÒNG NGỪA lỗi từ đầu - mang tính chủ động (proactive).",
+                "skill": "Quality Assurance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 8,
+                "description": "Dùng đúng thuật ngữ Reactive/Proactive, Quality Assurance/Quality Control.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Testing Knowledge",
+              "Quality Assurance",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-QA-R1-Q3",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Hãy kể tên các loại kiểm thử bạn biết (Manual, Automation, Unit, Integration...)",
+            "referenceAnswer": "Liệt kê đầy đủ: Unit Test (do Dev viết cho hàm nhỏ), Integration Test (kiểm tra liên kết module), System Test (kiểm thử toàn hệ thống do QA làm), Manual Test (thao tác tay), Automation Test (chạy script tự động), và UAT (người dùng cuối nghiệm thu).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đủ các loại kiểm thử",
+                "maxScore": 20,
+                "description": "Nêu tối thiểu 5/6: Manual, Automation, Unit, Integration, System, UAT.",
+                "skill": "Testing Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Giải thích đúng ai thực hiện",
+                "maxScore": 10,
+                "description": "Phân biệt rõ: Dev làm Unit/Integration, QA làm System/Manual/Automation, Khách hàng làm UAT.",
+                "skill": "Quality Assurance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng tiếng Anh chuẩn",
+                "maxScore": 5,
+                "description": "Dùng đúng thuật ngữ tiếng Anh: Unit, Integration, System, UAT.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Testing Knowledge",
+              "Quality Assurance",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "IT-QA-R2-Q1",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Quy trình viết test case gồm những bước nào?",
+            "referenceAnswer": "Quy trình: 1) Đọc hiểu tài liệu yêu cầu (SRS) -> 2) Xác định các kịch bản kiểm thử (Test Scenarios) -> 3) Viết chi tiết từng Test Case với đầy đủ: ID, Tiêu đề, Pre-conditions, Dữ liệu đầu vào, Các bước thực hiện (Steps), Kết quả mong đợi (Expected Result) -> 4) Review test case với BA/Dev.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Thành phần cốt lõi của Test Case",
+                "maxScore": 18,
+                "description": "ID/tiêu đề, điều kiện tiền đề (pre-condition), dữ liệu đầu vào, các bước thực hiện, kết quả mong đợi (expected result).",
+                "skill": "Testing Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trình tự logic",
+                "maxScore": 10,
+                "description": "Các bước phải theo đúng thứ tự thực hiện thực tế, không đảo lộn.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 7,
+                "description": "Dùng đúng thuật ngữ Pre-condition, Expected Result, Actual Result, Test Steps.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Testing Knowledge",
+              "Problem Solving",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-QA-R2-Q2",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Phân biệt Black-box và White-box testing",
+            "referenceAnswer": "Black-box testing là kiểm thử chức năng không cần biết cấu trúc code bên trong, chỉ kiểm tra đầu vào và đầu ra (thường do QA thực hiện). White-box testing là kiểm thử cấu trúc bên trong của mã nguồn (nhánh điều kiện, độ bao phủ code) do Developer thực hiện qua Unit test.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Định nghĩa đúng Black-box",
+                "maxScore": 15,
+                "description": "Kiểm thử dựa trên CHỨC NĂNG/đầu vào-đầu ra, KHÔNG cần biết code bên trong - do Tester thực hiện.",
+                "skill": "Testing Knowledge"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Định nghĩa đúng White-box",
+                "maxScore": 10,
+                "description": "Kiểm thử dựa trên CẤU TRÚC CODE bên trong (nhánh, điều kiện) - thường do Developer thực hiện qua Unit Test.",
+                "skill": "Quality Assurance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 5,
+                "description": "Dùng đúng thuật ngữ Black-box/White-box Testing, Code Coverage.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Testing Knowledge",
+              "Quality Assurance",
+              "Communication"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-QA-R2-Q3",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Bug life cycle gồm những trạng thái nào?",
+            "referenceAnswer": "Vòng đời của Bug: New (phát hiện mới) -> Assigned (giao cho Dev) -> Fixed (Dev đã sửa) -> Retest (QA kiểm tra lại) -> Closed (đạt yêu cầu và đóng bug) hoặc Reopen (nếu lỗi vẫn còn); ngoài ra còn có Rejected (không phải bug) hoặc Deferred (hoãn sửa bản sau).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Trạng thái chính của Bug",
+                "maxScore": 20,
+                "description": "New → Assigned → Fixed → Retest → Closed (kèm nhánh Reopen nếu Retest fail).",
+                "skill": "Defect Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Trạng thái phụ",
+                "maxScore": 10,
+                "description": "Rejected (không phải bug thật) hoặc Deferred (hoãn xử lý sang bản sau).",
+                "skill": "Quality Assurance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Trình bày logic, đúng quy trình",
+                "maxScore": 5,
+                "description": "Trình bày logic, đúng trình tự, mạch lạc, không dài dòng.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Defect Analysis",
+              "Quality Assurance",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "IT-QA-R3-Q1",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Bạn phát hiện bug nghiêm trọng sát ngày release, bạn xử lý ra sao?",
+            "referenceAnswer": "Đánh giá chính xác Severity (mức độ nghiêm trọng kỹ thuật) và Priority (mức độ ưu tiên khắc phục); lập tức thông báo cho PM và Lead Dev kèm bằng chứng tái hiện (log, video); nếu ảnh hưởng luồng chính -> đề xuất hoãn release hoặc tung hotfix; nếu ảnh hưởng tính năng phụ -> bàn phương án release kèm ghi chú cho khách hàng.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Đánh giá mức độ ưu tiên",
+                "maxScore": 20,
+                "description": "Đánh giá Severity và Priority trước khi hành động, không hoảng loạn hoặc im lặng bỏ qua.",
+                "skill": "Defect Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đề xuất phương án cụ thể",
+                "maxScore": 20,
+                "description": "Ảnh hưởng luồng chính đề xuất hoãn release hoặc hotfix; ảnh hưởng nhỏ release kèm ghi chú fix bản sau.",
+                "skill": "Problem Solving"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 10,
+                "description": "Dùng đúng thuật ngữ Severity, Priority, Hotfix, Critical Bug.",
+                "skill": "Quality Assurance"
+              }
+            ],
+            "skills": [
+              "Defect Analysis",
+              "Problem Solving",
+              "Quality Assurance"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-QA-R3-Q2",
+            "industryId": "it",
+            "positionId": "qa-tester",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Dev không đồng ý đây là bug, bạn thuyết phục thế nào?",
+            "referenceAnswer": "Tuyệt đối không tranh cãi cảm tính; cung cấp Steps to Reproduce chi tiết, ảnh chụp/video màn hình, log lỗi và dữ liệu test; đối chiếu hành vi thực tế với tài liệu đặc tả yêu cầu (SRS/Acceptance Criteria) đã thống nhất; nếu vẫn bất đồng, mời BA vào xác nhận mục đích ban đầu của tính năng.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Cung cấp bằng chứng tái hiện",
+                "maxScore": 20,
+                "description": "Cung cấp Steps to Reproduce, ảnh chụp/video, log lỗi cụ thể - không tranh cãi suông.",
+                "skill": "Defect Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Đối chiếu tài liệu gốc",
+                "maxScore": 20,
+                "description": "Chỉ ra cách chứng minh hành vi sai khác với đặc tả SRS, mời BA/PM xác nhận nếu cần.",
+                "skill": "Quality Assurance"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 10,
+                "description": "Dùng đúng thuật ngữ Steps to Reproduce, Log, Specification.",
+                "skill": "Communication"
+              }
+            ],
+            "skills": [
+              "Defect Analysis",
+              "Quality Assurance",
+              "Communication"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  },
+  "data-analyst": {
+    "positionId": "data-analyst",
+    "positionTitle": "Data Analyst",
+    "industryId": "it",
+    "industryName": "Công nghệ thông tin",
+    "skills": [
+      "SQL",
+      "Data Cleaning",
+      "Data Analysis",
+      "Data Visualization",
+      "Data Storytelling"
+    ],
+    "rounds": {
+      "1": {
+        "roundNumber": 1,
+        "title": "Vòng 1: Câu hỏi tổng quan",
+        "type": "general",
+        "duration": 15,
+        "questions": [
+          {
+            "id": "IT-DA-R1-Q1",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 1,
+            "questionNumber": 1,
+            "questionText": "Giới thiệu bản thân và vì sao bạn theo đuổi Data Analyst",
+            "referenceAnswer": "Nêu ngành học/dự án cụ thể liên quan đến xử lý số liệu; chỉ ra đúng đặc thù nghề DA là tìm kiếm insight từ dữ liệu để giải quyết bài toán kinh doanh và hỗ trợ ra quyết định; không nhầm với Data Engineer (hạ tầng dữ liệu) hay Data Scientist (xây thuật toán ML).",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nền tảng liên quan cụ thể",
+                "maxScore": 14,
+                "description": "Nêu ngành học/dự án cụ thể có liên quan đến xử lý số liệu, không nói chung chung.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Lý do đúng bản chất nghề",
+                "maxScore": 11,
+                "description": "Chỉ ra đặc thù công việc là tìm insight từ dữ liệu để hỗ trợ ra quyết định kinh doanh.",
+                "skill": "Data Storytelling"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 5,
+                "description": "Chia sẻ được về Insight, Data-driven decision.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Data Analysis",
+              "Data Storytelling"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-DA-R1-Q2",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 1,
+            "questionNumber": 2,
+            "questionText": "Quy trình phân tích dữ liệu cơ bản gồm những bước nào?",
+            "referenceAnswer": "Quy trình chuẩn: 1) Xác định bài toán kinh doanh -> 2) Thu thập dữ liệu (Extract/Query SQL) -> 3) Làm sạch & tiền xử lý dữ liệu (Data Cleaning) -> 4) Phân tích khám phá (EDA) -> 5) Trực quan hóa dữ liệu (Visualization) -> 6) Kể chuyện dữ liệu & Đề xuất hành động kinh doanh (Data Storytelling).",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Liệt kê đúng thứ tự các bước",
+                "maxScore": 20,
+                "description": "Thu thập → làm sạch → phân tích → trực quan hoá → kết luận/đề xuất.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Vai trò bước làm sạch dữ liệu",
+                "maxScore": 10,
+                "description": "Nhấn mạnh Data Cleaning là bước quan trọng nhất quyết định độ tin cậy của toàn bộ phân tích.",
+                "skill": "Data Cleaning"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 5,
+                "description": "Dùng đúng các thuật ngữ Data Cleaning, Data Visualization, Insight.",
+                "skill": "Data Visualization"
+              }
+            ],
+            "skills": [
+              "Data Analysis",
+              "Data Cleaning",
+              "Data Visualization"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-DA-R1-Q3",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 1,
+            "questionNumber": 3,
+            "questionText": "Bạn thành thạo công cụ nào (Excel, SQL, Power BI, Python...)?",
+            "referenceAnswer": "Nêu công cụ gắn liền với mục đích sử dụng: SQL để trích xuất và biến đổi dữ liệu từ RDBMS; Excel/Power BI để mô hình hóa và xây dựng Dashboard trực quan; Python để phân tích chuyên sâu hoặc tự động hóa; kèm ví dụ bài tập thực tế.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Nêu công cụ kèm mục đích rõ ràng",
+                "maxScore": 18,
+                "description": "SQL để truy vấn database, Excel/Power BI để xử lý và trực quan hoá - có giải thích mục đích rõ ràng.",
+                "skill": "SQL"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Ví dụ thực tế áp dụng",
+                "maxScore": 10,
+                "description": "Mô tả một tình huống thực tế đã dùng công cụ đó để giải quyết vấn đề gì, kết quả ra sao.",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Tên hàm cụ thể",
+                "maxScore": 7,
+                "description": "Dùng đúng tên công cụ/hàm cụ thể: Pivot Table, VLOOKUP, JOIN, GROUP BY.",
+                "skill": "SQL"
+              }
+            ],
+            "skills": [
+              "SQL",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "2": {
+        "roundNumber": 2,
+        "title": "Vòng 2: Câu hỏi chuyên môn",
+        "type": "technical",
+        "duration": 20,
+        "questions": [
+          {
+            "id": "IT-DA-R2-Q1",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 2,
+            "questionNumber": 1,
+            "questionText": "Hãy viết câu SQL JOIN 2 bảng để lấy dữ liệu theo điều kiện cho trước",
+            "referenceAnswer": "Cú pháp chuẩn: SELECT a.id, a.name, b.order_date, b.total_amount FROM Customers a INNER JOIN Orders b ON a.id = b.customer_id WHERE b.total_amount > 1000000; giải thích lý do dùng INNER JOIN là để chỉ lấy các khách hàng thực sự đã phát sinh đơn hàng.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Cú pháp SQL chuẩn xác",
+                "maxScore": 20,
+                "description": "Câu lệnh đúng cú pháp chuẩn (SELECT...FROM...JOIN...ON...WHERE), không lỗi cú pháp cơ bản.",
+                "skill": "SQL"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Chọn đúng loại JOIN",
+                "maxScore": 10,
+                "description": "Giải thích được vì sao chọn loại JOIN đó (ví dụ INNER JOIN vì chỉ cần dữ liệu khớp cả hai bảng).",
+                "skill": "SQL"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên ngành",
+                "maxScore": 5,
+                "description": "Gọi đúng tên các mệnh đề SQL: SELECT, FROM, JOIN, ON, WHERE.",
+                "skill": "SQL"
+              }
+            ],
+            "skills": [
+              "SQL"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-DA-R2-Q2",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 2,
+            "questionNumber": 2,
+            "questionText": "Bạn hãy phân biệt các loại JOIN (INNER, LEFT, RIGHT, FULL)",
+            "referenceAnswer": "INNER JOIN: Chỉ lấy bản ghi khớp ở cả 2 bảng. LEFT JOIN: Lấy toàn bộ bảng trái và các bản ghi khớp ở bảng phải (không khớp thì NULL). RIGHT JOIN: Lấy toàn bộ bảng phải và bản ghi khớp ở bảng trái. FULL OUTER JOIN: Lấy toàn bộ bản ghi của cả 2 bảng. Ví dụ dùng LEFT JOIN để tìm khách hàng chưa từng mua hàng.",
+            "maxScore": 30,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Bản chất INNER và LEFT JOIN",
+                "maxScore": 15,
+                "description": "INNER JOIN chỉ lấy dữ liệu khớp ở cả hai bảng; LEFT JOIN lấy toàn bộ bảng trái kèm dữ liệu khớp bên phải.",
+                "skill": "SQL"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Ví dụ kinh doanh thực tế",
+                "maxScore": 10,
+                "description": "Ví dụ dùng LEFT JOIN để lấy tất cả khách hàng kể cả người chưa từng mua hàng (WHERE b.id IS NULL).",
+                "skill": "Data Analysis"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Tên 4 loại JOIN",
+                "maxScore": 5,
+                "description": "Dùng đúng tên bốn loại JOIN bằng tiếng Anh.",
+                "skill": "SQL"
+              }
+            ],
+            "skills": [
+              "SQL",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-DA-R2-Q3",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 2,
+            "questionNumber": 3,
+            "questionText": "Hãy chỉ ra cách xử lý dữ liệu missing/outlier trong tập dữ liệu",
+            "referenceAnswer": "Xử lý Missing Data: Nếu tỷ lệ thiếu cao (>50%) và không quan trọng -> Xóa cột/dòng; nếu quan trọng -> Điền giá trị thay thế (Mean/Median nếu phân phối chuẩn/lệch, Mode cho biến định danh, hoặc Forward Fill). Xử lý Outlier: Nhận diện bằng Boxplot hoặc khoảng IQR (Q1 - 1.5*IQR đến Q3 + 1.5*IQR); kiểm tra xem outlier là lỗi nhập liệu hay biến động tự nhiên trước khi xóa hoặc capping.",
+            "maxScore": 35,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xử lý dữ liệu thiếu (Missing Data)",
+                "maxScore": 18,
+                "description": "Tỉ lệ thiếu lớn cân nhắc loại bỏ; tỷ lệ thiếu nhỏ và quan trọng thì điền giá trị thay thế (mean/median/mode).",
+                "skill": "Data Cleaning"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Phát hiện và xử lý Outlier",
+                "maxScore": 10,
+                "description": "Dùng Boxplot hoặc IQR để phát hiện, và cân nhắc bối cảnh nghiệp vụ trước khi loại bỏ.",
+                "skill": "Data Cleaning"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Thuật ngữ",
+                "maxScore": 7,
+                "description": "Dùng đúng các thuật ngữ Missing Data, Outlier, IQR, Mean/Median/Mode.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Data Cleaning",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      },
+      "3": {
+        "roundNumber": 3,
+        "title": "Vòng 3: Câu hỏi tình huống",
+        "type": "situational",
+        "duration": 10,
+        "questions": [
+          {
+            "id": "IT-DA-R3-Q1",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 3,
+            "questionNumber": 1,
+            "questionText": "Cấp trên yêu cầu báo cáo insight nhưng dữ liệu bị thiếu/không sạch, bạn sẽ làm gì?",
+            "referenceAnswer": "Thực hiện làm sạch và xử lý dữ liệu trước khi phân tích, tuyệt đối không chạy báo cáo trên dữ liệu thô bị lỗi; thông báo trung thực với sếp về chất lượng dữ liệu hiện tại, nêu rõ giới hạn tin cậy (Confidence Level) của phân tích và những vùng dữ liệu cần thận trọng khi ra quyết định.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Xử lý dữ liệu trước khi báo cáo",
+                "maxScore": 20,
+                "description": "Đề xuất làm sạch/bổ sung nguồn dữ liệu trước khi phân tích, không báo cáo ngay trên dữ liệu thô chưa xử lý.",
+                "skill": "Data Cleaning"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Minh bạch về độ tin cậy kết quả",
+                "maxScore": 20,
+                "description": "Báo cáo trung thực với sếp về giới hạn/độ tin cậy của số liệu, không che giấu hạn chế của dữ liệu.",
+                "skill": "Data Storytelling"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng chuyên môn",
+                "maxScore": 10,
+                "description": "Dùng đúng các thuật ngữ Data Quality, Confidence Level, Data Cleaning.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Data Cleaning",
+              "Data Storytelling",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          },
+          {
+            "id": "IT-DA-R3-Q2",
+            "industryId": "it",
+            "positionId": "data-analyst",
+            "round": 3,
+            "questionNumber": 2,
+            "questionText": "Sau khi phân tích xong, bạn phát hiện ra kết quả phân tích trái với kỳ vọng của cấp trên, bạn sẽ trình bày thế nào?",
+            "referenceAnswer": "Giữ vững tính trung thực và liêm chính dữ liệu (Data Integrity), không tự ý uốn nắn số liệu để chiều lòng sếp; chuẩn bị biểu đồ trực quan, giải thích rõ phương pháp luận phân tích và dữ liệu thực chứng; mở đầu bằng việc công nhận kỳ vọng ban đầu, sau đó dẫn dắt bằng câu chuyện dữ liệu khách quan và đề xuất góc nhìn giải pháp mới.",
+            "maxScore": 50,
+            "scoringCriteria": [
+              {
+                "id": "criterion_1",
+                "name": "Giữ nguyên kết quả khách quan",
+                "maxScore": 20,
+                "description": "Khẳng định không điều chỉnh số liệu để vừa ý cấp trên, trình bày đúng như dữ liệu thể hiện.",
+                "skill": "Data Storytelling"
+              },
+              {
+                "id": "criterion_2",
+                "name": "Chiến lược truyền đạt thuyết phục",
+                "maxScore": 20,
+                "description": "Đề xuất dùng biểu đồ trực quan và giải thích rõ phương pháp phân tích để sếp hiểu và tin tưởng kết quả.",
+                "skill": "Data Visualization"
+              },
+              {
+                "id": "criterion_3",
+                "name": "Từ vựng & Sự tự tin",
+                "maxScore": 10,
+                "description": "Dùng đúng các thuật ngữ Data Integrity, Data Storytelling, Objective.",
+                "skill": "Data Analysis"
+              }
+            ],
+            "skills": [
+              "Data Storytelling",
+              "Data Visualization",
+              "Data Analysis"
+            ],
+            "answerType": "both"
+          }
+        ]
+      }
+    }
+  }
+}

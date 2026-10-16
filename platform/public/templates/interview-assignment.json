@@ -1,0 +1,34 @@
+{
+  "rounds": [
+    {
+      "roundNumber": 1,
+      "questions": [
+        {
+          "prompt": "Hãy giới thiệu một trải nghiệm phù hợp với vị trí bạn đang ứng tuyển.",
+          "guidance": "Đánh giá câu trả lời theo tiêu chí đã cung cấp; không suy luận những trải nghiệm ứng viên không nêu.",
+          "maxScore": 100
+        }
+      ]
+    },
+    {
+      "roundNumber": 2,
+      "questions": [
+        {
+          "prompt": "Hãy mô tả cách bạn kiểm tra tính chính xác của một kết quả công việc.",
+          "guidance": "Đánh giá câu trả lời theo tiêu chí đã cung cấp; không suy luận những trải nghiệm ứng viên không nêu.",
+          "maxScore": 100
+        }
+      ]
+    },
+    {
+      "roundNumber": 3,
+      "questions": [
+        {
+          "prompt": "Nếu hai công việc quan trọng cùng đến hạn, bạn sẽ sắp xếp và trao đổi như thế nào?",
+          "guidance": "Đánh giá câu trả lời theo tiêu chí đã cung cấp; không suy luận những trải nghiệm ứng viên không nêu.",
+          "maxScore": 100
+        }
+      ]
+    }
+  ]
+}
