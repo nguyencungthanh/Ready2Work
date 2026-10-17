@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
   turbopack: { root: path.join(__dirname, "..") },
   poweredByHeader: false,
   compress: true,
-  serverExternalPackages: ["unpdf", "mammoth"],
+  serverExternalPackages: ["unpdf", "mammoth", "@react-pdf/renderer"],
+  outputFileTracingIncludes: { "/api/report/pdf": ["./public/fonts/NotoSans-*.ttf"] },
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {

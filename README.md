@@ -2,7 +2,7 @@
 
 The Next.js / Supabase application in **`platform/`** is the only active application and UI. The previous root HTML/CSS/JS landing, unused landing components/assets and old-render comparison folders have been removed.
 
-Product requirements: [Ready2Work.pdf](docs/requirements/Ready2Work.pdf). Scope and future work: [Master Plan 2.0](career_platform_ai_agent_master_plan.md). The current UI is the design baseline; new features in the plan are not implemented merely by updating the plan. Existing authentication, backend and stored accounts/history are retained.
+Product requirements: [Ready2Work.pdf](docs/requirements/Ready2Work.pdf). Scope and future work: [Master Plan 2.1](career_platform_ai_agent_master_plan.md). The current UI is the design baseline; new features in the plan are not implemented merely by updating the plan. Existing authentication, backend and stored accounts/history are retained.
 
 ## Run
 
@@ -74,3 +74,5 @@ Apply the additive migrations to the existing Supabase project first. Set the de
 The root workspace also supplies a build command and Vercel configuration pointing to `platform/.next`. The `platform` project root is the recommended deployment configuration. For self-hosting, `npm run build` produces a standalone server; `npm start` loads local environment settings, copies public/static assets, and launches that server. Use `PORT` and `R2W_HOSTNAME` to choose the listener.
 
 See [implementation, performance decisions and research](docs/IMPLEMENTATION.md) for the technical details and remaining external validation.
+
+Report PDF downloads are generated privately on the server at `/api/report/pdf`, using the same recorded data as `/report`. Vietnamese fonts are bundled; no external PDF service is used. The active deployment is https://ready-2work.vercel.app; see [deployment status](docs/DEPLOYMENT.md).

@@ -2,9 +2,10 @@ import "server-only";
 import { cache } from "react";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { calculateReadiness, newestBy } from "./scoring";
+import { recommendSimulations } from "./recommendations";
 
 export interface SimulationCatalogRow {
-  id: string; slug: string; industry: string; position_title: string; position_id: string | null;
+  id: string; slug: string; title?: string; industry: string; position_title: string; position_id: string | null; is_available?: boolean;
 }
 export interface RecordedCriterion {
   label: string; skill?: string; score: number; maxScore: number; feedback?: string; note?: string;
@@ -33,7 +34,7 @@ interface MentorReview { position_id: string; score: number; created_at: string 
 export const getCandidateOverview = cache(async (userId: string) => {
   const supabase = await createServerSupabaseClient();
   const results = await Promise.all([
-    supabase.from("simulations").select("id, slug, industry, position_title, position_id").order("industry"),
+    supabase.from("simulations").select("id, slug, title:brief, industry, position_title, position_id, is_available").order("industry"),
     supabase.from("candidate_latest_simulation_submissions").select("id, simulation_id, overall_score, criterion_scores, submitted_at")
       .eq("user_id", userId).order("submitted_at", { ascending: false }),
     supabase.from("interview_sets").select("id, slug, position_title, industry, position_id, is_available"),
@@ -81,8 +82,7 @@ export const getCandidateOverview = cache(async (userId: string) => {
   const availableSets = interviewSets.filter((set) => set.is_available);
   const availableSetIds = new Set(availableSets.map((set) => set.id));
   const completedSetIds = new Set(completedSessions.filter((session) => availableSetIds.has(session.set_id)).map((session) => session.set_id));
-  const completedIndustries = new Set(latestSubmissions.map((submission) => simulations.find((simulation) => simulation.id === submission.simulation_id)?.industry).filter(Boolean));
-  const recommendations = simulations.filter((simulation) => completedIndustries.has(simulation.industry) && !latestSubmissions.some((submission) => submission.simulation_id === simulation.id)).slice(0, 4);
+  const recommendations = recommendSimulations(simulations, latestSubmissions, target?.id ?? null);
   const allCriteria: RecordedCriterion[] = targetSubmissions.flatMap((submission) => submission.criterion_scores?.criteria ?? []);
   if (completedInterview) {
     const { data: answers, error } = await supabase.from("interview_answers").select("criteria").eq("session_id", completedInterview.id);

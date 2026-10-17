@@ -1,5 +1,7 @@
 import {expect,test,type Page} from "@playwright/test";
 import {createClient,type SupabaseClient} from "@supabase/supabase-js";
+import {readFile} from "node:fs/promises";
+import {extractText,getDocumentProxy} from "unpdf";
 
 // Render fixtures are restricted to the isolated local stack and removed afterwards.
 // These scores are test data, not a claim that live AI scoring was executed.
@@ -44,6 +46,17 @@ test.describe("reference interface restoration",()=>{
   const paths=(files??[]).flatMap(f=>[f.assignment_path,f.rubric_path]).filter((p):p is string=>typeof p==="string"&&p.startsWith(userId+"/"));
   if(paths.length){const removed=await admin.storage.from("business-documents").remove(paths);expect(removed.error).toBeNull();}
   const deleted=await admin.auth.admin.deleteUser(userId);expect(deleted.error).toBeNull();userId="";
+ });
+ test("report downloads a private PDF and dashboard recommends the selected CV role",async({page,browser})=>{
+  const saved=await admin.from("cv_analyses").insert({user_id:userId,position_id:"IT-03",position_title:"Data Analyst",result:{provider:"rules",strengths:[],skillGaps:[]}});expect(saved.error).toBeNull();
+  await page.goto("/dashboard");await expect(page.locator(".d-suggest-card").nth(1).getByRole("link").first()).toHaveAttribute("href",`/simulations/${simSlug}`);
+  await page.goto("/report");await expect(page.getByText("Chưa đủ dữ liệu đánh giá",{exact:true})).toBeVisible();
+  const downloadPromise=page.waitForEvent("download");await page.getByRole("button",{name:"Tải báo cáo PDF",exact:true}).first().click();
+  const download=await downloadPromise;expect(download.suggestedFilename()).toMatch(/^Ready2Work-Report-.*\.pdf$/);
+  const pdf=await getDocumentProxy(new Uint8Array(await readFile((await download.path())!)));
+  try{const result=await extractText(pdf,{mergePages:true});expect(result.text).toContain(email);expect(result.text).toContain("Data Analyst");expect(result.text).toContain("Chưa đủ dữ liệu đánh giá");}finally{await pdf.loadingTask.destroy();}
+  const anonymous=await browser.newContext();try{const response=await anonymous.request.get(new URL("/api/report/pdf",page.url()).href);expect(response.status()).toBe(401);expect(response.headers()["cache-control"]).toBe("private, no-store");}finally{await anonymous.close();}
+  await capture(page,"report-download.png");await mobileCapture(page,"report-download-mobile.png");
  });
  test("CV result filters and action path render all saved findings",async({page})=>{
   const result={provider:"rules",positionId:"IT-03",positionTitle:"Data Analyst",overallMatchScore:75,summary:"UI fixture — saved result layout test; not a live AI evaluation.",strengths:[{skillName:"SQL",category:"Chuyên môn",candidateEvidence:"UI fixture: SQL project",status:"matched",gapDescription:"",recommendedAction:"Luyện tập SQL",weight:5}],skillGaps:[{skillName:"Power BI",category:"Công cụ",candidateEvidence:"",status:"missing",gapDescription:"UI fixture: cần thêm bằng chứng",recommendedAction:"Xây dựng dashboard",weight:4},{skillName:"Trình bày",category:"Kỹ năng mềm",candidateEvidence:"",status:"partial",gapDescription:"UI fixture: bằng chứng một phần",recommendedAction:"Luyện phỏng vấn",weight:0}],recommendedLearningPath:[{skillGap:"Power BI",action:"Xây dựng dashboard",activityType:"Mô phỏng việc làm",positionId:"IT-03"}]};

@@ -1,3 +1,5 @@
+import { radarExplanation } from "@/lib/report/presentation";
+
 export function SkillRadar({ skills }: { skills: { label: string; score: number }[] }) {
   const measured = skills.slice(0, 6);
   if (measured.length < 3) return <div className="flex min-h-64 items-center justify-center rounded-xl bg-surface p-6 text-center text-sm leading-6 text-muted">Cần ít nhất ba nhóm tiêu chí đã được chấm để vẽ bản đồ năng lực. Hoàn thành mô phỏng hoặc cả ba vòng phỏng vấn để tạo dữ liệu.</div>;
@@ -18,6 +20,6 @@ export function SkillRadar({ skills }: { skills: { label: string; score: number 
       })}
     </svg>
     <ol className="grid gap-2 text-xs text-muted">{measured.map((skill, i) => <li key={skill.label}>{i + 1}. {skill.label} <span className="font-semibold text-foreground">{skill.score}/100</span></li>)}</ol>
-    <p className="mt-4 text-xs leading-5 text-muted">Mỗi trục là một kỹ năng hoặc tiêu chí thực sự đã được chấm cho vị trí mục tiêu; hiển thị tối đa sáu trục. Chưa có dữ liệu ứng viên trúng tuyển để tạo đường chuẩn so sánh. Giọng nói và ngôn ngữ cơ thể chưa được đo.</p>
+    <p className="mt-4 text-xs leading-5 text-muted">{radarExplanation}</p>
   </div>;
 }

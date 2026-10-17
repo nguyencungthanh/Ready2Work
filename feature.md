@@ -1,6 +1,6 @@
 # Ready2Work - Phạm vi chức năng hiện tại
 
-Đặc tả gốc: [Ready2Work.pdf](docs/requirements/Ready2Work.pdf). Kế hoạch thực hiện và các quyết định còn mở: [Master Plan 2.0](career_platform_ai_agent_master_plan.md).
+Đặc tả gốc: [Ready2Work.pdf](docs/requirements/Ready2Work.pdf). Kế hoạch thực hiện và các quyết định còn mở: [Master Plan 2.1](career_platform_ai_agent_master_plan.md).
 
 MVP tập trung vào:
 

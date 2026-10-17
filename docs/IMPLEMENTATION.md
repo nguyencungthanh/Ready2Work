@@ -4,7 +4,7 @@ Current scope: [Master Plan 2.0](../career_platform_ai_agent_master_plan.md). Re
 
 ## Foundation and ownership
 
-The existing Next.js 16.2.12, React 19.2.4 and Supabase SSR foundation was retained. The base project's password authentication, email verification, reset flow, database identities and DB-backed roles were preserved. Auth routing was extended for business onboarding; return URLs are restricted to paths inside the application.
+The existing Next.js 16.4.2, React 19.2.4 and Supabase SSR foundation was retained. The base project's password authentication, email verification, reset flow, database identities and DB-backed roles were preserved. Auth routing was extended for business onboarding; return URLs are restricted to paths inside the application.
 
 The application in `platform/` is updated in place. Its current interface is the sole design baseline. Previous static UI code and old-render comparison materials have been removed; prototype localStorage demo accounts were never imported as real identities or history.
 
@@ -40,7 +40,7 @@ The project uses Turbopack for normal builds and standalone tracing for self-hos
 
 ## Validation and external checks
 
-See [validation records](VALIDATION.md). Earlier UI/auth checks passed on local Supabase; they are historical evidence and do not claim a hosted deployment or new live AI evaluation. The latest cleanup uses import/asset reference checks and one production build, without rerunning unrelated browser, database or provider suites.
+See [validation records](VALIDATION.md). Earlier UI/auth checks passed on local Supabase; they are historical evidence and do not claim a hosted deployment or new live AI evaluation. Deployment and report work are recorded in the validation log; historical UI checks are not claimed as new acceptance.
 
 Use the scope-based verification policy in Master Plan §9. No hosted migration or Vercel deployment is performed as part of a documentation/UI cleanup change.
 
@@ -57,3 +57,9 @@ The implementation follows the existing foundation and official examples; it doe
 - [Supabase migration CLI](https://supabase.com/docs/reference/cli/supabase-migration-up): apply pending migrations rather than resetting an existing database.
 
 CI installs from the root workspace lockfile. Its fast job runs unit/content/isolated-database checks and public browser tests; a separate job starts local Supabase, derives real local test keys, and runs the identity/email-auth suites. Existing live-AI feature E2E tests require a provider configuration and are not presented as offline validation.
+
+## Direct report export
+
+`/api/report/pdf` selects the owner from the verified active session and reuses `getCandidateOverview`, including the same 30/40/30 readiness policy. It returns a private, non-cacheable PDF attachment. The renderer and bundled, OFL-licensed Noto Sans fonts run on the server; no candidate data is sent to a PDF service. A4 layout includes a gauge, measured radar, actual task results, strengths/gaps and page numbers. Feedback is split into bounded cards to preserve long text across pages. The download button exposes loading/error states.
+
+Recommendations now prefer the CV target before related industries, exclude graded tasks and closed content, and work without a prior submission. Deployment configuration selects Singapore (`sin1`) to be near the existing Supabase database; no latency guarantee is claimed.

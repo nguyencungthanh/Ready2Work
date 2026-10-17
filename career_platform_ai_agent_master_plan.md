@@ -1,6 +1,6 @@
 # Ready2Work - Master Plan
 
-**Phiên bản:** 2.0
+**Phiên bản:** 2.1
 
 **Cập nhật:** 17/10/2026
 
@@ -8,7 +8,7 @@
 
 **Giao diện chuẩn:** phiên bản hiện tại trong `platform/`
 
-**Trạng thái lượt cập nhật này:** sửa kế hoạch và dọn giao diện cũ; chưa triển khai tính năng bổ sung trong backlog.
+**Trạng thái hiện tại:** đã phát hành Vercel + Supabase Cloud; tiếp tục hoàn thiện PDF/Report, gợi ý dashboard và cấu hình hiệu năng theo yêu cầu làm tiếp. SMTP được chủ dự án yêu cầu tạm hoãn.
 
 ## 1. Quyết định thay thế kế hoạch cũ
 
@@ -39,14 +39,14 @@ Admin và Mentor tiếp tục là vai trò hỗ trợ đang có. MVP cần ngu�
 | ID | Yêu cầu PDF | Hiện trạng | Việc cần theo dõi, chưa triển khai trong lượt này |
 |---|---|---|---|
 | B2C-01 | §1, tr.1: đăng ký/đăng nhập email; lịch sử theo đúng tài khoản | Đã có Supabase auth, xác minh email, khôi phục mật khẩu và quyền theo database | Giữ nguyên; nghiệm thu lại trên môi trường phát hành khi có thay đổi auth hoặc cấu hình |
-| B2C-02 | §2, tr.2: tiến độ ba tính năng, phỏng vấn đang làm/hoàn tất, gợi ý mô phỏng cùng lĩnh vực | Đã có dashboard và dữ liệu hoạt động riêng | Đối chiếu mẫu số tiến độ và gợi ý với hành trình thực; không lấy số liệu demo |
+| B2C-02 | §2, tr.2: tiến độ ba tính năng, phỏng vấn đang làm/hoàn tất, gợi ý mô phỏng cùng lĩnh vực | Đã có dashboard và dữ liệu hoạt động riêng; ưu tiên mô phỏng theo vị trí CV, loại bài đã chấm và nội dung chưa mở | Không dùng số demo; giữ tiến độ thực từ cùng dữ liệu Report |
 | B2C-03 | §3, tr.2-3: tải CV, Golden Profile theo vị trí, strengths/gaps, dẫn sang mô phỏng | Đã có upload/văn bản, phân tích, bảng kết quả và điều hướng | Kiểm chứng một luồng AI thật khi nghiệm thu AI; keyword preview không tính là chấm AI hoàn tất |
 | B2C-04 | §4, tr.3-4: chọn bài, gửi bài, chấm theo rubric riêng, điểm /100 và nhận xét | Đã có attempt, timer, bài nộp văn bản và kết quả theo tiêu chí | Xác định các đề nào bắt buộc sản phẩm/tệp để quyết định bổ sung upload bài làm; không áp một rubric chung |
 | B2C-05 | §5, tr.4-5: đúng ngành/vị trí, ba vòng, điểm từng câu và vòng /100 | Đã có phiên tiếp tục được, chấm câu hỏi, chuẩn hóa từng vòng và báo cáo | Bổ sung nội dung nguồn còn thiếu trước khi mở các bộ chưa đủ ba vòng; không tự bịa câu hỏi |
 | RPT-01 | §6.1, tr.5-6: thông tin ứng viên, vị trí, thời điểm, badge, gauge /100 | Đã có khung Report; avatar hiện dùng tên viết tắt | Đánh giá avatar thật nếu cần; giữ ba ngưỡng badge đúng tài liệu |
 | RPT-02 | §6.1.2, tr.6: readiness 30/40/30 với ba đầu vào cùng thang đo | Đã có công thức và nguồn review Mentor được phân quyền | Chốt ý nghĩa Job Sim Completed và chính sách khi thiếu đầu vào; xem §5 bên dưới |
 | RPT-03 | §6.2, tr.6-7: tiến độ, điểm nhiệm vụ, radar sáu nhóm và đường chuẩn | Đã có tiến độ, điểm, strengths/gaps; radar hiện tối đa sáu tiêu chí đã đo | Còn khoảng cách với sáu nhóm chuẩn và benchmark trúng tuyển; cần mapping/dữ liệu trước khi bổ sung |
-| RPT-04 | §6.3, tr.7: PDF chuyên nghiệp, đủ dữ liệu, không cắt/chồng nội dung | Đã có print layout A4 qua trình duyệt | Chưa mặc định coi tương đương PDF tải trực tiếp đã nghiệm thu; kiểm tra bản xuất thực khi làm phần này |
+| RPT-04 | §6.3, tr.7: PDF chuyên nghiệp, đủ dữ liệu, không cắt/chồng nội dung | Đã có PDF tải trực tiếp qua route riêng tư, font tiếng Việt, gauge/radar, nhận xét và số trang | Đã kiểm tra mẫu đủ/thiếu dữ liệu và nhận xét dài; giữ giới hạn radar có bằng chứng, chưa có benchmark |
 | B2B-01 | §7, tr.7-8: email công ty, onboarding, vào dashboard doanh nghiệp | Đã có account intent, wizard và quyền chờ duyệt | Giữ phê duyệt quyền xuất bản; kiểm chứng đích điều hướng trên môi trường phát hành |
 | B2B-02 | §8, tr.8-9: hai tab, nội dung của chính doanh nghiệp, upload/download đề và rubric | Đã có hai tab, cặp tệp riêng tư, editor, draft và xuất bản theo quyền | CRUD ghi đè/xóa, ranking, thanh toán, advisor không tự trở thành yêu cầu bắt buộc của PDF |
 | DATA-01 | §9-12, tr.9-10: lịch sử và số liệu nhất quán, đúng vị trí và rubric | Đã có ownership/RLS, kết quả lưu và tổng hợp theo vị trí | Khi thay đổi nghiệp vụ, chỉ kiểm tra đường dữ liệu bị ảnh hưởng; không đánh dấu đủ chỉ vì màn hình đã có |
@@ -75,7 +75,7 @@ Các mục này được ghi nhận để xử lý khi chủ dự án tiếp t�
 | Voice & Body Language | Hiện chưa đo. Cần thống nhất nguồn dữ liệu, sự đồng ý và mục đích coaching; không suy từ giọng vùng miền, thiết bị hoặc vài đoạn văn thành điểm thần thái. Giữ trạng thái chưa có dữ liệu, không tạo số mẫu. |
 | Đường benchmark trúng tuyển | Chưa có cohort có nguồn gốc và quyền sử dụng. Chỉ vẽ nét đứt khi có dữ liệu cùng vị trí, cùng thang đo; chưa có thì ghi rõ thiếu dữ liệu. |
 | Report ba hay bốn khối | PDF chỉ đặc tả ba khối. Triển khai theo ba khối, không tự thêm khối thứ tư. |
-| Xuất PDF | Print A4 là cách làm hiện tại. Chốt tiêu chí tải trực tiếp, nhận diện thương hiệu và phân trang trước khi bổ sung cơ chế khác. |
+| Xuất PDF | Đã bổ sung tải PDF trực tiếp, A4, nhận diện Ready2Work, cùng dữ liệu Report và phân trang. Không gửi hồ sơ sang dịch vụ xuất PDF bên ngoài. |
 | Đề yêu cầu tệp/sản phẩm | Hợp đồng hiện tại của bài nộp mô phỏng nhận văn bản. Chỉ mở rộng tệp khi danh sách đề thực tế cần định dạng đó đã rõ. |
 | Nội dung ngành còn thiếu | Giữ bộ chưa đủ dữ liệu ở trạng thái chưa mở; bổ sung từ nguồn được duyệt, không tự viết nội dung chỉ để lấp đủ catalog. |
 
@@ -90,7 +90,7 @@ Ngưỡng badge theo PDF: dưới 60 = **Cần luyện tập thêm**; từ 60 đ
 - Không xóa backend, migrations, dữ liệu, schema, template đề/rubric hoặc trang chức năng đang chạy chỉ vì không nằm trong menu chính của giao diện mới.
 - Không tiếp tục truy cập project render cũ để chép thêm UI nếu không có yêu cầu mới.
 
-## 7. Backlog tiếp theo - chỉ lập kế hoạch
+## 7. Backlog tiếp theo
 
 Ưu tiên theo tác động đến hành trình thực tế, không triển khai lại nền tảng từ đầu.
 
@@ -103,7 +103,7 @@ Ngưỡng badge theo PDF: dưới 60 = **Cần luyện tập thêm**; từ 60 đ
 | 4 | Xử lý lỗi trải nghiệm hoặc chậm phản hồi tái hiện được | Có thao tác cụ thể, thời gian hoặc log | Sửa đúng nút thắt; không đổi kiến trúc/backend khi chưa có bằng chứng |
 | 5 | Chuẩn bị phát hành Vercel + database hiện có | Chủ dự án yêu cầu phát hành | Env, migration pending, redirect và smoke trên URL thật được xác nhận |
 
-Không tự kích hoạt backlog này vì tài liệu vừa được cập nhật. Lượt hiện tại không chạy live AI, migration, push GitHub hay deploy.
+Chủ dự án đã yêu cầu tiếp tục các phần còn thiếu và cho phép phát hành. Chỉ thực hiện mục có đủ dữ liệu/đặc tả; không tự tạo benchmark hoặc câu hỏi nguồn còn thiếu. SMTP tiếp tục tạm hoãn theo yêu cầu.
 
 ## 8. Không bắt buộc trong MVP này
 
@@ -154,3 +154,11 @@ Bộ CI đang có không bị thay trong lượt này. Khi cần tối ưu CI, �
 - Có ghi chú ngắn: đã đổi gì, cách xác nhận, giới hạn còn lại.
 
 PDF là yêu cầu chức năng. Một màn hình đã có không đồng nghĩa provider đã được nghiệm thu; một test fixture qua không chứng minh chấm AI thật. Ngược lại, một thay đổi chỉ xóa file không dùng cũng không cần chạy lại cả hành trình AI.
+
+## 11. Phần hoàn thiện sau khi phát hành
+
+- RPT-04: tải trực tiếp PDF từ lịch sử của người đang đăng nhập; không nhận user ID từ URL, không cache công khai. Giữ công thức và trạng thái thiếu dữ liệu hiện tại.
+- B2C-02: gợi ý theo vị trí CV ngay cả khi chưa có bài mô phỏng hoàn thành, sau đó mở rộng cùng lĩnh vực; không gợi ý bài đã chấm hoặc chưa mở. Dashboard/Report dùng tên nhiệm vụ từ trường `brief` hiện có.
+- Hiệu năng triển khai: chuyển Functions sang `sin1` để gần database Supabase `ap-southeast-1`; không coi đây là bằng chứng đã đo tốc độ toàn hành trình.
+- Next.js cập nhật 16.4.2 để vá cảnh báo thực tế của phiên bản 16.2.12, bao gồm xử lý ảnh AVIF đang bật. Không thay công thức điểm, auth hoặc schema.
+- Còn cần nguồn/định nghĩa trước khi hoàn tất: ba bộ phỏng vấn logistics thiếu vòng 1; mapping sáu nhóm kỹ năng và benchmark có nguồn; phạm vi avatar/tệp sản phẩm nếu đưa vào MVP. Chưa có nghiệm thu AI thật trên production. SMTP/đăng ký-email được tạm hoãn, không ghi là đã hoàn tất.

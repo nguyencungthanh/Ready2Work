@@ -4,5 +4,8 @@
   "installCommand": "npm ci --include=optional",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "outputDirectory": "platform/.next"
+  "outputDirectory": "platform/.next",
+  "regions": [
+    "sin1"
+  ]
 }
