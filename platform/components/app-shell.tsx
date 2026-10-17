@@ -13,8 +13,9 @@ const links = [
   { key: "roadmap", href: "/roadmap/cv", label: "Lộ trình AI" },
   { key: "simulations", href: "/simulations", label: "Mô phỏng việc làm" },
   { key: "interviews", href: "/interviews", label: "Luyện phỏng vấn" },
+  { key: "report", href: "/report", label: "Báo cáo năng lực" },
 ] as const;
-export type AppSection = typeof links[number]["key"] | "report" | "account" | "career-discovery" | "business";
+export type AppSection = typeof links[number]["key"] | "account" | "career-discovery" | "business";
 export function AppShell({ children, active, displayName }: { children: ReactNode; active?: AppSection; displayName?: string }) {
  return <div className="reference-app">
    <a href="#workspace-content" className="sr-only focus:not-sr-only">Đến nội dung chính</a>

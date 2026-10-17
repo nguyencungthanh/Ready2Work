@@ -27,3 +27,7 @@ Build Next.js 16.4.2 và lint phần thay đổi đã qua. Font TTF xuất hiệ
 ## Dọn điều hướng cũ và sửa gợi ý dashboard
 
 Đã bỏ các lối vào bốn mục cũ ở giao diện đang dùng; gợi ý và hoạt động mô phỏng trên dashboard dùng nhãn vị trí thay vì toàn bộ `brief`. Một kịch bản browser local đã xác nhận menu/tìm kiếm không còn các lối vào đó, nhãn gợi ý ngắn, tìm kiếm phỏng vấn vẫn hoạt động và bố cục desktop/mobile không tràn. Đã xem ảnh hai viewport, build, typecheck và lint phần thay đổi. Không chạy lại toàn bộ suite, gọi AI hay sửa dữ liệu cloud.
+
+## Thêm tab Báo cáo năng lực cạnh Luyện phỏng vấn
+
+Đã kiểm tra một kịch bản browser local trên bản build: tab Report là mục kế tiếp Luyện phỏng vấn, tìm kiếm có Report, bấm tab mở `/report` và có trạng thái active. Desktop 1440px, tablet 1024px và mobile 390px không tràn chiều ngang. Đã xem ảnh desktop/mobile, typecheck/lint và build; không chạy lại scoring/auth/PDF suites vì không đổi logic tương ứng.

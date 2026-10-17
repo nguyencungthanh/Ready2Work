@@ -95,3 +95,8 @@
 .reference-app .d-suggest-item:last-child { border-bottom:0; }
 .reference-app .d-suggest-name { min-width:0; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; overflow-wrap:anywhere; font-size:13px; font-weight:600; line-height:1.6; }
 .reference-app .d-suggest-action { flex-shrink:0; white-space:nowrap; font-size:12px; }
+
+@media(max-width:1200px) {
+  .reference-app .dn-links { min-width:0; overflow-x:auto; justify-content:flex-start; }
+  .reference-app .dn-tab { white-space:nowrap; }
+}

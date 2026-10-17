@@ -166,3 +166,7 @@ PDF là yêu cầu chức năng. Một màn hình đã có không đồng nghĩa
 ## 12. Điều chỉnh điều hướng theo yêu cầu chủ dự án
 
 Bỏ toàn bộ lối vào bốn mục cũ `/career-discovery`, `/roadmap/new`, `/report`, `/account` khỏi dashboard, menu tài khoản, tìm kiếm và CTA của các màn đang sử dụng. Các kết quả riêng của mô phỏng/phỏng vấn vẫn thuộc luồng hiện tại. Không thay lõi đăng nhập hoặc dữ liệu đã lưu. Gợi ý dashboard hiển thị vị trí/tên nội dung ngắn gọn, giới hạn hai dòng; không dùng bối cảnh đề bài (`brief`) làm tiêu đề.
+
+## 13. Đưa Report trở lại điều hướng hiện tại
+
+Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng lực** ngay sau **Luyện phỏng vấn** trên thanh menu chính và đưa Report trở lại tìm kiếm dashboard. Tab mở `/report` với tổng quan, tiến độ/kết quả, bản đồ tiêu chí đã đo, strengths/gaps và tải PDF riêng tư. Ba mục `/career-discovery`, `/roadmap/new`, `/account` tiếp tục không có lối vào trong giao diện đang dùng. Các giới hạn dữ liệu của mục 6 (sáu nhóm chuẩn, voice/body language, benchmark và avatar thật) vẫn được theo dõi, không đánh dấu đã đủ dữ liệu chỉ vì mở lại tab.

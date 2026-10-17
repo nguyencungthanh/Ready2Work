@@ -50,14 +50,22 @@ test.describe("reference interface restoration",()=>{
  test("dashboard uses current navigation and compact suggestion titles",async({page})=>{
   const saved=await admin.from("cv_analyses").insert({user_id:userId,position_id:"IT-03",position_title:"Data Analyst",result:{provider:"rules",strengths:[],skillGaps:[]}});expect(saved.error).toBeNull();
   await page.goto("/dashboard");
-  await expect(page.locator('a[href="/career-discovery"],a[href="/roadmap/new"],a[href="/report"],a[href="/account"]')).toHaveCount(0);
+  await expect(page.locator('a[href="/career-discovery"],a[href="/roadmap/new"],a[href="/account"]')).toHaveCount(0);
+  await expect(page.getByRole("navigation",{name:"Không gian nghề nghiệp"}).getByRole("link",{name:"Báo cáo năng lực",exact:true})).toHaveAttribute("href","/report");
   await expect(page.locator(".d-suggest-name").first()).toHaveText(/^Data Analyst/);expect((await page.locator(".d-suggest-name").first().innerText()).length).toBeLessThan(100);
   await expect(page.locator(".d-suggest")).not.toContainText("Một chuỗi cà phê");
   await page.locator(".account-menu > summary").click();await expect(page.getByRole("button",{name:"Sign out",exact:true})).toBeVisible();await page.locator(".account-menu > summary").click();
-  await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("báo cáo");await expect(page.locator('.dashboard-search-results a[href="/report"]')).toHaveCount(0);
+  await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("báo cáo");await expect(page.locator('.dashboard-search-results a[href="/report"]')).toBeVisible();
   await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("phỏng vấn");await expect(page.locator('.dashboard-search-results a[href="/interviews"]')).toBeVisible();
   await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("");
-  await capture(page,"dashboard-compact-suggestions.png");await mobileCapture(page,"dashboard-compact-suggestions-mobile.png");
+  await capture(page,"dashboard-compact-suggestions.png");
+  await page.setViewportSize({width:1024,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.setViewportSize({width:1440,height:960});
+  await mobileCapture(page,"dashboard-compact-suggestions-mobile.png");
+  const nav=page.getByRole("navigation",{name:"Không gian nghề nghiệp"});await expect(nav.getByRole("link").last()).toHaveText("Báo cáo năng lực");
+  await nav.getByRole("link",{name:"Báo cáo năng lực",exact:true}).click();await expect(page).toHaveURL(/\/report$/);
+  await expect(nav.getByRole("link",{name:"Báo cáo năng lực",exact:true})).toHaveAttribute("aria-current","page");
+  await expect(page.getByRole("heading",{name:"Hồ sơ năng lực ứng viên",exact:true})).toBeVisible();
  });
  test("report downloads a private PDF and dashboard recommends the selected CV role",async({page,browser})=>{
   const saved=await admin.from("cv_analyses").insert({user_id:userId,position_id:"IT-03",position_title:"Data Analyst",result:{provider:"rules",strengths:[],skillGaps:[]}});expect(saved.error).toBeNull();
