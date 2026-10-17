@@ -8,6 +8,12 @@ import "@/components/reference/reference-app.css";
 import "@/components/reference/adaptations.css";
 import "@/components/reference/restoration.css";
 
+// This shell is used by signed-in accounts; preserve its footer without guest
+// entry points that make public-section navigation appear to end the session.
+const workspaceFooterMarkup = footerMarkup
+  .replace('<li><a href="/signin">Đăng nhập</a></li>', "")
+  .replace('<li><a href="/signup">Đăng ký</a></li>', "");
+
 const links = [
   { key: "dashboard", href: "/dashboard", label: "Tổng quan" },
   { key: "roadmap", href: "/roadmap/cv", label: "Lộ trình AI" },
@@ -25,6 +31,6 @@ export function AppShell({ children, active, displayName }: { children: ReactNod
      <div className="dn-right"><details className="nav-notification"><summary aria-label="Thông báo"><ReferenceIcon name="bell" size={20}/></summary><div>Chưa có thông báo mới. Kết quả và tiến độ của bạn được lưu trong các mục hoạt động.</div></details><details className="account-menu"><summary className="dn-user-wrap"><span className="dn-avatar">{(displayName || "R").slice(0,1).toUpperCase()}</span><span className="dn-uname">{displayName || "Tài khoản"}</span><span aria-hidden="true">⌄</span></summary><div className="account-dropdown"><Link href="/business">Doanh nghiệp</Link><form action={signOutAction}><button type="submit" aria-label="Đăng xuất">Đăng xuất</button></form></div></details></div>
    </header>
    <div id="workspace-content" data-section={active}>{children}</div>
-   <div className="print:hidden" dangerouslySetInnerHTML={{ __html: footerMarkup }}/>
+   <div className="print:hidden" dangerouslySetInnerHTML={{ __html: workspaceFooterMarkup }}/>
  </div>;
 }

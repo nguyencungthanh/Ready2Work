@@ -52,7 +52,7 @@ jobs:
           node platform/scripts/write-ci-env.mjs "$RUNNER_TEMP/ready2work-supabase.env"
       - run: npm --workspace platform run test -- tests/integration
       - run: npx --workspace platform playwright install --with-deps chromium
-      - name: Email auth and database role access
-        run: npm --workspace platform run e2e -- tests/e2e/auth.spec.ts tests/e2e/role-access.spec.ts tests/e2e/restoration.spec.ts
+      - name: Email auth, session navigation and database role access
+        run: npm --workspace platform run e2e -- tests/e2e/auth.spec.ts tests/e2e/role-access.spec.ts tests/e2e/restoration.spec.ts tests/e2e/landing-session.spec.ts
       - name: Verify clean migration replay
         run: supabase --workdir platform db reset
