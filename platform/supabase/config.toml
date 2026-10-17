@@ -251,11 +251,11 @@ otp_expiry = 3600
 # Default Supabase links return tokens in a URL fragment, which a server route
 # cannot read. These templates emit token_hash links for the /auth/confirm route.
 [auth.email.template.confirmation]
-subject = "Confirm your Ready2Work account"
+subject = "Xác thực email Ready2Work"
 content_path = "./supabase/templates/confirmation.html"
 
 [auth.email.template.recovery]
-subject = "Reset your Ready2Work password"
+subject = "Đặt lại mật khẩu Ready2Work"
 content_path = "./supabase/templates/recovery.html"
 
 # Uncomment to customize notification email template

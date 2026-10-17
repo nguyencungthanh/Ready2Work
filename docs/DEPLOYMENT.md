@@ -3,10 +3,16 @@
 ## Authentication and email follow-up — 18/10/2026
 
 - Auth fixes in `c90ff12` are deployed. Vercel deployment `dpl_FLTQRWyyJJck5QnfvCv3qpQS2EnX` is Ready and owns `ready-2work.vercel.app`; functions remain in `sin1`.
-- Focused local email/auth flows and cloud account/data-isolation checks passed; see [validation details](VALIDATION.md). Real public signup confirmation and owner password recovery still need a successful mail round trip.
+- The email-quota message follow-up `b1a2079` is also deployed: `dpl_ADs3zyJMPNQzpNGFLXmmveMCTzTt`, Ready, canonical alias unchanged. Its thirteen focused unit checks and changed-file lint passed.
+- Focused local email/auth flows and cloud account/data-isolation checks passed; see [validation details](VALIDATION.md). Hosted signup confirmation, password signin, profile creation/persistence and owner password recovery have now passed real email round trips.
 - The owner reported persistent reset throttling. The hosted SMTP page confirms custom SMTP is disabled. The default Supabase service currently permits two messages per hour per project and only delivers to organization team addresses; it cannot support unrestricted public signup.
 - Keep Supabase Auth/database. For testing without a custom domain, prepare Gmail SMTP: host `smtp.gmail.com`, port `465`, sender name `Ready2Work`. Sender address and username must be the same Gmail account. Use a dedicated Google app password, never the normal Google password.
-- The SMTP form is prepared but **not saved**. The owner must enable Google 2-Step Verification, create an app password, enter the sender address/username/password directly in Supabase and save. No credential belongs in chat, GitHub or this document. Gmail is a temporary test choice; the dashboard warns that personal-mail providers can have delivery issues.
+- Google 2-Step Verification was confirmed active; the owner created an app password and saved SMTP. The SMTP username was corrected from the app label to the Gmail address. A page reload confirms custom SMTP enabled, matching sender/username, host `smtp.gmail.com` and port `465`. The hosted email rate limit is now 30/hour, with a 60-second per-user interval.
+- The initial Gmail `535` rejection was resolved after the owner re-entered/saved the app password. The 03:15 recovery request completed with Auth HTTP 200 and reached the inbox. Its native PKCE callback later returned HTTP 422, so the hosted email templates were aligned with the existing server-side token-hash callback.
+- With explicit permission for CLI Keychain access and the macOS one-time approval, Management API updated/read back exactly the confirmation/recovery subjects and HTML from the repository. Only the API's derived custom-content maps also changed. Email confirmation remains enabled and OTP expiration remains 3600 seconds; SMTP and other Auth configuration were preserved. No credential was printed or written to a file.
+- A Vietnamese recovery email at 03:34 opened `/update-password` successfully. The owner entered the new password and confirmed successful signout/signin; the authenticated dashboard was then observed.
+- One temporary Gmail +alias fixture used the public Auth signup endpoint. Before confirmation, password signin was blocked. The Vietnamese confirmation email arrived; its link opened the fixture dashboard in a separate incognito window. Password signin, the persisted profile and anonymous-access blocking passed. The fixture account/profile were deleted and the test window closed. The public signup form itself was covered by the earlier local browser checks.
+- Gmail is the current test sender; the dashboard warns that personal-mail providers can have delivery issues. Receipt was checked in the approved Gmail mailbox, not across multiple email providers.
 
 ## Source-only release preparation — 18/10/2026
 
@@ -37,15 +43,15 @@
 - Production redeploy `dpl_F492do4iwHx6W91BBJt3L83oSsBS` is Ready with those values. `/`, `/signup`, `/signin` and `/api/health` returned HTTP 200.
 - Supabase Site URL is `https://ready-2work.vercel.app`, with confirmation/recovery redirects allowed. The previous smoky domain remains allowed for compatibility.
 
-## Remaining configuration
+## Email configuration and operating limits
 
-The earlier SMTP deferral is superseded by the email follow-up above. Custom SMTP remains disabled until the owner supplies and saves the Gmail app password. Confirm signup uses the default `{{ .ConfirmationURL }}` template; no paid upgrade was made.
+The earlier SMTP deferral is superseded by the email follow-up above. Gmail custom SMTP is enabled, with real signup and recovery email flows verified. The hosted subjects and bodies now match `platform/supabase/templates/` and the subjects in `platform/supabase/config.toml`. No paid upgrade was made.
 
-1. Finish and verify the custom SMTP configuration. After saving, check the email rate limit; Supabase documents an initial custom-SMTP limit of 30 emails per hour. Do not repeatedly request recovery emails while setup is incomplete.
-2. Keep the default PKCE `code` callback or the supported custom `token_hash` flow. Do not disable verification or overwrite hosted configuration with local Supabase config.
-3. Run one focused signup → confirmation → signin check using an approved test email, then one owner recovery flow in the same browser/profile. The owner enters and submits the new password.
+- Email quota: 30/hour per project, minimum 60 seconds between messages to the same user.
+- Confirmation uses `/auth/confirm?token_hash={{ .TokenHash }}&type=email`; recovery uses `type=recovery`. The callback also retains support for existing PKCE `code` links.
+- Keep email confirmation enabled. Do not overwrite hosted settings with the full local Supabase configuration.
 
-No full suite rerun is needed for SMTP configuration. Successful hosting and schema checks do not establish end-to-end hosted email delivery. Provider setup references: [Supabase SMTP](https://supabase.com/docs/guides/auth/auth-smtp), [Google app passwords](https://support.google.com/mail/answer/185833?hl=en).
+No full suite was rerun for SMTP/template configuration. Eleven focused callback unit checks and the two template link/subject checks passed. Provider setup references: [Supabase SMTP](https://supabase.com/docs/guides/auth/auth-smtp), [SSR email templates](https://supabase.com/nextjs), [Google app passwords](https://support.google.com/mail/answer/185833?hl=en).
 
 ## Report/dashboard follow-up
 
