@@ -8,7 +8,9 @@
 
 Các unit auth tập trung và 11 case callback qua; TypeScript/lint phần đổi qua. Chín kiểm tra RLS hồ sơ/vai trò local qua. Theo quyền rõ ràng của chủ dự án, hai tài khoản tạm trên Supabase Cloud đã kiểm đăng nhập, lưu hồ sơ/hoạt động, đăng xuất rồi đăng nhập lại, chặn đọc/ghi chéo và đọc ẩn danh. Hai tài khoản cùng dữ liệu thử đã xóa; tài khoản thật không bị sửa. Tài khoản cloud tạm được tạo qua Admin API, không dùng phép thử đó để tuyên bố xác minh email đăng ký công khai đã qua.
 
-Thư khôi phục Production đã đến địa chỉ chủ dự án chỉ định. Người dùng báo liên kết đầu không mở được; chưa có bằng chứng kết luận nguyên nhân link cũ hoặc đổi mật khẩu thật thành công. Lượt thử thư mới trên bản sửa cần người dùng tự nhập/xác nhận mật khẩu. Không tắt xác minh email, đổi SMTP, gọi AI hoặc reset database trong lượt này.
+Thư khôi phục Production đã đến địa chỉ chủ dự án chỉ định. Người dùng báo liên kết đầu không mở được, sau đó gửi lại bị giới hạn dù đã đợi; chưa có bằng chứng kết luận nguyên nhân link cũ hoặc đổi mật khẩu thật thành công. Dashboard xác nhận SMTP riêng vẫn tắt. Đã chuẩn bị biểu mẫu Gmail SMTP để chạy thử khi chưa có tên miền; chưa lưu vì chủ tài khoản cần tự tạo/nhập mật khẩu ứng dụng Google. Lượt thử thư mới cần dùng cùng trình duyệt/profile và người dùng tự nhập/xác nhận mật khẩu. Không tắt xác minh email, gọi AI hoặc reset database.
+
+Thông báo hết hạn mức gửi email đã tách khỏi giới hạn số yêu cầu, ưu tiên mã lỗi email ngay cả khi provider trả HTTP 429. Lượt sửa thông báo chạy đúng hai unit file liên quan: 13 kiểm tra qua, không chạy lại bộ browser/AI.
 
 ## Chat R2W AI và nơi sinh sống — 18/10/2026
 

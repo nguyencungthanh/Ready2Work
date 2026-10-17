@@ -1,5 +1,13 @@
 # Deployment status — 18/10/2026
 
+## Authentication and email follow-up — 18/10/2026
+
+- Auth fixes in `c90ff12` are deployed. Vercel deployment `dpl_FLTQRWyyJJck5QnfvCv3qpQS2EnX` is Ready and owns `ready-2work.vercel.app`; functions remain in `sin1`.
+- Focused local email/auth flows and cloud account/data-isolation checks passed; see [validation details](VALIDATION.md). Real public signup confirmation and owner password recovery still need a successful mail round trip.
+- The owner reported persistent reset throttling. The hosted SMTP page confirms custom SMTP is disabled. The default Supabase service currently permits two messages per hour per project and only delivers to organization team addresses; it cannot support unrestricted public signup.
+- Keep Supabase Auth/database. For testing without a custom domain, prepare Gmail SMTP: host `smtp.gmail.com`, port `465`, sender name `Ready2Work`. Sender address and username must be the same Gmail account. Use a dedicated Google app password, never the normal Google password.
+- The SMTP form is prepared but **not saved**. The owner must enable Google 2-Step Verification, create an app password, enter the sender address/username/password directly in Supabase and save. No credential belongs in chat, GitHub or this document. Gmail is a temporary test choice; the dashboard warns that personal-mail providers can have delivery issues.
+
 ## Source-only release preparation — 18/10/2026
 
 - Canonical URL remains https://ready-2work.vercel.app; publish from GitHub `main` to the existing `ready2work-platform` project. Verify the deployment is Ready and owns this alias after pushing.
@@ -31,13 +39,13 @@
 
 ## Remaining configuration
 
-SMTP setup was deferred at the user’s request; keep the default email service for now. The hosted dashboard was checked directly. Custom SMTP is disabled. Confirm signup uses the default `{{ .ConfirmationURL }}` template. On this Free project the dashboard requires custom SMTP or Pro to edit email templates; no paid upgrade was made.
+The earlier SMTP deferral is superseded by the email follow-up above. Custom SMTP remains disabled until the owner supplies and saves the Gmail app password. Confirm signup uses the default `{{ .ConfirmationURL }}` template; no paid upgrade was made.
 
-1. Configure the user's chosen SMTP provider with a verified sender. Enter the SMTP credential directly in Supabase; never commit it or include it in this document.
-2. The feedback patch supports the default PKCE `code` callback as well as custom `token_hash` templates. Custom SMTP/templates are optional follow-up work; do not disable verification or overwrite hosted configuration with local Supabase config.
-3. Run one focused signup → confirmation → signin check using an approved test email. Check one real CV analysis separately; no live AI acceptance is claimed here.
+1. Finish and verify the custom SMTP configuration. After saving, check the email rate limit; Supabase documents an initial custom-SMTP limit of 30 emails per hour. Do not repeatedly request recovery emails while setup is incomplete.
+2. Keep the default PKCE `code` callback or the supported custom `token_hash` flow. Do not disable verification or overwrite hosted configuration with local Supabase config.
+3. Run one focused signup → confirmation → signin check using an approved test email, then one owner recovery flow in the same browser/profile. The owner enters and submits the new password.
 
-No full unit/browser suite was rerun for this deployment configuration work. Successful hosting and schema checks do not yet establish that hosted authentication, email delivery and AI work end to end.
+No full suite rerun is needed for SMTP configuration. Successful hosting and schema checks do not establish end-to-end hosted email delivery. Provider setup references: [Supabase SMTP](https://supabase.com/docs/guides/auth/auth-smtp), [Google app passwords](https://support.google.com/mail/answer/185833?hl=en).
 
 ## Report/dashboard follow-up
 
