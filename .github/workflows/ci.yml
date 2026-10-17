@@ -16,6 +16,8 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: package-lock.json
+      - name: Verify cross-platform test dependencies
+        run: node platform/scripts/check-native-test-lock.mjs
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
@@ -40,6 +42,8 @@ jobs:
       - uses: supabase/setup-cli@v1
         with:
           version: latest
+      - name: Verify cross-platform test dependencies
+        run: node platform/scripts/check-native-test-lock.mjs
       - run: npm ci
       - run: supabase --workdir platform start
       - name: Configure isolated local test connection

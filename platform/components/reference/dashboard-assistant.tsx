@@ -89,6 +89,6 @@ export function DashboardAssistant({ name }: { name: string }) {
       <textarea className="d-ai-input resize-y" style={{ minHeight: 72, maxHeight: 180 }} value={draft} onChange={(event) => setDraft(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); if (!pending) form.current?.requestSubmit(); } }} maxLength={ASSISTANT_MAX_USER_TEXT} disabled={pending} placeholder="Hỏi về cách dùng Ready2Work hoặc cách luyện tập…" aria-label="Tin nhắn cho R2W AI" rows={2}/>
       <button className="d-ai-send disabled:opacity-50" type="submit" aria-label="Gửi tin nhắn" disabled={pending || !draft.trim()}><svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2z"/></svg></button>
     </form>
-    <div className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-muted"><p>Tin nhắn được xử lý bằng Google Gemini. Chat hỗ trợ hướng dẫn, không thay thế kết quả đánh giá.</p><span>{draft.length.toLocaleString("vi-VN")}/2.000 · Enter để gửi, Shift+Enter để xuống dòng</span></div>
+    <p className="mt-2 text-right text-xs text-muted">{draft.length.toLocaleString("vi-VN")}/2.000 · Enter để gửi, Shift+Enter để xuống dòng</p>
   </section>;
 }

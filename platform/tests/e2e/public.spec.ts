@@ -20,7 +20,7 @@ test("auth screens preserve the original form contract and validation", async ({
   await page.getByLabel("Xác nhận mật khẩu").fill("short");
   await page.getByLabel(/Tôi đồng ý với Điều khoản/i).check();
   await page.getByRole("button", { name: "Tạo tài khoản →", exact: true }).click();
-  await expect(page.getByText("Password must be at least 12 characters", { exact: true })).toBeVisible();
+  await expect(page.getByText("Mật khẩu cần ít nhất 12 ký tự", { exact: true })).toBeVisible();
 });
 
 for (const route of ["/dashboard", "/roadmap/cv", "/report", "/business", "/mentor"]) {
