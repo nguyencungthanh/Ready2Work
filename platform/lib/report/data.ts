@@ -3,6 +3,7 @@ import { cache } from "react";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { calculateReadiness, newestBy } from "./scoring";
 import { recommendSimulations } from "./recommendations";
+import { isSourceSimulation } from "@/lib/content/source-catalog";
 
 export interface SimulationCatalogRow {
   id: string; slug: string; title?: string; industry: string; position_title: string; position_id: string | null; is_available?: boolean;
@@ -55,6 +56,7 @@ export const getCandidateOverview = cache(async (userId: string) => {
   const simulations = (results[0]!.data ?? []) as SimulationCatalogRow[];
   const submissions = (results[1]!.data ?? []) as SimulationHistoryRow[];
   const interviewSets = (results[2]!.data ?? []) as InterviewCatalogRow[];
+  const sourceSimulations = simulations.filter(isSourceSimulation);
   const sessions = (results[3]!.data ?? []) as InterviewHistoryRow[];
   const roadmaps = (results[4]!.data ?? []) as unknown as Roadmap[];
   const cv = ((results[5]!.data ?? []) as CvAnalysis[])[0] ?? null;
@@ -82,7 +84,7 @@ export const getCandidateOverview = cache(async (userId: string) => {
   const availableSets = interviewSets.filter((set) => set.is_available);
   const availableSetIds = new Set(availableSets.map((set) => set.id));
   const completedSetIds = new Set(completedSessions.filter((session) => availableSetIds.has(session.set_id)).map((session) => session.set_id));
-  const recommendations = recommendSimulations(simulations, latestSubmissions, target?.id ?? null);
+  const recommendations = recommendSimulations(sourceSimulations, latestSubmissions, target?.id ?? null);
   const allCriteria: RecordedCriterion[] = targetSubmissions.flatMap((submission) => submission.criterion_scores?.criteria ?? []);
   if (completedInterview) {
     const { data: answers, error } = await supabase.from("interview_answers").select("criteria").eq("session_id", completedInterview.id);

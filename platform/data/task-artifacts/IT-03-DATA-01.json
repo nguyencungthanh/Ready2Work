@@ -1,65 +1,84 @@
 {
   "artifact_id": "IT-03-DATA-01",
   "position_id": "IT-03",
-  "company": "Chuỗi cà phê Mobile Order",
-  "period": "Tháng 5 đến Tháng 8 (4 tháng gần nhất)",
-  "branches_data": [
-    {
-      "branch_id": "Q1",
-      "branch_name": "Chi nhánh Quận 1",
-      "promotions": "Không có chương trình khuyến mãi riêng",
-      "monthly_metrics": [
-        { "month": "Tháng 5", "orders": 420, "revenue_million_vnd": 21.0 },
-        { "month": "Tháng 6", "orders": 460, "revenue_million_vnd": 23.0 },
-        { "month": "Tháng 7", "orders": 510, "revenue_million_vnd": 25.5 },
-        { "month": "Tháng 8", "orders": 560, "revenue_million_vnd": 28.0 }
+  "source_version": "20261017",
+  "source_block": 355,
+  "input_table": {
+    "columns": [
+      "Chi nhánh",
+      "Tháng 5 (đơn/ doanh thu)",
+      "Tháng 6",
+      "Tháng 7",
+      "Tháng 8"
+    ],
+    "rows": [
+      [
+        "Q1",
+        "420 đơn / 21.0tr",
+        "460 đơn / 23.0tr",
+        "510 đơn / 25.5tr",
+        "560 đơn / 28.0tr"
       ],
-      "growth_rate_mom": ["+9.52%", "+10.87%", "+9.80%"],
-      "total_growth": "+33.33%"
-    },
-    {
-      "branch_id": "Q3",
-      "branch_name": "Chi nhánh Quận 3",
-      "promotions": "Không có chương trình khuyến mãi riêng",
-      "monthly_metrics": [
-        { "month": "Tháng 5", "orders": 380, "revenue_million_vnd": 19.0 },
-        { "month": "Tháng 6", "orders": 400, "revenue_million_vnd": 20.0 },
-        { "month": "Tháng 7", "orders": 390, "revenue_million_vnd": 19.5 },
-        { "month": "Tháng 8", "orders": 405, "revenue_million_vnd": 20.3 }
+      [
+        "Q3",
+        "380 đơn / 19.0tr",
+        "400 đơn / 20.0tr",
+        "390 đơn / 19.5tr",
+        "405 đơn / 20.3tr"
       ],
-      "growth_rate_mom": ["+5.26%", "-2.50%", "+4.10%"],
-      "total_growth": "+6.84%"
-    },
-    {
-      "branch_id": "BINH_THANH",
-      "branch_name": "Chi nhánh Bình Thạnh",
-      "promotions": "Khuyến mãi 'Mua 1 tặng 1' trong tuần đầu Tháng 7 (Outlier)",
-      "monthly_metrics": [
-        { "month": "Tháng 5", "orders": 300, "revenue_million_vnd": 15.0 },
-        { "month": "Tháng 6", "orders": 340, "revenue_million_vnd": 17.0 },
-        { "month": "Tháng 7", "orders": 400, "revenue_million_vnd": 20.0 },
-        { "month": "Tháng 8", "orders": 470, "revenue_million_vnd": 23.5 }
+      [
+        "Bình Thạnh",
+        "300 đơn / 15.0tr",
+        "340 đơn / 17.0tr",
+        "400 đơn / 20.0tr",
+        "470 đơn / 23.5tr"
       ],
-      "growth_rate_mom": ["+13.33%", "+17.65%", "+17.50%"],
-      "total_growth": "+56.67%"
-    },
-    {
-      "branch_id": "THU_DUC",
-      "branch_name": "Chi nhánh Thủ Đức",
-      "promotions": "Không có chương trình khuyến mãi riêng",
-      "monthly_metrics": [
-        { "month": "Tháng 5", "orders": 250, "revenue_million_vnd": 12.5 },
-        { "month": "Tháng 6", "orders": 245, "revenue_million_vnd": 12.3 },
-        { "month": "Tháng 7", "orders": 240, "revenue_million_vnd": 12.0 },
-        { "month": "Tháng 8", "orders": 238, "revenue_million_vnd": 11.9 }
+      [
+        "Thủ Đức",
+        "250 đơn / 12.5tr",
+        "245 đơn / 12.3tr",
+        "240 đơn / 12.0tr",
+        "238 đơn / 11.9tr"
+      ]
+    ]
+  },
+  "benchmark_table": {
+    "columns": [
+      "Chi nhánh",
+      "T5 →\nT6",
+      "T6 →\nT7",
+      "T7 →\nT8",
+      "Tổng T5→T8"
+    ],
+    "rows": [
+      [
+        "Q1",
+        "+9,52%",
+        "+10,87%",
+        "+9,80%",
+        "+33,33%"
       ],
-      "growth_rate_mom": ["-1.60%", "-2.44%", "-0.83%"],
-      "total_growth": "-4.80%"
-    }
-  ],
-  "benchmark_insights": {
-    "best_growth_branch": "Chi nhánh Quận 1 (Tăng trưởng thực chất bền vững nhất +33.33%)",
-    "stagnant_branch": "Chi nhánh Thủ Đức (Suy giảm liên tục qua 4 tháng, tổng giảm -4.80%)",
-    "promotion_impact_branch": "Chi nhánh Bình Thạnh (Tăng trưởng nhanh nhờ khuyến mãi Mua 1 tặng 1 tuần đầu T7)"
+      [
+        "Q3",
+        "+5,26%",
+        "-2,50%",
+        "+4,10%",
+        "+6,84%"
+      ],
+      [
+        "Bình Thạnh",
+        "+13,33%",
+        "+17,65%",
+        "+17,50%",
+        "+56,67%*"
+      ],
+      [
+        "Thủ Đức",
+        "-1,60%",
+        "-2,44%",
+        "-0,83%",
+        "-4,80%"
+      ]
+    ]
   }
 }

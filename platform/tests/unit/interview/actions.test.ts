@@ -22,6 +22,7 @@ function query(data: unknown, error: unknown = null) {
   return chain;
 }
 function form(answer = "Câu trả lời có bằng chứng của tôi.") { const data = new FormData(); data.set("sessionId", "session"); data.set("questionId", "question"); data.set("answerText", answer); return data; }
+const currentSet = { slug: "r2w-qa-tester-20261017", is_available: true };
 beforeEach(() => { vi.clearAllMocks(); });
 describe("interview action authorization", () => {
   it("cannot grade an answer in another user's session", async () => {
@@ -32,7 +33,7 @@ describe("interview action authorization", () => {
   });
   it("does not grade a source set that is pending clarification or archived", async () => {
     mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: { is_available: false } }));
-    expect((await submitInterviewAnswerAction({}, form())).error).toContain("chưa mở chấm");
+    expect((await submitInterviewAnswerAction({}, form())).error).toMatch(/chờ xác nhận|chưa mở chấm/);
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
     expect(mocks.evaluate).not.toHaveBeenCalled();
   });
@@ -43,7 +44,7 @@ describe("interview action authorization", () => {
   });
   it("does not accept a foreign or out-of-order question id supplied by the browser", async () => {
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
-      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : query([]));
+      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : table === "interview_sets" ? query(currentSet) : query([]));
     mocks.serviceFrom.mockReturnValue(query([{ id: "expected", prompt: "The real question", rubric: [], round_number: 1, position: 1 }]));
     expect((await submitInterviewAnswerAction({}, form())).error).toContain("chưa trả lời tiếp theo");
     expect(mocks.serviceFrom.mock.calls.map((call) => call[0])).toEqual(["interview_questions"]);
@@ -63,12 +64,12 @@ describe("interview action authorization", () => {
 describe("interview answer submission regressions from feedback", () => {
   const shortAnswer = "Reactive/Proactive, Quality Assurance/Quality Control.";
   const criterion = { id: "definitions", label: "Phân biệt hai hoạt động", description: "Chấm đúng bằng chứng trong câu trả lời.", weight: 35, maxScore: 35 };
-  function arrange(saveError: unknown = null) {
+  function arrange(saveError: unknown = null, questionOverrides: Record<string, unknown> = {}, set = currentSet) {
     const saved = query(null, saveError);
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
-      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : query([]));
+      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : table === "interview_sets" ? query(set) : query([]));
     mocks.serviceFrom.mockImplementation((table: string) => table === "interview_questions"
-      ? query([{ id: "question", prompt: "Bạn hãy phân biệt Testing và Quality Assurance", grading_rubric: [criterion], reference_answer: "Hướng dẫn riêng để chấm.", round_number: 1, position: 2 }]) : saved);
+      ? query([{ id: "question", prompt: "Bạn hãy phân biệt Testing và Quality Assurance", grading_rubric: [criterion], reference_answer: "Hướng dẫn riêng để chấm.", round_number: 1, position: 2, ...questionOverrides }]) : saved);
     return saved;
   }
 
@@ -112,5 +113,36 @@ describe("interview answer submission regressions from feedback", () => {
     expect(mocks.userFrom).not.toHaveBeenCalled();
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
     expect(mocks.evaluate).not.toHaveBeenCalled();
+  });
+
+  it("never substitutes public rubric labels or keyword scoring when the private source rubric is missing", async () => {
+    const saved = arrange(null, { grading_rubric: [], rubric: [criterion], keywords: ["Reactive", "Proactive"] });
+    const result = await submitInterviewAnswerAction({}, form(shortAnswer));
+    expect(result.error).toContain("tiêu chí chấm từ nguồn");
+    expect(mocks.evaluate).not.toHaveBeenCalled();
+    expect(saved.insert).not.toHaveBeenCalled();
+  });
+
+  it("sends both the private guidance and reference answer to the question-specific evaluator", async () => {
+    arrange(null, { guidance: "Giới hạn và điều kiện từ barem.", reference_answer: "Đáp án tham chiếu của đúng câu hỏi." });
+    mocks.evaluate.mockResolvedValue({ score: 0, criteria: [] });
+    expect(await submitInterviewAnswerAction({}, form(shortAnswer))).toEqual({});
+    expect(mocks.evaluate).toHaveBeenCalledWith(shortAnswer, expect.any(String), "Giới hạn và điều kiện từ barem.\n\nĐáp án tham chiếu của đúng câu hỏi.", [criterion]);
+  });
+
+  it("does not grade an active legacy demo merely because it still exists in the database", async () => {
+    const saved = arrange(null, {}, { slug: "fmcg-brand-round1", is_available: true });
+    expect((await submitInterviewAnswerAction({}, form(shortAnswer))).error).toContain("lưu trữ");
+    expect(mocks.serviceFrom).not.toHaveBeenCalled();
+    expect(mocks.evaluate).not.toHaveBeenCalled();
+    expect(saved.insert).not.toHaveBeenCalled();
+  });
+
+  it("retains evaluation for a genuinely published company assignment with its private rubric", async () => {
+    const saved = arrange(null, {}, { slug: "company-12345678-1234-1234-1234-123456789abc", is_available: true });
+    mocks.evaluate.mockResolvedValue({ score: 0, criteria: [] });
+    expect(await submitInterviewAnswerAction({}, form(shortAnswer))).toEqual({});
+    expect(mocks.evaluate).toHaveBeenCalledOnce();
+    expect(saved.insert).toHaveBeenCalledOnce();
   });
 });

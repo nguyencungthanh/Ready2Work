@@ -918,6 +918,55 @@
         "editable": true
       }
     ],
-    "MKT-02": []
+    "MKT-02": [],
+    "IT-03": [
+      {
+        "id": "coffee-input",
+        "title": "Dữ liệu doanh thu và số đơn thực tế",
+        "kind": "table",
+        "columns": [
+          "Chi nhánh",
+          "Tháng 5 (đơn/ doanh thu)",
+          "Tháng 6",
+          "Tháng 7",
+          "Tháng 8"
+        ],
+        "rows": [
+          [
+            "Q1",
+            "420 đơn / 21.0tr",
+            "460 đơn / 23.0tr",
+            "510 đơn / 25.5tr",
+            "560 đơn / 28.0tr"
+          ],
+          [
+            "Q3",
+            "380 đơn / 19.0tr",
+            "400 đơn / 20.0tr",
+            "390 đơn / 19.5tr",
+            "405 đơn / 20.3tr"
+          ],
+          [
+            "Bình Thạnh",
+            "300 đơn / 15.0tr",
+            "340 đơn / 17.0tr",
+            "400 đơn / 20.0tr",
+            "470 đơn / 23.5tr"
+          ],
+          [
+            "Thủ Đức",
+            "250 đơn / 12.5tr",
+            "245 đơn / 12.3tr",
+            "240 đơn / 12.0tr",
+            "238 đơn / 11.9tr"
+          ]
+        ],
+        "editable": false,
+        "source_block": 355,
+        "source_row": 3,
+        "source_column": 1,
+        "source_nested_table": 0
+      }
+    ]
   }
 }

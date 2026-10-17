@@ -8,6 +8,7 @@ import { revalidatePath } from "next/cache";
 import { evaluateSubmissionWithAI, type RubricCriterion } from "@/lib/simulation/ai-evaluator";
 import { logger } from "@/lib/observability/logger";
 import { readSubmissionDocument } from "@/lib/simulation/read-submission";
+import { isSourceSimulation, isPublishedBusinessContent, isCurrentDocumentOnlySource } from "@/lib/content/source-catalog";
 
 export interface FormState {
   error?: string;
@@ -27,7 +28,7 @@ export async function startSimulationAction(formData: FormData): Promise<void> {
   const simulationId = String(formData.get("simulationId") ?? "");
   const supabase = await createServerSupabaseClient();
   const { data: simulation } = await supabase.from("simulations").select("id, slug, is_available").eq("id", simulationId).maybeSingle();
-  if (!simulation?.is_available) throw new Error("Bài mô phỏng này chưa sẵn sàng.");
+  if (!simulation?.is_available || !(isSourceSimulation(simulation) || isPublishedBusinessContent(simulation))) throw new Error("Bài mô phỏng này chưa sẵn sàng.");
   const { data: existing } = await supabase.from("simulation_attempts").select("id")
     .eq("user_id", user.id).eq("simulation_id", simulationId).is("submitted_at", null).is("superseded_at", null)
     .order("started_at", { ascending: false }).limit(1).maybeSingle();
@@ -64,8 +65,8 @@ export async function submitSimulationAction(
   const actualDurationSeconds = Math.floor((submittedAt.getTime() - new Date(attempt.started_at).getTime()) / 1000);
   if (actualDurationSeconds < 0 || !Number.isFinite(actualDurationSeconds)) return { error: "Chưa xác minh được thời gian làm bài. Vui lòng tải lại trang." };
   // Verify public availability before reading the private grading rubric.
-  const { data: available } = await supabase.from("simulations").select("id, is_available").eq("id", simulationId).maybeSingle();
-  if (!available?.is_available) return { error: "Bài mô phỏng này hiện chưa sẵn sàng." };
+  const { data: available } = await supabase.from("simulations").select("id, slug, is_available").eq("id", simulationId).maybeSingle();
+  if (!available?.is_available || !(isSourceSimulation(available) || isPublishedBusinessContent(available))) return { error: "Bài mô phỏng này hiện chưa sẵn sàng." };
 
   const { data: simulation } = await createServiceRoleClient()
     .from("simulations")
@@ -75,6 +76,9 @@ export async function submitSimulationAction(
 
   if (!simulation) {
     return { error: "Không tìm thấy bài mô phỏng." };
+  }
+  if (isSourceSimulation(available) && !isCurrentDocumentOnlySource(simulation.reference_data)) {
+    return { error: "Đề bài đang chờ đồng bộ barem nguồn hiện tại. Nội dung bài làm vẫn được giữ; chưa có điểm mới được lưu." };
   }
 
   const rubric = (simulation.grading_rubric ?? simulation.rubric ?? []) as RubricCriterion[];

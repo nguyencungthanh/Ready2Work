@@ -27,6 +27,8 @@ try {
   let oldQuestion;
   let oldAttempt;
   let oldSession;
+  let previousSourceAttempt;
+  let originalQuestions;
   for (const file of migrations) {
     if (file.startsWith("20261016") && !legacySeeded) {
       await db.exec(`
@@ -46,6 +48,10 @@ try {
       await db.query("insert into interview_answers(session_id,question_id,answer_text,score) values ($1,$2,'Historical source answer',70)", [oldSession.id,oldQuestion.id]);
       oldAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-it-03' returning id")).rows[0];
     }
+    if (file === "20261017000300_document_only_catalog.sql") {
+      previousSourceAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-it-03' returning id")).rows[0];
+      originalQuestions = (await db.query("select id,set_id,position,prompt,reference_answer,grading_rubric from interview_questions order by id")).rows;
+    }
     try { await db.exec(await readFile(path.join(root, "supabase/migrations", file), "utf8")); }
     catch (error) { console.error(`Migration failed: ${file}`); throw error; }
     console.log(`Applied ${file}`);
@@ -57,11 +63,20 @@ try {
   assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%'")).count), 15);
   assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017'")).count), 15);
   assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017' and not is_available")).count), 8);
-  const marketingInputs = JSON.parse(await readFile(path.join(root, "data/source/marketing-inputs-20261017.json"), "utf8"));
-  for (const [position, materials] of Object.entries(marketingInputs.by_position)) {
-    const published = (await one("select reference_data->'public_materials' as materials from simulations where slug=$1", [`r2w-${position.toLowerCase()}`])).materials;
-    for (const material of materials) assert.deepEqual(published.filter((item) => item.id === material.id), [material]);
+  const sourceTasks = JSON.parse(await readFile(path.join(root, "data/task-rubrics.json"), "utf8")).industries.flatMap((industry) => industry.tasks);
+  for (const task of sourceTasks) {
+    const published = await one("select reference_data,is_available from simulations where slug=$1", [`r2w-${task.position_id.toLowerCase()}`]);
+    assert.equal(published.reference_data.source_policy, "document_only");
+    assert.deepEqual(published.reference_data.public_materials, task.public_materials);
+    assert.doesNotMatch(JSON.stringify(published.reference_data), /marketing-product-brief|marketing-ad-data|marketing-keyword-data|supplemental_source/);
+    if (task.position_id.startsWith("MKT-")) assert.equal(published.is_available, false);
   }
+  assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%' and is_available")).count), 9);
+  assert.equal(Number((await one("select count(*) from simulations where position_id is null and is_available and slug not like 'company-%' and slug <> 'legacy-existing'")).count), 0);
+  assert.equal(Number((await one("select count(*) from interview_sets where position_id is null and is_available and slug not like 'company-%'")).count), 0);
+  assert.deepEqual((await db.query("select id,set_id,position,prompt,reference_answer,grading_rubric from interview_questions order by id")).rows, originalQuestions);
+  assert.ok((await one("select superseded_at from simulation_attempts where id=$1", [previousSourceAttempt.id])).superseded_at);
+  await assert.rejects(db.query("select finalize_simulation_attempt($1,'33333333-3333-4333-8333-333333333333','Previous inputs',70,'Proficient','{}','{}',now())", [previousSourceAttempt.id]), /source changed/);
   assert.equal((await one("select prompt from interview_questions where id=$1", [oldQuestion.id])).prompt, oldQuestion.prompt);
   assert.equal(Number((await one("select count(*) from interview_answers where session_id=$1 and question_id=$2", [oldSession.id,oldQuestion.id])).count), 1);
   assert.equal((await one("select is_available from interview_sets where id=$1", [oldQuestion.set_id])).is_available, false);

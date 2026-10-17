@@ -3,7 +3,7 @@ vi.mock("@/lib/ai/gemini", () => ({ generateStructured: vi.fn() }));
 import { generateStructured } from "@/lib/ai/gemini";
 import { evaluateCurrentSource, scoreCurrentSourceEvaluation, validateCurrentSourceTask } from "@/lib/simulation/source-evaluator";
 
-const task = { source_version: "20261017", grading_ready: true, time_limit_minutes: 60, rubric: [
+const task = { source_version: "20261017", source_policy: "document_only", content_revision: "20261017-doc-only", grading_ready: true, time_limit_minutes: 60, rubric: [
   { criterion_id: "C1", criterion_name: "Độ chính xác", max_points: 4, checklist: [{ checklist_id: "C1-1", text: "Hướng dẫn điểm thành phần nguyên bản.", points: 4 }] },
   { criterion_id: "C2", criterion_name: "Lập luận", max_points: 96, checklist: [{ checklist_id: "C2-1", text: "Hướng dẫn chấm nguyên bản.", points: 96 }] },
 ] };
@@ -29,6 +29,12 @@ describe("current source rubric grading", () => {
   });
   it("does not call AI for an unresolved rubric", async () => {
     await expect(evaluateCurrentSource("Nội dung", "Bối cảnh", "Đề bài", { ...task, grading_ready: false }, 30)).rejects.toThrow("chờ xác nhận");
+    expect(generateStructured).not.toHaveBeenCalled();
+  });
+  it("blocks older material policies and revisions before calling AI", async () => {
+    for (const changed of [{ source_policy: "supplementary" }, { content_revision: "20261017-old" }, { source_policy: undefined }, { content_revision: undefined }]) {
+      await expect(evaluateCurrentSource("Nội dung", "Bối cảnh", "Đề bài", { ...task, ...changed }, 30)).rejects.toThrow();
+    }
     expect(generateStructured).not.toHaveBeenCalled();
   });
   it("rejects a mismatched source total without an explicit normalization rule", () => {

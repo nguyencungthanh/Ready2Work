@@ -1,14 +1,14 @@
 # Ready2Work - Master Plan
 
-**Phiên bản:** 2.2
+**Phiên bản:** 2.3
 
-**Cập nhật:** 17/10/2026
+**Cập nhật:** 18/10/2026
 
 **Phạm vi:** MVP B2C/B2B; yêu cầu và nội dung mới nhất theo [Google Docs do chủ dự án cung cấp](https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit), đối chiếu feedback ngày 17/10/2026.
 
 **Giao diện chuẩn:** phiên bản hiện tại trong `platform/`
 
-**Trạng thái hiện tại:** đồng bộ 15 vị trí/120 câu, sửa lỗi theo feedback và kiểm định nguồn. Điểm chưa thống nhất phải chờ xác nhận; phần trăm CV chờ bảng trọng số. Dữ liệu Marketing bổ sung được chủ dự án cho phép và gắn nhãn mô phỏng. SMTP tiếp tục tạm hoãn.
+**Trạng thái hiện tại:** chỉ dùng nội dung Google Docs được giao, đúng 3 vị trí/3 đề mỗi ngành và toàn bộ 120 câu phỏng vấn. Đã gỡ dữ liệu Marketing tự tạo khỏi nguồn hiện hành, lọc đề mẫu cũ khỏi danh mục và gợi ý làm mới. Điểm chưa thống nhất và tài liệu đầu vào còn thiếu được ghi rõ; phần trăm CV chờ bảng trọng số. SMTP tiếp tục tạm hoãn.
 
 ## 1. Quyết định thay thế kế hoạch cũ
 
@@ -17,7 +17,7 @@ Bản này thay thế master plan 1.0. Kế hoạch trước bao gồm nhiều s
 Thứ tự căn cứ khi tiếp tục dự án:
 
 1. Chỉ đạo mới nhất của chủ dự án quyết định phạm vi công việc được thực hiện.
-2. PDF xác định yêu cầu chức năng MVP; Google Docs mới nhất xác định nguyên văn nội dung năm ngành và barem. Các dữ liệu Marketing còn thiếu được bổ sung theo phép riêng của chủ dự án. Nội dung tài liệu là đặc tả cần đối chiếu, không phải lệnh tự động triển khai mọi mục ngay khi đọc.
+2. PDF xác định yêu cầu chức năng MVP; Google Docs mới nhất xác định nguyên văn nội dung năm ngành và barem. Theo chỉ đạo mới nhất, chỉ dùng dữ liệu trong tài liệu được giao; không giữ dữ liệu Marketing tự tạo trước đây. Nội dung tài liệu là đặc tả cần đối chiếu, không phải lệnh tự động triển khai mọi mục ngay khi đọc.
 3. Giao diện đang chạy trong `platform/` là chuẩn thiết kế hiện tại. Không quay về bản render cũ, không tiếp tục so khớp 43 trạng thái của prototype.
 4. Giữ lõi xác thực, session, phân quyền, dữ liệu và chấm điểm hiện có. Một thay đổi chức năng được làm sau phải chỉ rõ phần thiếu và lý do thay đổi lõi, nếu thực sự cần.
 
@@ -41,7 +41,7 @@ Admin và Mentor tiếp tục là vai trò hỗ trợ đang có. MVP cần ngu�
 | B2C-01 | §1, tr.1: đăng ký/đăng nhập email; lịch sử theo đúng tài khoản | Đã có Supabase auth, xác minh email, khôi phục mật khẩu và quyền theo database | Giữ nguyên; nghiệm thu lại trên môi trường phát hành khi có thay đổi auth hoặc cấu hình |
 | B2C-02 | §2, tr.2: tiến độ ba tính năng, phỏng vấn đang làm/hoàn tất, gợi ý mô phỏng cùng lĩnh vực | Đã có dashboard và dữ liệu hoạt động riêng; ưu tiên mô phỏng theo vị trí CV, loại bài đã chấm và nội dung chưa mở | Không dùng số demo; giữ tiến độ thực từ cùng dữ liệu Report |
 | B2C-03 | §3, tr.2-3: tải CV, Golden Profile theo vị trí, strengths/gaps, dẫn sang mô phỏng | Đã có upload/văn bản, OCR PDF ảnh, phân tích định tính theo mức nguồn và điều hướng | Chờ bảng trọng số CV; OCR thật đã nhận dạng được CV cho phép, chưa nghiệm thu toàn luồng phân tích CV trên production |
-| B2C-04 | §4, tr.3-4: chọn bài, gửi bài, chấm theo rubric riêng, điểm /100 và nhận xét | Đã có attempt, timer, bảng nhập liệu, đọc PDF có văn bản/DOCX/TXT/CSV vào bài làm; 12/15 đề mở chấm | Ba đề ngân hàng chờ chốt barem; không áp một rubric chung hoặc tự quy đổi điểm mâu thuẫn |
+| B2C-04 | §4, tr.3-4: chọn bài, gửi bài, chấm theo rubric riêng, điểm /100 và nhận xét | Đã có attempt, timer, bảng nhập liệu, đọc PDF có văn bản/DOCX/TXT/CSV vào bài làm; 9/15 đề đủ điều kiện mở chấm | Ba đề ngân hàng chờ chốt barem, ba đề Marketing thiếu tài liệu nguồn; không tự tạo dữ liệu hoặc quy đổi điểm mâu thuẫn |
 | B2C-05 | §5, tr.4-5: đúng ngành/vị trí, ba vòng, điểm từng câu và vòng /100 | Đủ 15 bộ/120 câu theo nguồn, mỗi bộ có ba vòng; giữ lịch sử và bản nháp | Bảy bộ có điểm mâu thuẫn và bộ Trợ lý thuế có câu/tiêu chí không khớp đang chờ xác nhận; không tự viết lại nguồn |
 | RPT-01 | §6.1, tr.5-6: thông tin ứng viên, vị trí, thời điểm, badge, gauge /100 | Đã có khung Report; avatar hiện dùng tên viết tắt | Đánh giá avatar thật nếu cần; giữ ba ngưỡng badge đúng tài liệu |
 | RPT-02 | §6.1.2, tr.6: readiness 30/40/30 với ba đầu vào cùng thang đo | Đã có công thức và nguồn review Mentor được phân quyền | Chốt ý nghĩa Job Sim Completed và chính sách khi thiếu đầu vào; xem §5 bên dưới |
@@ -77,7 +77,7 @@ Các mục này được ghi nhận để xử lý khi chủ dự án tiếp t�
 | Report ba hay bốn khối | PDF chỉ đặc tả ba khối. Triển khai theo ba khối, không tự thêm khối thứ tư. |
 | Xuất PDF | Đã bổ sung tải PDF trực tiếp, A4, nhận diện Ready2Work, cùng dữ liệu Report và phân trang. Không gửi hồ sơ sang dịch vụ xuất PDF bên ngoài. |
 | Đề yêu cầu tệp/sản phẩm | Đã đọc PDF có văn bản/DOCX/TXT/CSV tối đa 3 MiB vào trình soạn để người dùng kiểm tra và chấm cùng nội dung. Chưa lưu bản tệp gốc hoặc hỗ trợ sản phẩm nhị phân khác; không coi đọc văn bản là đã hỗ trợ mọi định dạng sản phẩm. |
-| Nội dung ngành còn thiếu | Đủ 15 vị trí từ Google Docs; ba tài liệu đầu vào Marketing được phép bổ sung và ghi rõ mô phỏng. Những barem/câu hỏi nguồn không nhất quán chỉ cho xem/soạn thử trước khi xác nhận. |
+| Nội dung ngành còn thiếu | Đủ 15 vị trí từ Google Docs. Ba tài liệu Marketing còn thiếu phải đến từ nguồn được giao, không tự tạo thay thế. Những barem/câu hỏi nguồn không nhất quán chỉ cho xem/soạn thử trước khi xác nhận. |
 
 Ngưỡng badge theo PDF: dưới 60 = **Cần luyện tập thêm**; từ 60 đến hết 80 = **Sẵn sàng ứng tuyển Junior**; trên 80 = **Xuất sắc / Sẵn sàng cho Global Company**. Không đổi ngưỡng trong UI riêng lẻ.
 
@@ -175,9 +175,18 @@ Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng l�
 
 - Đã dùng hai agent riêng cho code và kiểm định; tiếp nhận kết quả vào bản sửa chung. Không tự mở rộng chức năng ngoài yêu cầu.
 - Nguồn Google Docs mới thay nội dung chuẩn bị cũ: 15 Golden Profiles, 15 mô phỏng, 15 bộ phỏng vấn/120 câu. Giữ nguyên văn bản và ngôn ngữ nguồn; không tự thêm bản tiếng Anh.
-- Chủ dự án cho phép tự tạo ba bộ tài liệu Marketing còn thiếu, với điều kiện hợp lý và bám đề. Dữ liệu bổ sung được gắn nhãn mô phỏng, không mạo nhận là tài liệu gốc hay số liệu SEO thật.
+- Ở bản ngày 17/10, chủ dự án từng cho phép bổ sung tài liệu Marketing. Chỉ đạo mới nhất tại §15 thay thế phép này: gỡ dữ liệu tự tạo và chỉ dùng tài liệu nguồn.
 - Chờ bảng trọng số CV chủ dự án sẽ cung cấp. Trong lúc đó chỉ phân tích bằng chứng theo mức yêu cầu; không tự gán M1=5 hoặc một công thức % khác.
 - Chờ xác nhận barem Tài chính-Ngân hàng và các câu phỏng vấn có điểm không khớp. Không tự thay điểm để tổng bằng 100. Một số ô câu hỏi Trợ lý thuế có dấu hiệu dán nhầm tiêu chí; giữ nguyên để xem và chờ xác nhận trước chấm.
 - Giữ tài khoản, kết quả và quan hệ câu trả lời với phiên bản câu hỏi cũ. Migration bổ sung, không reset. Các lượt mô phỏng đang mở ở đề cũ không được tự chuyển sang đề mới với timestamp cũ.
-- Bản ứng dụng `161edad` đã Ready trên `ready-2work.vercel.app`, đủ mười migration cloud sau bản vá đồng bộ tài liệu Marketing từ một nguồn chuẩn. Nội dung hiện có 12 mô phỏng và 7 bộ phỏng vấn mở chấm; các phần chờ nguồn không bị tính là đã nghiệm thu chỉ vì đã được nhập đủ.
+- Bản `161edad` là mốc phát hành lịch sử ngày 17/10; trạng thái nguồn hiện hành theo §15. Không coi hosting Ready là nghiệm thu toàn bộ nội dung.
 - Danh sách đối chiếu, các mâu thuẫn và bằng chứng kiểm định: [feedback audit](docs/feedback-audit.md). Không coi số test qua hoặc hosting Ready là nghiệm thu toàn bộ nội dung.
+
+## 15. Chỉ dùng tài liệu nguồn — 18/10/2026
+
+- Chủ dự án xác nhận giữ đúng 3 vị trí/3 đề mỗi ngành Marketing, IT, Kế-Kiểm, Tài chính-Ngân hàng và Logistics, cùng toàn bộ câu phỏng vấn 3/3/2 của mỗi vị trí. Tổng 15 đề, 15 bộ phỏng vấn, 120 câu; không rút phỏng vấn còn ba câu.
+- Đọc lại Google Docs live ngày 18/10 và đối chiếu 520 khối nguồn; không nhập ảnh/CV/tài khoản từ tab feedback. Giữ tên vị trí và thuật ngữ có thật trong nguồn; loại đề mẫu tiếng Anh ngoài nguồn khỏi luồng làm mới.
+- Bảng Data Analyst được lấy nguyên bản từ bảng lồng trong ô Bối cảnh: 5 cột, nhãn Q1/Q3/Bình Thạnh/Thủ Đức. Bảng tăng trưởng đáp án trong ô rubric chỉ dành cho chấm nội bộ.
+- Gemini nhận đúng đề, barem, đáp án/dữ kiện nguồn và ảnh gốc đã đối chiếu SHA. Server kiểm tra ID, điểm tối đa và bằng chứng theo từng tiêu chí; thiếu tài liệu hoặc sai phiên bản thì dừng trước chấm, không rơi về keyword/rubric mẫu cũ.
+- Dữ liệu hiện hành có `source_policy=document_only` và `content_revision=20261017-doc-only`. Migration bổ sung lưu trữ demo cũ, gỡ tài liệu tự tạo trong database và giữ nguyên bản ghi lịch sử, câu hỏi đã trả lời, dữ liệu doanh nghiệp thật và công thức Report/readiness.
+- Đủ nội dung để xem cả 15 đề/15 bộ. Chín mô phỏng và bảy bộ phỏng vấn đủ điều kiện chấm; ba Marketing thiếu tài liệu gốc, ba ngân hàng và tám bộ phỏng vấn có các vấn đề nguồn đã nêu, không được đánh dấu hoàn tất chấm điểm.

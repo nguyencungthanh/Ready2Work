@@ -10,15 +10,16 @@ import { SubmissionForm } from "./submission-form";
 import type { RubricCriterion } from "@/lib/simulation/ai-evaluator";
 import { publicSimulationMaterials } from "@/lib/simulation/materials";
 import { simulationHasSourceTimeLimit } from "@/lib/content/simulation-timing";
+import { isSourceSimulation, isPublishedBusinessContent } from "@/lib/content/source-catalog";
 
 export default async function SimulationDetailPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ attempt?: string; preview?: string }> }) {
   const user = await requireUser();
   const { slug } = await params;
   // The rubric includes private answer-key guidance; only its public labels and weights are rendered.
   const { data: simulation } = await createServiceRoleClient().from("simulations")
-    .select("id, industry, position_title, brief, task_instructions, estimated_minutes, rubric, min_words, is_available, unavailable_reason, reference_data, position_id")
+    .select("id, slug, industry, position_title, brief, task_instructions, estimated_minutes, rubric, min_words, is_available, unavailable_reason, reference_data, position_id")
     .eq("slug", slug).maybeSingle();
-  if (!simulation) notFound();
+  if (!simulation || !(isSourceSimulation(simulation) || isPublishedBusinessContent(simulation))) notFound();
   const rubric = (simulation.rubric ?? []) as RubricCriterion[];
   const materials = publicSimulationMaterials(simulation.reference_data);
   const timeLimitSpecified = simulationHasSourceTimeLimit(simulation.position_id);

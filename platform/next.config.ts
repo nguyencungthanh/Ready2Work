@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   serverExternalPackages: ["unpdf", "mammoth", "@react-pdf/renderer"],
-  outputFileTracingIncludes: { "/api/report/pdf": ["./public/fonts/NotoSans-*.ttf"] },
+  outputFileTracingIncludes: { "/api/report/pdf": ["./public/fonts/NotoSans-*.ttf"], "/simulations/*": ["./public/materials/source-20261017/*.png"] },
   experimental: { serverActions: { bodySizeLimit: "4mb" } },
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {

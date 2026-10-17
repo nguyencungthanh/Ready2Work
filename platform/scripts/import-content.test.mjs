@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { buildPreparedContent, readPreparedSources, renderMigration, renderMaterialsMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
+import { buildPreparedContent, readPreparedSources, renderMigration, renderDocumentOnlyMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
 
 const source = await readPreparedSources();
 const content = buildPreparedContent(source);
@@ -10,7 +10,8 @@ test("prepared source has 15 matching profiles/tasks and preserves fifteen compl
   assert.deepEqual(content.validation.errors, []);
   assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120, incompleteInterviews: 8, checklistItems: 101, artifacts: 4 });
   assert.equal(new Set(content.simulations.map((item) => item.position_id)).size, 15);
-  assert.equal(content.simulations.filter((item) => item.is_available).length, 12);
+  assert.equal(content.simulations.filter((item) => item.is_available).length, 9);
+  for (const industry of source.tasks.industries) assert.equal(industry.tasks.length, 3);
   assert.ok(content.interviewSets.every((item) => /^(TCNH|MKT|IT|KK|LOG)-\d{2}$/.test(item.position_id)));
 });
 
@@ -43,7 +44,10 @@ test("raw task inputs are public while answer keys, solved formulas and insights
   assert.doesNotMatch(supplyChain.task_instructions, /Flash Sale/);
   assert.ok(content.simulations.every((item) => !item.task_instructions.includes("```json")));
   const analyst = content.simulations.find((item) => item.position_id === "IT-03");
-  assert.ok(analyst.reference_data.artifacts["IT-03-DATA-01"].benchmark_insights);
+  assert.ok(analyst.reference_data.artifacts["IT-03-DATA-01"].benchmark_table);
+  assert.equal(analyst.reference_data.public_materials[0].columns.length, 5);
+  assert.equal(analyst.reference_data.public_materials[0].rows[0][0], "Q1");
+  assert.ok(!Object.hasOwn(publicArtifact(analyst.reference_data.artifacts["IT-03-DATA-01"]), "benchmark_table"));
   assert.deepEqual(publicArtifact({ nested: [{ answer_key: "hidden", facts: [1, 2] }], referenceAnswer: "hidden" }), { nested: [{ facts: [1, 2] }] });
 });
 
@@ -101,10 +105,25 @@ test("SQL safely quotes source strings and upserts without deleting catalog IDs 
   assert.match(sql, /superseded_at/);
   assert.match(sql, /coalesce\(s.reference_data->>'source_version', ''\) <> '20261017'/);
   assert.ok(content.interviewSets.every((item) => item.id !== stableId("interview-set", item.slug.replace(/^r2w-/, "").replace(/-20261017$/, ""))));
-  const patch = renderMaterialsMigration(content);
+  const patch = renderDocumentOnlyMigration(content);
   assert.equal(patch, await readFile(new URL(`../supabase/migrations/${migrationName}`, import.meta.url), "utf8"));
-  assert.equal((patch.match(/update public\.simulations set reference_data = jsonb_set/g) ?? []).length, 3);
-  assert.doesNotMatch(patch, /set (?:grading_rubric|is_available|rubric)|update public\.(?:interview|simulation_attempt)|delete from|truncate/i);
+  assert.equal((patch.match(/update public\.simulations set brief = /g) ?? []).length, 15);
+  assert.match(patch, /source_policy.*document_only/);
+  assert.match(patch, /big4-audit-round1/);
+  assert.match(patch, /campaign-launch-plan/);
+  assert.doesNotMatch(patch, /update public\.interview_questions|delete from|truncate/i);
+});
+
+test("current exercises use only document inputs and retain missing Marketing source data explicitly", () => {
+  for (const simulation of content.simulations) {
+    assert.equal(simulation.reference_data.source_policy, "document_only");
+    assert.doesNotMatch(JSON.stringify(simulation.reference_data), /marketing-product-brief|marketing-ad-data|marketing-landing-data|marketing-keyword-data|supplemental_source/);
+    if (simulation.position_id.startsWith("MKT-")) {
+      assert.equal(simulation.is_available, false);
+      assert.ok(simulation.unavailable_reason.includes("tài liệu nguồn"));
+      assert.ok(simulation.reference_data.missing_source_inputs.length);
+    }
+  }
 });
 
 test("templates cover the same three rounds and have 100-point criterion weights", () => {

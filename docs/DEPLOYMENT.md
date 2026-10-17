@@ -1,4 +1,14 @@
-# Deployment status — 17/10/2026
+# Deployment status — 18/10/2026
+
+## Source-only release preparation — 18/10/2026
+
+- Canonical URL remains https://ready-2work.vercel.app; publish from GitHub `main` to the existing `ready2work-platform` project. Verify the deployment is Ready and owns this alias after pushing.
+- `20261017000300_document_only_catalog.sql` was dry-run, tested locally and applied successfully to cloud. All eleven migrations are applied; no reset or history deletion.
+- Read-only cloud comparison confirms all fields of the fifteen current simulations match the generated source data, all 120 prompts/reference answers/rubrics match the document source, fifteen current interview sets remain, and all seventeen known legacy demos are archived. Current grading availability is nine simulations and seven interview sets.
+- The earlier authored Marketing supplement is removed from current reference data. Original source material only; three missing Marketing documents and the unresolved rubric/question conflicts remain explicit.
+- The candidate catalog/recommendations use source slugs; actual published company content remains separate. Existing account/history data and the Report/readiness formula are preserved.
+- Production build, TypeScript, changed-file lint, focused unit/content/database checks and one local Chromium flow passed. The simulation route NFT includes the twenty original input PNGs and no answer-key images. No deployment environment values changed.
+- With explicit owner permission for source images, a real Gemini Business Analyst evaluation with a synthetic answer passed exact criterion/maximum/feedback validation. No cloud test account or personal CV was used.
 
 ## Confirmed
 
@@ -10,7 +20,7 @@
 - The user preferred the original domain. It was moved from `ready2-work` to the configured `ready2work-platform` project without deleting either project. Vercel `NEXT_PUBLIC_SITE_URL` and Supabase Site URL now use `https://ready-2work.vercel.app`; its confirmation and recovery redirects are allowed. The previous smoky domain remains an alias.
 - Commit `adf3474` built successfully on Vercel Linux. The lockfile now includes the Linux x64 GNU optional bindings for Lightning CSS, Tailwind Oxide and the resolver; installation uses `npm ci --include=optional`.
 - Production `/`, `/signup` and `/api/health` returned HTTP 200. The signup page contains the current UI. The health endpoint does not validate database connectivity.
-- Supabase project `ready2work-production` (`pzuhokmwlgobqhwottpa`) is active. All ten repository migrations are applied, including the feedback import and `20261017000200_marketing_inputs_sync.sql`. No reset was performed.
+- Supabase project `ready2work-production` (`pzuhokmwlgobqhwottpa`) is active. All eleven repository migrations are applied, through `20261017000300_document_only_catalog.sql`. No reset was performed.
 - Read-only cloud checks returned HTTP 200 for `cv_analyses`, `company_profiles`, `employer_content`, `mentor_reviews`, `simulation_attempts` and `simulation_submission_evaluations`.
 - Cloud buckets `candidate-cvs` and `business-documents` are private, with a 3 MiB limit.
 - Vercel Production has `NEXT_PUBLIC_SITE_URL` set to the production URL and `GEMINI_MODEL=gemini-3.5-flash`.
@@ -37,7 +47,9 @@ No full unit/browser suite was rerun for this deployment configuration work. Suc
 - Functions configured for Singapore (`sin1`), near the existing cloud database. Confirm actual function placement on the deployment after publishing; no end-to-end speed measurement is claimed.
 - Focused report checks and one local browser flow passed. Local build traces both PDF font files. No cloud data migrations were added by this follow-up.
 
-## Feedback and source synchronization — published
+## Historical feedback publication — 17/10/2026
+
+The authorized Marketing supplementation in this older release was superseded by the document-only instruction and migration recorded above. The following entries describe the historical rollout.
 
 - Canonical domain remains `ready-2work.vercel.app`.
 - New additive migration: `20261017000100_feedback_content.sql`; 15 source roles, 15 simulations and 15 interview sets/120 questions. It retains prior sets/questions/answers and flags superseded open simulation attempts; no reset or history deletion.

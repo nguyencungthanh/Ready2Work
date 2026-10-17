@@ -1,5 +1,5 @@
 {
-  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit",
+  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit?tab=t.a9gvxnc5ma1m",
   "retrieved_on": "2026-10-17",
   "scope": "Nội dung yêu cầu và 5 ngành; không bao gồm ảnh/tài khoản/CV trong feedback.",
   "blocks": [
@@ -7286,7 +7286,7 @@
               "links": []
             },
             {
-              "text": "Lỗi 1 - Sai tổng tiền:Giỏ hàng: 2 ly trà sữa (35.000đ/ly) + phí giao hàng 15.000đ. Khách nhập mã giảm giá SALE20 (giảm 20% trên tổng đơn hàng, không áp dụng cho phí ship). Hệ thống hiển thị tổng thanh toán = 68.000đ. (Số đúng phải là: (70.000 × 0.8) + 15.000 = 71.000đ)",
+              "text": "Lỗi 1 - Sai tổng tiền:\nGiỏ hàng: 2 ly trà sữa (35.000đ/ly) + phí giao hàng 15.000đ. Khách nhập mã giảm giá SALE20 (giảm 20% trên tổng đơn hàng, không áp dụng cho phí ship). Hệ thống hiển thị tổng thanh toán = 68.000đ. (Số đúng phải là: (70.000 × 0.8) + 15.000 = 71.000đ)",
               "list_id": null,
               "links": []
             },
@@ -7301,7 +7301,7 @@
               ]
             },
             {
-              "text": "Lỗi 2 - Đơn hàng bị trùng:Khách bấm nút \"Đặt hàng\" lúc mạng chập chờn (loading xoay hơn 3 giây). Khách bấm thêm lần 2 vì tưởng chưa nhận. Sau đó vào mục “Đơn hàng của tôi” thấy xuất hiện 2 đơn giống hệt nhau, cùng bị trừ tiền 2 lần trong lịch sử giao dịch.",
+              "text": "Lỗi 2 - Đơn hàng bị trùng:\nKhách bấm nút \"Đặt hàng\" lúc mạng chập chờn (loading xoay hơn 3 giây). Khách bấm thêm lần 2 vì tưởng chưa nhận. Sau đó vào mục “Đơn hàng của tôi” thấy xuất hiện 2 đơn giống hệt nhau, cùng bị trừ tiền 2 lần trong lịch sử giao dịch.",
               "list_id": null,
               "links": []
             },
@@ -7481,6 +7481,94 @@
             }
           ]
         ]
+      ],
+      "nested_tables": [
+        {
+          "block": 355,
+          "row": 3,
+          "column": 1,
+          "table": 0,
+          "rows": [
+            [
+              "Chi nhánh",
+              "Tháng 5 (đơn/ doanh thu)",
+              "Tháng 6",
+              "Tháng 7",
+              "Tháng 8"
+            ],
+            [
+              "Q1",
+              "420 đơn / 21.0tr",
+              "460 đơn / 23.0tr",
+              "510 đơn / 25.5tr",
+              "560 đơn / 28.0tr"
+            ],
+            [
+              "Q3",
+              "380 đơn / 19.0tr",
+              "400 đơn / 20.0tr",
+              "390 đơn / 19.5tr",
+              "405 đơn / 20.3tr"
+            ],
+            [
+              "Bình Thạnh",
+              "300 đơn / 15.0tr",
+              "340 đơn / 17.0tr",
+              "400 đơn / 20.0tr",
+              "470 đơn / 23.5tr"
+            ],
+            [
+              "Thủ Đức",
+              "250 đơn / 12.5tr",
+              "245 đơn / 12.3tr",
+              "240 đơn / 12.0tr",
+              "238 đơn / 11.9tr"
+            ]
+          ]
+        },
+        {
+          "block": 355,
+          "row": 3,
+          "column": 3,
+          "table": 0,
+          "rows": [
+            [
+              "Chi nhánh",
+              "T5 →\nT6",
+              "T6 →\nT7",
+              "T7 →\nT8",
+              "Tổng T5→T8"
+            ],
+            [
+              "Q1",
+              "+9,52%",
+              "+10,87%",
+              "+9,80%",
+              "+33,33%"
+            ],
+            [
+              "Q3",
+              "+5,26%",
+              "-2,50%",
+              "+4,10%",
+              "+6,84%"
+            ],
+            [
+              "Bình Thạnh",
+              "+13,33%",
+              "+17,65%",
+              "+17,50%",
+              "+56,67%*"
+            ],
+            [
+              "Thủ Đức",
+              "-1,60%",
+              "-2,44%",
+              "-0,83%",
+              "-4,80%"
+            ]
+          ]
+        }
       ]
     },
     {
@@ -11007,7 +11095,7 @@
     {
       "index": 431,
       "type": "paragraph",
-      "text": "Risk Analyst (Chuyên viên phân tích rủi ro tín dụng) ",
+      "text": "Risk Analyst (Chuyên viên phân tích rủi ro tín dụng) \n",
       "list_id": "46",
       "links": []
     },
@@ -12180,7 +12268,7 @@
     {
       "index": 442,
       "type": "paragraph",
-      "text": "",
+      "text": "\n",
       "list_id": null,
       "links": []
     },
@@ -14226,7 +14314,7 @@
     {
       "index": 489,
       "type": "paragraph",
-      "text": "",
+      "text": "\n",
       "list_id": null,
       "links": []
     },
@@ -14936,7 +15024,7 @@
     {
       "index": 492,
       "type": "paragraph",
-      "text": "",
+      "text": "\n",
       "list_id": null,
       "links": []
     },
@@ -16119,5 +16207,29 @@
       "list_id": null,
       "links": []
     }
-  ]
+  ],
+  "source_tabs": [
+    {
+      "name": "Marketing",
+      "tab_id": "root"
+    },
+    {
+      "name": "IT",
+      "tab_id": "t.ns3fz05dop68"
+    },
+    {
+      "name": "Kế - Kiểm",
+      "tab_id": "t.xbcvi0hm43q"
+    },
+    {
+      "name": "Tài chính - Ngân hàng",
+      "tab_id": "t.a9gvxnc5ma1m"
+    },
+    {
+      "name": "Logistics",
+      "tab_id": "t.v3f3tiwcx8a"
+    }
+  ],
+  "source_policy": "document_only",
+  "last_verified_on": "2026-10-18"
 }

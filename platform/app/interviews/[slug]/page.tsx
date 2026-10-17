@@ -6,6 +6,7 @@ import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { startInterviewSessionAction } from "../actions";
 import { MarkdownMessage } from "@/components/markdown-message";
+import { isSourceInterview, isPublishedBusinessContent } from "@/lib/content/source-catalog";
 
 /** Interview set overview - shows the question count before starting a session. */
 export default async function InterviewSetPage({
@@ -19,11 +20,11 @@ export default async function InterviewSetPage({
 
   const { data: set } = await supabase
     .from("interview_sets")
-    .select("id, industry, position_title, company_name, description, is_available, unavailable_reason")
+    .select("id, slug, industry, position_title, company_name, description, is_available, unavailable_reason")
     .eq("slug", slug)
     .maybeSingle();
 
-  if (!set) notFound();
+  if (!set || !(isSourceInterview(set) || isPublishedBusinessContent(set))) notFound();
 
   const { count } = await supabase
     .from("interview_questions")

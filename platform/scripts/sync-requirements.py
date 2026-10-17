@@ -99,12 +99,7 @@ out=Path(tempfile.mkdtemp(prefix='r2w-content-'));out.mkdir(exist_ok=True)
 print('profiles',sum(len(i['positions']) for i in profiles['industries']),'sets',len(bank),'questions',sum(len(r['questions']) for s in bank.values() for r in s['rounds'].values()))
 for i in issues:print(i)
 # Tasks: preserve source paragraphs and list grouping, never import grading text as a candidate input.
-old=json.loads((root/'platform/data/task-rubrics.json').read_text());oldtasks={t['position_id']:t for i in old['industries'] for t in i['tasks']}
 public=json.loads((root/'platform/data/source/materials-20261017.json').read_text())['by_position']
-supplement=json.loads((root/'platform/data/source/marketing-inputs-20261017.json').read_text())['by_position']
-for pid,materials in supplement.items():
- ids={material['id'] for material in materials}
- public[pid]=[material for material in public.get(pid,[]) if material['id'] not in ids]+materials
 profilemap={p['position_id']:p for i in profiles['industries'] for p in i['positions']}
 def paragraphs(cell):return [p['text'].strip() for p in cell if p['text'].strip()]
 def cellmd(cell,numberlists=False):
@@ -145,7 +140,7 @@ def grouped(cell,kind,pid):
   result.append({'criterion_id':cid,'criterion_name':re.sub(r'^\d+\.\s*','',re.split(r'\s*\(\d+\s*(?:đ|điểm)\)',g['heading'],flags=re.I)[0]).strip(' :'),'max_points':g['nominal'],'description':'\n'.join([g['heading']]+g['body']),'source_max_points':g['nominal'],'checklist':[{'checklist_id':f'{pid}-{cid}-{j}','text':s,'points':v,'scoring_source':'ai'} for j,(s,v) in enumerate(items,1)]})
  return result,'\n'.join(prefix),conflicts
 def task(pid,context,reqs,rubric,bi,conflicts=None,reference=''):
- t={'position_id':pid,'position_name':profilemap[pid]['position_name'],'level':'Fresher/Junior','time_limit_minutes':60 if pid.startswith(('MKT','IT')) else 35 if pid.startswith('LOG') else 60,'time_limit_source':'specified' if pid.startswith(('MKT','IT','LOG')) else 'not_specified','source_version':'20261017','source_block':bi,'context':context,'requirements':reqs,'rubric':rubric,'hard_constraints':[],'input_artifacts':[],'public_materials':public.get(pid,[]),'source_rubric_text':reference,'grading_ready':not bool(conflicts),'source_conflicts':conflicts or []}
+ t={'position_id':pid,'position_name':profilemap[pid]['position_name'],'level':'Fresher/Junior','time_limit_minutes':60 if pid.startswith(('MKT','IT')) else 35 if pid.startswith('LOG') else 60,'time_limit_source':'specified' if pid.startswith(('MKT','IT','LOG')) else 'not_specified','source_version':'20261017','source_policy':'document_only','content_revision':'20261017-doc-only','source_block':bi,'context':context,'requirements':reqs,'rubric':rubric,'hard_constraints':[],'input_artifacts':[],'public_materials':public.get(pid,[]),'source_rubric_text':reference,'grading_ready':not bool(conflicts),'source_conflicts':conflicts or []}
  t['source_total_points']=sum(c['max_points'] for c in rubric)
  if t['source_total_points']!=100:
   t['grading_ready']=False;t['source_conflicts'].append({'kind':'task_total_conflict','sourceTotal':t['source_total_points']})
@@ -164,12 +159,11 @@ for bi,ids,style in [(355,['IT-01','IT-02','IT-03'],'numbered'),(398,['KK-01','K
   rubric,prefix,conflicts=grouped(row[3],style,pid)
   newtasks[pid]=task(pid,cellmd(row[1],True),[cellmd(row[2],True)],rubric,bi,conflicts,text(row[3]))
   if prefix:newtasks[pid]['reference_answer']=prefix
-# The previously supplied IT coffee data is consistent with every source benchmark; keep its raw inputs.
-newtasks['IT-03']['input_artifacts']=oldtasks['IT-03'].get('input_artifacts',[])
-# Additional Marketing input facts were explicitly authorized by the project owner.
-for pid in ['MKT-01','MKT-02','MKT-03']:
- newtasks[pid]['supplemental_source']='marketing-inputs-20261017.json'
- newtasks[pid]['grading_ready']=True
+# Only the actual supplied documents may provide exercise inputs.
+newtasks['IT-03']['input_artifacts']=[{'artifact_id':'IT-03-DATA-01','type':'source_table','description':'Bảng dữ liệu gốc trong ô Bối cảnh của đề Data Analyst.','required':True}]
+for pid,missing in {'MKT-01':['Product Brief: chất liệu, giá, ưu đãi 48 giờ'],'MKT-02':['Dữ liệu phân nhóm quảng cáo và trang đích'],'MKT-03':['Bảng 12 từ khóa SEO']}.items():
+ newtasks[pid]['missing_source_inputs']=missing
+ newtasks[pid]['grading_ready']=False
 # Source explicitly splits C1 in Marketing; retain those three authored component points.
 for pid in ['MKT-01','MKT-02','MKT-03']:
  c=newtasks[pid]['rubric'][0]
@@ -187,9 +181,11 @@ for pid in ['MKT-01','MKT-02','MKT-03']:
 finance=json.loads((root/'platform/data/source/finance-facts-20261017.json').read_text())
 for pid in ['TCNH-01','TCNH-02','TCNH-03']:
  newtasks[pid]['input_artifacts']=[{'artifact_id':pid+'-DATA-01','type':'source_documents','description':'Bộ hồ sơ gốc đính kèm trong đề bài.','required':True}]
-# Public IT input table uses the previously supplied raw dataset, not its solved growth figures.
-itdata=json.loads((root/'platform/data/task-artifacts/IT-03-DATA-01.json').read_text())
-newtasks['IT-03']['public_materials'].insert(0,{'id':'coffee-input','title':'Dữ liệu doanh thu và số đơn thực tế','kind':'table','columns':['Chi nhánh','Tháng 5: Số đơn','Tháng 5: Doanh thu (triệu đồng)','Tháng 6: Số đơn','Tháng 6: Doanh thu (triệu đồng)','Tháng 7: Số đơn','Tháng 7: Doanh thu (triệu đồng)','Tháng 8: Số đơn','Tháng 8: Doanh thu (triệu đồng)'],'rows':[[branch['branch_name']]+[str(v) for m in branch['monthly_metrics'] for v in [m['orders'],m['revenue_million_vnd']]] for branch in itdata['branches_data']],'editable':False})
+# Preserve both nested tables from the source: raw inputs public, worked answer private.
+nested=blocks[355]['nested_tables']
+raw=next(table for table in nested if table['row']==3 and table['column']==1)
+benchmark=next(table for table in nested if table['row']==3 and table['column']==3)
+(out/'IT-03-DATA-01.json').write_text(json.dumps({'artifact_id':'IT-03-DATA-01','position_id':'IT-03','source_version':'20261017','source_block':355,'input_table':{'columns':raw['rows'][0],'rows':raw['rows'][1:]},'benchmark_table':{'columns':benchmark['rows'][0],'rows':benchmark['rows'][1:]}},ensure_ascii=False,indent=2)+'\n')
 tasks={'schema_version':'2.0','project':'Ready2Work','source_url':source['source_url'],'source_version':'20261017','document_purpose':'Đề bài và tiêu chí chấm theo nguyên bản nguồn; điểm mâu thuẫn chưa được tự thay đổi.','industries':[]}
 for iid,name,positions in industries:
  tasks['industries'].append({'industry_id':iid,'industry_name':name,'tasks':[newtasks[iid+'-'+suffix] for suffix,_,_ in positions]})

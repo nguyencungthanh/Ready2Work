@@ -5,10 +5,10 @@ import { revalidatePath } from "next/cache";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service-role-client";
-import { evaluateInterviewAnswer } from "@/lib/interview/evaluator";
 import { evaluateInterviewWithAI, type InterviewRubricCriterion } from "@/lib/interview/ai-evaluator";
 import { summarizeInterview } from "@/lib/interview/progress";
 import { logger } from "@/lib/observability/logger";
+import { isSourceInterview, isPublishedBusinessContent } from "@/lib/content/source-catalog";
 
 export interface InterviewAnswerState { error?: string }
 
@@ -18,10 +18,10 @@ export async function startInterviewSessionAction(formData: FormData): Promise<v
   if (!setId) throw new Error("Hãy chọn bộ câu hỏi phỏng vấn.");
   const supabase = await createServerSupabaseClient();
   const [{ data: set }, { data: questions }] = await Promise.all([
-    supabase.from("interview_sets").select("id, is_available").eq("id", setId).maybeSingle(),
+    supabase.from("interview_sets").select("id, slug, is_available").eq("id", setId).maybeSingle(),
     supabase.from("interview_questions").select("round_number").eq("set_id", setId),
   ]);
-  if (!set?.is_available || new Set((questions ?? []).map((q) => q.round_number)).size !== 3) {
+  if (!set?.is_available || !(isSourceInterview(set) || isPublishedBusinessContent(set)) || new Set((questions ?? []).map((q) => q.round_number)).size !== 3) {
     throw new Error("Bộ phỏng vấn này đang chờ bổ sung đầy đủ ba vòng câu hỏi nguồn.");
   }
   const { data: existing } = await supabase.from("interview_sessions").select("id")
@@ -50,6 +50,8 @@ export async function submitInterviewAnswerAction(
   if (!session || session.user_id !== user.id || session.completed_at) {
     return { error: "Buổi phỏng vấn không khả dụng hoặc đã hoàn thành." };
   }
+  const { data: set } = await supabase.from("interview_sets").select("slug, is_available").eq("id", session.set_id).maybeSingle();
+  if (!set?.is_available || !(isSourceInterview(set) || isPublishedBusinessContent(set))) return { error: "Bộ câu hỏi này đã được lưu trữ hoặc đang chờ xác nhận tiêu chí. Hãy chọn bộ câu hỏi hiện tại để luyện tập." };
   const sourceSet = session.interview_sets as unknown as { is_available: boolean } | { is_available: boolean }[] | null;
   const availability = Array.isArray(sourceSet) ? sourceSet[0] : sourceSet;
   if (availability?.is_available === false) return { error: "Bộ đề này chưa mở chấm hoặc đã được thay bằng phiên bản mới. Câu trả lời đã lưu vẫn được giữ trong lịch sử." };
@@ -61,13 +63,11 @@ export async function submitInterviewAnswerAction(
   const answeredIds = new Set((answers ?? []).map((answer) => answer.question_id));
   const question = (questions ?? []).find((row) => !answeredIds.has(row.id));
   if (!question || question.id !== questionId) return { error: "Hãy tiếp tục với câu hỏi chưa trả lời tiếp theo trong buổi phỏng vấn." };
-  const rubric = (question.grading_rubric ?? question.rubric ?? []) as InterviewRubricCriterion[];
+  const rubric = (question.grading_rubric ?? []) as InterviewRubricCriterion[];
+  if (!rubric.length) return { error: "Câu hỏi chưa có đầy đủ tiêu chí chấm từ nguồn. Nội dung trả lời vẫn được giữ; chưa có điểm mới được lưu." };
   let result;
   try {
-    // Legacy sets without a supplied rubric retain their explicitly identified rules-based evaluation.
-    result = rubric.length
-      ? await evaluateInterviewWithAI(answerText, question.prompt, question.reference_answer || question.guidance, rubric)
-      : evaluateInterviewAnswer(answerText, question.keywords ?? []);
+    result = await evaluateInterviewWithAI(answerText, question.prompt, [question.guidance, question.reference_answer].filter(Boolean).join("\n\n"), rubric);
   } catch (error) {
     logger.error("interview_evaluation_failed", { operation: "submitInterviewAnswerAction", domain: "interviews", error_code: error instanceof Error ? error.name : "UNKNOWN" });
     return { error: "AI chưa đánh giá được câu trả lời lúc này. Nội dung vẫn được giữ; vui lòng thử lại." };

@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "project": "Ready2Work",
-  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit",
+  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit?tab=t.a9gvxnc5ma1m",
   "source_version": "20261017",
   "document_purpose": "Đề bài và tiêu chí chấm theo nguyên bản nguồn; điểm mâu thuẫn chưa được tự thay đổi.",
   "industries": [
@@ -16,6 +16,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 285,
           "context": "Tình huống: Local Brand thời trang bán qua Fanpage (18.000 follower) và Shopee, sắp ra mắt BST Thu-Đông cho sinh viên (hoodie “Campus Fleece”). Engagement rate giảm 30% (3,0% → 2,1%); 10 bài gần nhất là ảnh sản phẩm nền trắng, chưa có kế hoạch nội dung và video ngắn.\n\nRàng buộc: team 2 người, không thuê KOL/studio, quay bằng điện thoại; khách hàng Gen Z 18–22 tuổi.",
           "requirements": [
@@ -167,58 +169,15 @@
                 ]
               ],
               "editable": true
-            },
-            {
-              "id": "marketing-product-brief",
-              "title": "Tóm tắt sản phẩm · Dữ liệu mô phỏng",
-              "kind": "table",
-              "columns": [
-                "Thông tin",
-                "Nội dung"
-              ],
-              "rows": [
-                [
-                  "Sản phẩm",
-                  "Hoodie Campus Fleece, bộ sưu tập Thu-Đông dành cho sinh viên 18–22 tuổi."
-                ],
-                [
-                  "Chất liệu",
-                  "Nỉ bông: 65% sợi bông, 35% sợi polyester."
-                ],
-                [
-                  "Kiểu dáng",
-                  "Dáng rộng, dành cho mọi giới; cỡ S, M, L, XL; màu đen, xám và nâu."
-                ],
-                [
-                  "Giá niêm yết",
-                  "399.000 đồng/áo."
-                ],
-                [
-                  "Ưu đãi mở bán",
-                  "Giảm 40.000 đồng/áo, còn 359.000 đồng trong 48 giờ đầu kể từ thời điểm mở bán. Hết 48 giờ trở lại giá niêm yết."
-                ],
-                [
-                  "Kênh mua hàng",
-                  "Fanpage của thương hiệu và gian hàng Shopee."
-                ],
-                [
-                  "Giọng thương hiệu",
-                  "Xưng hô “Shop – Cậu”, trẻ trung, gần gũi với sinh viên."
-                ],
-                [
-                  "Nguồn lực",
-                  "Nhóm 2 người; quay bằng điện thoại; không thuê KOL hoặc studio."
-                ]
-              ],
-              "editable": false,
-              "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
             }
           ],
           "source_rubric_text": "",
-          "grading_ready": true,
+          "grading_ready": false,
           "source_conflicts": [],
           "source_total_points": 100,
-          "supplemental_source": "marketing-inputs-20261017.json"
+          "missing_source_inputs": [
+            "Product Brief: chất liệu, giá, ưu đãi 48 giờ"
+          ]
         },
         {
           "position_id": "MKT-02",
@@ -227,6 +186,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 291,
           "context": "Tình huống: Trung tâm tiếng Anh giao tiếp, mục tiêu 100 lead trong 14 ngày. 3 ngày đầu chi 5.000.000đ, hiển thị 62.500 (CPM 80.000đ), 500 lượt nhấp (CTR 0,8%, CPC 10.000đ), 8 lead (chuyển đổi 1,6%), CPL 625.000đ so với mục tiêu tối đa 200.000đ.\n\nNgân sách còn lại: 15.000.000đ cho 11 ngày tiếp theo.",
           "requirements": [
@@ -306,107 +267,14 @@
           ],
           "hard_constraints": [],
           "input_artifacts": [],
-          "public_materials": [
-            {
-              "id": "marketing-ad-data",
-              "title": "Kết quả quảng cáo 3 ngày đầu · Dữ liệu mô phỏng",
-              "kind": "table",
-              "columns": [
-                "Nhóm quảng cáo",
-                "Tệp đối tượng",
-                "Chi tiêu (đồng)",
-                "Lượt hiển thị",
-                "Lượt nhấp",
-                "Khách để lại thông tin",
-                "CTR",
-                "CPL (đồng)"
-              ],
-              "rows": [
-                [
-                  "A",
-                  "18–45 tuổi, sở thích ngoại ngữ và học trực tuyến, phạm vi địa lý rộng.",
-                  "3.000.000",
-                  "40.000",
-                  "240",
-                  "3",
-                  "0,6%",
-                  "1.000.000"
-                ],
-                [
-                  "B",
-                  "22–30 tuổi, người đi làm trong khu vực có thể đến học tại trung tâm.",
-                  "2.000.000",
-                  "22.500",
-                  "260",
-                  "5",
-                  "1,1556%",
-                  "400.000"
-                ],
-                [
-                  "Tổng",
-                  "Hai nhóm dùng chung trang đích và biểu mẫu.",
-                  "5.000.000",
-                  "62.500",
-                  "500",
-                  "8",
-                  "0,8%",
-                  "625.000"
-                ]
-              ],
-              "editable": false,
-              "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
-            },
-            {
-              "id": "marketing-landing-data",
-              "title": "Quảng cáo và trang đích · Dữ liệu mô phỏng",
-              "kind": "table",
-              "columns": [
-                "Thông tin",
-                "Dữ liệu"
-              ],
-              "rows": [
-                [
-                  "Mẫu quảng cáo đang dùng",
-                  "Ảnh lịch tuyển sinh, nhiều chữ, tiêu đề “Đăng ký khóa tiếng Anh giao tiếp”; chưa thử video hoặc thông điệp khác."
-                ],
-                [
-                  "Tốc độ tải trang đích",
-                  "Trung bình 5,2 giây trên thiết bị di động trong 3 ngày đầu."
-                ],
-                [
-                  "Biểu mẫu",
-                  "7 trường bắt buộc: họ tên, số điện thoại, email, độ tuổi, nghề nghiệp, khu vực, trình độ hiện tại."
-                ],
-                [
-                  "Tỷ lệ chuyển đổi từ lượt nhấp",
-                  "8 khách để lại thông tin / 500 lượt nhấp = 1,6%."
-                ],
-                [
-                  "CPM tổng",
-                  "80.000 đồng cho 1.000 lượt hiển thị."
-                ],
-                [
-                  "CPC tổng",
-                  "10.000 đồng/lượt nhấp."
-                ],
-                [
-                  "Mục tiêu chiến dịch",
-                  "100 khách để lại thông tin trong 14 ngày."
-                ],
-                [
-                  "Ngân sách còn lại",
-                  "15.000.000 đồng cho 11 ngày tiếp theo."
-                ]
-              ],
-              "editable": false,
-              "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
-            }
-          ],
+          "public_materials": [],
           "source_rubric_text": "",
-          "grading_ready": true,
+          "grading_ready": false,
           "source_conflicts": [],
           "source_total_points": 100,
-          "supplemental_source": "marketing-inputs-20261017.json"
+          "missing_source_inputs": [
+            "Dữ liệu phân nhóm quảng cáo và trang đích"
+          ]
         },
         {
           "position_id": "MKT-03",
@@ -415,6 +283,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 297,
           "context": "Tình huống: Công ty SaaS quản lý bán hàng F&B vừa và nhỏ sắp ra mắt tính năng “Tự động quản lý nguyên vật liệu & cảnh báo tồn kho”. Organic traffic ~1.200 lượt/tháng (chủ yếu tìm tên thương hiệu), blog 8 bài chủ yếu là tin công ty, website yếu về uy tín tìm kiếm (DR ≈12).\n\nMục tiêu & nguồn lực: 5.000 lượt organic/tháng và 100 lead dùng thử/tháng trong 3 tháng; 1 người viết, 6 bài/tháng.",
           "requirements": [
@@ -558,100 +428,15 @@
                 ]
               ],
               "editable": true
-            },
-            {
-              "id": "marketing-keyword-data",
-              "title": "Bảng 12 từ khóa SEO · Dữ liệu mô phỏng",
-              "kind": "table",
-              "columns": [
-                "Từ khóa",
-                "Lượt tìm kiếm/tháng",
-                "Độ khó từ khóa (0–100)",
-                "Ý định tìm kiếm"
-              ],
-              "rows": [
-                [
-                  "cách tính giá vốn đồ uống",
-                  "1.300",
-                  "22",
-                  "Tìm hướng dẫn tính toán, phục vụ vận hành quán."
-                ],
-                [
-                  "cách quản lý nguyên liệu quán cafe không thất thoát",
-                  "480",
-                  "18",
-                  "Tìm phương pháp quản lý nguyên liệu tại quán."
-                ],
-                [
-                  "định mức nguyên liệu pha chế",
-                  "720",
-                  "24",
-                  "Tìm hướng dẫn xây dựng định mức pha chế."
-                ],
-                [
-                  "phần mềm quản lý kho F&B",
-                  "880",
-                  "28",
-                  "Tìm hiểu và so sánh công cụ quản lý kho."
-                ],
-                [
-                  "cảnh báo tồn kho tự động",
-                  "320",
-                  "19",
-                  "Tìm hiểu giải pháp cảnh báo tồn kho."
-                ],
-                [
-                  "phần mềm quản lý quán cafe",
-                  "4.400",
-                  "56",
-                  "So sánh phần mềm quản lý quán tổng thể."
-                ],
-                [
-                  "phần mềm quản lý bán hàng",
-                  "9.900",
-                  "70",
-                  "Tìm phần mềm bán hàng cho nhiều ngành."
-                ],
-                [
-                  "công thức pha chế trà sữa",
-                  "6.600",
-                  "24",
-                  "Tìm công thức đồ uống để thực hành."
-                ],
-                [
-                  "mở quán cafe cần chuẩn bị gì",
-                  "5.400",
-                  "32",
-                  "Tìm thông tin khởi nghiệp và mở quán."
-                ],
-                [
-                  "quản lý nguyên liệu nhà hàng",
-                  "590",
-                  "26",
-                  "Tìm cách quản lý nguyên liệu nhà hàng."
-                ],
-                [
-                  "kiểm soát thất thoát nguyên vật liệu",
-                  "260",
-                  "16",
-                  "Tìm quy trình kiểm soát thất thoát."
-                ],
-                [
-                  "phần mềm cảnh báo hết nguyên liệu quán cafe",
-                  "170",
-                  "15",
-                  "Tìm công cụ theo nhu cầu cụ thể của quán."
-                ]
-              ],
-              "editable": false,
-              "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
             }
           ],
           "source_rubric_text": "",
-          "grading_ready": true,
+          "grading_ready": false,
           "source_conflicts": [],
           "source_total_points": 100,
-          "supplemental_source": "marketing-inputs-20261017.json"
+          "missing_source_inputs": [
+            "Bảng 12 từ khóa SEO"
+          ]
         }
       ]
     },
@@ -666,6 +451,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 355,
           "context": "Một trung tâm đào tạo hiện quản lý học viên bằng Excel. Khi học viên đăng ký khóa học, nhân viên phải nhập thông tin thủ công, kiểm tra lớp còn chỗ và xác nhận học phí. Việc này dẫn đến dữ liệu bị trùng, cập nhật trạng thái chậm và khó theo dõi số lượng học viên theo lớp.\n\n→Tài liệu: Screenshot Excel quản lý học viên của trung tâm\n\nTrung tâm muốn xây dựng chức năng đăng ký khóa học trực tuyến trên hệ thống quản lý học viên. Theo yêu cầu của quản lý:\n\n1. Học viên có thể xem danh sách khóa học và số chỗ còn lại.\n\n2. Học viên chọn khóa học và gửi đăng ký.\n\n3. Hệ thống kiểm tra điều kiện đăng ký và số chỗ.\n\n4. Sau khi đăng ký, hệ thống ghi nhận thông tin và chuyển trạng thái sang “Chờ xác nhận học phí”.\n\n5. Nhân viên có thể xem danh sách đăng ký và cập nhật trạng thái học phí.",
           "requirements": [
@@ -755,8 +542,10 @@
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 355,
-          "context": "Một ứng dụng đặt đồ ăn vừa phát triển xong tính năng “Giỏ hàng & Thanh toán”. Trong vòng test nội bộ, đội QA ghi nhận 2 lỗi sau (đính kèm log/mô tả thực tế bên dưới):\n\nLỗi 1 - Sai tổng tiền:Giỏ hàng: 2 ly trà sữa (35.000đ/ly) + phí giao hàng 15.000đ. Khách nhập mã giảm giá SALE20 (giảm 20% trên tổng đơn hàng, không áp dụng cho phí ship). Hệ thống hiển thị tổng thanh toán = 68.000đ. (Số đúng phải là: (70.000 × 0.8) + 15.000 = 71.000đ)\n\n→ Tài liệu: Lỗi 1\n\nLỗi 2 - Đơn hàng bị trùng:Khách bấm nút \"Đặt hàng\" lúc mạng chập chờn (loading xoay hơn 3 giây). Khách bấm thêm lần 2 vì tưởng chưa nhận. Sau đó vào mục “Đơn hàng của tôi” thấy xuất hiện 2 đơn giống hệt nhau, cùng bị trừ tiền 2 lần trong lịch sử giao dịch.\n\n→ Tài liệu: Lỗi 2",
+          "context": "Một ứng dụng đặt đồ ăn vừa phát triển xong tính năng “Giỏ hàng & Thanh toán”. Trong vòng test nội bộ, đội QA ghi nhận 2 lỗi sau (đính kèm log/mô tả thực tế bên dưới):\n\nLỗi 1 - Sai tổng tiền:\nGiỏ hàng: 2 ly trà sữa (35.000đ/ly) + phí giao hàng 15.000đ. Khách nhập mã giảm giá SALE20 (giảm 20% trên tổng đơn hàng, không áp dụng cho phí ship). Hệ thống hiển thị tổng thanh toán = 68.000đ. (Số đúng phải là: (70.000 × 0.8) + 15.000 = 71.000đ)\n\n→ Tài liệu: Lỗi 1\n\nLỗi 2 - Đơn hàng bị trùng:\nKhách bấm nút \"Đặt hàng\" lúc mạng chập chờn (loading xoay hơn 3 giây). Khách bấm thêm lần 2 vì tưởng chưa nhận. Sau đó vào mục “Đơn hàng của tôi” thấy xuất hiện 2 đơn giống hệt nhau, cùng bị trừ tiền 2 lần trong lịch sử giao dịch.\n\n→ Tài liệu: Lỗi 2",
           "requirements": [
             "Bạn là Software Tester/QA, từ 2 lỗi mô tả ở trên, hãy viết 2 Bug Report theo mẫu chuẩn:\n\n1. Tiêu đề\n\n2. Các bước tái hiện\n\n3. Kết quả mong đợi\n\n4. Kết quả thực tế\n\n5. Mức độ nghiêm trọng\n\n6. Đề xuất hướng xử lý"
           ],
@@ -850,6 +639,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 355,
           "context": "Một chuỗi cà phê triển khai app đặt hàng trước (mobile order) tại 4 chi nhánh trong 4 tháng gần nhất. Dưới đây là dữ liệu doanh thu và số đơn thực tế:\n\n(Ghi chú: chi nhánh Bình Thạnh có khuyến mãi “mua 1 tặng 1” trong tuần đầu tháng 7; các chi nhánh còn lại không có khuyến mãi trong giai đoạn này.)",
           "requirements": [
@@ -921,10 +712,9 @@
           "input_artifacts": [
             {
               "artifact_id": "IT-03-DATA-01",
-              "type": "table_or_excel",
-              "description": "Bảng số đơn hàng và doanh thu theo tháng (Tháng 5-8) của 4 chi nhánh (Q1, Q3, Bình Thạnh, Thủ Đức), có ghi chú chương trình khuyến mãi \"mua 1 tặng 1\" tại Bình Thạnh trong tuần đầu tháng 7.",
-              "required": true,
-              "mapping_note": "File thực tế của đề thi sẽ được hệ thống map vào task này theo position_id; không tự tạo dữ liệu mẫu."
+              "type": "source_table",
+              "description": "Bảng dữ liệu gốc trong ô Bối cảnh của đề Data Analyst.",
+              "required": true
             }
           ],
           "public_materials": [
@@ -934,62 +724,46 @@
               "kind": "table",
               "columns": [
                 "Chi nhánh",
-                "Tháng 5: Số đơn",
-                "Tháng 5: Doanh thu (triệu đồng)",
-                "Tháng 6: Số đơn",
-                "Tháng 6: Doanh thu (triệu đồng)",
-                "Tháng 7: Số đơn",
-                "Tháng 7: Doanh thu (triệu đồng)",
-                "Tháng 8: Số đơn",
-                "Tháng 8: Doanh thu (triệu đồng)"
+                "Tháng 5 (đơn/ doanh thu)",
+                "Tháng 6",
+                "Tháng 7",
+                "Tháng 8"
               ],
               "rows": [
                 [
-                  "Chi nhánh Quận 1",
-                  "420",
-                  "21.0",
-                  "460",
-                  "23.0",
-                  "510",
-                  "25.5",
-                  "560",
-                  "28.0"
+                  "Q1",
+                  "420 đơn / 21.0tr",
+                  "460 đơn / 23.0tr",
+                  "510 đơn / 25.5tr",
+                  "560 đơn / 28.0tr"
                 ],
                 [
-                  "Chi nhánh Quận 3",
-                  "380",
-                  "19.0",
-                  "400",
-                  "20.0",
-                  "390",
-                  "19.5",
-                  "405",
-                  "20.3"
+                  "Q3",
+                  "380 đơn / 19.0tr",
+                  "400 đơn / 20.0tr",
+                  "390 đơn / 19.5tr",
+                  "405 đơn / 20.3tr"
                 ],
                 [
-                  "Chi nhánh Bình Thạnh",
-                  "300",
-                  "15.0",
-                  "340",
-                  "17.0",
-                  "400",
-                  "20.0",
-                  "470",
-                  "23.5"
+                  "Bình Thạnh",
+                  "300 đơn / 15.0tr",
+                  "340 đơn / 17.0tr",
+                  "400 đơn / 20.0tr",
+                  "470 đơn / 23.5tr"
                 ],
                 [
-                  "Chi nhánh Thủ Đức",
-                  "250",
-                  "12.5",
-                  "245",
-                  "12.3",
-                  "240",
-                  "12.0",
-                  "238",
-                  "11.9"
+                  "Thủ Đức",
+                  "250 đơn / 12.5tr",
+                  "245 đơn / 12.3tr",
+                  "240 đơn / 12.0tr",
+                  "238 đơn / 11.9tr"
                 ]
               ],
-              "editable": false
+              "editable": false,
+              "source_block": 355,
+              "source_row": 3,
+              "source_column": 1,
+              "source_nested_table": 0
             }
           ],
           "source_rubric_text": "1. Độ chính xác trong quyết định/đề xuất chính (35 điểm): Tính đúng % tăng trưởng từng chi nhánh; xác định đúng Q1 tăng trưởng tốt nhất và Thủ Đức trì trệ/suy giảm dựa trên số liệu.\n*Lưu ý: con số +56,67% của Bình Thạnh bị đội lên bởi khuyến mãi “mua 1 tặng 1” trong T7 - không phản ánh tăng trưởng thực chất .\n2. Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài (25 điểm): Mỗi insight giải thích được logic từ số liệu sang nguyên nhân nghiệp vụ khả dĩ, có trích dẫn đúng con số trong bảng. Có thể tham khảo như:\nInsight 1: Thủ Đức giảm đều -1,6% → -2,44% → -0,83% suốt 4 tháng liên tiếp, không có cú sốc đột ngột → đây là vấn đề mang tính hệ thống (vị trí, menu, cạnh tranh khu vực), cần khảo sát thực địa trước khi quyết định nhân rộng mô hình tới khu vực tương tự.\nInsight 2: Bình Thạnh tăng vọt +17,65% đúng tháng có khuyến mãi “mua 1 tặng 1” (T7) rồi vẫn giữ đà +17,5% ở T8 - cần theo dõi thêm 1-2 tháng nữa (sau khi hết dư âm khuyến mãi) mới kết luận được đây là tăng trưởng bền vững hay chỉ là hiệu ứng ngắn hạn.\nInsight 3: Q1 là chi nhánh duy nhất tăng trưởng dương và ổn định ở cả 3 mốc thời gian mà không cần khuyến mãi → nên ưu tiên nghiên cứu mô hình vận hành của Q1 (sản phẩm bán chạy, khung giờ) làm chuẩn tham chiếu khi nhân rộng 10 chi nhánh mới, thay vì Bình Thạnh.\n3. Khả năng xử lý sâu vấn đề phát sinh trong tình huống (25 điểm): Nhận diện và xử lý hợp lý:\nBình Thạnh tăng mạnh tháng 7 trùng thời điểm có khuyến mãi “mua 1 tặng 1” → không được kết luận đây là tăng trưởng thực chất mà cần tách riêng ảnh hưởng khuyến mãi khi đánh giá xu hướng dài hạn.\nThủ Đức có doanh thu giảm nhẹ đều đặn suốt 4 tháng (không có biến động đột ngột) → đề xuất phân biệt đây là vấn đề mang tính hệ thống (địa điểm, menu, cạnh tranh) hơn là sự cố ngắn hạn, cần điều tra thêm thay vì chỉ đọc số.\n4. Trình bày mạch lạc, đúng thời gian (15 điểm): Trình bày đúng thứ tự, đủ 3 yêu cầu, số liệu tính toán chính xác và rõ ràng, hoàn thành trong 60 phút.",
@@ -1010,6 +784,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 398,
           "context": "1. Bạn là Kế toán tổng hợp (Chuyên bán lẻ đồ điện tử). Công ty áp dụng chế độ kế toán theo Thông tư 200/2014/TT-BTC, kê khai thuế GTGT theo phương pháp khấu trừ. Hôm nay là ngày 31/12/2026, bạn cần rà soát và hạch toán lô chứng từ cuối cùng để khóa sổ lập Báo cáo tài chính.\n\n2. Dữ liệu cung cấp (Inputs): Bộ phận mua hàng và ngân hàng gửi đến cho bạn 3 chứng từ sau:\n\n1. Chứng từ 1: Hóa đơn GTGT mua 1 chiếc ô tô 9 chỗ ngồi phục vụ cho việc đi lại của Giám đốc. Giá chưa thuế GTGT: 2.500.000.000 VNĐ, Thuế GTGT 10%: 250.000.000 VNĐ.\n\n2. Chứng từ 2: Hóa đơn GTGT tiếp khách tại nhà hàng sang trọng, tổng thanh toán 22.000.000 VNĐ (đã bao gồm 10% VAT). Tuy nhiên, trên hóa đơn bị sai một chữ số trong Mã số thuế của công ty Alpha. (Thanh toán bằng thẻ tín dụng công ty).\n\n3. Chứng từ 3: Giấy báo Có của Ngân hàng Vietcombank về việc nhận được thanh toán từ khách hàng nước ngoài (Công ty X). Số tiền nhận: 50.000 USD.\n\n4. Biết rằng: Khoản phải thu của khách hàng X đang có số dư trên sổ kế toán là: 50.000 USD, tỷ giá ghi sổ là 24.200 VNĐ/USD.\n\n5. Tỷ giá mua chuyển khoản của Vietcombank ngày 31/12/2026 là 25.100 VNĐ/USD.\n\n6. Ngân hàng nước ngoài đã thu phí chuyển tiền trực tiếp từ số tiền này là 50 USD (Công ty Alpha chịu phí theo hợp đồng). Thực tế tiền vào tài khoản chỉ là 49.950 USD.",
           "requirements": [
@@ -1107,6 +883,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 398,
           "context": "1. Bối cảnh (Context): Bạn là Trợ lý kiểm toán năm nhất (Audit Assistant) tham gia Job kiểm toán BCTC năm 2026. Bạn được giao phụ trách phần hành Tiền (Cash) và Phải thu khách hàng (AR).\n\n2. Dữ liệu cung cấp (Inputs):\n\n1. Tình huống 1 (Phần Tiền gửi Ngân hàng):\n\n2. Số dư cuối kỳ trên Sổ cái TK 1121 (Vietinbank) của công ty là: 5.500.000.000 VNĐ.\n\n3. Thư xác nhận từ ngân hàng (Bank Confirmation) gửi thẳng cho Kiểm toán viên báo số dư là: 5.445.000.000 VNĐ.\n\n4. Khi bạn yêu cầu kế toán đối chiếu, kế toán cung cấp Sổ phụ ngân hàng tháng 12 phát hiện 2 khoản: (1) Ngân hàng đã thu phí duy trì tài khoản năm 2026 là 5.000.000 VNĐ, kế toán chưa hạch toán. (2) Khách hàng Công ty Z đã chuyển khoản trả nợ 50.000.000 VNĐ vào chiều ngày 31/12, ngân hàng đã ghi Có, nhưng kế toán công ty Beta chưa nhận được giấy báo Có nên chưa ghi sổ.\n\n5. Tình huống 2 (Phần Phải thu khách hàng):\n\n6. Khách hàng trọng yếu Công ty M có số dư Nợ TK 131 là 2.000.000.000 VNĐ. Bạn đã gửi Thư xác nhận công nợ (Circularization) lần 1 và lần 2 nhưng hoàn toàn không nhận được phản hồi (Non-response).",
           "requirements": [
@@ -1192,6 +970,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 398,
           "context": "1. Bối cảnh (Context): Bạn là Tư vấn viên thuế (Tax Assistant) đang làm việc với khách hàng là Công ty TNHH Một thành viên Gamma (Do 1 cá nhân làm chủ, đồng thời là Giám đốc trực tiếp điều hành công ty). Kế toán của Gamma vừa gửi cho bạn Bảng cân đối tài khoản năm 2026. Lợi nhuận kế toán trước thuế (LNKTTT) hiện đang là: 5.000.000.000 VNĐ.\n\n2. Dữ liệu cung cấp (Inputs): Trong quá trình rà soát Sổ cái các tài khoản chi phí (TK 641, 642, 811), bạn phát hiện các khoản chi sau đã được kế toán trừ hết vào chi phí trong kỳ để tính LNKTTT:\n\n1. Chi phí đồng phục bằng tiền mặt cho 100 nhân viên: 600.000.000 VNĐ (Bình quân 6 triệu/người/năm).\n\n2. Chi phí phạt vi phạm hợp đồng kinh tế (giao hàng chậm cho đối tác): 150.000.000 VNĐ.\n\n3. Chi phí phạt vi phạm hành chính (chậm nộp Tờ khai thuế GTGT và lấn chiếm lòng lề đường): 35.000.000 VNĐ.\n\n4. Tiền lương và Bảo hiểm của Giám đốc (chủ sở hữu Công ty TNHH 1 thành viên): 480.000.000 VNĐ/năm.\n\n5. Chi tài trợ cho phường xây dựng nhà văn hóa khu phố: 50.000.000 VNĐ (Có biên bản xác nhận của UBND Phường).",
           "requirements": [
@@ -1322,6 +1102,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 441,
           "context": "Bạn là Chuyên viên Phân tích Tài chính của Chuỗi bán lẻ Đại Dương (cửa hàng tiện lợi, hàng tiêu dùng nhanh). Doanh thu tăng liên tục 4 quý gần nhất nhưng lợi nhuận sau thuế lại giảm. Ban Giám đốc cần biết nguyên nhân và phương án xử lý trước kỳ họp đầu quý sau. Bạn được cung cấp 1 bộ hồ sơ\n\n1. Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)\n\n2. Chỉ số vận hành\n\n3. Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
           "requirements": [
@@ -1568,6 +1350,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 441,
           "context": "Bạn là Chuyên viên Thẩm định Tín dụng SME tại Ngân hàng TMCP Đại Dương. CTCP Con Sứa đề nghị vay 5 tỷ đồng để mua dây chuyền. Trưởng phòng yêu cầu bạn hoàn thành tờ trình thẩm định tín dụng trước cuộc họp thẩm định, dựa trên hồ sơ được cung cấp.\n\n1. Thông tin doanh nghiệp\n\n2. Lịch sử tín dụng\n\n3. Báo cáo tài chính 2023–2025\n\n4. Tài sản đảm bảo đề xuất\n\n5. Phương án sử dụng vốn\n\n6. Chính sách tín dụng SME của Ngân hàng Đại Dương",
           "requirements": [
@@ -1842,6 +1626,8 @@
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 441,
           "context": "Bạn là chuyên viên phân tích rủi ro tín dụng tại Ngân hàng Đáy Biển. Phòng Quan hệ khách hàng đề xuất khoản vay trung hạn 400 tỷ đồng cho Công ty Cổ phần Con Cua xây dựng giai đoạn 2 nhà máy thép tại Hưng Yên. Trước biến động giá nguyên liệu và cạnh tranh từ thép nhập khẩu, bạn cần phân tích hồ sơ, đánh giá rủi ro và đưa ra ý kiến độc lập trình Hội đồng Tín dụng\n\n1. Hồ sơ đề xuất cấp tín dụng và thông tin dự án\n\n2. Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)\n\n3. Bản tin ngành thép và chỉ số trung vị ngành (số liệu mô phỏng)\n\n4. Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
           "requirements": [
@@ -2064,6 +1850,8 @@
           "time_limit_minutes": 35,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 491,
           "context": "Bạn là Nhân viên Điều hành Logistics tại Công ty ABC Distribution (phân phối hàng B2B tại miền Bắc).\n\nHiện tại là 09:15. Bạn phụ trách 6 đơn hàng giao trong ngày. Trong 15 phút vừa qua có 4 thông báo sự cố (xe trễ, hỏng xe, lệch chứng từ, đổi điểm giao).\n\nQuản lý yêu cầu: rà soát đơn, phân loại ưu tiên, xử lý ngoại lệ đúng SOP, duyệt chi phí/thông tin đúng thẩm quyền và báo cáo nhanh.\n\nDữ liệu đơn hàng (Mã · Tuyến · SL · ETA · SLA · Trạng thái)\n\n• SH-101 · Hưng Yên → Hà Nội · 18 kiện · 10:30 · 11:00 · Đang vận chuyển (cập nhật 09:05)\n\n• SH-102 · Hưng Yên → Bắc Ninh · 24 kiện · 11:20 · 11:30 · Chưa lấy hàng (xe báo đến kho 09:25)\n\n• SH-103 · Hưng Yên → Hải Phòng · 32 thùng · 11:30 · 12:30 · Xe chờ tại kho (dự kiến rời kho 09:35)\n\n• SH-104 · Hưng Yên → Ninh Bình · 10 kiện · 14:00 (phương án cũ) · 13:00 · Xe ban đầu gặp sự cố\n\n• SH-105 · Hưng Yên → Thanh Hóa · 45 thùng · 14:30 · 15:00 · Đang vận chuyển (vị trí 08:55)\n\n• SH-106 · Hưng Yên → Hà Nội · 5 kiện · 10:15 · 10:30 · Đang vận chuyển (tài xế giữ thông tin Cổng 1)\n\nThông báo sự cố (09:00 – 09:15)\n\n• TB1 – SH-102, xe trễ: 09:10 nhà xe báo kẹt xe, đến kho 09:25 (trễ 25 phút); ETA giao 11:20, sát SLA 11:30 (đệm 10 phút).\n\n• TB2 – SH-103, lệch chứng từ: 09:10 Kho báo Phiếu giao hàng ghi 30 thùng, PO ghi 32 thùng. Xe chờ tại kho, dự kiến rời 09:35. Chưa rõ kho xuất thiếu hay phiếu in sai.\n\n• TB3 – SH-104, hỏng xe & phụ phí: 09:05 xe hỏng. PA A (nhà xe hiện tại): xe thay thế đến kho 10:15 → ETA 14:00 (trễ SLA 1 tiếng). PA B (nhà xe ngoài): nhận hàng 09:40 → ETA 12:50 (đúng SLA), phụ phí 350.000 VNĐ; báo giá chỉ giữ đến 09:35.\n\n• TB4 – SH-106, đổi điểm giao: 09:05 khách email báo Cổng 1 đóng đến 11:00, yêu cầu giao tại Cổng 3. Tài xế chưa biết, vẫn chạy về Cổng 1 (ETA 10:15, SLA 10:30).\n\nSOP\n\n• Chứng từ: không xuất hàng SH-103 khi chênh lệch chưa được xác minh.\n\n• Chi phí: phát sinh > 200.000 VNĐ phải trình Quản lý duyệt trước khi xác nhận với nhà xe.\n\n• Thông tin: cập nhật điểm giao mới cho tài xế và bắt buộc nhận phản hồi xác nhận.\n\n• SLA: có nguy cơ trễ phải báo Quản lý và thông báo sớm cho bên liên quan.",
           "requirements": [
@@ -2263,6 +2051,8 @@
           "time_limit_minutes": 35,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 491,
           "context": "Bạn là Chuyên viên Phân tích Chuỗi cung ứng tại Công ty Bán lẻ ABC. Trưởng phòng Supply Chain yêu cầu rà soát tồn kho và cung ứng cuối tháng cho 5 SKU trọng điểm nhóm hàng tiêu dùng nhanh.\n\nMục tiêu: phân tích chỉ số tồn kho, nhận diện rủi ro đứt hàng (Stockout) hoặc tồn dư (Excess Stock), tìm nguyên nhân gốc rễ và đề xuất xử lý ngay.\n\nDữ liệu (SKU · Tồn an toàn · Tồn hiện tại · Nhu cầu/ngày · Lead time · On-order · OTIF)\n\n• SKU-101 Sữa tươi tiệt trùng 1L · 7 ngày · 3.500 · 500 · 5 ngày · 2.500 (về sau 2 ngày) · 95%\n\n• SKU-102 Dầu ăn thực vật 2L · 10 ngày · 800 · 400 · 7 ngày · 0 · 90%\n\n• SKU-103 Nước giặt đậm đặc 3.8kg · 14 ngày · 18.000 · 200 · 10 ngày · 0 · 85%\n\n• SKU-104 Mì ăn liền tôm chua cay · 5 ngày · 1.200 · 600 · 14 ngày (tăng từ 5 ngày) · 3.000 (đang trễ 5 ngày) · 55%\n\n• SKU-105 Bánh quy bơ hộp thiếc · 10 ngày · 4.000 · 400 · 7 ngày · 2.800 (về sau 3 ngày) · 92%\n\nCông thức\n\n• DOI = Tồn kho hiện tại ÷ Nhu cầu trung bình/ngày\n\n• ROP = (Nhu cầu/ngày × Lead time) + (Nhu cầu/ngày × Định mức tồn an toàn)",
           "requirements": [
@@ -2415,6 +2205,8 @@
           "time_limit_minutes": 35,
           "time_limit_source": "specified",
           "source_version": "20261017",
+          "source_policy": "document_only",
+          "content_revision": "20261017-doc-only",
           "source_block": 491,
           "context": "Bạn là Chuyên viên Thu mua tại Công ty CP Bao bì & Sản xuất ABC. Lúc 10:00, bạn nhận Yêu cầu Mua hàng khẩn PR-2026-088: mua 5.000 kg hạt nhựa PE cho đơn xuất khẩu gấp.\n\n• SLA: hàng về kho chậm nhất 15/10 (để sản xuất sáng 16/10).\n\n• Trần ngân sách: 42.000 VNĐ/kg (đã gồm VAT và vận chuyển về kho ABC).\n\nBáo giá 3 NCC\n\n• NCC A (Bình Dương): 38.000đ/kg · VAT 10% · vận chuyển miễn phí · giao 3 ngày (về 13/10) · trả chậm 30 ngày · đạt chuẩn 100%, NCC truyền thống.\n\n• NCC B (Đồng Nai): 36.500đ/kg · VAT 10% · vận chuyển 1.500đ/kg · giao 4 ngày (về 14/10) · trả trước 100% khi đặt PO · đạt chuẩn 100%, NCC mới hợp tác.\n\n• NCC C (Hải Phòng): 35.000đ/kg · VAT 10% · vận chuyển 2.500đ/kg · giao 7 ngày (về 17/10) · trả chậm 15 ngày · mới gửi hồ sơ, chưa test mẫu.\n\nSự cố song song (PO-2026-042)\n\n10:10 Trưởng kho cảnh báo: lô 1.000 phụ kiện đóng gói mua tuần trước từ NCC B lỗi kỹ thuật 20% (200 sản phẩm móp méo). Sản xuất yêu cầu Thu mua xử lý với NCC B (đổi trả/bồi thường trong 48h hoặc trừ công nợ).\n\nSOP\n\n• Landed Cost = Đơn giá có VAT + Phí vận chuyển/kg; chọn theo tổng chi phí thực tế.\n\n• SLA & ngân sách: tuyệt đối không chọn NCC trễ hạn hoặc vượt 42.000đ/kg.\n\n• Rủi ro thanh toán & đối tác: thận trọng với trả trước 100% cho NCC có lịch sử xử lý khiếu nại chậm hoặc hàng lỗi.\n\n• Phê duyệt PO: PO > 100 triệu VNĐ phải xin ý kiến Trưởng phòng Thu mua trước khi phát hành.",
           "requirements": [

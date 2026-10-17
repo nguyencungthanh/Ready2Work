@@ -132,12 +132,13 @@ export async function evaluateSubmissionWithAI(
   minWords: number,
   context?: { referenceData: unknown; actualDurationSeconds: number },
 ): Promise<EvaluationResult> {
-  if (context?.referenceData && typeof context.referenceData === "object" &&
-      Array.isArray((context.referenceData as { rubric?: unknown }).rubric)) {
+  if (context?.referenceData && typeof context.referenceData === "object") {
     if ((context.referenceData as { source_version?: unknown }).source_version === "20261017") {
       return evaluateCurrentSource(content, brief, taskInstructions, context.referenceData, context.actualDurationSeconds);
     }
-    return evaluateSourceChecklist(content, brief, taskInstructions, context.referenceData, context.actualDurationSeconds);
+    if (Array.isArray((context.referenceData as { rubric?: unknown }).rubric)) {
+      return evaluateSourceChecklist(content, brief, taskInstructions, context.referenceData, context.actualDurationSeconds);
+    }
   }
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
   const tooShort = wordCount < minWords;

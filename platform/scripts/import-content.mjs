@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const namespace = Buffer.from("7c0be9b45da656cf8f2432b9a61c647a", "hex");
 // The published feedback migration is immutable. Later input edits are additive.
-export const migrationName = "20261017000200_marketing_inputs_sync.sql";
+export const migrationName = "20261017000300_document_only_catalog.sql";
 const attemptSource = await readFile(join(root, "supabase/migrations/20261016000300_simulation_attempts.sql"), "utf8");
 const priorFinalizer = attemptSource.match(/create function public\.finalize_simulation_attempt\([\s\S]*?\$\$;/)?.[0];
 if (!priorFinalizer) throw new Error("Missing simulation finalizer source.");
@@ -34,7 +34,7 @@ const total = (items, key) => items.reduce((sum, item) => sum + Number(item[key]
 const normalizeName = (value) => value.normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/[đĐ]/g, "d").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 
 const privateKeys = new Set([
-  "benchmarkinsights", "answerkey", "referenceanswer", "standardformulareference",
+  "benchmarkinsights", "benchmarktable", "answerkey", "referenceanswer", "standardformulareference",
   "gradingrubric", "rubric", "checklist", "hardconstraints", "scoringguideline",
   "scoringsourcenote", "gradernotes", "gradingnotes", "solution", "solutions",
   "expectedanswer", "expectedanswers", "modelanswer", "notes",
@@ -198,11 +198,18 @@ export function renderMigration(content) {
   return rows.join("\n");
 }
 
-export function renderMaterialsMigration(content) {
+export function renderDocumentOnlyMigration(content) {
   if (content.validation.errors.length) throw new Error("Prepared content validation failed.");
-  const rows = ["-- Generated Marketing input synchronization; published feedback migration is retained.", "-- Only public exercise inputs change. Rubrics, attempts and answers are untouched.", "begin;", "set local standard_conforming_strings = on;"];
-  for (const item of content.simulations.filter((simulation) => /^MKT-0[123]$/.test(simulation.position_id))) {
-    rows.push(`update public.simulations set reference_data = jsonb_set(reference_data, '{public_materials}', ${sqlJson(item.reference_data.public_materials)}) where slug = ${sqlText(item.slug)} and reference_data->>'source_version' = '20261017';`);
+  const rows = ["-- Generated source-only catalog synchronization. Applied migrations remain unchanged.", "-- Keep all candidate history and real company content; remove unsupported inputs from current exercises.", "begin;", "set local standard_conforming_strings = on;"];
+  const sourceSlugs = content.simulations.map((item) => sqlText(item.slug)).join(", ");
+  rows.push(`update public.simulation_attempts a set superseded_at = now() from public.simulations s where s.id = a.simulation_id and s.slug in (${sourceSlugs}) and a.submission_id is null and a.superseded_at is null and coalesce(s.reference_data->>'source_policy', '') <> 'document_only';`);
+  rows.push("update public.simulations set is_available = false, unavailable_reason = 'Đề mẫu cũ ngoài tài liệu được giao; lịch sử đã lưu vẫn được giữ.' where position_id is null and slug in ('audit-receivables-review', 'cost-variance-analysis', 'credit-appraisal-sme', 'equity-valuation-note', 'churn-dashboard-spec', 'bug-triage-api', 'inventory-optimisation', 'shipment-delay-escalation', 'brand-repositioning-brief', 'campaign-launch-plan');");
+  rows.push("update public.interview_sets set is_available = false, unavailable_reason = 'Bộ đề mẫu cũ ngoài tài liệu được giao; lịch sử đã lưu vẫn được giữ.' where position_id is null and slug in ('financial-analyst-general', 'software-engineer-general', 'commercial-bank-credit-round1', 'product-company-data-round1', 'big4-audit-round1', '3pl-operations-round1', 'fmcg-brand-round1');");
+  for (const item of content.simulations) {
+    if (item.reference_data.source_policy !== "document_only") throw new Error(`Missing document-only source policy: ${item.slug}`);
+    const columns = ["brief", "task_instructions", "is_available", "unavailable_reason", "rubric", "grading_rubric", "reference_data"];
+    const assignments = columns.map((key) => `${key} = ${["rubric", "grading_rubric", "reference_data"].includes(key) ? sqlJson(item[key]) : typeof item[key] === "boolean" ? String(item[key]) : sqlText(item[key])}`);
+    rows.push(`update public.simulations set ${assignments.join(",\n  ")} where id = ${sqlText(item.id)} and slug = ${sqlText(item.slug)};`);
   }
   rows.push("commit;", "");
   return rows.join("\n");
@@ -227,7 +234,7 @@ async function main() {
   const content = buildPreparedContent(await readPreparedSources());
   if (content.validation.errors.length) throw new Error(content.validation.errors.join("\n"));
   const outputs = new Map([
-    [join(root, "supabase/migrations", migrationName), renderMaterialsMigration(content)],
+    [join(root, "supabase/migrations", migrationName), renderDocumentOnlyMigration(content)],
     [join(root, "data/content-validation.json"), `${JSON.stringify(content.validation, null, 2)}\n`],
     ...Object.entries(businessTemplates()).map(([name, value]) => [join(root, "public/templates", name), `${JSON.stringify(value, null, 2)}\n`]),
   ]);

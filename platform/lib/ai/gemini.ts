@@ -22,13 +22,14 @@ function getClient(): GoogleGenAI {
 export async function generateStructured(
   prompt: string,
   responseSchema: object,
-  document?: { data: string; mimeType: "application/pdf" },
+  document?: InlineAttachment | InlineAttachment[],
 ): Promise<unknown> {
   const client = getClient();
+  const documents = document ? Array.isArray(document) ? document : [document] : [];
 
   const response = await client.models.generateContent({
     model: MODEL,
-    contents: document ? [{ text: prompt }, { inlineData: document }] : prompt,
+    contents: documents.length ? [{ text: prompt }, ...documents.map((inlineData) => ({ inlineData }))] : prompt,
     config: {
       responseMimeType: "application/json",
       responseSchema,
@@ -42,6 +43,8 @@ export async function generateStructured(
 
   return JSON.parse(text);
 }
+
+export interface InlineAttachment { data: string; mimeType: "application/pdf" | "image/png" | "image/jpeg" }
 
 export interface ChatTurn {
   role: "user" | "model";

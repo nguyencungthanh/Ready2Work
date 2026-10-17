@@ -1,5 +1,17 @@
 # Ghi nhận kiểm tra
 
+## Chỉ dùng nội dung Google Docs — 18/10/2026
+
+Nguồn live được tải lại sau gián đoạn và đối chiếu đủ 520 khối; không có thay đổi so với snapshot đã sửa. Đủ năm ngành × ba đề/ba vị trí, 120 câu phỏng vấn nguyên văn 3/3/2. IT03 dùng đúng bảng lồng năm cột trong Docs; benchmark riêng tư. Marketing tự tạo đã bị gỡ khỏi tệp nguồn và reference data mới, ba tài liệu chưa có vẫn được ghi là thiếu.
+
+Hai agent code/kiểm định chạy các kiểm tra tập trung riêng (không cộng hai số lượng trùng nhau thành tổng nghiệm thu). 11 content-import contracts, kiểm định 11 migration trong PostgreSQL cô lập, typecheck và lint phần đổi đã qua. Kiểm tra dữ liệu xác nhận không đổi câu hỏi/đáp án lịch sử, điểm đã lưu, quyền tài khoản và đường xuất bản doanh nghiệp thật. Một Chromium flow trên production build local qua: 15 đề, mỗi ngành ba thẻ, 15 bộ phỏng vấn nguồn, loại demo doanh nghiệp, bảng IT03, Marketing thiếu tài liệu, nháp/refresh/đăng nhập lại, bảng FA và nhập TXT. Fixture local đã xóa.
+
+Production build qua; NFT `/simulations/[slug]` có đủ 20 PNG nguồn, không có ảnh đáp án 14/20. Lần build sandbox đứng ở compile đã dừng; build với quyền process cần thiết qua, không dùng kết quả đứng đó làm bằng chứng thành công. Không chạy lại toàn bộ suite hoặc provider cho các chỉnh sửa tài liệu.
+
+API Gemini thật: một bài Business Analyst với ảnh Excel nguồn, barem nguyên bản và câu trả lời giả đã qua đúng ID, label, maxScore, điểm thành phần và phản hồi không rỗng. Quyền gửi ảnh được người dùng xác nhận sau khi auto-review chặn phạm vi ảnh chưa được nêu ở quyền văn bản cũ. Không gửi CV/feedback/tài khoản hay ghi database ở phép thử này. Không coi một ca API qua là nghiệm thu toàn bộ chất lượng chấm. Kết quả chi tiết và các vấn đề nguồn còn chờ: [feedback audit](feedback-audit.md).
+
+Migration source-only thứ mười một đã áp dụng cloud sau dry-run. Đối chiếu chỉ đọc bằng nguồn sinh chuẩn xác nhận đầy đủ dữ liệu của 15 mô phỏng, 120 câu hỏi/đáp án/barem và 15 bộ phỏng vấn; 17 demo cũ đã lưu trữ. Không đọc hồ sơ hoặc bài làm người dùng khi xác nhận cloud. Chín mô phỏng và bảy bộ phỏng vấn đủ điều kiện chấm, các phần còn thiếu vẫn cho xem nội dung.
+
 ## Bằng chứng trước lần dọn giao diện cũ
 
 [Snapshot UI/auth trước dọn dẹp](validation/ui-baseline.json): 103 unit tests, 29 kịch bản browser trên local Supabase/Mailpit đã qua; sau đó kiểm tra tập trung editor/draft doanh nghiệp cũng qua. Đây là kết quả của lượt phát triển trước, không phải các suite vừa được chạy lại ở lần sửa master plan này.

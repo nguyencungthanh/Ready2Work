@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { randomUUID } from "node:crypto";
+import taskSource from "../../data/task-rubrics.json";
+import interviewSource from "../../data/interview-bank.json";
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const local = /^http:\/\/(localhost|127\.0\.0\.1):54321\/?$/.test(url);
@@ -24,14 +26,69 @@ test("feedback: returning login, source catalogs, question draft, editable table
     await page.getByRole("button", { name: "Đăng nhập →", exact: true }).click();
     await expect(page).toHaveURL(/\/dashboard/);
 
+    await page.goto("/simulations");
+    await expect(page.locator(".category-card")).toHaveCount(5);
+    const simulationLinks: string[] = [];
+    for (const industry of taskSource.industries) {
+      expect(industry.tasks).toHaveLength(3);
+      await page.goto(`/simulations?industry=${encodeURIComponent(industry.industry_name)}`);
+      await expect(page.locator(".job-card")).toHaveCount(3);
+      const links = await page.locator(".job-card .catalog-entry").evaluateAll((entries) => entries.map((entry) => entry.getAttribute("href")!));
+      expect(links.sort()).toEqual(industry.tasks.map((task) => `/simulations/r2w-${task.position_id.toLowerCase()}`).sort());
+      simulationLinks.push(...links);
+    }
+    expect(new Set(simulationLinks).size).toBe(15);
+
     await page.goto("/interviews?explore=1");
-    await page.getByRole("button", { name: "Công nghệ thông tin", exact: true }).click();
-    await expect(page.locator(".iv-pos-card")).toHaveCount(3);
-    expect((await page.locator(".iv-pos-title").allTextContents()).sort()).toEqual(["Business Analyst", "Data Analyst", "Software Tester/QA"]);
-    await page.getByRole("button", { name: "Tài chính - Ngân hàng", exact: true }).click();
-    await expect(page.locator(".iv-pos-card")).toHaveCount(3);
-    const financeTitles = await page.locator(".iv-pos-title").allTextContents();
-    expect([...financeTitles].sort()).toEqual(["Credit Analyst", "Financial Analyst", "Risk Analyst"]);
+    await expect(page.locator(".iv-pos-card")).toHaveCount(15);
+    const sourceSets = Object.entries(interviewSource);
+    for (const industry of taskSource.industries) {
+      await page.getByRole("button", { name: industry.industry_name, exact: true }).click();
+      await expect(page.locator(".iv-pos-card")).toHaveCount(3);
+      const expected = sourceSets.filter(([, set]) => set.industryId === industry.industry_id);
+      expect(expected).toHaveLength(3);
+      const links = await page.locator(".iv-pos-card").evaluateAll((entries) => entries.map((entry) => entry.getAttribute("href")!));
+      expect(links.sort()).toEqual(expected.map(([slug, set]) => `/interviews/r2w-${slug}-${set.contentVersion}`).sort());
+    }
+    await page.getByRole("button", { name: "Tất cả", exact: true }).click();
+    await page.getByRole("tab", { name: "Từ doanh nghiệp", exact: true }).click();
+    for (const slug of ["big4-audit-round1", "3pl-operations-round1", "fmcg-brand-round1"]) {
+      await expect(page.locator(`a[href="/interviews/${slug}"]`)).toHaveCount(0);
+    }
+    const companyLinks = await page.locator(".iv-company-card").evaluateAll((entries) => entries.map((entry) => entry.getAttribute("href")!));
+    for (const link of companyLinks) expect(link).toMatch(/^\/interviews\/company-[0-9a-f-]{36}$/i);
+
+    await page.goto("/simulations/r2w-it-03");
+    await page.getByRole("button", { name: "Tài liệu tham khảo", exact: true }).click();
+    const coffeeTable = page.locator(".waiting-body table");
+    await expect(coffeeTable).toHaveCount(1);
+    await expect(coffeeTable.locator("th")).toHaveText(["Chi nhánh", "Tháng 5 (đơn/ doanh thu)", "Tháng 6", "Tháng 7", "Tháng 8"]);
+    await expect(coffeeTable.locator("tbody tr")).toHaveCount(4);
+    await expect(coffeeTable.locator("tbody tr").first().locator("td")).toHaveText(["Q1", "420 đơn / 21.0tr", "460 đơn / 23.0tr", "510 đơn / 25.5tr", "560 đơn / 28.0tr"]);
+    await expect(page.locator(".waiting-body")).not.toContainText("+33.33%");
+    await expect(page.locator(".waiting-body")).not.toContainText("benchmark_table");
+    await expect(page.locator('a[href$="/14.png"], a[href$="/20.png"], img[src$="/14.png"], img[src$="/20.png"]')).toHaveCount(0);
+
+    for (const position of ["mkt-01", "mkt-03"]) {
+      await page.goto(`/simulations/r2w-${position}`);
+      await expect(page.getByRole("status")).toContainText("thiếu tài liệu nguồn");
+      await expect(page.getByRole("button", { name: "Nhận việc & Bắt đầu tính giờ", exact: true })).toHaveCount(0);
+      await page.getByRole("button", { name: "Tài liệu tham khảo", exact: true }).click();
+      await expect(page.locator(".waiting-body table")).toHaveCount(1);
+      const publicText = await page.locator(".waiting-body").innerText();
+      expect(publicText).not.toMatch(/65% sợi bông|399[.,]000|359[.,]000|12 từ khóa SEO kèm|Search Volume|Keyword Difficulty/);
+      await page.getByRole("link", { name: "Xem nội dung và soạn thử", exact: true }).click();
+      await expect(page.getByRole("button", { name: "Chờ xác nhận tiêu chí", exact: true })).toBeDisabled();
+      const draft = page.getByRole("textbox", { name: "Nội dung bài làm", exact: true });
+      await draft.fill("Bản nháp kiểm định nội dung nguồn, chưa gửi AI.");
+      await page.reload();
+      await expect(draft).toContainText("Bản nháp kiểm định nội dung nguồn, chưa gửi AI.");
+      const marketingSimulation = await admin.from("simulations").select("id").eq("slug", `r2w-${position}`).single();
+      expect(marketingSimulation.error).toBeNull();
+      const attempts = await admin.from("simulation_attempts").select("id").eq("user_id", userId).eq("simulation_id", marketingSimulation.data!.id);
+      expect(attempts.error).toBeNull();
+      expect(attempts.data).toEqual([]);
+    }
 
     const set = await admin.from("interview_sets").select("id").eq("position_id", "IT-02").eq("is_available", true).like("slug", "r2w-%").order("created_at", { ascending: false }).limit(1).single();
     expect(set.error).toBeNull();

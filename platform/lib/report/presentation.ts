@@ -3,3 +3,6 @@ export const radarExplanation = "Các trục là tiêu chí thực sự đã đ�
 export function reportDate(date: Date) {
   return new Intl.DateTimeFormat("vi-VN", { dateStyle: "long", timeStyle: "short", timeZone: "Asia/Ho_Chi_Minh" }).format(date);
 }
+export function evaluationBandLabel(value: string | null | undefined): string {
+  return ({ Emerging: "Cần củng cố nền tảng", Developing: "Đang phát triển", Proficient: "Đáp ứng tốt", Strong: "Vững vàng" } as Record<string, string>)[value ?? ""] ?? value ?? "Chưa có dữ liệu đánh giá";
+}

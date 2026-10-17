@@ -2,6 +2,27 @@
 
 Ngày kiểm định: 17/10/2026. Người kiểm định: agent kiểm thử độc lập. Đây là danh sách nghiệm thu, không phải đề xuất chức năng mới.
 
+## Kết quả theo chỉ đạo mới nhất — 18/10/2026
+
+Chủ dự án xác nhận ba vị trí/ba đề mỗi ngành và giữ toàn bộ câu phỏng vấn nguồn 3/3/2; không phải chỉ giữ ba câu phỏng vấn. Đã đọc lại bản Google Docs live, đối chiếu 520 khối trước tab feedback và bảng lồng; không có thay đổi nội dung nguồn trong thời gian gián đoạn. Các ghi nhận về dữ liệu Marketing tự tạo ở bản ngày 17/10 phía dưới là lịch sử, đã được thay thế bằng chính sách chỉ dùng tài liệu gốc.
+
+| Ngành | Đề mô phỏng nguồn | Đề đủ điều kiện chấm | Bộ phỏng vấn nguồn | Bộ đủ điều kiện chấm | Câu nguồn |
+|---|---:|---:|---:|---:|---:|
+| Marketing | 3 | 0 | 3 | 3 | 24 |
+| Công nghệ thông tin | 3 | 3 | 3 | 2 | 24 |
+| Kế toán - Kiểm toán | 3 | 3 | 3 | 1 | 24 |
+| Tài chính - Ngân hàng | 3 | 0 | 3 | 1 | 24 |
+| Logistics | 3 | 3 | 3 | 0 | 24 |
+| Tổng | 15 | 9 | 15 | 7 | 120 |
+
+- Phát hiện danh mục local trước sửa có 25 mô phỏng: 15 nguồn và 10 demo cũ; phỏng vấn có thêm ba demo mang tên doanh nghiệp. Đã lọc danh mục/gợi ý/lối làm mới theo slug nguồn, đồng thời lưu trữ đủ 10 demo mô phỏng và 7 demo phỏng vấn từng tồn tại. Nội dung doanh nghiệp thật vẫn ở luồng riêng; không xóa lịch sử.
+- Đã xóa tệp Marketing bổ sung và các ID/facts tự tạo khỏi dữ liệu hiện hành. Ba đề Marketing cho xem/soạn thử và nêu đúng tài liệu còn thiếu: Product Brief, dữ liệu quảng cáo/trang đích, bảng 12 từ khóa SEO. Không tự điền giá/chất liệu/số liệu/từ khóa thay thế.
+- IT03: khôi phục đúng bảng nguồn lồng trong ô Bối cảnh, năm cột và nhãn Q1/Q3/Bình Thạnh/Thủ Đức. Bảng tăng trưởng trong ô rubric được giữ riêng để chấm, không công khai như dữ liệu đầu vào.
+- Gemini nhận đầy đủ câu hỏi/đề, hướng dẫn và tiêu chí nguyên bản; khi cần ảnh, nhận chính byte PNG đã kiểm SHA, kèm thứ tự tài liệu. Loader từ chối URL ngoài, ảnh sai/mất, ảnh đáp án 14/20, feedback và CV. Source tasks phải khớp đủ version/policy/revision trước AI; không dùng fallback keyword hoặc rubric mẫu cũ.
+- Lượt API thật đã được chủ dự án cho phép cả ảnh nguồn: Business Analyst với một bài trả lời giả đã trả đủ tiêu chí nguồn, đúng giới hạn điểm và nhận xét, qua xác thực server. Không gửi dữ liệu tài khoản, không lưu bài/điểm vào DB. Đây là một ca provider thật, không phải chứng nhận chất lượng chấm của toàn bộ ngân hàng đề.
+- Code và kiểm định được thực hiện bằng hai agent riêng. Các kiểm tra tập trung của hai agent, 11 content-import contracts và chuỗi 11 migration trong PostgreSQL cô lập đã qua. Một luồng Chromium trên production build local qua: 5 ngành × 3 đề/3 vị trí, bảng IT03, Marketing thiếu nguồn, QA nháp, đăng nhập lại, bảng FA và đọc TXT. Fixture đã xóa; không gọi AI trong browser.
+- Bản build đã qua TypeScript và có đủ 20 PNG nguồn trong NFT của route mô phỏng; hai ảnh đáp án không có trong gói public. Công thức progress/readiness và dữ liệu lịch sử giữ nguyên. Các mâu thuẫn barem/câu hỏi ở phần dưới vẫn chờ chủ nguồn sửa, không tự quyết trọng số.
+
 ## Căn cứ và giới hạn
 
 - Feedback: `/Users/thanhnguyen/Downloads/Ready2Work (1).pdf`, 20 trang; đã trích xuất văn bản và xem ảnh các trang chứa lỗi giao diện/thao tác. Trang 20 không có nội dung mới.
