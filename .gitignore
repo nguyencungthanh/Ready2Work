@@ -3,6 +3,8 @@ Thumbs.db
 
 # Dependencies and deployment metadata
 node_modules/
+# This npm workspace uses only the root package-lock.json.
+/platform/package-lock.json
 .vercel/
 dist/
 build/

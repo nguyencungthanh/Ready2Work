@@ -13,6 +13,10 @@ npm ci
 npm run dev
 ```
 
+Run installation commands from the repository root. The root `package-lock.json` is the only lockfile for this npm workspace; do not maintain a separate one in `platform/`.
+
+Local build and test output (`platform/.next/`, `platform/test-results/`, `*.tsbuildinfo` and `platform/next-env.d.ts`) is generated and excluded from Git. `npm run dev` recreates development output; run `npm run build` before using `npm start` after a cleanup.
+
 Open <http://localhost:3000>. The public landing page works without backend credentials. Authenticated features need the existing Supabase project and the migrations below.
 
 Keep the existing connection settings in `platform/.env.local`. For a new environment, copy `platform/.env.example` to that path and fill in the values. `SUPABASE_SECRET_KEY` and `GEMINI_API_KEY` are server-only settings. The old `NEXT_PUBLIC_APP_URL` setting remains supported; `NEXT_PUBLIC_SITE_URL` takes precedence.
