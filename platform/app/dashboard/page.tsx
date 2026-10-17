@@ -16,7 +16,7 @@ export default async function DashboardPage() {
  if (hasRole(user, "employer_pending", "employer_member", "employer_admin")) redirect("/business");
  const data = await getCandidateOverview(user.id);
  const client=await createServerSupabaseClient();
- const {data:profile}=await client.from("profiles").select("university,major,graduation_year,onboarding_status").eq("id",user.id).maybeSingle();
+ const {data:profile}=await client.from("profiles").select("university,city,major,graduation_year,onboarding_status").eq("id",user.id).maybeSingle();
  const progress = [
   { title:"Lộ trình AI", badge:"Lộ trình", icon:"roadmap", color:"green", href:"/roadmap/cv", ...data.progress.roadmap, description:"Xác định kỹ năng hiện tại, nhận gợi ý lộ trình phát triển cá nhân hóa để sẵn sàng cho công việc mơ ước.", flow:"Tải CV → Phân tích năng lực → Nhận lộ trình cá nhân hóa" },
   { title:"Mô phỏng việc làm", badge:"Mô phỏng", icon:"simulations", color:"blue", href:"/simulations", ...data.progress.simulation, description:"Trải nghiệm các nhiệm vụ thực tế từ doanh nghiệp, khám phá công việc phù hợp với năng lực và sở thích của bạn.", flow:"Chọn lĩnh vực → Thực hiện nhiệm vụ → Nhận đánh giá chi tiết" },

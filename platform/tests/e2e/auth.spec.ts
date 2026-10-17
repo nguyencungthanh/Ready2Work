@@ -251,6 +251,7 @@ test("candidate onboarding saves profile preferences through existing account pe
  const dialog=page.getByRole("dialog",{name:"Thiết lập tài khoản"});
  if(process.env.CAPTURE_UI)await page.screenshot({path:test.info().outputPath("onboarding-education.png"),animations:"disabled"});
  await dialog.getByLabel("Trường Đại học / Cao đẳng").fill("Đại học Kiểm thử");
+ await dialog.getByLabel("Tỉnh/thành phố nơi bạn đang sinh sống",{exact:true}).fill("Hà Nội");
  await dialog.getByLabel("Chuyên ngành học",{exact:true}).fill("Quản trị kinh doanh");
  await dialog.getByLabel("Bạn đang ở giai đoạn nào?").selectOption("Năm 4");
  await dialog.getByRole("button",{name:"Tiếp tục →",exact:true}).click();
@@ -268,7 +269,7 @@ test("candidate onboarding saves profile preferences through existing account pe
  const client=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false,autoRefreshToken:false}});
  const login=await client.auth.signInWithPassword({email,password:PASSWORD});expect(login.error).toBeNull();
  expect(login.data.user?.user_metadata.onboarding_preferences.educationStage).toBe("Năm 4");
- const profile=await client.from("profiles").select("university,major,graduation_year,onboarding_status").eq("id",login.data.user!.id).single();expect(profile.data).toMatchObject({university:"Đại học Kiểm thử",major:"Quản trị kinh doanh",graduation_year:null,onboarding_status:"completed"});
+ const profile=await client.from("profiles").select("university,major,city,graduation_year,onboarding_status").eq("id",login.data.user!.id).single();expect(profile.data).toMatchObject({university:"Đại học Kiểm thử",major:"Quản trị kinh doanh",city:"Hà Nội",graduation_year:null,onboarding_status:"completed"});
  const roles=await client.from("user_roles").select("role").eq("user_id",login.data.user!.id);expect(roles.data?.map(r=>r.role)).not.toContain("admin");
 
 });

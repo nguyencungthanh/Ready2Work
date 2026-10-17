@@ -55,6 +55,7 @@ export interface ChatTurn {
 export async function generateChatReply(
   systemContext: string,
   history: ChatTurn[],
+  options?: { maxOutputTokens?: number },
 ): Promise<string> {
   const client = getClient();
 
@@ -66,6 +67,7 @@ export async function generateChatReply(
     })),
     config: {
       systemInstruction: systemContext,
+      ...(options?.maxOutputTokens ? { maxOutputTokens: options.maxOutputTokens } : {}),
     },
   });
 

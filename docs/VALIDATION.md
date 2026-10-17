@@ -1,5 +1,11 @@
 # Ghi nhận kiểm tra
 
+## Chat R2W AI và nơi sinh sống — 18/10/2026
+
+API chat có 33 kiểm tra tập trung qua xác thực, nguồn yêu cầu, định dạng/giới hạn hội thoại và lỗi provider; 5 kiểm tra adapter Gemini qua. TypeScript và lint phần thay đổi qua. Một flow Chromium local xác nhận tỉnh/thành phố bắt buộc, bản nháp qua reload, lưu đúng `profiles.city` và metadata; chat nhiều lượt tại dashboard, Enter/Shift+Enter, lỗi giữ câu hỏi, thử lại không nhân đôi và giới hạn lịch sử. Đã xem giao diện desktop/390px, không tràn ngang. API chat được mock trong flow browser; cập nhật hồ sơ dùng quyền user local thật.
+
+Một câu hỏi hướng dẫn phỏng vấn giả đã gọi qua `/api/assistant` local tới Gemini thật: HTTP 200, phản hồi 241 ký tự, khoảng 6,1 giây gồm lần compile đầu. Tài khoản thử local đã xóa; không gửi CV, hồ sơ hoặc bài làm người dùng. Không cần migration hay thay đổi key. Không chạy lại toàn bộ suite.
+
 ## Chỉ dùng nội dung Google Docs — 18/10/2026
 
 Nguồn live được tải lại sau gián đoạn và đối chiếu đủ 520 khối; không có thay đổi so với snapshot đã sửa. Đủ năm ngành × ba đề/ba vị trí, 120 câu phỏng vấn nguyên văn 3/3/2. IT03 dùng đúng bảng lồng năm cột trong Docs; benchmark riêng tư. Marketing tự tạo đã bị gỡ khỏi tệp nguồn và reference data mới, ba tài liệu chưa có vẫn được ghi là thiếu.

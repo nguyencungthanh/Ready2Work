@@ -8,6 +8,8 @@ The existing Next.js 16.4.2, React 19.2.4 and Supabase SSR foundation was retain
 
 The application in `platform/` is updated in place. Its current interface is the sole design baseline. Previous static UI code and old-render comparison materials have been removed; prototype localStorage demo accounts were never imported as real identities or history.
 
+The dashboard R2W AI card calls the authenticated `/api/assistant` endpoint with the existing server-only Gemini configuration. Its context covers the four current candidate features and the submitted conversation; it does not automatically load a CV, profile or score. Conversation state stays on the current page. Requests and replies are bounded, private responses are not cached, and provider errors leave the question available for retry.
+
 ## Content and scoring
 
 `platform/data/` contains the supplied Golden Profiles, task rubrics, interview question bank and actual task inputs. `platform/scripts/import-content.mjs` validates their relationships and generates an additive SQL migration with stable IDs. It rejects broken weights/checklists, preserves source question maxima, and removes worked solutions from public task data.
@@ -27,6 +29,7 @@ Reports use the latest recorded result per task/set and the same target role acr
 ## Persistence and permissions
 
 - The existing SSR session cookies and database roles remain the authorization boundary.
+- Candidate onboarding collects the current province/city alongside university information and saves it to the existing `profiles.city` column and onboarding preferences. The user-scoped draft retains the value until completion; business onboarding does not overwrite it. No schema migration is required.
 - New CV and business files use private Supabase Storage buckets, user-prefixed paths and short-lived owner-scoped download URLs.
 - Candidate activity reads use row-level security. Graded writes go through validated server actions and the server-only Supabase client.
 - Column grants prevent direct reads of private answer keys and direct writes to scores or account status.

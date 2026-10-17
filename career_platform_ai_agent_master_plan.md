@@ -10,6 +10,8 @@
 
 **Trạng thái hiện tại:** chỉ dùng nội dung Google Docs được giao, đúng 3 vị trí/3 đề mỗi ngành và toàn bộ 120 câu phỏng vấn. Đã gỡ dữ liệu Marketing tự tạo khỏi nguồn hiện hành, lọc đề mẫu cũ khỏi danh mục và gợi ý làm mới. Điểm chưa thống nhất và tài liệu đầu vào còn thiếu được ghi rõ; phần trăm CV chờ bảng trọng số. SMTP tiếp tục tạm hoãn.
 
+**Bổ sung theo chỉ đạo ngày 18/10/2026:** thẻ R2W AI trên dashboard chat qua Gemini để hướng dẫn sử dụng và luyện tập; không thay thế đề/barem hoặc kết quả chính thức, không tự đọc CV/hồ sơ. Bước đăng ký thông tin học vấn bổ sung tỉnh/thành phố đang sinh sống, lưu vào `profiles.city` hiện có và bản nháp onboarding.
+
 ## 1. Quyết định thay thế kế hoạch cũ
 
 Bản này thay thế master plan 1.0. Kế hoạch trước bao gồm nhiều sản phẩm mở rộng hơn tài liệu yêu cầu; không tiếp tục dùng toàn bộ backlog đó làm điều kiện hoàn thành MVP.
