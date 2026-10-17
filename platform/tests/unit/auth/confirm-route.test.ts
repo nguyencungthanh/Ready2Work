@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest } from "next/server";
 
-const mocks = vi.hoisted(() => ({ client: vi.fn(), exchange: vi.fn(), verify: vi.fn() }));
+const mocks = vi.hoisted(() => ({ client: vi.fn(), exchange: vi.fn(), verify: vi.fn(), warn: vi.fn() }));
 vi.mock("@/lib/supabase/server", () => ({ createServerSupabaseClient: mocks.client }));
+vi.mock("@/lib/observability/logger", () => ({ logger: { warn: mocks.warn } }));
 import { GET } from "@/app/auth/confirm/route";
 
 const origin = "https://ready-2work.vercel.app";
@@ -63,5 +64,31 @@ describe("email confirmation and recovery callbacks", () => {
     const response = await GET(request("?code=expired-code"));
     expect(response.headers.get("location")).toBe(`${origin}/signin?error=expired_link`);
     expect(response.headers.get("location")).not.toContain("private");
+  });
+
+  it("returns a recoverable sign-in destination if exchanging the code loses its network connection", async () => {
+    mocks.exchange.mockRejectedValue(new Error("private provider connection details"));
+    const response = await GET(request("?code=one-time-code"));
+    expect(response.headers.get("location")).toBe(`${origin}/signin?error=service_unavailable`);
+    expect(response.headers.get("location")).not.toContain("private");
+  });
+
+  it("distinguishes temporary provider failure from an expired token", async () => {
+    mocks.verify.mockResolvedValue({ data: { user: null }, error: { status: 503, message: "private provider details" } });
+    const response = await GET(request("?token_hash=one-time-hash&type=signup"));
+    expect(response.headers.get("location")).toBe(`${origin}/signin?error=service_unavailable`);
+    expect(response.headers.get("location")).not.toContain("private");
+  });
+
+  it.each([
+    { name: "AuthPKCECodeVerifierMissingError", code: "pkce_code_verifier_not_found", status: 400 },
+    { name: "AuthApiError", code: "bad_code_verifier", status: 400 },
+  ])("explains missing or mismatched browser context instead of claiming expiry", async (error) => {
+    mocks.exchange.mockResolvedValue({ data: { user: null }, error });
+    const response = await GET(request("?code=private-one-time-code"));
+    expect(response.headers.get("location")).toBe(`${origin}/signin?error=browser_context_missing`);
+    expect(response.headers.get("Cache-Control")).toContain("no-store");
+    expect(mocks.warn).toHaveBeenCalledWith("Email confirmation failed", expect.objectContaining({ error_code: "browser_context_missing", operation: "pkce_exchange" }));
+    expect(JSON.stringify(mocks.warn.mock.calls)).not.toContain("private-one-time-code");
   });
 });

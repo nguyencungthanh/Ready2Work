@@ -10,10 +10,10 @@ const passwordSchema = z
 
 export const signUpSchema = z
   .object({
-    email: z.string().email("Nhập địa chỉ email hợp lệ"),
+    email: z.string().trim().email("Nhập địa chỉ email hợp lệ"),
     password: passwordSchema,
     confirmPassword: z.string(),
-    displayName: z.string().min(1, "Nhập tên của bạn").max(80),
+    displayName: z.string().trim().min(1, "Nhập tên của bạn").max(80, "Tên không được dài quá 80 ký tự"),
     acceptTerms: z.literal(true, {
       error: "Bạn cần đồng ý điều khoản để tiếp tục",
     }),
@@ -24,12 +24,12 @@ export const signUpSchema = z
   });
 
 export const signInSchema = z.object({
-  email: z.string().email("Nhập địa chỉ email hợp lệ"),
+  email: z.string().trim().email("Nhập địa chỉ email hợp lệ"),
   password: z.string().min(1, "Nhập mật khẩu"),
 });
 
 export const requestPasswordResetSchema = z.object({
-  email: z.string().email("Nhập địa chỉ email hợp lệ"),
+  email: z.string().trim().email("Nhập địa chỉ email hợp lệ"),
 });
 
 export const updatePasswordSchema = z

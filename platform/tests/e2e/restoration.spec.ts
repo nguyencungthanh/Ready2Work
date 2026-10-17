@@ -54,7 +54,7 @@ test.describe("reference interface restoration",()=>{
   await expect(page.getByRole("navigation",{name:"Không gian nghề nghiệp"}).getByRole("link",{name:"Báo cáo năng lực",exact:true})).toHaveAttribute("href","/report");
   await expect(page.locator(".d-suggest-name").first()).toHaveText(/^Data Analyst/);expect((await page.locator(".d-suggest-name").first().innerText()).length).toBeLessThan(100);
   await expect(page.locator(".d-suggest")).not.toContainText("Một chuỗi cà phê");
-  await page.locator(".account-menu > summary").click();await expect(page.getByRole("button",{name:"Sign out",exact:true})).toBeVisible();await page.locator(".account-menu > summary").click();
+  await page.locator(".account-menu > summary").click();await expect(page.getByRole("button",{name:"Đăng xuất",exact:true})).toBeVisible();await page.locator(".account-menu > summary").click();
   await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("báo cáo");await expect(page.locator('.dashboard-search-results a[href="/report"]')).toBeVisible();
   await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("phỏng vấn");await expect(page.locator('.dashboard-search-results a[href="/interviews"]')).toBeVisible();
   await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("");

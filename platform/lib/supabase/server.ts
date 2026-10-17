@@ -6,8 +6,8 @@ import { getSupabasePublicEnv } from "./env";
 
 /**
  * Supabase client for Server Components, Server Actions, and Route Handlers.
- * Sessions live in HTTP-only cookies, so tokens are never exposed to client
- * JavaScript (AUTH-001, section 9.4).
+ * Sessions use Supabase SSR cookies shared with the existing browser client
+ * (onboarding and business forms). Keep both clients on the same cookie model.
  */
 export async function createServerSupabaseClient() {
   const cookieStore = await cookies();

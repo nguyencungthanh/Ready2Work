@@ -48,7 +48,7 @@ export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
     return null;
   }
 
-  const [{ data: profile }, { data: roleRows }] = await Promise.all([
+  const [{ data: profile, error: profileError }, { data: roleRows, error: rolesError }] = await Promise.all([
     supabase
       .from("profiles")
       .select("display_name, account_status")
@@ -56,12 +56,14 @@ export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
       .maybeSingle(),
     supabase.from("user_roles").select("role").eq("user_id", claims.sub),
   ]);
+  if (profileError || rolesError) throw new Error("Không tải được hồ sơ tài khoản. Vui lòng thử lại.");
+  if (!profile) return null;
 
   return {
     id: claims.sub,
     email: typeof claims.email === "string" ? claims.email : "",
-    displayName: profile?.display_name ?? "",
-    accountStatus: (profile?.account_status ?? "active") as AccountStatus,
+    displayName: profile.display_name ?? "",
+    accountStatus: profile.account_status as AccountStatus,
     roles: (roleRows ?? []).map((row) => row.role as AppRole),
   };
 });

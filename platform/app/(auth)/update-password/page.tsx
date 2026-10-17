@@ -1,27 +1,29 @@
 import { updatePasswordAction } from "../actions";
 import { AuthForm } from "../auth-form";
+import { requireUser } from "@/lib/auth/session";
 
-export const metadata = { title: "Set a new password" };
+export const metadata = { title: "Đặt mật khẩu mới" };
 
-export default function UpdatePasswordPage() {
+export default async function UpdatePasswordPage() {
+  await requireUser();
   return (
     <main className="w-full">
-      <h1 className="text-2xl font-bold text-foreground">Set a new password</h1>
-      <p className="mt-2 mb-6 text-sm text-muted">Choose a password you have not used before.</p>
+      <h1 className="text-2xl font-bold text-foreground">Đặt mật khẩu mới</h1>
+      <p className="mt-2 mb-6 text-sm text-muted">Chọn mật khẩu mới khác với mật khẩu hiện tại.</p>
 
       <AuthForm
         action={updatePasswordAction}
-        submitLabel="Update password"
+        submitLabel="Cập nhật mật khẩu"
         fields={[
           {
             name: "password",
-            label: "New password (at least 12 characters)",
+            label: "Mật khẩu mới (ít nhất 12 ký tự)",
             type: "password",
             autoComplete: "new-password",
           },
           {
             name: "confirmPassword",
-            label: "Confirm new password",
+            label: "Xác nhận mật khẩu mới",
             type: "password",
             autoComplete: "new-password",
           },

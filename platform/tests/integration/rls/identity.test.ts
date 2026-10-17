@@ -4,6 +4,9 @@ import { TestFixtureFactory } from "@/tests/fixtures/factory";
 // RLS matrix for identity tables (master plan section 26.4, AUTH-010).
 // These are release blockers: a failure here means one user can reach
 // another user's private data.
+if (!/^http:\/\/(localhost|127\.0\.0\.1):54321\/?$/.test(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "")) {
+  throw new Error("Identity RLS fixtures may run only against the local Supabase stack.");
+}
 const factory = new TestFixtureFactory();
 
 afterEach(async () => {
@@ -40,9 +43,24 @@ describe("profiles RLS", () => {
     const userB = await factory.createUser();
     const clientA = await factory.createClientForUser(userA);
 
-    const { data } = await clientA.from("profiles").select("id").eq("id", userB.id);
+    const { data, error } = await clientA.from("profiles").select("id,email,university,city").eq("id", userB.id);
 
+    expect(error).toBeNull();
     expect(data).toEqual([]);
+  });
+
+  it("persists a user's education and city across fresh authenticated clients", async () => {
+    const user = await factory.createUser();
+    const client = await factory.createClientForUser(user);
+    const saved = { university: "Đại học Kiểm định", major: "Công nghệ thông tin", city: "Đà Nẵng", onboarding_status: "completed" };
+    const update = await client.from("profiles").update(saved).eq("id", user.id).select("id").single();
+    expect(update.error).toBeNull();
+    expect(update.data?.id).toBe(user.id);
+    expect((await client.auth.signOut()).error).toBeNull();
+    const returning = await factory.createClientForUser(user);
+    const profile = await returning.from("profiles").select("university,major,city,onboarding_status").eq("id", user.id).single();
+    expect(profile.error).toBeNull();
+    expect(profile.data).toEqual(saved);
   });
 
   it("an anonymous visitor cannot read any profile", async () => {
@@ -58,17 +76,19 @@ describe("profiles RLS", () => {
     const userA = await factory.createUser();
     const userB = await factory.createUser();
     const clientA = await factory.createClientForUser(userA);
-
-    await clientA.from("profiles").update({ display_name: "hacked" }).eq("id", userB.id);
-
     const clientB = await factory.createClientForUser(userB);
-    const { data } = await clientB
+    const original = { university: "Đại học của B", city: "Hà Nội" };
+    expect((await clientB.from("profiles").update(original).eq("id", userB.id)).error).toBeNull();
+    const attack = await clientA.from("profiles").update({ university: "Trường bị thay đổi", city: "Tỉnh bị thay đổi" }).eq("id", userB.id).select("id");
+    expect(attack.error).toBeNull();
+    expect(attack.data).toEqual([]);
+    const { data, error } = await clientB
       .from("profiles")
-      .select("display_name")
+      .select("university,city")
       .eq("id", userB.id)
-      .maybeSingle();
-
-    expect(data?.display_name).not.toBe("hacked");
+      .single();
+    expect(error).toBeNull();
+    expect(data).toEqual(original);
   });
 
   it("a suspended user cannot update their own profile (AUTH-012)", async () => {

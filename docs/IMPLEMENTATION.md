@@ -6,6 +6,8 @@ Current scope: [Master Plan 2.3](../career_platform_ai_agent_master_plan.md). Re
 
 The existing Next.js 16.4.2, React 19.2.4 and Supabase SSR foundation was retained. The base project's password authentication, email verification, reset flow, database identities and DB-backed roles were preserved. Auth routing was extended for business onboarding; return URLs are restricted to paths inside the application.
 
+Auth redirects retain refreshed/cleared cookies and Supabase's cache headers. Sign-in requires a stored usable profile; missing data is not treated as an active account. Deleted/suspended sessions cannot loop through the sign-in redirect, and password updates require a usable authenticated account. PKCE callbacks distinguish missing browser context from provider availability and expired/used links; only safe error categories are logged.
+
 The application in `platform/` is updated in place. Its current interface is the sole design baseline. Previous static UI code and old-render comparison materials have been removed; prototype localStorage demo accounts were never imported as real identities or history.
 
 The dashboard R2W AI card calls the authenticated `/api/assistant` endpoint with the existing server-only Gemini configuration. Its context covers the four current candidate features and the submitted conversation; it does not automatically load a CV, profile or score. Conversation state stays on the current page. Requests and replies are bounded, private responses are not cached, and provider errors leave the question available for retry.

@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { safeReturnPath } from "@/lib/auth/redirect";
 import { authErrorMessage } from "@/lib/auth/error-message";
+import { requireUser } from "@/lib/auth/session";
 import {
   requestPasswordResetSchema,
   signInSchema,
@@ -91,15 +92,23 @@ export async function signInAction(
     return { error: authErrorMessage(error) };
   }
 
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select("account_status")
     .eq("id", data.user.id)
     .maybeSingle();
+  if (profileError || !profile) {
+    await supabase.auth.signOut({ scope: "local" });
+    return { error: "Chưa tải được hồ sơ tài khoản. Vui lòng thử lại sau; dữ liệu đã lưu vẫn được giữ nguyên." };
+  }
 
-  if (profile?.account_status === "suspended") {
+  if (profile.account_status === "suspended") {
     await supabase.auth.signOut();
     redirect("/suspended");
+  }
+  if (profile.account_status === "deleted") {
+    await supabase.auth.signOut({ scope: "local" });
+    return { error: "Tài khoản này hiện chưa thể đăng nhập." };
   }
 
   const next = formData.get("next");
@@ -139,6 +148,7 @@ export async function updatePasswordAction(
   _prev: FormState,
   formData: FormData,
 ): Promise<FormState> {
+  await requireUser();
   const parsed = updatePasswordSchema.safeParse({
     password: formData.get("password"),
     confirmPassword: formData.get("confirmPassword"),

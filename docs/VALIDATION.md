@@ -1,5 +1,15 @@
 # Ghi nhận kiểm tra
 
+## Xác thực và lưu dữ liệu — 18/10/2026
+
+Đã sửa proxy làm mất cookie/header chống cache khi chuyển trang, trường hợp tài khoản đã xóa bị lặp đăng nhập/dashboard, kiểm tra hồ sơ thiếu/lỗi, quyền vào trang/action đặt mật khẩu và giữ tham số đường quay lại. Việt hóa các màn xác thực. Callback phân biệt lỗi dịch vụ, liên kết không còn hợp lệ và thiếu/sai phiên PKCE; log chỉ ghi loại lỗi, không chứa URL/token/email.
+
+13 flow Chromium local qua: validation, email chưa xác minh, xác minh bằng token_hash/PKCE thật, đăng nhập sai, đăng xuất, đường riêng tư, thu hồi tài khoản đã xóa, đặt lại mật khẩu bằng cả hai flow, mật khẩu cũ không dùng được và hồ sơ học vấn/tỉnh thành còn sau reload/đăng nhập lại. Thêm một flow khác trình duyệt qua: PKCE bị từ chối, hiển thị hướng dẫn đúng và không cấp phiên. Khi mô phỏng email mặc định, test dùng `type=signup`; custom `verifyOtp` chấp nhận `type=email`, nhưng native GET của Auth không dùng alias đó.
+
+Các unit auth tập trung và 11 case callback qua; TypeScript/lint phần đổi qua. Chín kiểm tra RLS hồ sơ/vai trò local qua. Theo quyền rõ ràng của chủ dự án, hai tài khoản tạm trên Supabase Cloud đã kiểm đăng nhập, lưu hồ sơ/hoạt động, đăng xuất rồi đăng nhập lại, chặn đọc/ghi chéo và đọc ẩn danh. Hai tài khoản cùng dữ liệu thử đã xóa; tài khoản thật không bị sửa. Tài khoản cloud tạm được tạo qua Admin API, không dùng phép thử đó để tuyên bố xác minh email đăng ký công khai đã qua.
+
+Thư khôi phục Production đã đến địa chỉ chủ dự án chỉ định. Người dùng báo liên kết đầu không mở được; chưa có bằng chứng kết luận nguyên nhân link cũ hoặc đổi mật khẩu thật thành công. Lượt thử thư mới trên bản sửa cần người dùng tự nhập/xác nhận mật khẩu. Không tắt xác minh email, đổi SMTP, gọi AI hoặc reset database trong lượt này.
+
 ## Chat R2W AI và nơi sinh sống — 18/10/2026
 
 API chat có 33 kiểm tra tập trung qua xác thực, nguồn yêu cầu, định dạng/giới hạn hội thoại và lỗi provider; 5 kiểm tra adapter Gemini qua. TypeScript và lint phần thay đổi qua. Một flow Chromium local xác nhận tỉnh/thành phố bắt buộc, bản nháp qua reload, lưu đúng `profiles.city` và metadata; chat nhiều lượt tại dashboard, Enter/Shift+Enter, lỗi giữ câu hỏi, thử lại không nhân đôi và giới hạn lịch sử. Đã xem giao diện desktop/390px, không tràn ngang. API chat được mock trong flow browser; cập nhật hồ sơ dùng quyền user local thật.

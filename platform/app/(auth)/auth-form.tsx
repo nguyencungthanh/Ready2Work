@@ -95,7 +95,7 @@ export function AuthForm({ action, fields, submitLabel, checkbox, hidden, onStar
         disabled={pending}
         className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-md disabled:opacity-60 transition-all duration-300"
       >
-        {pending ? "Working…" : submitLabel}
+        {pending ? "Đang xử lý…" : submitLabel}
       </button>
     </form>
   );
