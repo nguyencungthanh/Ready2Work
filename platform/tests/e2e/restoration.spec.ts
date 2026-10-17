@@ -2,6 +2,7 @@ import {expect,test,type Page} from "@playwright/test";
 import {createClient,type SupabaseClient} from "@supabase/supabase-js";
 import {readFile} from "node:fs/promises";
 import {extractText,getDocumentProxy} from "unpdf";
+import interviewSource from "../../data/interview-bank.json";
 
 // Render fixtures are restricted to the isolated local stack and removed afterwards.
 // These scores are test data, not a claim that live AI scoring was executed.
@@ -89,14 +90,46 @@ test.describe("reference interface restoration",()=>{
  });
  test("simulation workspace keeps timed start and formatted plain-text submission",async({page})=>{
   await page.goto(`/simulations/${simSlug}`);await page.getByRole("button",{name:"Nhận việc & Bắt đầu tính giờ",exact:true}).click();await expect(page).toHaveURL(/attempt=/);await expect(page.locator(".workspace-split")).toBeVisible();
-  await page.getByRole("button",{name:"Tab 2 Tài liệu tham khảo",exact:true}).click();await expect(page.locator(".panel-content")).toContainText("Dữ liệu đầu vào");
+  await page.getByRole("button",{name:"Tab 2 Tài liệu tham khảo",exact:true}).click();
+  await expect(page.locator(".panel-content").getByRole("heading",{name:"Dữ liệu doanh thu và số đơn thực tế",exact:true})).toBeVisible();
+  const inputTable=page.locator(".panel-content table");
+  await expect(inputTable).toHaveCount(1);
+  await expect(inputTable.locator("th")).toHaveText(["Chi nhánh","Tháng 5 (đơn/ doanh thu)","Tháng 6","Tháng 7","Tháng 8"]);
+  await expect(inputTable.locator("tbody tr")).toHaveCount(4);
+  await expect(inputTable.locator("tbody tr").first().locator("td")).toHaveText(["Q1","420 đơn / 21.0tr","460 đơn / 23.0tr","510 đơn / 25.5tr","560 đơn / 28.0tr"]);
+  await expect(inputTable.locator("tbody tr td:first-child")).toHaveText(["Q1","Q3","Bình Thạnh","Thủ Đức"]);
   await page.getByRole("button",{name:"Tab 1 Đề bài",exact:true}).click();const editor=page.getByRole("textbox",{name:"Nội dung bài làm"});await editor.fill("UI fixture: analysis with evidence and a proposed solution.");await editor.selectText();await page.getByRole("button",{name:"In đậm",exact:true}).click();await expect(page.locator('input[name="content"]')).toHaveValue(/UI fixture: analysis/);await expect(editor.locator("b,strong")).toContainText("UI fixture");
   await capture(page,"simulation-workspace.png");await mobileCapture(page,"simulation-workspace-mobile.png");
   const inserted=await admin.from("simulation_submissions").insert({user_id:userId,simulation_id:simId,content:"UI fixture, not evaluated",overall_score:80,overall_band:"Proficient",criterion_scores:{summary:"UI fixture — not live AI feedback.",criteria:[{criterionId:"1",label:"Độ chính xác",score:80,maxScore:100,band:"Proficient",feedback:"UI fixture: bằng chứng rõ."},{criterionId:"2",label:"Lập luận",score:70,maxScore:100,band:"Developing",feedback:"UI fixture: cần thêm lập luận."},{criterionId:"3",label:"Trình bày",score:90,maxScore:100,band:"Strong",feedback:"UI fixture: rõ ràng."}]}}).select("id").single();expect(inserted.error).toBeNull();submissionId=inserted.data!.id;
-  await page.goto(`/simulations/submissions/${submissionId}`);await expect(page.getByRole("heading",{name:/Performance Review/})).toBeVisible();await expect(page.getByRole("img",{name:"Biểu đồ điểm thực tế"})).toBeVisible();await capture(page,"simulation-report.png");await mobileCapture(page,"simulation-report-mobile.png");
+  await page.goto(`/simulations/submissions/${submissionId}`);await expect(page.getByRole("heading",{name:"Báo cáo kết quả",exact:true})).toBeVisible();await expect(page.getByRole("img",{name:"Biểu đồ điểm thực tế"})).toBeVisible();await capture(page,"simulation-report.png");await mobileCapture(page,"simulation-report-mobile.png");
  });
  test("interview restores separate catalogs, mic failure, answer modes and detailed feedback",async({page})=>{
-  await page.goto("/interviews?explore=1");await page.getByRole("tab",{name:"Từ Doanh nghiệp (Company-specific)"}).click();await expect(page.locator(".iv-company-card").first()).toBeVisible();await page.getByRole("tab",{name:"Bộ câu hỏi chung (General)"}).click();await expect(page.locator(".iv-pos-card").first()).toBeVisible();
+  await page.goto("/interviews?explore=1");
+  await page.getByRole("tab",{name:"Bộ câu hỏi chung",exact:true}).click();
+  const sourceSets=Object.entries(interviewSource);
+  expect(sourceSets).toHaveLength(15);
+  await expect(page.locator(".iv-pos-card")).toHaveCount(15);
+  const sourceLinks=await page.locator(".iv-pos-card").evaluateAll(entries=>entries.map(entry=>entry.getAttribute("href")));
+  expect(sourceLinks.sort()).toEqual(sourceSets.map(([slug,set])=>`/interviews/r2w-${slug}-${set.contentVersion}`).sort());
+  for(const [industryId,industryName] of [["IT","Công nghệ thông tin"],["KK","Kế toán - Kiểm toán"],["TCNH","Tài chính - Ngân hàng"],["LOG","Logistics"],["MKT","Marketing"]] as const){
+   await page.getByRole("button",{name:industryName,exact:true}).click();
+   await expect(page.locator(".iv-pos-card")).toHaveCount(3);
+   const expected=sourceSets.filter(([,set])=>set.industryId===industryId);
+   expect(expected).toHaveLength(3);
+   expect((await page.locator(".iv-pos-title").allTextContents()).sort()).toEqual(expected.map(([,set])=>set.positionTitle).sort());
+   const links=await page.locator(".iv-pos-card").evaluateAll(entries=>entries.map(entry=>entry.getAttribute("href")));
+   expect(links.sort()).toEqual(expected.map(([slug,set])=>`/interviews/r2w-${slug}-${set.contentVersion}`).sort());
+  }
+  await page.getByRole("button",{name:"Tất cả",exact:true}).click();
+  await page.getByRole("tab",{name:"Từ doanh nghiệp",exact:true}).click();
+  await expect(page.getByRole("tab",{name:"Từ doanh nghiệp",exact:true})).toHaveAttribute("aria-selected","true");
+  for(const slug of ["big4-audit-round1","3pl-operations-round1","fmcg-brand-round1","commercial-bank-credit-round1","product-company-data-round1"]){
+   await expect(page.locator(`a[href="/interviews/${slug}"]`)).toHaveCount(0);
+  }
+  const companyLinks=await page.locator(".iv-company-card").evaluateAll(entries=>entries.map(entry=>entry.getAttribute("href")));
+  for(const link of companyLinks)expect(link).toMatch(/^\/interviews\/company-[0-9a-f-]{36}$/i);
+  if(!companyLinks.length)await expect(page.getByText("Chưa có bộ câu hỏi phù hợp với lựa chọn này.",{exact:true})).toBeVisible();
+  await page.getByRole("tab",{name:"Bộ câu hỏi chung",exact:true}).click();await expect(page.locator(".iv-pos-card")).toHaveCount(15);
   await page.addInitScript(()=>{Object.defineProperty(navigator.mediaDevices,"getUserMedia",{value:()=>Promise.reject(new DOMException("Test denied","NotAllowedError")),configurable:true})});
   await page.goto(`/interviews/${interviewSlug}`);await page.getByRole("button",{name:"↻ Thử lại",exact:true}).click();await expect(page.getByRole("status")).toContainText("bị từ chối");await capture(page,"interview-waiting.png");
   await page.getByRole("button",{name:"Bắt đầu Phỏng vấn",exact:true}).click();await expect(page).toHaveURL(/\/sessions\//);await expect(page.locator(".iv-interview-main")).toBeVisible();await page.getByRole("tab",{name:"Trả lời bằng Giọng nói"}).click();await expect(page.getByRole("button",{name:"Bắt đầu nhận giọng nói"})).toBeVisible();await capture(page,"interview-voice.png");await mobileCapture(page,"interview-voice-mobile.png");await page.getByRole("tab",{name:"Trả lời bằng Văn bản"}).click();await page.getByRole("textbox",{name:"Câu trả lời",exact:true}).fill("UI fixture: my answer content.");await expect(page.locator('input[name="answerText"]')).toHaveValue("UI fixture: my answer content.");
