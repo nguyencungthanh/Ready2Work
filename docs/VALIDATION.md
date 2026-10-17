@@ -23,3 +23,7 @@ Vercel đã build thành công commit `adf3474`; các trang công khai và healt
 16 kiểm tra tập trung cho Report/gợi ý đã qua. Đã kiểm tra PDF từ dữ liệu fixture đủ/thiếu đầu vào và nhận xét dài: font tiếng Việt, số trang, phân trang, tên nhiệm vụ, gauge, radar và trạng thái chưa có dữ liệu. Route kiểm tra phiên/tài khoản và chỉ tải dữ liệu chủ phiên; lỗi không lộ thông tin nội bộ. Một kịch bản browser trên production build local đã xác nhận đăng nhập → gợi ý vị trí CV → tải PDF thật, và HTTP 401 khi tải không đăng nhập. Tài khoản fixture chỉ được tạo/xóa ở local Supabase; không ghi cloud hay gọi AI.
 
 Build Next.js 16.4.2 và lint phần thay đổi đã qua. Font TTF xuất hiện trong output tracing của route PDF. Các binding Linux GNU cần cho Vercel được giữ trong lockfile. Không chạy lại toàn bộ unit/browser/auth suites và không coi fixture là nghiệm thu live AI. Kết quả deploy cuối được ghi trong DEPLOYMENT.md.
+
+## Dọn điều hướng cũ và sửa gợi ý dashboard
+
+Đã bỏ các lối vào bốn mục cũ ở giao diện đang dùng; gợi ý và hoạt động mô phỏng trên dashboard dùng nhãn vị trí thay vì toàn bộ `brief`. Một kịch bản browser local đã xác nhận menu/tìm kiếm không còn các lối vào đó, nhãn gợi ý ngắn, tìm kiếm phỏng vấn vẫn hoạt động và bố cục desktop/mobile không tràn. Đã xem ảnh hai viewport, build, typecheck và lint phần thay đổi. Không chạy lại toàn bộ suite, gọi AI hay sửa dữ liệu cloud.

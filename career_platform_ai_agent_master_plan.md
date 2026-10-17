@@ -162,3 +162,7 @@ PDF là yêu cầu chức năng. Một màn hình đã có không đồng nghĩa
 - Hiệu năng triển khai: chuyển Functions sang `sin1` để gần database Supabase `ap-southeast-1`; không coi đây là bằng chứng đã đo tốc độ toàn hành trình.
 - Next.js cập nhật 16.4.2 để vá cảnh báo thực tế của phiên bản 16.2.12, bao gồm xử lý ảnh AVIF đang bật. Không thay công thức điểm, auth hoặc schema.
 - Còn cần nguồn/định nghĩa trước khi hoàn tất: ba bộ phỏng vấn logistics thiếu vòng 1; mapping sáu nhóm kỹ năng và benchmark có nguồn; phạm vi avatar/tệp sản phẩm nếu đưa vào MVP. Chưa có nghiệm thu AI thật trên production. SMTP/đăng ký-email được tạm hoãn, không ghi là đã hoàn tất.
+
+## 12. Điều chỉnh điều hướng theo yêu cầu chủ dự án
+
+Bỏ toàn bộ lối vào bốn mục cũ `/career-discovery`, `/roadmap/new`, `/report`, `/account` khỏi dashboard, menu tài khoản, tìm kiếm và CTA của các màn đang sử dụng. Các kết quả riêng của mô phỏng/phỏng vấn vẫn thuộc luồng hiện tại. Không thay lõi đăng nhập hoặc dữ liệu đã lưu. Gợi ý dashboard hiển thị vị trí/tên nội dung ngắn gọn, giới hạn hai dòng; không dùng bối cảnh đề bài (`brief`) làm tiêu đề.

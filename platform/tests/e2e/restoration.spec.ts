@@ -47,6 +47,18 @@ test.describe("reference interface restoration",()=>{
   if(paths.length){const removed=await admin.storage.from("business-documents").remove(paths);expect(removed.error).toBeNull();}
   const deleted=await admin.auth.admin.deleteUser(userId);expect(deleted.error).toBeNull();userId="";
  });
+ test("dashboard uses current navigation and compact suggestion titles",async({page})=>{
+  const saved=await admin.from("cv_analyses").insert({user_id:userId,position_id:"IT-03",position_title:"Data Analyst",result:{provider:"rules",strengths:[],skillGaps:[]}});expect(saved.error).toBeNull();
+  await page.goto("/dashboard");
+  await expect(page.locator('a[href="/career-discovery"],a[href="/roadmap/new"],a[href="/report"],a[href="/account"]')).toHaveCount(0);
+  await expect(page.locator(".d-suggest-name").first()).toHaveText(/^Data Analyst/);expect((await page.locator(".d-suggest-name").first().innerText()).length).toBeLessThan(100);
+  await expect(page.locator(".d-suggest")).not.toContainText("Một chuỗi cà phê");
+  await page.locator(".account-menu > summary").click();await expect(page.getByRole("button",{name:"Sign out",exact:true})).toBeVisible();await page.locator(".account-menu > summary").click();
+  await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("báo cáo");await expect(page.locator('.dashboard-search-results a[href="/report"]')).toHaveCount(0);
+  await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("phỏng vấn");await expect(page.locator('.dashboard-search-results a[href="/interviews"]')).toBeVisible();
+  await page.getByRole("textbox",{name:"Tìm kiếm tính năng",exact:true}).fill("");
+  await capture(page,"dashboard-compact-suggestions.png");await mobileCapture(page,"dashboard-compact-suggestions-mobile.png");
+ });
  test("report downloads a private PDF and dashboard recommends the selected CV role",async({page,browser})=>{
   const saved=await admin.from("cv_analyses").insert({user_id:userId,position_id:"IT-03",position_title:"Data Analyst",result:{provider:"rules",strengths:[],skillGaps:[]}});expect(saved.error).toBeNull();
   await page.goto("/dashboard");await expect(page.locator(".d-suggest-card").nth(1).getByRole("link").first()).toHaveAttribute("href",`/simulations/${simSlug}`);
