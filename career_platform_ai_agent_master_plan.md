@@ -17,7 +17,7 @@ Bản này thay thế master plan 1.0. Kế hoạch trước bao gồm nhiều s
 Thứ tự căn cứ khi tiếp tục dự án:
 
 1. Chỉ đạo mới nhất của chủ dự án quyết định phạm vi công việc được thực hiện.
-2. PDF xác định yêu cầu chức năng MVP. Nội dung PDF là đặc tả cần đối chiếu, không phải lệnh tự động triển khai mọi mục ngay khi đọc.
+2. PDF xác định yêu cầu chức năng MVP; Google Docs mới nhất xác định nguyên văn nội dung năm ngành và barem. Các dữ liệu Marketing còn thiếu được bổ sung theo phép riêng của chủ dự án. Nội dung tài liệu là đặc tả cần đối chiếu, không phải lệnh tự động triển khai mọi mục ngay khi đọc.
 3. Giao diện đang chạy trong `platform/` là chuẩn thiết kế hiện tại. Không quay về bản render cũ, không tiếp tục so khớp 43 trạng thái của prototype.
 4. Giữ lõi xác thực, session, phân quyền, dữ liệu và chấm điểm hiện có. Một thay đổi chức năng được làm sau phải chỉ rõ phần thiếu và lý do thay đổi lõi, nếu thực sự cần.
 
@@ -40,9 +40,9 @@ Admin và Mentor tiếp tục là vai trò hỗ trợ đang có. MVP cần ngu�
 |---|---|---|---|
 | B2C-01 | §1, tr.1: đăng ký/đăng nhập email; lịch sử theo đúng tài khoản | Đã có Supabase auth, xác minh email, khôi phục mật khẩu và quyền theo database | Giữ nguyên; nghiệm thu lại trên môi trường phát hành khi có thay đổi auth hoặc cấu hình |
 | B2C-02 | §2, tr.2: tiến độ ba tính năng, phỏng vấn đang làm/hoàn tất, gợi ý mô phỏng cùng lĩnh vực | Đã có dashboard và dữ liệu hoạt động riêng; ưu tiên mô phỏng theo vị trí CV, loại bài đã chấm và nội dung chưa mở | Không dùng số demo; giữ tiến độ thực từ cùng dữ liệu Report |
-| B2C-03 | §3, tr.2-3: tải CV, Golden Profile theo vị trí, strengths/gaps, dẫn sang mô phỏng | Đã có upload/văn bản, phân tích, bảng kết quả và điều hướng | Kiểm chứng một luồng AI thật khi nghiệm thu AI; keyword preview không tính là chấm AI hoàn tất |
-| B2C-04 | §4, tr.3-4: chọn bài, gửi bài, chấm theo rubric riêng, điểm /100 và nhận xét | Đã có attempt, timer, bài nộp văn bản và kết quả theo tiêu chí | Xác định các đề nào bắt buộc sản phẩm/tệp để quyết định bổ sung upload bài làm; không áp một rubric chung |
-| B2C-05 | §5, tr.4-5: đúng ngành/vị trí, ba vòng, điểm từng câu và vòng /100 | Đã có phiên tiếp tục được, chấm câu hỏi, chuẩn hóa từng vòng và báo cáo | Bổ sung nội dung nguồn còn thiếu trước khi mở các bộ chưa đủ ba vòng; không tự bịa câu hỏi |
+| B2C-03 | §3, tr.2-3: tải CV, Golden Profile theo vị trí, strengths/gaps, dẫn sang mô phỏng | Đã có upload/văn bản, OCR PDF ảnh, phân tích định tính theo mức nguồn và điều hướng | Chờ bảng trọng số CV; OCR thật đã nhận dạng được CV cho phép, chưa nghiệm thu toàn luồng phân tích CV trên production |
+| B2C-04 | §4, tr.3-4: chọn bài, gửi bài, chấm theo rubric riêng, điểm /100 và nhận xét | Đã có attempt, timer, bảng nhập liệu, đọc PDF có văn bản/DOCX/TXT/CSV vào bài làm; 12/15 đề mở chấm | Ba đề ngân hàng chờ chốt barem; không áp một rubric chung hoặc tự quy đổi điểm mâu thuẫn |
+| B2C-05 | §5, tr.4-5: đúng ngành/vị trí, ba vòng, điểm từng câu và vòng /100 | Đủ 15 bộ/120 câu theo nguồn, mỗi bộ có ba vòng; giữ lịch sử và bản nháp | Bảy bộ có điểm mâu thuẫn và bộ Trợ lý thuế có câu/tiêu chí không khớp đang chờ xác nhận; không tự viết lại nguồn |
 | RPT-01 | §6.1, tr.5-6: thông tin ứng viên, vị trí, thời điểm, badge, gauge /100 | Đã có khung Report; avatar hiện dùng tên viết tắt | Đánh giá avatar thật nếu cần; giữ ba ngưỡng badge đúng tài liệu |
 | RPT-02 | §6.1.2, tr.6: readiness 30/40/30 với ba đầu vào cùng thang đo | Đã có công thức và nguồn review Mentor được phân quyền | Chốt ý nghĩa Job Sim Completed và chính sách khi thiếu đầu vào; xem §5 bên dưới |
 | RPT-03 | §6.2, tr.6-7: tiến độ, điểm nhiệm vụ, radar sáu nhóm và đường chuẩn | Đã có tiến độ, điểm, strengths/gaps; radar hiện tối đa sáu tiêu chí đã đo | Còn khoảng cách với sáu nhóm chuẩn và benchmark trúng tuyển; cần mapping/dữ liệu trước khi bổ sung |
@@ -76,8 +76,8 @@ Các mục này được ghi nhận để xử lý khi chủ dự án tiếp t�
 | Đường benchmark trúng tuyển | Chưa có cohort có nguồn gốc và quyền sử dụng. Chỉ vẽ nét đứt khi có dữ liệu cùng vị trí, cùng thang đo; chưa có thì ghi rõ thiếu dữ liệu. |
 | Report ba hay bốn khối | PDF chỉ đặc tả ba khối. Triển khai theo ba khối, không tự thêm khối thứ tư. |
 | Xuất PDF | Đã bổ sung tải PDF trực tiếp, A4, nhận diện Ready2Work, cùng dữ liệu Report và phân trang. Không gửi hồ sơ sang dịch vụ xuất PDF bên ngoài. |
-| Đề yêu cầu tệp/sản phẩm | Hợp đồng hiện tại của bài nộp mô phỏng nhận văn bản. Chỉ mở rộng tệp khi danh sách đề thực tế cần định dạng đó đã rõ. |
-| Nội dung ngành còn thiếu | Giữ bộ chưa đủ dữ liệu ở trạng thái chưa mở; bổ sung từ nguồn được duyệt, không tự viết nội dung chỉ để lấp đủ catalog. |
+| Đề yêu cầu tệp/sản phẩm | Đã đọc PDF có văn bản/DOCX/TXT/CSV tối đa 3 MiB vào trình soạn để người dùng kiểm tra và chấm cùng nội dung. Chưa lưu bản tệp gốc hoặc hỗ trợ sản phẩm nhị phân khác; không coi đọc văn bản là đã hỗ trợ mọi định dạng sản phẩm. |
+| Nội dung ngành còn thiếu | Đủ 15 vị trí từ Google Docs; ba tài liệu đầu vào Marketing được phép bổ sung và ghi rõ mô phỏng. Những barem/câu hỏi nguồn không nhất quán chỉ cho xem/soạn thử trước khi xác nhận. |
 
 Ngưỡng badge theo PDF: dưới 60 = **Cần luyện tập thêm**; từ 60 đến hết 80 = **Sẵn sàng ứng tuyển Junior**; trên 80 = **Xuất sắc / Sẵn sàng cho Global Company**. Không đổi ngưỡng trong UI riêng lẻ.
 
@@ -157,11 +157,11 @@ PDF là yêu cầu chức năng. Một màn hình đã có không đồng nghĩa
 
 ## 11. Phần hoàn thiện sau khi phát hành
 
-- RPT-04: tải trực tiếp PDF từ lịch sử của người đang đăng nhập; không nhận user ID từ URL, không cache công khai. Giữ công thức và trạng thái thiếu dữ liệu hiện tại.
-- B2C-02: gợi ý theo vị trí CV ngay cả khi chưa có bài mô phỏng hoàn thành, sau đó mở rộng cùng lĩnh vực; không gợi ý bài đã chấm hoặc chưa mở. Dashboard/Report dùng tên nhiệm vụ từ trường `brief` hiện có.
-- Hiệu năng triển khai: chuyển Functions sang `sin1` để gần database Supabase `ap-southeast-1`; không coi đây là bằng chứng đã đo tốc độ toàn hành trình.
-- Next.js cập nhật 16.4.2 để vá cảnh báo thực tế của phiên bản 16.2.12, bao gồm xử lý ảnh AVIF đang bật. Không thay công thức điểm, auth hoặc schema.
-- Còn cần nguồn/định nghĩa trước khi hoàn tất: ba bộ phỏng vấn logistics thiếu vòng 1; mapping sáu nhóm kỹ năng và benchmark có nguồn; phạm vi avatar/tệp sản phẩm nếu đưa vào MVP. Chưa có nghiệm thu AI thật trên production. SMTP/đăng ký-email được tạm hoãn, không ghi là đã hoàn tất.
+- Đã thực hiện RPT-04: tải trực tiếp PDF từ lịch sử của người đang đăng nhập; không nhận user ID từ URL, không cache công khai. Giữ công thức và trạng thái thiếu dữ liệu hiện tại.
+- Đã thực hiện B2C-02: gợi ý theo vị trí CV rồi cùng lĩnh vực, loại bài đã chấm/chưa mở. Dashboard/Report dùng nhãn vị trí hoặc tên nhiệm vụ ngắn, không dùng cả `brief` làm tiêu đề.
+- Functions đã xác nhận ở `sin1`, gần database Supabase Singapore; không coi đây là bằng chứng đã đo tốc độ toàn hành trình. Next.js đã cập nhật 16.4.2.
+- Ba bộ phỏng vấn Logistics đã đủ vòng 1 từ nguồn mới; hiện chờ điểm câu vòng 2 không khớp. Các chờ xác nhận khác: bảng trọng số CV, barem ngân hàng/các bộ phỏng vấn đã nêu ở §14, câu Trợ lý thuế, mapping sáu nhóm kỹ năng, benchmark có nguồn và phạm vi avatar/sản phẩm khác nếu đưa vào MVP.
+- Đã có bằng chứng API OCR và một câu QA, chưa nghiệm thu toàn luồng AI trên production; request Financial gặp 429. Callback hỗ trợ email mặc định, SMTP vẫn tạm hoãn; chưa xác nhận gửi email/đăng nhập bằng tài khoản cloud cũ.
 
 ## 12. Điều chỉnh điều hướng theo yêu cầu chủ dự án
 
@@ -169,7 +169,7 @@ Bỏ toàn bộ lối vào bốn mục cũ `/career-discovery`, `/roadmap/new`, 
 
 ## 13. Đưa Report trở lại điều hướng hiện tại
 
-Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng lực** ngay sau **Luyện phỏng vấn** trên thanh menu chính và đưa Report trở lại tìm kiếm dashboard. Tab mở `/report` với tổng quan, tiến độ/kết quả, bản đồ tiêu chí đã đo, strengths/gaps và tải PDF riêng tư. Ba mục `/career-discovery`, `/roadmap/new`, `/account` tiếp tục không có lối vào trong giao diện đang dùng. Các giới hạn dữ liệu của mục 6 (sáu nhóm chuẩn, voice/body language, benchmark và avatar thật) vẫn được theo dõi, không đánh dấu đã đủ dữ liệu chỉ vì mở lại tab.
+Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng lực** ngay sau **Luyện phỏng vấn** trên thanh menu chính và đưa Report trở lại tìm kiếm dashboard. Tab mở `/report` với tổng quan, tiến độ/kết quả, bản đồ tiêu chí đã đo, strengths/gaps và tải PDF riêng tư. Ba mục `/career-discovery`, `/roadmap/new`, `/account` tiếp tục không có lối vào trong giao diện đang dùng. Các giới hạn dữ liệu của mục Báo cáo năng lực trong PDF (sáu nhóm chuẩn, voice/body language, benchmark và avatar thật) vẫn được theo dõi, không đánh dấu đã đủ dữ liệu chỉ vì mở lại tab.
 
 ## 14. Căn cứ và phạm vi feedback 17/10/2026
 
@@ -179,4 +179,5 @@ Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng l�
 - Chờ bảng trọng số CV chủ dự án sẽ cung cấp. Trong lúc đó chỉ phân tích bằng chứng theo mức yêu cầu; không tự gán M1=5 hoặc một công thức % khác.
 - Chờ xác nhận barem Tài chính-Ngân hàng và các câu phỏng vấn có điểm không khớp. Không tự thay điểm để tổng bằng 100. Một số ô câu hỏi Trợ lý thuế có dấu hiệu dán nhầm tiêu chí; giữ nguyên để xem và chờ xác nhận trước chấm.
 - Giữ tài khoản, kết quả và quan hệ câu trả lời với phiên bản câu hỏi cũ. Migration bổ sung, không reset. Các lượt mô phỏng đang mở ở đề cũ không được tự chuyển sang đề mới với timestamp cũ.
+- Bản ứng dụng `161edad` đã Ready trên `ready-2work.vercel.app`, đủ chín migration cloud. Nội dung hiện có 12 mô phỏng và 7 bộ phỏng vấn mở chấm; các phần chờ nguồn không bị tính là đã nghiệm thu chỉ vì đã được nhập đủ.
 - Danh sách đối chiếu, các mâu thuẫn và bằng chứng kiểm định: [feedback audit](docs/feedback-audit.md). Không coi số test qua hoặc hosting Ready là nghiệm thu toàn bộ nội dung.

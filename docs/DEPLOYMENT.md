@@ -2,6 +2,8 @@
 
 ## Confirmed
 
+- Current application release: `161edad`, deployment `dpl_H3p9wb8tRrMiDA5DgNaxGtdmv7Xw`, Ready. Vercel confirms `ready-2work.vercel.app` points to this release and functions run in `sin1`.
+- After publication, `/`, `/signup`, `/signin`, `/api/health` and an original input image returned HTTP 200. The input image matches the repository SHA-256; private answer-key image `14.png` returns 404. These public checks do not assert end-to-end email delivery or provider availability.
 - GitHub: `nguyencungthanh/Ready2Work`, branch `main`.
 - Vercel project: `ready2work-platform`, root directory `platform`, Next.js preset.
 - Production URL: https://ready-2work.vercel.app
@@ -15,7 +17,7 @@
 
 - User permission received: the local `GEMINI_API_KEY` and cloud `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY` are stored in Vercel Production. Existing Preview values were preserved in separate records. Local development settings remain unchanged.
 - Production redeploy `dpl_F492do4iwHx6W91BBJt3L83oSsBS` is Ready with those values. `/`, `/signup`, `/signin` and `/api/health` returned HTTP 200.
-- Supabase Site URL was changed from the legacy domain to `https://ready2work-platform-smoky.vercel.app`. Additional redirects `/auth/confirm` and `/auth/confirm?type=recovery` on that domain were saved successfully. The existing legacy redirect was preserved.
+- Supabase Site URL is `https://ready-2work.vercel.app`, with confirmation/recovery redirects allowed. The previous smoky domain remains allowed for compatibility.
 
 ## Remaining configuration
 
@@ -35,7 +37,7 @@ No full unit/browser suite was rerun for this deployment configuration work. Suc
 - Functions configured for Singapore (`sin1`), near the existing cloud database. Confirm actual function placement on the deployment after publishing; no end-to-end speed measurement is claimed.
 - Focused report checks and one local browser flow passed. Local build traces both PDF font files. No cloud data migrations were added by this follow-up.
 
-## Feedback and source synchronization — pending publication
+## Feedback and source synchronization — published
 
 - Canonical domain remains `ready-2work.vercel.app`.
 - New additive migration: `20261017000100_feedback_content.sql`; 15 source roles, 15 simulations and 15 interview sets/120 questions. It retains prior sets/questions/answers and flags superseded open simulation attempts; no reset or history deletion.
