@@ -189,3 +189,16 @@
  .reference-business .dash-head { flex-wrap:wrap; }
  .reference-business .advisor-actions { flex-wrap:wrap; }
 }
+
+/* Keep long source worksheets inside the existing split workspace. */
+.reference-app #dash-tab-simulation .workspace-split { grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); }
+.reference-app #dash-tab-simulation .left-resource-panel,
+.reference-app #dash-tab-simulation .right-editor-panel { min-height:0;min-width:0; }
+.reference-app #dash-tab-simulation .submission-body { flex:1;min-height:0;overflow:auto; }
+.reference-app #dash-tab-simulation .editor-toolbar,
+.reference-app #dash-tab-simulation .upload-zone { flex-shrink:0; }
+.reference-app #dash-tab-simulation .submission-body .editor-textarea { min-height:300px; }
+@media(max-width:800px) {
+ .reference-app #dash-tab-simulation .workspace-split { grid-template-columns:minmax(0,1fr); }
+ .reference-app #dash-tab-simulation .right-editor-panel { height:700px; }
+}

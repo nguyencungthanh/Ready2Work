@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { safeReturnPath } from "@/lib/auth/redirect";
+import { authErrorMessage } from "@/lib/auth/error-message";
 import {
   requestPasswordResetSchema,
   signInSchema,
@@ -54,10 +55,10 @@ export async function signUpAction(
       data: { display_name: parsed.data.displayName, account_intent: formData.get("accountType") === "business" ? "business" : "candidate" },
       emailRedirectTo: `${siteUrl()}/auth/confirm`,
     },
-  });
+  }).catch(() => ({ error: { name: "AuthRetryableFetchError" } }));
 
   if (error) {
-    return { error: error.message };
+    return { error: authErrorMessage(error, "signup") };
   }
 
   // Generic wording either way: revealing "already registered" would let an
@@ -82,12 +83,12 @@ export async function signInAction(
   const { data, error } = await supabase.auth.signInWithPassword({
     email: parsed.data.email,
     password: parsed.data.password,
-  });
+  }).catch(() => ({ data: { user: null }, error: { name: "AuthRetryableFetchError" } }));
 
   if (error || !data.user) {
     // Same message for wrong password and unknown email, to avoid
     // account enumeration.
-    return { error: "Invalid email or password" };
+    return { error: authErrorMessage(error) };
   }
 
   const { data: profile } = await supabase
@@ -125,12 +126,13 @@ export async function requestPasswordResetAction(
   }
 
   const supabase = await createServerSupabaseClient();
-  await supabase.auth.resetPasswordForEmail(parsed.data.email, {
+  const { error } = await supabase.auth.resetPasswordForEmail(parsed.data.email, {
     redirectTo: `${siteUrl()}/auth/confirm?type=recovery`,
-  });
+  }).catch(() => ({ error: { name: "AuthRetryableFetchError" } }));
+  if (error) return { error: authErrorMessage(error, "reset") };
 
   // Always report success, whether or not the account exists.
-  return { success: "If that email has an account, a reset link is on its way." };
+  return { success: "Nếu email có tài khoản, bạn sẽ nhận được liên kết đặt lại mật khẩu." };
 }
 
 export async function updatePasswordAction(
@@ -147,10 +149,10 @@ export async function updatePasswordAction(
   }
 
   const supabase = await createServerSupabaseClient();
-  const { error } = await supabase.auth.updateUser({ password: parsed.data.password });
+  const { error } = await supabase.auth.updateUser({ password: parsed.data.password }).catch(() => ({ error: { name: "AuthRetryableFetchError" } }));
 
   if (error) {
-    return { error: error.message };
+    return { error: authErrorMessage(error, "password") };
   }
 
   redirect("/dashboard");

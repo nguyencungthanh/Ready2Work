@@ -1,0 +1,1150 @@
+{
+  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit",
+  "files": [
+    {
+      "id": "source-0",
+      "title": "Screenshot Excel quản lý học viên của trung tâm",
+      "kind": "image",
+      "href": "/materials/source-20261017/00.png",
+      "source_url": "https://drive.google.com/file/d/1c74ljt3g6SNCajIWOOVQUBjpiqLt7j6b/view?usp=sharing",
+      "sha256": "7879680344d469b89bbe6518b80a8ab260772fd672600723de4b2ae9ec211fbf"
+    },
+    {
+      "id": "source-1",
+      "title": "Lỗi 1",
+      "kind": "image",
+      "href": "/materials/source-20261017/01.png",
+      "source_url": "https://drive.google.com/file/d/11nuaVbJpvrtCP5jwgK3Ryab2XRY2Ay6g/view?usp=sharing",
+      "sha256": "dd798949575b836ed13d64eb303e0de104bfc9720a4370af5ed50469302ae588"
+    },
+    {
+      "id": "source-2",
+      "title": "Lỗi 2",
+      "kind": "image",
+      "href": "/materials/source-20261017/02.png",
+      "source_url": "https://drive.google.com/file/d/17C1Ldd41KJ-f4WcO-UZhd6Gxj9723HBb/view?usp=sharing",
+      "sha256": "80a1f1de4c4cf0c78375a20224fb8879d3acb8a4104cab96114812c66f20b2af"
+    },
+    {
+      "id": "source-3",
+      "title": "Thông tin doanh nghiệp",
+      "kind": "image",
+      "href": "/materials/source-20261017/03.png",
+      "source_url": "https://drive.google.com/file/d/1QB0HoRsqRQ3ooCsh62LFZvmRR5eHAxL5/view?usp=sharing",
+      "sha256": "c140575db0ada571b8774202d3554294d0bc654d55d29c86da9e300d545a3d3e"
+    },
+    {
+      "id": "source-4",
+      "title": "Lịch sử tín dụng",
+      "kind": "image",
+      "href": "/materials/source-20261017/04.png",
+      "source_url": "https://drive.google.com/file/d/1jMPOgkCqoCLVpFQB_5MShLx9BefCUgs7/view?usp=sharing",
+      "sha256": "1f3747ef6bf2244a8863fd4026862308cc2108f70ce397651414176712a1b8b9"
+    },
+    {
+      "id": "source-5",
+      "title": "Báo cáo tài chính 2023–2025",
+      "kind": "image",
+      "href": "/materials/source-20261017/05.png",
+      "source_url": "https://drive.google.com/file/d/1f78OuVKPqAe_hlccE7Azm0guz62-RkOC/view?usp=sharing",
+      "sha256": "1311c43c86315afd599557e3f639a7dcff698874f22772459b44dbefd84b76c7"
+    },
+    {
+      "id": "source-6",
+      "title": "Tài sản đảm bảo đề xuất",
+      "kind": "image",
+      "href": "/materials/source-20261017/06.png",
+      "source_url": "https://drive.google.com/file/d/1qIyiV_215pZw4rfZjaot3jyGcOuj9B7H/view?usp=sharing",
+      "sha256": "d4880164d55821fd72e1fa41670650e1622e6b7feac3bd65d205181eb65bf0fd"
+    },
+    {
+      "id": "source-7",
+      "title": "Phương án sử dụng vốn",
+      "kind": "image",
+      "href": "/materials/source-20261017/07.png",
+      "source_url": "https://drive.google.com/file/d/1h1Eh2nPQjoxJFcY-mDoMW6fxmh7G_ynP/view?usp=sharing",
+      "sha256": "6d3805b2e10c53d560b0fcd0a976a95d6060e87b18822ec04a4d2f52d72f9c60"
+    },
+    {
+      "id": "source-8",
+      "title": "Chính sách tín dụng SME của Ngân hàng Đại Dương",
+      "kind": "image",
+      "href": "/materials/source-20261017/08.png",
+      "source_url": "https://drive.google.com/file/d/1ukdJsxy7hZ__ptgGK5Qfd7JdQ30nFR6B/view?usp=sharing",
+      "sha256": "bbd0327f8ff34d209b2cebffd43bb1d8a676fb22e0760b9991fce4e22079ac66"
+    },
+    {
+      "id": "source-10",
+      "title": "Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)",
+      "kind": "image",
+      "href": "/materials/source-20261017/10.png",
+      "source_url": "https://drive.google.com/file/d/1eVTyE5lgrVJAKf8F17YWYEXC6oYm7BOn/view?usp=sharing",
+      "sha256": "be39acd09720b77c9d0c4c08d57c096b36c8789f8916dc05f72a2b00f31acb66"
+    },
+    {
+      "id": "source-11",
+      "title": "Chỉ số vận hành",
+      "kind": "image",
+      "href": "/materials/source-20261017/11.png",
+      "source_url": "https://drive.google.com/file/d/1_xF6DPyGEf5FAn6tgljKbftM4iAujf6e/view?usp=sharing",
+      "sha256": "c2df1bb3019376be93ce4fe50d173fa57fe8ffd5ddffd2fc51974281d391d5b3"
+    },
+    {
+      "id": "source-12",
+      "title": "Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
+      "kind": "image",
+      "href": "/materials/source-20261017/12.png",
+      "source_url": "https://drive.google.com/file/d/1DG-dSkWo-2us-GjgYKPp88kFEyHlwevY/view?usp=sharing",
+      "sha256": "e32495873e7cd58ed1c1a3879186418870b937d1bf1d38caa6627ff5634809d4"
+    },
+    {
+      "id": "source-15",
+      "title": "Hồ sơ đề xuất cấp tín dụng và thông tin dự án",
+      "kind": "image",
+      "href": "/materials/source-20261017/15.png",
+      "source_url": "https://drive.google.com/file/d/1wygEN_zZ79yX5pLBvayYhqo3FKVZzF5A/view?usp=sharing",
+      "sha256": "60889d1aa4b0714e246832ff40dce38c3d1bcf48b8ae0bcdeeeea577ea32600e"
+    },
+    {
+      "id": "source-16",
+      "title": "Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)",
+      "kind": "image",
+      "href": "/materials/source-20261017/16.png",
+      "source_url": "https://drive.google.com/file/d/19w3obdkTPJIbCapkleL2jooekRTmFEU8/view?usp=sharing",
+      "sha256": "05ef5372a23a2fe7acc692f47b72cc2df84419d778973a929eceb9ad66aa9f73"
+    },
+    {
+      "id": "source-17",
+      "title": "Bản tin ngành thép và chỉ số trung vị ngành",
+      "kind": "image",
+      "href": "/materials/source-20261017/17.png",
+      "source_url": "https://drive.google.com/file/d/1Lk15zUrExyC6Gebjd93m_J1SzvUR99c0/view?usp=sharing",
+      "sha256": "b1e86a34d7173d1edd9444fe6afeacf2c44858ef9476e2c8b19fa41d478dd83b"
+    },
+    {
+      "id": "source-18",
+      "title": "Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
+      "kind": "image",
+      "href": "/materials/source-20261017/18.png",
+      "source_url": "https://drive.google.com/file/d/1QAwLu9tA7L6H8hYB92DkSc1AC_RJxSUz/view?usp=sharing",
+      "sha256": "1ffafa409c79f5897cd2d3e891ac6b7e75c2acbe69278729b3092987b167ecba"
+    },
+    {
+      "id": "source-13",
+      "title": "Bảng Thẩm định",
+      "kind": "image",
+      "href": "/materials/source-20261017/13.png",
+      "source_url": "https://drive.google.com/file/d/16ANm1gk_ALgYx8dh7ueMcxLgo8QAb9GE/view?usp=sharing",
+      "sha256": "8eafaa7649e4d75b3e32148d5aea483dae3451a68eb719011904a84e5d4867d4"
+    },
+    {
+      "id": "source-19",
+      "title": "bảng cho sẵn",
+      "kind": "image",
+      "href": "/materials/source-20261017/19.png",
+      "source_url": "https://drive.google.com/file/d/12USUZZSPSPViKIMZSwklPSVbOVw0NywN/view?usp=sharing",
+      "sha256": "3d429b7f8e02a8a98b87e9ef11dea3a30c45a06b7773f171d06f3b2d68b47b38"
+    },
+    {
+      "id": "credit-table-1",
+      "title": "bảng 1.1.PNG",
+      "kind": "image",
+      "href": "/materials/source-20261017/credit-table-1.png",
+      "source_url": "https://drive.google.com/file/d/1s8AyETvLO7Er0LjufQC6iL93zQOQ6fEH/view",
+      "sha256": "4bd7e7fd8042614b88e9e172ad25ecfe4038e8e40fb316fccf11fbc9d4bab46e"
+    },
+    {
+      "id": "credit-table-2",
+      "title": "Bảng 1.2.PNG",
+      "kind": "image",
+      "href": "/materials/source-20261017/credit-table-2.png",
+      "source_url": "https://drive.google.com/file/d/1RglLHdeeMz4DzV5yu5NJSpfoLOuJ7P2q/view",
+      "sha256": "32162caba4dafdf9c02137621376d04f6e67d3a4e3fec1dabd1bc54fb6b7381c"
+    }
+  ],
+  "by_position": {
+    "IT-01": [
+      {
+        "id": "source-0",
+        "title": "Screenshot Excel quản lý học viên của trung tâm",
+        "kind": "image",
+        "href": "/materials/source-20261017/00.png"
+      }
+    ],
+    "IT-02": [
+      {
+        "id": "source-1",
+        "title": "Lỗi 1",
+        "kind": "image",
+        "href": "/materials/source-20261017/01.png"
+      },
+      {
+        "id": "source-2",
+        "title": "Lỗi 2",
+        "kind": "image",
+        "href": "/materials/source-20261017/02.png"
+      }
+    ],
+    "TCNH-02": [
+      {
+        "id": "source-3",
+        "title": "Thông tin doanh nghiệp",
+        "kind": "image",
+        "href": "/materials/source-20261017/03.png"
+      },
+      {
+        "id": "source-4",
+        "title": "Lịch sử tín dụng",
+        "kind": "image",
+        "href": "/materials/source-20261017/04.png"
+      },
+      {
+        "id": "source-5",
+        "title": "Báo cáo tài chính 2023–2025",
+        "kind": "image",
+        "href": "/materials/source-20261017/05.png"
+      },
+      {
+        "id": "source-6",
+        "title": "Tài sản đảm bảo đề xuất",
+        "kind": "image",
+        "href": "/materials/source-20261017/06.png"
+      },
+      {
+        "id": "source-7",
+        "title": "Phương án sử dụng vốn",
+        "kind": "image",
+        "href": "/materials/source-20261017/07.png"
+      },
+      {
+        "id": "source-8",
+        "title": "Chính sách tín dụng SME của Ngân hàng Đại Dương",
+        "kind": "image",
+        "href": "/materials/source-20261017/08.png"
+      },
+      {
+        "id": "credit-table-1",
+        "title": "Bảng 1: Tính các chỉ số yêu cầu trong 3 năm (đơn vị theo ghi chú)",
+        "kind": "table",
+        "columns": [
+          "Chỉ số",
+          "Năm 2023",
+          "Năm 2024",
+          "Năm 2025"
+        ],
+        "rows": [
+          [
+            "D/E = Tổng nợ phải trả / VCSH",
+            "",
+            "",
+            ""
+          ],
+          [
+            "ICR = EBIT / lãi vay",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Biên lợi nhuận ròng",
+            "",
+            "",
+            ""
+          ],
+          [
+            "ROA (số dư cuối năm)",
+            "",
+            "",
+            ""
+          ],
+          [
+            "ROE (số dư cuối năm)",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true,
+        "href": "/materials/source-20261017/credit-table-1.png"
+      },
+      {
+        "id": "credit-table-2",
+        "title": "Bảng 2: Tính các chỉ số yêu cầu trong 3 năm",
+        "kind": "table",
+        "columns": [
+          "Chỉ số",
+          "Năm 2023",
+          "Năm 2024",
+          "Năm 2025",
+          "Ý nghĩa"
+        ],
+        "rows": [
+          [
+            "Tăng trưởng doanh thu",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng giá vốn",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Biên gộp",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Biên EBITDA",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng LNST",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Hệ số thanh toán hiện hành",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Nợ vay/EBITDA",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Số ngày phải thu / tồn kho",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Dòng tiền tự do (CFO + dòng tiền đầu tư), tỷ đồng",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Cổ tức hàm ý từ biến động VCSH, tỷ đồng",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true,
+        "href": "/materials/source-20261017/credit-table-2.png"
+      }
+    ],
+    "TCNH-01": [
+      {
+        "id": "source-10",
+        "title": "Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)",
+        "kind": "image",
+        "href": "/materials/source-20261017/10.png"
+      },
+      {
+        "id": "source-11",
+        "title": "Chỉ số vận hành",
+        "kind": "image",
+        "href": "/materials/source-20261017/11.png"
+      },
+      {
+        "id": "source-12",
+        "title": "Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
+        "kind": "image",
+        "href": "/materials/source-20261017/12.png"
+      },
+      {
+        "id": "fa-table",
+        "title": "Bảng Thẩm định",
+        "kind": "table",
+        "columns": [
+          "Chỉ số",
+          "Quý 1",
+          "Quý 2",
+          "Quý 3",
+          "Quý 4"
+        ],
+        "rows": [
+          [
+            "Biên lợi nhuận gộp",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Biên EBITDA",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Biên lợi nhuận ròng",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng doanh thu quý/quý",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng giá vốn quý/quý",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng chi phí bán hàng và marketing",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng chi phí quản lý",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Tăng trưởng tổng chi phí vận hành",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Chi phí bán hàng và marketing / doanh thu",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "CFO / LNST",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "CFO / EBITDA",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Số ngày tồn kho (giá vốn × 90 ngày)",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Số ngày phải trả nhà cung cấp",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Lợi nhuận gộp trên mỗi đơn hàng (đồng)",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Chi phí bán hàng và marketing trên mỗi đơn hàng (đồng)",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Số đơn hàng trên mỗi cửa hàng (cuối quý)",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true,
+        "href": "/materials/source-20261017/13.png"
+      }
+    ],
+    "TCNH-03": [
+      {
+        "id": "source-15",
+        "title": "Hồ sơ đề xuất cấp tín dụng và thông tin dự án",
+        "kind": "image",
+        "href": "/materials/source-20261017/15.png"
+      },
+      {
+        "id": "source-16",
+        "title": "Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)",
+        "kind": "image",
+        "href": "/materials/source-20261017/16.png"
+      },
+      {
+        "id": "source-17",
+        "title": "Bản tin ngành thép và chỉ số trung vị ngành",
+        "kind": "image",
+        "href": "/materials/source-20261017/17.png"
+      },
+      {
+        "id": "source-18",
+        "title": "Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
+        "kind": "image",
+        "href": "/materials/source-20261017/18.png"
+      },
+      {
+        "id": "risk-table",
+        "title": "Bảng chỉ số tài chính",
+        "kind": "table",
+        "columns": [
+          "Chỉ số",
+          "Giá trị",
+          "Ngưỡng Ngân hàng",
+          "Trung vị ngành"
+        ],
+        "rows": [
+          [
+            "D/E (nợ vay/VCSH) hiện tại",
+            "",
+            "",
+            ""
+          ],
+          [
+            "D/E sau giải ngân 400 tỷ",
+            "",
+            "",
+            ""
+          ],
+          [
+            "D/E sau giải ngân nếu tăng vốn 150 tỷ",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Hệ số thanh toán hiện hành",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Biên gộp / EBITDA / ròng",
+            "",
+            "",
+            ""
+          ],
+          [
+            "ICR hiện tại (EBIT 183 / lãi vay 118)",
+            "",
+            "",
+            ""
+          ],
+          [
+            "ICR trong giai đoạn xây dựng (lãi vay thêm 34 tỷ)",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Lãi vay / EBIT",
+            "",
+            "",
+            ""
+          ],
+          [
+            "Nợ vay/EBITDA hiện tại / sau giải ngân / khi đạt công suất",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true,
+        "href": "/materials/source-20261017/19.png"
+      }
+    ],
+    "LOG-01": [
+      {
+        "id": "ops-table",
+        "title": "Bảng Điều Hành & Xử Lý Sự Cố",
+        "kind": "table",
+        "columns": [
+          "Mã đơn",
+          "Mức ưu tiên",
+          "Rủi ro/Vấn đề phát sinh",
+          "Hành động xử lý ngay (cụ thể)",
+          "Bên phối hợp",
+          "Thời hạn kiểm tra tiếp theo",
+          "Điều kiện đóng sự cố/Kết quả cần xác nhận"
+        ],
+        "rows": [
+          [
+            "SH-101",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SH-102",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SH-103",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SH-104",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SH-105",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SH-106",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true
+      }
+    ],
+    "LOG-02": [
+      {
+        "id": "supply-table",
+        "title": "Bảng phân tích chỉ số tồn kho",
+        "kind": "table",
+        "columns": [
+          "SKU",
+          "DOI hiện tại (ngày)",
+          "ROP tiêu chuẩn (đơn vị)",
+          "Phân loại trạng thái",
+          "Nguyên nhân gốc rễ",
+          "Hành động khuyến nghị ngắn hạn"
+        ],
+        "rows": [
+          [
+            "SKU-101",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SKU-102",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SKU-103",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SKU-104",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "SKU-105",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true
+      }
+    ],
+    "LOG-03": [
+      {
+        "id": "purchase-table",
+        "title": "Bảng so sánh báo giá & đánh giá lựa chọn",
+        "kind": "table",
+        "columns": [
+          "NCC",
+          "Đơn giá có VAT (VNĐ/kg)",
+          "Landed Cost/kg",
+          "Tổng giá trị đơn 5.000 kg",
+          "Đánh giá ngân sách (≤ 42.000đ/kg)",
+          "Đánh giá SLA (về ≤ 15/10)",
+          "Rủi ro lớn nhất",
+          "Đề xuất lựa chọn"
+        ],
+        "rows": [
+          [
+            "NCC A",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "NCC B",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "NCC C",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true
+      }
+    ],
+    "MKT-01": [
+      {
+        "id": "intern-plan",
+        "title": "Kế hoạch nội dung 7 ngày",
+        "kind": "table",
+        "columns": [
+          "Ngày",
+          "Kênh",
+          "Định dạng",
+          "Ý tưởng",
+          "Mục tiêu",
+          "CTA"
+        ],
+        "rows": [
+          [
+            "1",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "2",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "3",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "4",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "5",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "6",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "7",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true
+      },
+      {
+        "id": "marketing-product-brief",
+        "title": "Product Brief · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Thông tin",
+          "Nội dung"
+        ],
+        "rows": [
+          [
+            "Sản phẩm",
+            "Hoodie Campus Fleece, bộ sưu tập Thu-Đông dành cho sinh viên 18–22 tuổi."
+          ],
+          [
+            "Chất liệu",
+            "Nỉ bông: 65% cotton, 35% polyester."
+          ],
+          [
+            "Kiểu dáng",
+            "Form rộng unisex; cỡ S, M, L, XL; màu đen, xám và nâu."
+          ],
+          [
+            "Giá niêm yết",
+            "399.000 đồng/áo."
+          ],
+          [
+            "Ưu đãi mở bán",
+            "Giảm 40.000 đồng/áo, còn 359.000 đồng trong 48 giờ đầu kể từ thời điểm mở bán. Hết 48 giờ trở lại giá niêm yết."
+          ],
+          [
+            "Kênh mua hàng",
+            "Fanpage của thương hiệu và gian hàng Shopee."
+          ],
+          [
+            "Giọng thương hiệu",
+            "Xưng hô “Shop – Cậu”, trẻ trung, gần gũi với sinh viên."
+          ],
+          [
+            "Nguồn lực",
+            "Nhóm 2 người; quay bằng điện thoại; không thuê KOL hoặc studio."
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      }
+    ],
+    "MKT-03": [
+      {
+        "id": "content-plan",
+        "title": "Kế hoạch nội dung 1 tháng",
+        "kind": "table",
+        "columns": [
+          "Tuần",
+          "Giai đoạn phễu",
+          "Chủ đề",
+          "Từ khóa chính",
+          "Nỗi đau",
+          "CTA"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true
+      },
+      {
+        "id": "marketing-keyword-data",
+        "title": "Bảng 12 từ khóa SEO · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Từ khóa",
+          "Lượt tìm kiếm/tháng",
+          "Độ khó từ khóa (0–100)",
+          "Ý định tìm kiếm"
+        ],
+        "rows": [
+          [
+            "cách tính giá vốn đồ uống",
+            "1.300",
+            "22",
+            "Tìm hướng dẫn tính toán, phục vụ vận hành quán."
+          ],
+          [
+            "cách quản lý nguyên liệu quán cafe không thất thoát",
+            "480",
+            "18",
+            "Tìm phương pháp quản lý nguyên liệu tại quán."
+          ],
+          [
+            "định mức nguyên liệu pha chế",
+            "720",
+            "24",
+            "Tìm hướng dẫn xây dựng định mức pha chế."
+          ],
+          [
+            "phần mềm quản lý kho F&B",
+            "880",
+            "28",
+            "Tìm hiểu và so sánh công cụ quản lý kho."
+          ],
+          [
+            "cảnh báo tồn kho tự động",
+            "320",
+            "19",
+            "Tìm hiểu giải pháp cảnh báo tồn kho."
+          ],
+          [
+            "phần mềm quản lý quán cafe",
+            "4.400",
+            "56",
+            "So sánh phần mềm quản lý quán tổng thể."
+          ],
+          [
+            "phần mềm quản lý bán hàng",
+            "9.900",
+            "70",
+            "Tìm phần mềm bán hàng cho nhiều ngành."
+          ],
+          [
+            "công thức pha chế trà sữa",
+            "6.600",
+            "24",
+            "Tìm công thức đồ uống để thực hành."
+          ],
+          [
+            "mở quán cafe cần chuẩn bị gì",
+            "5.400",
+            "32",
+            "Tìm thông tin khởi nghiệp và mở quán."
+          ],
+          [
+            "quản lý nguyên liệu nhà hàng",
+            "590",
+            "26",
+            "Tìm cách quản lý nguyên liệu nhà hàng."
+          ],
+          [
+            "kiểm soát thất thoát nguyên vật liệu",
+            "260",
+            "16",
+            "Tìm quy trình kiểm soát thất thoát."
+          ],
+          [
+            "phần mềm cảnh báo hết nguyên liệu quán cafe",
+            "170",
+            "15",
+            "Tìm công cụ theo nhu cầu cụ thể của quán."
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      }
+    ],
+    "MKT-02": [
+      {
+        "id": "marketing-ad-data",
+        "title": "Kết quả quảng cáo 3 ngày đầu · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Nhóm quảng cáo",
+          "Tệp đối tượng",
+          "Chi tiêu (đồng)",
+          "Lượt hiển thị",
+          "Lượt nhấp",
+          "Khách để lại thông tin",
+          "CTR",
+          "CPL (đồng)"
+        ],
+        "rows": [
+          [
+            "A",
+            "18–45 tuổi, sở thích ngoại ngữ và học trực tuyến, phạm vi địa lý rộng.",
+            "3.000.000",
+            "40.000",
+            "240",
+            "3",
+            "0,6%",
+            "1.000.000"
+          ],
+          [
+            "B",
+            "22–30 tuổi, người đi làm trong khu vực có thể đến học tại trung tâm.",
+            "2.000.000",
+            "22.500",
+            "260",
+            "5",
+            "1,1556%",
+            "400.000"
+          ],
+          [
+            "Tổng",
+            "Hai nhóm dùng chung trang đích và biểu mẫu.",
+            "5.000.000",
+            "62.500",
+            "500",
+            "8",
+            "0,8%",
+            "625.000"
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      },
+      {
+        "id": "marketing-landing-data",
+        "title": "Quảng cáo và trang đích · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Thông tin",
+          "Dữ liệu"
+        ],
+        "rows": [
+          [
+            "Mẫu quảng cáo đang dùng",
+            "Ảnh lịch tuyển sinh, nhiều chữ, tiêu đề “Đăng ký khóa tiếng Anh giao tiếp”; chưa thử video hoặc thông điệp khác."
+          ],
+          [
+            "Tốc độ tải trang đích",
+            "Trung bình 5,2 giây trên thiết bị di động trong 3 ngày đầu."
+          ],
+          [
+            "Biểu mẫu",
+            "7 trường bắt buộc: họ tên, số điện thoại, email, độ tuổi, nghề nghiệp, khu vực, trình độ hiện tại."
+          ],
+          [
+            "Tỷ lệ chuyển đổi từ lượt nhấp",
+            "8 khách để lại thông tin / 500 lượt nhấp = 1,6%."
+          ],
+          [
+            "CPM tổng",
+            "80.000 đồng cho 1.000 lượt hiển thị."
+          ],
+          [
+            "CPC tổng",
+            "10.000 đồng/lượt nhấp."
+          ],
+          [
+            "Mục tiêu chiến dịch",
+            "100 khách để lại thông tin trong 14 ngày."
+          ],
+          [
+            "Ngân sách còn lại",
+            "15.000.000 đồng cho 11 ngày tiếp theo."
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      }
+    ]
+  }
+}

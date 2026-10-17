@@ -6,7 +6,8 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service-role-client";
 import { getGoldenProfile } from "@/lib/content/catalog";
 import { analyzeCV } from "@/lib/cv/analyzer";
-import { extractCVText } from "@/lib/cv/extract";
+import { extractCVDocument } from "@/lib/cv/extract";
+import type { CVAnalysis } from "@/lib/cv/analyzer";
 
 export interface CVFormState { error?: string; success?: string }
 export async function analyzeCVAction(_previous: CVFormState, formData: FormData): Promise<CVFormState> {
@@ -17,11 +18,19 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
   const supabase = await createServerSupabaseClient();
   const file = formData.get("cv");
   let path: string | null = null;
+  let stage: "read" | "analyze" | "save" = "read";
   try {
     let cvText = String(formData.get("cvText") ?? "").trim();
-    if (file instanceof File && file.size) cvText = await extractCVText(file);
+    let extractionMethod: CVAnalysis["extractionMethod"] = "pasted";
+    if (file instanceof File && file.size) {
+      const extracted = await extractCVDocument(file);
+      cvText = extracted.text;
+      extractionMethod = extracted.method;
+    }
     if (cvText.length < 40 || cvText.length > 40_000) return { error: "Nội dung CV cần từ 40 đến 40.000 ký tự." };
-    const result = await analyzeCV(cvText, profile);
+    stage = "analyze";
+    const result = { ...await analyzeCV(cvText, profile), extractionMethod };
+    stage = "save";
     if (file instanceof File && file.size) {
       const extension = file.name.split(".").pop()?.toLowerCase();
       path = `${user.id}/${crypto.randomUUID()}/cv.${extension}`;
@@ -44,6 +53,8 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
     // Parser errors are safe to present; do not expose database/provider internals.
     const message = error instanceof Error ? error.message : "";
     return { error: /^(Tệp|CV |Chỉ hỗ trợ|Không đọc|Nội dung CV|Không lưu)/.test(message)
-      ? message : "Chưa phân tích được CV. Vui lòng thử lại hoặc dán nội dung văn bản." };
+      ? message : stage === "analyze"
+        ? "Đã đọc được CV nhưng AI chưa hoàn tất phân tích. Vui lòng thử lại sau; chưa có kết quả mới được lưu."
+        : "Chưa xử lý được CV. Vui lòng thử lại hoặc dán nội dung văn bản." };
   }
 }

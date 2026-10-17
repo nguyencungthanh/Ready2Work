@@ -9,21 +9,28 @@ import { createServerSupabaseClient } from "@/lib/supabase/server";
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl;
   const tokenHash = searchParams.get("token_hash");
-  const type = searchParams.get("type") as EmailOtpType | null;
+  const type = searchParams.get("type");
+  const code = searchParams.get("code");
+  const validEmailTypes: EmailOtpType[] = ["signup", "invite", "magiclink", "recovery", "email_change", "email"];
 
-  if (!tokenHash || !type) {
+  if (!code && (!tokenHash || !validEmailTypes.includes(type as EmailOtpType))) {
     return NextResponse.redirect(`${origin}/signin?error=invalid_link`);
   }
 
   const supabase = await createServerSupabaseClient();
-  const { data, error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
+  // Supabase's default email template redirects PKCE signups/recovery with
+  // ?code=. Custom templates may use the token_hash flow; support both.
+  const { data, error } = code
+    ? await supabase.auth.exchangeCodeForSession(code)
+    : await supabase.auth.verifyOtp({ type: type as EmailOtpType, token_hash: tokenHash! });
 
-  if (error) {
+  if (error || !data.user) {
     return NextResponse.redirect(`${origin}/signin?error=expired_link`);
   }
 
   // Recovery links must land on the password form, not the dashboard,
   // otherwise the user is signed in without ever setting a new password.
-  const destination = type === "recovery" ? "/update-password" : data.user?.user_metadata.account_intent === "business" ? "/business" : "/dashboard";
+  const isRecovery = type === "recovery" || ("redirectType" in data && data.redirectType === "recovery");
+  const destination = isRecovery ? "/update-password" : data.user.user_metadata.account_intent === "business" ? "/business" : "/dashboard";
   return NextResponse.redirect(`${origin}${destination}`);
 }

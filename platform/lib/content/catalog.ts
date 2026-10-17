@@ -10,6 +10,7 @@ export interface ProfileRequirement {
   weight?: number;
   priority?: string;
   keywords?: string[];
+  source_requirement_policy?: "core" | "common" | "conditional" | "advantage";
 }
 export interface GoldenProfile {
   position_id: string;

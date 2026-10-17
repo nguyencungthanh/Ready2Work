@@ -22,12 +22,13 @@ function getClient(): GoogleGenAI {
 export async function generateStructured(
   prompt: string,
   responseSchema: object,
+  document?: { data: string; mimeType: "application/pdf" },
 ): Promise<unknown> {
   const client = getClient();
 
   const response = await client.models.generateContent({
     model: MODEL,
-    contents: prompt,
+    contents: document ? [{ text: prompt }, { inlineData: document }] : prompt,
     config: {
       responseMimeType: "application/json",
       responseSchema,

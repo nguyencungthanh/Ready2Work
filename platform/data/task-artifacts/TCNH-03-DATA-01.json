@@ -1,0 +1,201 @@
+{
+  "artifact_id": "TCNH-03-DATA-01",
+  "position_id": "TCNH-03",
+  "source_version": "20261017",
+  "documents": {
+    "project": {
+      "source_image": "15.png",
+      "rows": [
+        [
+          "Khách hàng",
+          "Công ty Cổ phần Con Cua – sản xuất thép xây dựng (thép thanh vằn, thép cuộn)."
+        ],
+        [
+          "Dự án",
+          "Xây dựng giai đoạn 2 nhà máy cán thép tại Khu công nghiệp Phố Nối A, tỉnh Hưng Yên."
+        ],
+        [
+          "Tổng mức đầu tư",
+          "650 tỷ đồng."
+        ],
+        [
+          "Cơ cấu nguồn vốn",
+          "Vay Ngân hàng 400 tỷ đồng (61,5%); vốn đối ứng 250 tỷ đồng (38,5%), gồm: 100 tỷ từ lợi nhuận giữ lại trong 24 tháng xây dựng; 150 tỷ từ tăng vốn cổ phần theo chủ trương đã được Đại hội đồng cổ đông thông qua, chưa thực hiện và chưa có cam kết bảo lãnh phát hành."
+        ],
+        [
+          "Đề nghị vay",
+          "Kỳ hạn 10 năm; ân hạn gốc 24 tháng (thời gian xây dựng); lãi suất dự kiến 8,5%/năm, thả nổi."
+        ],
+        [
+          "Tiến độ",
+          "Xây dựng 24 tháng; vận hành thương mại từ năm thứ 3 với 50% công suất, đạt công suất thiết kế từ năm thứ 4."
+        ],
+        [
+          "Dự báo của khách hàng (chưa kiểm chứng)",
+          "Khi đạt công suất thiết kế: doanh thu tăng thêm 1.000 tỷ đồng/năm; EBITDA tăng thêm 100 tỷ đồng/năm."
+        ],
+        [
+          "Tài sản đảm bảo đề xuất",
+          "Tài sản hình thành từ vốn vay (nhà xưởng, dây chuyền cán thép) giá trị dự kiến khi hoàn thành 520 tỷ đồng; quyền sử dụng đất tại khu công nghiệp 90 tỷ đồng."
+        ],
+        [
+          "Quan hệ với Ngân hàng",
+          "Dư nợ hiện hữu tại Ngân hàng Đại Dương 300 tỷ đồng, nhóm 1 (đã nằm trong tổng nợ vay 1.680 tỷ đồng)."
+        ]
+      ]
+    },
+    "financial_statements": {
+      "source_image": "16.png",
+      "year": 2025,
+      "unit": "tỷ đồng",
+      "rows": [
+        [
+          "Doanh thu thuần",
+          "2.500"
+        ],
+        [
+          "Giá vốn hàng bán",
+          "2.190"
+        ],
+        [
+          "Lợi nhuận gộp",
+          "310"
+        ],
+        [
+          "Chi phí bán hàng và quản lý doanh nghiệp",
+          "65"
+        ],
+        [
+          "EBITDA",
+          "245"
+        ],
+        [
+          "Khấu hao",
+          "62"
+        ],
+        [
+          "Chi phí lãi vay",
+          "118"
+        ],
+        [
+          "Lợi nhuận trước thuế",
+          "65"
+        ],
+        [
+          "Thuế thu nhập doanh nghiệp (20%)",
+          "13"
+        ],
+        [
+          "Lợi nhuận sau thuế",
+          "52"
+        ],
+        [
+          "Tổng tài sản",
+          "2.500"
+        ],
+        [
+          "Tài sản ngắn hạn",
+          "1.020"
+        ],
+        [
+          "Tài sản dài hạn",
+          "1.480"
+        ],
+        [
+          "Tổng nợ phải trả",
+          "2.100"
+        ],
+        [
+          "Nợ ngắn hạn",
+          "1.200",
+          "Gồm vay ngắn hạn 780"
+        ],
+        [
+          "Nợ dài hạn",
+          "900",
+          "Toàn bộ là vay dài hạn"
+        ],
+        [
+          "Tổng nợ vay",
+          "1.680",
+          "780 ngắn hạn + 900 dài hạn"
+        ],
+        [
+          "Vốn chủ sở hữu",
+          "400"
+        ],
+        [
+          "Hệ số nợ vay/VCSH (D/E)",
+          "4,2",
+          "Sinh viên cần kiểm tra lại"
+        ],
+        [
+          "Hệ số thanh toán hiện hành",
+          "0,85",
+          "Sinh viên cần kiểm tra lại"
+        ]
+      ]
+    },
+    "industry": {
+      "source_image": "17.png",
+      "facts": [
+        "Giá quặng sắt và than cốc biến động mạnh, dao động khoảng ±20% trong 12 tháng gần nhất; nhà sản xuất khó chuyển hết chi phí tăng sang giá bán.",
+        "Thép nhập khẩu giá rẻ từ Trung Quốc gia tăng, tạo áp lực giảm giá thép xây dựng trong nước.",
+        "Công suất thép xây dựng trong nước đang cao hơn nhu cầu; tiêu thụ nội địa tăng khoảng 3–4%/năm, phụ thuộc vào đầu tư công và thị trường bất động sản.",
+        "Lãi suất cho vay trung và dài hạn bình quân của hệ thống ở mức 8–9%/năm."
+      ],
+      "median_table_simulated": [
+        [
+          "D/E (nợ vay/VCSH)",
+          "2,0 lần"
+        ],
+        [
+          "Hệ số thanh toán hiện hành",
+          "1,1 lần"
+        ],
+        [
+          "Biên lợi nhuận gộp",
+          "11,0%"
+        ],
+        [
+          "Biên EBITDA",
+          "8,0%"
+        ],
+        [
+          "Biên lợi nhuận ròng",
+          "3,0%"
+        ],
+        [
+          "ICR (EBIT/lãi vay)",
+          "3,0 lần"
+        ]
+      ]
+    },
+    "bank_policy": {
+      "source_image": "18.png",
+      "rows": [
+        [
+          "Ngưỡng tài chính khi cấp tín dụng dự án",
+          "D/E (nợ vay/VCSH) không quá 3,0 lần; Hệ số thanh toán hiện hành không thấp hơn 1,0 lần; ICR không thấp hơn 2,0 lần; Nợ vay/EBITDA không quá 4,5 lần."
+        ],
+        [
+          "Cấu trúc dự án",
+          "Vốn đối ứng tối thiểu 30% tổng mức đầu tư và phải được góp hoặc cam kết bảo đảm trước giải ngân. Tỷ lệ cho vay trên giá trị tài sản đảm bảo (LTV) tối đa 70%."
+        ],
+        [
+          "Chất lượng danh mục thép",
+          "Dư nợ ngành thép hiện tại 6.000 tỷ đồng trên tổng dư nợ 80.000 tỷ của Ngân hàng. Tỷ lệ nợ xấu (nhóm 3–5) của danh mục cho vay ngành thép: 2,0%. Ngưỡng chấp nhận của Ngân hàng: 3,0%."
+        ],
+        [
+          "Giới hạn tập trung ngành",
+          "Dư nợ một ngành không quá 8,0% tổng dư nợ."
+        ],
+        [
+          "Giới hạn một khách hàng",
+          "Không quá 15% vốn tự có của Ngân hàng (vốn tự có: 12.000 tỷ đồng)."
+        ]
+      ]
+    }
+  },
+  "source_inconsistencies": []
+}

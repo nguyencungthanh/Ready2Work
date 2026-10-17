@@ -6,6 +6,7 @@ vi.mock("@/lib/auth/session", () => ({ requireUser: vi.fn(async () => ({ id: "ow
 vi.mock("@/lib/supabase/server", () => ({ createServerSupabaseClient: vi.fn(async () => ({ from: mocks.userFrom })) }));
 vi.mock("@/lib/supabase/service-role-client", () => ({ createServiceRoleClient: vi.fn(() => ({ from: mocks.serviceFrom })) }));
 vi.mock("@/lib/interview/ai-evaluator", () => ({ evaluateInterviewWithAI: mocks.evaluate }));
+vi.mock("@/lib/observability/logger", () => ({ logger: { error: vi.fn() } }));
 vi.mock("next/cache", () => ({ revalidatePath: mocks.revalidate }));
 vi.mock("next/navigation", () => ({ redirect: vi.fn((path) => { throw new Error(`REDIRECT:${path}`); }) }));
 import { completeInterviewSessionAction, submitInterviewAnswerAction } from "@/app/interviews/actions";
@@ -20,25 +21,31 @@ function query(data: unknown, error: unknown = null) {
   };
   return chain;
 }
-function form() { const data = new FormData(); data.set("sessionId", "session"); data.set("questionId", "question"); data.set("answerText", "My evidence-based response."); return data; }
+function form(answer = "Câu trả lời có bằng chứng của tôi.") { const data = new FormData(); data.set("sessionId", "session"); data.set("questionId", "question"); data.set("answerText", answer); return data; }
 beforeEach(() => { vi.clearAllMocks(); });
 describe("interview action authorization", () => {
   it("cannot grade an answer in another user's session", async () => {
     mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "other", set_id: "set", completed_at: null }));
-    expect((await submitInterviewAnswerAction({}, form())).error).toContain("unavailable");
+    expect((await submitInterviewAnswerAction({}, form())).error).toContain("không khả dụng");
+    expect(mocks.serviceFrom).not.toHaveBeenCalled();
+    expect(mocks.evaluate).not.toHaveBeenCalled();
+  });
+  it("does not grade a source set that is pending clarification or archived", async () => {
+    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: { is_available: false } }));
+    expect((await submitInterviewAnswerAction({}, form())).error).toContain("chưa mở chấm");
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
     expect(mocks.evaluate).not.toHaveBeenCalled();
   });
   it("cannot edit a completed interview", async () => {
     mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", completed_at: "2026-10-16" }));
-    expect((await submitInterviewAnswerAction({}, form())).error).toContain("complete");
+    expect((await submitInterviewAnswerAction({}, form())).error).toContain("hoàn thành");
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
   });
   it("does not accept a foreign or out-of-order question id supplied by the browser", async () => {
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
       ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : query([]));
     mocks.serviceFrom.mockReturnValue(query([{ id: "expected", prompt: "The real question", rubric: [], round_number: 1, position: 1 }]));
-    expect((await submitInterviewAnswerAction({}, form())).error).toContain("next unanswered");
+    expect((await submitInterviewAnswerAction({}, form())).error).toContain("chưa trả lời tiếp theo");
     expect(mocks.serviceFrom.mock.calls.map((call) => call[0])).toEqual(["interview_questions"]);
     expect(mocks.evaluate).not.toHaveBeenCalled();
   });
@@ -50,5 +57,60 @@ describe("interview action authorization", () => {
     });
     await expect(completeInterviewSessionAction(form())).rejects.toThrow("every question");
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
+  });
+});
+
+describe("interview answer submission regressions from feedback", () => {
+  const shortAnswer = "Reactive/Proactive, Quality Assurance/Quality Control.";
+  const criterion = { id: "definitions", label: "Phân biệt hai hoạt động", description: "Chấm đúng bằng chứng trong câu trả lời.", weight: 35, maxScore: 35 };
+  function arrange(saveError: unknown = null) {
+    const saved = query(null, saveError);
+    mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
+      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : query([]));
+    mocks.serviceFrom.mockImplementation((table: string) => table === "interview_questions"
+      ? query([{ id: "question", prompt: "Bạn hãy phân biệt Testing và Quality Assurance", grading_rubric: [criterion], reference_answer: "Hướng dẫn riêng để chấm.", round_number: 1, position: 2 }]) : saved);
+    return saved;
+  }
+
+  it("accepts a short nonempty answer and persists its low evaluation instead of treating a low score as failure", async () => {
+    const saved = arrange();
+    const criteria = [{ criterionId: "definitions", label: criterion.label, score: 8, maxScore: 35, note: "Cần giải thích bản chất hai hoạt động." }];
+    mocks.evaluate.mockResolvedValue({ score: 23, criteria });
+
+    expect(await submitInterviewAnswerAction({}, form(shortAnswer))).toEqual({});
+    expect(mocks.evaluate).toHaveBeenCalledWith(shortAnswer, expect.any(String), "Hướng dẫn riêng để chấm.", [criterion]);
+    expect(saved.insert).toHaveBeenCalledExactlyOnceWith({ session_id: "session", question_id: "question", answer_text: shortAnswer, score: 23, criteria });
+    expect(mocks.revalidate).toHaveBeenCalledWith("/interviews/sessions/session");
+  });
+
+  it("does not persist a fabricated grade when the provider fails and returns a retryable Vietnamese error", async () => {
+    const saved = arrange();
+    mocks.evaluate.mockRejectedValue(Object.assign(new Error("private provider details"), { status: 503 }));
+
+    const result = await submitInterviewAnswerAction({}, form(shortAnswer));
+    expect(result.error).toContain("AI");
+    expect(result.error).toContain("Nội dung vẫn được giữ");
+    expect(result.error).not.toContain("private provider details");
+    expect(saved.insert).not.toHaveBeenCalled();
+    expect(mocks.revalidate).not.toHaveBeenCalled();
+  });
+
+  it("distinguishes a database save failure from an evaluation failure without exposing database details", async () => {
+    const saved = arrange({ code: "23505", message: "private database details" });
+    mocks.evaluate.mockResolvedValue({ score: 0, criteria: [] });
+
+    const result = await submitInterviewAnswerAction({}, form(shortAnswer));
+    expect(result.error).toContain("lưu");
+    expect(result.error).not.toContain("AI");
+    expect(result.error).not.toContain("private database details");
+    expect(saved.insert).toHaveBeenCalledOnce();
+    expect(mocks.revalidate).not.toHaveBeenCalled();
+  });
+
+  it("rejects an empty response before evaluating or writing", async () => {
+    expect((await submitInterviewAnswerAction({}, form("  "))).error).toContain("nhập câu trả lời");
+    expect(mocks.userFrom).not.toHaveBeenCalled();
+    expect(mocks.serviceFrom).not.toHaveBeenCalled();
+    expect(mocks.evaluate).not.toHaveBeenCalled();
   });
 });

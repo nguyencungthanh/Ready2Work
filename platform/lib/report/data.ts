@@ -22,7 +22,7 @@ export interface InterviewHistoryRow {
   round_scores: { round: number; score: number; questionCount: number }[] | null;
 }
 interface CvResult {
-  overallMatchScore?: number; summary?: string; provider?: string;
+  overallMatchScore?: number | null; summary?: string; provider?: string;
   strengths?: { skillName: string; candidateEvidence: string }[];
   skillGaps?: { skillName: string; gapDescription: string; recommendedAction?: string }[];
 }

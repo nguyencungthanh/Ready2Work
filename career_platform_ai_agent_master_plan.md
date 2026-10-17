@@ -1,14 +1,14 @@
 # Ready2Work - Master Plan
 
-**Phiên bản:** 2.1
+**Phiên bản:** 2.2
 
 **Cập nhật:** 17/10/2026
 
-**Phạm vi:** MVP B2C/B2B theo [Ready2Work.pdf](docs/requirements/Ready2Work.pdf)
+**Phạm vi:** MVP B2C/B2B; yêu cầu và nội dung mới nhất theo [Google Docs do chủ dự án cung cấp](https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit), đối chiếu feedback ngày 17/10/2026.
 
 **Giao diện chuẩn:** phiên bản hiện tại trong `platform/`
 
-**Trạng thái hiện tại:** đã phát hành Vercel + Supabase Cloud; tiếp tục hoàn thiện PDF/Report, gợi ý dashboard và cấu hình hiệu năng theo yêu cầu làm tiếp. SMTP được chủ dự án yêu cầu tạm hoãn.
+**Trạng thái hiện tại:** đồng bộ 15 vị trí/120 câu, sửa lỗi theo feedback và kiểm định nguồn. Điểm chưa thống nhất phải chờ xác nhận; phần trăm CV chờ bảng trọng số. Dữ liệu Marketing bổ sung được chủ dự án cho phép và gắn nhãn mô phỏng. SMTP tiếp tục tạm hoãn.
 
 ## 1. Quyết định thay thế kế hoạch cũ
 
@@ -170,3 +170,13 @@ Bỏ toàn bộ lối vào bốn mục cũ `/career-discovery`, `/roadmap/new`, 
 ## 13. Đưa Report trở lại điều hướng hiện tại
 
 Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng lực** ngay sau **Luyện phỏng vấn** trên thanh menu chính và đưa Report trở lại tìm kiếm dashboard. Tab mở `/report` với tổng quan, tiến độ/kết quả, bản đồ tiêu chí đã đo, strengths/gaps và tải PDF riêng tư. Ba mục `/career-discovery`, `/roadmap/new`, `/account` tiếp tục không có lối vào trong giao diện đang dùng. Các giới hạn dữ liệu của mục 6 (sáu nhóm chuẩn, voice/body language, benchmark và avatar thật) vẫn được theo dõi, không đánh dấu đã đủ dữ liệu chỉ vì mở lại tab.
+
+## 14. Căn cứ và phạm vi feedback 17/10/2026
+
+- Đã dùng hai agent riêng cho code và kiểm định; tiếp nhận kết quả vào bản sửa chung. Không tự mở rộng chức năng ngoài yêu cầu.
+- Nguồn Google Docs mới thay nội dung chuẩn bị cũ: 15 Golden Profiles, 15 mô phỏng, 15 bộ phỏng vấn/120 câu. Giữ nguyên văn bản và ngôn ngữ nguồn; không tự thêm bản tiếng Anh.
+- Chủ dự án cho phép tự tạo ba bộ tài liệu Marketing còn thiếu, với điều kiện hợp lý và bám đề. Dữ liệu bổ sung được gắn nhãn mô phỏng, không mạo nhận là tài liệu gốc hay số liệu SEO thật.
+- Chờ bảng trọng số CV chủ dự án sẽ cung cấp. Trong lúc đó chỉ phân tích bằng chứng theo mức yêu cầu; không tự gán M1=5 hoặc một công thức % khác.
+- Chờ xác nhận barem Tài chính-Ngân hàng và các câu phỏng vấn có điểm không khớp. Không tự thay điểm để tổng bằng 100. Một số ô câu hỏi Trợ lý thuế có dấu hiệu dán nhầm tiêu chí; giữ nguyên để xem và chờ xác nhận trước chấm.
+- Giữ tài khoản, kết quả và quan hệ câu trả lời với phiên bản câu hỏi cũ. Migration bổ sung, không reset. Các lượt mô phỏng đang mở ở đề cũ không được tự chuyển sang đề mới với timestamp cũ.
+- Danh sách đối chiếu, các mâu thuẫn và bằng chứng kiểm định: [feedback audit](docs/feedback-audit.md). Không coi số test qua hoặc hosting Ready là nghiệm thu toàn bộ nội dung.

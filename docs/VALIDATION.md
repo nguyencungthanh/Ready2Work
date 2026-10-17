@@ -31,3 +31,17 @@ Build Next.js 16.4.2 và lint phần thay đổi đã qua. Font TTF xuất hiệ
 ## Thêm tab Báo cáo năng lực cạnh Luyện phỏng vấn
 
 Đã kiểm tra một kịch bản browser local trên bản build: tab Report là mục kế tiếp Luyện phỏng vấn, tìm kiếm có Report, bấm tab mở `/report` và có trạng thái active. Desktop 1440px, tablet 1024px và mobile 390px không tràn chiều ngang. Đã xem ảnh desktop/mobile, typecheck/lint và build; không chạy lại scoring/auth/PDF suites vì không đổi logic tương ứng.
+
+## Feedback/source synchronization — 17/10/2026
+
+Hai agent được dùng theo chỉ định: code và kiểm thử/kiểm định. Agent chính tiếp nhận phần tích hợp khi agent hết hạn mức. Đối chiếu câu hỏi/Golden Profiles với từng ô snapshot nguồn, 20 checksum ảnh, 10 content-import contracts, schema/RLS và bảo toàn lịch sử trong PostgreSQL cô lập. Không dùng toàn bộ suite làm vòng lặp sau mỗi thay đổi.
+
+Đã sửa: OCR cho PDF không có text layer; callback PKCE của email mặc định; lỗi đánh giá/lưu phỏng vấn; bản nháp; tách ngôn ngữ đọc thuật ngữ; định dạng đề; tài liệu ảnh/bảng thay JSON; nhập bảng và đọc tài liệu bài làm. Bộ câu hỏi nguồn có đủ 15 vị trí/120 câu. Hai ảnh đáp án không public, CV cá nhân không vào repository/log. Source v2 chấm điểm thành phần với bằng chứng nguyên văn, không dùng quy tắc phạt/band cũ ngoài nguồn.
+
+Một kịch bản production build local đã kiểm tra đăng nhập lại giữ dữ liệu, đúng ba thẻ IT/ngân hàng, QA câu 2 và bản nháp qua tab/refresh, tài liệu không JSON, nhập/sửa/khôi phục bảng gốc/custom và tải TXT. Fixture đã xóa. Xem ảnh phát hiện vùng bảng dài cần cuộn riêng, đã sửa và kiểm tra lại trước phát hành. Bổ sung Marketing theo phép mới của người dùng có kiểm tra tổng số liệu và bảng 12 từ khóa; không giả nhận là số liệu gốc/thực tế.
+
+API thật: OCR riêng nhận dạng được 2.740 ký tự từ CV đã được cho phép; các lần khác có provider 503/429. QA vòng 1 câu 2 với câu trả lời ngắn trả đủ ba tiêu chí hợp lệ; Financial tiếp theo 429, dừng và không ghi DB. Không tuyên bố phân tích CV thật, chấm Financial hay chất lượng âm thanh đã nghiệm thu đầy đủ.
+
+Còn chờ: bảng trọng số CV; các điểm source không khớp của ba mô phỏng ngân hàng/bảy bộ phỏng vấn; câu hỏi Trợ lý thuế có dấu hiệu dán nhầm tiêu chí. Những phần này cho xem/soạn thử và giữ trạng thái chưa mở chấm, không tự bịa barem. Chi tiết đối chiếu: [feedback audit](feedback-audit.md).
+
+Rà soát cuối phát hiện phần giải thích ba nguyên nhân trong barem Digital Marketing bị ghép sang mục tính CPL; đã gắn lại đúng mục 15 điểm và giữ mục tính CPL 10 điểm riêng, không thay điểm nguồn. Kiểm tra hồi quy tương ứng, typecheck và 10 content-import contracts đã qua. Migration thứ chín đã áp dụng trên cloud; phép đọc chỉ kiểm tra danh mục xác nhận 15 mô phỏng/12 mở chấm, 15 bộ phỏng vấn/7 mở chấm, 120 câu và dữ liệu Marketing bổ sung đúng phiên bản. Không đọc bài làm hoặc hồ sơ thật khi xác nhận cloud.

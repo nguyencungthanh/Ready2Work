@@ -1,6 +1,6 @@
 # Architecture and implementation notes
 
-Current scope: [Master Plan 2.0](../career_platform_ai_agent_master_plan.md). Requirements: [Ready2Work.pdf](requirements/Ready2Work.pdf). UI baseline and cleanup: [current interface](UI-REFERENCE.md).
+Current scope: [Master Plan 2.2](../career_platform_ai_agent_master_plan.md). Requirements: [Ready2Work.pdf](requirements/Ready2Work.pdf). UI baseline and cleanup: [current interface](UI-REFERENCE.md).
 
 ## Foundation and ownership
 
@@ -12,11 +12,13 @@ The application in `platform/` is updated in place. Its current interface is the
 
 `platform/data/` contains the supplied Golden Profiles, task rubrics, interview question bank and actual task inputs. `platform/scripts/import-content.mjs` validates their relationships and generates an additive SQL migration with stable IDs. It rejects broken weights/checklists, preserves source question maxima, and removes worked solutions from public task data.
 
-The catalog contains 15 simulations, 14 interview sets and 88 questions. Eleven interview sets are complete. The three logistics sets have no source round 1 and remain closed. Marketing interview rounds have different source maxima; each round is independently normalized to 100. Content Marketing has a simulation/Golden Profile but no supplied interview set.
+The 17 October source snapshot contains 15 Golden Profiles, 15 simulations and 15 interview sets with 120 questions. Every role has three rounds of 3/3/2 questions. The original Google Docs paragraphs, table cells and hyperlinks are retained in `data/source/requirements-20261017.json`; independent contracts compare all question wording and profile requirements to those exact cells.
 
-The source has 119 simulation checklist items. AI returns validated evidence/status for each required item; server code computes points, applies the supplied hard constraints and replaces timing claims with elapsed time from an account-owned database attempt. The existing theme's 75% cap for an overdue hybrid time/content item is retained because its source does not give a separate point split. Submission finalization is transactional and replay-safe.
+New CV analyses preserve the source requirement levels and their industry-specific meaning. Marketing M3 means advantage; other industries use M3 conditionally and M4 as advantage. Conditional/advantage items are not mandatory gaps. Numeric CV weights are awaiting the owner's table, so new analyses have a null percentage and qualitative findings; historical results retain their recorded scores. Validated image PDFs with no usable text layer are sent inline to Gemini for OCR after consent. The CV is not logged or committed.
 
-CV scoring uses the source guideline: hard skills/tools have their recorded weights, certificates use the provided priority mapping, and unweighted soft skills are qualitative findings. Evidence for a matched/partial AI finding must occur verbatim in the uploaded text. The keyword preview is labeled as such and does not claim that an absent CV keyword proves an absent skill.
+Simulation grading v2 preserves authored point components, including fractional awards. AI returns bounded item awards with an exact submission quote and a separate reason; the server validates IDs, evidence and maxima and calculates the total. It does not apply the legacy quarter bands, invented penalties, word caps or hybrid timing cap. Underspecified/mismatched rubrics do not yield a successful grade. The owner authorized supplementary simulated Marketing input facts; these are labeled, arithmetically checked and separated from the original source. Twenty original input images retain their SHA-256 checksums; answer-key images are not public.
+
+Three banking simulations await source rubric clarification. Seven interview sets have source point conflicts; the tax interview also has apparent question/criterion paste errors. All source content can be reviewed, with draft editing available for closed simulations, while official grading remains closed. Old interview sets/questions are archived without overwriting answer relationships. Simulation scores retain their saved criterion snapshots; open old attempts are marked superseded and cannot silently grade the new assignment with an old timer.
 
 Reports use the latest recorded result per task/set and the same target role across CV, simulation, interview and mentor evidence. The simulation component is the percentage of target-role library tasks completed; this interpretation is displayed alongside the 30/40/30 formula. Missing inputs leave the official readiness score incomplete. A mentor score comes from an approved mentor/admin's recorded assessment, not a candidate field. Radar axes use measured criterion evidence; the app does not invent voice metrics or a hired-candidate comparison cohort.
 

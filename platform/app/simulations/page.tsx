@@ -2,6 +2,7 @@ import { ReferenceCatalog } from "@/components/reference/catalog";
 import { AppShell } from "@/components/app-shell";
 import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
+import { simulationHasSourceTimeLimit } from "@/lib/content/simulation-timing";
 
 export default async function SimulationsPage({ searchParams }: { searchParams: Promise<{ position?: string; industry?: string }> }) {
   const user = await requireUser();
@@ -11,8 +12,8 @@ export default async function SimulationsPage({ searchParams }: { searchParams: 
   if (filters.position) query = query.eq("position_id", filters.position);
   if (filters.industry) query = query.eq("industry", filters.industry);
   const { data: simulations, error } = await query;
-  if (error) throw new Error("Could not load the simulation library. Please try again.");
+  if (error) throw new Error("Chưa tải được thư viện mô phỏng. Vui lòng thử lại.");
   return <AppShell active="simulations" displayName={user.displayName}>
-    <ReferenceCatalog kind="simulation" items={simulations ?? []} filtered={Boolean(filters.position || filters.industry)} />
+    <ReferenceCatalog kind="simulation" items={(simulations ?? []).map((item) => ({ ...item, time_limit_specified: simulationHasSourceTimeLimit(item.position_id) }))} filtered={Boolean(filters.position || filters.industry)} />
   </AppShell>;
 }

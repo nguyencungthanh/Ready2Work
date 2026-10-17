@@ -1,520 +1,21 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "project": "Ready2Work",
-  "document_purpose": "Golden Profile chuẩn hóa cho 5 ngành / 15 vị trí, dùng làm dữ liệu tham chiếu để hệ thống AI (OpenAI API) đọc CV, đối chiếu với JD của từng vị trí, và tính điểm skill-gap giữa CV và Golden Profile.",
+  "document_purpose": "Golden Profile theo nguyên bản tài liệu yêu cầu được cung cấp ngày 17/10/2026.",
+  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit",
   "fields_legend": {
     "required_level_scale": [
-      "Cơ bản",
-      "Trung bình",
-      "Thành thạo",
-      "Chuyên sâu"
+      "M1",
+      "M2",
+      "M3",
+      "M4"
     ],
-    "weight_scale": "Số nguyên 1-5, thể hiện mức độ quan trọng của kỹ năng/công cụ đối với vị trí. 5 = bắt buộc phải có để làm việc được ngay; 1 = có thì tốt, không có vẫn có thể tuyển. Dùng để tính điểm skill-gap có trọng số giữa CV và JD (không cộng dồn đơn giản theo số lượng kỹ năng khớp).",
-    "cert_priority_scale": [
-      "Bắt buộc",
-      "Ưu tiên cao",
-      "Ưu tiên",
-      "Cộng điểm"
-    ],
-    "usage_note": "Mỗi hard_skill/tool/soft_skill/certification đều có mảng 'keywords' (tiếng Việt không dấu + tiếng Anh, viết thường) để engine đối chiếu chuỗi (string matching) hoặc embedding có thể nhận diện được các cách viết khác nhau của cùng một kỹ năng khi xuất hiện trong CV."
+    "policy": "Marketing: M1 cốt lõi, M2 quan trọng, M3 lợi thế. Các ngành còn lại: M1 cốt lõi, M2 phổ biến, M3 chỉ khi JD yêu cầu, M4 lợi thế. Không suy ra trọng số số học từ mức độ."
   },
   "scoring_guideline": {
-    "method": "Với mỗi vị trí, so khớp các keywords trong CV người dùng với keywords của từng hard_skill/tool/certification trong golden profile tương ứng. Với mỗi mục khớp, cộng weight (hoặc weight quy đổi theo priority với certifications: Bắt buộc=5, Ưu tiên cao=4, Ưu tiên=3, Cộng điểm=1) vào tổng điểm đạt được; tổng weight tối đa của vị trí là mẫu số. Điểm skill-gap (%) = (tổng điểm đạt được / tổng weight tối đa) x 100.",
-    "gap_output": "Với các hard_skill/tool có required_level là 'Thành thạo' hoặc 'Chuyên sâu' và weight >= 4 mà không khớp được trong CV, liệt kê ưu tiên vào danh sách '3-5 lỗ hổng cần bù đắp' hiển thị cho người dùng trên Dashboard lộ trình AI."
+    "method": "Đối chiếu từng tiêu chí và mức độ theo nguồn; nguồn không cung cấp trọng số số học. Không biến nội dung chưa thể hiện trên CV thành kết luận ứng viên không có kỹ năng."
   },
   "industries": [
-    {
-      "industry_id": "TCNH",
-      "industry_name": "Tài chính - Ngân hàng",
-      "positions": [
-        {
-          "position_id": "TCNH-01",
-          "position_name": "Financial Analyst (Chuyên viên Phân tích Tài chính)",
-          "level": "Fresher/Junior",
-          "goal": "Phân tích tình hình tài chính doanh nghiệp, xây dựng mô hình định giá và dự báo dòng tiền để hỗ trợ ra quyết định đầu tư/kinh doanh.",
-          "hard_skills": [
-            {
-              "skill": "Phân tích Báo cáo Tài chính nâng cao",
-              "description": "Đọc và phân tích liên kết Bảng cân đối kế toán, Kết quả kinh doanh, Lưu chuyển tiền tệ để đánh giá sức khỏe tài chính doanh nghiệp.",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "bctc",
-                "financial statement analysis",
-                "balance sheet",
-                "income statement",
-                "cash flow"
-              ]
-            },
-            {
-              "skill": "Mô hình hóa Tài chính (Financial Modeling)",
-              "description": "Xây dựng mô hình DCF (Discounted Cash Flow) và phân tích công ty so sánh (Comparable Companies Analysis).",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "dcf",
-                "financial modeling",
-                "comparable companies",
-                "comps"
-              ]
-            },
-            {
-              "skill": "Định giá doanh nghiệp & Dự báo Dòng tiền",
-              "description": "Ước tính giá trị doanh nghiệp và dự báo dòng tiền tự do trong tương lai.",
-              "required_level": "Trung bình",
-              "weight": 4,
-              "keywords": [
-                "valuation",
-                "cash flow forecasting",
-                "định giá doanh nghiệp"
-              ]
-            },
-            {
-              "skill": "Đánh giá Dự án Đầu tư",
-              "description": "Tính toán và diễn giải NPV, IRR, Payback Period, WACC để đánh giá hiệu quả dự án.",
-              "required_level": "Trung bình",
-              "weight": 4,
-              "keywords": [
-                "npv",
-                "irr",
-                "payback period",
-                "wacc"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Excel nâng cao (Financial Modeling, VBA/Macros)",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "excel",
-                "vba",
-                "macro"
-              ]
-            },
-            {
-              "tool": "Power BI / Tableau",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "power bi",
-                "tableau"
-              ]
-            },
-            {
-              "tool": "FiinPro / Bloomberg Terminal",
-              "required_level": "Cơ bản",
-              "weight": 3,
-              "keywords": [
-                "fiinpro",
-                "bloomberg terminal"
-              ]
-            },
-            {
-              "tool": "SQL cơ bản",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "sql"
-              ]
-            }
-          ],
-          "soft_skills": [
-            {
-              "skill": "Tư duy phản biện số liệu (Critical Thinking)",
-              "keywords": [
-                "critical thinking",
-                "tư duy phản biện"
-              ]
-            },
-            {
-              "skill": "Kỹ năng thuyết trình Pitching đầu tư",
-              "keywords": [
-                "pitching",
-                "thuyết trình đầu tư"
-              ]
-            },
-            {
-              "skill": "Chịu áp lực làm việc tiến độ cao",
-              "keywords": [
-                "chịu áp lực",
-                "deadline"
-              ]
-            }
-          ],
-          "certifications": [
-            {
-              "name": "CFA (Chartered Financial Analyst) Level 1/2",
-              "priority": "Ưu tiên cao",
-              "keywords": [
-                "cfa level 1",
-                "cfa level 2"
-              ]
-            },
-            {
-              "name": "ACCA (F3, F7, F9)",
-              "priority": "Ưu tiên cao",
-              "keywords": [
-                "acca f3",
-                "acca f7",
-                "acca f9"
-              ]
-            }
-          ],
-          "keywords_all": [
-            "bctc",
-            "financial statement analysis",
-            "balance sheet",
-            "income statement",
-            "cash flow",
-            "dcf",
-            "financial modeling",
-            "comparable companies",
-            "comps",
-            "valuation",
-            "cash flow forecasting",
-            "định giá doanh nghiệp",
-            "npv",
-            "irr",
-            "payback period",
-            "wacc",
-            "excel",
-            "vba",
-            "macro",
-            "power bi",
-            "tableau",
-            "fiinpro",
-            "bloomberg terminal",
-            "sql",
-            "critical thinking",
-            "tư duy phản biện",
-            "pitching",
-            "thuyết trình đầu tư",
-            "chịu áp lực",
-            "deadline",
-            "cfa level 1",
-            "cfa level 2",
-            "acca f3",
-            "acca f7",
-            "acca f9"
-          ]
-        },
-        {
-          "position_id": "TCNH-02",
-          "position_name": "Credit Analyst (Chuyên viên Tín dụng / Phân tích Tín dụng)",
-          "level": "Fresher/Junior",
-          "goal": "Thẩm định hồ sơ tín dụng của khách hàng doanh nghiệp/cá nhân, đánh giá khả năng trả nợ và rủi ro tín dụng trước khi cấp vốn vay.",
-          "hard_skills": [
-            {
-              "skill": "Thẩm định Tín dụng Khách hàng",
-              "description": "Thẩm định hồ sơ vay của khách hàng doanh nghiệp/cá nhân (Credit Underwriting).",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "credit underwriting",
-                "thẩm định tín dụng"
-              ]
-            },
-            {
-              "skill": "Phân tích Dòng tiền trả nợ & Khả năng thanh toán",
-              "description": "Tính toán và diễn giải DSCR, ICR, Current Ratio để đánh giá khả năng trả nợ.",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "dscr",
-                "icr",
-                "current ratio"
-              ]
-            },
-            {
-              "skill": "Thẩm định Định giá Tài sản bảo đảm",
-              "description": "Định giá tài sản thế chấp và tính tỷ lệ cho vay trên giá trị tài sản (LTV).",
-              "required_level": "Trung bình",
-              "weight": 4,
-              "keywords": [
-                "collateral valuation",
-                "ltv",
-                "tài sản bảo đảm"
-              ]
-            },
-            {
-              "skill": "Quy trình Tín dụng Ngân hàng & Pháp lý",
-              "description": "Nắm vững quy trình cấp tín dụng nội bộ và các quy định của Luật Ngân hàng/Thông tư NHNN.",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "quy trình tín dụng",
-                "thông tư nhnn",
-                "luật ngân hàng"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Core Banking (T24, Oracle Flexcube)",
-              "required_level": "Cơ bản",
-              "weight": 3,
-              "keywords": [
-                "core banking",
-                "t24",
-                "oracle flexcube"
-              ]
-            },
-            {
-              "tool": "Hệ thống Xếp hạng Tín dụng Nội bộ",
-              "required_level": "Cơ bản",
-              "weight": 3,
-              "keywords": [
-                "internal credit rating",
-                "xếp hạng tín dụng"
-              ]
-            },
-            {
-              "tool": "Excel xử lý BCTC",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "excel"
-              ]
-            }
-          ],
-          "soft_skills": [
-            {
-              "skill": "Giao tiếp & Thỏa thuận với khách hàng",
-              "keywords": [
-                "giao tiếp khách hàng",
-                "đàm phán"
-              ]
-            },
-            {
-              "skill": "Tư duy hoài nghi lành nghề (Professional Skepticism)",
-              "keywords": [
-                "professional skepticism"
-              ]
-            },
-            {
-              "skill": "Quản lý rủi ro đạo đức",
-              "keywords": [
-                "quản lý rủi ro",
-                "đạo đức nghề nghiệp"
-              ]
-            }
-          ],
-          "certifications": [
-            {
-              "name": "Chứng chỉ Thẩm định Tín dụng Ngân hàng",
-              "priority": "Ưu tiên cao",
-              "keywords": [
-                "chứng chỉ thẩm định tín dụng"
-              ]
-            },
-            {
-              "name": "RMA Credit Risk Certified",
-              "priority": "Ưu tiên",
-              "keywords": [
-                "rma credit risk"
-              ]
-            },
-            {
-              "name": "ACCA F3/F7",
-              "priority": "Cộng điểm",
-              "keywords": [
-                "acca f3",
-                "acca f7"
-              ]
-            }
-          ],
-          "keywords_all": [
-            "credit underwriting",
-            "thẩm định tín dụng",
-            "dscr",
-            "icr",
-            "current ratio",
-            "collateral valuation",
-            "ltv",
-            "tài sản bảo đảm",
-            "quy trình tín dụng",
-            "thông tư nhnn",
-            "luật ngân hàng",
-            "core banking",
-            "t24",
-            "oracle flexcube",
-            "internal credit rating",
-            "xếp hạng tín dụng",
-            "excel",
-            "giao tiếp khách hàng",
-            "đàm phán",
-            "professional skepticism",
-            "quản lý rủi ro",
-            "đạo đức nghề nghiệp",
-            "chứng chỉ thẩm định tín dụng",
-            "rma credit risk",
-            "acca f3",
-            "acca f7"
-          ]
-        },
-        {
-          "position_id": "TCNH-03",
-          "position_name": "Risk Analyst (Chuyên viên Quản trị Rủi ro)",
-          "level": "Fresher/Junior",
-          "goal": "Xây dựng, vận hành các mô hình đo lường và giám sát rủi ro tài chính - hoạt động, đảm bảo tuân thủ quy định và an toàn vốn của tổ chức.",
-          "hard_skills": [
-            {
-              "skill": "Mô hình đo lường Rủi ro",
-              "description": "Tính toán và diễn giải PD (Probability of Default), LGD, EAD, VaR (Value at Risk).",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "pd",
-                "lgd",
-                "ead",
-                "var",
-                "value at risk"
-              ]
-            },
-            {
-              "skill": "Hiểu biết về Basel II/III & Quy định NHNN",
-              "description": "Nắm vững các yêu cầu về an toàn vốn và quản trị rủi ro theo hiệp ước Basel và quy định trong nước.",
-              "required_level": "Trung bình",
-              "weight": 4,
-              "keywords": [
-                "basel ii",
-                "basel iii"
-              ]
-            },
-            {
-              "skill": "Kiểm tra Kịch bản Khủng hoảng & Phân tích Thống kê",
-              "description": "Thực hiện Stress Testing và các phân tích định lượng (Quantitative Analysis) trên dữ liệu rủi ro.",
-              "required_level": "Trung bình",
-              "weight": 4,
-              "keywords": [
-                "stress testing",
-                "quantitative analysis"
-              ]
-            },
-            {
-              "skill": "Nhận diện & Kiểm soát Rủi ro Hoạt động",
-              "description": "Phát hiện và kiểm soát rủi ro vận hành, gian lận (Operational Risk & Fraud Detection).",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "operational risk",
-                "fraud detection"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Python / R",
-              "required_level": "Trung bình",
-              "weight": 4,
-              "keywords": [
-                "python",
-                "r"
-              ]
-            },
-            {
-              "tool": "SQL",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "sql"
-              ]
-            },
-            {
-              "tool": "SAS / SPSS",
-              "required_level": "Cơ bản",
-              "weight": 3,
-              "keywords": [
-                "sas",
-                "spss"
-              ]
-            },
-            {
-              "tool": "Excel Advanced (Monte Carlo Simulation)",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "excel",
-                "monte carlo"
-              ]
-            }
-          ],
-          "soft_skills": [
-            {
-              "skill": "Tư duy logic toán học chặt chẽ",
-              "keywords": [
-                "tư duy logic",
-                "toán học"
-              ]
-            },
-            {
-              "skill": "Khả năng giải trình mô hình với Ban Quản trị",
-              "keywords": [
-                "giải trình mô hình"
-              ]
-            },
-            {
-              "skill": "Giải quyết vấn đề hệ thống",
-              "keywords": [
-                "problem solving"
-              ]
-            }
-          ],
-          "certifications": [
-            {
-              "name": "FRM (Financial Risk Manager)",
-              "priority": "Ưu tiên cao",
-              "keywords": [
-                "frm"
-              ]
-            },
-            {
-              "name": "PRM (Professional Risk Manager)",
-              "priority": "Ưu tiên",
-              "keywords": [
-                "prm"
-              ]
-            },
-            {
-              "name": "CFA",
-              "priority": "Cộng điểm",
-              "keywords": [
-                "cfa"
-              ]
-            }
-          ],
-          "keywords_all": [
-            "pd",
-            "lgd",
-            "ead",
-            "var",
-            "value at risk",
-            "basel ii",
-            "basel iii",
-            "stress testing",
-            "quantitative analysis",
-            "operational risk",
-            "fraud detection",
-            "python",
-            "r",
-            "sql",
-            "sas",
-            "spss",
-            "excel",
-            "monte carlo",
-            "tư duy logic",
-            "toán học",
-            "giải trình mô hình",
-            "problem solving",
-            "frm",
-            "prm",
-            "cfa"
-          ]
-        }
-      ]
-    },
     {
       "industry_id": "MKT",
       "industry_name": "Marketing",
@@ -522,561 +23,614 @@
         {
           "position_id": "MKT-01",
           "position_name": "Marketing Intern (Thực tập sinh Marketing)",
-          "level": "Intern",
-          "goal": "Hỗ trợ thực thi các chiến dịch truyền thông, nghiên cứu thị trường cơ bản, quản lý kênh Social media ở mức độ căn bản.",
+          "source_block": 271,
           "hard_skills": [
             {
-              "skill": "Tư duy Marketing căn bản",
-              "description": "Nắm được mô hình 4P và STP để hiểu bối cảnh của một chiến dịch.",
-              "required_level": "Cơ bản",
-              "weight": 3,
+              "skill": "Tư duy Marketing căn bản (4P/STP)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "4p",
-                "stp",
-                "marketing mix"
-              ]
+                "tư duy marketing căn bản (4p/stp)"
+              ],
+              "source_code": "H1"
             },
             {
-              "skill": "Sáng tạo nội dung ngắn",
-              "description": "Viết được Short-form content và social caption bám sát thương hiệu.",
-              "required_level": "Cơ bản",
-              "weight": 4,
+              "skill": "Nghiên cứu thị trường & đối thủ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "short-form content",
-                "social caption"
-              ]
+                "nghiên cứu thị trường & đối thủ"
+              ],
+              "source_code": "H2"
             },
             {
-              "skill": "Nghiên cứu thị trường & đối thủ cạnh tranh",
-              "description": "Thực hiện benchmarking cơ bản với đối thủ cùng ngành.",
-              "required_level": "Cơ bản",
-              "weight": 3,
+              "skill": "Viết nội dung ngắn (caption, social, SEO cơ bản)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "benchmarking",
-                "nghiên cứu thị trường"
-              ]
+                "viết nội dung ngắn (caption, social, seo cơ bản)"
+              ],
+              "source_code": "H3"
             },
             {
-              "skill": "Quản lý lịch xuất bản nội dung",
-              "description": "Sắp xếp, theo dõi Content Calendar cho các kênh social.",
-              "required_level": "Cơ bản",
-              "weight": 2,
+              "skill": "Lập lịch & theo dõi tiến độ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "content calendar"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Canva (thiết kế ảnh cơ bản)",
-              "required_level": "Cơ bản",
-              "weight": 3,
-              "keywords": [
-                "canva"
-              ]
+                "lập lịch & theo dõi tiến độ"
+              ],
+              "source_code": "H4"
             },
             {
-              "tool": "CapCut / TikTok Editor (dựng video ngắn)",
-              "required_level": "Cơ bản",
-              "weight": 3,
+              "skill": "Hỗ trợ triển khai đa kênh",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "capcut",
-                "tiktok editor"
-              ]
+                "hỗ trợ triển khai đa kênh"
+              ],
+              "source_code": "H5"
             },
             {
-              "tool": "Google Docs/Sheets",
-              "required_level": "Cơ bản",
-              "weight": 2,
+              "skill": "Theo dõi & báo cáo chỉ số cơ bản",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "google docs",
-                "google sheets"
-              ]
-            },
-            {
-              "tool": "ChatGPT/Claude (prompt viết lách cơ bản)",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "chatgpt",
-                "claude",
-                "ai prompt"
-              ]
+                "theo dõi & báo cáo chỉ số cơ bản"
+              ],
+              "source_code": "H6"
             }
           ],
           "soft_skills": [
             {
-              "skill": "Chủ động học hỏi (Proactiveness)",
+              "skill": "Chủ động học hỏi",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "proactiveness",
-                "chủ động"
-              ]
+                "chủ động học hỏi"
+              ],
+              "source_code": "S1"
             },
             {
-              "skill": "Quản lý thời gian (Time Management)",
+              "skill": "Quản lý thời gian",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "time management"
-              ]
+                "quản lý thời gian"
+              ],
+              "source_code": "S2"
             },
             {
-              "skill": "Tư duy thẩm mỹ cơ bản (Aesthetic Sense)",
+              "skill": "Giao tiếp & làm việc nhóm",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "aesthetic sense",
-                "gu thẩm mỹ"
-              ]
+                "giao tiếp & làm việc nhóm"
+              ],
+              "source_code": "S3"
+            },
+            {
+              "skill": "Tỉ mỉ, chú ý chi tiết",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tỉ mỉ, chú ý chi tiết"
+              ],
+              "source_code": "S4"
+            },
+            {
+              "skill": "Tư duy thẩm mỹ cơ bản",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tư duy thẩm mỹ cơ bản"
+              ],
+              "source_code": "S5"
+            },
+            {
+              "skill": "Tiếng Anh đọc – viết",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "tiếng anh đọc – viết"
+              ],
+              "source_code": "S6"
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "Hubspot Content Marketing Certification",
-              "priority": "Cộng điểm",
+              "tool": "Google Docs / Sheets / Slides",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "hubspot content marketing"
-              ]
+                "google docs / sheets / slides"
+              ],
+              "source_code": "T1"
             },
             {
-              "name": "Google Digital Garage (Fundamentals of Digital Marketing)",
-              "priority": "Cộng điểm",
+              "tool": "Canva / Photoshop / Adobe",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "google digital garage"
-              ]
+                "canva / photoshop / adobe"
+              ],
+              "source_code": "T2"
             },
             {
-              "name": "IELTS / MOS",
-              "priority": "Cộng điểm",
+              "tool": "CapCut / Premiere",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "ielts",
-                "mos"
-              ]
+                "capcut / premiere"
+              ],
+              "source_code": "T3"
+            },
+            {
+              "tool": "ChatGPT / Claude (AI hỗ trợ viết)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "chatgpt / claude (ai hỗ trợ viết)"
+              ],
+              "source_code": "T4"
+            },
+            {
+              "tool": "Meta Business Suite",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "meta business suite"
+              ],
+              "source_code": "T5"
+            },
+            {
+              "tool": "Email marketing cơ bản",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "email marketing cơ bản"
+              ],
+              "source_code": "T6"
             }
           ],
-          "keywords_all": [
-            "4p",
-            "stp",
-            "marketing mix",
-            "short-form content",
-            "social caption",
-            "benchmarking",
-            "nghiên cứu thị trường",
-            "content calendar",
-            "canva",
-            "capcut",
-            "tiktok editor",
-            "google docs",
-            "google sheets",
-            "chatgpt",
-            "claude",
-            "ai prompt",
-            "proactiveness",
-            "chủ động",
-            "time management",
-            "aesthetic sense",
-            "gu thẩm mỹ",
-            "hubspot content marketing",
-            "google digital garage",
-            "ielts",
-            "mos"
-          ]
+          "certifications": []
         },
         {
           "position_id": "MKT-02",
           "position_name": "Digital Marketing Executive (Chuyên viên Marketing Số)",
-          "level": "Fresher/Junior",
-          "goal": "Bán hàng/tạo lead trực tiếp qua các kênh trả phí (Paid Performance) và kênh tự nhiên (Organic), tối ưu tỷ lệ chuyển đổi và chi phí quảng cáo.",
+          "source_block": 273,
           "hard_skills": [
             {
-              "skill": "Triển khai & Tối ưu quảng cáo Trả phí",
-              "description": "Chạy và tối ưu chiến dịch trên Facebook Ads, Google Ads, TikTok Ads.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Triển khai & tối ưu quảng cáo trả phí",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "facebook ads",
-                "google ads",
-                "tiktok ads",
-                "paid ads"
-              ]
+                "triển khai & tối ưu quảng cáo trả phí"
+              ],
+              "source_code": "H1"
             },
             {
-              "skill": "Phân tích dữ liệu & Đo lường chỉ số",
-              "description": "Đọc và tối ưu theo CTR, CPC, CPM, CPA, ROAS, Conversion Rate.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Phân tích dữ liệu & đo lường (CTR, CPL, ROAS…)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "ctr",
-                "cpc",
-                "cpm",
-                "cpa",
-                "roas",
-                "conversion rate"
-              ]
-            },
-            {
-              "skill": "SEO cơ bản & Nghiên cứu từ khóa",
-              "description": "Tối ưu SEO cơ bản và nghiên cứu từ khóa cho website.",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "seo",
-                "keyword research"
-              ]
+                "phân tích dữ liệu & đo lường (ctr, cpl, roas…)"
+              ],
+              "source_code": "H2"
             },
             {
               "skill": "A/B Testing",
-              "description": "Thử nghiệm thông điệp, hình ảnh, landing page để tối ưu hiệu quả.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
                 "a/b testing"
-              ]
+              ],
+              "source_code": "H3"
             },
             {
-              "skill": "Tối ưu hóa Tỷ lệ Chuyển đổi (CRO)",
-              "description": "Tối ưu landing page/website để tăng tỷ lệ chuyển đổi.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Quản trị ngân sách quảng cáo",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "cro",
-                "conversion rate optimization"
-              ]
+                "quản trị ngân sách quảng cáo"
+              ],
+              "source_code": "H4"
+            },
+            {
+              "skill": "Tracking chuyển đổi (Pixel, GTM)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tracking chuyển đổi (pixel, gtm)"
+              ],
+              "source_code": "H5"
+            },
+            {
+              "skill": "Tối ưu chuyển đổi Landing Page/Funnel",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tối ưu chuyển đổi landing page/funnel"
+              ],
+              "source_code": "H6"
+            },
+            {
+              "skill": "Báo cáo hiệu suất tuần/tháng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "báo cáo hiệu suất tuần/tháng"
+              ],
+              "source_code": "H7"
+            },
+            {
+              "skill": "SEO cơ bản & nghiên cứu từ khóa",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "seo cơ bản & nghiên cứu từ khóa"
+              ],
+              "source_code": "H8"
+            }
+          ],
+          "soft_skills": [
+            {
+              "skill": "Tư duy dựa trên dữ liệu",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "tư duy dựa trên dữ liệu"
+              ],
+              "source_code": "S1"
+            },
+            {
+              "skill": "Quản trị ngân sách",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "quản trị ngân sách"
+              ],
+              "source_code": "S2"
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "giải quyết vấn đề"
+              ],
+              "source_code": "S3"
+            },
+            {
+              "skill": "Phối hợp liên bộ phận",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "phối hợp liên bộ phận"
+              ],
+              "source_code": "S4"
+            },
+            {
+              "skill": "Chịu áp lực KPI & ra quyết định nhanh",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "chịu áp lực kpi & ra quyết định nhanh"
+              ],
+              "source_code": "S5"
+            },
+            {
+              "skill": "Tiếng Anh đọc hiểu tài liệu nền tảng quảng cáo",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "tiếng anh đọc hiểu tài liệu nền tảng quảng cáo"
+              ],
+              "source_code": "S6"
             }
           ],
           "tools": [
             {
               "tool": "Meta Ads Manager",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
                 "meta ads manager"
-              ]
+              ],
+              "source_code": "T1"
             },
             {
               "tool": "Google Ads Manager",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
                 "google ads manager"
-              ]
+              ],
+              "source_code": "T2"
             },
             {
               "tool": "TikTok Ads Manager",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
                 "tiktok ads manager"
-              ]
+              ],
+              "source_code": "T3"
             },
             {
-              "tool": "Google Analytics 4 (GA4)",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "tool": "Google Analytics 4",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "ga4",
-                "google analytics"
-              ]
+                "google analytics 4"
+              ],
+              "source_code": "T4"
             },
             {
-              "tool": "Google Looker Studio",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "tool": "Looker Studio",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
                 "looker studio"
-              ]
+              ],
+              "source_code": "T5"
+            },
+            {
+              "tool": "Google Tag Manager / Meta Pixel",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "google tag manager / meta pixel"
+              ],
+              "source_code": "T6"
+            },
+            {
+              "tool": "Canva / Photoshop cơ bản",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "canva / photoshop cơ bản"
+              ],
+              "source_code": "T7"
+            },
+            {
+              "tool": "Ladipage",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "ladipage"
+              ],
+              "source_code": "T8"
             },
             {
               "tool": "Semrush / Ahrefs",
-              "required_level": "Cơ bản",
-              "weight": 2,
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
               "keywords": [
-                "semrush",
-                "ahrefs"
-              ]
-            },
-            {
-              "tool": "Ladipage (dựng Landing Page)",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "ladipage"
-              ]
+                "semrush / ahrefs"
+              ],
+              "source_code": "T9"
             }
           ],
-          "soft_skills": [
-            {
-              "skill": "Tư duy phân tích dựa trên dữ liệu (Data-driven mindset)",
-              "keywords": [
-                "data-driven mindset"
-              ]
-            },
-            {
-              "skill": "Quản trị ngân sách (Budgeting)",
-              "keywords": [
-                "budgeting",
-                "quản trị ngân sách"
-              ]
-            },
-            {
-              "skill": "Giải quyết vấn đề (Problem Solving)",
-              "keywords": [
-                "problem solving"
-              ]
-            }
-          ],
-          "certifications": [
-            {
-              "name": "Google Ads Search/Display Certification",
-              "priority": "Ưu tiên cao",
-              "keywords": [
-                "google ads certification"
-              ]
-            },
-            {
-              "name": "Meta Certified Digital Marketing Associate",
-              "priority": "Ưu tiên cao",
-              "keywords": [
-                "meta certified digital marketing associate"
-              ]
-            },
-            {
-              "name": "Google Analytics Certification (GA4)",
-              "priority": "Ưu tiên",
-              "keywords": [
-                "ga4 certification"
-              ]
-            }
-          ],
-          "keywords_all": [
-            "facebook ads",
-            "google ads",
-            "tiktok ads",
-            "paid ads",
-            "ctr",
-            "cpc",
-            "cpm",
-            "cpa",
-            "roas",
-            "conversion rate",
-            "seo",
-            "keyword research",
-            "a/b testing",
-            "cro",
-            "conversion rate optimization",
-            "meta ads manager",
-            "google ads manager",
-            "tiktok ads manager",
-            "ga4",
-            "google analytics",
-            "looker studio",
-            "semrush",
-            "ahrefs",
-            "ladipage",
-            "data-driven mindset",
-            "budgeting",
-            "quản trị ngân sách",
-            "problem solving",
-            "google ads certification",
-            "meta certified digital marketing associate",
-            "ga4 certification"
-          ]
+          "certifications": []
         },
         {
           "position_id": "MKT-03",
           "position_name": "Content Marketing Specialist (Chuyên viên Sáng tạo Nội dung)",
-          "level": "Junior",
-          "goal": "Xây dựng thương hiệu, giữ chân người dùng và tạo ra chuyển đổi thông qua chiến lược nội dung đa kênh (Blog, Social, Video, Email, Copywriting).",
+          "source_block": 275,
           "hard_skills": [
             {
-              "skill": "Xây dựng Chiến lược Nội dung",
-              "description": "Lập chiến lược nội dung theo từng điểm chạm trong Customer Journey.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Chiến lược nội dung & Customer Journey",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "content strategy",
-                "customer journey"
-              ]
+                "chiến lược nội dung & customer journey"
+              ],
+              "source_code": "H1"
             },
             {
-              "skill": "Kỹ thuật Copywriting nâng cao",
-              "description": "Vận dụng thành thạo các công thức AIDA, PAS, FAB, Storytelling.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Copywriting & Storytelling",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "copywriting",
-                "aida",
-                "pas",
-                "fab",
-                "storytelling"
-              ]
+                "copywriting & storytelling"
+              ],
+              "source_code": "H2"
             },
             {
-              "skill": "SEO Copywriting",
-              "description": "Viết nội dung chuẩn SEO, tối ưu On-page.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "SEO Copywriting (on-page)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "seo copywriting",
-                "on-page seo"
-              ]
+                "seo copywriting (on-page)"
+              ],
+              "source_code": "H3"
             },
             {
-              "skill": "Kịch bản Video ngắn/dài",
-              "description": "Viết kịch bản cho Short-form và Long-form Video.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Quản lý Content Calendar/Pipeline",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "video scriptwriting"
-              ]
+                "quản lý content calendar/pipeline"
+              ],
+              "source_code": "H4"
             },
             {
               "skill": "Đọc chỉ số hiệu quả nội dung",
-              "description": "Phân tích Reach, Engagement, Impression, Time-on-page để tối ưu nội dung.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "reach",
-                "engagement",
-                "impression",
-                "time-on-page"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "WordPress/CMS",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "wordpress",
-                "cms"
-              ]
+                "đọc chỉ số hiệu quả nội dung"
+              ],
+              "source_code": "H5"
             },
             {
-              "tool": "YoastSEO / RankMath",
-              "required_level": "Cơ bản",
-              "weight": 2,
+              "skill": "Nội dung phối hợp quảng cáo (ad copy, A/B creative)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "yoast seo",
-                "rankmath"
-              ]
+                "nội dung phối hợp quảng cáo (ad copy, a/b creative)"
+              ],
+              "source_code": "H6"
             },
             {
-              "tool": "Grammarly",
-              "required_level": "Cơ bản",
-              "weight": 1,
+              "skill": "Customer Insight & nghiên cứu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "grammarly"
-              ]
+                "customer insight & nghiên cứu"
+              ],
+              "source_code": "H7"
             },
             {
-              "tool": "Notion (quản lý Content Pipeline)",
-              "required_level": "Cơ bản",
-              "weight": 2,
+              "skill": "Kịch bản video ngắn/dài",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "notion"
-              ]
+                "kịch bản video ngắn/dài"
+              ],
+              "source_code": "H8"
             },
             {
-              "tool": "Canva Premium / Photoshop cơ bản",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Nội dung email (nurture/bán hàng)",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
               "keywords": [
-                "canva premium",
-                "photoshop"
-              ]
-            },
-            {
-              "tool": "Midjourney / DALL-E (tạo ảnh AI)",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "midjourney",
-                "dall-e"
-              ]
-            },
-            {
-              "tool": "CapCut PC",
-              "required_level": "Trung bình",
-              "weight": 2,
-              "keywords": [
-                "capcut pc"
-              ]
+                "nội dung email (nurture/bán hàng)"
+              ],
+              "source_code": "H9"
             }
           ],
           "soft_skills": [
             {
-              "skill": "Tư duy thấu cảm khách hàng (Empathy)",
+              "skill": "Thấu cảm khách hàng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "empathy"
-              ]
+                "thấu cảm khách hàng"
+              ],
+              "source_code": "S1"
             },
             {
-              "skill": "Sáng tạo đổi mới (Creativity)",
+              "skill": "Sáng tạo đổi mới",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "creativity"
-              ]
+                "sáng tạo đổi mới"
+              ],
+              "source_code": "S2"
             },
             {
-              "skill": "Tư duy phản biện (Critical Thinking)",
+              "skill": "Tư duy phản biện",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "critical thinking"
-              ]
+                "tư duy phản biện"
+              ],
+              "source_code": "S3"
+            },
+            {
+              "skill": "Tổ chức & quản lý thời gian",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổ chức & quản lý thời gian"
+              ],
+              "source_code": "S4"
+            },
+            {
+              "skill": "Giao tiếp & phối hợp",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giao tiếp & phối hợp"
+              ],
+              "source_code": "S5"
+            },
+            {
+              "skill": "Tiếng Anh",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tiếng anh"
+              ],
+              "source_code": "S6"
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "HubSpot Content Marketing Certification",
-              "priority": "Ưu tiên",
+              "tool": "WordPress / CMS",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "hubspot content marketing"
-              ]
+                "wordpress / cms"
+              ],
+              "source_code": "T1"
             },
             {
-              "name": "HubSpot Inbound Marketing Certification",
-              "priority": "Ưu tiên",
+              "tool": "Yoast SEO / RankMath",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "hubspot inbound marketing"
-              ]
+                "yoast seo / rankmath"
+              ],
+              "source_code": "T2"
             },
             {
-              "name": "Copyblogger Certification",
-              "priority": "Cộng điểm",
+              "tool": "Google Analytics / Facebook Insights",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "copyblogger"
-              ]
+                "google analytics / facebook insights"
+              ],
+              "source_code": "T3"
+            },
+            {
+              "tool": "Canva / Photoshop / Adobe",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "canva / photoshop / adobe"
+              ],
+              "source_code": "T4"
+            },
+            {
+              "tool": "CapCut / Premiere",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "capcut / premiere"
+              ],
+              "source_code": "T5"
+            },
+            {
+              "tool": "Notion",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "notion"
+              ],
+              "source_code": "T6"
+            },
+            {
+              "tool": "Grammarly",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "grammarly"
+              ],
+              "source_code": "T7"
+            },
+            {
+              "tool": "Midjourney / DALL-E",
+              "required_level": "M3",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "midjourney / dall-e"
+              ],
+              "source_code": "T8"
             }
           ],
-          "keywords_all": [
-            "content strategy",
-            "customer journey",
-            "copywriting",
-            "aida",
-            "pas",
-            "fab",
-            "storytelling",
-            "seo copywriting",
-            "on-page seo",
-            "video scriptwriting",
-            "reach",
-            "engagement",
-            "impression",
-            "time-on-page",
-            "wordpress",
-            "cms",
-            "yoast seo",
-            "rankmath",
-            "grammarly",
-            "notion",
-            "canva premium",
-            "photoshop",
-            "midjourney",
-            "dall-e",
-            "capcut pc",
-            "empathy",
-            "creativity",
-            "critical thinking",
-            "hubspot content marketing",
-            "hubspot inbound marketing",
-            "copyblogger"
-          ]
+          "certifications": []
         }
       ]
     },
@@ -1086,564 +640,774 @@
       "positions": [
         {
           "position_id": "IT-01",
-          "position_name": "Business Analyst (IT BA / Chuyên viên Phân tích Nghiệp vụ)",
-          "level": "Fresher/Junior",
-          "goal": "Khảo sát yêu cầu từ khách hàng/stakeholders, chuyển hóa yêu cầu nghiệp vụ (Business Requirements) thành yêu cầu kỹ thuật (Technical/Functional Requirements) để đội Dev/QC phát triển sản phẩm.",
+          "position_name": "Business Analyst",
+          "source_block": 329,
           "hard_skills": [
             {
-              "skill": "Khơi mở & Phân tích Yêu cầu",
-              "description": "Thu thập và phân tích yêu cầu từ stakeholders (Requirement Elicitation & Analysis).",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Khơi mở & phân tích yêu cầu",
+              "source_code": "H1",
+              "description": "Thu thập, làm rõ yêu cầu từ stakeholder; tách Happy path / Exception path; nhận diện yêu cầu mơ hồ hoặc mâu thuẫn",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "requirement elicitation",
-                "requirement analysis"
+                "khơi mở & phân tích yêu cầu"
               ]
             },
             {
-              "skill": "Mô hình hóa Quy trình Nghiệp vụ",
-              "description": "Vẽ BPMN, Flowchart, Activity Diagram, Use Case Diagram.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Mô hình hóa quy trình & hệ thống",
+              "source_code": "H2",
+              "description": "Vẽ BPMN, Flowchart, Activity/Use Case Diagram đúng chuẩn, đọc được sơ đồ người khác",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "bpmn",
-                "flowchart",
-                "activity diagram",
-                "use case diagram"
+                "mô hình hóa quy trình & hệ thống"
               ]
             },
             {
-              "skill": "Viết tài liệu kỹ thuật",
-              "description": "Soạn BRD, SRS, User Stories kèm Acceptance Criteria (AC).",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Viết tài liệu đặc tả",
+              "source_code": "H3",
+              "description": "Viết User Story kèm Acceptance Criteria (Given-When-Then), SRS/BRD ở mức cơ bản; rõ ràng, không đa nghĩa",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "brd",
-                "srs",
-                "user story",
-                "acceptance criteria"
+                "viết tài liệu đặc tả"
               ]
             },
             {
-              "skill": "Thiết kế Wireframe / Mockup cơ bản",
-              "description": "Dựng wireframe/mockup UI/UX layout cơ bản.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Làm việc theo Agile/Scrum & xử lý thay đổi yêu cầu",
+              "source_code": "H4",
+              "description": "Hiểu sprint, backlog, ceremonies; đánh giá tác động khi có change request, cập nhật ticket/tài liệu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "wireframe",
-                "mockup",
-                "ui/ux layout"
+                "làm việc theo agile/scrum & xử lý thay đổi yêu cầu"
+              ]
+            },
+            {
+              "skill": "Wireframe / Mockup cơ bản",
+              "source_code": "H5",
+              "description": "Dựng layout màn hình thể hiện đúng luồng nghiệp vụ (không cần đẹp)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "wireframe / mockup cơ bản"
               ]
             },
             {
               "skill": "Truy vấn dữ liệu SQL",
-              "description": "Dùng SELECT, JOIN, GROUP BY để phân tích data và nghiệm thu sản phẩm.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "source_code": "H6",
+              "description": "SELECT, JOIN, GROUP BY để phân tích dữ liệu và kiểm tra kết quả nghiệm thu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "sql",
-                "select",
-                "join",
-                "group by"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Jira",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "jira"
+                "truy vấn dữ liệu sql"
               ]
             },
             {
-              "tool": "Confluence",
-              "required_level": "Thành thạo",
-              "weight": 3,
+              "skill": "Hiểu API & kiến thức kỹ thuật nền",
+              "source_code": "H7",
+              "description": "Hiểu REST, request/response, để trao đổi với Dev mà không nói chung chung",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "confluence"
+                "hiểu api & kiến thức kỹ thuật nền"
               ]
             },
             {
-              "tool": "Figma / Balsamiq / Axure RP",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Hỗ trợ UAT & nghiệm thu",
+              "source_code": "H8",
+              "description": "Viết/hỗ trợ kịch bản UAT, xác nhận bug, đối chiếu tính năng với giá trị nghiệp vụ",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "figma",
-                "balsamiq",
-                "axure"
+                "hỗ trợ uat & nghiệm thu"
               ]
             },
             {
-              "tool": "Draw.io / Lucidchart",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Kiến thức domain",
+              "source_code": "H9",
+              "description": "Hiểu quy trình nghiệp vụ của domain đã chọn (thanh toán, hoàn tiền, đặt hàng...)",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
               "keywords": [
-                "draw.io",
-                "lucidchart"
-              ]
-            },
-            {
-              "tool": "SQL Client (DBeaver/Navicat)",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "dbeaver",
-                "navicat"
-              ]
-            },
-            {
-              "tool": "Postman (test API cơ bản)",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "postman"
+                "kiến thức domain"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Giao tiếp & Đàm phán (Stakeholder Management)",
+              "skill": "Giao tiếp & làm việc với stakeholder",
+              "source_code": "S1",
+              "description": "Đặt câu hỏi đúng, lắng nghe, tóm tắt lại để xác nhận hiểu đúng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "stakeholder management"
+                "giao tiếp & làm việc với stakeholder"
               ]
             },
             {
-              "skill": "Tư duy Logic & Hệ thống (Systems Thinking)",
+              "skill": "Tư duy logic & hệ thống",
+              "source_code": "S2",
+              "description": "Nhìn ra mối liên hệ giữa các yêu cầu, phát hiện thiếu sót và ngoại lệ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "systems thinking"
+                "tư duy logic & hệ thống"
               ]
             },
             {
-              "skill": "Giải quyết xung đột (Conflict Resolution)",
+              "skill": "Cẩn thận & viết rõ ràng",
+              "source_code": "S3",
+              "description": "Tài liệu nhất quán, không mâu thuẫn, dùng thuật ngữ đúng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "conflict resolution"
+                "cẩn thận & viết rõ ràng"
+              ]
+            },
+            {
+              "skill": "Chủ động & quản lý thời gian",
+              "source_code": "S4",
+              "description": "Chủ động hỏi, theo sát deadline, báo sớm khi có rủi ro",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "chủ động & quản lý thời gian"
+              ]
+            },
+            {
+              "skill": "Thuyết phục & giải quyết xung đột",
+              "source_code": "S5",
+              "description": "Cân bằng giữa mong muốn khách hàng và giới hạn của Dev",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "thuyết phục & giải quyết xung đột"
+              ]
+            },
+            {
+              "skill": "Tiếng Anh nghề nghiệp",
+              "source_code": "S6",
+              "description": "Đọc tài liệu kỹ thuật, viết email/ticket cơ bản bằng tiếng Anh",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tiếng anh nghề nghiệp"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "tool": "Jira / Confluence",
+              "source_code": "T1",
+              "description": "Tạo và cập nhật ticket, viết trang tài liệu, quản lý backlog",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "jira / confluence"
+              ]
+            },
+            {
+              "tool": "Draw.io / Lucidchart / Visio",
+              "source_code": "T2",
+              "description": "Vẽ sơ đồ BPMN/UML",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "draw.io / lucidchart / visio"
+              ]
+            },
+            {
+              "tool": "Figma / Balsamiq / Axure",
+              "source_code": "T3",
+              "description": "Dựng wireframe cơ bản",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "figma / balsamiq / axure"
+              ]
+            },
+            {
+              "tool": "SQL client (DBeaver/Navicat)",
+              "source_code": "T4",
+              "description": "Chạy truy vấn đọc dữ liệu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "sql client (dbeaver/navicat)"
+              ]
+            },
+            {
+              "tool": "Excel nâng cao / Power BI",
+              "source_code": "T5",
+              "description": "Tổng hợp, trực quan hóa dữ liệu",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "excel nâng cao / power bi"
+              ]
+            },
+            {
+              "tool": "Postman",
+              "source_code": "T6",
+              "description": "Gọi API đơn giản để kiểm tra dữ liệu",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "postman"
+              ]
+            },
+            {
+              "tool": "Công cụ AI hỗ trợ",
+              "source_code": "T7",
+              "description": "Dùng AI soạn nháp tài liệu, rà soát yêu cầu",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "công cụ ai hỗ trợ"
               ]
             }
           ],
           "certifications": [
             {
-              "name": "IIBA ECBA (Entry Certificate in Business Analysis)",
-              "priority": "Ưu tiên cao",
+              "name": "IIBA ECBA",
+              "description": "JD fresher không bắt buộc chứng chỉ; nên luyện ECBA hoặc PMI-PBA trong lộ trình xin việc Fresher/Junior",
+              "source_requirement_policy": "advantage",
               "keywords": [
                 "iiba ecba"
               ]
             },
             {
-              "name": "PMI-PBA",
-              "priority": "Ưu tiên",
+              "name": "PSM I / CSM",
+              "description": "Hỗ trợ H4, JD đòi hỏi kinh nghiệm Agile/Scrum",
+              "source_requirement_policy": "conditional",
               "keywords": [
-                "pmi-pba"
-              ]
-            },
-            {
-              "name": "Agile/Scrum Master (PSM I / CSM)",
-              "priority": "Cộng điểm",
-              "keywords": [
-                "psm i",
-                "csm",
-                "scrum master"
+                "psm i / csm"
               ]
             }
-          ],
-          "keywords_all": [
-            "requirement elicitation",
-            "requirement analysis",
-            "bpmn",
-            "flowchart",
-            "activity diagram",
-            "use case diagram",
-            "brd",
-            "srs",
-            "user story",
-            "acceptance criteria",
-            "wireframe",
-            "mockup",
-            "ui/ux layout",
-            "sql",
-            "select",
-            "join",
-            "group by",
-            "jira",
-            "confluence",
-            "figma",
-            "balsamiq",
-            "axure",
-            "draw.io",
-            "lucidchart",
-            "dbeaver",
-            "navicat",
-            "postman",
-            "stakeholder management",
-            "systems thinking",
-            "conflict resolution",
-            "iiba ecba",
-            "pmi-pba",
-            "psm i",
-            "csm",
-            "scrum master"
           ]
         },
         {
           "position_id": "IT-02",
-          "position_name": "Software Tester / QA (Chuyên viên Kiểm thử / Đảm bảo Chất lượng)",
-          "level": "Fresher/Junior",
-          "goal": "Lập kế hoạch kiểm thử, thiết kế test case, thực hiện kiểm thử sản phẩm phần mềm để phát hiện lỗi (Bug), đảm bảo phần mềm vận hành đúng thiết kế trước khi phát hành.",
+          "position_name": "Software Tester / QA",
+          "source_block": 338,
           "hard_skills": [
             {
-              "skill": "Quy trình Kiểm thử Phần mềm",
-              "description": "Nắm vững STLC (Software Testing Life Cycle) và Bug Life Cycle.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Quy trình & loại kiểm thử",
+              "source_code": "H1",
+              "description": "Hiểu STLC, các mức và loại kiểm thử (functional, regression, smoke, integration), vòng đời Bug",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "stlc",
-                "bug life cycle"
+                "quy trình & loại kiểm thử"
               ]
             },
             {
-              "skill": "Kỹ thuật Thiết kế Test Case",
-              "description": "Phân vùng tương đương, phân tích giá trị biên, bảng quyết định, chuyển trạng thái.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Thiết kế Test Case",
+              "source_code": "H2",
+              "description": "Áp dụng phân vùng tương đương, giá trị biên, bảng quyết định, chuyển trạng thái; bao phủ cả Positive và Negative",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "equivalence partitioning",
-                "boundary value analysis",
-                "decision table",
-                "state transition"
+                "thiết kế test case"
+              ]
+            },
+            {
+              "skill": "Ghi nhận & báo cáo Bug",
+              "source_code": "H3",
+              "description": "Bug report đủ Title, Steps to Reproduce, Expected/Actual Result, Severity/Priority, kèm bằng chứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "ghi nhận & báo cáo bug"
+              ]
+            },
+            {
+              "skill": "Đọc hiểu yêu cầu",
+              "source_code": "H4",
+              "description": "Từ spec, wireframe, user story suy ra điều kiện kiểm thử; phát hiện điểm mơ hồ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "đọc hiểu yêu cầu"
               ]
             },
             {
               "skill": "Kiểm thử API",
-              "description": "Kiểm thử API với các phương thức GET, POST, PUT, DELETE và mã Response Code.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "source_code": "H5",
+              "description": "Dùng GET/POST/PUT/DELETE, đọc status code, kiểm tra payload cơ bản",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "api testing",
-                "get",
-                "post",
-                "put",
-                "delete",
-                "response code"
+                "kiểm thử api"
               ]
             },
             {
-              "skill": "Kiểm thử Cơ sở dữ liệu",
-              "description": "Viết truy vấn SQL kiểm tra dữ liệu hiển thị (Database Testing).",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Kiểm thử cơ sở dữ liệu",
+              "source_code": "H6",
+              "description": "Viết SQL đọc dữ liệu để đối chiếu với giao diện",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "database testing",
-                "sql"
+                "kiểm thử cơ sở dữ liệu"
               ]
             },
             {
-              "skill": "Kiểm thử Tự động cơ bản",
-              "description": "Đặc thù nâng cao — kiểm thử tự động bằng Selenium/Playwright/Cypress.",
-              "required_level": "Cơ bản",
-              "weight": 3,
+              "skill": "Agile & kế hoạch kiểm thử cơ bản",
+              "source_code": "H7",
+              "description": "Hiểu vai trò QA trong Scrum/CI-CD; ưu tiên test theo rủi ro",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "automation testing",
-                "selenium",
-                "playwright",
-                "cypress"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Jira / Redmine / TestRail (Quản lý Bug & Test Case)",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "jira",
-                "redmine",
-                "testrail"
+                "agile & kế hoạch kiểm thử cơ bản"
               ]
             },
             {
-              "tool": "Postman / JMeter",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Kiểm thử chuyên biệt (Performance, Mobile)",
+              "source_code": "H8",
+              "description": "JMeter, Appium, BrowserStack theo yêu cầu dự án",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
               "keywords": [
-                "postman",
-                "jmeter"
+                "kiểm thử chuyên biệt (performance, mobile)"
               ]
             },
             {
-              "tool": "SQL (MySQL, PostgreSQL)",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Kiến thức domain",
+              "source_code": "H9",
+              "description": "Hiểu luồng nghiệp vụ của domain đã chọn để thiết kế case đúng ngữ cảnh",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
               "keywords": [
-                "mysql",
-                "postgresql"
+                "kiến thức domain"
               ]
             },
             {
-              "tool": "DevTools trên Trình duyệt",
-              "required_level": "Cơ bản",
-              "weight": 2,
+              "skill": "Kiểm thử tự động",
+              "source_code": "H10",
+              "description": "Đọc/viết script cơ bản (Selenium/Playwright/Cypress)",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
               "keywords": [
-                "devtools",
-                "browser devtools"
-              ]
-            },
-            {
-              "tool": "Appium (Test Mobile)",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "appium"
+                "kiểm thử tự động"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Tư duy tỉ mỉ (Attention to Detail)",
+              "skill": "Tỉ mỉ & chính xác",
+              "source_code": "S1",
+              "description": "Nhận ra chi tiết lệch, không bỏ sót case biên",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "attention to detail"
+                "tỉ mỉ & chính xác"
               ]
             },
             {
-              "skill": "Tư duy phản biện/hoài nghi (Skeptical Mindset)",
+              "skill": "Tư duy phản biện",
+              "source_code": "S2",
+              "description": "Đặt câu hỏi “nếu... thì sao?”, kiểm chứng thay vì tin",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "skeptical mindset"
+                "tư duy phản biện"
               ]
             },
             {
-              "skill": "Giao tiếp khéo léo với Developers",
+              "skill": "Giao tiếp với Dev/BA",
+              "source_code": "S3",
+              "description": "Báo lỗi bằng bằng chứng, thống nhất bug thật hay do hiểu sai spec",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "giao tiếp với dev"
+                "giao tiếp với dev/ba"
+              ]
+            },
+            {
+              "skill": "Tổ chức & ưu tiên",
+              "source_code": "S4",
+              "description": "Quyết định test gì trước khi thiếu thời gian",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổ chức & ưu tiên"
+              ]
+            },
+            {
+              "skill": "Chủ động đề xuất cải tiến",
+              "source_code": "S5",
+              "description": "Góp ý về sản phẩm, UI/UX, quy trình",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "chủ động đề xuất cải tiến"
+              ]
+            },
+            {
+              "skill": "Tiếng Anh nghề nghiệp",
+              "source_code": "S6",
+              "description": "Đọc spec, viết bug, trao đổi ngắn bằng tiếng Anh",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tiếng anh nghề nghiệp"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "tool": "Jira / Redmine / TestRail",
+              "source_code": "T1",
+              "description": "Quản lý bug và test case",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "jira / redmine / testrail"
+              ]
+            },
+            {
+              "tool": "Postman / Swagger + DevTools",
+              "source_code": "T2",
+              "description": "Bắt và kiểm tra request/response",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "postman / swagger + devtools"
+              ]
+            },
+            {
+              "tool": "SQL (MySQL, PostgreSQL...)",
+              "source_code": "T3",
+              "description": "Truy vấn kiểm tra dữ liệu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "sql (mysql, postgresql...)"
+              ]
+            },
+            {
+              "tool": "Excel / Google Sheets",
+              "source_code": "T4",
+              "description": "Viết và quản lý test case khi chưa dùng tool chuyên",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "excel / google sheets"
+              ]
+            },
+            {
+              "tool": "CI/CD cơ bản",
+              "source_code": "T5",
+              "description": "Deploy build lên môi trường test",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "ci/cd cơ bản"
+              ]
+            },
+            {
+              "tool": "JMeter / Appium / BrowserStack",
+              "source_code": "T6",
+              "description": "Theo loại dự án",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "jmeter / appium / browserstack"
+              ]
+            },
+            {
+              "tool": "Selenium / Playwright / Cypress",
+              "source_code": "T7",
+              "description": "Script tự động cơ bản",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "selenium / playwright / cypress"
+              ]
+            },
+            {
+              "tool": "Công cụ AI hỗ trợ test",
+              "source_code": "T8",
+              "description": "Sinh test case nháp, phân tích log",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "công cụ ai hỗ trợ test"
               ]
             }
           ],
           "certifications": [
             {
-              "name": "ISTQB Certified Tester Foundation Level (CTFL)",
-              "priority": "Ưu tiên cao",
+              "name": "ISTQB CTFL (M4)",
+              "description": "Chuẩn quốc tế cho kiến thức nền kiểm thử. JD fresher mình xem không bắt buộc, nên chỉ làm tăng độ phù hợp, không tạo gap cứng",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
               "keywords": [
-                "istqb ctfl"
+                "istqb ctfl (m4)"
               ]
             }
-          ],
-          "keywords_all": [
-            "stlc",
-            "bug life cycle",
-            "equivalence partitioning",
-            "boundary value analysis",
-            "decision table",
-            "state transition",
-            "api testing",
-            "get",
-            "post",
-            "put",
-            "delete",
-            "response code",
-            "database testing",
-            "sql",
-            "automation testing",
-            "selenium",
-            "playwright",
-            "cypress",
-            "jira",
-            "redmine",
-            "testrail",
-            "postman",
-            "jmeter",
-            "mysql",
-            "postgresql",
-            "devtools",
-            "browser devtools",
-            "appium",
-            "attention to detail",
-            "skeptical mindset",
-            "giao tiếp với dev",
-            "istqb ctfl"
           ]
         },
         {
           "position_id": "IT-03",
-          "position_name": "Data Analyst (Chuyên viên Phân tích Dữ liệu)",
-          "level": "Fresher/Junior",
-          "goal": "Thu thập, làm sạch và phân tích dữ liệu kinh doanh để tìm ra insight, xây dựng báo cáo/dashboard và đề xuất khuyến nghị hỗ trợ các phòng ban ra quyết định.",
+          "position_name": "Data Analyst",
+          "source_block": 347,
           "hard_skills": [
             {
-              "skill": "Thu thập và Làm sạch Dữ liệu (Data Cleaning/ETL)",
-              "description": "Thu thập dữ liệu từ nhiều nguồn, xử lý dữ liệu thiếu/trùng lặp/sai định dạng và chuẩn hóa dữ liệu trước khi phân tích (ETL).",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Hiểu bài toán & metric nền tảng",
+              "source_code": "H1",
+              "description": "Tính đúng và giải thích được tối thiểu 8 metric: Revenue, số đơn (Orders), AOV, Conversion rate, tăng trưởng (MoM/YoY), DAU/MAU, Retention/Churn, tỷ lệ hủy/hoàn (Cancel/Refund rate). Nêu đúng mẫu số (user hay session, đơn đặt hay đơn đã thanh toán); phân biệt Revenue và GMV, tăng trưởng % và tăng trưởng tuyệt đối. Khi một metric biến động, nêu được ít nhất 2 giả thuyết nguyên nhân cần kiểm tra bằng dữ liệu",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "data cleaning",
-                "etl",
-                "data wrangling",
-                "làm sạch dữ liệu"
+                "hiểu bài toán & metric nền tảng"
               ]
             },
             {
-              "skill": "Phân tích Thống kê và Kinh tế lượng",
-              "description": "Áp dụng thống kê mô tả/suy diễn và các phương pháp kinh tế lượng (Econometrics) để kiểm định giả thuyết và rút ra insight từ dữ liệu.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Metric mở rộng (Marketing & Tài chính)",
+              "source_code": "H2",
+              "description": "Hiểu ý nghĩa và đọc được: Funnel drop-off theo từng bước, Gross margin, CTR, CPC, CAC, ROAS; biết khái niệm LTV và Cohort. Chưa cần tự thiết kế, nhưng phải đọc được báo cáo có các chỉ số này",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "statistical analysis",
-                "econometrics",
-                "hypothesis testing",
-                "kinh tế lượng"
+                "metric mở rộng (marketing & tài chính)"
               ]
             },
             {
-              "skill": "Trực quan hóa Dữ liệu (Data Visualization)",
-              "description": "Xây dựng biểu đồ, dashboard trực quan giúp truyền tải insight rõ ràng, dễ hiểu cho người không chuyên kỹ thuật.",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Thu thập & làm sạch dữ liệu",
+              "source_code": "H3",
+              "description": "Xử lý giá trị thiếu (xóa hoặc điền theo ngữ cảnh), dòng trùng, sai định dạng ngày/số/văn bản, giá trị ngoại lai; chuẩn hóa tên cột; gộp ít nhất 2 nguồn bằng khóa chung; ghi lại các bước làm sạch để người khác kiểm tra lại được",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "data visualization",
-                "dashboard",
-                "trực quan hóa dữ liệu"
+                "thu thập & làm sạch dữ liệu"
               ]
             },
             {
-              "skill": "Xây dựng Mô hình Hồi quy và Dự báo",
-              "description": "Xây dựng mô hình hồi quy (Regression) và mô hình dự báo (Forecasting) xu hướng dựa trên dữ liệu lịch sử.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Truy vấn SQL",
+              "source_code": "H4",
+              "description": "SELECT/WHERE/ORDER BY; JOIN (INNER, LEFT) 2-3 bảng; GROUP BY với COUNT/SUM/AVG và HAVING; subquery hoặc CTE đơn giản; gom dữ liệu theo ngày/tháng; viết truy vấn kiểm tra trùng lặp và giá trị NULL. Window function cơ bản (ROW_NUMBER, SUM OVER) là điểm cộng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "regression",
-                "forecasting",
-                "hồi quy",
-                "dự báo"
+                "truy vấn sql"
               ]
             },
             {
-              "skill": "A/B Testing",
-              "description": "Thiết kế thử nghiệm và phân tích kết quả A/B Testing để đánh giá hiệu quả thay đổi sản phẩm/chiến dịch trước khi triển khai đại trà.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Phân tích khám phá & rút insight",
+              "source_code": "H5",
+              "description": "Mô tả dữ liệu (min/max, trung bình, trung vị, phân phối); so sánh theo nhóm và theo thời gian; phân tích funnel; phát hiện điểm bất thường. Mỗi insight phải kèm số liệu cụ thể và một giả thuyết nguyên nhân, kết thúc bằng một khuyến nghị hành động",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "a/b testing"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "SQL (Ngôn ngữ truy vấn)",
-              "required_level": "Thành thạo",
-              "weight": 5,
-              "keywords": [
-                "sql"
+                "phân tích khám phá & rút insight"
               ]
             },
             {
-              "tool": "Power BI / Tableau (Trực quan hóa)",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Trực quan hóa & báo cáo",
+              "source_code": "H6",
+              "description": "Chọn đúng loại biểu đồ (đường cho xu hướng, cột cho so sánh, bảng khi cần số chính xác); dựng dashboard một trang có KPI card, bộ lọc thời gian, tiêu đề nêu thông điệp; tránh lỗi trình bày phổ biến (cắt trục, quá nhiều màu, biểu đồ tròn nhiều phần)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "power bi",
-                "tableau"
+                "trực quan hóa & báo cáo"
               ]
             },
             {
-              "tool": "Python / R / Stata (Phân tích thống kê)",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Thống kê ứng dụng cơ bản",
+              "source_code": "H7",
+              "description": "Phân biệt trung bình và trung vị, hiểu độ lệch chuẩn, tương quan khác nhân quả; nhận biết sai lệch do mẫu nhỏ hoặc chọn mẫu lệch; hiểu khái niệm khoảng tin cậy và p-value ở mức đọc kết quả, không diễn giải sai",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "python",
-                "r",
-                "stata"
+                "thống kê ứng dụng cơ bản"
               ]
             },
             {
-              "tool": "MS Excel nâng cao (VBA/Macro)",
-              "required_level": "Thành thạo",
-              "weight": 3,
+              "skill": "Lập trình phân tích dữ liệu (Python)",
+              "source_code": "H8",
+              "description": "Dùng Pandas để đọc CSV/Excel, lọc, groupby, merge, xử lý giá trị thiếu; vẽ biểu đồ cơ bản bằng matplotlib/seaborn; chạy được trên Jupyter Notebook",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "excel",
-                "vba",
-                "macro"
+                "lập trình phân tích dữ liệu (python)"
+              ]
+            },
+            {
+              "skill": "Mô hình dữ liệu & ETL cơ bản",
+              "source_code": "H9",
+              "description": "Đọc được ERD; hiểu khóa chính/khóa ngoại, quan hệ 1-nhiều; phân biệt bảng fact và dimension; mô tả được luồng dữ liệu Extract → Transform → Load từ nguồn đến dashboard",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "mô hình dữ liệu & etl cơ bản"
+              ]
+            },
+            {
+              "skill": "Kiến thức domain",
+              "source_code": "H10",
+              "description": "Biết metric đặc thù của domain đã chọn. E-commerce: GMV, tỷ lệ bỏ giỏ hàng, tỷ lệ mua lặp lại, tỷ lệ trả hàng. Fintech: TPV, tỷ lệ giao dịch thành công, tỷ lệ gian lận, tỷ lệ kích hoạt tài khoản, ARPU. EdTech: tỷ lệ hoàn thành khóa học, tỷ lệ chuyển từ dùng thử sang trả phí. Healthcare: tỷ lệ bỏ lịch hẹn, thời gian chờ",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "kiến thức domain"
+              ]
+            },
+            {
+              "skill": "Phân tích nâng cao",
+              "source_code": "H11",
+              "description": "A/B testing cơ bản (so sánh hai nhóm, kiểm định ý nghĩa); phân tích cohort retention; tính CAC/LTV/ROAS; lấy dữ liệu từ API/JSON; window function nâng cao",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "phân tích nâng cao"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Kể chuyện qua Dữ liệu (Data Storytelling)",
+              "skill": "Tư duy phân tích & tò mò",
+              "source_code": "S1",
+              "description": "Trước khi tính toán, đặt câu hỏi “tại sao” và “so với cái gì”; kiểm tra giả thuyết bằng dữ liệu thay vì kết luận theo cảm tính",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "data storytelling"
+                "tư duy phân tích & tò mò"
               ]
             },
             {
-              "skill": "Tư duy phản biện gắn với bài toán kinh doanh (Critical & Business Thinking)",
+              "skill": "Cẩn thận & chính xác",
+              "source_code": "S2",
+              "description": "Đối chiếu tổng số giữa các bảng/nguồn trước khi báo cáo; phát hiện số liệu vô lý (âm, vượt 100%, trùng); ghi chú rõ giả định",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "critical thinking",
-                "business thinking"
+                "cẩn thận & chính xác"
               ]
             },
             {
-              "skill": "Trình bày Insight cho các phòng ban (Communication with Non-tech stakeholders)",
+              "skill": "Giao tiếp & trình bày insight",
+              "source_code": "S3",
+              "description": "Giải thích kết quả cho người không chuyên trong 3-5 câu: điều gì xảy ra, vì sao, nên làm gì",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "communication non-tech stakeholders",
-                "trình bày insight"
+                "giao tiếp & trình bày insight"
+              ]
+            },
+            {
+              "skill": "Chủ động & ownership",
+              "source_code": "S4",
+              "description": "Hỏi lại khi yêu cầu mơ hồ (định nghĩa metric, khoảng thời gian); báo sớm khi dữ liệu thiếu hoặc không đáng tin; theo đến khi báo cáo được dùng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "chủ động & ownership"
+              ]
+            },
+            {
+              "skill": "Ham học hỏi & thích ứng",
+              "source_code": "S5",
+              "description": "Tự học công cụ hoặc nguồn dữ liệu mới khi dự án đổi; cập nhật cách làm khi nhận phản hồi",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "ham học hỏi & thích ứng"
+              ]
+            },
+            {
+              "skill": "Tiếng Anh nghề nghiệp",
+              "source_code": "S6",
+              "description": "Đọc tài liệu công cụ, viết tên cột/ghi chú báo cáo và email ngắn bằng tiếng Anh",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tiếng anh nghề nghiệp"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "tool": "Excel / Google Sheets",
+              "source_code": "T1",
+              "description": "Hàm VLOOKUP/XLOOKUP (hoặc INDEX-MATCH), SUMIFS/COUNTIFS, IF; Pivot Table; làm sạch bằng Text-to-Columns, Remove Duplicates; biểu đồ cơ bản",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "excel / google sheets"
+              ]
+            },
+            {
+              "tool": "Hệ quản trị CSDL (SQL Server, MySQL, PostgreSQL)",
+              "source_code": "T2",
+              "description": "Kết nối cơ sở dữ liệu, chạy truy vấn, xuất kết quả ra file",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "hệ quản trị csdl (sql server, mysql, postgresql)"
+              ]
+            },
+            {
+              "tool": "Power BI / Tableau (ít nhất một)",
+              "source_code": "T3",
+              "description": "Kết nối nguồn dữ liệu, tạo measure đơn giản (tổng, tỷ lệ, so sánh kỳ trước), dựng dashboard có bộ lọc",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "power bi / tableau (ít nhất một)"
+              ]
+            },
+            {
+              "tool": "Python (Pandas, Jupyter Notebook)",
+              "source_code": "T4",
+              "description": "Dùng Pandas để đọc CSV/Excel, lọc, groupby, merge, xử lý giá trị thiếu; vẽ biểu đồ cơ bản bằng matplotlib/seaborn; chạy được trên Jupyter Notebook",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "python (pandas, jupyter notebook)"
+              ]
+            },
+            {
+              "tool": "Nền tảng BI/ETL theo công ty (Looker Studio, Metabase, SSIS, dbt, BigQuery)",
+              "source_code": "T5",
+              "description": "Sử dụng khi JD nêu cụ thể",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "nền tảng bi/etl theo công ty (looker studio, metabase, ssis, dbt, bigquery)"
+              ]
+            },
+            {
+              "tool": "Công cụ AI hỗ trợ",
+              "source_code": "T6",
+              "description": "Dùng AI gợi ý câu SQL, tóm tắt insight, nhưng tự kiểm chứng lại kết quả bằng dữ liệu",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "công cụ ai hỗ trợ"
               ]
             }
           ],
           "certifications": [
             {
-              "name": "Google Data Analytics Professional Certificate",
-              "priority": "Ưu tiên cao",
+              "name": "Google Data Analytics",
+              "description": "M4",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
               "keywords": [
-                "google data analytics professional certificate"
+                "google data analytics"
               ]
             },
             {
-              "name": "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
-              "priority": "Ưu tiên cao",
+              "name": "Microsoft PL-300 (Power BI Data Analyst)",
+              "description": "M4",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
               "keywords": [
-                "pl-300",
-                "power bi data analyst associate"
-              ]
-            },
-            {
-              "name": "AWS Certified Data Analytics",
-              "priority": "Ưu tiên",
-              "keywords": [
-                "aws certified data analytics"
+                "microsoft pl-300 (power bi data analyst)"
               ]
             }
-          ],
-          "keywords_all": [
-            "data cleaning",
-            "etl",
-            "data wrangling",
-            "làm sạch dữ liệu",
-            "statistical analysis",
-            "econometrics",
-            "hypothesis testing",
-            "kinh tế lượng",
-            "data visualization",
-            "dashboard",
-            "trực quan hóa dữ liệu",
-            "regression",
-            "forecasting",
-            "hồi quy",
-            "dự báo",
-            "a/b testing",
-            "sql",
-            "power bi",
-            "tableau",
-            "python",
-            "r",
-            "stata",
-            "excel",
-            "vba",
-            "macro",
-            "data storytelling",
-            "critical thinking",
-            "business thinking",
-            "communication non-tech stakeholders",
-            "trình bày insight",
-            "google data analytics professional certificate",
-            "pl-300",
-            "power bi data analyst associate",
-            "aws certified data analytics"
           ]
         }
       ]
@@ -1654,403 +1418,905 @@
       "positions": [
         {
           "position_id": "KK-01",
-          "position_name": "Kế Toán Viên (Accounting)",
-          "level": "Fresher/Junior",
-          "goal": "Ghi nhận, hạch toán các nghiệp vụ kinh tế phát sinh và lập báo cáo tài chính chính xác, tuân thủ chuẩn mực kế toán hiện hành.",
+          "position_name": "Kế toán viên",
+          "source_block": 388,
           "hard_skills": [
             {
-              "skill": "Chuẩn mực Kế toán Việt Nam & Hạch toán",
-              "description": "Nắm vững Chuẩn mực VAS và nguyên tắc hạch toán Nợ/Có.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Kiến thức & nguyên lý kế toán",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "vas",
-                "hạch toán nợ có"
+                "kiến thức & nguyên lý kế toán"
               ]
             },
             {
-              "skill": "Kế toán Tổng hợp",
-              "description": "Xử lý kế toán tổng hợp: công nợ, kho, tài sản cố định, giá thành.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Kiểm tra & xử lý chứng từ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "kế toán tổng hợp",
-                "công nợ",
-                "tscđ",
-                "giá thành"
+                "kiểm tra & xử lý chứng từ"
               ]
             },
             {
-              "skill": "Lập Báo cáo Tài chính",
-              "description": "Lập và trình bày Bảng cân đối kế toán, Kết quả kinh doanh, Lưu chuyển tiền tệ, Thuyết minh BCTC.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Hạch toán nghiệp vụ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "bctc",
-                "báo cáo tài chính"
+                "hạch toán nghiệp vụ"
               ]
             },
             {
-              "skill": "Đối chiếu & Kiểm tra Chứng từ Kế toán",
-              "description": "Kiểm tra tính hợp lệ, hợp lý của chứng từ trước khi hạch toán.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Đối chiếu số liệu (tiền, ngân hàng, công nợ)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "chứng từ kế toán",
-                "đối chiếu số liệu"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Excel (Vlookup, Pivot Table)",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "excel",
-                "vlookup",
-                "pivot table"
+                "đối chiếu số liệu (tiền, ngân hàng, công nợ)"
               ]
             },
             {
-              "tool": "Phần mềm kế toán MISA / FAST / SAP",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Theo dõi công nợ & lưu trữ hồ sơ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "misa",
-                "fast",
-                "sap"
+                "theo dõi công nợ & lưu trữ hồ sơ"
+              ]
+            },
+            {
+              "skill": "Lập báo cáo kế toán",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "lập báo cáo kế toán"
+              ]
+            },
+            {
+              "skill": "Hỗ trợ nghiệp vụ thuế",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "hỗ trợ nghiệp vụ thuế"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Cẩn thận, Tỉ mỉ",
+              "skill": "Cẩn thận & chính xác",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "cẩn thận",
-                "tỉ mỉ"
+                "cẩn thận & chính xác"
               ]
             },
             {
-              "skill": "Chịu áp lực số liệu theo kỳ báo cáo",
+              "skill": "Trung thực & trách nhiệm",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "chịu áp lực số liệu"
+                "trung thực & trách nhiệm"
               ]
             },
             {
-              "skill": "Quản lý thời gian, tuân thủ deadline sổ sách",
+              "skill": "Tổ chức công việc",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "quản lý thời gian"
+                "tổ chức công việc"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Giao tiếp & phối hợp",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giao tiếp & phối hợp"
+              ]
+            },
+            {
+              "skill": "Học hỏi & thích ứng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "học hỏi & thích ứng"
               ]
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "Chứng chỉ Kế toán trưởng / Kế toán tổng hợp",
-              "priority": "Ưu tiên cao",
+              "tool": "Excel / Google Sheets",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "chứng chỉ kế toán trưởng"
+                "excel / google sheets"
               ]
             },
             {
-              "name": "ACCA F3 (Kế toán tài chính)",
-              "priority": "Ưu tiên",
+              "tool": "Phần mềm kế toán",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "acca f3"
+                "phần mềm kế toán"
+              ]
+            },
+            {
+              "tool": "Word / Email",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "word / email"
+              ]
+            },
+            {
+              "tool": "ERP",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "erp"
               ]
             }
           ],
-          "keywords_all": [
-            "vas",
-            "hạch toán nợ có",
-            "kế toán tổng hợp",
-            "công nợ",
-            "tscđ",
-            "giá thành",
-            "bctc",
-            "báo cáo tài chính",
-            "chứng từ kế toán",
-            "đối chiếu số liệu",
-            "excel",
-            "vlookup",
-            "pivot table",
-            "misa",
-            "fast",
-            "sap",
-            "cẩn thận",
-            "tỉ mỉ",
-            "chịu áp lực số liệu",
-            "quản lý thời gian",
-            "chứng chỉ kế toán trưởng",
-            "acca f3"
-          ]
+          "certifications": []
         },
         {
           "position_id": "KK-02",
-          "position_name": "Kiểm Toán Viên (Auditing - Target Big4 & Non-Big4)",
-          "level": "Fresher/Junior",
-          "goal": "Thực hiện các thủ tục kiểm toán nhằm đánh giá tính trung thực, hợp lý của báo cáo tài chính doanh nghiệp theo chuẩn mực kiểm toán.",
+          "position_name": "Kiểm toán viên",
+          "source_block": 390,
           "hard_skills": [
             {
-              "skill": "Vouching (Kiểm tra chứng từ)",
-              "description": "Đối chiếu số liệu trên sổ sách với chứng từ gốc.",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Kiến thức kế toán & kiểm toán",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "vouching"
+                "kiến thức kế toán & kiểm toán"
               ]
             },
             {
-              "skill": "Tracing (Truy xuất)",
-              "description": "Truy vết một nghiệp vụ từ chứng từ gốc đến báo cáo tài chính.",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Lập kế hoạch kiểm toán",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "tracing"
+                "lập kế hoạch kiểm toán"
               ]
             },
             {
-              "skill": "Lấy mẫu kiểm toán (Sampling)",
-              "description": "Chọn mẫu kiểm tra đại diện cho tổng thể theo phương pháp thống kê hoặc phi thống kê.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Thu thập & đánh giá bằng chứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "sampling",
-                "lấy mẫu kiểm toán"
+                "thu thập & đánh giá bằng chứng"
               ]
             },
             {
-              "skill": "Đánh giá Rủi ro Kiểm toán",
-              "description": "Xác định và đánh giá rủi ro có sai sót trọng yếu.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Thực hiện thủ tục kiểm toán",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "đánh giá rủi ro kiểm toán"
+                "thực hiện thủ tục kiểm toán"
               ]
             },
             {
-              "skill": "Hiểu biết IFRS / VAS",
-              "description": "Vận dụng chuẩn mực báo cáo tài chính quốc tế và Việt Nam trong công việc kiểm toán.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Lập hồ sơ kiểm toán (Working Papers)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "ifrs",
-                "vas"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Excel nâng cao (Xử lý Big Data)",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "excel"
+                "lập hồ sơ kiểm toán (working papers)"
               ]
             },
             {
-              "tool": "Tiếng Anh chuyên ngành (bắt buộc)",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Phân tích rủi ro & kiểm soát nội bộ",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "tiếng anh chuyên ngành",
-                "business english"
+                "phân tích rủi ro & kiểm soát nội bộ"
+              ]
+            },
+            {
+              "skill": "Tổng hợp kết quả kiểm toán",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổng hợp kết quả kiểm toán"
+              ]
+            },
+            {
+              "skill": "Am hiểu IFRS & ISA",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "am hiểu ifrs & isa"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Làm việc nhóm (Teamwork)",
+              "skill": "Tư duy phân tích",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "teamwork"
+                "tư duy phân tích"
               ]
             },
             {
-              "skill": "Chịu áp lực cường độ cao (Overtime mùa kiểm toán)",
+              "skill": "Cẩn thận & khách quan",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "overtime",
-                "chịu áp lực cao"
+                "cẩn thận & khách quan"
               ]
             },
             {
-              "skill": "Tư duy hoài nghi nghề nghiệp (Professional Skepticism)",
+              "skill": "Đạo đức & bảo mật nghề nghiệp",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "professional skepticism"
+                "đạo đức & bảo mật nghề nghiệp"
+              ]
+            },
+            {
+              "skill": "Giao tiếp & thu thập thông tin",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "giao tiếp & thu thập thông tin"
+              ]
+            },
+            {
+              "skill": "Quản lý thời gian & chịu áp lực",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "quản lý thời gian & chịu áp lực"
+              ]
+            },
+            {
+              "skill": "Học hỏi & thích ứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "học hỏi & thích ứng"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Ngoại ngữ (tiếng Anh)",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "ngoại ngữ (tiếng anh)"
               ]
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "ACCA F8 (Kiểm toán)",
-              "priority": "Ưu tiên cao",
+              "tool": "Excel nâng cao (Lookup, Sumifs, PivotTable)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "acca f8"
+                "excel nâng cao (lookup, sumifs, pivottable)"
               ]
             },
             {
-              "name": "ICAEW CFAB",
-              "priority": "Ưu tiên",
+              "tool": "Word / PowerPoint / Email",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "icaew cfab"
+                "word / powerpoint / email"
               ]
             },
             {
-              "name": "CPA Úc/VN",
-              "priority": "Ưu tiên cao",
+              "tool": "Phần mềm kế toán & dữ liệu tài chính",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "cpa úc",
-                "cpa việt nam"
+                "phần mềm kế toán & dữ liệu tài chính"
+              ]
+            },
+            {
+              "tool": "Công cụ tra cứu tài liệu chuyên môn",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "công cụ tra cứu tài liệu chuyên môn"
+              ]
+            },
+            {
+              "tool": "Phần mềm kiểm toán chuyên dụng",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "phần mềm kiểm toán chuyên dụng"
               ]
             }
           ],
-          "keywords_all": [
-            "vouching",
-            "tracing",
-            "sampling",
-            "lấy mẫu kiểm toán",
-            "đánh giá rủi ro kiểm toán",
-            "ifrs",
-            "vas",
-            "excel",
-            "tiếng anh chuyên ngành",
-            "business english",
-            "teamwork",
-            "overtime",
-            "chịu áp lực cao",
-            "professional skepticism",
-            "acca f8",
-            "icaew cfab",
-            "cpa úc",
-            "cpa việt nam"
-          ]
+          "certifications": []
         },
         {
           "position_id": "KK-03",
-          "position_name": "Trợ Lý Thuế (Tax Assistant)",
-          "level": "Fresher/Junior",
-          "goal": "Hỗ trợ kê khai, quyết toán thuế và tư vấn tuân thủ pháp luật thuế cho doanh nghiệp/khách hàng.",
+          "position_name": "Trợ lý thuế",
+          "source_block": 392,
           "hard_skills": [
             {
-              "skill": "Luật Thuế",
-              "description": "Nắm vững quy định về thuế GTGT, TNDN, TNCN.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Kiến thức kế toán & thuế cơ bản (GTGT, TNDN)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "thuế gtgt",
-                "thuế tndn",
-                "thuế tncn"
+                "kiến thức kế toán & thuế cơ bản (gtgt, tndn)"
               ]
             },
             {
-              "skill": "Quyết toán & Kê khai Thuế",
-              "description": "Thực hiện quyết toán thuế và kê khai thuế định kỳ.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Kiểm tra hóa đơn & chứng từ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "quyết toán thuế",
-                "kê khai thuế"
+                "kiểm tra hóa đơn & chứng từ"
               ]
             },
             {
-              "skill": "Hóa đơn điện tử",
-              "description": "Xử lý nghiệp vụ liên quan đến hóa đơn điện tử.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Tổng hợp bảng kê thuế",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "hóa đơn điện tử"
+                "tổng hợp bảng kê thuế"
               ]
             },
             {
-              "skill": "Xử lý Chi phí Hợp lý/Hợp lệ",
-              "description": "Đánh giá tính hợp lý, hợp lệ của chi phí khi tính thuế TNDN.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Chuẩn bị hồ sơ kê khai thuế",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "chi phí hợp lý",
-                "chi phí hợp lệ"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "HTKK (Phần mềm Hỗ trợ kê khai)",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "htkk"
+                "chuẩn bị hồ sơ kê khai thuế"
               ]
             },
             {
-              "tool": "TaxOnline",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Đối chiếu dữ liệu thuế",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "taxonline"
+                "đối chiếu dữ liệu thuế"
               ]
             },
             {
-              "tool": "Excel",
-              "required_level": "Thành thạo",
-              "weight": 3,
+              "skill": "Cập nhật & tra cứu văn bản thuế",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "excel"
+                "cập nhật & tra cứu văn bản thuế"
+              ]
+            },
+            {
+              "skill": "Quản lý & lưu trữ hồ sơ thuế",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "quản lý & lưu trữ hồ sơ thuế"
+              ]
+            },
+            {
+              "skill": "Quyết toán TNCN & thuế nhà thầu (FCT)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "quyết toán tncn & thuế nhà thầu (fct)"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Giao tiếp với Cơ quan Thuế",
+              "skill": "Cẩn thận & chính xác",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "giao tiếp cơ quan thuế"
+                "cẩn thận & chính xác"
               ]
             },
             {
-              "skill": "Liên tục cập nhật pháp luật thuế",
+              "skill": "Trung thực & tuân thủ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "cập nhật pháp luật"
+                "trung thực & tuân thủ"
               ]
             },
             {
-              "skill": "Cẩn thận với số liệu",
+              "skill": "Tổ chức hồ sơ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "cẩn thận số liệu"
+                "tổ chức hồ sơ"
+              ]
+            },
+            {
+              "skill": "Quản lý thời hạn",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "quản lý thời hạn"
+              ]
+            },
+            {
+              "skill": "Học hỏi & cập nhật",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "học hỏi & cập nhật"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Giao tiếp & phối hợp",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giao tiếp & phối hợp"
               ]
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "Chứng chỉ Đại lý Thuế",
-              "priority": "Ưu tiên cao",
+              "tool": "Excel (VLOOKUP, SUMIF, Pivot)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "chứng chỉ đại lý thuế"
+                "excel (vlookup, sumif, pivot)"
               ]
             },
             {
-              "name": "ACCA F6 (Thuế Việt Nam)",
-              "priority": "Ưu tiên",
+              "tool": "Phần mềm kế toán",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "acca f6"
+                "phần mềm kế toán"
+              ]
+            },
+            {
+              "tool": "Kê khai thuế điện tử (HTKK, eTax, hóa đơn điện tử)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "kê khai thuế điện tử (htkk, etax, hóa đơn điện tử)"
+              ]
+            },
+            {
+              "tool": "Word / Email",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "word / email"
+              ]
+            },
+            {
+              "tool": "ERP / phần mềm thuế chuyên dụng",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "erp / phần mềm thuế chuyên dụng"
               ]
             }
           ],
-          "keywords_all": [
-            "thuế gtgt",
-            "thuế tndn",
-            "thuế tncn",
-            "quyết toán thuế",
-            "kê khai thuế",
-            "hóa đơn điện tử",
-            "chi phí hợp lý",
-            "chi phí hợp lệ",
-            "htkk",
-            "taxonline",
-            "excel",
-            "giao tiếp cơ quan thuế",
-            "cập nhật pháp luật",
-            "cẩn thận số liệu",
-            "chứng chỉ đại lý thuế",
-            "acca f6"
-          ]
+          "certifications": []
+        }
+      ]
+    },
+    {
+      "industry_id": "TCNH",
+      "industry_name": "Tài chính - Ngân hàng",
+      "positions": [
+        {
+          "position_id": "TCNH-01",
+          "position_name": "Financial Analyst (Chuyên viên Phân tích Tài chính)",
+          "source_block": 437,
+          "hard_skills": [
+            {
+              "skill": "Tính & phân tích chỉ số tài chính theo quý (biên gộp, EBITDA, biên ròng, tăng trưởng)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "tính & phân tích chỉ số tài chính theo quý (biên gộp, ebitda, biên ròng, tăng trưởng)"
+              ]
+            },
+            {
+              "skill": "Đánh giá chất lượng dòng tiền (CFO/LNST, CFO/EBITDA, tồn kho)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "đánh giá chất lượng dòng tiền (cfo/lnst, cfo/ebitda, tồn kho)"
+              ]
+            },
+            {
+              "skill": "Xác định nguyên nhân gốc rễ làm lợi nhuận giảm (có định lượng)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "xác định nguyên nhân gốc rễ làm lợi nhuận giảm (có định lượng)"
+              ]
+            },
+            {
+              "skill": "Đưa ra nhận định có số liệu & hàm ý chiến lược",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "đưa ra nhận định có số liệu & hàm ý chiến lược"
+              ]
+            },
+            {
+              "skill": "Đề xuất giải pháp cải thiện hiệu quả kinh doanh (hành động, thời gian, KPI)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "đề xuất giải pháp cải thiện hiệu quả kinh doanh (hành động, thời gian, kpi)"
+              ]
+            },
+            {
+              "skill": "Phân tích vốn lưu động & chỉ số vận hành",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "phân tích vốn lưu động & chỉ số vận hành"
+              ]
+            }
+          ],
+          "soft_skills": [
+            {
+              "skill": "Tư duy phản biện & dựa bằng chứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "tư duy phản biện & dựa bằng chứng"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Trình bày kết quả phân tích",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "trình bày kết quả phân tích"
+              ]
+            },
+            {
+              "skill": "Tư duy chiến lược & định hướng hành động",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tư duy chiến lược & định hướng hành động"
+              ]
+            },
+            {
+              "skill": "Tổ chức công việc & ưu tiên theo mức độ ảnh hưởng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổ chức công việc & ưu tiên theo mức độ ảnh hưởng"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "tool": "Excel / bảng tính",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "excel / bảng tính"
+              ]
+            },
+            {
+              "tool": "Công cụ văn phòng & báo cáo",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "công cụ văn phòng & báo cáo"
+              ]
+            }
+          ],
+          "certifications": []
+        },
+        {
+          "position_id": "TCNH-02",
+          "position_name": "Credit Analyst (Chuyên viên Thẩm định Tín dụng)",
+          "source_block": 435,
+          "hard_skills": [
+            {
+              "skill": "Phân tích chỉ số tài chính doanh nghiệp (D/E, ICR, biên LN, ROA, ROE)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "phân tích chỉ số tài chính doanh nghiệp (d/e, icr, biên ln, roa, roe)"
+              ]
+            },
+            {
+              "skill": "Đánh giá chất lượng dòng tiền (CFO, dòng tiền tự do)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "đánh giá chất lượng dòng tiền (cfo, dòng tiền tự do)"
+              ]
+            },
+            {
+              "skill": "Đánh giá khả năng trả nợ & nguồn trả nợ (proforma sau vay)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "đánh giá khả năng trả nợ & nguồn trả nợ (proforma sau vay)"
+              ]
+            },
+            {
+              "skill": "Quyết định cấp tín dụng & cấu trúc khoản vay (hạn mức, kỳ hạn, lãi suất)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "quyết định cấp tín dụng & cấu trúc khoản vay (hạn mức, kỳ hạn, lãi suất)"
+              ]
+            },
+            {
+              "skill": "Đối chiếu khoản vay với chính sách tín dụng ngân hàng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "đối chiếu khoản vay với chính sách tín dụng ngân hàng"
+              ]
+            },
+            {
+              "skill": "Nhận diện & xếp hạng 3 rủi ro tín dụng trọng yếu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "nhận diện & xếp hạng 3 rủi ro tín dụng trọng yếu"
+              ]
+            },
+            {
+              "skill": "Đề xuất điều kiện kèm theo (TSĐB/LTV, covenant, giải ngân, giám sát dòng tiền)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "đề xuất điều kiện kèm theo (tsđb/ltv, covenant, giải ngân, giám sát dòng tiền)"
+              ]
+            },
+            {
+              "skill": "Đánh giá tài sản đảm bảo & phương án sử dụng vốn",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "đánh giá tài sản đảm bảo & phương án sử dụng vốn"
+              ]
+            },
+            {
+              "skill": "Kiểm định giả định dự báo của doanh nghiệp",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "kiểm định giả định dự báo của doanh nghiệp"
+              ]
+            }
+          ],
+          "soft_skills": [
+            {
+              "skill": "Tư duy phản biện & dựa bằng chứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "tư duy phản biện & dựa bằng chứng"
+              ]
+            },
+            {
+              "skill": "Ra quyết định nhất quán, có căn cứ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "ra quyết định nhất quán, có căn cứ"
+              ]
+            },
+            {
+              "skill": "Trình bày tờ trình & ngôn ngữ chuyên ngành",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "trình bày tờ trình & ngôn ngữ chuyên ngành"
+              ]
+            },
+            {
+              "skill": "Cẩn thận & chính xác",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "cẩn thận & chính xác"
+              ]
+            },
+            {
+              "skill": "Tổ chức công việc & quản lý thời gian",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổ chức công việc & quản lý thời gian"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "tool": "Excel / Google Sheets (mẫu bảng thẩm định)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "excel / google sheets (mẫu bảng thẩm định)"
+              ]
+            },
+            {
+              "tool": "Công cụ văn phòng & báo cáo",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "công cụ văn phòng & báo cáo"
+              ]
+            },
+            {
+              "tool": "Hồ sơ doanh nghiệp, CIC & báo cáo tài chính",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "hồ sơ doanh nghiệp, cic & báo cáo tài chính"
+              ]
+            }
+          ],
+          "certifications": []
+        },
+        {
+          "position_id": "TCNH-03",
+          "position_name": "Risk Analyst (Chuyên viên Phân tích Rủi ro tín dụng)",
+          "source_block": 439,
+          "hard_skills": [
+            {
+              "skill": "Phân tích chỉ số rủi ro (D/E trước & sau giải ngân, thanh khoản, biên LN, ICR, Nợ vay/EBITDA)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "phân tích chỉ số rủi ro (d/e trước & sau giải ngân, thanh khoản, biên ln, icr, nợ vay/ebitda)"
+              ]
+            },
+            {
+              "skill": "So sánh với trung vị ngành & khẩu vị rủi ro ngân hàng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "so sánh với trung vị ngành & khẩu vị rủi ro ngân hàng"
+              ]
+            },
+            {
+              "skill": "Phân tích rủi ro ngành, vĩ mô & dự án",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "phân tích rủi ro ngành, vĩ mô & dự án"
+              ]
+            },
+            {
+              "skill": "Đề xuất biện pháp bảo vệ ngân hàng & cơ chế bảo vệ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "đề xuất biện pháp bảo vệ ngân hàng & cơ chế bảo vệ"
+              ]
+            },
+            {
+              "skill": "Khuyến nghị (đồng ý / có điều kiện / từ chối) kèm lý do có số liệu",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "khuyến nghị (đồng ý / có điều kiện / từ chối) kèm lý do có số liệu"
+              ]
+            },
+            {
+              "skill": "Kiểm soát mức độ tập trung ngành & nợ xấu danh mục",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "kiểm soát mức độ tập trung ngành & nợ xấu danh mục"
+              ]
+            },
+            {
+              "skill": "Đánh giá tài sản đảm bảo & LTV theo giai đoạn dự án",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "đánh giá tài sản đảm bảo & ltv theo giai đoạn dự án"
+              ]
+            },
+            {
+              "skill": "Phân tích kịch bản & độ nhạy",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "phân tích kịch bản & độ nhạy"
+              ]
+            }
+          ],
+          "soft_skills": [
+            {
+              "skill": "Tư duy độc lập & phản biện",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "tư duy độc lập & phản biện"
+              ]
+            },
+            {
+              "skill": "Viết báo cáo súc tích, đúng giới hạn (≤ 200 từ)",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "viết báo cáo súc tích, đúng giới hạn (≤ 200 từ)"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Cẩn thận & chính xác",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "cẩn thận & chính xác"
+              ]
+            },
+            {
+              "skill": "Tư duy phân tích & logic",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tư duy phân tích & logic"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "tool": "Excel / bảng tính",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "excel / bảng tính"
+              ]
+            },
+            {
+              "tool": "Công cụ văn phòng & báo cáo",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "công cụ văn phòng & báo cáo"
+              ]
+            }
+          ],
+          "certifications": []
         }
       ]
     },
@@ -2060,417 +2326,399 @@
       "positions": [
         {
           "position_id": "LOG-01",
-          "position_name": "Logistics Operations Executive (Chuyên viên Vận hành/Điều phối)",
-          "level": "Fresher/Junior",
-          "goal": "Điều phối và giám sát quy trình vận chuyển, thông quan hàng hóa xuất nhập khẩu, đảm bảo hàng đến đúng tiến độ và tuân thủ quy định hải quan.",
+          "position_name": "Logistics Operations Executive (Chuyên viên Vận hành Logistics)",
+          "source_block": 481,
           "hard_skills": [
             {
-              "skill": "Quy trình Xuất nhập khẩu (XNK)",
-              "description": "Nắm vững toàn bộ quy trình xuất nhập khẩu hàng hóa.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Kiến thức & quy trình Logistics",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "xuất nhập khẩu",
-                "xnk"
+                "kiến thức & quy trình logistics"
               ]
             },
             {
-              "skill": "Khai báo Hải quan",
-              "description": "Thực hiện khai báo hải quan điện tử cho lô hàng XNK.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Theo dõi đơn hàng & xử lý ngoại lệ",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "khai báo hải quan"
+                "theo dõi đơn hàng & xử lý ngoại lệ"
               ]
             },
             {
-              "skill": "Đọc hiểu Chứng từ Xuất nhập khẩu",
-              "description": "Đọc hiểu Bill of Lading, Packing List, Invoice, Certificate of Origin (C/O).",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Quản lý chứng từ & dữ liệu",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "bill of lading",
-                "packing list",
-                "invoice",
-                "c/o"
+                "quản lý chứng từ & dữ liệu"
               ]
             },
             {
-              "skill": "Incoterms 2020",
-              "description": "Áp dụng đúng điều kiện giao hàng quốc tế theo Incoterms 2020.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Điều phối & phối hợp vận hành",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "incoterms 2020"
+                "điều phối & phối hợp vận hành"
               ]
             },
             {
-              "skill": "Điều phối Vận tải & Đặt cước tàu",
-              "description": "Điều phối vận tải (Routing/Trucking) và đặt cước tàu (Booking).",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Kiểm soát chi phí & hiệu suất",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "routing",
-                "trucking",
-                "booking cước tàu"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Phần mềm khai hải quan điện tử (VNACCS/VCIS)",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "vnaccs",
-                "vcis"
+                "kiểm soát chi phí & hiệu suất"
               ]
             },
             {
-              "tool": "MS Excel",
-              "required_level": "Trung bình",
-              "weight": 2,
+              "skill": "Quản lý luồng hàng & xử lý đơn",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
               "keywords": [
-                "excel"
+                "quản lý luồng hàng & xử lý đơn"
+              ]
+            },
+            {
+              "skill": "Tuân thủ quy trình & cải tiến",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "tuân thủ quy trình & cải tiến"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Xử lý sự cố dưới áp lực thời gian",
+              "skill": "Cẩn thận & chính xác",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "xử lý sự cố",
-                "problem-solving"
+                "cẩn thận & chính xác"
               ]
             },
             {
-              "skill": "Giao tiếp với các bên (Hải quan, Hãng tàu, Nhà xe)",
+              "skill": "Trách nhiệm & ownership",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "giao tiếp đa bên"
+                "trách nhiệm & ownership"
               ]
             },
             {
-              "skill": "Quản lý thời gian giao nhận hàng",
+              "skill": "Giao tiếp & phối hợp",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "quản lý thời gian"
+                "giao tiếp & phối hợp"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Tổ chức công việc & thích ứng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổ chức công việc & thích ứng"
               ]
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "Chứng chỉ khai báo hải quan",
-              "priority": "Ưu tiên cao",
+              "tool": "Excel / Google Sheets",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "chứng chỉ khai báo hải quan"
+                "excel / google sheets"
               ]
             },
             {
-              "name": "FIATA Diploma in Freight Forwarding",
-              "priority": "Ưu tiên",
+              "tool": "Công cụ văn phòng & email",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "fiata diploma"
+                "công cụ văn phòng & email"
+              ]
+            },
+            {
+              "tool": "Hệ thống vận hành (OMS/ERP/WMS/TMS/3PL)",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "hệ thống vận hành (oms/erp/wms/tms/3pl)"
+              ]
+            },
+            {
+              "tool": "Phần mềm nghiệp vụ đặc thù (TMĐT, khai báo)",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "phần mềm nghiệp vụ đặc thù (tmđt, khai báo)"
               ]
             }
           ],
-          "keywords_all": [
-            "xuất nhập khẩu",
-            "xnk",
-            "khai báo hải quan",
-            "bill of lading",
-            "packing list",
-            "invoice",
-            "c/o",
-            "incoterms 2020",
-            "routing",
-            "trucking",
-            "booking cước tàu",
-            "vnaccs",
-            "vcis",
-            "excel",
-            "xử lý sự cố",
-            "problem-solving",
-            "giao tiếp đa bên",
-            "quản lý thời gian",
-            "chứng chỉ khai báo hải quan",
-            "fiata diploma"
-          ]
+          "certifications": []
         },
         {
           "position_id": "LOG-02",
           "position_name": "Supply Chain Analyst (Chuyên viên Phân tích Chuỗi cung ứng)",
-          "level": "Fresher/Junior",
-          "goal": "Phân tích dữ liệu chuỗi cung ứng, dự báo nhu cầu và tối ưu tồn kho nhằm giảm chi phí vận hành và đảm bảo mức phục vụ khách hàng.",
+          "source_block": 484,
           "hard_skills": [
             {
-              "skill": "Phân tích Dữ liệu Chuỗi cung ứng",
-              "description": "Phân tích dữ liệu vận hành để phát hiện điểm nghẽn và cơ hội tối ưu.",
-              "required_level": "Thành thạo",
-              "weight": 5,
+              "skill": "Phân tích dữ liệu chuỗi cung ứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "supply chain analytics"
+                "phân tích dữ liệu chuỗi cung ứng"
               ]
             },
             {
-              "skill": "Dự báo Nhu cầu",
-              "description": "Xây dựng dự báo nhu cầu (Demand Forecasting) dựa trên dữ liệu lịch sử.",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Phân tích nguyên nhân & đề xuất cải tiến",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "demand forecasting"
+                "phân tích nguyên nhân & đề xuất cải tiến"
               ]
             },
             {
-              "skill": "Quản trị Hàng tồn kho",
-              "description": "Quản lý mức tồn kho tối ưu theo từng SKU/kho.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Lập kế hoạch & theo dõi cung – cầu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "inventory management"
+                "lập kế hoạch & theo dõi cung – cầu"
               ]
             },
             {
-              "skill": "Tính toán Tồn kho an toàn & Điểm đặt hàng lại",
-              "description": "Tính Safety Stock và Reorder Point.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Phân tích tồn kho & nguyên vật liệu",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "safety stock",
-                "reorder point"
+                "phân tích tồn kho & nguyên vật liệu"
               ]
             },
             {
-              "skill": "Tối ưu Chi phí Lưu kho",
-              "description": "Phân tích và đề xuất giải pháp giảm chi phí lưu kho.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "KPI, chi phí & hiệu suất NCC",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "tối ưu chi phí lưu kho"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Excel nâng cao (Pivot Table, Power Query, VBA)",
-              "required_level": "Thành thạo",
-              "weight": 4,
-              "keywords": [
-                "excel",
-                "pivot table",
-                "power query",
-                "vba"
+                "kpi, chi phí & hiệu suất ncc"
               ]
             },
             {
-              "tool": "Power BI / Tableau",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Quản lý dữ liệu & quy trình chuỗi cung ứng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "power bi",
-                "tableau"
-              ]
-            },
-            {
-              "tool": "ERP/SAP (Module MM/SD)",
-              "required_level": "Cơ bản",
-              "weight": 3,
-              "keywords": [
-                "sap mm",
-                "sap sd",
-                "erp"
-              ]
-            },
-            {
-              "tool": "SQL cơ bản",
-              "required_level": "Cơ bản",
-              "weight": 2,
-              "keywords": [
-                "sql"
+                "quản lý dữ liệu & quy trình chuỗi cung ứng"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Tư duy logic/phân tích số liệu",
+              "skill": "Tư duy phản biện & dựa bằng chứng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "tư duy phân tích"
+                "tư duy phản biện & dựa bằng chứng"
               ]
             },
             {
-              "skill": "Giao tiếp liên phòng ban (Cross-functional communication)",
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "cross-functional communication"
+                "giải quyết vấn đề"
+              ]
+            },
+            {
+              "skill": "Giao tiếp & trình bày kết quả phân tích",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "giao tiếp & trình bày kết quả phân tích"
+              ]
+            },
+            {
+              "skill": "Phối hợp liên phòng ban",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "phối hợp liên phòng ban"
+              ]
+            },
+            {
+              "skill": "Tổ chức công việc & chủ động",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "tổ chức công việc & chủ động"
               ]
             }
           ],
-          "certifications": [
+          "tools": [
             {
-              "name": "CPIM (APICS)",
-              "priority": "Ưu tiên cao",
+              "tool": "Excel / bảng tính",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "cpim",
-                "apics"
+                "excel / bảng tính"
               ]
             },
             {
-              "name": "Google Data Analytics",
-              "priority": "Ưu tiên",
+              "tool": "Công cụ văn phòng & báo cáo",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "google data analytics"
+                "công cụ văn phòng & báo cáo"
               ]
             },
             {
-              "name": "CSCP",
-              "priority": "Ưu tiên cao",
+              "tool": "ERP / SAP",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "cscp"
+                "erp / sap"
+              ]
+            },
+            {
+              "tool": "Công cụ phân tích nâng cao (Python, R, PowerPivot, VBA)",
+              "required_level": "M4",
+              "source_requirement_policy": "advantage",
+              "keywords": [
+                "công cụ phân tích nâng cao (python, r, powerpivot, vba)"
               ]
             }
           ],
-          "keywords_all": [
-            "supply chain analytics",
-            "demand forecasting",
-            "inventory management",
-            "safety stock",
-            "reorder point",
-            "tối ưu chi phí lưu kho",
-            "excel",
-            "pivot table",
-            "power query",
-            "vba",
-            "power bi",
-            "tableau",
-            "sap mm",
-            "sap sd",
-            "erp",
-            "sql",
-            "tư duy phân tích",
-            "cross-functional communication",
-            "cpim",
-            "apics",
-            "google data analytics",
-            "cscp"
-          ]
+          "certifications": []
         },
         {
           "position_id": "LOG-03",
-          "position_name": "Procurement / Purchasing Executive (Chuyên viên Thu mua)",
-          "level": "Fresher/Junior",
-          "goal": "Tìm kiếm, đánh giá nhà cung cấp và thực hiện quy trình mua hàng nhằm đảm bảo chi phí, chất lượng và tiến độ tối ưu cho doanh nghiệp.",
+          "position_name": "Purchasing Executive (Chuyên viên Thu mua)",
+          "source_block": 487,
           "hard_skills": [
             {
-              "skill": "Tìm kiếm Nhà cung cấp (Sourcing)",
-              "description": "Xác định và tiếp cận nhà cung cấp phù hợp về giá, chất lượng, năng lực.",
-              "required_level": "Thành thạo",
-              "weight": 4,
+              "skill": "Tìm kiếm & đánh giá NCC",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "sourcing"
+                "tìm kiếm & đánh giá ncc"
               ]
             },
             {
-              "skill": "Lập Bảng Đánh giá Nhà cung cấp",
-              "description": "Xây dựng và cập nhật Vendor Scorecard.",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Tiếp nhận yêu cầu & thực hiện mua hàng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "vendor scorecard"
+                "tiếp nhận yêu cầu & thực hiện mua hàng"
               ]
             },
             {
-              "skill": "Phân tích Báo giá",
-              "description": "So sánh và phân tích báo giá (Quotation Analysis) từ nhiều nhà cung cấp.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Phân tích báo giá & đàm phán thương mại",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "quotation analysis"
+                "phân tích báo giá & đàm phán thương mại"
               ]
             },
             {
-              "skill": "Xử lý Đơn đặt hàng",
-              "description": "Lập và theo dõi Purchase Order (PO).",
-              "required_level": "Trung bình",
-              "weight": 3,
+              "skill": "Quản lý đơn mua & theo dõi giao hàng",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "purchase order",
-                "po"
+                "quản lý đơn mua & theo dõi giao hàng"
               ]
             },
             {
-              "skill": "Đàm phán Hợp đồng & Thanh toán Quốc tế",
-              "description": "Đàm phán điều khoản hợp đồng, sử dụng L/C, T/T, D/P trong thanh toán quốc tế.",
-              "required_level": "Trung bình",
-              "weight": 4,
+              "skill": "Quản lý hợp đồng & chứng từ mua hàng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "l/c",
-                "t/t",
-                "d/p",
-                "thanh toán quốc tế"
-              ]
-            }
-          ],
-          "tools": [
-            {
-              "tool": "Module Purchasing trên ERP",
-              "required_level": "Trung bình",
-              "weight": 3,
-              "keywords": [
-                "erp purchasing module"
+                "quản lý hợp đồng & chứng từ mua hàng"
               ]
             },
             {
-              "tool": "Excel",
-              "required_level": "Trung bình",
-              "weight": 2,
+              "skill": "Kiểm soát chi phí & hiệu quả mua hàng",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "excel"
+                "kiểm soát chi phí & hiệu quả mua hàng"
               ]
             }
           ],
           "soft_skills": [
             {
-              "skill": "Đàm phán và Thương lượng (Negotiation)",
+              "skill": "Đàm phán & thuyết phục",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "negotiation"
+                "đàm phán & thuyết phục"
               ]
             },
             {
-              "skill": "Đạo đức nghề nghiệp (Integrity)",
+              "skill": "Giao tiếp & phối hợp",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "integrity"
+                "giao tiếp & phối hợp"
               ]
             },
             {
-              "skill": "Xây dựng mối quan hệ với nhà cung cấp",
+              "skill": "Cẩn thận, trách nhiệm & tổ chức công việc",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
               "keywords": [
-                "xây dựng quan hệ"
+                "cẩn thận, trách nhiệm & tổ chức công việc"
               ]
-            }
-          ],
-          "certifications": [
+            },
             {
-              "name": "CIPS (Chartered Institute of Procurement & Supply)",
-              "priority": "Ưu tiên cao",
+              "skill": "Tư duy phân tích & logic",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
               "keywords": [
-                "cips"
+                "tư duy phân tích & logic"
+              ]
+            },
+            {
+              "skill": "Giải quyết vấn đề",
+              "required_level": "M2",
+              "source_requirement_policy": "common",
+              "keywords": [
+                "giải quyết vấn đề"
               ]
             }
           ],
-          "keywords_all": [
-            "sourcing",
-            "vendor scorecard",
-            "quotation analysis",
-            "purchase order",
-            "po",
-            "l/c",
-            "t/t",
-            "d/p",
-            "thanh toán quốc tế",
-            "erp purchasing module",
-            "excel",
-            "negotiation",
-            "integrity",
-            "xây dựng quan hệ",
-            "cips"
-          ]
+          "tools": [
+            {
+              "tool": "Excel / bảng tính",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "excel / bảng tính"
+              ]
+            },
+            {
+              "tool": "Công cụ văn phòng & email",
+              "required_level": "M1",
+              "source_requirement_policy": "core",
+              "keywords": [
+                "công cụ văn phòng & email"
+              ]
+            },
+            {
+              "tool": "ERP / SAP / hệ thống quản lý mua hàng",
+              "required_level": "M3",
+              "source_requirement_policy": "conditional",
+              "keywords": [
+                "erp / sap / hệ thống quản lý mua hàng"
+              ]
+            }
+          ],
+          "certifications": []
         }
       ]
     }

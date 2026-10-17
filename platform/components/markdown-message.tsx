@@ -17,13 +17,13 @@ export function MarkdownMessage({ children }: { children: string }) {
           <h3 className="mb-2 mt-3 font-semibold first:mt-0">{content}</h3>
         ),
         p: ({ children: content }) => (
-          <p className="my-2 first:mt-0 last:mb-0">{content}</p>
+          <p className="my-2 whitespace-pre-wrap first:mt-0 last:mb-0">{content}</p>
         ),
         ul: ({ children: content }) => (
           <ul className="my-2 list-disc space-y-2 pl-5">{content}</ul>
         ),
-        ol: ({ children: content }) => (
-          <ol className="my-2 list-decimal space-y-2 pl-5">{content}</ol>
+        ol: ({ children: content, start }) => (
+          <ol start={start} className="my-2 list-decimal space-y-2 pl-5">{content}</ol>
         ),
         li: ({ children: content }) => <li className="pl-1">{content}</li>,
         strong: ({ children: content }) => (

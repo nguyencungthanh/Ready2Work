@@ -24,6 +24,9 @@ await db.exec(`
 try {
   const migrations = (await readdir(path.join(root, "supabase/migrations"))).filter((f) => f.endsWith(".sql")).sort();
   let legacySeeded = false;
+  let oldQuestion;
+  let oldAttempt;
+  let oldSession;
   for (const file of migrations) {
     if (file.startsWith("20261016") && !legacySeeded) {
       await db.exec(`
@@ -37,6 +40,12 @@ try {
       `);
       legacySeeded = true;
     }
+    if (file.startsWith("20261017")) {
+      oldQuestion = (await db.query("select q.id,q.prompt,q.set_id from interview_questions q join interview_sets s on s.id=q.set_id where s.slug='r2w-qa-tester' order by q.position limit 1")).rows[0];
+      oldSession = (await db.query("insert into interview_sessions(user_id,set_id) values ('33333333-3333-4333-8333-333333333333',$1) returning id", [oldQuestion.set_id])).rows[0];
+      await db.query("insert into interview_answers(session_id,question_id,answer_text,score) values ($1,$2,'Historical source answer',70)", [oldSession.id,oldQuestion.id]);
+      oldAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-it-03' returning id")).rows[0];
+    }
     try { await db.exec(await readFile(path.join(root, "supabase/migrations", file), "utf8")); }
     catch (error) { console.error(`Migration failed: ${file}`); throw error; }
     console.log(`Applied ${file}`);
@@ -46,8 +55,13 @@ try {
   assert.equal((await one("select overall_score from simulation_submissions where id='55555555-5555-4555-8555-555555555555'")).overall_score, 70);
   assert.equal((await one("select email from profiles where id='33333333-3333-4333-8333-333333333333'")).email, "existing@example.test");
   assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%'")).count), 15);
-  assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%'")).count), 14);
-  assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%' and not is_available")).count), 3);
+  assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017'")).count), 15);
+  assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017' and not is_available")).count), 8);
+  assert.equal((await one("select prompt from interview_questions where id=$1", [oldQuestion.id])).prompt, oldQuestion.prompt);
+  assert.equal(Number((await one("select count(*) from interview_answers where session_id=$1 and question_id=$2", [oldSession.id,oldQuestion.id])).count), 1);
+  assert.equal((await one("select is_available from interview_sets where id=$1", [oldQuestion.set_id])).is_available, false);
+  assert.ok((await one("select superseded_at from simulation_attempts where id=$1", [oldAttempt.id])).superseded_at);
+  await assert.rejects(db.query("select finalize_simulation_attempt($1,'33333333-3333-4333-8333-333333333333','Old draft',70,'Proficient','{}','{}',now())", [oldAttempt.id]), /source changed/);
   const owner = "11111111-1111-4111-8111-111111111111", other = "22222222-2222-4222-8222-222222222222";
   await db.query("insert into auth.users(id,email) values ($1,'owner@example.test'),($2,'other@example.test')", [owner, other]);
   await db.query("insert into cv_analyses(user_id,position_id,position_title,result) values ($1,'IT-03','Data Analyst','{}')", [owner]);
@@ -75,7 +89,7 @@ try {
   assert.equal(Number((await one("select count(*) from simulations where jsonb_array_length(grading_rubric)=0")).count), 0);
   assert.equal(Number((await one("select count(*) from simulations s, jsonb_array_elements(s.rubric) c where c ? 'description' or c ? 'checklist' or c ? 'answer_key'")).count), 0);
   const simulation = await one("select id from simulations where is_available order by slug limit 1");
-  const interviewSet = await one("select id from interview_sets where is_available order by slug limit 1");
+  const interviewSet = await one("select id from interview_sets where is_available and slug like 'r2w-%20261017' order by slug limit 1");
   const foreignSet = await one("select id from interview_sets where id <> $1 order by slug limit 1", [interviewSet.id]);
   const questions = (await db.query("select id from interview_questions where set_id=$1 order by position", [interviewSet.id])).rows;
   const foreignQuestion = await one("select id from interview_questions where set_id=$1 limit 1", [foreignSet.id]);

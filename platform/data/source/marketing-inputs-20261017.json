@@ -1,0 +1,239 @@
+{
+  "authorization": "Chủ dự án: Bạn tự tạo nhưng phải hợp lí, bám sát các yêu cầu.",
+  "date": "2026-10-17",
+  "notice": "Dữ liệu mô phỏng bổ sung, không mạo nhận là dữ liệu nguồn gốc hay số liệu SEO thực tế.",
+  "by_position": {
+    "MKT-01": [
+      {
+        "id": "marketing-product-brief",
+        "title": "Tóm tắt sản phẩm · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Thông tin",
+          "Nội dung"
+        ],
+        "rows": [
+          [
+            "Sản phẩm",
+            "Hoodie Campus Fleece, bộ sưu tập Thu-Đông dành cho sinh viên 18–22 tuổi."
+          ],
+          [
+            "Chất liệu",
+            "Nỉ bông: 65% sợi bông, 35% sợi polyester."
+          ],
+          [
+            "Kiểu dáng",
+            "Dáng rộng, dành cho mọi giới; cỡ S, M, L, XL; màu đen, xám và nâu."
+          ],
+          [
+            "Giá niêm yết",
+            "399.000 đồng/áo."
+          ],
+          [
+            "Ưu đãi mở bán",
+            "Giảm 40.000 đồng/áo, còn 359.000 đồng trong 48 giờ đầu kể từ thời điểm mở bán. Hết 48 giờ trở lại giá niêm yết."
+          ],
+          [
+            "Kênh mua hàng",
+            "Fanpage của thương hiệu và gian hàng Shopee."
+          ],
+          [
+            "Giọng thương hiệu",
+            "Xưng hô “Shop – Cậu”, trẻ trung, gần gũi với sinh viên."
+          ],
+          [
+            "Nguồn lực",
+            "Nhóm 2 người; quay bằng điện thoại; không thuê KOL hoặc studio."
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      }
+    ],
+    "MKT-02": [
+      {
+        "id": "marketing-ad-data",
+        "title": "Kết quả quảng cáo 3 ngày đầu · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Nhóm quảng cáo",
+          "Tệp đối tượng",
+          "Chi tiêu (đồng)",
+          "Lượt hiển thị",
+          "Lượt nhấp",
+          "Khách để lại thông tin",
+          "CTR",
+          "CPL (đồng)"
+        ],
+        "rows": [
+          [
+            "A",
+            "18–45 tuổi, sở thích ngoại ngữ và học trực tuyến, phạm vi địa lý rộng.",
+            "3.000.000",
+            "40.000",
+            "240",
+            "3",
+            "0,6%",
+            "1.000.000"
+          ],
+          [
+            "B",
+            "22–30 tuổi, người đi làm trong khu vực có thể đến học tại trung tâm.",
+            "2.000.000",
+            "22.500",
+            "260",
+            "5",
+            "1,1556%",
+            "400.000"
+          ],
+          [
+            "Tổng",
+            "Hai nhóm dùng chung trang đích và biểu mẫu.",
+            "5.000.000",
+            "62.500",
+            "500",
+            "8",
+            "0,8%",
+            "625.000"
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      },
+      {
+        "id": "marketing-landing-data",
+        "title": "Quảng cáo và trang đích · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Thông tin",
+          "Dữ liệu"
+        ],
+        "rows": [
+          [
+            "Mẫu quảng cáo đang dùng",
+            "Ảnh lịch tuyển sinh, nhiều chữ, tiêu đề “Đăng ký khóa tiếng Anh giao tiếp”; chưa thử video hoặc thông điệp khác."
+          ],
+          [
+            "Tốc độ tải trang đích",
+            "Trung bình 5,2 giây trên thiết bị di động trong 3 ngày đầu."
+          ],
+          [
+            "Biểu mẫu",
+            "7 trường bắt buộc: họ tên, số điện thoại, email, độ tuổi, nghề nghiệp, khu vực, trình độ hiện tại."
+          ],
+          [
+            "Tỷ lệ chuyển đổi từ lượt nhấp",
+            "8 khách để lại thông tin / 500 lượt nhấp = 1,6%."
+          ],
+          [
+            "CPM tổng",
+            "80.000 đồng cho 1.000 lượt hiển thị."
+          ],
+          [
+            "CPC tổng",
+            "10.000 đồng/lượt nhấp."
+          ],
+          [
+            "Mục tiêu chiến dịch",
+            "100 khách để lại thông tin trong 14 ngày."
+          ],
+          [
+            "Ngân sách còn lại",
+            "15.000.000 đồng cho 11 ngày tiếp theo."
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      }
+    ],
+    "MKT-03": [
+      {
+        "id": "marketing-keyword-data",
+        "title": "Bảng 12 từ khóa SEO · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Từ khóa",
+          "Lượt tìm kiếm/tháng",
+          "Độ khó từ khóa (0–100)",
+          "Ý định tìm kiếm"
+        ],
+        "rows": [
+          [
+            "cách tính giá vốn đồ uống",
+            "1.300",
+            "22",
+            "Tìm hướng dẫn tính toán, phục vụ vận hành quán."
+          ],
+          [
+            "cách quản lý nguyên liệu quán cafe không thất thoát",
+            "480",
+            "18",
+            "Tìm phương pháp quản lý nguyên liệu tại quán."
+          ],
+          [
+            "định mức nguyên liệu pha chế",
+            "720",
+            "24",
+            "Tìm hướng dẫn xây dựng định mức pha chế."
+          ],
+          [
+            "phần mềm quản lý kho F&B",
+            "880",
+            "28",
+            "Tìm hiểu và so sánh công cụ quản lý kho."
+          ],
+          [
+            "cảnh báo tồn kho tự động",
+            "320",
+            "19",
+            "Tìm hiểu giải pháp cảnh báo tồn kho."
+          ],
+          [
+            "phần mềm quản lý quán cafe",
+            "4.400",
+            "56",
+            "So sánh phần mềm quản lý quán tổng thể."
+          ],
+          [
+            "phần mềm quản lý bán hàng",
+            "9.900",
+            "70",
+            "Tìm phần mềm bán hàng cho nhiều ngành."
+          ],
+          [
+            "công thức pha chế trà sữa",
+            "6.600",
+            "24",
+            "Tìm công thức đồ uống để thực hành."
+          ],
+          [
+            "mở quán cafe cần chuẩn bị gì",
+            "5.400",
+            "32",
+            "Tìm thông tin khởi nghiệp và mở quán."
+          ],
+          [
+            "quản lý nguyên liệu nhà hàng",
+            "590",
+            "26",
+            "Tìm cách quản lý nguyên liệu nhà hàng."
+          ],
+          [
+            "kiểm soát thất thoát nguyên vật liệu",
+            "260",
+            "16",
+            "Tìm quy trình kiểm soát thất thoát."
+          ],
+          [
+            "phần mềm cảnh báo hết nguyên liệu quán cafe",
+            "170",
+            "15",
+            "Tìm công cụ theo nhu cầu cụ thể của quán."
+          ]
+        ],
+        "editable": false,
+        "provenance": "Dữ liệu mô phỏng bổ sung theo cho phép của chủ dự án ngày 17/10/2026; không phải tài liệu gốc Google Docs."
+      }
+    ]
+  }
+}

@@ -1,0 +1,758 @@
+{
+  "source": "Chép thủ công sau khi xem ảnh nguồn, 17/10/2026; không dùng AI OCR.",
+  "scope": "Chỉ ảnh tài liệu công khai 03-08, 10-12, 15-18; không chứa bảng đáp án 14/20.",
+  "TCNH-02": {
+    "company_information": {
+      "source_image": "03.png",
+      "rows": [
+        [
+          "Tên doanh nghiệp",
+          "Công ty Cổ phần Con Sứa"
+        ],
+        [
+          "Mã số thuế",
+          "0312 345 678"
+        ],
+        [
+          "Giấy phép kinh doanh",
+          "Số 0123456789, cấp ngày 15/03/2015"
+        ],
+        [
+          "Vốn điều lệ",
+          "15.000.000.000 đồng"
+        ],
+        [
+          "Ngành nghề chính",
+          "Chế biến, bảo quản và xuất khẩu thủy sản (mã ngành 1020)"
+        ],
+        [
+          "Số năm hoạt động",
+          "11 năm (thành lập 2015)"
+        ],
+        [
+          "Địa điểm hoạt động",
+          "Khu công nghiệp ven biển, khu vực Bà Rịa – Vũng Tàu cũ, TP. Hồ Chí Minh"
+        ],
+        [
+          "Số lao động",
+          "85 người (73 người năm 2024; 62 người năm 2023)"
+        ],
+        [
+          "Thị trường xuất khẩu",
+          "Nhật Bản (60%), Hàn Quốc (25%), EU (15%)"
+        ],
+        [
+          "Ban lãnh đạo",
+          "Ông Lê Văn Trà - Chủ tịch HĐQT, sở hữu 55% vốn (10 năm kinh nghiệm ngành); Bà Trần Thị Thanh Nhàn – Tổng Giám đốc (12 năm kinh nghiệm)"
+        ]
+      ]
+    },
+    "credit_history": {
+      "source_image": "04.png",
+      "rows": [
+        [
+          "Quan hệ tín dụng hiện hữu",
+          "Đang vay tại 2 tổ chức tín dụng khác, tổng dư nợ 20,2 tỷ đồng (31/12/2025): Ngân hàng A 12,0 tỷ (vay đầu tư và vốn lưu động, thế chấp nhà xưởng và máy móc hiện hữu); Ngân hàng B 8,2 tỷ (vốn lưu động, thế chấp một phần hàng tồn kho)."
+        ],
+        [
+          "Phân loại nợ theo CIC (36 tháng gần nhất)",
+          "Nhóm 1 (đủ tiêu chuẩn) tại tất cả các kỳ báo cáo."
+        ],
+        [
+          "Ghi nhận bất thường",
+          "Tháng 08/2025: chậm trả lãi 12 ngày tại Ngân hàng B, đã tất toán đầy đủ."
+        ],
+        [
+          "Quan hệ với Ngân hàng Đại Dương",
+          "Có tài khoản thanh toán từ năm 2019, chưa có dư nợ. Doanh số qua tài khoản năm 2025: 40 tỷ đồng (khoảng 38% doanh thu)."
+        ],
+        [
+          "Nghĩa vụ với Nhà nước",
+          "Chưa ghi nhận nợ đọng thuế hoặc bảo hiểm xã hội."
+        ]
+      ]
+    },
+    "financial_statements": {
+      "source_image": "05.png",
+      "columns": [
+        "Chỉ tiêu",
+        "Năm 2023",
+        "Năm 2024",
+        "Năm 2025"
+      ],
+      "rows": [
+        [
+          "Tổng tài sản",
+          "42,5",
+          "49,8",
+          "58,5"
+        ],
+        [
+          "Tài sản ngắn hạn",
+          "24,0",
+          "28,5",
+          "33,0"
+        ],
+        [
+          "Tiền và tương đương tiền",
+          "3,9",
+          "4,7",
+          "3,8"
+        ],
+        [
+          "Phải thu ngắn hạn",
+          "9,5",
+          "11,5",
+          "14,0"
+        ],
+        [
+          "Hàng tồn kho",
+          "9,8",
+          "11,5",
+          "14,4"
+        ],
+        [
+          "Tài sản ngắn hạn khác",
+          "0,8",
+          "0,8",
+          "0,8"
+        ],
+        [
+          "Tài sản dài hạn",
+          "18,5",
+          "21,3",
+          "25,5"
+        ],
+        [
+          "Tổng nợ phải trả",
+          "22,3",
+          "28,7",
+          "38,2"
+        ],
+        [
+          "Nợ ngắn hạn",
+          "14,5",
+          "18,2",
+          "23,5"
+        ],
+        [
+          "Trong đó: vay ngắn hạn",
+          "4,5",
+          "5,5",
+          "9,7"
+        ],
+        [
+          "Nợ dài hạn",
+          "7,8",
+          "10,5",
+          "14,7"
+        ],
+        [
+          "Trong đó: vay dài hạn",
+          "6,5",
+          "8,0",
+          "10,5"
+        ],
+        [
+          "Vốn chủ sở hữu (VCSH)",
+          "20,2",
+          "21,1",
+          "20,3"
+        ],
+        [
+          "Doanh thu thuần",
+          "72,3",
+          "88,5",
+          "105,2"
+        ],
+        [
+          "Giá vốn hàng bán",
+          "57,8",
+          "71,8",
+          "87,3"
+        ],
+        [
+          "Lợi nhuận gộp",
+          "14,5",
+          "16,7",
+          "17,9"
+        ],
+        [
+          "Biên lợi nhuận gộp",
+          "20,1%",
+          "18,9%",
+          "17,0%"
+        ],
+        [
+          "Chi phí bán hàng và quản lý doanh nghiệp",
+          "7,9",
+          "9,5",
+          "11,8"
+        ],
+        [
+          "EBITDA",
+          "6,6",
+          "7,2",
+          "6,1"
+        ],
+        [
+          "Khấu hao",
+          "2,4",
+          "2,9",
+          "2,9"
+        ],
+        [
+          "Chi phí lãi vay",
+          "1,0",
+          "1,5",
+          "1,7"
+        ],
+        [
+          "Lợi nhuận trước thuế (LNTT)",
+          "3,2",
+          "2,8",
+          "1,5"
+        ],
+        [
+          "Thuế thu nhập doanh nghiệp (đã làm tròn)",
+          "0,6",
+          "0,6",
+          "0,4"
+        ],
+        [
+          "Lợi nhuận sau thuế (LNST)",
+          "2,6",
+          "2,2",
+          "1,1"
+        ],
+        [
+          "Dòng tiền từ hoạt động kinh doanh (CFO)",
+          "4,2",
+          "3,1",
+          "(1,5)"
+        ],
+        [
+          "Dòng tiền từ hoạt động đầu tư",
+          "(2,8)",
+          "(3,5)",
+          "(4,2)"
+        ],
+        [
+          "Dòng tiền từ hoạt động tài chính",
+          "(0,5)",
+          "1,2",
+          "4,8"
+        ],
+        [
+          "Tiền và tương đương tiền cuối năm",
+          "3,9",
+          "4,7",
+          "3,8"
+        ],
+        [
+          "D/E (Tổng nợ phải trả / VCSH)",
+          "1,10",
+          "1,36",
+          "1,88"
+        ],
+        [
+          "ICR (EBIT / Chi phí lãi vay)",
+          "4,6",
+          "3,5",
+          "2,4"
+        ],
+        [
+          "Biên lợi nhuận ròng (LNST / Doanh thu thuần)",
+          "3,6%",
+          "2,5%",
+          "1,0%"
+        ],
+        [
+          "ROA (LNST / Tổng tài sản cuối năm)",
+          "6,1%",
+          "4,4%",
+          "1,9%"
+        ],
+        [
+          "ROE (LNST / VCSH cuối năm)",
+          "12,9%",
+          "10,4%",
+          "5,4%"
+        ]
+      ]
+    },
+    "collateral": {
+      "source_image": "06.png",
+      "columns": [
+        "Tài sản",
+        "Giá trị",
+        "Ghi chú"
+      ],
+      "rows": [
+        [
+          "Nhà kho lạnh và quyền thuê đất tại khu công nghiệp",
+          "4,0",
+          "Giá trị do đơn vị thẩm định giá độc lập xác định. Chưa thế chấp tại tổ chức tín dụng khác. Thời hạn thuê đất còn lại 28 năm."
+        ],
+        [
+          "Dây chuyền cấp đông mới (hình thành từ vốn vay)",
+          "4,5",
+          "Giá theo báo giá nhà cung cấp. Thế chấp sau khi lắp đặt; dự kiến khấu hao 8 năm."
+        ],
+        [
+          "Máy móc, nhà xưởng hiện hữu",
+          "–",
+          "Đã thế chấp tại Ngân hàng A, không dùng làm tài sản đảm bảo cho khoản vay này."
+        ]
+      ]
+    },
+    "loan_use": {
+      "source_image": "07.png",
+      "rows": [
+        [
+          "Mục tiêu",
+          "Tăng 30% công suất cấp đông phục vụ đơn hàng xuất khẩu."
+        ],
+        [
+          "Tổng nhu cầu vốn",
+          "7,0 tỷ đồng, gồm: mua dây chuyền cấp đông 4,5 tỷ; bổ sung vốn lưu động (nguyên liệu) 2,5 tỷ."
+        ],
+        [
+          "Nguồn vốn",
+          "Vay Ngân hàng Đại Dương 5,0 tỷ; vốn tự có 2,0 tỷ (từ tiền mặt hiện có)."
+        ],
+        [
+          "Đề nghị của doanh nghiệp",
+          "Kỳ hạn 5 năm (60 tháng); ân hạn gốc 12 tháng; trả gốc đều hàng quý sau ân hạn; trả lãi hàng tháng; lãi suất đề nghị 8,0%/năm."
+        ],
+        [
+          "Nguồn trả nợ dự kiến",
+          "Dòng tiền hoạt động kinh doanh của doanh nghiệp và của dây chuyền mới."
+        ]
+      ],
+      "unverified_projection": {
+        "unit": "tỷ đồng",
+        "columns": [
+          "Chỉ tiêu",
+          "Năm 1",
+          "Năm 2",
+          "Năm 3"
+        ],
+        "rows": [
+          [
+            "Doanh thu tăng thêm",
+            "10,0",
+            "25,0",
+            "30,0"
+          ],
+          [
+            "EBITDA tăng thêm",
+            "0,5",
+            "2,0",
+            "2,7"
+          ]
+        ]
+      }
+    },
+    "bank_policy": {
+      "source_image": "08.png",
+      "rows": [
+        [
+          "Lãi suất cho vay trung hạn",
+          "Lãi suất cơ sở 6,5%/năm cộng biên độ rủi ro theo xếp hạng nội bộ: hạng A: 1,5%; hạng B: 2,5%; hạng C: 3,5%; hạng D: không cho vay. Thẩm định viên đề xuất hạng."
+        ],
+        [
+          "Kỳ hạn tối đa",
+          "Vay đầu tư máy móc thiết bị: 60 tháng. Vay bổ sung vốn lưu động trung hạn: tối đa 12 tháng."
+        ],
+        [
+          "Tỷ lệ vay tối đa",
+          "Không quá 70% tổng nhu cầu vốn của phương án."
+        ],
+        [
+          "Tỷ lệ cho vay tối đa so với giá trị tài sản đảm bảo (LTV)",
+          "Nhà xưởng, quyền sử dụng đất: 70%. Máy móc thiết bị: 50%. Hàng tồn kho: 30%. Tổng giá trị cho vay tối đa theo tài sản đảm bảo phải không thấp hơn dư nợ đề xuất."
+        ],
+        [
+          "Ngưỡng tài chính tối thiểu khi cấp mới",
+          "D/E (tổng nợ/VCSH) không quá 2,5 lần; ICR không thấp hơn 2,0 lần; Hệ số thanh toán hiện hành không thấp hơn 1,2 lần; Nợ vay/EBITDA không quá 4,0 lần."
+        ],
+        [
+          "Ngoại lệ",
+          "Khoản vay không đạt ngưỡng phải có biện pháp giảm thiểu rủi ro tương ứng và được cấp có thẩm quyền phê duyệt."
+        ]
+      ]
+    }
+  },
+  "TCNH-01": {
+    "income_statement": {
+      "source_image": "10.png",
+      "unit": "triệu đồng",
+      "columns": [
+        "Chỉ tiêu",
+        "Quý 1",
+        "Quý 2",
+        "Quý 3",
+        "Quý 4"
+      ],
+      "rows": [
+        [
+          "Doanh thu",
+          "20.000",
+          "22.000",
+          "24.500",
+          "27.000"
+        ],
+        [
+          "Giá vốn hàng bán",
+          "12.000",
+          "13.500",
+          "15.500",
+          "17.500"
+        ],
+        [
+          "Lợi nhuận gộp",
+          "8.000",
+          "8.500",
+          "9.000",
+          "9.500"
+        ],
+        [
+          "Chi phí bán hàng và marketing",
+          "2.500",
+          "3.200",
+          "4.000",
+          "5.000"
+        ],
+        [
+          "Chi phí quản lý doanh nghiệp",
+          "2.000",
+          "2.100",
+          "2.200",
+          "2.300"
+        ],
+        [
+          "Tổng chi phí vận hành",
+          "4.500",
+          "5.300",
+          "6.200",
+          "7.300"
+        ],
+        [
+          "EBITDA",
+          "3.500",
+          "3.200",
+          "2.800",
+          "2.200"
+        ],
+        [
+          "Khấu hao (cố định mỗi quý)",
+          "700",
+          "700",
+          "700",
+          "700"
+        ],
+        [
+          "Chi phí lãi vay (cố định mỗi quý)",
+          "300",
+          "300",
+          "300",
+          "300"
+        ],
+        [
+          "Lợi nhuận trước thuế",
+          "2.500",
+          "2.200",
+          "1.800",
+          "1.200"
+        ],
+        [
+          "Thuế thu nhập doanh nghiệp (20%)",
+          "500",
+          "440",
+          "360",
+          "240"
+        ],
+        [
+          "Lợi nhuận sau thuế",
+          "2.000",
+          "1.760",
+          "1.440",
+          "960"
+        ],
+        [
+          "Dòng tiền từ hoạt động kinh doanh (CFO)",
+          "1.500",
+          "1.800",
+          "1.100",
+          "400"
+        ]
+      ]
+    },
+    "operations": {
+      "source_image": "11.png",
+      "columns": [
+        "Chỉ tiêu",
+        "Quý 1",
+        "Quý 2",
+        "Quý 3",
+        "Quý 4"
+      ],
+      "rows": [
+        [
+          "Số đơn hàng (lượt giao dịch)",
+          "200.000",
+          "210.000",
+          "225.000",
+          "240.000"
+        ],
+        [
+          "Giá trị đơn hàng trung bình (đồng/đơn)",
+          "100.000",
+          "104.760",
+          "108.890",
+          "112.500"
+        ],
+        [
+          "Số cửa hàng cuối quý",
+          "20",
+          "21",
+          "23",
+          "25"
+        ]
+      ],
+      "note": "Doanh thu = số đơn hàng × giá trị đơn hàng trung bình (đã làm tròn)."
+    },
+    "working_capital": {
+      "source_image": "12.png",
+      "unit": "triệu đồng, số dư cuối quý",
+      "columns": [
+        "Chỉ tiêu",
+        "Đầu Quý 1",
+        "Quý 1",
+        "Quý 2",
+        "Quý 3",
+        "Quý 4"
+      ],
+      "rows": [
+        [
+          "Hàng tồn kho",
+          "4.000",
+          "5.500",
+          "6.800",
+          "8.400",
+          "10.200"
+        ],
+        [
+          "Phải trả nhà cung cấp",
+          "4.000",
+          "4.300",
+          "4.940",
+          "5.500",
+          "6.040"
+        ]
+      ]
+    }
+  },
+  "TCNH-03": {
+    "project": {
+      "source_image": "15.png",
+      "rows": [
+        [
+          "Khách hàng",
+          "Công ty Cổ phần Con Cua – sản xuất thép xây dựng (thép thanh vằn, thép cuộn)."
+        ],
+        [
+          "Dự án",
+          "Xây dựng giai đoạn 2 nhà máy cán thép tại Khu công nghiệp Phố Nối A, tỉnh Hưng Yên."
+        ],
+        [
+          "Tổng mức đầu tư",
+          "650 tỷ đồng."
+        ],
+        [
+          "Cơ cấu nguồn vốn",
+          "Vay Ngân hàng 400 tỷ đồng (61,5%); vốn đối ứng 250 tỷ đồng (38,5%), gồm: 100 tỷ từ lợi nhuận giữ lại trong 24 tháng xây dựng; 150 tỷ từ tăng vốn cổ phần theo chủ trương đã được Đại hội đồng cổ đông thông qua, chưa thực hiện và chưa có cam kết bảo lãnh phát hành."
+        ],
+        [
+          "Đề nghị vay",
+          "Kỳ hạn 10 năm; ân hạn gốc 24 tháng (thời gian xây dựng); lãi suất dự kiến 8,5%/năm, thả nổi."
+        ],
+        [
+          "Tiến độ",
+          "Xây dựng 24 tháng; vận hành thương mại từ năm thứ 3 với 50% công suất, đạt công suất thiết kế từ năm thứ 4."
+        ],
+        [
+          "Dự báo của khách hàng (chưa kiểm chứng)",
+          "Khi đạt công suất thiết kế: doanh thu tăng thêm 1.000 tỷ đồng/năm; EBITDA tăng thêm 100 tỷ đồng/năm."
+        ],
+        [
+          "Tài sản đảm bảo đề xuất",
+          "Tài sản hình thành từ vốn vay (nhà xưởng, dây chuyền cán thép) giá trị dự kiến khi hoàn thành 520 tỷ đồng; quyền sử dụng đất tại khu công nghiệp 90 tỷ đồng."
+        ],
+        [
+          "Quan hệ với Ngân hàng",
+          "Dư nợ hiện hữu tại Ngân hàng Đại Dương 300 tỷ đồng, nhóm 1 (đã nằm trong tổng nợ vay 1.680 tỷ đồng)."
+        ]
+      ]
+    },
+    "financial_statements": {
+      "source_image": "16.png",
+      "year": 2025,
+      "unit": "tỷ đồng",
+      "rows": [
+        [
+          "Doanh thu thuần",
+          "2.500"
+        ],
+        [
+          "Giá vốn hàng bán",
+          "2.190"
+        ],
+        [
+          "Lợi nhuận gộp",
+          "310"
+        ],
+        [
+          "Chi phí bán hàng và quản lý doanh nghiệp",
+          "65"
+        ],
+        [
+          "EBITDA",
+          "245"
+        ],
+        [
+          "Khấu hao",
+          "62"
+        ],
+        [
+          "Chi phí lãi vay",
+          "118"
+        ],
+        [
+          "Lợi nhuận trước thuế",
+          "65"
+        ],
+        [
+          "Thuế thu nhập doanh nghiệp (20%)",
+          "13"
+        ],
+        [
+          "Lợi nhuận sau thuế",
+          "52"
+        ],
+        [
+          "Tổng tài sản",
+          "2.500"
+        ],
+        [
+          "Tài sản ngắn hạn",
+          "1.020"
+        ],
+        [
+          "Tài sản dài hạn",
+          "1.480"
+        ],
+        [
+          "Tổng nợ phải trả",
+          "2.100"
+        ],
+        [
+          "Nợ ngắn hạn",
+          "1.200",
+          "Gồm vay ngắn hạn 780"
+        ],
+        [
+          "Nợ dài hạn",
+          "900",
+          "Toàn bộ là vay dài hạn"
+        ],
+        [
+          "Tổng nợ vay",
+          "1.680",
+          "780 ngắn hạn + 900 dài hạn"
+        ],
+        [
+          "Vốn chủ sở hữu",
+          "400"
+        ],
+        [
+          "Hệ số nợ vay/VCSH (D/E)",
+          "4,2",
+          "Sinh viên cần kiểm tra lại"
+        ],
+        [
+          "Hệ số thanh toán hiện hành",
+          "0,85",
+          "Sinh viên cần kiểm tra lại"
+        ]
+      ]
+    },
+    "industry": {
+      "source_image": "17.png",
+      "facts": [
+        "Giá quặng sắt và than cốc biến động mạnh, dao động khoảng ±20% trong 12 tháng gần nhất; nhà sản xuất khó chuyển hết chi phí tăng sang giá bán.",
+        "Thép nhập khẩu giá rẻ từ Trung Quốc gia tăng, tạo áp lực giảm giá thép xây dựng trong nước.",
+        "Công suất thép xây dựng trong nước đang cao hơn nhu cầu; tiêu thụ nội địa tăng khoảng 3–4%/năm, phụ thuộc vào đầu tư công và thị trường bất động sản.",
+        "Lãi suất cho vay trung và dài hạn bình quân của hệ thống ở mức 8–9%/năm."
+      ],
+      "median_table_simulated": [
+        [
+          "D/E (nợ vay/VCSH)",
+          "2,0 lần"
+        ],
+        [
+          "Hệ số thanh toán hiện hành",
+          "1,1 lần"
+        ],
+        [
+          "Biên lợi nhuận gộp",
+          "11,0%"
+        ],
+        [
+          "Biên EBITDA",
+          "8,0%"
+        ],
+        [
+          "Biên lợi nhuận ròng",
+          "3,0%"
+        ],
+        [
+          "ICR (EBIT/lãi vay)",
+          "3,0 lần"
+        ]
+      ]
+    },
+    "bank_policy": {
+      "source_image": "18.png",
+      "rows": [
+        [
+          "Ngưỡng tài chính khi cấp tín dụng dự án",
+          "D/E (nợ vay/VCSH) không quá 3,0 lần; Hệ số thanh toán hiện hành không thấp hơn 1,0 lần; ICR không thấp hơn 2,0 lần; Nợ vay/EBITDA không quá 4,5 lần."
+        ],
+        [
+          "Cấu trúc dự án",
+          "Vốn đối ứng tối thiểu 30% tổng mức đầu tư và phải được góp hoặc cam kết bảo đảm trước giải ngân. Tỷ lệ cho vay trên giá trị tài sản đảm bảo (LTV) tối đa 70%."
+        ],
+        [
+          "Chất lượng danh mục thép",
+          "Dư nợ ngành thép hiện tại 6.000 tỷ đồng trên tổng dư nợ 80.000 tỷ của Ngân hàng. Tỷ lệ nợ xấu (nhóm 3–5) của danh mục cho vay ngành thép: 2,0%. Ngưỡng chấp nhận của Ngân hàng: 3,0%."
+        ],
+        [
+          "Giới hạn tập trung ngành",
+          "Dư nợ một ngành không quá 8,0% tổng dư nợ."
+        ],
+        [
+          "Giới hạn một khách hàng",
+          "Không quá 15% vốn tự có của Ngân hàng (vốn tự có: 12.000 tỷ đồng)."
+        ]
+      ]
+    }
+  },
+  "source_inconsistencies": [
+    {
+      "source_image": "05.png",
+      "issue": "ICR nguồn cho sẵn 4,6 / 3,5 / 2,4 không khớp EBIT=(EBITDA-khấu hao) chia chi phí lãi vay từ cùng bảng: 4,2 / 2,866666... / 1,8823529... . Giữ nguyên dữ liệu gốc; không tự sửa hoặc phạt ứng viên khi họ chỉ ra mâu thuẫn này."
+    }
+  ]
+}

@@ -23,4 +23,18 @@ describe("source-defined CV scoring", () => {
   it("never claims a missing CV keyword proves the candidate lacks a skill", () => {
     expect(analyzeCVWithRules("A description of work with no listed technical keywords.", profile).skillGaps.every((f) => f.gapDescription.includes("CV chưa thể hiện"))).toBe(true);
   });
+  it("preserves source levels without inventing percentages or mandatory JD/advantage gaps", () => {
+    const sourceProfile: GoldenProfile = { ...profile, hard_skills: [
+      { skill: "SQL", required_level: "M1", source_requirement_policy: "core", keywords: ["sql"] },
+      { skill: "Python", required_level: "M3", source_requirement_policy: "conditional", keywords: ["python"] },
+      { skill: "R", required_level: "M4", source_requirement_policy: "advantage", keywords: ["r"] },
+    ], tools: [], soft_skills: [], certifications: [] };
+    const result = analyzeCVWithRules("I used SQL to analyze customer records.", sourceProfile);
+    expect(result.overallMatchScore).toBeNull();
+    expect(result.scoringMethod).toBe("qualitative");
+    expect(result.strengths[0]?.requiredLevel).toBe("M1");
+    expect(result.skillGaps).toHaveLength(0);
+    expect(result.recommendedLearningPath).toHaveLength(0);
+    expect(result.additionalRequirements?.map((finding) => finding.requirementPolicy)).toEqual(["conditional", "advantage"]);
+  });
 });

@@ -6,24 +6,27 @@ import { buildPreparedContent, readPreparedSources, renderMigration, publicArtif
 const source = await readPreparedSources();
 const content = buildPreparedContent(source);
 
-test("prepared source has 15 matching profiles/tasks and preserves all 14 interview sets", () => {
+test("prepared source has 15 matching profiles/tasks and preserves fifteen complete source question sets", () => {
   assert.deepEqual(content.validation.errors, []);
-  assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 14, interviewQuestions: 88, incompleteInterviews: 3, checklistItems: 119, artifacts: 4 });
+  assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120, incompleteInterviews: 8, checklistItems: 101, artifacts: 4 });
   assert.equal(new Set(content.simulations.map((item) => item.position_id)).size, 15);
-  assert.ok(content.simulations.every((item) => item.is_available));
+  assert.equal(content.simulations.filter((item) => item.is_available).length, 12);
   assert.ok(content.interviewSets.every((item) => /^(TCNH|MKT|IT|KK|LOG)-\d{2}$/.test(item.position_id)));
 });
 
-test("three logistics sets are disabled with an explicit missing round explanation", () => {
+test("unresolved source points remain explicit while all three rounds are present", () => {
   const disabled = content.interviewSets.filter((item) => !item.is_available);
-  assert.deepEqual(disabled.map((item) => item.position_id).sort(), ["LOG-01", "LOG-02", "LOG-03"]);
-  assert.ok(disabled.every((item) => item.unavailable_reason.includes("vòng 1")));
-  assert.equal(content.questions.filter((item) => disabled.some((set) => item.set_slug === set.slug)).length, 6);
+  assert.deepEqual(disabled.map((item) => item.position_id).sort(), ["IT-01", "KK-01", "KK-03", "LOG-01", "LOG-02", "LOG-03", "TCNH-01", "TCNH-02"]);
+  assert.ok(disabled.every((item) => item.unavailable_reason.includes("nguồn")));
+  assert.equal(content.questions.filter((item) => disabled.some((set) => item.set_slug === set.slug)).length, 64);
+  assert.ok(content.interviewSets.every((item) => item.slug.endsWith("-20261017")));
+  const unknown = source.interviews["ke-toan-vien"].rounds["1"].questions[2].scoringCriteria[1];
+  assert.equal(unknown.maxScore, null); // Preserve the missing source value rather than invent twelve points.
 });
 
 test("each task preserves full checklist scoring privately, with only rubric metadata public", () => {
   for (const simulation of content.simulations) {
-    assert.equal(simulation.rubric.reduce((sum, item) => sum + item.maxScore, 0), 100);
+    if (simulation.is_available) assert.equal(simulation.rubric.reduce((sum, item) => sum + item.maxScore, 0), 100);
     assert.deepEqual(simulation.rubric.map((item) => Object.keys(item).sort()), simulation.rubric.map(() => ["id", "label", "maxScore", "weight"]));
     assert.ok(simulation.grading_rubric.every((item) => JSON.parse(item.description).checklist.length > 0));
     assert.deepEqual(simulation.reference_data.rubric.map((item) => item.max_points), simulation.grading_rubric.map((item) => item.maxScore));
@@ -36,8 +39,9 @@ test("raw task inputs are public while answer keys, solved formulas and insights
     for (const [id, artifact] of Object.entries(simulation.reference_data.artifacts)) assert.deepEqual(artifact, source.artifacts[id]);
   }
   const supplyChain = content.simulations.find((item) => item.position_id === "LOG-02");
-  assert.ok(supplyChain.task_instructions.includes('"normal_sales_total_units": 86500'));
-  assert.ok(supplyChain.reference_data.artifacts["LOG-02-DATA-01"].standard_formula_reference);
+  assert.ok(supplyChain.task_instructions.includes("SKU-101"));
+  assert.doesNotMatch(supplyChain.task_instructions, /Flash Sale/);
+  assert.ok(content.simulations.every((item) => !item.task_instructions.includes("```json")));
   const analyst = content.simulations.find((item) => item.position_id === "IT-03");
   assert.ok(analyst.reference_data.artifacts["IT-03-DATA-01"].benchmark_insights);
   assert.deepEqual(publicArtifact({ nested: [{ answer_key: "hidden", facts: [1, 2] }], referenceAnswer: "hidden" }), { nested: [{ facts: [1, 2] }] });
@@ -45,7 +49,7 @@ test("raw task inputs are public while answer keys, solved formulas and insights
 
 test("interview question and criterion maxima match original source instead of being replaced with percentages", () => {
   for (const [slug, set] of Object.entries(source.interviews)) for (const round of Object.values(set.rounds)) for (const question of round.questions) {
-    const imported = content.questions.find((item) => item.set_slug === `r2w-${slug}` && item.source_id === question.id);
+    const imported = content.questions.find((item) => item.set_slug === `r2w-${slug}-${set.contentVersion}` && item.source_id === question.id);
     assert.equal(imported.max_score, question.maxScore);
     assert.equal(imported.round_number, round.roundNumber);
     assert.deepEqual(imported.grading_rubric.map((item) => item.maxScore), question.scoringCriteria.map((item) => item.maxScore));
@@ -53,13 +57,14 @@ test("interview question and criterion maxima match original source instead of b
     assert.equal(imported.guidance, "");
     assert.ok(imported.rubric.every((item) => !Object.hasOwn(item, "description")));
   }
-  assert.equal(content.validation.warnings.filter((item) => item.kind === "round_normalization" && item.slug === "marketing-intern" && item.roundNumber === 2)[0].sourceMaxScore, 30);
+  assert.equal(source.interviews["business-analyst"].rounds["2"].questions[1].sourceMaxScore, 30);
+  assert.equal(source.interviews["business-analyst"].rounds["2"].questions[1].scoringCriteria.reduce((sum, item) => sum + item.maxScore, 0), 35);
 });
 
 test("validation flags a changed task criterion maximum, checklist total and interview score total", () => {
   const changed = structuredClone(source);
-  changed.tasks.industries[0].tasks[0].rubric[0].max_points++;
-  changed.interviews["ke-toan-vien"].rounds["1"].questions[0].scoringCriteria[0].maxScore++;
+  changed.tasks.industries.find((industry) => industry.industry_id === "IT").tasks[0].rubric[0].max_points++;
+  changed.interviews["qa-tester"].rounds["1"].questions[0].scoringCriteria[0].maxScore++;
   const invalid = buildPreparedContent(changed);
   assert.ok(invalid.validation.errors.some((message) => message.includes("criterion maxima do not total 100")));
   assert.ok(invalid.validation.errors.some((message) => message.includes("checklist points do not match")));
@@ -89,9 +94,13 @@ test("SQL safely quotes source strings and upserts without deleting catalog IDs 
   assert.equal(sqlText("O'Brien's \\ example"), "'O''Brien''s \\ example'");
   const sql = renderMigration(content);
   assert.doesNotMatch(sql, /\b(delete\s+from|truncate|drop\s+table)\b/i);
-  assert.equal((sql.match(/on conflict \(slug\)/g) ?? []).length, 29);
-  assert.equal((sql.match(/on conflict \(set_id, position\)/g) ?? []).length, 88);
+  assert.equal((sql.match(/on conflict \(slug\)/g) ?? []).length, 30);
+  assert.equal((sql.match(/on conflict \(set_id, position\)/g) ?? []).length, 120);
   assert.match(sql, /set_id.*\nvalues \('[^']+', \(select id from public.interview_sets where slug/s);
+  assert.match(sql, /update public.interview_sets set is_available = false/);
+  assert.match(sql, /superseded_at/);
+  assert.match(sql, /coalesce\(s.reference_data->>'source_version', ''\) <> '20261017'/);
+  assert.ok(content.interviewSets.every((item) => item.id !== stableId("interview-set", item.slug.replace(/^r2w-/, "").replace(/-20261017$/, ""))));
   assert.equal(sql, await readFile(new URL(`../supabase/migrations/${migrationName}`, import.meta.url), "utf8"));
 });
 

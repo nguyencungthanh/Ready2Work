@@ -2,6 +2,7 @@ import "server-only";
 import { z } from "zod";
 import { generateStructured } from "@/lib/ai/gemini";
 import { evaluateSourceChecklist } from "./checklist-evaluator";
+import { evaluateCurrentSource } from "./source-evaluator";
 
 export interface RubricCriterion {
   id: string;
@@ -133,6 +134,9 @@ export async function evaluateSubmissionWithAI(
 ): Promise<EvaluationResult> {
   if (context?.referenceData && typeof context.referenceData === "object" &&
       Array.isArray((context.referenceData as { rubric?: unknown }).rubric)) {
+    if ((context.referenceData as { source_version?: unknown }).source_version === "20261017") {
+      return evaluateCurrentSource(content, brief, taskInstructions, context.referenceData, context.actualDurationSeconds);
+    }
     return evaluateSourceChecklist(content, brief, taskInstructions, context.referenceData, context.actualDurationSeconds);
   }
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;

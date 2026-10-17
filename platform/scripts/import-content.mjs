@@ -5,7 +5,14 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const namespace = Buffer.from("7c0be9b45da656cf8f2432b9a61c647a", "hex");
-export const migrationName = "20261016000200_import_prepared_content.sql";
+export const migrationName = "20261017000100_feedback_content.sql";
+const attemptSource = await readFile(join(root, "supabase/migrations/20261016000300_simulation_attempts.sql"), "utf8");
+const priorFinalizer = attemptSource.match(/create function public\.finalize_simulation_attempt\([\s\S]*?\$\$;/)?.[0];
+if (!priorFinalizer) throw new Error("Missing simulation finalizer source.");
+const guardedFinalizer = priorFinalizer.replace("create function", "create or replace function").replace(
+  "if attempt.submission_id is not null then return attempt.submission_id; end if;",
+  "if attempt.submission_id is not null then return attempt.submission_id; end if;\n  if attempt.superseded_at is not null then raise exception 'Simulation source changed; start a new attempt'; end if;",
+);
 
 /** RFC 4122 UUID v5; identity does not depend on input traversal order. */
 export function stableId(kind, identity) {
@@ -70,14 +77,15 @@ export function buildPreparedContent(source) {
 
   for (const profile of profiles) {
     for (const skill of [...profile.hard_skills, ...profile.tools]) {
-      if (!(skill.weight > 0 && skill.weight <= 5)) errors.push(`${profile.position_id}: invalid profile weight`);
+      if (source.profiles.schema_version === "1.0" && !(skill.weight > 0 && skill.weight <= 5)) errors.push(`${profile.position_id}: invalid profile weight`);
+      if (source.profiles.schema_version === "2.0" && (!/^M[1-4]$/.test(skill.required_level) || !["core", "common", "conditional", "advantage"].includes(skill.source_requirement_policy))) errors.push(`${profile.position_id}: invalid source requirement level`);
       if (!skill.keywords?.length) errors.push(`${profile.position_id}: missing skill keywords`);
     }
   }
 
   for (const industry of source.tasks.industries) for (const task of industry.tasks) {
     if (!profileById.has(task.position_id)) errors.push(`${task.position_id}: task has no Golden Profile`);
-    if (total(task.rubric, "max_points") !== 100) errors.push(`${task.position_id}: criterion maxima do not total 100`);
+    if (task.grading_ready !== false && total(task.rubric, "max_points") !== 100) errors.push(`${task.position_id}: criterion maxima do not total 100`);
     const criterionIds = new Set();
     for (const criterion of task.rubric) {
       if (criterionIds.has(criterion.criterion_id)) errors.push(`${task.position_id}: duplicate criterion ${criterion.criterion_id}`);
@@ -91,51 +99,55 @@ export function buildPreparedContent(source) {
     }
     const artifacts = Object.fromEntries((task.input_artifacts ?? []).filter((item) => source.artifacts[item.artifact_id]).map((item) => [item.artifact_id, source.artifacts[item.artifact_id]]));
     const missing = (task.input_artifacts ?? []).filter((item) => item.required && !artifacts[item.artifact_id]);
-    const publicData = Object.values(artifacts).map(publicArtifact);
-    const instructions = ["## Bối cảnh", task.context, "## Yêu cầu nhiệm vụ", ...task.requirements.map((requirement, index) => `${index + 1}. ${requirement}`)];
-    if (publicData.length) instructions.push("## Dữ liệu đầu vào", ...publicData.map((artifact) => `### ${artifact.artifact_id}\n\n\`\`\`json\n${JSON.stringify(artifact, null, 2)}\n\`\`\``));
+    const instructions = ["## Bối cảnh", task.context, "## Yêu cầu nhiệm vụ", ...task.requirements];
     const gradingRubric = task.rubric.map((criterion) => ({
       id: criterion.criterion_id, label: criterion.criterion_name,
       description: JSON.stringify({ checklist: criterion.checklist, hard_constraints: (task.hard_constraints ?? []).filter((constraint) => constraint.trigger_checklist_id?.startsWith(`${task.position_id}-${criterion.criterion_id}-`)) }),
       keywords: [], weight: criterion.max_points, maxScore: criterion.max_points,
     }));
-    const unavailableReason = missing.length ? `Đề bài nguồn thiếu dữ liệu bắt buộc: ${missing.map((item) => item.artifact_id).join(", ")}.` : null;
+    const unavailableReason = missing.length ? `Đề bài nguồn thiếu dữ liệu bắt buộc: ${missing.map((item) => item.artifact_id).join(", ")}.`
+      : task.missing_source_inputs?.length ? `Đề bài đang thiếu tài liệu nguồn: ${task.missing_source_inputs.join("; ")}. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm.`
+        : task.grading_ready === false ? "Điểm trong tiêu chí nguồn chưa thống nhất. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm khi chưa xác nhận cách tính." : null;
     if (unavailableReason) warnings.push({ kind: "missing_artifact", positionId: task.position_id, message: unavailableReason });
     simulations.push({
       id: stableId("simulation", task.position_id), slug: `r2w-${task.position_id.toLowerCase()}`,
       industry: industry.industry_name, position_title: task.position_name, brief: task.context,
-      task_instructions: instructions.join("\n\n"), estimated_minutes: task.time_limit_minutes, min_words: 120,
-      position_id: task.position_id, is_available: missing.length === 0, unavailable_reason: unavailableReason,
+      task_instructions: instructions.join("\n\n"), estimated_minutes: task.time_limit_minutes, min_words: task.source_version ? 0 : 120,
+      position_id: task.position_id, is_available: !unavailableReason, unavailable_reason: unavailableReason,
       rubric: gradingRubric.map(({ id, label, weight, maxScore }) => ({ id, label, weight, maxScore })),
       grading_rubric: gradingRubric, reference_data: { ...task, artifacts },
     });
   }
 
   for (const [slug, set] of Object.entries(source.interviews).sort(([a], [b]) => a.localeCompare(b))) {
-    const matches = profiles.filter((profile) => normalizeName(profile.position_name).includes(normalizeName(set.positionTitle)));
+    const matches = set.goldenProfileId ? profiles.filter((profile) => profile.position_id === set.goldenProfileId)
+      : profiles.filter((profile) => normalizeName(profile.position_name).includes(normalizeName(set.positionTitle)));
     if (matches.length !== 1) errors.push(`${slug}: expected one Golden Profile match, found ${matches.length}`);
     const profile = matches[0];
     const rounds = Object.values(set.rounds).sort((a, b) => a.roundNumber - b.roundNumber);
     const absentRounds = [1, 2, 3].filter((roundNumber) => !rounds.some((round) => round.roundNumber === roundNumber && round.questions.length));
-    const reason = absentRounds.length ? `Bộ câu hỏi nguồn chưa có câu hỏi vòng ${absentRounds.join(", ")}. Cần bổ sung đủ ba vòng trước khi luyện tập.` : null;
+    const reason = absentRounds.length ? `Bộ câu hỏi nguồn chưa có câu hỏi vòng ${absentRounds.join(", ")}. Cần bổ sung đủ ba vòng trước khi luyện tập.`
+      : set.source_content_issues?.length ? "Một số câu hỏi trong tài liệu nguồn chưa khớp với tiêu chí chấm. Có thể xem nội dung; cần xác nhận câu hỏi gốc trước khi mở chấm điểm."
+        : set.grading_ready === false ? "Điểm thành phần trong tài liệu nguồn còn thiếu hoặc chưa khớp điểm câu hỏi. Có thể xem trước câu hỏi; chưa mở chấm điểm khi chưa xác nhận cách tính." : null;
     if (reason) warnings.push({ kind: "incomplete_interview", positionId: profile?.position_id, slug, message: reason });
-    const setSlug = `r2w-${slug}`;
-    interviewSets.push({ id: stableId("interview-set", slug), slug: setSlug, position_id: profile?.position_id ?? null,
+    const version = set.contentVersion ? `-${set.contentVersion}` : "";
+    const setSlug = `r2w-${slug}${version}`;
+    interviewSets.push({ id: stableId("interview-set", `${slug}${version}`), slug: setSlug, position_id: profile?.position_id ?? null,
       industry: profile?.industry_name ?? set.industryName, position_title: set.positionTitle,
       description: `Luyện phỏng vấn ${set.positionTitle} theo ba vòng: tổng quan, chuyên môn và tình huống. Mỗi vòng được quy đổi riêng về thang 100.`,
-      is_available: absentRounds.length === 0, unavailable_reason: reason });
+      is_available: !reason, unavailable_reason: reason });
     let position = 0;
     for (const round of rounds) {
       const roundMaximum = total(round.questions, "maxScore");
       if (round.questions.length && roundMaximum !== 100) warnings.push({ kind: "round_normalization", slug, roundNumber: round.roundNumber, sourceMaxScore: roundMaximum, message: "Keep source maxima; normalize this round independently to 100." });
       for (const question of round.questions) {
         if (!(question.maxScore > 0 && question.maxScore <= 100)) errors.push(`${question.id}: invalid question maximum`);
-        if (total(question.scoringCriteria, "maxScore") !== question.maxScore) errors.push(`${question.id}: criterion maxima do not match question maximum`);
+        if (set.grading_ready !== false && total(question.scoringCriteria, "maxScore") !== question.maxScore) errors.push(`${question.id}: criterion maxima do not match question maximum`);
         const criterionIds = new Set();
         for (const criterion of question.scoringCriteria) {
           if (criterionIds.has(criterion.id)) errors.push(`${question.id}: duplicate criterion ${criterion.id}`);
           criterionIds.add(criterion.id);
-          if (!(criterion.maxScore > 0)) errors.push(`${question.id}/${criterion.id}: non-positive criterion maximum`);
+          if (!(criterion.maxScore > 0) && !(set.grading_ready === false && criterion.maxScore === null)) errors.push(`${question.id}/${criterion.id}: non-positive criterion maximum`);
         }
         const gradingRubric = question.scoringCriteria.map((criterion) => ({ id: criterion.id, label: criterion.name, description: criterion.description,
           keywords: [], weight: criterion.maxScore, maxScore: criterion.maxScore, skill: criterion.skill }));
@@ -149,7 +161,7 @@ export function buildPreparedContent(source) {
   }
   const counts = { profiles: profiles.length, simulations: simulations.length, interviewSets: interviewSets.length, interviewQuestions: questions.length,
     incompleteInterviews: interviewSets.filter((set) => !set.is_available).length, checklistItems: seenChecklistIds.size, artifacts: Object.keys(source.artifacts).length };
-  for (const [name, expected] of Object.entries({ profiles: 15, simulations: 15, interviewSets: 14, incompleteInterviews: 3 })) {
+  for (const [name, expected] of Object.entries({ profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120 })) {
     if (counts[name] !== expected) errors.push(`Expected ${expected} ${name}; found ${counts[name]}`);
   }
   if (new Set(simulations.map((item) => item.position_id)).size !== simulations.length) errors.push("Duplicate simulation position IDs");
@@ -159,6 +171,13 @@ export function buildPreparedContent(source) {
 export function renderMigration(content) {
   if (content.validation.errors.length) throw new Error(`Prepared content validation failed:\n${content.validation.errors.join("\n")}`);
   const rows = ["-- Generated by node scripts/import-content.mjs; edit source JSON, then regenerate.", "-- Additive, reproducible import. Existing catalog IDs and candidate history are retained.", "begin;", "set local standard_conforming_strings = on;", ""];
+  rows.push("-- Open attempts must not silently switch to a new assignment or inherit its old timer.",
+    "alter table public.simulation_attempts add column if not exists superseded_at timestamptz;",
+    "update public.simulation_attempts a set superseded_at = now() from public.simulations s where s.id = a.simulation_id and a.submission_id is null and a.superseded_at is null and s.slug like 'r2w-%' and coalesce(s.reference_data->>'source_version', '') <> '20261017';",
+    guardedFinalizer, "");
+  rows.push("-- Retain every old question/session/answer; only the new version is listed for practice.",
+    "update public.interview_sets set is_available = false, unavailable_reason = 'Bộ đề lưu trữ từ phiên bản trước; lịch sử làm bài vẫn được giữ.' where slug like 'r2w-%' and slug not like '%-20261017';",
+    "update public.interview_sets set is_available = false, unavailable_reason = 'Bộ đề mẫu cũ đã được thay bằng tài liệu dự án.' where slug in ('financial-analyst-general', 'software-engineer-general', 'commercial-bank-credit-round1', 'product-company-data-round1') and position_id is null;", "");
   for (const item of content.simulations) {
     const columns = ["id", "slug", "industry", "position_title", "brief", "task_instructions", "estimated_minutes", "min_words", "position_id", "is_available", "unavailable_reason", "rubric", "grading_rubric", "reference_data"];
     const values = columns.map((key) => ["rubric", "grading_rubric", "reference_data"].includes(key) ? sqlJson(item[key]) : typeof item[key] === "number" || typeof item[key] === "boolean" ? String(item[key]) : sqlText(item[key]));
