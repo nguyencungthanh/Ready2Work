@@ -40,7 +40,7 @@ try {
       `);
       legacySeeded = true;
     }
-    if (file.startsWith("20261017")) {
+    if (file === "20261017000100_feedback_content.sql") {
       oldQuestion = (await db.query("select q.id,q.prompt,q.set_id from interview_questions q join interview_sets s on s.id=q.set_id where s.slug='r2w-qa-tester' order by q.position limit 1")).rows[0];
       oldSession = (await db.query("insert into interview_sessions(user_id,set_id) values ('33333333-3333-4333-8333-333333333333',$1) returning id", [oldQuestion.set_id])).rows[0];
       await db.query("insert into interview_answers(session_id,question_id,answer_text,score) values ($1,$2,'Historical source answer',70)", [oldSession.id,oldQuestion.id]);
@@ -57,6 +57,11 @@ try {
   assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%'")).count), 15);
   assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017'")).count), 15);
   assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017' and not is_available")).count), 8);
+  const marketingInputs = JSON.parse(await readFile(path.join(root, "data/source/marketing-inputs-20261017.json"), "utf8"));
+  for (const [position, materials] of Object.entries(marketingInputs.by_position)) {
+    const published = (await one("select reference_data->'public_materials' as materials from simulations where slug=$1", [`r2w-${position.toLowerCase()}`])).materials;
+    for (const material of materials) assert.deepEqual(published.filter((item) => item.id === material.id), [material]);
+  }
   assert.equal((await one("select prompt from interview_questions where id=$1", [oldQuestion.id])).prompt, oldQuestion.prompt);
   assert.equal(Number((await one("select count(*) from interview_answers where session_id=$1 and question_id=$2", [oldSession.id,oldQuestion.id])).count), 1);
   assert.equal((await one("select is_available from interview_sets where id=$1", [oldQuestion.set_id])).is_available, false);

@@ -4,6 +4,13 @@ import tasks from "@/data/task-rubrics.json";
 
 const number = (value: string) => Number(value.replaceAll(".", "").replace(",", ".").replace("%", ""));
 describe("authorized Marketing exercise inputs", () => {
+  it("publishes each approved input once from the canonical supplement, including Vietnamese wording changes", () => {
+    const marketing = tasks.industries.find((industry) => industry.industry_id === "MKT")!;
+    for (const [position, materials] of Object.entries(supplement.by_position)) {
+      const published = marketing.tasks.find((task) => task.position_id === position)!.public_materials;
+      for (const material of materials) expect(published.filter((item) => item.id === material.id)).toEqual([material]);
+    }
+  });
   it("keeps the source's explanation of three causes under its 15-point item, separate from the 10-point CPL calculation", () => {
     const task = tasks.industries.find((industry) => industry.industry_id === "MKT")!.tasks.find((item) => item.position_id === "MKT-02")!;
     const [causes, cpl, testPlan] = task.rubric[0]!.checklist;

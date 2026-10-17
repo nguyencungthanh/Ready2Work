@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const namespace = Buffer.from("7c0be9b45da656cf8f2432b9a61c647a", "hex");
-export const migrationName = "20261017000100_feedback_content.sql";
+// The published feedback migration is immutable. Later input edits are additive.
+export const migrationName = "20261017000200_marketing_inputs_sync.sql";
 const attemptSource = await readFile(join(root, "supabase/migrations/20261016000300_simulation_attempts.sql"), "utf8");
 const priorFinalizer = attemptSource.match(/create function public\.finalize_simulation_attempt\([\s\S]*?\$\$;/)?.[0];
 if (!priorFinalizer) throw new Error("Missing simulation finalizer source.");
@@ -197,6 +198,16 @@ export function renderMigration(content) {
   return rows.join("\n");
 }
 
+export function renderMaterialsMigration(content) {
+  if (content.validation.errors.length) throw new Error("Prepared content validation failed.");
+  const rows = ["-- Generated Marketing input synchronization; published feedback migration is retained.", "-- Only public exercise inputs change. Rubrics, attempts and answers are untouched.", "begin;", "set local standard_conforming_strings = on;"];
+  for (const item of content.simulations.filter((simulation) => /^MKT-0[123]$/.test(simulation.position_id))) {
+    rows.push(`update public.simulations set reference_data = jsonb_set(reference_data, '{public_materials}', ${sqlJson(item.reference_data.public_materials)}) where slug = ${sqlText(item.slug)} and reference_data->>'source_version' = '20261017';`);
+  }
+  rows.push("commit;", "");
+  return rows.join("\n");
+}
+
 export function businessTemplates() {
   const criteria = [
     { id: "accuracy", label: "Độ chính xác", description: "Phân tích và kết luận đúng, dựa trên dữ kiện được cung cấp.", weight: 60, keywords: [] },
@@ -216,7 +227,7 @@ async function main() {
   const content = buildPreparedContent(await readPreparedSources());
   if (content.validation.errors.length) throw new Error(content.validation.errors.join("\n"));
   const outputs = new Map([
-    [join(root, "supabase/migrations", migrationName), renderMigration(content)],
+    [join(root, "supabase/migrations", migrationName), renderMaterialsMigration(content)],
     [join(root, "data/content-validation.json"), `${JSON.stringify(content.validation, null, 2)}\n`],
     ...Object.entries(businessTemplates()).map(([name, value]) => [join(root, "public/templates", name), `${JSON.stringify(value, null, 2)}\n`]),
   ]);

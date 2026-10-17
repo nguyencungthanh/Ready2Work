@@ -101,6 +101,10 @@ for i in issues:print(i)
 # Tasks: preserve source paragraphs and list grouping, never import grading text as a candidate input.
 old=json.loads((root/'platform/data/task-rubrics.json').read_text());oldtasks={t['position_id']:t for i in old['industries'] for t in i['tasks']}
 public=json.loads((root/'platform/data/source/materials-20261017.json').read_text())['by_position']
+supplement=json.loads((root/'platform/data/source/marketing-inputs-20261017.json').read_text())['by_position']
+for pid,materials in supplement.items():
+ ids={material['id'] for material in materials}
+ public[pid]=[material for material in public.get(pid,[]) if material['id'] not in ids]+materials
 profilemap={p['position_id']:p for i in profiles['industries'] for p in i['positions']}
 def paragraphs(cell):return [p['text'].strip() for p in cell if p['text'].strip()]
 def cellmd(cell,numberlists=False):

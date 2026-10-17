@@ -170,7 +170,7 @@
             },
             {
               "id": "marketing-product-brief",
-              "title": "Product Brief · Dữ liệu mô phỏng",
+              "title": "Tóm tắt sản phẩm · Dữ liệu mô phỏng",
               "kind": "table",
               "columns": [
                 "Thông tin",
@@ -183,11 +183,11 @@
                 ],
                 [
                   "Chất liệu",
-                  "Nỉ bông: 65% cotton, 35% polyester."
+                  "Nỉ bông: 65% sợi bông, 35% sợi polyester."
                 ],
                 [
                   "Kiểu dáng",
-                  "Form rộng unisex; cỡ S, M, L, XL; màu đen, xám và nâu."
+                  "Dáng rộng, dành cho mọi giới; cỡ S, M, L, XL; màu đen, xám và nâu."
                 ],
                 [
                   "Giá niêm yết",

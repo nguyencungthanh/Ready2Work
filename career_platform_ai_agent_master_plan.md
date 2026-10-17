@@ -179,5 +179,5 @@ Theo yêu cầu tiếp theo của chủ dự án, thêm tab **Báo cáo năng l�
 - Chờ bảng trọng số CV chủ dự án sẽ cung cấp. Trong lúc đó chỉ phân tích bằng chứng theo mức yêu cầu; không tự gán M1=5 hoặc một công thức % khác.
 - Chờ xác nhận barem Tài chính-Ngân hàng và các câu phỏng vấn có điểm không khớp. Không tự thay điểm để tổng bằng 100. Một số ô câu hỏi Trợ lý thuế có dấu hiệu dán nhầm tiêu chí; giữ nguyên để xem và chờ xác nhận trước chấm.
 - Giữ tài khoản, kết quả và quan hệ câu trả lời với phiên bản câu hỏi cũ. Migration bổ sung, không reset. Các lượt mô phỏng đang mở ở đề cũ không được tự chuyển sang đề mới với timestamp cũ.
-- Bản ứng dụng `161edad` đã Ready trên `ready-2work.vercel.app`, đủ chín migration cloud. Nội dung hiện có 12 mô phỏng và 7 bộ phỏng vấn mở chấm; các phần chờ nguồn không bị tính là đã nghiệm thu chỉ vì đã được nhập đủ.
+- Bản ứng dụng `161edad` đã Ready trên `ready-2work.vercel.app`, đủ mười migration cloud sau bản vá đồng bộ tài liệu Marketing từ một nguồn chuẩn. Nội dung hiện có 12 mô phỏng và 7 bộ phỏng vấn mở chấm; các phần chờ nguồn không bị tính là đã nghiệm thu chỉ vì đã được nhập đủ.
 - Danh sách đối chiếu, các mâu thuẫn và bằng chứng kiểm định: [feedback audit](docs/feedback-audit.md). Không coi số test qua hoặc hosting Ready là nghiệm thu toàn bộ nội dung.

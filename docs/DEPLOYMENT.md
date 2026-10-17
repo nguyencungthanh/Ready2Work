@@ -2,7 +2,7 @@
 
 ## Confirmed
 
-- Current application release: `161edad`, deployment `dpl_H3p9wb8tRrMiDA5DgNaxGtdmv7Xw`, Ready. Vercel confirms `ready-2work.vercel.app` points to this release and functions run in `sin1`.
+- Feedback application baseline: `161edad`, deployment `dpl_H3p9wb8tRrMiDA5DgNaxGtdmv7Xw`, Ready. The documentation follow-up `eb67519` is also Ready. Both confirm the canonical alias `ready-2work.vercel.app` and functions in `sin1`.
 - After publication, `/`, `/signup`, `/signin`, `/api/health` and an original input image returned HTTP 200. The input image matches the repository SHA-256; private answer-key image `14.png` returns 404. These public checks do not assert end-to-end email delivery or provider availability.
 - GitHub: `nguyencungthanh/Ready2Work`, branch `main`.
 - Vercel project: `ready2work-platform`, root directory `platform`, Next.js preset.
@@ -10,7 +10,7 @@
 - The user preferred the original domain. It was moved from `ready2-work` to the configured `ready2work-platform` project without deleting either project. Vercel `NEXT_PUBLIC_SITE_URL` and Supabase Site URL now use `https://ready-2work.vercel.app`; its confirmation and recovery redirects are allowed. The previous smoky domain remains an alias.
 - Commit `adf3474` built successfully on Vercel Linux. The lockfile now includes the Linux x64 GNU optional bindings for Lightning CSS, Tailwind Oxide and the resolver; installation uses `npm ci --include=optional`.
 - Production `/`, `/signup` and `/api/health` returned HTTP 200. The signup page contains the current UI. The health endpoint does not validate database connectivity.
-- Supabase project `ready2work-production` (`pzuhokmwlgobqhwottpa`) is active. All nine repository migrations are applied, including `20261017000100_feedback_content.sql`. No reset was performed.
+- Supabase project `ready2work-production` (`pzuhokmwlgobqhwottpa`) is active. All ten repository migrations are applied, including the feedback import and `20261017000200_marketing_inputs_sync.sql`. No reset was performed.
 - Read-only cloud checks returned HTTP 200 for `cv_analyses`, `company_profiles`, `employer_content`, `mentor_reviews`, `simulation_attempts` and `simulation_submission_evaluations`.
 - Cloud buckets `candidate-cvs` and `business-documents` are private, with a 3 MiB limit.
 - Vercel Production has `NEXT_PUBLIC_SITE_URL` set to the production URL and `GEMINI_MODEL=gemini-3.5-flash`.
@@ -42,6 +42,7 @@ No full unit/browser suite was rerun for this deployment configuration work. Suc
 - Canonical domain remains `ready-2work.vercel.app`.
 - New additive migration: `20261017000100_feedback_content.sql`; 15 source roles, 15 simulations and 15 interview sets/120 questions. It retains prior sets/questions/answers and flags superseded open simulation attempts; no reset or history deletion.
 - Cloud migration applied after dry-run. Read-only checks confirm 15 simulations (12 open for grading), 15 current interview sets (7 open for grading), 120 current questions, the superseded-attempt column and the authorized Marketing inputs.
+- Marketing supplementary facts now have one canonical source; the generator merges them into public materials once. A separate additive patch updates only the three public-material lists, preserving the already-published migration, rubrics and history. Supplementary product labels/descriptions use Vietnamese.
 - Three banking simulations and eight interview sets allow content review while official grading awaits source clarification. Marketing supplementary input facts were explicitly authorized and are labeled simulated; their authored rubric weights were preserved.
 - New CV percentages await the owner's weight table. Image PDF OCR is configured, with consent and private file handling.
 - Default Supabase email callbacks support PKCE as well as token hashes. Local signup/signin/session behavior and fixture return-login were checked; existing cloud-account/email delivery is not claimed as verified.

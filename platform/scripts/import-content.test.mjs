@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { buildPreparedContent, readPreparedSources, renderMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
+import { buildPreparedContent, readPreparedSources, renderMigration, renderMaterialsMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
 
 const source = await readPreparedSources();
 const content = buildPreparedContent(source);
@@ -101,7 +101,10 @@ test("SQL safely quotes source strings and upserts without deleting catalog IDs 
   assert.match(sql, /superseded_at/);
   assert.match(sql, /coalesce\(s.reference_data->>'source_version', ''\) <> '20261017'/);
   assert.ok(content.interviewSets.every((item) => item.id !== stableId("interview-set", item.slug.replace(/^r2w-/, "").replace(/-20261017$/, ""))));
-  assert.equal(sql, await readFile(new URL(`../supabase/migrations/${migrationName}`, import.meta.url), "utf8"));
+  const patch = renderMaterialsMigration(content);
+  assert.equal(patch, await readFile(new URL(`../supabase/migrations/${migrationName}`, import.meta.url), "utf8"));
+  assert.equal((patch.match(/update public\.simulations set reference_data = jsonb_set/g) ?? []).length, 3);
+  assert.doesNotMatch(patch, /set (?:grading_rubric|is_available|rubric)|update public\.(?:interview|simulation_attempt)|delete from|truncate/i);
 });
 
 test("templates cover the same three rounds and have 100-point criterion weights", () => {
