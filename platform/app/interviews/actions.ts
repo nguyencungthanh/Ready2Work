@@ -9,6 +9,7 @@ import { evaluateInterviewWithAI, type InterviewRubricCriterion } from "@/lib/in
 import { summarizeInterview } from "@/lib/interview/progress";
 import { logger } from "@/lib/observability/logger";
 import { isSourceInterview, isPublishedBusinessContent } from "@/lib/content/source-catalog";
+import { PRACTICE_SECONDS, practiceDeadline, practiceExpired } from "@/lib/practice-time";
 
 export interface InterviewAnswerState { error?: string }
 
@@ -26,6 +27,7 @@ export async function startInterviewSessionAction(formData: FormData): Promise<v
   }
   const { data: existing } = await supabase.from("interview_sessions").select("id")
     .eq("user_id", user.id).eq("set_id", setId).is("completed_at", null)
+    .gt("created_at", new Date(Date.now() - PRACTICE_SECONDS * 1000).toISOString())
     .order("created_at", { ascending: false }).limit(1).maybeSingle();
   if (existing) redirect(`/interviews/sessions/${existing.id}`);
   const { data: session, error } = await supabase.from("interview_sessions")
@@ -39,6 +41,7 @@ export async function submitInterviewAnswerAction(
   formData: FormData,
 ): Promise<InterviewAnswerState> {
   const user = await requireUser();
+  const submittedAt = new Date();
   const sessionId = String(formData.get("sessionId") ?? "");
   const questionId = String(formData.get("questionId") ?? "");
   const answerText = String(formData.get("answerText") ?? "").trim();
@@ -46,10 +49,11 @@ export async function submitInterviewAnswerAction(
   if (answerText.length > 20_000) return { error: "Câu trả lời tối đa 20.000 ký tự." };
   const supabase = await createServerSupabaseClient();
   const { data: session } = await supabase.from("interview_sessions")
-    .select("id, user_id, set_id, completed_at, interview_sets(slug, is_available)").eq("id", sessionId).maybeSingle();
+    .select("id, user_id, set_id, created_at, completed_at, interview_sets(slug, is_available)").eq("id", sessionId).maybeSingle();
   if (!session || session.user_id !== user.id || session.completed_at) {
     return { error: "Buổi phỏng vấn không khả dụng hoặc đã hoàn thành." };
   }
+  if (practiceExpired(session.created_at, submittedAt.getTime())) return { error: "Đã hết 60 phút. Buổi phỏng vấn đã dừng; không nhận thêm câu trả lời." };
   const sourceSet = session.interview_sets as unknown as { slug: string; is_available: boolean } | { slug: string; is_available: boolean }[] | null;
   const set = Array.isArray(sourceSet) ? sourceSet[0] : sourceSet;
   if (!set?.is_available || !(isSourceInterview(set) || isPublishedBusinessContent(set))) return { error: "Bộ câu hỏi này đã được lưu trữ hoặc đang chờ xác nhận tiêu chí. Hãy chọn bộ câu hỏi hiện tại để luyện tập." };
@@ -72,7 +76,7 @@ export async function submitInterviewAnswerAction(
   }
   // Grades are server-only writes. Ownership and set membership were verified above.
   const { error } = await createServiceRoleClient().from("interview_answers").insert({
-    session_id: sessionId, question_id: questionId, answer_text: answerText,
+    session_id: sessionId, question_id: questionId, answer_text: answerText, submitted_at: submittedAt.toISOString(),
     score: result.score, criteria: result.criteria,
   });
   if (error) return { error: "Chưa lưu được câu trả lời. Hãy tải lại để kiểm tra trước khi nộp lại." };
@@ -86,7 +90,7 @@ export async function completeInterviewSessionAction(formData: FormData): Promis
   const sessionId = String(formData.get("sessionId") ?? "");
   const supabase = await createServerSupabaseClient();
   const { data: session } = await supabase.from("interview_sessions")
-    .select("id, user_id, set_id, completed_at, interview_sets(is_available)").eq("id", sessionId).maybeSingle();
+    .select("id, user_id, set_id, created_at, completed_at, interview_sets(is_available)").eq("id", sessionId).maybeSingle();
   if (!session || session.user_id !== user.id) throw new Error("Không tìm thấy buổi phỏng vấn.");
   if (session.completed_at) redirect(`/interviews/sessions/${sessionId}/feedback`);
   const [{ data: questions }, { data: answers }] = await Promise.all([
@@ -96,10 +100,25 @@ export async function completeInterviewSessionAction(formData: FormData): Promis
   const summary = summarizeInterview(questions ?? [], answers ?? []);
   if (!summary.hasThreeRounds) throw new Error("Cần có đầy đủ câu hỏi và hoàn thành cả ba vòng phỏng vấn.");
   const { error } = await createServiceRoleClient().from("interview_sessions")
-    .update({ overall_score: summary.overallScore, round_scores: summary.roundScores, completed_at: new Date().toISOString() })
+    .update({ overall_score: summary.overallScore, round_scores: summary.roundScores, completed_at: new Date(Math.min(Date.now(), practiceDeadline(session.created_at))).toISOString() })
     .eq("id", sessionId).eq("user_id", user.id).is("completed_at", null);
   if (error) throw new Error("Chưa hoàn tất được buổi phỏng vấn. Vui lòng thử lại.");
   revalidatePath("/dashboard");
   revalidatePath("/report");
   redirect(`/interviews/sessions/${sessionId}/feedback`);
+}
+
+/** RLS and the explicit owner filter both scope deletion to this account. */
+export async function deleteInterviewSessionAction(_previous: InterviewAnswerState, formData: FormData): Promise<InterviewAnswerState> {
+  const user = await requireUser();
+  const sessionId = String(formData.get("sessionId") ?? "");
+  if (!sessionId) return { error: "Hãy chọn buổi phỏng vấn cần xóa." };
+  const supabase = await createServerSupabaseClient();
+  const { data, error } = await supabase.from("interview_sessions").delete().eq("id", sessionId).eq("user_id", user.id).select("id");
+  if (error || !data?.length) return { error: "Không xóa được buổi phỏng vấn. Vui lòng tải lại và thử lại." };
+  revalidatePath("/interviews");
+  revalidatePath(`/interviews/sessions/${sessionId}`, "layout");
+  revalidatePath("/dashboard");
+  revalidatePath("/report");
+  return {};
 }

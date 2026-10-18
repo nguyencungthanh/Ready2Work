@@ -165,6 +165,32 @@ try {
   assert.equal(Number((await one("select count(*) from candidate_latest_simulation_submissions")).count), 0);
   assert.equal(Number((await one("select count(*) from candidate_completed_interview_sessions")).count), 0);
   await db.exec("reset role");
+  // Exact deadlines are enforced even for privileged writes. AI may finish
+  // after the deadline only when its server-recorded receipt was before it.
+  const expiredSession = await one("insert into interview_sessions(user_id,set_id,created_at) values ($1,$2,now()-interval '61 minutes') returning id", [owner, interviewSet.id]);
+  await assert.rejects(db.query("insert into interview_answers(session_id,question_id,answer_text,score) values ($1,$2,'Late answer',80)", [expiredSession.id, questions[0].id]), /deadline exceeded/);
+  await assert.rejects(db.query("insert into interview_answers(session_id,question_id,answer_text,score,submitted_at) select $1,$2,'At boundary',80,created_at+interval '60 minutes' from interview_sessions where id=$1", [expiredSession.id, questions[0].id]), /deadline exceeded/);
+  await db.query("insert into interview_answers(session_id,question_id,answer_text,score,submitted_at) select $1,$2,'Received in time, AI finished later',80,created_at+interval '59 minutes 59 seconds' from interview_sessions where id=$1", [expiredSession.id, questions[0].id]);
+  await assert.rejects(db.query("update interview_sessions set created_at=now() where id=$1", [expiredSession.id]), /immutable/);
+  const expiredAttempt = await one("insert into simulation_attempts(user_id,simulation_id,started_at) values ($1,$2,now()-interval '61 minutes') returning id", [owner, simulation.id]);
+  await assert.rejects(db.query(finalize, [expiredAttempt.id, owner]), /deadline exceeded/);
+  await assert.rejects(db.query("select finalize_simulation_attempt($1,$2,'Boundary',80,'Strong','{}','{}',(select started_at+interval '60 minutes' from simulation_attempts where id=$1))", [expiredAttempt.id, owner]), /deadline exceeded/);
+  assert.equal(Number((await one("select count(*) from simulation_submissions where attempt_id=$1", [expiredAttempt.id])).count), 0);
+  await db.query("select finalize_simulation_attempt($1,$2,'Received in time',80,'Strong','{}','{}',(select started_at+interval '59 minutes 59 seconds' from simulation_attempts where id=$1))", [expiredAttempt.id, owner]);
+  await assert.rejects(db.query("update simulation_attempts set started_at=now() where id=$1", [expiredAttempt.id]), /immutable/);
+  await setUser(owner);
+  await denied("insert into interview_sessions(user_id,set_id,created_at) values ($1,$2,now())", [owner, interviewSet.id]);
+  await setUser(other);
+  assert.equal((await db.query("delete from interview_sessions where id=$1 returning id", [session.id])).rows.length, 0);
+  await db.exec("reset role");
+  assert.ok(Number((await one("select count(*) from interview_answers where session_id=$1", [session.id])).count)>0);
+  await setUser(owner);
+  assert.equal((await db.query("delete from interview_sessions where id=$1 returning id", [session.id])).rows.length, 1);
+  assert.equal((await db.query("delete from interview_sessions where id=$1 returning id", [expiredSession.id])).rows.length, 1);
+  assert.equal(Number((await one("select count(*) from candidate_completed_interview_sessions")).count), 0);
+  await db.exec("reset role");
+  assert.equal(Number((await one("select count(*) from interview_answers where session_id in ($1,$2)", [session.id, expiredSession.id])).count), 0);
+  await assert.rejects(db.query("insert into interview_answers(session_id,question_id,answer_text,score) values ($1,$2,'Inflight after deletion',80)", [expiredSession.id, questions[0].id]), /unavailable/);
   await db.query("insert into company_profiles(user_id,name,industry,contact_name) values ($1,'Test Company','Technology','Test Owner')", [owner]);
   const rubric = await readFile(path.join(root, "public/templates/simulation-rubric.json"), "utf8");
   const draft = await one(`insert into employer_content(owner_id,kind,title,position_id,industry,assignment_path,rubric_path,assignment_name,rubric_name,assignment_data,rubric_data)

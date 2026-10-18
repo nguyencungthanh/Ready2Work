@@ -9,6 +9,7 @@ import { evaluateSubmissionWithAI, type RubricCriterion } from "@/lib/simulation
 import { logger } from "@/lib/observability/logger";
 import { readSubmissionDocument } from "@/lib/simulation/read-submission";
 import { isSourceSimulation, isPublishedBusinessContent, isCurrentSourceRevision } from "@/lib/content/source-catalog";
+import { PRACTICE_SECONDS, practiceExpired } from "@/lib/practice-time";
 
 export interface FormState {
   error?: string;
@@ -31,6 +32,7 @@ export async function startSimulationAction(formData: FormData): Promise<void> {
   if (!simulation?.is_available || !(isSourceSimulation(simulation) || isPublishedBusinessContent(simulation))) throw new Error("Bài mô phỏng này chưa sẵn sàng.");
   const { data: existing } = await supabase.from("simulation_attempts").select("id")
     .eq("user_id", user.id).eq("simulation_id", simulationId).is("submitted_at", null).is("superseded_at", null)
+    .gt("started_at", new Date(Date.now() - PRACTICE_SECONDS * 1000).toISOString())
     .order("started_at", { ascending: false }).limit(1).maybeSingle();
   if (existing) redirect(`/simulations/${simulation.slug}?attempt=${existing.id}`);
   const { data: attempt, error } = await supabase.from("simulation_attempts")
@@ -62,6 +64,7 @@ export async function submitSimulationAction(
   if (!attempt || attempt.simulation_id !== simulationId) return { error: "Hãy bắt đầu lượt làm bài của bạn trước khi nộp." };
   if (attempt.submission_id) redirect(`/simulations/submissions/${attempt.submission_id}`);
   if (attempt.superseded_at) return { error: "Đề bài đã được cập nhật theo tài liệu mới. Bản nháp cũ vẫn được giữ; hãy bắt đầu lượt mới để làm và chấm theo đề hiện tại." };
+  if (practiceExpired(attempt.started_at, submittedAt.getTime())) return { error: "Đã hết 60 phút. Lượt làm bài đã dừng và không thể nộp thêm. Bản nháp vẫn được giữ trên trình duyệt." };
   const actualDurationSeconds = Math.floor((submittedAt.getTime() - new Date(attempt.started_at).getTime()) / 1000);
   if (actualDurationSeconds < 0 || !Number.isFinite(actualDurationSeconds)) return { error: "Chưa xác minh được thời gian làm bài. Vui lòng tải lại trang." };
   // Verify public availability before reading the private grading rubric.

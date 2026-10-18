@@ -9,13 +9,13 @@ vi.mock("@/lib/interview/ai-evaluator", () => ({ evaluateInterviewWithAI: mocks.
 vi.mock("@/lib/observability/logger", () => ({ logger: { error: vi.fn() } }));
 vi.mock("next/cache", () => ({ revalidatePath: mocks.revalidate }));
 vi.mock("next/navigation", () => ({ redirect: vi.fn((path) => { throw new Error(`REDIRECT:${path}`); }) }));
-import { completeInterviewSessionAction, submitInterviewAnswerAction } from "@/app/interviews/actions";
+import { completeInterviewSessionAction, deleteInterviewSessionAction, submitInterviewAnswerAction } from "@/app/interviews/actions";
 
 function query(data: unknown, error: unknown = null) {
   const result = { data, error };
   const chain = {
     select: vi.fn(() => chain), eq: vi.fn(() => chain), order: vi.fn(() => chain),
-    is: vi.fn(() => chain), insert: vi.fn(() => chain), update: vi.fn(() => chain),
+    is: vi.fn(() => chain), delete: vi.fn(() => chain), insert: vi.fn(() => chain), update: vi.fn(() => chain),
     maybeSingle: vi.fn(async () => result),
     then: (resolve: (value: typeof result) => unknown) => Promise.resolve(result).then(resolve),
   };
@@ -25,26 +25,32 @@ function form(answer = "Câu trả lời có bằng chứng của tôi.") { cons
 const currentSet = { slug: "r2w-qa-tester-20261017", is_available: true };
 beforeEach(() => { vi.clearAllMocks(); });
 describe("interview action authorization", () => {
+  it("rejects an expired session before reading questions, grading or saving", async () => {
+    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", created_at: new Date(Date.now()-3_600_000).toISOString(), completed_at: null, interview_sets: currentSet }));
+    expect((await submitInterviewAnswerAction({}, form())).error).toContain("Đã hết 60 phút");
+    expect(mocks.serviceFrom).not.toHaveBeenCalled();
+    expect(mocks.evaluate).not.toHaveBeenCalled();
+  });
   it("cannot grade an answer in another user's session", async () => {
-    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "other", set_id: "set", completed_at: null }));
+    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "other", set_id: "set", created_at: new Date(Date.now()-5000).toISOString(), completed_at: null }));
     expect((await submitInterviewAnswerAction({}, form())).error).toContain("không khả dụng");
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
     expect(mocks.evaluate).not.toHaveBeenCalled();
   });
   it("does not grade a source set that is pending clarification or archived", async () => {
-    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: { is_available: false } }));
+    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", created_at: new Date(Date.now()-5000).toISOString(), completed_at: null, interview_sets: { is_available: false } }));
     expect((await submitInterviewAnswerAction({}, form())).error).toMatch(/chờ xác nhận|chưa mở chấm/);
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
     expect(mocks.evaluate).not.toHaveBeenCalled();
   });
   it("cannot edit a completed interview", async () => {
-    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", completed_at: "2026-10-16" }));
+    mocks.userFrom.mockReturnValue(query({ id: "session", user_id: "owner", set_id: "set", created_at: new Date(Date.now()-5000).toISOString(), completed_at: "2026-10-16" }));
     expect((await submitInterviewAnswerAction({}, form())).error).toContain("hoàn thành");
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
   });
   it("does not accept a foreign or out-of-order question id supplied by the browser", async () => {
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
-      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: currentSet }) : query([]));
+      ? query({ id: "session", user_id: "owner", set_id: "set", created_at: new Date(Date.now()-5000).toISOString(), completed_at: null, interview_sets: currentSet }) : query([]));
     mocks.serviceFrom.mockReturnValue(query([{ id: "expected", prompt: "The real question", rubric: [], round_number: 1, position: 1 }]));
     expect((await submitInterviewAnswerAction({}, form())).error).toContain("chưa trả lời tiếp theo");
     expect(mocks.serviceFrom.mock.calls.map((call) => call[0])).toEqual(["interview_questions"]);
@@ -52,12 +58,33 @@ describe("interview action authorization", () => {
   });
   it("cannot finish with an equal answer count from the wrong set", async () => {
     mocks.userFrom.mockImplementation((table: string) => {
-      if (table === "interview_sessions") return query({ id: "session", user_id: "owner", set_id: "set", completed_at: null });
+      if (table === "interview_sessions") return query({ id: "session", user_id: "owner", set_id: "set", created_at: new Date(Date.now()-5000).toISOString(), completed_at: null });
       if (table === "interview_questions") return query([{ id: "a", round_number: 1 }, { id: "b", round_number: 2 }, { id: "c", round_number: 3 }]);
       return query([{ question_id: "a", score: 100 }, { question_id: "b", score: 100 }, { question_id: "foreign", score: 100 }]);
     });
     await expect(completeInterviewSessionAction(form())).rejects.toThrow("every question");
     expect(mocks.serviceFrom).not.toHaveBeenCalled();
+  });
+});
+
+describe("owner-scoped interview deletion", () => {
+  it("deletes only the requested owned session and refreshes progress", async () => {
+    const deletion = query([{ id: "session" }]); mocks.userFrom.mockReturnValue(deletion);
+    expect(await deleteInterviewSessionAction({}, form())).toEqual({});
+    expect(deletion.delete).toHaveBeenCalledOnce();
+    expect(deletion.eq).toHaveBeenCalledWith("id", "session");
+    expect(deletion.eq).toHaveBeenCalledWith("user_id", "owner");
+    expect(mocks.revalidate).toHaveBeenCalledWith("/report");
+    expect(mocks.serviceFrom).not.toHaveBeenCalled();
+  });
+  it("does not claim success or refresh after an inaccessible session or database error", async () => {
+    for (const result of [query([]), query(null, { message: "private db detail" })]) {
+      mocks.userFrom.mockReturnValue(result);
+      const response = await deleteInterviewSessionAction({}, form());
+      expect(response.error).toContain("Không xóa được");
+      expect(response.error).not.toContain("private");
+    }
+    expect(mocks.revalidate).not.toHaveBeenCalled();
   });
 });
 
@@ -67,7 +94,7 @@ describe("interview answer submission regressions from feedback", () => {
   function arrange(saveError: unknown = null, questionOverrides: Record<string, unknown> = {}, set = currentSet) {
     const saved = query(null, saveError);
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
-      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: set }) : query([]));
+      ? query({ id: "session", user_id: "owner", set_id: "set", created_at: new Date(Date.now()-5000).toISOString(), completed_at: null, interview_sets: set }) : query([]));
     mocks.serviceFrom.mockImplementation((table: string) => table === "interview_questions"
       ? query([{ id: "question", prompt: "Bạn hãy phân biệt Testing và Quality Assurance", grading_rubric: [criterion], reference_answer: "Hướng dẫn riêng để chấm.", round_number: 1, position: 2, ...questionOverrides }]) : saved);
     return saved;
@@ -80,7 +107,7 @@ describe("interview answer submission regressions from feedback", () => {
 
     expect(await submitInterviewAnswerAction({}, form(shortAnswer))).toEqual({});
     expect(mocks.evaluate).toHaveBeenCalledWith(shortAnswer, expect.any(String), "Hướng dẫn riêng để chấm.", [criterion]);
-    expect(saved.insert).toHaveBeenCalledExactlyOnceWith({ session_id: "session", question_id: "question", answer_text: shortAnswer, score: 23, criteria });
+    expect(saved.insert).toHaveBeenCalledExactlyOnceWith({ session_id: "session", question_id: "question", answer_text: shortAnswer, submitted_at: expect.any(String), score: 23, criteria });
     expect(mocks.revalidate).toHaveBeenCalledWith("/interviews/sessions/session");
   });
 

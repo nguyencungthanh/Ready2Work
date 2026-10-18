@@ -17,8 +17,8 @@ function query(data: unknown) {
   return chain;
 }
 function form() { const data = new FormData(); data.set("attemptId", "attempt"); data.set("content", "Nội dung bài làm giả để kiểm tra luồng xử lý."); return data; }
-function arrange(options: { slug?: string; available?: boolean; reference?: unknown; superseded?: boolean; missingAttempt?: boolean } = {}) {
-  const attempt = query(options.missingAttempt ? null : { id: "attempt", user_id: "owner", simulation_id: "simulation", started_at: new Date(Date.now() - 5000).toISOString(), submission_id: null, superseded_at: options.superseded ? new Date().toISOString() : null });
+function arrange(options: { slug?: string; available?: boolean; reference?: unknown; superseded?: boolean; missingAttempt?: boolean; startedAt?: string } = {}) {
+  const attempt = query(options.missingAttempt ? null : { id: "attempt", user_id: "owner", simulation_id: "simulation", started_at: options.startedAt ?? new Date(Date.now() - 5000).toISOString(), submission_id: null, superseded_at: options.superseded ? new Date().toISOString() : null });
   mocks.from.mockImplementation((table: string) => table === "simulation_attempts" ? attempt : query({ id: "simulation", slug: options.slug ?? "r2w-it-01", is_available: options.available ?? true }));
   mocks.privateFrom.mockReturnValue(query({ brief: "Đề bài nguồn", task_instructions: "Yêu cầu nguyên bản", grading_rubric: [{ id: "criterion" }], reference_data: "reference" in options ? options.reference : reference, min_words: 0 }));
   mocks.evaluate.mockResolvedValue({ overallScore: 0, overallBand: "Emerging", summary: "Chưa đáp ứng yêu cầu.", criteria: [], privateDetails: { checklistScores: [{ evidence: "Dữ liệu nội bộ" }] } });
@@ -28,6 +28,13 @@ function arrange(options: { slug?: string; available?: boolean; reference?: unkn
 beforeEach(() => vi.resetAllMocks());
 
 describe("source-only simulation submission boundary", () => {
+  it("stops at the one-hour deadline before loading private data, calling AI or saving", async () => {
+    arrange({ startedAt: new Date(Date.now()-3_600_000).toISOString() });
+    expect((await submitSimulationAction("simulation", {}, form())).error).toContain("Đã hết 60 phút");
+    expect(mocks.privateFrom).not.toHaveBeenCalled();
+    expect(mocks.evaluate).not.toHaveBeenCalled();
+    expect(mocks.finalize).not.toHaveBeenCalled();
+  });
   it.each([
     { slug: "campaign-launch-plan" },
     { available: false },

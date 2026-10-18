@@ -4,6 +4,8 @@ import { requireUser } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { FinishForm } from "./finish-form";
 import { AnswerForm } from "./answer-form";
+import Link from "next/link";
+import { practiceExpired } from "@/lib/practice-time";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +61,8 @@ export default async function InterviewSessionPage({
   }
 
   const currentIndex = (questions ?? []).findIndex((q) => q.id === next.id);
+
+  if (practiceExpired(session.created_at)) return <AppShell active="interviews" displayName={user.displayName}><main className="d-main"><h1 className="text-xl font-bold">Buổi phỏng vấn đã hết giờ</h1><p className="my-4">Đã hết 60 phút. Buổi phỏng vấn đã dừng, không nhận thêm câu trả lời. Các câu đã nộp vẫn được giữ trong lịch sử.</p><p className="mb-4">Đã lưu {answeredIds.size}/{total} câu trả lời.</p><Link className="reference-link" href="/interviews">Quay lại lịch sử phỏng vấn →</Link></main></AppShell>;
 
   return <AppShell active="interviews" displayName={user.displayName}><main className="d-main"><div id="dash-tab-interview"><div className="iv-page-screen iv-active"><AnswerForm key={next.id} sessionId={sessionId} questionId={next.id} prompt={next.prompt} round={next.round_number} index={currentIndex} total={total} startedAt={session.created_at}/></div></div></main></AppShell>;
 }
