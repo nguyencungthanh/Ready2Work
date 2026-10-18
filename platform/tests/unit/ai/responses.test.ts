@@ -72,9 +72,21 @@ describe("Responses gateway routing", () => {
   });
 
   it("preserves conversation roles, system instructions and output limits", async () => {
+    vi.stubEnv("AI_BASE_URL", "https://gateway.example/v1");
     fetchMock.mockResolvedValue(new Response(JSON.stringify({ output_text: "Xin chào" })));
     expect(await generateChatReply("System", [{ role: "user", text: "First" }, { role: "model", text: "Reply" }, { role: "user", text: "Next" }], { maxOutputTokens: 1200 })).toBe("Xin chào");
     expect(JSON.parse(fetchMock.mock.calls[0]![1].body)).toMatchObject({ instructions: "System", max_output_tokens: 1200, input: [{ role: "user", content: "First" }, { role: "assistant", content: "Reply" }, { role: "user", content: "Next" }] });
+  });
+
+  it("sends Vilao the current question and full ordered history as chat messages", async () => {
+    fetchMock.mockResolvedValue(new Response(JSON.stringify({ choices: [{ finish_reason: "stop", message: { content: "Luyện viết báo cáo lỗi." } }] })));
+    const history = [{ role: "user" as const, text: "Tôi muốn làm QA" }, { role: "model" as const, text: "Bạn muốn luyện kỹ năng nào?" }, { role: "user" as const, text: "Viết báo cáo lỗi" }];
+    expect(await generateChatReply("Answer the latest question", history, { maxOutputTokens: 1200 })).toBe("Luyện viết báo cáo lỗi.");
+    expect(fetchMock).toHaveBeenCalledOnce();
+    const [url, init] = fetchMock.mock.calls[0]!;
+    expect(url).toBe("https://api.vilao.ai/v1/chat/completions");
+    expect(JSON.parse(init.body)).toEqual({ model: "sba/ag/gemini-3.8-flash", store: false, max_tokens: 1200, messages: [{ role: "system", content: "Answer the latest question" }, { role: "user", content: "Tôi muốn làm QA" }, { role: "assistant", content: "Bạn muốn luyện kỹ năng nào?" }, { role: "user", content: "Viết báo cáo lỗi" }] });
+    expect(google).not.toHaveBeenCalled();
   });
 
   it.each([401, 429, 503])("preserves HTTP %i without leaking bodies, retrying or falling back to Google", async (status) => {

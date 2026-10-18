@@ -98,6 +98,17 @@ export async function structuredResponse(prompt: string, schema: object, documen
 }
 
 export async function chatResponse(systemContext: string, history: ChatTurn[], maxOutputTokens?: number): Promise<string> {
+  const config = responsesConfig();
+  // Vilao's Responses compatibility does not reliably consume conversation
+  // arrays. Use its role-based chat endpoint, also used for source attachments.
+  if (config && new URL(config.endpoint).hostname === "api.vilao.ai") {
+    return request({
+      messages: [{ role: "system", content: systemContext }, ...history.map((turn) => ({
+        role: turn.role === "model" ? "assistant" : "user", content: turn.text,
+      }))],
+      ...(maxOutputTokens ? { max_tokens: maxOutputTokens } : {}),
+    }, undefined, true);
+  }
   return request({
     instructions: systemContext,
     input: history.map((turn) => ({ role: turn.role === "model" ? "assistant" : "user", content: turn.text })),

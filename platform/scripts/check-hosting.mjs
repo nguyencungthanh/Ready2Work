@@ -39,6 +39,15 @@ if (process.env.R2W_CHECK_AI === "1") {
   if (result.status !== 0) process.exit(1);
 }
 
+if (process.env.R2W_CHECK_ASSISTANT === "1") {
+  const { spawnSync } = await import("node:child_process");
+  const result = spawnSync("npm", ["exec", "--", "vitest", "run", "tests/integration/ai/live-assistant.test.ts"], {
+    stdio: "inherit", env: { ...process.env, R2W_RUN_LIVE_ASSISTANT: "1" },
+  });
+  report("hosting-assistant-provider", { ok: result.status === 0 });
+  if (result.status !== 0) process.exit(1);
+}
+
 if (process.env.R2W_CHECK_CV === "1") {
   const { spawnSync } = await import("node:child_process");
   const result = spawnSync("npm", ["exec", "--", "vitest", "run", "tests/integration/cv/live-pdf.test.ts", "-t", "analyzes synthetic recognized|reads and analyzes"], {
