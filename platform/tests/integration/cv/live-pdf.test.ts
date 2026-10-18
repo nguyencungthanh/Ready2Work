@@ -4,6 +4,7 @@ import { PDFDocument, StandardFonts } from "pdf-lib";
 import { extractCVDocument } from "@/lib/cv/extract";
 import { analyzeCV } from "@/lib/cv/analyzer";
 import { getGoldenProfile } from "@/lib/content/catalog";
+import { cvExcerpts } from "@/lib/cv/evidence";
 
 // Explicit opt-in only. Never copy a personal CV into the repository or log its text.
 const sample = process.env.R2W_CV_SAMPLE_FILE;
@@ -65,3 +66,21 @@ test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1")("analyzes synthetic recognized 
   expect(analysis.provider).toBe("ai");
   expect(analysis.strengths.length + analysis.skillGaps.length).toBeGreaterThan(0);
 }, 90_000);
+
+test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1")("reads and analyzes a synthetic mixed PDF with source-grounded evidence", async () => {
+  const extracted = await extractCVDocument(await syntheticPdf("mixed"));
+  expect(extracted.method).toBe("pdf-ocr");
+  expect(extracted.text).toContain("PostgreSQL");
+  expect(extracted.text).toContain("EDUCATION");
+  const analysis = await analyzeCV(extracted.text, getGoldenProfile("IT-03")!);
+  expect(analysis.provider).toBe("ai");
+  expect(analysis.strengths.length).toBeGreaterThan(0);
+  const excerpts = cvExcerpts(extracted.text).map((excerpt) => excerpt.text);
+  for (const finding of [...analysis.strengths, ...analysis.skillGaps, ...analysis.additionalRequirements ?? []]) {
+    if (finding.status === "missing") expect(finding.candidateEvidence).toBe("");
+    else {
+      expect(finding.candidateEvidence).not.toBe("");
+      expect(finding.candidateEvidence.split("\n").every((quote) => excerpts.includes(quote))).toBe(true);
+    }
+  }
+}, 175_000);

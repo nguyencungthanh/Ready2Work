@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const mocks = vi.hoisted(() => ({
   user: vi.fn(), client: vi.fn(), admin: vi.fn(), profile: vi.fn(), extract: vi.fn(), analyze: vi.fn(),
   upload: vi.fn(), remove: vi.fn(), insert: vi.fn(), storage: vi.fn(), from: vi.fn(), revalidate: vi.fn(),
+  log: vi.fn(),
 }));
 vi.mock("@/lib/auth/session", () => ({ requireUser: mocks.user }));
 vi.mock("@/lib/supabase/server", () => ({ createServerSupabaseClient: mocks.client }));
@@ -10,7 +11,9 @@ vi.mock("@/lib/content/catalog", () => ({ getGoldenProfile: mocks.profile }));
 vi.mock("@/lib/cv/extract", () => ({ extractCVDocument: mocks.extract }));
 vi.mock("@/lib/cv/analyzer", () => ({ analyzeCV: mocks.analyze }));
 vi.mock("next/cache", () => ({ revalidatePath: mocks.revalidate }));
+vi.mock("@/lib/observability/logger", () => ({ logger: { error: mocks.log }, hashUserId: () => "owner-hash" }));
 import { analyzeCVAction } from "@/app/roadmap/cv/actions";
+import { CVAnalysisError } from "@/lib/cv/errors";
 
 const text = "Synthetic applicant with experience using Excel and SQL for business analysis projects.";
 function form(withFile = true) {
@@ -72,6 +75,33 @@ describe("CV read, analysis and save boundary", () => {
     expect(result.error).not.toContain("private");
     expect(mocks.upload).not.toHaveBeenCalled();
     expect(mocks.insert).not.toHaveBeenCalled();
+  });
+  it.each([
+    [new CVAnalysisError("CV_INVALID_EVIDENCE", ["0"]), "bằng chứng hợp lệ", "CV_INVALID_EVIDENCE"],
+    [new CVAnalysisError("CV_INCOMPLETE_ANALYSIS"), "đối chiếu đủ yêu cầu", "CV_INCOMPLETE_ANALYSIS"],
+    [new CVAnalysisError("CV_INVALID_RESPONSE"), "đúng định dạng", "CV_INVALID_RESPONSE"],
+    [{ status: 503, message: "private provider response" }, "tạm thời quá tải", "CV_AI_UNAVAILABLE"],
+    [new DOMException("private timeout", "TimeoutError"), "phản hồi quá lâu", "CV_AI_TIMEOUT"],
+  ])("distinguishes analysis failures and logs only safe metadata: %s", async (error, message, code) => {
+    mocks.analyze.mockRejectedValue(error);
+    const result = await analyzeCVAction({}, form());
+    expect(result.error).toContain(message);
+    expect(result.error).not.toContain("private");
+    expect(mocks.log).toHaveBeenCalledWith("cv_processing_failed", expect.objectContaining({
+      request_id: expect.any(String), user_id_hash: "owner-hash", operation: "analyze", error_code: code,
+    }));
+    const log = JSON.stringify(mocks.log.mock.calls);
+    expect(log).not.toContain(text);
+    expect(log).not.toContain("verified-owner");
+    expect(log).not.toContain("private");
+    expect(mocks.upload).not.toHaveBeenCalled();
+    expect(mocks.insert).not.toHaveBeenCalled();
+  });
+  it("preserves the save error if cleanup also fails", async () => {
+    mocks.insert.mockResolvedValue({ error: { message: "private database error" } });
+    mocks.remove.mockRejectedValue(new Error("private storage error"));
+    expect((await analyzeCVAction({}, form())).error).toContain("Không lưu được kết quả");
+    expect(mocks.log).toHaveBeenCalledWith("cv_cleanup_failed", expect.objectContaining({ error_code: "CV_CLEANUP_FAILED" }));
   });
   it("keeps the existing pasted-text option without uploading a file", async () => {
     expect((await analyzeCVAction({}, form(false))).success).toBeDefined();

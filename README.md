@@ -77,7 +77,7 @@ On Vercel, select **Next.js** and set the project's **Root Directory to `platfor
 
 Apply the additive migrations to the existing Supabase project first. Set the deployed URL as `NEXT_PUBLIC_SITE_URL` and add that URL plus `/auth/confirm` to Supabase Authentication's allowed redirect URLs. The old static project used the **Other** framework preset; change that setting for the combined application.
 
-The root workspace also supplies a build command and Vercel configuration pointing to `platform/.next`. The `platform` project root is the recommended deployment configuration. For self-hosting, `npm run build` produces a standalone server; `npm start` loads local environment settings, copies public/static assets, and launches that server. Use `PORT` and `R2W_HOSTNAME` to choose the listener.
+The production Vercel project is `ready2-work`, with Root Directory set to `platform`. Keep the Next.js output-directory default; an explicit `platform/.next` override would resolve to `platform/platform/.next` when deploying from the workspace root. For self-hosting, `npm run build` produces a standalone server; `npm start` loads local environment settings, copies public/static assets, and launches that server. Use `PORT` and `R2W_HOSTNAME` to choose the listener.
 
 See [implementation, performance decisions and research](docs/IMPLEMENTATION.md) for the technical details and remaining external validation.
 

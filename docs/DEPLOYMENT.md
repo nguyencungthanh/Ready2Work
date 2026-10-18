@@ -1,5 +1,19 @@
 # Deployment status — 18/10/2026
 
+## Hosting consolidated on ready2-work — 18/10/2026
+
+This section supersedes the older `ready2work-platform` hosting instructions below.
+
+- Active Vercel project: `ready2-work` (`prj_XeehOtiQBOr9bUurmgNBfXHfxHyU`), Root Directory `platform`, Next.js preset, GitHub `nguyencungthanh/Ready2Work`, production branch `main`.
+- Both `ready-2work.vercel.app` and `ready2work-platform-smoky.vercel.app` were moved to this project and verified. The main URL is unchanged, so existing Supabase Site URL/email redirect settings remain applicable.
+- Cutover deployment: `dpl_3sCL2AE2R6GLPxQBE4cARPdcD4ui`, Ready, functions in `sin1`. It includes the workspace CV evidence-ID/retry/form-persistence fixes. The local `.vercel/project.json` now links to `ready2-work`.
+- `NEXT_PUBLIC_SITE_URL` is the canonical URL in Production/Preview. `GEMINI_MODEL` remains `gemini-3.5-flash`. The owner's replacement Gemini key was preserved; no key was revealed or copied. Supabase remains `ready2work-production` (`pzuhokmwlgobqhwottpa`); no database/storage/account migration or deletion occurred.
+- A build preflight inside `ready2-work` confirmed Supabase Auth HTTP 200, read access to `cv_analyses` HTTP 200, and the existing private CV bucket/3 MiB limit. A minimal synthetic Gemini call succeeded. A separate full CV provider check later returned HTTP 503 and then HTTP 429 (daily quota 20), so live OCR + analysis success remains unverified. No more provider requests were sent after that quota response.
+- The workspace-root Vercel output override was removed: with Root Directory `platform`, `platform/.next` incorrectly resolved to `platform/platform/.next`. Both project-root and workspace-root deploys now use the Next.js default. `.vercelignore` excludes local credentials/tool settings from uploads.
+- Public checks after cutover returned HTTP 200 on the canonical and smoky domains for `/`, `/signin` and `/api/health`; the target project's generated production alias also passed `/signup`. These checks do not assert a new authenticated CV save or email round trip.
+- `ready2work-platform` is retained as a rollback reference, with its Git repository disconnected and both configured domains moved away. Future code deployments use `ready2-work`; the old project and its deployment history were not deleted.
+- `npm run check:hosting` in `platform` is an explicit production preflight. Normal builds skip it. Opt-in Vercel build variables are `R2W_VERIFY_HOSTING=1`, with optional `R2W_CHECK_GEMINI=1` or `R2W_CHECK_CV=1`; the latter provider checks consume quota and must be intentionally requested.
+
 ## PDF CV reading — 18/10/2026
 
 - CV uploads now accept PDF only in the file picker, drag-and-drop validation and server reader. The existing 3 MiB/15-page limits and pasted-text option are retained. Uploaded PDFs receive an explicit `application/pdf` content type; existing history is preserved.

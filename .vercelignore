@@ -1,0 +1,14 @@
+.git/
+.vercel/
+.claude/
+.agents/
+.codex/
+.aws/
+.env*
+**/.env*
+**/node_modules/
+**/.next/
+**/*.tsbuildinfo
+**/test-results/
+**/playwright-report/
+**/*.log

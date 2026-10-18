@@ -8,6 +8,8 @@ import { getGoldenProfile } from "@/lib/content/catalog";
 import { analyzeCV } from "@/lib/cv/analyzer";
 import { extractCVDocument } from "@/lib/cv/extract";
 import type { CVAnalysis } from "@/lib/cv/analyzer";
+import { cvErrorDetails } from "@/lib/cv/errors";
+import { hashUserId, logger } from "@/lib/observability/logger";
 
 export interface CVFormState { error?: string; success?: string }
 export async function analyzeCVAction(_previous: CVFormState, formData: FormData): Promise<CVFormState> {
@@ -18,7 +20,9 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
   const supabase = await createServerSupabaseClient();
   const file = formData.get("cv");
   let path: string | null = null;
-  let stage: "read" | "analyze" | "save" = "read";
+  let stage: "read" | "analyze" | "upload" | "save" = "read";
+  const requestId = crypto.randomUUID();
+  const started = Date.now();
   try {
     let cvText = String(formData.get("cvText") ?? "").trim();
     let extractionMethod: CVAnalysis["extractionMethod"] = "pasted";
@@ -30,12 +34,13 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
     if (cvText.length < 40 || cvText.length > 40_000) return { error: "Nội dung CV cần từ 40 đến 40.000 ký tự." };
     stage = "analyze";
     const result = { ...await analyzeCV(cvText, profile), extractionMethod };
-    stage = "save";
+    stage = "upload";
     if (file instanceof File && file.size) {
       path = `${user.id}/${crypto.randomUUID()}/cv.pdf`;
       const { error } = await supabase.storage.from("candidate-cvs").upload(path, file, { upsert: false, contentType: "application/pdf" });
       if (error) throw new Error("Không lưu được tệp CV. Vui lòng thử lại.");
     }
+    stage = "save";
     const admin = createServiceRoleClient();
     const { error } = await admin.from("cv_analyses").insert({
       user_id: user.id, position_id: profile.position_id, position_title: profile.position_name,
@@ -48,15 +53,34 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
     revalidatePath("/report");
     return { success: "Đã lưu phân tích vào tài khoản của bạn." };
   } catch (error) {
-    if (path) await supabase.storage.from("candidate-cvs").remove([path]);
-    if (stage === "analyze" && typeof error === "object" && error !== null && "status" in error && error.status === 429) {
-      return { error: "Đã đọc được CV nhưng dịch vụ AI đang đạt giới hạn lượt gọi. Vui lòng thử lại sau; chưa có kết quả mới được lưu." };
+    const details = cvErrorDetails(error);
+    logger.error("cv_processing_failed", {
+      request_id: requestId, user_id_hash: hashUserId(user.id), route: "/roadmap/cv", operation: stage,
+      duration_ms: Date.now() - started, ...details,
+      error_code: stage === "analyze" ? details.error_code : `CV_${stage.toUpperCase()}_FAILED`,
+    });
+    if (path) {
+      try {
+        const { error: cleanupError } = await supabase.storage.from("candidate-cvs").remove([path]);
+        if (cleanupError) throw cleanupError;
+      } catch {
+        logger.error("cv_cleanup_failed", { request_id: requestId, route: "/roadmap/cv", operation: "cleanup", error_code: "CV_CLEANUP_FAILED" });
+      }
+    }
+    if (stage === "analyze") {
+      const messages: Record<string, string> = {
+        CV_AI_QUOTA: "Đã đọc được CV nhưng dịch vụ AI đang đạt giới hạn lượt gọi. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",
+        CV_AI_UNAVAILABLE: "Đã đọc được CV nhưng dịch vụ AI đang tạm thời quá tải. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",
+        CV_AI_TIMEOUT: "Đã đọc được CV nhưng dịch vụ AI phản hồi quá lâu. Vui lòng thử lại; chưa có kết quả mới được lưu.",
+        CV_INVALID_RESPONSE: "Đã đọc được CV nhưng kết quả AI trả về chưa đúng định dạng sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
+        CV_INCOMPLETE_ANALYSIS: "Đã đọc được CV nhưng AI chưa đối chiếu đủ yêu cầu sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
+        CV_INVALID_EVIDENCE: "Đã đọc được CV nhưng AI chưa chọn được bằng chứng hợp lệ sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
+      };
+      return { error: messages[details.error_code] ?? "Đã đọc được CV nhưng AI chưa hoàn tất phân tích. Vui lòng thử lại sau; chưa có kết quả mới được lưu." };
     }
     // Parser errors are safe to present; do not expose database/provider internals.
     const message = error instanceof Error ? error.message : "";
     return { error: /^(Tệp|CV |Chỉ hỗ trợ|Không đọc|Nội dung CV|Không lưu)/.test(message)
-      ? message : stage === "analyze"
-        ? "Đã đọc được CV nhưng AI chưa hoàn tất phân tích. Vui lòng thử lại sau; chưa có kết quả mới được lưu."
-        : "Chưa xử lý được CV. Vui lòng thử lại hoặc dán nội dung văn bản." };
+      ? message : "Chưa xử lý được CV. Vui lòng thử lại hoặc dán nội dung văn bản." };
   }
 }
