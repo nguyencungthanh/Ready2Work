@@ -12,6 +12,8 @@ import { publicSimulationMaterials } from "@/lib/simulation/materials";
 import { simulationHasSourceTimeLimit } from "@/lib/content/simulation-timing";
 import { isSourceSimulation, isPublishedBusinessContent } from "@/lib/content/source-catalog";
 
+export const maxDuration = 180;
+
 export default async function SimulationDetailPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ attempt?: string; preview?: string }> }) {
   const user = await requireUser();
   const { slug } = await params;

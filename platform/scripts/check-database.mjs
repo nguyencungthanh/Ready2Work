@@ -29,6 +29,9 @@ try {
   let oldSession;
   let previousSourceAttempt;
   let originalQuestions;
+  let changedAssignmentAttempt;
+  let unchangedAssignmentAttempt;
+  let originalCompletedResults;
   for (const file of migrations) {
     if (file.startsWith("20261016") && !legacySeeded) {
       await db.exec(`
@@ -52,6 +55,11 @@ try {
       previousSourceAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-it-03' returning id")).rows[0];
       originalQuestions = (await db.query("select id,set_id,position,prompt,reference_answer,grading_rubric from interview_questions order by id")).rows;
     }
+    if (file === "20261019000100_simulation_source_refresh.sql") {
+      changedAssignmentAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-kk-01' returning id")).rows[0];
+      unchangedAssignmentAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-it-03' returning id")).rows[0];
+      originalCompletedResults = (await db.query("select * from simulation_submissions order by id")).rows;
+    }
     try { await db.exec(await readFile(path.join(root, "supabase/migrations", file), "utf8")); }
     catch (error) { console.error(`Migration failed: ${file}`); throw error; }
     console.log(`Applied ${file}`);
@@ -66,12 +74,12 @@ try {
   const sourceTasks = JSON.parse(await readFile(path.join(root, "data/task-rubrics.json"), "utf8")).industries.flatMap((industry) => industry.tasks);
   for (const task of sourceTasks) {
     const published = await one("select reference_data,is_available from simulations where slug=$1", [`r2w-${task.position_id.toLowerCase()}`]);
-    assert.equal(published.reference_data.source_policy, "document_only");
+    assert.equal(published.reference_data.source_policy, task.source_policy);
+    assert.equal(published.reference_data.content_revision, task.content_revision);
     assert.deepEqual(published.reference_data.public_materials, task.public_materials);
-    assert.doesNotMatch(JSON.stringify(published.reference_data), /marketing-product-brief|marketing-ad-data|marketing-keyword-data|supplemental_source/);
-    if (task.position_id.startsWith("MKT-")) assert.equal(published.is_available, false);
+    assert.equal(published.is_available, true);
   }
-  assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%' and is_available")).count), 9);
+  assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%' and is_available")).count), 15);
   assert.equal(Number((await one("select count(*) from simulations where position_id is null and is_available and slug not like 'company-%' and slug <> 'legacy-existing'")).count), 0);
   assert.equal(Number((await one("select count(*) from interview_sets where position_id is null and is_available and slug not like 'company-%'")).count), 0);
   assert.deepEqual((await db.query("select id,set_id,position,prompt,reference_answer,grading_rubric from interview_questions order by id")).rows, originalQuestions);
@@ -82,6 +90,14 @@ try {
   assert.equal((await one("select is_available from interview_sets where id=$1", [oldQuestion.set_id])).is_available, false);
   assert.ok((await one("select superseded_at from simulation_attempts where id=$1", [oldAttempt.id])).superseded_at);
   await assert.rejects(db.query("select finalize_simulation_attempt($1,'33333333-3333-4333-8333-333333333333','Old draft',70,'Proficient','{}','{}',now())", [oldAttempt.id]), /source changed/);
+  assert.ok((await one("select superseded_at from simulation_attempts where id=$1", [changedAssignmentAttempt.id])).superseded_at);
+  assert.equal((await one("select superseded_at from simulation_attempts where id=$1", [unchangedAssignmentAttempt.id])).superseded_at, null);
+  assert.deepEqual((await db.query("select * from simulation_submissions order by id")).rows, originalCompletedResults);
+  await assert.rejects(db.query("select finalize_simulation_attempt($1,'33333333-3333-4333-8333-333333333333','Old rubric',70,'Proficient','{}','{}',now())", [changedAssignmentAttempt.id]), /source changed/);
+  // Reapplying the content refresh must not invalidate a new attempt on the current version.
+  const newAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-kk-01' returning id")).rows[0];
+  await db.exec(await readFile(path.join(root, "supabase/migrations/20261019000100_simulation_source_refresh.sql"), "utf8"));
+  assert.equal((await one("select superseded_at from simulation_attempts where id=$1", [newAttempt.id])).superseded_at, null);
   const owner = "11111111-1111-4111-8111-111111111111", other = "22222222-2222-4222-8222-222222222222";
   await db.query("insert into auth.users(id,email) values ($1,'owner@example.test'),($2,'other@example.test')", [owner, other]);
   await db.query("insert into cv_analyses(user_id,position_id,position_title,result) values ($1,'IT-03','Data Analyst','{}')", [owner]);

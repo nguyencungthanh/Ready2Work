@@ -12,3 +12,6 @@
 **/test-results/
 **/playwright-report/
 **/*.log
+**/supabase/.temp/
+**/__pycache__/
+**/*.pyc

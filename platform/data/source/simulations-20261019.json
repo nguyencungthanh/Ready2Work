@@ -1,0 +1,2151 @@
+{
+  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit?tab=t.hkiwgjnn972q#heading=h.hgs95oiv3vbj",
+  "retrieved_on": "2026-10-19",
+  "scope": "All fifteen simulation assignments, requirements, rubrics and input links only. No feedback/CV/interview data.",
+  "export_options": {
+    "format": "html",
+    "include_tabs_content": true
+  },
+  "export_sha256": "cbe86648726dd459146ad6d82fad65e684f95dd49eadbfb22315ba6f20f0c99a",
+  "tasks": {
+    "IT-01": {
+      "tab_id": "t.ns3fz05dop68",
+      "table_index": 25,
+      "row_index": 1,
+      "cells": [
+        [
+          {
+            "text": "Business Analyst"
+          }
+        ],
+        [
+          {
+            "text": "Một trung tâm đào tạo hiện quản lý học viên bằng Excel. Khi học viên đăng ký khóa học, nhân viên phải nhập thông tin thủ công, kiểm tra lớp còn chỗ và xác nhận học phí. Việc này dẫn đến dữ liệu bị trùng, cập nhật trạng thái chậm và khó theo dõi số lượng học viên theo lớp."
+          },
+          {
+            "text": "→Tài liệu: Screenshot Excel quản lý học viên của trung tâm"
+          },
+          {
+            "text": "Trung tâm muốn xây dựng chức năng đăng ký khóa học trực tuyến trên hệ thống quản lý học viên. Theo yêu cầu của quản lý:"
+          },
+          {
+            "text": "Học viên có thể xem danh sách khóa học và số chỗ còn lại.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Học viên chọn khóa học và gửi đăng ký.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Hệ thống kiểm tra điều kiện đăng ký và số chỗ.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Sau khi đăng ký, hệ thống ghi nhận thông tin và chuyển trạng thái sang “Chờ xác nhận học phí”.",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          },
+          {
+            "text": "Nhân viên có thể xem danh sách đăng ký và cập nhật trạng thái học phí.",
+            "list_kind": "ul",
+            "list_number": 5,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Business Analyst, hãy phân tích yêu cầu cho chức năng Đăng ký khóa học và chuẩn bị tài liệu bàn giao cho đội phát triển, gồm:"
+          },
+          {
+            "text": "Xác định 5 yêu cầu chức năng chính từ thông tin trên.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Viết 3 User Stories cho các nhóm người dùng liên quan.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Viết Acceptance Criteria cho 3 User Stories.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "1. Độ chính xác trong quyết định/đề xuất chính (35 điểm):  Xác định đúng pain point (ví dụ: nhập dữ liệu thủ công gây trùng/sai, khó theo dõi trạng thái) và nhu cầu stakeholder (quản lý cần theo dõi sĩ số, nhân viên cần quản lý đăng ký tập trung), sau đó chuyển thành requirement chức năng phù hợp."
+          },
+          {
+            "text": "2. Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài (25 điểm): Mỗi đề xuất phải giải thích được vì sao cần có, dựa trên thông tin doanh nghiệp và stakeholder được cung cấp."
+          },
+          {
+            "text": "3. Khả năng xử lý sâu vấn đề phát sinh trong tình huống (25 điểm): Nhận diện và giải quyết hợp lý các tình huống như"
+          },
+          {
+            "text": "Quản lý muốn xác nhận đăng ký ngay nhưng kế toán chỉ muốn xác nhận sau khi kiểm tra thanh toán → đề xuất tách trạng thái “Chờ thanh toán” và “Đã xác nhận”",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Lớp đã đủ chỗ nhưng vẫn có đăng ký mới → đề xuất hệ thống tự động khóa đăng ký khi đủ sĩ số hoặc đưa học viên vào danh sách chờ.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Đồng thời đưa ra requirement rõ ràng, khả thi."
+          },
+          {
+            "text": "4. Trình bày mạch lạc, đúng thời gian (15 điểm): Bài làm được trình bày theo đúng thứ tự và đủ 3 yêu cầu của đề bài, sử dụng cách diễn đạt rõ ràng, cụ thể và hoàn thành trong 60 phút."
+          }
+        ]
+      ],
+      "links": [
+        {
+          "text": "Screenshot Excel quản lý học viên của trung tâm",
+          "url": "https://drive.google.com/file/d/1c74ljt3g6SNCajIWOOVQUBjpiqLt7j6b/view?usp=sharing"
+        }
+      ],
+      "nested_tables": []
+    },
+    "IT-02": {
+      "tab_id": "t.ns3fz05dop68",
+      "table_index": 25,
+      "row_index": 2,
+      "cells": [
+        [
+          {
+            "text": "Software Tester/QA"
+          }
+        ],
+        [
+          {
+            "text": "Một ứng dụng đặt đồ ăn vừa phát triển xong tính năng “Giỏ hàng & Thanh toán”. Trong vòng test nội bộ, đội QA ghi nhận 2 lỗi sau (đính kèm log/mô tả thực tế bên dưới):"
+          },
+          {
+            "text": "Lỗi 1 - Sai tổng tiền:Giỏ hàng: 2 ly trà sữa (35.000đ/ly) + phí giao hàng 15.000đ. Khách nhập mã giảm giá SALE20 (giảm 20% trên tổng đơn hàng, không áp dụng cho phí ship). Hệ thống hiển thị tổng thanh toán = 68.000đ. (Số đúng phải là: (70.000 × 0.8) + 15.000 = 71.000đ)"
+          },
+          {
+            "text": "→ Tài liệu: Lỗi 1"
+          },
+          {
+            "text": "Lỗi 2 - Đơn hàng bị trùng:Khách bấm nút \"Đặt hàng\" lúc mạng chập chờn (loading xoay hơn 3 giây). Khách bấm thêm lần 2 vì tưởng chưa nhận. Sau đó vào mục “Đơn hàng của tôi” thấy xuất hiện 2 đơn giống hệt nhau, cùng bị trừ tiền 2 lần trong lịch sử giao dịch."
+          },
+          {
+            "text": "→ Tài liệu: Lỗi 2"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Software Tester/QA, từ 2 lỗi mô tả ở trên, hãy viết 2 Bug Report theo mẫu chuẩn:"
+          },
+          {
+            "text": "Tiêu đề",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Các bước tái hiện",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Kết quả mong đợi",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Kết quả thực tế",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          },
+          {
+            "text": "Mức độ nghiêm trọng",
+            "list_kind": "ul",
+            "list_number": 5,
+            "list_level": 0
+          },
+          {
+            "text": "Đề xuất hướng xử lý",
+            "list_kind": "ul",
+            "list_number": 6,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "1. Độ chính xác trong quyết định/đề xuất chính (35 điểm):  Bug report tính đúng con số kỳ vọng (71.000đ) và chỉ ra đúng nguyên nhân gốc khả dĩ cho từng lỗi (lỗi 1 do sai thứ tự áp dụng giảm giá trước/sau phí ship; lỗi 2 do thiếu debounce/khóa nút sau khi bấm “Đặt hàng”), không chỉ dừng ở mô tả hiện tượng."
+          },
+          {
+            "text": "2. Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài (25 điểm): Mỗi bug report giải thích được vì sao Mức độ nghiêm trọng được chọn là hợp lý, gắn với rủi ro nghiệp vụ cụ thể (sai tiền ảnh hưởng trực tiếp doanh thu và niềm tin khách hàng; đơn trùng ảnh hưởng vận hành bếp/giao hàng)."
+          },
+          {
+            "text": "3. Khả năng xử lý sâu vấn đề phát sinh trong tình huống (25 điểm): Nhận diện và xử lý hợp lý:"
+          },
+          {
+            "text": "Nếu mã giảm giá áp dụng cả trên phí ship thay vì chỉ trên đơn hàng, số tiền đúng sẽ khác đi → đề xuất trong bug report cần làm rõ phạm vi áp dụng mã giảm giá cần được xác nhận với BA trước khi kết luận đây là bug, thay vì mặc định một cách hiểu.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Đơn hàng trùng có thể do double-submit hoặc do hệ thống retry tự động khi mất mạng → đề xuất phân biệt rõ 2 nguyên nhân này trong phần \"Đề xuất hướng xử lý\" thay vì gộp chung một hướng.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "4. Trình bày mạch lạc, đúng thời gian (15 điểm): Trình bày đúng mẫu, đủ 6 mục cho cả 2 bug report, dùng đúng thuật ngữ QA, hoàn thành trong 60 phút."
+          }
+        ]
+      ],
+      "links": [
+        {
+          "text": "Lỗi 1",
+          "url": "https://drive.google.com/file/d/11nuaVbJpvrtCP5jwgK3Ryab2XRY2Ay6g/view?usp=sharing"
+        },
+        {
+          "text": "Lỗi 2",
+          "url": "https://drive.google.com/file/d/17C1Ldd41KJ-f4WcO-UZhd6Gxj9723HBb/view?usp=sharing"
+        }
+      ],
+      "nested_tables": []
+    },
+    "IT-03": {
+      "tab_id": "t.ns3fz05dop68",
+      "table_index": 25,
+      "row_index": 3,
+      "cells": [
+        [
+          {
+            "text": "Data Analyst"
+          }
+        ],
+        [
+          {
+            "text": "Một chuỗi cà phê triển khai app đặt hàng trước (mobile order) tại 4 chi nhánh trong 4 tháng gần nhất. Dưới đây là dữ liệu doanh thu và số đơn thực tế:"
+          },
+          {
+            "text": "(Ghi chú: chi nhánh Bình Thạnh có khuyến mãi “mua 1 tặng 1” trong tuần đầu tháng 7; các chi nhánh còn lại không có khuyến mãi trong giai đoạn này.)"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Data Analyst, hãy đề xuất các khuyến nghị cho doanh nghiệp đủ 3 ý sau:"
+          },
+          {
+            "text": "Tính tốc độ tăng trưởng doanh thu (%) từng chi nhánh qua các tháng.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Xác định chi nhánh tăng trưởng tốt nhất và chi nhánh trì trệ nhất, nêu rõ căn cứ số liệu.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Đề xuất 3 insight/khuyến nghị hành động cho ban quản lý, mỗi insight gắn với 1 con số cụ thể từ bảng trên.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "1. Độ chính xác trong quyết định/đề xuất chính (35 điểm): Tính đúng % tăng trưởng từng chi nhánh; xác định đúng Q1 tăng trưởng tốt nhất và Thủ Đức trì trệ/suy giảm dựa trên số liệu."
+          },
+          {
+            "text": "*Lưu ý: con số +56,67% của Bình Thạnh bị đội lên bởi khuyến mãi “mua 1 tặng 1” trong T7 - không phản ánh tăng trưởng thực chất ."
+          },
+          {
+            "text": "2. Lý do/lập luận rõ ràng, bám sát tiêu chí đề bài (25 điểm): Mỗi insight giải thích được logic từ số liệu sang nguyên nhân nghiệp vụ khả dĩ, có trích dẫn đúng con số trong bảng. Có thể tham khảo như:"
+          },
+          {
+            "text": "Insight 1: Thủ Đức giảm đều -1,6% → -2,44% → -0,83% suốt 4 tháng liên tiếp, không có cú sốc đột ngột → đây là vấn đề mang tính hệ thống (vị trí, menu, cạnh tranh khu vực), cần khảo sát thực địa trước khi quyết định nhân rộng mô hình tới khu vực tương tự.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Insight 2: Bình Thạnh tăng vọt +17,65% đúng tháng có khuyến mãi “mua 1 tặng 1” (T7) rồi vẫn giữ đà +17,5% ở T8 - cần theo dõi thêm 1-2 tháng nữa (sau khi hết dư âm khuyến mãi) mới kết luận được đây là tăng trưởng bền vững hay chỉ là hiệu ứng ngắn hạn.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Insight 3: Q1 là chi nhánh duy nhất tăng trưởng dương và ổn định ở cả 3 mốc thời gian mà không cần khuyến mãi → nên ưu tiên nghiên cứu mô hình vận hành của Q1 (sản phẩm bán chạy, khung giờ) làm chuẩn tham chiếu khi nhân rộng 10 chi nhánh mới, thay vì Bình Thạnh.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "3. Khả năng xử lý sâu vấn đề phát sinh trong tình huống (25 điểm): Nhận diện và xử lý hợp lý:"
+          },
+          {
+            "text": "Bình Thạnh tăng mạnh tháng 7 trùng thời điểm có khuyến mãi “mua 1 tặng 1” → không được kết luận đây là tăng trưởng thực chất mà cần tách riêng ảnh hưởng khuyến mãi khi đánh giá xu hướng dài hạn.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Thủ Đức có doanh thu giảm nhẹ đều đặn suốt 4 tháng (không có biến động đột ngột) → đề xuất phân biệt đây là vấn đề mang tính hệ thống (địa điểm, menu, cạnh tranh) hơn là sự cố ngắn hạn, cần điều tra thêm thay vì chỉ đọc số.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "4. Trình bày mạch lạc, đúng thời gian (15 điểm): Trình bày đúng thứ tự, đủ 3 yêu cầu, số liệu tính toán chính xác và rõ ràng, hoàn thành trong 60 phút."
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": [
+        {
+          "column": 1,
+          "rows": [
+            [
+              [
+                "Chi nhánh"
+              ],
+              [
+                "Tháng 5 (đơn/ doanh thu)"
+              ],
+              [
+                "Tháng 6"
+              ],
+              [
+                "Tháng 7"
+              ],
+              [
+                "Tháng 8"
+              ]
+            ],
+            [
+              [
+                "Q1"
+              ],
+              [
+                "420 đơn / 21.0tr"
+              ],
+              [
+                "460 đơn / 23.0tr"
+              ],
+              [
+                "510 đơn / 25.5tr"
+              ],
+              [
+                "560 đơn / 28.0tr"
+              ]
+            ],
+            [
+              [
+                "Q3"
+              ],
+              [
+                "380 đơn / 19.0tr"
+              ],
+              [
+                "400 đơn / 20.0tr"
+              ],
+              [
+                "390 đơn / 19.5tr"
+              ],
+              [
+                "405 đơn / 20.3tr"
+              ]
+            ],
+            [
+              [
+                "Bình Thạnh"
+              ],
+              [
+                "300 đơn / 15.0tr"
+              ],
+              [
+                "340 đơn / 17.0tr"
+              ],
+              [
+                "400 đơn / 20.0tr"
+              ],
+              [
+                "470 đơn / 23.5tr"
+              ]
+            ],
+            [
+              [
+                "Thủ Đức"
+              ],
+              [
+                "250 đơn / 12.5tr"
+              ],
+              [
+                "245 đơn / 12.3tr"
+              ],
+              [
+                "240 đơn / 12.0tr"
+              ],
+              [
+                "238 đơn / 11.9tr"
+              ]
+            ]
+          ]
+        },
+        {
+          "column": 3,
+          "rows": [
+            [
+              [
+                "Chi nhánh"
+              ],
+              [
+                "T5 →",
+                "T6"
+              ],
+              [
+                "T6 →",
+                "T7"
+              ],
+              [
+                "T7 →",
+                "T8"
+              ],
+              [
+                "Tổng T5→T8"
+              ]
+            ],
+            [
+              [
+                "Q1"
+              ],
+              [
+                "+9,52%"
+              ],
+              [
+                "+10,87%"
+              ],
+              [
+                "+9,80%"
+              ],
+              [
+                "+33,33%"
+              ]
+            ],
+            [
+              [
+                "Q3"
+              ],
+              [
+                "+5,26%"
+              ],
+              [
+                "-2,50%"
+              ],
+              [
+                "+4,10%"
+              ],
+              [
+                "+6,84%"
+              ]
+            ],
+            [
+              [
+                "Bình Thạnh"
+              ],
+              [
+                "+13,33%"
+              ],
+              [
+                "+17,65%"
+              ],
+              [
+                "+17,50%"
+              ],
+              [
+                "+56,67%*"
+              ]
+            ],
+            [
+              [
+                "Thủ Đức"
+              ],
+              [
+                "-1,60%"
+              ],
+              [
+                "-2,44%"
+              ],
+              [
+                "-0,83%"
+              ],
+              [
+                "-4,80%"
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "KK-01": {
+      "tab_id": "t.xbcvi0hm43q",
+      "table_index": 40,
+      "row_index": 1,
+      "cells": [
+        [
+          {
+            "text": "Kế toán viên"
+          }
+        ],
+        [
+          {
+            "text": "1. Bạn là Kế toán tổng hợp (Chuyên bán lẻ đồ điện tử). Công ty áp dụng chế độ kế toán theo Thông tư 200/2014/TT-BTC, kê khai thuế GTGT theo phương pháp khấu trừ. Hôm nay là ngày 31/12/2026, bạn cần rà soát và hạch toán lô chứng từ cuối cùng để khóa sổ lập Báo cáo tài chính."
+          },
+          {
+            "text": "2. Dữ liệu cung cấp (Inputs): Bộ phận mua hàng và ngân hàng gửi đến cho bạn 3 chứng từ sau:"
+          },
+          {
+            "text": "Chứng từ 1: Hóa đơn GTGT mua 1 chiếc ô tô 9 chỗ ngồi phục vụ cho việc đi lại của Giám đốc. Giá chưa thuế GTGT: 2.500.000.000 VNĐ, Thuế GTGT 10%: 250.000.000 VNĐ.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Chứng từ 2: Hóa đơn GTGT tiếp khách tại nhà hàng sang trọng, tổng thanh toán 22.000.000 VNĐ (đã bao gồm 10% VAT). Tuy nhiên, trên hóa đơn bị sai một chữ số trong Mã số thuế của công ty Alpha. (Thanh toán bằng thẻ tín dụng công ty).",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Chứng từ 3: Giấy báo Có của Ngân hàng Vietcombank về việc nhận được thanh toán từ khách hàng nước ngoài (Công ty X). Số tiền nhận: 50.000 USD.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Biết rằng: Khoản phải thu của khách hàng X đang có số dư trên sổ kế toán là: 50.000 USD, tỷ giá ghi sổ là 24.200 VNĐ/USD.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 1
+          },
+          {
+            "text": "Tỷ giá mua chuyển khoản của Vietcombank ngày 31/12/2026 là 25.100 VNĐ/USD.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 1
+          },
+          {
+            "text": "Ngân hàng nước ngoài đã thu phí chuyển tiền trực tiếp từ số tiền này là 50 USD (Công ty Alpha chịu phí theo hợp đồng). Thực tế tiền vào tài khoản chỉ là 49.950 USD.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 1
+          }
+        ],
+        [
+          {
+            "text": "Xử lý chứng từ: Trình bày cách xử lý (về mặt thủ tục giấy tờ/thuế) đối với Chứng từ số 2 (Hóa đơn sai MST). Hóa đơn này có được khấu trừ thuế và tính vào chi phí hợp lý không?"
+          },
+          {
+            "text": "Định khoản kế toán: Lập bút toán hạch toán (Nợ/Có) cho cả 3 nghiệp vụ trên."
+          },
+          {
+            "text": "Đặc biệt lưu ý: Nguyên giá tài sản cố định và Thuế GTGT được khấu trừ của Chứng từ 1 theo đúng Luật Thuế hiện hành.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "1. Xử lý Chứng từ 2 (20đ): Nêu đúng thủ tục xử lý hóa đơn điện tử sai sót (Lập biên bản điều chỉnh/Thông báo mẫu 04/SS-HĐĐT, yêu cầu xuất hóa đơn điều chỉnh). Khẳng định được: Khi chưa điều chỉnh thì chưa được khấu trừ thuế và tính chi phí hợp lệ (20đ)."
+          },
+          {
+            "text": "2. Định khoản Ô tô 9 chỗ (35đ):"
+          },
+          {
+            "text": "Nhận định đúng luật: Ô tô từ 9 chỗ trở xuống không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Hạch toán đúng Nợ TK 211 (Nguyên giá = 2,5 tỷ + phần VAT không được khấu trừ 90 triệu = 2.590.000.000đ) (10đ).",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Hạch toán đúng Nợ TK 1332 (160 triệu) / Có TK 331 (2,75 tỷ) (10đ).",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "3. Hạch toán chênh lệch tỷ giá & Phí ngân hàng (45đ):"
+          },
+          {
+            "text": "Ghi nhận đúng phí ngân hàng: Nợ TK 642: 50 USD x 25.100 (10đ).",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Ghi nhận đúng tiền thực nhận: Nợ TK 1122: 49.950 USD x 25.100 (10đ).",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Xóa sổ công nợ: Có TK 131: 50.000 USD x 24.200 (10đ).",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Ghi nhận Lãi chênh lệch tỷ giá: Có TK 515: Phần chênh lệch (15đ).",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": []
+    },
+    "KK-02": {
+      "tab_id": "t.xbcvi0hm43q",
+      "table_index": 40,
+      "row_index": 2,
+      "cells": [
+        [
+          {
+            "text": "Kiểm toán viên"
+          }
+        ],
+        [
+          {
+            "text": "1. Bối cảnh (Context): Bạn là Trợ lý kiểm toán năm nhất (Audit Assistant) tham gia Job kiểm toán BCTC năm 2026. Bạn được giao phụ trách phần hành Tiền (Cash) và Phải thu khách hàng (AR)."
+          },
+          {
+            "text": "2. Dữ liệu cung cấp (Inputs):"
+          },
+          {
+            "text": "Tình huống 1 (Phần Tiền gửi Ngân hàng):",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Số dư cuối kỳ trên Sổ cái TK 1121 (Vietinbank) của công ty là: 5.500.000.000 VNĐ.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 1
+          },
+          {
+            "text": "Thư xác nhận từ ngân hàng (Bank Confirmation) gửi thẳng cho Kiểm toán viên báo số dư là: 5.445.000.000 VNĐ.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 1
+          },
+          {
+            "text": "Khi bạn yêu cầu kế toán đối chiếu, kế toán cung cấp Sổ phụ ngân hàng tháng 12 phát hiện 2 khoản: (1) Ngân hàng đã thu phí duy trì tài khoản năm 2026 là 5.000.000 VNĐ, kế toán chưa hạch toán. (2) Khách hàng Công ty Z đã chuyển khoản trả nợ 50.000.000 VNĐ vào chiều ngày 31/12, ngân hàng đã ghi Có, nhưng kế toán công ty Beta chưa nhận được giấy báo Có nên chưa ghi sổ.",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 1
+          },
+          {
+            "text": "Tình huống 2 (Phần Phải thu khách hàng):",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Khách hàng trọng yếu Công ty M có số dư Nợ TK 131 là 2.000.000.000 VNĐ. Bạn đã gửi Thư xác nhận công nợ (Circularization) lần 1 và lần 2 nhưng hoàn toàn không nhận được phản hồi (Non-response).",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 1
+          }
+        ],
+        [
+          {
+            "text": "1. Chỉnh hợp ngân hàng: Lập \"Bảng chỉnh hợp số dư tiền gửi ngân hàng\" (Bank Reconciliation) để giải thích chênh lệch giữa Sổ kế toán và Sổ ngân hàng."
+          },
+          {
+            "text": "2. Bút toán điều chỉnh: Dựa vào Bảng chỉnh hợp, đưa ra các Bút toán điều chỉnh kiểm toán (AJE - Audit Journal Entries) để báo cáo số liệu đúng trên BCTC."
+          },
+          {
+            "text": "3. Thủ tục thay thế: Trình bày chi tiết các \"Thủ tục kiểm toán thay thế\" (Alternative Audit Procedures) bạn sẽ thực hiện để xác minh tính hiện hữu và quyền sở hữu của khoản phải thu 2 tỷ từ Công ty M khi không nhận được thư xác nhận."
+          }
+        ],
+        [
+          {
+            "text": "1.Lập Bảng chỉnh hợp số dư (30đ):"
+          },
+          {
+            "text": "Bắt đầu từ số dư Sổ kế toán (5.500M) - Trừ phí ngân hàng chưa hạch toán (5M) + Cộng tiền khách hàng trả chưa hạch toán (50M) = 5.545M. (Sai! Thí sinh phải tự nhận ra số dư không khớp với Bank Confirmation là 5.445M → Suy ra kế toán đang hạch toán sai/thiếu một khoản khác hoặc đề bài đang đánh lừa tư duy logic). Điểm tuyệt đối nếu tìm ra chênh lệch chưa rõ nguyên nhân là 100M và đề xuất thủ tục hỏi Giám đốc tài chính.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "2. Bút toán điều chỉnh AJE (30đ):"
+          },
+          {
+            "text": "Nợ TK 642 / Có TK 112: 5.000.000 VNĐ (15đ)",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Nợ TK 112 / Có TK 131 (Công ty Z): 50.000.000 VNĐ (15đ).",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "3. Thủ tục thay thế cho khoản Phải thu (40đ): (Nêu được 3 bước sau)"
+          },
+          {
+            "text": "Kiểm tra việc thu tiền sau ngày kết thúc niên độ (Subsequent cash receipts) bằng cách xem sao kê ngân hàng tháng 1/2027 xem Công ty M có trả tiền không (20đ).",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Kiểm tra bộ chứng từ gốc phát sinh công nợ (Vouching): Hợp đồng, Hóa đơn, Phiếu xuất kho, Biên bản bàn giao hàng hóa có chữ ký hai bên (10đ).",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Đánh giá khả năng lập dự phòng nợ phải thu khó đòi đối với khoản này (10đ).",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": []
+    },
+    "KK-03": {
+      "tab_id": "t.xbcvi0hm43q",
+      "table_index": 40,
+      "row_index": 3,
+      "cells": [
+        [
+          {
+            "text": "Trợ lý thuế"
+          }
+        ],
+        [
+          {
+            "text": "1. Bối cảnh (Context): Bạn là Tư vấn viên thuế (Tax Assistant) đang làm việc với khách hàng là Công ty TNHH Một thành viên Gamma (Do 1 cá nhân làm chủ, đồng thời là Giám đốc trực tiếp điều hành công ty). Kế toán của Gamma vừa gửi cho bạn Bảng cân đối tài khoản năm 2026. Lợi nhuận kế toán trước thuế (LNKTTT) hiện đang là: 5.000.000.000 VNĐ."
+          },
+          {
+            "text": "2. Dữ liệu cung cấp (Inputs): Trong quá trình rà soát Sổ cái các tài khoản chi phí (TK 641, 642, 811), bạn phát hiện các khoản chi sau đã được kế toán trừ hết vào chi phí trong kỳ để tính LNKTTT:"
+          },
+          {
+            "text": "Chi phí đồng phục bằng tiền mặt cho 100 nhân viên: 600.000.000 VNĐ (Bình quân 6 triệu/người/năm).",
+            "list_kind": "ol",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Chi phí phạt vi phạm hợp đồng kinh tế (giao hàng chậm cho đối tác): 150.000.000 VNĐ.",
+            "list_kind": "ol",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Chi phí phạt vi phạm hành chính (chậm nộp Tờ khai thuế GTGT và lấn chiếm lòng lề đường): 35.000.000 VNĐ.",
+            "list_kind": "ol",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Tiền lương và Bảo hiểm của Giám đốc (chủ sở hữu Công ty TNHH 1 thành viên): 480.000.000 VNĐ/năm.",
+            "list_kind": "ol",
+            "list_number": 4,
+            "list_level": 0
+          },
+          {
+            "text": "Chi tài trợ cho phường xây dựng nhà văn hóa khu phố: 50.000.000 VNĐ (Có biên bản xác nhận của UBND Phường).",
+            "list_kind": "ol",
+            "list_number": 5,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "1. Rà soát loại trừ chi phí: Hãy phân tích từng khoản chi (từ 1 đến 5). Khoản nào được tính là Chi phí hợp lý (Deductible), khoản nào Không hợp lý (Non-deductible)? Giải thích căn cứ pháp lý ngắn gọn dựa trên Thông tư 78/2014/TT-BTC & 96/2015/TT-BTC."
+          },
+          {
+            "text": "2. Tính Thuế TNDN: Tính tổng các Khoản điều chỉnh tăng (B4) và xác định Thuế TNDN phải nộp năm 2026. Biết thuế suất Thuế TNDN là 20% và công ty không có khoản lỗ kết chuyển hay ưu đãi thuế."
+          }
+        ],
+        [
+          {
+            "text": "1. Rà soát Chi phí 1 (10đ): Đồng phục bằng tiền mặt. Luật quy định tối đa 5 triệu/người/năm. Khoản không hợp lý (B4) = (6 tr - 5 tr) x 100 người = 100.000.000 VNĐ."
+          },
+          {
+            "text": "2. Rà soát Chi phí 2 (10đ): Phạt vi phạm HĐ kinh tế. Được tính vào chi phí hợp lệ (Hoặc bù trừ với thu nhập phạt HĐ). Không bị loại (0 VNĐ)."
+          },
+          {
+            "text": "3. Rà soát Chi phí 3 (10đ): Phạt vi phạm hành chính, luật pháp. KHÔNG được tính vào chi phí hợp lệ. Khoản không hợp lý (B4) = 35.000.000 VNĐ."
+          },
+          {
+            "text": "4. Rà soát Chi phí 4 (20đ): Tiền lương của Chủ DNTN và Chủ công ty TNHH 1 thành viên (dù có tham gia điều hành). KHÔNG được tính vào chi phí hợp lệ. Khoản không hợp lý (B4) = 480.000.000 VNĐ. (Đây là lỗi rất nhiều kế toán mới ra trường mắc phải)."
+          },
+          {
+            "text": "5. Rà soát Chi phí 5 (10đ): Tài trợ địa phương không thuộc diện tài trợ Y tế, Giáo dục, Xây nhà tình nghĩa, Khắc phục thiên tai theo quy định. KHÔNG được tính vào chi phí hợp lý. Khoản không hợp lý (B4) = 50.000.000 VNĐ."
+          },
+          {
+            "text": "6. Tổng hợp & Tính Thuế (40đ):"
+          },
+          {
+            "text": "Tính đúng Tổng chi phí bị loại (Chỉ tiêu B4) = 100M + 35M + 480M + 50M = 665.000.000 VNĐ (20đ).",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Thu nhập tính thuế = LNKTTT + B4 = 5.000M + 665M = 5.665.000.000 VNĐ (10đ).",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Thuế TNDN phải nộp = 5.665M x 20% = 1.133.000.000 VNĐ (10đ).",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": []
+    },
+    "TCNH-02": {
+      "tab_id": "t.a9gvxnc5ma1m",
+      "table_index": 53,
+      "row_index": 1,
+      "cells": [
+        [
+          {
+            "text": "Credit Analyst"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Chuyên viên Thẩm định Tín dụng SME tại Ngân hàng TMCP Đại Dương. CTCP Con Sứa đề nghị vay 5 tỷ đồng để mua dây chuyền. Trưởng phòng yêu cầu bạn hoàn thành tờ trình thẩm định tín dụng trước cuộc họp thẩm định, dựa trên hồ sơ được cung cấp."
+          },
+          {
+            "text": "Thông tin doanh nghiệp",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Lịch sử tín dụng",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Báo cáo tài chính 2023–2025",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Tài sản đảm bảo đề xuất",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          },
+          {
+            "text": "Phương án sử dụng vốn",
+            "list_kind": "ul",
+            "list_number": 5,
+            "list_level": 0
+          },
+          {
+            "text": "Chính sách tín dụng SME của Ngân hàng Đại Dương",
+            "list_kind": "ul",
+            "list_number": 6,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "Nhiệm vụ 1: Điền vào Bảng Thẩm định cho sẵn và Đánh giá chất lượng dòng tiền của doanh nghiệp"
+          },
+          {
+            "text": "Nhiệm vụ 2: Đánh giá khả năng trả nợ, nguồn trả nợ, và đối chiếu khoản vay với chính sách tín dụng của Ngân hàng. Xác định 3 rủi ro tín dụng trọng yếu nhất, xếp theo mức độ quan trọng."
+          },
+          {
+            "text": "Nhiệm vụ 3: Quyết định Có/Không cấp tín dụng. Nếu có, đề xuất cụ thể: hạn mức, kỳ hạn, lãi suất và điều kiện đi kèm. Nếu không, nêu lý do và điều kiện để Ngân hàng xem xét lại."
+          }
+        ],
+        [
+          {
+            "text": "NHIỆM VỤ 1 – (35 điểm)"
+          },
+          {
+            "text": "- Tính 5 chỉ số × 3 năm (20đ): 4đ/chỉ số khi đúng cả 3 năm; đúng 2/3 năm 2,5đ; 1/3 năm 1đ; sai công thức nhưng nhất quán tối đa 50%."
+          },
+          {
+            "text": "- Đánh giá đúng chất lượng dòng tiền (15đ)"
+          },
+          {
+            "text": "NHIỆM VỤ 2 – (25 điểm)"
+          },
+          {
+            "text": "- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ."
+          },
+          {
+            "text": "- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên (15đ)"
+          },
+          {
+            "text": "NHIỆM VỤ 3 - (30đ)"
+          },
+          {
+            "text": "- Quyết định tín dụng (20đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 5đ"
+          },
+          {
+            "text": "+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ."
+          },
+          {
+            "text": "+ Từ chối, nêu căn cứ và lộ trình xem xét lại."
+          },
+          {
+            "text": "- Điều kiện kèm theo (10đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro"
+          },
+          {
+            "text": "TRÌNH BÀY (10đ)"
+          }
+        ]
+      ],
+      "links": [
+        {
+          "text": "Thông tin doanh nghiệp",
+          "url": "https://drive.google.com/file/d/1QB0HoRsqRQ3ooCsh62LFZvmRR5eHAxL5/view?usp=sharing"
+        },
+        {
+          "text": "Lịch sử tín dụng",
+          "url": "https://drive.google.com/file/d/1jMPOgkCqoCLVpFQB_5MShLx9BefCUgs7/view?usp=sharing"
+        },
+        {
+          "text": "Báo cáo tài chính 2023–2025",
+          "url": "https://drive.google.com/file/d/1f78OuVKPqAe_hlccE7Azm0guz62-RkOC/view?usp=sharing"
+        },
+        {
+          "text": "Tài sản đảm bảo đề xuất",
+          "url": "https://drive.google.com/file/d/1qIyiV_215pZw4rfZjaot3jyGcOuj9B7H/view?usp=sharing"
+        },
+        {
+          "text": "Phương án sử dụng vốn",
+          "url": "https://drive.google.com/file/d/1h1Eh2nPQjoxJFcY-mDoMW6fxmh7G_ynP/view?usp=sharing"
+        },
+        {
+          "text": "Chính sách tín dụng SME của Ngân hàng Đại Dương",
+          "url": "https://drive.google.com/file/d/1ukdJsxy7hZ__ptgGK5Qfd7JdQ30nFR6B/view?usp=sharing"
+        },
+        {
+          "text": "Bảng Thẩm định",
+          "url": "https://drive.google.com/drive/folders/1m2uE1q7mirUlX10RsGx48JPfq-itz4Jh?usp=sharing"
+        }
+      ],
+      "nested_tables": []
+    },
+    "TCNH-01": {
+      "tab_id": "t.a9gvxnc5ma1m",
+      "table_index": 53,
+      "row_index": 2,
+      "cells": [
+        [
+          {
+            "text": "Financial Analyst"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Chuyên viên Phân tích Tài chính của Chuỗi bán lẻ Đại Dương (cửa hàng tiện lợi, hàng tiêu dùng nhanh). Doanh thu tăng liên tục 4 quý gần nhất nhưng lợi nhuận sau thuế lại giảm. Ban Giám đốc cần biết nguyên nhân và phương án xử lý trước kỳ họp đầu quý sau. Bạn được cung cấp 1 bộ hồ sơ"
+          },
+          {
+            "text": "Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Chỉ số vận hành",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "Nhiệm vụ 1: Điền vào Bảng Thẩm định cho sẵn và Đánh giá chất lượng dòng tiền của doanh nghiệp"
+          },
+          {
+            "text": "Nhiệm vụ 2:"
+          },
+          {
+            "text": "- Xác định 5 nguyên nhân gốc rễ khiến lợi nhuận giảm, xếp theo mức độ ảnh hưởng, mỗi nguyên nhân có phân tích định lượng."
+          },
+          {
+            "text": "- Đưa ra ít nhất 5 nhận định có số liệu chứng minh, kèm hàm ý chiến lược cho mỗi nhận định."
+          },
+          {
+            "text": "Nhiệm vụ 3: Đề xuất 3 giải pháp cải thiện hiệu quả kinh doanh, mỗi giải pháp có hành động cụ thể, thời gian thực hiện và chỉ tiêu mục tiêu (KPI)."
+          }
+        ],
+        [
+          {
+            "text": "NHIỆM VỤ 1 – (30 điểm)"
+          },
+          {
+            "text": "- Tỉnh đúng bảng chỉ số (20đ)."
+          },
+          {
+            "text": "- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (10đ)"
+          },
+          {
+            "text": "NHIỆM VỤ 2 – (30 điểm)"
+          },
+          {
+            "text": "- Nêu được 5 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên nhân x2đ)"
+          },
+          {
+            "text": "- Nêu được 5 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (5 nhận định x2đ)"
+          },
+          {
+            "text": "- Mỗi nhận định nêu 1 hàm ý hành động (5 nhận định x2đ)"
+          },
+          {
+            "text": "NHIỆM VỤ 3 - (30đ)"
+          },
+          {
+            "text": "- Nêu được 3 giải pháp (mỗi giải pháp 6 điểm): Nhắm đúng nguyên nhân đã nêu + hành động cụ thể + thời gian + KPI."
+          },
+          {
+            "text": "TRÌNH BÀY (10đ)"
+          }
+        ]
+      ],
+      "links": [
+        {
+          "text": "Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)",
+          "url": "https://drive.google.com/file/d/1eVTyE5lgrVJAKf8F17YWYEXC6oYm7BOn/view?usp=sharing"
+        },
+        {
+          "text": "Chỉ số vận hành",
+          "url": "https://drive.google.com/file/d/1_xF6DPyGEf5FAn6tgljKbftM4iAujf6e/view?usp=sharing"
+        },
+        {
+          "text": "Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
+          "url": "https://drive.google.com/file/d/1DG-dSkWo-2us-GjgYKPp88kFEyHlwevY/view?usp=sharing"
+        },
+        {
+          "text": "Bảng Thẩm định",
+          "url": "https://drive.google.com/file/d/16ANm1gk_ALgYx8dh7ueMcxLgo8QAb9GE/view?usp=sharing"
+        },
+        {
+          "text": "bảng chỉ số",
+          "url": "https://drive.google.com/file/d/1oDYMJAHr0QLR4T6LfE9xrj--doY9ZTci/view?usp=sharing"
+        }
+      ],
+      "nested_tables": []
+    },
+    "TCNH-03": {
+      "tab_id": "t.a9gvxnc5ma1m",
+      "table_index": 53,
+      "row_index": 3,
+      "cells": [
+        [
+          {
+            "text": "Risk Analyst"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là chuyên viên phân tích rủi ro tín dụng tại Ngân hàng Đáy Biển. Phòng Quan hệ khách hàng đề xuất khoản vay trung hạn 400 tỷ đồng cho Công ty Cổ phần Con Cua xây dựng giai đoạn 2 nhà máy thép tại Hưng Yên. Trước biến động giá nguyên liệu và cạnh tranh từ thép nhập khẩu, bạn cần phân tích hồ sơ, đánh giá rủi ro và đưa ra ý kiến độc lập trình Hội đồng Tín dụng"
+          },
+          {
+            "text": "Hồ sơ đề xuất cấp tín dụng và thông tin dự án",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Bản tin ngành thép và chỉ số trung vị ngành (số liệu mô phỏng)",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          }
+        ],
+        [
+          {
+            "text": "Nhiệm vụ 1: Điền vào bảng cho sẵn và nhận xét D/E (trước và sau giải ngân), hệ số thanh toán hiện hành, các biên lợi nhuận, khả năng trả lãi (ICR) và Nợ vay/EBITDA; so sánh với trung vị ngành và khẩu vị rủi ro của Ngân hàng; kết luận mức rủi ro tổng hợp (cao, trung bình hoặc thấp)."
+          },
+          {
+            "text": "Nhiệm vụ 2:"
+          },
+          {
+            "text": "- Phân tích rủi ro về ngành, yếu tố vĩ mô và đặc thù của dự án."
+          },
+          {
+            "text": "- Đề xuất ít nhất 3 biện pháp bảo vệ Ngân hàng và giải thích cơ chế bảo vệ của từng biện pháp."
+          },
+          {
+            "text": "Nhiệm vụ 3:"
+          },
+          {
+            "text": "- Viết báo cáo ngắn (tối đa 200 từ) gửi Hội đồng Tín dụng với kết luận: Đồng ý cho vay, Cho vay có điều kiện hoặc Từ chối. Nêu lý do kèm số liệu."
+          },
+          {
+            "text": "Báo cáo 200 từ được đếm theo số từ tách bởi khoảng trắng; khung nhập báo cáo có bộ đếm từ."
+          }
+        ],
+        [
+          {
+            "text": "NHIỆM VỤ 1 – (30 điểm)"
+          },
+          {
+            "text": "- D/E (4đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ."
+          },
+          {
+            "text": "- Thanh khoản (4đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp."
+          },
+          {
+            "text": "- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành."
+          },
+          {
+            "text": "- Khả năng trả nợ (4đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất."
+          },
+          {
+            "text": "- Kết luận mức rủi ro lập luận từ chỉ số (4đ)"
+          },
+          {
+            "text": "⇒ đáp án bảng"
+          },
+          {
+            "text": "- Đánh giá đúng chất lượng dòng tiền (10đ)"
+          },
+          {
+            "text": "NHIỆM VỤ 2 – (30 điểm)"
+          },
+          {
+            "text": "- Nếu được 3 rủi ro ngành (10đ):"
+          },
+          {
+            "text": "Biến động giá quặng sắt, than cốc ép biên",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Cạnh tranh thép nhập khẩu giá rẻ",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "công suất ngành vượt cầu",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "phụ thuộc đầu tư công và bất động sản",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          },
+          {
+            "text": "lãi suất 8–9% tăng chi phí vay thả nổi.",
+            "list_kind": "ul",
+            "list_number": 5,
+            "list_level": 0
+          },
+          {
+            "text": "- Nêu được 3 rủi ro dự án (10đ)"
+          },
+          {
+            "text": "Vốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "24 tháng xây dựng chưa có dòng tiền dự án.",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "Tài sản đảm bảo chỉ hình thành dần",
+            "list_kind": "ul",
+            "list_number": 3,
+            "list_level": 0
+          },
+          {
+            "text": "Tập trung ngành: 7,5% → 7,96% sát trần 8%.",
+            "list_kind": "ul",
+            "list_number": 4,
+            "list_level": 0
+          },
+          {
+            "text": "Nợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%",
+            "list_kind": "ul",
+            "list_number": 5,
+            "list_level": 0
+          },
+          {
+            "text": "- Nêu cơ chế bảo vệ ngân hàng và giải thích (10đ):"
+          },
+          {
+            "text": "Nêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …",
+            "list_kind": "ul",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "Chỉ nêu tên không chỉ ra cơ chế: 3đ/ biện",
+            "list_kind": "ul",
+            "list_number": 2,
+            "list_level": 0
+          },
+          {
+            "text": "NHIỆM VỤ 3 - Viết báo  (30đ)"
+          },
+          {
+            "text": "- Cấu trúc báo cáo (10đ): Có tiêu đề, người nhận, mở đầu và kết thúc."
+          },
+          {
+            "text": "- Khuyến nghị rõ (5đ): đồng ý, có điều kiện, từ chối."
+          },
+          {
+            "text": "- Lý do có số liệu (10đ):Lý do khớp phần phân tích, có số liệu"
+          },
+          {
+            "text": "- Súc tích (tối đa 200 từ) (5đ): Đúng giới hạn, không lan man."
+          },
+          {
+            "text": "TRÌNH BÀY (10đ)"
+          }
+        ]
+      ],
+      "links": [
+        {
+          "text": "Hồ sơ đề xuất cấp tín dụng và thông tin dự án",
+          "url": "https://drive.google.com/file/d/1wygEN_zZ79yX5pLBvayYhqo3FKVZzF5A/view?usp=sharing"
+        },
+        {
+          "text": "Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)",
+          "url": "https://drive.google.com/file/d/19w3obdkTPJIbCapkleL2jooekRTmFEU8/view?usp=sharing"
+        },
+        {
+          "text": "Bản tin ngành thép và chỉ số trung vị ngành",
+          "url": "https://drive.google.com/file/d/1Lk15zUrExyC6Gebjd93m_J1SzvUR99c0/view?usp=sharing"
+        },
+        {
+          "text": "Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
+          "url": "https://drive.google.com/file/d/1QAwLu9tA7L6H8hYB92DkSc1AC_RJxSUz/view?usp=sharing"
+        },
+        {
+          "text": "bảng cho sẵn",
+          "url": "https://drive.google.com/file/d/12USUZZSPSPViKIMZSwklPSVbOVw0NywN/view?usp=sharing"
+        },
+        {
+          "text": "bảng",
+          "url": "https://drive.google.com/file/d/1MMqP6h8VTFXGDKuMXS8gSn3uZFaK_RhQ/view?usp=sharing"
+        }
+      ],
+      "nested_tables": []
+    },
+    "LOG-01": {
+      "tab_id": "t.v3f3tiwcx8a",
+      "table_index": 66,
+      "row_index": 1,
+      "cells": [
+        [
+          {
+            "text": "Logistics Operations Executive"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Nhân viên Điều hành Logistics tại Công ty ABC Distribution (phân phối hàng B2B tại miền Bắc)."
+          },
+          {
+            "text": "Hiện tại là 09:15. Bạn phụ trách 6 đơn hàng giao trong ngày. Trong 15 phút vừa qua có 4 thông báo sự cố (xe trễ, hỏng xe, lệch chứng từ, đổi điểm giao)."
+          },
+          {
+            "text": "Quản lý yêu cầu: rà soát đơn, phân loại ưu tiên, xử lý ngoại lệ đúng SOP, duyệt chi phí/thông tin đúng thẩm quyền và báo cáo nhanh."
+          },
+          {
+            "text": "Dữ liệu đơn hàng (Mã · Tuyến · SL · ETA · SLA · Trạng thái)"
+          },
+          {
+            "text": "• SH-101 · Hưng Yên → Hà Nội · 18 kiện · 10:30 · 11:00 · Đang vận chuyển (cập nhật 09:05)"
+          },
+          {
+            "text": "• SH-102 · Hưng Yên → Bắc Ninh · 24 kiện · 11:20 · 11:30 · Chưa lấy hàng (xe báo đến kho 09:25)"
+          },
+          {
+            "text": "• SH-103 · Hưng Yên → Hải Phòng · 32 thùng · 11:30 · 12:30 · Xe chờ tại kho (dự kiến rời kho 09:35)"
+          },
+          {
+            "text": "• SH-104 · Hưng Yên → Ninh Bình · 10 kiện · 14:00 (phương án cũ) · 13:00 · Xe ban đầu gặp sự cố"
+          },
+          {
+            "text": "• SH-105 · Hưng Yên → Thanh Hóa · 45 thùng · 14:30 · 15:00 · Đang vận chuyển (vị trí 08:55)"
+          },
+          {
+            "text": "• SH-106 · Hưng Yên → Hà Nội · 5 kiện · 10:15 · 10:30 · Đang vận chuyển (tài xế giữ thông tin Cổng 1)"
+          },
+          {
+            "text": "Thông báo sự cố (09:00 – 09:15)"
+          },
+          {
+            "text": "• TB1 – SH-102, xe trễ: 09:10 nhà xe báo kẹt xe, đến kho 09:25 (trễ 25 phút); ETA giao 11:20, sát SLA 11:30 (đệm 10 phút)."
+          },
+          {
+            "text": "• TB2 – SH-103, lệch chứng từ: 09:10 Kho báo Phiếu giao hàng ghi 30 thùng, PO ghi 32 thùng. Xe chờ tại kho, dự kiến rời 09:35. Chưa rõ kho xuất thiếu hay phiếu in sai."
+          },
+          {
+            "text": "• TB3 – SH-104, hỏng xe & phụ phí: 09:05 xe hỏng. PA A (nhà xe hiện tại): xe thay thế đến kho 10:15 → ETA 14:00 (trễ SLA 1 tiếng). PA B (nhà xe ngoài): nhận hàng 09:40 → ETA 12:50 (đúng SLA), phụ phí 350.000 VNĐ; báo giá chỉ giữ đến 09:35."
+          },
+          {
+            "text": "• TB4 – SH-106, đổi điểm giao: 09:05 khách email báo Cổng 1 đóng đến 11:00, yêu cầu giao tại Cổng 3. Tài xế chưa biết, vẫn chạy về Cổng 1 (ETA 10:15, SLA 10:30)."
+          },
+          {
+            "text": "SOP"
+          },
+          {
+            "text": "• Chứng từ: không xuất hàng SH-103 khi chênh lệch chưa được xác minh."
+          },
+          {
+            "text": "• Chi phí: phát sinh > 200.000 VNĐ phải trình Quản lý duyệt trước khi xác nhận với nhà xe."
+          },
+          {
+            "text": "• Thông tin: cập nhật điểm giao mới cho tài xế và bắt buộc nhận phản hồi xác nhận."
+          },
+          {
+            "text": "• SLA: có nguy cơ trễ phải báo Quản lý và thông báo sớm cho bên liên quan."
+          }
+        ],
+        [
+          {
+            "text": "Nhiệm vụ 1 (20 phút): Điền Bảng Điều Hành & Xử Lý Sự Cố"
+          },
+          {
+            "text": "Dùng template Google Sheets/Excel của Ready2Work, điền cho cả 6 đơn các cột: Mã đơn · Mức ưu tiên · Rủi ro/Vấn đề phát sinh · Hành động xử lý ngay (cụ thể) · Bên phối hợp · Thời hạn kiểm tra tiếp theo · Điều kiện đóng sự cố/Kết quả cần xác nhận."
+          },
+          {
+            "text": "Quy ước ưu tiên: P1 – Khẩn cấp, xử lý ngay · P2 – Theo dõi sát (nguy cơ cao) · P3 – Theo dõi định kỳ."
+          },
+          {
+            "text": "Nhiệm vụ 2 (15 phút): Truyền thông nghiệp vụ & báo cáo Quản lý",
+            "list_kind": "ol",
+            "list_number": 1,
+            "list_level": 0
+          },
+          {
+            "text": "2.1. Văn bản A – Email báo cáo nhanh & trình duyệt chi phí (gửi Quản lý), dưới 180 từ"
+          },
+          {
+            "text": "+: tóm tắt 6 đơn (ổn định / nguy cơ / bị giữ); trình phương án SH-104; xin duyệt phụ phí 350.000 VNĐ trước 09:35 để kịp SLA."
+          },
+          {
+            "text": "2.2. Văn bản B – Thông báo tạm dừng xuất hàng (gửi Thủ kho & Nhà xe SH-103), dưới 100 từ: yêu cầu tạm giữ xe tại kho, kiểm đếm lại số lượng thực tế (30 hay 32 thùng) và nêu điều kiện để xe được rời kho."
+          }
+        ],
+        [
+          {
+            "text": "NHIỆM VỤ 1 – Bảng điều hành (60 điểm)"
+          },
+          {
+            "text": "1. Dữ liệu gốc & mức ưu tiên (12 điểm): 4đ điền đủ, đúng dữ liệu 6 đơn; 8đ phân loại đúng: P1 (SH-103, 104, 106) · P2 (SH-102) · P3 (SH-101, 105)."
+          },
+          {
+            "text": "2. SH-102 – xe trễ (6 điểm): 2đ nhận diện trễ 25p, đệm 10p; 2đ gọi Thủ kho xác nhận xe đến 09:25, đốc thúc bốc xếp; 2đ hạn kiểm tra ~09:30, đóng khi xe bốc xong và rời kho."
+          },
+          {
+            "text": "3. SH-103 – lệch chứng từ (12 điểm): 3đ phát hiện lệch 30/32, phân biệt dữ kiện đã biết với nguyên nhân cần xác minh; 4đ tạm dừng xuất hàng theo SOP, không tự sửa số liệu; 2đ phối hợp Thủ kho kiểm đếm, đối chiếu PO; 3đ đóng khi có biên bản kiểm đếm + phiếu in lại đúng."
+          },
+          {
+            "text": "4. SH-104 – hỏng xe & phụ phí (12 điểm): 3đ so sánh đúng 2 phương án; 5đ trình Quản lý duyệt 350.000 VNĐ (vượt ngưỡng 200.000) trước 09:35; 4đ có phương án dự phòng nếu không duyệt (báo khách trễ SLA, xin gia hạn)."
+          },
+          {
+            "text": "5. SH-106 – đổi điểm giao (8 điểm): 2đ nhận diện Cổng 1 đóng, tài xế chưa biết; 3đ gọi trực tiếp tài xế chuyển Cổng 3, cập nhật hệ thống; 3đ đóng khi tài xế xác nhận đang hướng về Cổng 3."
+          },
+          {
+            "text": "6. SH-101, SH-105 – ổn định (4 điểm): theo dõi định kỳ, check-point hợp lý (10:15 / 11:30); không nhầm ETA với đã giao thành công (POD)."
+          },
+          {
+            "text": "7. Trình bày bảng (6 điểm): 3đ có bên phối hợp và thời hạn rõ cho từng đơn; 3đ mạch lạc, Quản lý quét nhanh trong 30 giây, xử lý song song đơn khẩn."
+          },
+          {
+            "text": "NHIỆM VỤ 2.1 – Email Quản lý (20 điểm)"
+          },
+          {
+            "text": "8. Hình thức (4 điểm): dưới 180 từ, súc tích."
+          },
+          {
+            "text": "9. Tóm tắt 6 đơn (6 điểm): phân nhóm đúng: ổn định (SH-101, 105) · nguy cơ (SH-102, 104, 106) · bị giữ (SH-103)."
+          },
+          {
+            "text": "10. Phương án SH-104 & xin duyệt (10 điểm): 6đ nêu 2 phương án, đề xuất xe ngoài 350.000 VNĐ giữ đúng SLA; 4đ xin duyệt trước 09:35."
+          },
+          {
+            "text": "NHIỆM VỤ 2.2 – Thông báo tạm dừng xuất hàng (20 điểm)"
+          },
+          {
+            "text": "11. Hình thức & thái độ (6 điểm): 3đ dưới 100 từ, đúng người nhận; 3đ lịch sự nhưng kiên quyết giữ xe."
+          },
+          {
+            "text": "12. Tạm giữ xe & kiểm đếm (8 điểm): 4đ yêu cầu giữ xe SH-103; 4đ yêu cầu kiểm đếm lại (30 hay 32 thùng)."
+          },
+          {
+            "text": "13. Điều kiện cho xe rời kho (6 điểm): có kết quả kiểm đếm xác nhận + phiếu giao in lại đúng; kèm thời hạn phản hồi."
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": []
+    },
+    "LOG-02": {
+      "tab_id": "t.v3f3tiwcx8a",
+      "table_index": 66,
+      "row_index": 2,
+      "cells": [
+        [
+          {
+            "text": "Supply Chain Analyst"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Chuyên viên Phân tích Chuỗi cung ứng tại Công ty Bán lẻ ABC. Trưởng phòng Supply Chain yêu cầu rà soát tồn kho và cung ứng cuối tháng cho 5 SKU trọng điểm nhóm hàng tiêu dùng nhanh."
+          },
+          {
+            "text": "Mục tiêu: phân tích chỉ số tồn kho, nhận diện rủi ro đứt hàng (Stockout) hoặc tồn dư (Excess Stock), tìm nguyên nhân gốc rễ và đề xuất xử lý ngay."
+          },
+          {
+            "text": "Dữ liệu (SKU · Tồn an toàn · Tồn hiện tại · Nhu cầu/ngày · Lead time · On-order · OTIF)"
+          },
+          {
+            "text": "• SKU-101 Sữa tươi tiệt trùng 1L · 7 ngày · 3.500 · 500 · 5 ngày · 2.500 (về sau 2 ngày) · 95%"
+          },
+          {
+            "text": "• SKU-102 Dầu ăn thực vật 2L · 10 ngày · 800 · 400 · 7 ngày · 0 · 90%"
+          },
+          {
+            "text": "• SKU-103 Nước giặt đậm đặc 3.8kg · 14 ngày · 18.000 · 200 · 10 ngày · 0 · 85%"
+          },
+          {
+            "text": "• SKU-104 Mì ăn liền tôm chua cay · 5 ngày · 1.200 · 600 · 14 ngày (tăng từ 5 ngày) · 3.000 (đang trễ 5 ngày) · 55%"
+          },
+          {
+            "text": "• SKU-105 Bánh quy bơ hộp thiếc · 10 ngày · 4.000 · 400 · 7 ngày · 2.800 (về sau 3 ngày) · 92%"
+          },
+          {
+            "text": "Công thức"
+          },
+          {
+            "text": "• DOI = Tồn kho hiện tại ÷ Nhu cầu trung bình/ngày"
+          },
+          {
+            "text": "• ROP = (Nhu cầu/ngày × Lead time) + (Nhu cầu/ngày × Định mức tồn an toàn)"
+          }
+        ],
+        [
+          {
+            "text": "Nhiệm vụ 1 (20 phút): Lập bảng phân tích chỉ số tồn kho"
+          },
+          {
+            "text": "Điền vào template của Ready2Work cho 5 SKU: DOI hiện tại (ngày) · ROP tiêu chuẩn (đơn vị) · Phân loại trạng thái (An toàn / Nguy cơ đứt hàng / Tồn thừa) · Nguyên nhân gốc rễ · Hành động khuyến nghị ngắn hạn."
+          },
+          {
+            "text": "Nhiệm vụ 2 (10–15 phút): Email báo cáo insights & khuyến nghị gửi Trưởng phòng"
+          },
+          {
+            "text": "Email dưới 200 từ gồm:"
+          },
+          {
+            "text": "Tóm tắt tình hình: bao nhiêu SKU an toàn, bao nhiêu SKU rủi ro nghiêm trọng."
+          },
+          {
+            "text": "Cảnh báo: 2 SKU nguy hiểm nhất (1 đứt hàng, 1 giam vốn) kèm con số thiệt hại/rủi ro cụ thể."
+          },
+          {
+            "text": "Đề xuất hành động cho 2 SKU này (đặt hàng khẩn, làm việc với NCC, giải phóng tồn kho…)."
+          }
+        ],
+        [
+          {
+            "text": "Đáp án tham chiếu (DOI · ROP · phân loại)"
+          },
+          {
+            "text": "• SKU-101: 7 ngày · 6.000 · An toàn"
+          },
+          {
+            "text": "• SKU-102: 2 ngày · 6.800 · Nguy cơ đứt hàng rất cao (không có on-order)"
+          },
+          {
+            "text": "• SKU-103: 90 ngày · 4.800 · Tồn thừa nghiêm trọng, giam vốn (gấp 6,4 lần định mức 14 ngày)"
+          },
+          {
+            "text": "• SKU-104: 2 ngày · 11.400 · Đứt hàng do lỗi NCC (OTIF 55%, trễ 5 ngày, lead time 5 → 14 ngày)"
+          },
+          {
+            "text": "• SKU-105: 10 ngày · 6.800 · An toàn"
+          },
+          {
+            "text": "NHIỆM VỤ 1 – Bảng phân tích (75 điểm)"
+          },
+          {
+            "text": "1. Tính DOI & ROP (15 điểm): 3đ/SKU nếu đúng cả 2 số liệu."
+          },
+          {
+            "text": "2. Phân loại trạng thái (10 điểm): 2đ/SKU: 101, 105 An toàn · 102 nguy cơ đứt hàng khẩn · 103 tồn thừa · 104 đứt hàng do đứt gãy cung ứng."
+          },
+          {
+            "text": "3. Nhận diện SKU rủi ro nặng nhất (10 điểm): SKU-103 ngâm vốn 90 ngày (gấp 6,4 lần định mức); SKU-102 chỉ đủ bán 2 ngày."
+          },
+          {
+            "text": "4. Nguyên nhân gốc rễ (10 điểm): 102 chậm phát lệnh reorder · 103 dự báo sai (over-forecasting) · 104 NCC suy giảm hiệu suất."
+          },
+          {
+            "text": "5. Hành động khuyến nghị (15 điểm): 102 đặt hàng khẩn (Emergency PO) · 103 dừng mua + khuyến mãi xả hàng/thương lượng trả lại · 104 đẩy lô hàng trễ + tìm NCC thay thế."
+          },
+          {
+            "text": "6. Điền template & độ chính xác (15 điểm): 10đ điền đủ, chuẩn, đúng đơn vị (ngày vs đơn vị sản phẩm); 5đ nhận định dựa trên số liệu."
+          },
+          {
+            "text": "NHIỆM VỤ 2 – Email Trưởng phòng (25 điểm)"
+          },
+          {
+            "text": "7. Tóm tắt & bố cục (8 điểm): mạch lạc, dưới 200 từ, nêu số SKU an toàn/rủi ro."
+          },
+          {
+            "text": "8. Cảnh báo 2 SKU nguy hiểm (10 điểm): 1 SKU đứt hàng + 1 SKU giam vốn kèm số liệu: DOI 90 ngày, còn 2 ngày bán, OTIF 55%."
+          },
+          {
+            "text": "9. Đề xuất hành động (7 điểm): phương án cho 2 SKU, nêu rõ việc cần Trưởng phòng duyệt ngay (ngân sách đặt khẩn / chương trình xả hàng)."
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": []
+    },
+    "LOG-03": {
+      "tab_id": "t.v3f3tiwcx8a",
+      "table_index": 66,
+      "row_index": 3,
+      "cells": [
+        [
+          {
+            "text": "Purchasing Executive"
+          }
+        ],
+        [
+          {
+            "text": "Bạn là Chuyên viên Thu mua tại Công ty CP Bao bì & Sản xuất ABC. Lúc 10:00, bạn nhận Yêu cầu Mua hàng khẩn PR-2026-088: mua 5.000 kg hạt nhựa PE cho đơn xuất khẩu gấp."
+          },
+          {
+            "text": "• SLA: hàng về kho chậm nhất 15/10 (để sản xuất sáng 16/10)."
+          },
+          {
+            "text": "• Trần ngân sách: 42.000 VNĐ/kg (đã gồm VAT và vận chuyển về kho ABC)."
+          },
+          {
+            "text": "Báo giá 3 NCC"
+          },
+          {
+            "text": "• NCC A (Bình Dương): 38.000đ/kg · VAT 10% · vận chuyển miễn phí · giao 3 ngày (về 13/10) · trả chậm 30 ngày · đạt chuẩn 100%, NCC truyền thống."
+          },
+          {
+            "text": "• NCC B (Đồng Nai): 36.500đ/kg · VAT 10% · vận chuyển 1.500đ/kg · giao 4 ngày (về 14/10) · trả trước 100% khi đặt PO · đạt chuẩn 100%, NCC mới hợp tác."
+          },
+          {
+            "text": "• NCC C (Hải Phòng): 35.000đ/kg · VAT 10% · vận chuyển 2.500đ/kg · giao 7 ngày (về 17/10) · trả chậm 15 ngày · mới gửi hồ sơ, chưa test mẫu."
+          },
+          {
+            "text": "Sự cố song song (PO-2026-042)"
+          },
+          {
+            "text": "10:10 Trưởng kho cảnh báo: lô 1.000 phụ kiện đóng gói mua tuần trước từ NCC B lỗi kỹ thuật 20% (200 sản phẩm móp méo). Sản xuất yêu cầu Thu mua xử lý với NCC B (đổi trả/bồi thường trong 48h hoặc trừ công nợ)."
+          },
+          {
+            "text": "SOP"
+          },
+          {
+            "text": "• Landed Cost = Đơn giá có VAT + Phí vận chuyển/kg; chọn theo tổng chi phí thực tế."
+          },
+          {
+            "text": "• SLA & ngân sách: tuyệt đối không chọn NCC trễ hạn hoặc vượt 42.000đ/kg."
+          },
+          {
+            "text": "• Rủi ro thanh toán & đối tác: thận trọng với trả trước 100% cho NCC có lịch sử xử lý khiếu nại chậm hoặc hàng lỗi."
+          },
+          {
+            "text": "• Phê duyệt PO: PO > 100 triệu VNĐ phải xin ý kiến Trưởng phòng Thu mua trước khi phát hành."
+          }
+        ],
+        [
+          {
+            "text": "Nhiệm vụ 1 (20 phút): Lập bảng so sánh báo giá & đánh giá lựa chọn"
+          },
+          {
+            "text": "Điền cho NCC A, B, C: Đơn giá có VAT (VNĐ/kg) · Landed Cost/kg · Tổng giá trị đơn 5.000 kg · Đánh giá ngân sách (≤ 42.000đ/kg) · Đánh giá SLA (về ≤ 15/10) · Rủi ro lớn nhất · Đề xuất lựa chọn (NCC được chọn và 2 lý do cốt lõi)."
+          },
+          {
+            "text": "Nhiệm vụ 2 (10–15 phút): Soạn 2 văn bản nghiệp vụ"
+          },
+          {
+            "text": "2.1. Văn bản A – Email trình duyệt phát hành PO (gửi Trưởng phòng Thu mua), dưới 150 từ: tóm tắt so sánh 3 báo giá PR-2026-088, đề xuất NCC tối ưu kèm 3 yếu tố (Landed Cost, SLA, điều khoản thanh toán), xin duyệt phát hành PO trước 11:30."
+          },
+          {
+            "text": "2.2. Văn bản B – Email khiếu nại hàng lỗi & đòi bồi thường (gửi NCC B, PO-2026-042), dưới 120 từ: thông báo biên bản kiểm hàng lỗi 20%; yêu cầu đổi mới 200 sản phẩm đạt chuẩn trong 48h hoặc cấn trừ công nợ; yêu cầu phản hồi trước 14:00 hôm nay."
+          }
+        ],
+        [
+          {
+            "text": "Đáp án tham chiếu (NCC A · B · C)"
+          },
+          {
+            "text": "• Giá có VAT/kg: 41.800 · 40.150 · 38.500"
+          },
+          {
+            "text": "• Landed Cost/kg: 41.800 · 41.650 · 41.000"
+          },
+          {
+            "text": "• Tổng giá trị 5.000 kg: 209.000.000 · 208.250.000 · 205.000.000"
+          },
+          {
+            "text": "• Ngân sách: cả 3 đạt · SLA: A, B đạt; C trễ 2 ngày (17/10)"
+          },
+          {
+            "text": "• Chọn NCC A: về 13/10 (đệm 2 ngày), đạt chuẩn 100%; trả chậm 30 ngày; chênh B chỉ 750.000đ (0,36%) và tránh rủi ro PO-042. Loại C (trễ SLA, chưa test mẫu)."
+          },
+          {
+            "text": "NHIỆM VỤ 1 – Bảng so sánh (60 điểm)"
+          },
+          {
+            "text": "1. Giá có VAT, Landed Cost/kg, tổng giá trị (15 điểm): 5đ/NCC."
+          },
+          {
+            "text": "2. Ngân sách & SLA (10 điểm): 4đ ngân sách (cả 3 đạt); 6đ SLA (A, B đạt; C vi phạm)."
+          },
+          {
+            "text": "3. Rủi ro lớn nhất từng NCC (10 điểm): 5đ NCC C: trễ SLA, nguy cơ dừng chuyền, chưa test mẫu; 5đ NCC B: dòng tiền (trả trước 100%) và hàng lỗi PO-042."
+          },
+          {
+            "text": "4. Đề xuất lựa chọn (15 điểm): 10đ chọn NCC A; 5đ nêu 2 lý do cốt lõi (SLA 13/10, trả chậm 30 ngày)."
+          },
+          {
+            "text": "5. Trình bày & đơn vị tính (10 điểm): 5đ điền đủ, đúng đơn vị (VNĐ vs VNĐ/kg); 5đ bảng logic, góc nhìn quản trị chi phí."
+          },
+          {
+            "text": "NHIỆM VỤ 2.1 – Email trình duyệt PO (25 điểm)"
+          },
+          {
+            "text": "6. Hình thức & cấu trúc (8 điểm): dưới 150 từ, nêu đủ Landed Cost, SLA, điều khoản thanh toán."
+          },
+          {
+            "text": "7. Lập luận chọn NCC A (7 điểm): giải thích dù Landed Cost nhỉnh hơn B 750.000đ (tránh trả trước 100%, rủi ro PO-042; loại C do trễ SLA)."
+          },
+          {
+            "text": "8. Xin duyệt đúng thẩm quyền (10 điểm): 5đ nêu PO ~209 triệu (> 100 triệu) cần Trưởng phòng duyệt; 5đ xin duyệt trước 11:30."
+          },
+          {
+            "text": "NHIỆM VỤ 2.2 – Email khiếu nại NCC B (15 điểm)"
+          },
+          {
+            "text": "9. Thiệt hại & căn cứ (5 điểm): 200/1.000 sản phẩm lỗi (20%), có biên bản kiểm hàng."
+          },
+          {
+            "text": "10. Phương án xử lý (5 điểm): đổi mới 200 sản phẩm trong 48h hoặc cấn trừ công nợ."
+          },
+          {
+            "text": "11. Thời hạn & văn phong (5 điểm): 3đ hạn phản hồi trước 14:00 hôm nay; 2đ dưới 120 từ, chuyên nghiệp, kiên quyết."
+          }
+        ]
+      ],
+      "links": [],
+      "nested_tables": []
+    },
+    "MKT-01": {
+      "tab_id": "root",
+      "table_index": 4,
+      "context_paragraphs": [
+        "–  Tình huống: Local Brand thời trang bán qua Fanpage (18.000 follower) và Shopee, sắp ra mắt BST Thu-Đông cho sinh viên (hoodie “Campus Fleece”). Engagement rate giảm 30% (3,0% → 2,1%); 10 bài gần nhất là ảnh sản phẩm nền trắng, chưa có kế hoạch nội dung và video ngắn.",
+        "–  Ràng buộc: team 2 người, không thuê KOL/studio, quay bằng điện thoại; khách hàng Gen Z 18–22 tuổi.",
+        "–  Nhiệm vụ: (1) Kế hoạch nội dung 7 ngày dạng bảng (Ngày – Kênh – Định dạng – Ý tưởng – Mục tiêu – CTA); (2) 01 bài copywriting Facebook ≤150 từ đúng Brand Voice; (3) 02 kịch bản TikTok/Reels 30s bắt trend, nêu trend và lý do chọn."
+      ],
+      "rubric_rows": [
+        [
+          [
+            {
+              "text": "Tiêu chí"
+            }
+          ],
+          [
+            {
+              "text": "Điểm"
+            }
+          ],
+          [
+            {
+              "text": "Ý chính chấm (điểm thành phần)"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "1. Độ chính xác trong quyết định/đề xuất chính"
+            }
+          ],
+          [
+            {
+              "text": "35"
+            }
+          ],
+          [
+            {
+              "text": "- Kế hoạch 7 ngày đủ 3 giai đoạn (teaser → ra mắt → duy trì), mỗi ngày có kênh – định dạng – mục tiêu – CTA (15)"
+            },
+            {
+              "text": "- Copy đúng Product Brief: chất liệu, giá, ưu đãi 48 giờ (10) · 02 kịch bản 30s: hook trong 3 giây đầu, đủ cảnh – lời – text overlay, có CTA (10)"
+            },
+            {
+              "text": "VD: Ngày 1–2 teaser/đếm ngược; Ngày 3 mở bán kèm ưu đãi; Ngày 4-7 review, UGC, flash sale cuối."
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "2. Lý do/lập luận rõ ràng, bám sát tiêu chí"
+            }
+          ],
+          [
+            {
+              "text": "25"
+            }
+          ],
+          [
+            {
+              "text": "Mỗi lựa chọn (định dạng, trend, giờ đăng) giải thích bằng insight Gen Z sinh viên, gắn với nguyên nhân sụt tương tác (nội dung đơn điệu, thiếu video ngắn); nêu KPI kỳ vọng (VD: engagement rate ≥3,5%, lượt xem video)"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "3. Xử lý sâu vấn đề phát sinh"
+            }
+          ],
+          [
+            {
+              "text": "25"
+            }
+          ],
+          [
+            {
+              "text": "Ưu đãi chỉ 48 giờ nhưng kế hoạch 7 ngày → ngày 4–7 chuyển sang social proof/UGC/review · Trend lệch tông hoặc rủi ro bản quyền nhạc → chỉnh cho hợp giọng “Shop – Cậu”, dùng nhạc thư viện thương mại · Nguồn lực hạn chế (không KOL, quay bằng điện thoại) → kịch bản đơn giản, khả thi"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "4. Trình bày mạch lạc, đúng thời gian"
+            }
+          ],
+          [
+            {
+              "text": "15"
+            }
+          ],
+          [
+            {
+              "text": "Đủ 3 yêu cầu đúng thứ tự, dùng bảng/gạch đầu dòng rõ ràng, văn phong chuyên nghiệp, hoàn thành trong 60 phút"
+            }
+          ]
+        ]
+      ],
+      "links": []
+    },
+    "MKT-02": {
+      "tab_id": "root",
+      "table_index": 5,
+      "context_paragraphs": [
+        "–  Tình huống: Trung tâm tiếng Anh giao tiếp, mục tiêu 100 lead trong 14 ngày. 3 ngày đầu chi 5.000.000đ, hiển thị 62.500 (CPM 80.000đ), 500 lượt nhấp (CTR 0,8%, CPC 10.000đ), 8 lead (chuyển đổi 1,6%), CPL 625.000đ so với mục tiêu tối đa 200.000đ.",
+        "–  Ngân sách còn lại: 15.000.000đ cho 11 ngày tiếp theo.",
+        "–  Nhiệm vụ: (1) Chỉ ra 3 nguyên nhân CPL cao, dẫn chứng bằng số liệu; (2) Đề xuất tối ưu: A/B test Target, Creative, Landing Page (giả thuyết, biến thử, chỉ số đo, tiêu chí chọn bên thắng); (3) Bảng phân bổ 15.000.000đ theo giai đoạn (ngân sách, nhóm quảng cáo, KPI lead/CPL), nêu giả định để đủ 100 lead."
+      ],
+      "rubric_rows": [
+        [
+          [
+            {
+              "text": "Tiêu chí"
+            }
+          ],
+          [
+            {
+              "text": "Điểm"
+            }
+          ],
+          [
+            {
+              "text": "Ý chính chấm (điểm thành phần)"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "1. Độ chính xác trong quyết định/đề xuất chính"
+            }
+          ],
+          [
+            {
+              "text": "35"
+            }
+          ],
+          [
+            {
+              "text": "3 nguyên nhân gốc kèm số liệu (15):"
+            },
+            {
+              "text": "(a) targeting quá rộng – nhóm A tiêu 60% ngân sách, CPL 1.000.000đ so với nhóm B 400.000đ;"
+            },
+            {
+              "text": "(b) creative yếu – CTR chung 0,8%, nhóm A 0,6%;"
+            },
+            {
+              "text": "(c) landing page/form – chuyển đổi 1,6%, tải 5,2 giây, form 7 trường · Tính đúng CPL mục tiêu: 15.000.000 ÷ 92 lead ≈ 163.000đ (10) · Phương án A/B test hợp lý, phân bổ cộng đúng 15.000.000đ (10)"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "2. Lý do/lập luận rõ ràng, bám sát tiêu chí"
+            }
+          ],
+          [
+            {
+              "text": "25"
+            }
+          ],
+          [
+            {
+              "text": "Mỗi nguyên nhân gắn chỉ số cụ thể; mỗi A/B test có giả thuyết, 1 biến/lần, chỉ số đo, ngưỡng quyết định; giải thích cách chia ngân sách"
+            },
+            {
+              "text": "VD: 20% (3.000.000đ) test 2 ngày; 80% (12.000.000đ) dồn nhóm thắng, CPL kỳ vọng ≈150.000đ → ~80 lead, cộng ~10 lead từ test và 8 lead đã có ≈ 98–100."
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "3. Xử lý sâu vấn đề phát sinh"
+            }
+          ],
+          [
+            {
+              "text": "25"
+            }
+          ],
+          [
+            {
+              "text": "- Giữ CPL 200.000đ chỉ đạt 75 + 8 = 83 lead < 100 → cải thiện đồng thời CTR/CVR, thêm kênh bổ trợ (retarget, Zalo OA, giới thiệu bạn bè) hoặc báo quản lý điều chỉnh mục tiêu"
+            },
+            {
+              "text": "- Giai đoạn test tốn ngân sách chưa ra lead → ngân sách test nhỏ, quy tắc dừng sớm nhóm kém"
+            },
+            {
+              "text": "- CPL thấp nhưng lead rác → thêm câu hỏi sàng lọc, theo dõi tỷ lệ liên lạc được"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "4. Trình bày mạch lạc, đúng thời gian"
+            }
+          ],
+          [
+            {
+              "text": "15"
+            }
+          ],
+          [
+            {
+              "text": "Đủ 3 yêu cầu đúng thứ tự, bảng phân bổ ngân sách rõ ràng, dùng đúng thuật ngữ ads (CPL, CTR, CVR, CPM), hoàn thành trong 60 phút"
+            }
+          ]
+        ]
+      ],
+      "links": []
+    },
+    "MKT-03": {
+      "tab_id": "root",
+      "table_index": 6,
+      "context_paragraphs": [
+        "–  Tình huống: Công ty SaaS quản lý bán hàng F&B vừa và nhỏ sắp ra mắt tính năng “Tự động quản lý nguyên vật liệu & cảnh báo tồn kho”. Organic traffic ~1.200 lượt/tháng (chủ yếu tìm tên thương hiệu), blog 8 bài chủ yếu là tin công ty, website yếu về uy tín tìm kiếm (DR ≈12).",
+        "–  Mục tiêu & nguồn lực: 5.000 lượt organic/tháng và 100 lead dùng thử/tháng trong 3 tháng; 1 người viết, 6 bài/tháng.",
+        "–  Nhiệm vụ: (1) Kế hoạch nội dung 1 tháng theo phễu TOFU – MOFU – BOFU, 6 chủ đề (Tuần – Giai đoạn phễu – Chủ đề – Từ khóa chính – Nỗi đau – CTA); (2) Chọn 5 từ khóa SEO từ bảng 12 từ khóa và giải thích; (3) 01 bài MOFU chuẩn SEO ~500–600 từ kèm title tag, meta description, H1, H2, CTA mềm."
+      ],
+      "rubric_rows": [
+        [
+          [
+            {
+              "text": "Tiêu chí"
+            }
+          ],
+          [
+            {
+              "text": "Điểm"
+            }
+          ],
+          [
+            {
+              "text": "Ý chính chấm (điểm thành phần)"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "1. Độ chính xác trong quyết định/đề xuất chính"
+            }
+          ],
+          [
+            {
+              "text": "35"
+            }
+          ],
+          [
+            {
+              "text": "- Kế hoạch 1 tháng có 6 chủ đề phân bổ hợp lý trên phễu, mỗi chủ đề gắn nỗi đau chủ quán (12)"
+            },
+            {
+              "text": "- 5 từ khóa đúng đối tượng, đúng intent, khả thi với DR thấp, ưu tiên KD ≤30 (10)"
+            },
+            {
+              "text": "- Bài MOFU đủ on-page: title tag ≤60 ký tự, meta ≤155 ký tự, H1, ≥2 H2, từ khóa chính ở đoạn mở đầu, CTA mềm (13)"
+            },
+            {
+              "text": "VD: TOFU “Cách tính giá vốn đồ uống”; MOFU “Cách quản lý nguyên liệu quán cafe không thất thoát”, “Định mức nguyên liệu pha chế”; BOFU “Phần mềm quản lý kho F&B: cảnh báo tồn tự động”. Loại “công thức pha chế trà sữa”, “mở quán cafe cần chuẩn bị gì”"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "2. Lý do/lập luận rõ ràng, bám sát tiêu chí"
+            }
+          ],
+          [
+            {
+              "text": "25"
+            }
+          ],
+          [
+            {
+              "text": "Giải thích vai trò từng chủ đề trong phễu; chọn từ khóa dựa trên volume, KD, intent; bài viết giải quyết đúng nỗi đau (thất thoát, hết hàng giờ cao điểm) rồi dẫn tới tính năng tự nhiên"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "3. Xử lý sâu vấn đề phát sinh"
+            }
+          ],
+          [
+            {
+              "text": "25"
+            }
+          ],
+          [
+            {
+              "text": "- Từ khóa volume cao nhưng sai đối tượng/KD cao → ưu tiên từ khóa nhỏ, intent rõ, dễ lên top; nêu trade-off"
+            },
+            {
+              "text": "- Tính năng chưa ra mắt, chưa có case study → không bịa số liệu, dùng ví dụ minh họa rõ ràng"
+            },
+            {
+              "text": "- Nguồn lực 1 người, 6 bài/tháng → sắp thứ tự xuất bản, internal link TOFU → MOFU → BOFU, tái sử dụng nội dung"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "text": "4. Trình bày mạch lạc, đúng thời gian"
+            }
+          ],
+          [
+            {
+              "text": "15"
+            }
+          ],
+          [
+            {
+              "text": "Đủ 3 yêu cầu đúng thứ tự, kế hoạch dạng bảng, bài viết có heading rõ ràng, hoàn thành trong 60 phút"
+            }
+          ]
+        ]
+      ],
+      "links": []
+    }
+  },
+  "material_checks": [
+    {
+      "id": "source-0",
+      "sha256": "7879680344d469b89bbe6518b80a8ab260772fd672600723de4b2ae9ec211fbf",
+      "unchanged": true
+    },
+    {
+      "id": "source-1",
+      "sha256": "dd798949575b836ed13d64eb303e0de104bfc9720a4370af5ed50469302ae588",
+      "unchanged": true
+    },
+    {
+      "id": "source-2",
+      "sha256": "80a1f1de4c4cf0c78375a20224fb8879d3acb8a4104cab96114812c66f20b2af",
+      "unchanged": true
+    },
+    {
+      "id": "source-3",
+      "sha256": "c140575db0ada571b8774202d3554294d0bc654d55d29c86da9e300d545a3d3e",
+      "unchanged": true
+    },
+    {
+      "id": "source-4",
+      "sha256": "1f3747ef6bf2244a8863fd4026862308cc2108f70ce397651414176712a1b8b9",
+      "unchanged": true
+    },
+    {
+      "id": "source-5",
+      "sha256": "1311c43c86315afd599557e3f639a7dcff698874f22772459b44dbefd84b76c7",
+      "unchanged": true
+    },
+    {
+      "id": "source-6",
+      "sha256": "d4880164d55821fd72e1fa41670650e1622e6b7feac3bd65d205181eb65bf0fd",
+      "unchanged": true
+    },
+    {
+      "id": "source-7",
+      "sha256": "6d3805b2e10c53d560b0fcd0a976a95d6060e87b18822ec04a4d2f52d72f9c60",
+      "unchanged": true
+    },
+    {
+      "id": "source-8",
+      "sha256": "bbd0327f8ff34d209b2cebffd43bb1d8a676fb22e0760b9991fce4e22079ac66",
+      "unchanged": true
+    },
+    {
+      "id": "source-10",
+      "sha256": "be39acd09720b77c9d0c4c08d57c096b36c8789f8916dc05f72a2b00f31acb66",
+      "unchanged": true
+    },
+    {
+      "id": "source-11",
+      "sha256": "c2df1bb3019376be93ce4fe50d173fa57fe8ffd5ddffd2fc51974281d391d5b3",
+      "unchanged": true
+    },
+    {
+      "id": "source-12",
+      "sha256": "e32495873e7cd58ed1c1a3879186418870b937d1bf1d38caa6627ff5634809d4",
+      "unchanged": true
+    },
+    {
+      "id": "source-15",
+      "sha256": "60889d1aa4b0714e246832ff40dce38c3d1bcf48b8ae0bcdeeeea577ea32600e",
+      "unchanged": true
+    },
+    {
+      "id": "source-16",
+      "sha256": "05ef5372a23a2fe7acc692f47b72cc2df84419d778973a929eceb9ad66aa9f73",
+      "unchanged": true
+    },
+    {
+      "id": "source-17",
+      "sha256": "b1e86a34d7173d1edd9444fe6afeacf2c44858ef9476e2c8b19fa41d478dd83b",
+      "unchanged": true
+    },
+    {
+      "id": "source-18",
+      "sha256": "1ffafa409c79f5897cd2d3e891ac6b7e75c2acbe69278729b3092987b167ecba",
+      "unchanged": true
+    },
+    {
+      "id": "source-13",
+      "sha256": "8eafaa7649e4d75b3e32148d5aea483dae3451a68eb719011904a84e5d4867d4",
+      "unchanged": true
+    },
+    {
+      "id": "source-19",
+      "sha256": "3d429b7f8e02a8a98b87e9ef11dea3a30c45a06b7773f171d06f3b2d68b47b38",
+      "unchanged": true
+    },
+    {
+      "id": "credit-table-1",
+      "sha256": "4bd7e7fd8042614b88e9e172ad25ecfe4038e8e40fb316fccf11fbc9d4bab46e",
+      "unchanged": true
+    },
+    {
+      "id": "credit-table-2",
+      "sha256": "32162caba4dafdf9c02137621376d04f6e67d3a4e3fec1dabd1bc54fb6b7381c",
+      "unchanged": true
+    }
+  ]
+}

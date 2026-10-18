@@ -5,41 +5,11 @@
     "interviewSets": 15,
     "interviewQuestions": 120,
     "incompleteInterviews": 8,
-    "checklistItems": 101,
-    "artifacts": 4
+    "checklistItems": 115,
+    "artifacts": 7
   },
   "errors": [],
   "warnings": [
-    {
-      "kind": "missing_artifact",
-      "positionId": "MKT-01",
-      "message": "Đề bài đang thiếu tài liệu nguồn: Product Brief: chất liệu, giá, ưu đãi 48 giờ. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm."
-    },
-    {
-      "kind": "missing_artifact",
-      "positionId": "MKT-02",
-      "message": "Đề bài đang thiếu tài liệu nguồn: Dữ liệu phân nhóm quảng cáo và trang đích. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm."
-    },
-    {
-      "kind": "missing_artifact",
-      "positionId": "MKT-03",
-      "message": "Đề bài đang thiếu tài liệu nguồn: Bảng 12 từ khóa SEO. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm."
-    },
-    {
-      "kind": "missing_artifact",
-      "positionId": "TCNH-01",
-      "message": "Điểm trong tiêu chí nguồn chưa thống nhất. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm khi chưa xác nhận cách tính."
-    },
-    {
-      "kind": "missing_artifact",
-      "positionId": "TCNH-02",
-      "message": "Điểm trong tiêu chí nguồn chưa thống nhất. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm khi chưa xác nhận cách tính."
-    },
-    {
-      "kind": "missing_artifact",
-      "positionId": "TCNH-03",
-      "message": "Điểm trong tiêu chí nguồn chưa thống nhất. Bạn có thể xem nội dung và soạn thử; chưa mở chấm điểm khi chưa xác nhận cách tính."
-    },
     {
       "kind": "incomplete_interview",
       "positionId": "IT-01",

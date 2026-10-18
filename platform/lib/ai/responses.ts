@@ -18,6 +18,12 @@ function parseJSON(text: string): unknown {
   catch { throw new SyntaxError("AI provider returned invalid JSON."); }
 }
 
+// Some compatible gateways wrap a valid JSON result in one Markdown fence.
+// Normalize only that wrapper; prose and truncated JSON still fail validation.
+function parseOutputJSON(text: string): unknown {
+  return parseJSON(text.trim().replace(/^```(?:json)?\s*\n?([\s\S]*?)\n?```$/, "$1"));
+}
+
 /** Match the strict Responses schema contract without mutating shared schemas. */
 function strictSchema(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(strictSchema);
@@ -78,7 +84,7 @@ export async function structuredResponse(prompt: string, schema: object, documen
     }, timeoutMs, true);
     // This gateway may wrap JSON in one Markdown fence. Accept only that exact
     // wrapper; never salvage free-form prose or incomplete generated JSON.
-    return parseJSON(text.trim().replace(/^```(?:json)?\s*\n?([\s\S]*?)\n?```$/, "$1"));
+    return parseOutputJSON(text);
   }
   const content: object[] = [{ type: "input_text", text: prompt }];
   documents.forEach((document, index) => content.push(document.mimeType === "application/pdf"
@@ -88,7 +94,7 @@ export async function structuredResponse(prompt: string, schema: object, documen
     input: documents.length ? [{ role: "user", content }] : prompt,
     text: { format: { type: "json_schema", name: "ready2work_result", strict: true, schema: strictSchema(schema) } },
   }, timeoutMs);
-  return parseJSON(text);
+  return parseOutputJSON(text);
 }
 
 export async function chatResponse(systemContext: string, history: ChatTurn[], maxOutputTokens?: number): Promise<string> {

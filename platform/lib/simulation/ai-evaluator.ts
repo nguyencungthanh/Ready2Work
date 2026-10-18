@@ -133,7 +133,9 @@ export async function evaluateSubmissionWithAI(
   context?: { referenceData: unknown; actualDurationSeconds: number },
 ): Promise<EvaluationResult> {
   if (context?.referenceData && typeof context.referenceData === "object") {
-    if ((context.referenceData as { source_version?: unknown }).source_version === "20261017") {
+    if ((context.referenceData as { source_version?: unknown }).source_version === "20261017" ||
+      (context.referenceData as { source_policy?: unknown }).source_policy === "document_only" ||
+      (context.referenceData as { source_policy?: unknown }).source_policy === "document_with_authorized_supplements") {
       return evaluateCurrentSource(content, brief, taskInstructions, context.referenceData, context.actualDurationSeconds);
     }
     if (Array.isArray((context.referenceData as { rubric?: unknown }).rubric)) {

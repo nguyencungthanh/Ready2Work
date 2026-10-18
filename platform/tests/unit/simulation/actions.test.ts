@@ -11,7 +11,7 @@ vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
 vi.mock("next/navigation", () => ({ redirect: vi.fn((path) => { throw new Error(`REDIRECT:${path}`); }) }));
 import { submitSimulationAction } from "@/app/simulations/actions";
 
-const reference = { source_version: "20261017", source_policy: "document_only", content_revision: "20261017-doc-only" };
+const reference = { position_id: "IT-01", source_version: "20261017", source_policy: "document_only", content_revision: "20261017-doc-only" };
 function query(data: unknown) {
   const chain = { select: vi.fn(() => chain), eq: vi.fn(() => chain), maybeSingle: vi.fn(async () => ({ data, error: null })) };
   return chain;

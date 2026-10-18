@@ -8,7 +8,7 @@ import { revalidatePath } from "next/cache";
 import { evaluateSubmissionWithAI, type RubricCriterion } from "@/lib/simulation/ai-evaluator";
 import { logger } from "@/lib/observability/logger";
 import { readSubmissionDocument } from "@/lib/simulation/read-submission";
-import { isSourceSimulation, isPublishedBusinessContent, isCurrentDocumentOnlySource } from "@/lib/content/source-catalog";
+import { isSourceSimulation, isPublishedBusinessContent, isCurrentSourceRevision } from "@/lib/content/source-catalog";
 
 export interface FormState {
   error?: string;
@@ -77,7 +77,7 @@ export async function submitSimulationAction(
   if (!simulation) {
     return { error: "Không tìm thấy bài mô phỏng." };
   }
-  if (isSourceSimulation(available) && !isCurrentDocumentOnlySource(simulation.reference_data)) {
+  if (isSourceSimulation(available) && !isCurrentSourceRevision(simulation.reference_data)) {
     return { error: "Đề bài đang chờ đồng bộ barem nguồn hiện tại. Nội dung bài làm vẫn được giữ; chưa có điểm mới được lưu." };
   }
 

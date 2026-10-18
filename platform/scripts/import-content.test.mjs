@@ -1,16 +1,16 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { buildPreparedContent, readPreparedSources, renderMigration, renderDocumentOnlyMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
+import { buildPreparedContent, readPreparedSources, renderMigration, renderDocumentOnlyMigration, renderSimulationRefreshMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
 
 const source = await readPreparedSources();
 const content = buildPreparedContent(source);
 
 test("prepared source has 15 matching profiles/tasks and preserves fifteen complete source question sets", () => {
   assert.deepEqual(content.validation.errors, []);
-  assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120, incompleteInterviews: 8, checklistItems: 101, artifacts: 4 });
+  assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120, incompleteInterviews: 8, checklistItems: 115, artifacts: 7 });
   assert.equal(new Set(content.simulations.map((item) => item.position_id)).size, 15);
-  assert.equal(content.simulations.filter((item) => item.is_available).length, 9);
+  assert.equal(content.simulations.filter((item) => item.is_available).length, 15);
   for (const industry of source.tasks.industries) assert.equal(industry.tasks.length, 3);
   assert.ok(content.interviewSets.every((item) => /^(TCNH|MKT|IT|KK|LOG)-\d{2}$/.test(item.position_id)));
 });
@@ -105,23 +105,27 @@ test("SQL safely quotes source strings and upserts without deleting catalog IDs 
   assert.match(sql, /superseded_at/);
   assert.match(sql, /coalesce\(s.reference_data->>'source_version', ''\) <> '20261017'/);
   assert.ok(content.interviewSets.every((item) => item.id !== stableId("interview-set", item.slug.replace(/^r2w-/, "").replace(/-20261017$/, ""))));
-  const patch = renderDocumentOnlyMigration(content);
+  const patch = renderSimulationRefreshMigration(content);
   assert.equal(patch, await readFile(new URL(`../supabase/migrations/${migrationName}`, import.meta.url), "utf8"));
-  assert.equal((patch.match(/update public\.simulations set brief = /g) ?? []).length, 15);
+  assert.equal((patch.match(/update public\.simulations set brief = /g) ?? []).length, 7);
   assert.match(patch, /source_policy.*document_only/);
-  assert.match(patch, /big4-audit-round1/);
-  assert.match(patch, /campaign-launch-plan/);
+  assert.match(patch, /content_revision/);
+  assert.doesNotMatch(patch, /update public.interview_sets/);
+  const historical = await readFile(new URL("../supabase/migrations/20261017000300_document_only_catalog.sql", import.meta.url), "utf8");
+  assert.match(historical, /campaign-launch-plan/);
+  assert.throws(() => renderDocumentOnlyMigration(content), /document-only source policy/);
   assert.doesNotMatch(patch, /update public\.interview_questions|delete from|truncate/i);
 });
 
-test("current exercises use only document inputs and retain missing Marketing source data explicitly", () => {
+test("current exercises use reviewed source plus explicitly authorized, labeled supplements", () => {
   for (const simulation of content.simulations) {
-    assert.equal(simulation.reference_data.source_policy, "document_only");
-    assert.doesNotMatch(JSON.stringify(simulation.reference_data), /marketing-product-brief|marketing-ad-data|marketing-landing-data|marketing-keyword-data|supplemental_source/);
+    assert.equal(simulation.is_available, true);
+    const expected = simulation.position_id.startsWith("MKT-") || simulation.position_id === "TCNH-01" ? "document_with_authorized_supplements" : "document_only";
+    assert.equal(simulation.reference_data.source_policy, expected);
     if (simulation.position_id.startsWith("MKT-")) {
-      assert.equal(simulation.is_available, false);
-      assert.ok(simulation.unavailable_reason.includes("tài liệu nguồn"));
-      assert.ok(simulation.reference_data.missing_source_inputs.length);
+      assert.ok(simulation.reference_data.supplemental_source.endsWith("20261019.json"));
+      assert.equal(simulation.reference_data.missing_source_inputs, undefined);
+      assert.ok(simulation.reference_data.public_materials.some((material) => material.title.includes("Dữ liệu mô phỏng")));
     }
   }
 });

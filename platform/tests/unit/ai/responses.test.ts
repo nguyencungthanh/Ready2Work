@@ -64,6 +64,13 @@ describe("Responses gateway routing", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it("accepts one complete JSON fence in text results while still rejecting prose", async () => {
+    fetchMock.mockResolvedValue(success('```json\n{"ok":true}\n```'));
+    expect(await generateStructured("Synthetic", schema)).toEqual({ ok: true });
+    fetchMock.mockResolvedValue(success('Result: {"ok":true}'));
+    await expect(generateStructured("Synthetic", schema)).rejects.toThrow("invalid JSON");
+  });
+
   it("preserves conversation roles, system instructions and output limits", async () => {
     fetchMock.mockResolvedValue(new Response(JSON.stringify({ output_text: "Xin chào" })));
     expect(await generateChatReply("System", [{ role: "user", text: "First" }, { role: "model", text: "Reply" }, { role: "user", text: "Next" }], { maxOutputTokens: 1200 })).toBe("Xin chào");

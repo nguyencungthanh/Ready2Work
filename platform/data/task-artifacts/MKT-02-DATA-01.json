@@ -1,0 +1,152 @@
+{
+  "artifact_id": "MKT-02-DATA-01",
+  "position_id": "MKT-02",
+  "source_version": "20261019",
+  "source_policy": "document_with_authorized_supplements",
+  "simulated": true,
+  "public_materials": [
+    {
+      "id": "marketing-ad-data",
+      "title": "Báo cáo quảng cáo 3 ngày đầu · Dữ liệu mô phỏng",
+      "kind": "table",
+      "columns": [
+        "Nhóm quảng cáo",
+        "Chi tiêu (đồng)",
+        "Lượt hiển thị",
+        "Lượt nhấp",
+        "Lead"
+      ],
+      "rows": [
+        [
+          "A",
+          "3000000",
+          "40000",
+          "240",
+          "3"
+        ],
+        [
+          "B",
+          "2000000",
+          "22500",
+          "260",
+          "5"
+        ],
+        [
+          "Tổng",
+          "5000000",
+          "62500",
+          "500",
+          "8"
+        ]
+      ],
+      "editable": false
+    },
+    {
+      "id": "marketing-ad-settings",
+      "title": "Thiết lập nhóm quảng cáo · Dữ liệu mô phỏng",
+      "kind": "table",
+      "columns": [
+        "Nhóm",
+        "Đối tượng",
+        "Nội dung quảng cáo"
+      ],
+      "rows": [
+        [
+          "A",
+          "18–55 tuổi tại TP.HCM; sở thích rộng liên quan giáo dục, học tập; chưa chia nhóm theo mục tiêu học.",
+          "Ảnh stock và thông điệp chung “Tiếng Anh cho mọi người”; cùng một mẫu cho toàn bộ đối tượng."
+        ],
+        [
+          "B",
+          "18–30 tuổi, sinh viên/người mới đi làm trong bán kính 5 km quanh trung tâm; quan tâm tiếng Anh giao tiếp.",
+          "Video lớp học 20 giây, nêu tình huống giao tiếp thực tế và CTA đăng ký tư vấn."
+        ]
+      ],
+      "editable": false
+    },
+    {
+      "id": "marketing-landing-data",
+      "title": "Trang đích và biểu mẫu · Dữ liệu mô phỏng",
+      "kind": "table",
+      "columns": [
+        "Hạng mục",
+        "Dữ kiện"
+      ],
+      "rows": [
+        [
+          "Thời gian tải trang trên di động",
+          "5,2 giây trong phép thử mô phỏng."
+        ],
+        [
+          "Số trường bắt buộc",
+          "7: họ tên, số điện thoại, email, độ tuổi, trình độ hiện tại, mục tiêu học và cơ sở muốn học."
+        ],
+        [
+          "Luồng chuyển đổi",
+          "Cả hai nhóm dẫn về cùng trang; Lead là một lượt gửi biểu mẫu thành công, đã loại trùng trong 3 ngày."
+        ],
+        [
+          "Tracking",
+          "Pixel và sự kiện gửi form đã được kiểm tra hoạt động; chưa có báo cáo chất lượng hoặc doanh thu theo lead."
+        ],
+        [
+          "Ngân sách và mục tiêu",
+          "Còn 15.000.000 đồng cho 11 ngày; cần đạt tổng 100 lead trong 14 ngày. Trình bày rõ giả định, không khẳng định kế hoạch chắc chắn đạt KPI."
+        ],
+        [
+          "Nguồn dữ liệu",
+          "Tất cả số liệu và thiết lập phục vụ bài mô phỏng; chỉ dùng để phân tích và đề xuất thử nghiệm."
+        ]
+      ],
+      "editable": false
+    },
+    {
+      "id": "marketing-budget-plan",
+      "title": "Bảng kế hoạch ngân sách",
+      "kind": "table",
+      "columns": [
+        "Giai đoạn / ngày",
+        "Nhóm / kênh",
+        "Ngân sách (đồng)",
+        "KPI lead",
+        "KPI CPL (đồng)",
+        "Giả định / quy tắc dừng"
+      ],
+      "rows": [
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "editable": true
+    }
+  ]
+}

@@ -45,14 +45,14 @@ The three new migrations begin with `20261016`. They add the CV/business/mentor 
 ## Implemented journeys
 
 - **Candidate:** email signup/verification/sign-in → CV upload or pasted CV → position-specific Golden Profile analysis → relevant simulation/interview → saved results → dashboard and report.
-- **Simulations:** 15 prepared tasks, the four supplied input datasets, private checklist grading, source-defined constraints, objective attempt timing, and atomic submission persistence.
+- **Simulations:** 15 available tasks, four original input datasets and three authorized Marketing datasets, private checklist grading, source-defined constraints, objective attempt timing, and atomic submission persistence.
 - **Interviews:** 14 prepared sets and 88 questions. Three rounds, per-question rubric scoring, independently normalized round scores, resumable history, and immutable completed results.
 - **Reports:** actual recorded progress, latest results for the target role, measured skill radar, strengths/gaps, and 30/40/30 readiness weighting. The PDF button opens a styled A4 print layout; choose **Save as PDF**.
 - **Business:** business signup/onboarding, paired assignment/rubric uploads, separate simulation/interview tabs, private downloads, and publication after the existing administrator role approval.
 - **Mentor:** approved mentors/admins can record a consented, evidence-based review at `/mentor`. Candidates cannot supply their own mentor score.
 - **Existing base:** career discovery, learning roadmaps/chat, account settings, password recovery, and administrator role reviews remain available.
 
-Three logistics interview sets are intentionally unavailable because their supplied first-round questions are missing. No questions were invented. The source also has no interview set for Content Marketing Specialist. Missing mentor scores, voice/body-language measurements, and hired-candidate benchmark data are explicitly shown as unavailable.
+The interview library contains all 15 source positions and 120 questions. Eight sets remain view-only because their source points or question/criterion pairing need confirmation; this simulation update does not alter the interview bank. Missing mentor scores, voice/body-language measurements, and hired-candidate benchmark data are explicitly shown as unavailable.
 
 CV analysis uses the supplied Golden Profile weights and certification priorities. Without a configured AI key, CV matching offers a clearly labeled keyword preview. Simulation/interview AI scoring requires a configured provider; a provider failure does not produce a fabricated score. `GEMINI_MODEL` selects the direct Google model. For Vilao, set `AI_BASE_URL=https://api.vilao.ai/v1` and `AI_MODEL=sba/ag/gemini-3.8-flash` in the `ready2-work` Vercel project, then redeploy. Set the purchased key in server-only `AI_API_KEY`, or retain it in the existing `GEMINI_API_KEY` variable. A configured gateway uses Responses for text requests. Vilao document/image requests use its chat/completions endpoint with ordered page images rendered locally; failures do not fall back to Google. The CV consent names the configured provider.
 

@@ -189,8 +189,10 @@ benchmark=next(table for table in nested if table['row']==3 and table['column']=
 tasks={'schema_version':'2.0','project':'Ready2Work','source_url':source['source_url'],'source_version':'20261017','document_purpose':'Đề bài và tiêu chí chấm theo nguyên bản nguồn; điểm mâu thuẫn chưa được tự thay đổi.','industries':[]}
 for iid,name,positions in industries:
  tasks['industries'].append({'industry_id':iid,'industry_name':name,'tasks':[newtasks[iid+'-'+suffix] for suffix,_,_ in positions]})
+from simulation_refresh import apply_simulation_refresh
+tasks = apply_simulation_refresh(tasks, root)
+print("Current simulations", [(t["position_id"], t["source_total_points"], t["grading_ready"]) for i in tasks["industries"] for t in i["tasks"]])
 (out/'task-rubrics.json').write_text(json.dumps(tasks,ensure_ascii=False,indent=2)+'\n')
-print('Task sources',[(p,len(t['rubric']),t['source_total_points'],t['grading_ready']) for p,t in newtasks.items()])
 
 bank['tro-ly-thue']['source_content_issues']=['Một số ô câu hỏi Trợ lý thuế chứa nội dung tiêu chí của câu khác (bảng 420 và 422); cần xác nhận câu hỏi gốc trước khi chấm.']
 for slug,item in bank.items():
@@ -200,6 +202,12 @@ for slug,item in bank.items():
 (out/'interview-bank.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n')
 for pid in ['TCNH-01','TCNH-02','TCNH-03']:
  (out/(pid+'-DATA-01.json')).write_text(json.dumps({'artifact_id':pid+'-DATA-01','position_id':pid,'source_version':'20261017','documents':finance[pid],'source_inconsistencies':finance.get('source_inconsistencies',[]) if pid=='TCNH-02' else []},ensure_ascii=False,indent=2)+'\n')
+
+# Authorized Marketing artifacts share the same reviewed supplement as runtime tables.
+supplement = json.loads((root/'platform/data/source/marketing-inputs-20261019.json').read_text())
+for pid, materials in supplement['by_position'].items():
+ artifact = {'artifact_id':pid+'-DATA-01','position_id':pid,'source_version':'20261019','source_policy':supplement['source_policy'],'simulated':True,'public_materials':materials}
+ (out/(pid+'-DATA-01.json')).write_text(json.dumps(artifact,ensure_ascii=False,indent=2)+'\n')
 
 # Explicit generator; --check verifies outputs without modifying them.
 import sys

@@ -71,14 +71,16 @@ test("feedback: returning login, source catalogs, question draft, editable table
 
     for (const position of ["mkt-01", "mkt-03"]) {
       await page.goto(`/simulations/r2w-${position}`);
-      await expect(page.getByRole("status")).toContainText("thiếu tài liệu nguồn");
-      await expect(page.getByRole("button", { name: "Nhận việc & Bắt đầu tính giờ", exact: true })).toHaveCount(0);
+      await expect(page.getByRole("button", { name: "Nhận việc & Bắt đầu tính giờ", exact: true })).toBeEnabled();
       await page.getByRole("button", { name: "Tài liệu tham khảo", exact: true }).click();
-      await expect(page.locator(".waiting-body table")).toHaveCount(1);
-      const publicText = await page.locator(".waiting-body").innerText();
-      expect(publicText).not.toMatch(/65% sợi bông|399[.,]000|359[.,]000|12 từ khóa SEO kèm|Search Volume|Keyword Difficulty/);
-      await page.getByRole("link", { name: "Xem nội dung và soạn thử", exact: true }).click();
-      await expect(page.getByRole("button", { name: "Chờ xác nhận tiêu chí", exact: true })).toBeDisabled();
+      expect(await page.locator(".waiting-body table").count()).toBeGreaterThanOrEqual(2);
+      await expect(page.locator(".waiting-body")).toContainText("Dữ liệu mô phỏng");
+      if (position === "mkt-03") {
+        const keywords = page.locator(".waiting-body section").filter({ has: page.getByRole("heading", { name: "Bảng 12 từ khóa SEO · Dữ liệu mô phỏng", exact: true }) });
+        await expect(keywords.locator("tbody tr")).toHaveCount(12);
+      }
+      await page.getByRole("button", { name: "Nhận việc & Bắt đầu tính giờ", exact: true }).click();
+      await expect(page.getByRole("button", { name: "Nộp báo cáo", exact: true })).toBeDisabled();
       const draft = page.getByRole("textbox", { name: "Nội dung bài làm", exact: true });
       await draft.fill("Bản nháp kiểm định nội dung nguồn, chưa gửi AI.");
       await page.reload();
@@ -87,7 +89,7 @@ test("feedback: returning login, source catalogs, question draft, editable table
       expect(marketingSimulation.error).toBeNull();
       const attempts = await admin.from("simulation_attempts").select("id").eq("user_id", userId).eq("simulation_id", marketingSimulation.data!.id);
       expect(attempts.error).toBeNull();
-      expect(attempts.data).toEqual([]);
+      expect(attempts.data).toHaveLength(1);
     }
 
     const set = await admin.from("interview_sets").select("id").eq("position_id", "IT-02").eq("is_available", true).like("slug", "r2w-%").order("created_at", { ascending: false }).limit(1).single();
@@ -166,7 +168,7 @@ test("feedback: returning login, source catalogs, question draft, editable table
     if (!simulation.data!.is_available) {
       const attempts = await admin.from("simulation_attempts").select("id").eq("user_id", userId).eq("simulation_id", simulation.data!.id);
       expect(attempts.error).toBeNull();
-      expect(attempts.data).toEqual([]);
+      expect(attempts.data).toHaveLength(1);
       await expect(page.getByRole("button", { name: "Chờ xác nhận tiêu chí", exact: true })).toBeDisabled();
     }
     if (process.env.CAPTURE_UI) await page.screenshot({ path: test.info().outputPath("feedback-simulation-draft.png"), fullPage: true });

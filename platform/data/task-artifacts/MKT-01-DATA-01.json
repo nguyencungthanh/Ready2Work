@@ -1,0 +1,65 @@
+{
+  "artifact_id": "MKT-01-DATA-01",
+  "position_id": "MKT-01",
+  "source_version": "20261019",
+  "source_policy": "document_with_authorized_supplements",
+  "simulated": true,
+  "public_materials": [
+    {
+      "id": "marketing-product-brief",
+      "title": "Product Brief Campus Fleece · Dữ liệu mô phỏng",
+      "kind": "table",
+      "columns": [
+        "Hạng mục",
+        "Thông tin"
+      ],
+      "rows": [
+        [
+          "Sản phẩm",
+          "Hoodie Campus Fleece, dáng unisex; khách hàng sinh viên 18–22 tuổi."
+        ],
+        [
+          "Chất liệu",
+          "Nỉ bông 300 gsm; 65% cotton, 35% polyester; mặt trong chải lông. Không quảng cáo chống nước hoặc công nghệ giữ nhiệt."
+        ],
+        [
+          "Màu và cỡ",
+          "Kem, xám, xanh navy; S, M, L, XL."
+        ],
+        [
+          "Giá niêm yết",
+          "399.000 đồng/áo."
+        ],
+        [
+          "Ưu đãi ra mắt",
+          "359.000 đồng/áo trong đúng 48 giờ kể từ 09:00 ngày mở bán (ngày 3 của kế hoạch). Sau đó trở lại 399.000 đồng. Không cộng dồn ưu đãi khác."
+        ],
+        [
+          "Kênh mua",
+          "Fanpage và gian hàng Shopee của thương hiệu."
+        ],
+        [
+          "Brand Voice",
+          "Xưng Shop – Cậu; gần gũi, năng động, tinh nghịch vừa phải; câu ngắn, không miệt thị hoặc hứa hẹn quá mức."
+        ],
+        [
+          "Thông điệp",
+          "Ấm vừa đủ cho ngày lên lớp, dễ phối đồ và vừa ngân sách sinh viên."
+        ],
+        [
+          "Nguồn lực",
+          "Hai thành viên; quay/chụp bằng điện thoại, không KOL hoặc studio. Nhạc phải có quyền dùng thương mại."
+        ],
+        [
+          "Lịch triển khai",
+          "Ngày 1–2 giới thiệu/teaser; ngày 3 mở bán. Từ ngày 4 tăng nội dung trải nghiệm, phối đồ và tương tác; ghi đúng thời điểm kết thúc ưu đãi."
+        ],
+        [
+          "Nguồn dữ liệu",
+          "Bộ dữ kiện giả định cho bài mô phỏng; không phải thông số của một sản phẩm đang bán."
+        ]
+      ],
+      "editable": false
+    }
+  ]
+}

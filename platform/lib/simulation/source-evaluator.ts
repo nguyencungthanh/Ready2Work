@@ -3,11 +3,12 @@ import { z } from "zod";
 import { generateStructured } from "@/lib/ai/gemini";
 import type { Band, EvaluationResult } from "./ai-evaluator";
 import { loadSourceImageAttachments } from "./source-attachments";
+import { isCurrentSourceRevision } from "@/lib/content/source-catalog";
 
 const itemSchema = z.object({ checklist_id: z.string(), text: z.string().min(1), points: z.number().finite().positive(), scoring_source: z.enum(["ai", "system"]).default("ai") });
 const taskSchema = z.object({
-  source_version: z.literal("20261017"), grading_ready: z.boolean(), time_limit_minutes: z.number().positive(),
-  source_policy: z.literal("document_only"), content_revision: z.literal("20261017-doc-only"),
+  position_id: z.string(), source_version: z.string(), grading_ready: z.boolean(), time_limit_minutes: z.number().positive(),
+  source_policy: z.enum(["document_only", "document_with_authorized_supplements"]), content_revision: z.string(),
   time_limit_source: z.string().optional(),
   score_normalization: z.enum(["none", "raw_criteria_sum"]).default("none"),
   rubric: z.array(z.object({ criterion_id: z.string(), criterion_name: z.string(), description: z.string().optional(), max_points: z.number().finite().positive(), checklist: z.array(itemSchema).min(1) })).min(1),
@@ -21,12 +22,20 @@ const normalize = (text: string) => text.normalize("NFC").replace(/\s+/g, " ").t
 const band = (ratio: number): Band => ratio >= .75 ? "Strong" : ratio >= .5 ? "Proficient" : ratio >= .25 ? "Developing" : "Emerging";
 const sum = (items: { points: number }[]) => items.reduce((total, item) => total + item.points, 0);
 
+class SourceResponseError extends Error {
+  constructor(public readonly code: "INVALID_IDS" | "EXCESS_POINTS" | "INVALID_EVIDENCE", message: string) {
+    super(message);
+    this.name = "SourceResponseError";
+  }
+}
+
 function exactIds(expected: string[], actual: string[]) {
-  if (new Set(expected).size !== expected.length || new Set(actual).size !== actual.length || expected.length !== actual.length || expected.some((id) => !actual.includes(id))) throw new Error("Kết quả AI chưa bao phủ đúng từng mục trong tiêu chí nguồn.");
+  if (new Set(expected).size !== expected.length || new Set(actual).size !== actual.length || expected.length !== actual.length || expected.some((id) => !actual.includes(id))) throw new SourceResponseError("INVALID_IDS", "Kết quả AI chưa bao phủ đúng từng mục trong tiêu chí nguồn.");
 }
 
 export function validateCurrentSourceTask(referenceData: unknown) {
   const task = taskSchema.parse(referenceData);
+  if (!isCurrentSourceRevision(task)) throw new Error("Barem chưa khớp phiên bản đề hiện tại.");
   if (!task.grading_ready) throw new Error("Tiêu chí nguồn đang chờ xác nhận trước khi chấm điểm.");
   const allItems = task.rubric.flatMap((criterion) => criterion.checklist);
   if (task.time_limit_source === "not_specified" && allItems.some((item) => item.scoring_source === "system")) throw new Error("Nguồn chưa quy định thời lượng để chấm điểm thời gian.");
@@ -48,8 +57,8 @@ export function scoreCurrentSourceEvaluation(raw: unknown, referenceData: unknow
   exactIds(task.rubric.map((criterion) => criterion.criterion_id), parsed.criterionFeedback.map((criterion) => criterion.criterionId));
   for (const row of parsed.checklists) {
     const source = aiItems.find((item) => item.checklist_id === row.checklistId)!;
-    if (row.awardedPoints > source.points) throw new Error("AI chấm vượt điểm tối đa của mục nguồn.");
-    if (row.awardedPoints > 0 && (!normalize(row.evidence) || !normalize(submission).includes(normalize(row.evidence)))) throw new Error("AI chấm điểm khi chưa có trích dẫn nguyên văn trong bài làm.");
+    if (row.awardedPoints > source.points) throw new SourceResponseError("EXCESS_POINTS", "AI chấm vượt điểm tối đa của mục nguồn.");
+    if (row.awardedPoints > 0 && (!normalize(row.evidence) || !normalize(submission).includes(normalize(row.evidence)))) throw new SourceResponseError("INVALID_EVIDENCE", "AI chấm điểm khi chưa có trích dẫn nguyên văn trong bài làm.");
   }
   const timeLimitSpecified = task.time_limit_source !== "not_specified";
   const onTime = timeLimitSpecified ? durationSeconds <= task.time_limit_minutes * 60 : null;
@@ -84,12 +93,28 @@ Nhận xét công khai bằng tiếng Việt, chỉ nói bằng chứng và đi�
 Đề bài: ${brief}\n${instructions}
 Ảnh tài liệu nguyên bản đính kèm theo thứ tự: ${attachments.map((item, index) => `${index + 1}. ${item.title} (${item.id})`).join("; ") || "Không có ảnh đầu vào."} Chỉ dùng dữ kiện đọc được trong tài liệu, không suy đoán chữ/số không rõ.
 Tiêu chí nội bộ: ${JSON.stringify(rubric)}
-Dữ kiện tham chiếu riêng để chấm: ${JSON.stringify(Object.fromEntries(Object.entries(task).filter(([key]) => key !== "rubric")))}
+Dữ kiện tham chiếu riêng để chấm: ${JSON.stringify(Object.fromEntries(Object.entries(task).filter(([key]) => !["rubric", "source_rubric_text", "source_adjustments"].includes(key))))}
 Bài làm: ${JSON.stringify(content)}
 Trả JSON summary, checklists[{checklistId,awardedPoints,evidence,reason}], criterionFeedback[{criterionId,feedback}]. Bao phủ đúng từng ID, không thiếu/lặp. Hệ thống tự tính tổng điểm.`;
-  const raw = await generateStructured(prompt, { type: "object", properties: {
+  const schema = { type: "object", properties: {
     summary: { type: "string" }, checklists: { type: "array", items: { type: "object", properties: { checklistId: { type: "string" }, awardedPoints: { type: "number", minimum: 0 }, evidence: { type: "string" }, reason: { type: "string" } }, required: ["checklistId", "awardedPoints", "evidence", "reason"] } },
     criterionFeedback: { type: "array", items: { type: "object", properties: { criterionId: { type: "string" }, feedback: { type: "string" } }, required: ["criterionId", "feedback"] } },
-  }, required: ["summary", "checklists", "criterionFeedback"] }, attachments.length ? attachments.map((item) => item.inlineData) : undefined);
-  return scoreCurrentSourceEvaluation(raw, task, content, durationSeconds);
+  }, required: ["summary", "checklists", "criterionFeedback"] };
+  let correction = "";
+  // One shared retry budget. Never echo the invalid provider response or save
+  // an incomplete score. Two 45s calls fit the page's 180s action budget.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const raw = await generateStructured(prompt + correction, schema, attachments.length ? attachments.map((item) => item.inlineData) : undefined, { timeoutMs: 45_000 });
+      return scoreCurrentSourceEvaluation(raw, task, content, durationSeconds);
+    } catch (error) {
+      const status = typeof error === "object" && error !== null && "status" in error ? error.status : undefined;
+      const code = error instanceof SourceResponseError ? error.code : error instanceof SyntaxError ? "INVALID_JSON"
+        : error instanceof z.ZodError ? "INVALID_SCHEMA" : status === 503 ? "UNAVAILABLE"
+          : error instanceof Error && /^(TimeoutError|AbortError)$/.test(error.name) ? "TIMEOUT" : undefined;
+      if (attempt || !code) throw error;
+      correction = `\nThử lại sau kiểm tra ${code}. Trả đúng JSON và đủ mọi ID. Điểm không vượt points. evidence phải chép nguyên văn liên tục từ Bài làm, giữ đúng chữ, dấu và số; không viết lại. Không có bằng chứng đáp ứng thì chấm 0 và evidence rỗng. Không cộng điểm cho câu nói chưa thực hiện yêu cầu. Không thêm nội dung ngoài JSON.`;
+    }
+  }
+  throw new Error("AI chưa hoàn tất chấm điểm theo tiêu chí nguồn.");
 }

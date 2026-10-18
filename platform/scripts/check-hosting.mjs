@@ -47,3 +47,12 @@ if (process.env.R2W_CHECK_CV === "1") {
   report("hosting-cv-provider", { ok: result.status === 0 });
   if (result.status !== 0) process.exit(1);
 }
+
+if (process.env.R2W_CHECK_SOURCE === "1") {
+  const { spawnSync } = await import("node:child_process");
+  const result = spawnSync("npm", ["exec", "--", "vitest", "run", "tests/integration/content/live-source.test.ts", "-t", "grades refreshed"], {
+    stdio: "inherit", env: { ...process.env, R2W_RUN_LIVE_SOURCE: "1" },
+  });
+  report("hosting-source-provider", { ok: result.status === 0 });
+  if (result.status !== 0) process.exit(1);
+}

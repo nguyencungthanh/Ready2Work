@@ -1,0 +1,335 @@
+{
+  "source_policy": "document_with_authorized_supplements",
+  "created_on": "2026-10-19",
+  "authorization": "Chủ dự án yêu cầu: “Cái gì còn thiếu bạn hãy tự bổ sung sao cho hợp lí nhất”.",
+  "purpose": "Dữ liệu đầu vào mô phỏng để hoàn thiện ba đề Marketing; không thay đổi các trọng số rubric đã có trong Docs.",
+  "by_position": {
+    "MKT-01": [
+      {
+        "id": "marketing-product-brief",
+        "title": "Product Brief Campus Fleece · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Hạng mục",
+          "Thông tin"
+        ],
+        "rows": [
+          [
+            "Sản phẩm",
+            "Hoodie Campus Fleece, dáng unisex; khách hàng sinh viên 18–22 tuổi."
+          ],
+          [
+            "Chất liệu",
+            "Nỉ bông 300 gsm; 65% cotton, 35% polyester; mặt trong chải lông. Không quảng cáo chống nước hoặc công nghệ giữ nhiệt."
+          ],
+          [
+            "Màu và cỡ",
+            "Kem, xám, xanh navy; S, M, L, XL."
+          ],
+          [
+            "Giá niêm yết",
+            "399.000 đồng/áo."
+          ],
+          [
+            "Ưu đãi ra mắt",
+            "359.000 đồng/áo trong đúng 48 giờ kể từ 09:00 ngày mở bán (ngày 3 của kế hoạch). Sau đó trở lại 399.000 đồng. Không cộng dồn ưu đãi khác."
+          ],
+          [
+            "Kênh mua",
+            "Fanpage và gian hàng Shopee của thương hiệu."
+          ],
+          [
+            "Brand Voice",
+            "Xưng Shop – Cậu; gần gũi, năng động, tinh nghịch vừa phải; câu ngắn, không miệt thị hoặc hứa hẹn quá mức."
+          ],
+          [
+            "Thông điệp",
+            "Ấm vừa đủ cho ngày lên lớp, dễ phối đồ và vừa ngân sách sinh viên."
+          ],
+          [
+            "Nguồn lực",
+            "Hai thành viên; quay/chụp bằng điện thoại, không KOL hoặc studio. Nhạc phải có quyền dùng thương mại."
+          ],
+          [
+            "Lịch triển khai",
+            "Ngày 1–2 giới thiệu/teaser; ngày 3 mở bán. Từ ngày 4 tăng nội dung trải nghiệm, phối đồ và tương tác; ghi đúng thời điểm kết thúc ưu đãi."
+          ],
+          [
+            "Nguồn dữ liệu",
+            "Bộ dữ kiện giả định cho bài mô phỏng; không phải thông số của một sản phẩm đang bán."
+          ]
+        ],
+        "editable": false
+      }
+    ],
+    "MKT-02": [
+      {
+        "id": "marketing-ad-data",
+        "title": "Báo cáo quảng cáo 3 ngày đầu · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Nhóm quảng cáo",
+          "Chi tiêu (đồng)",
+          "Lượt hiển thị",
+          "Lượt nhấp",
+          "Lead"
+        ],
+        "rows": [
+          [
+            "A",
+            "3000000",
+            "40000",
+            "240",
+            "3"
+          ],
+          [
+            "B",
+            "2000000",
+            "22500",
+            "260",
+            "5"
+          ],
+          [
+            "Tổng",
+            "5000000",
+            "62500",
+            "500",
+            "8"
+          ]
+        ],
+        "editable": false
+      },
+      {
+        "id": "marketing-ad-settings",
+        "title": "Thiết lập nhóm quảng cáo · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Nhóm",
+          "Đối tượng",
+          "Nội dung quảng cáo"
+        ],
+        "rows": [
+          [
+            "A",
+            "18–55 tuổi tại TP.HCM; sở thích rộng liên quan giáo dục, học tập; chưa chia nhóm theo mục tiêu học.",
+            "Ảnh stock và thông điệp chung “Tiếng Anh cho mọi người”; cùng một mẫu cho toàn bộ đối tượng."
+          ],
+          [
+            "B",
+            "18–30 tuổi, sinh viên/người mới đi làm trong bán kính 5 km quanh trung tâm; quan tâm tiếng Anh giao tiếp.",
+            "Video lớp học 20 giây, nêu tình huống giao tiếp thực tế và CTA đăng ký tư vấn."
+          ]
+        ],
+        "editable": false
+      },
+      {
+        "id": "marketing-landing-data",
+        "title": "Trang đích và biểu mẫu · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Hạng mục",
+          "Dữ kiện"
+        ],
+        "rows": [
+          [
+            "Thời gian tải trang trên di động",
+            "5,2 giây trong phép thử mô phỏng."
+          ],
+          [
+            "Số trường bắt buộc",
+            "7: họ tên, số điện thoại, email, độ tuổi, trình độ hiện tại, mục tiêu học và cơ sở muốn học."
+          ],
+          [
+            "Luồng chuyển đổi",
+            "Cả hai nhóm dẫn về cùng trang; Lead là một lượt gửi biểu mẫu thành công, đã loại trùng trong 3 ngày."
+          ],
+          [
+            "Tracking",
+            "Pixel và sự kiện gửi form đã được kiểm tra hoạt động; chưa có báo cáo chất lượng hoặc doanh thu theo lead."
+          ],
+          [
+            "Ngân sách và mục tiêu",
+            "Còn 15.000.000 đồng cho 11 ngày; cần đạt tổng 100 lead trong 14 ngày. Trình bày rõ giả định, không khẳng định kế hoạch chắc chắn đạt KPI."
+          ],
+          [
+            "Nguồn dữ liệu",
+            "Tất cả số liệu và thiết lập phục vụ bài mô phỏng; chỉ dùng để phân tích và đề xuất thử nghiệm."
+          ]
+        ],
+        "editable": false
+      },
+      {
+        "id": "marketing-budget-plan",
+        "title": "Bảng kế hoạch ngân sách",
+        "kind": "table",
+        "columns": [
+          "Giai đoạn / ngày",
+          "Nhóm / kênh",
+          "Ngân sách (đồng)",
+          "KPI lead",
+          "KPI CPL (đồng)",
+          "Giả định / quy tắc dừng"
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        ],
+        "editable": true
+      }
+    ],
+    "MKT-03": [
+      {
+        "id": "marketing-keyword-data",
+        "title": "Bảng 12 từ khóa SEO · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Từ khóa",
+          "Lượt tìm kiếm/tháng (giả định)",
+          "KD (0–100, giả định)",
+          "Search intent"
+        ],
+        "rows": [
+          [
+            "cách tính giá vốn đồ uống",
+            "1600",
+            "24",
+            "Tìm hiểu cách tính và kiểm soát chi phí"
+          ],
+          [
+            "quản lý nguyên liệu quán cafe",
+            "720",
+            "22",
+            "Tìm cách vận hành kho nguyên liệu"
+          ],
+          [
+            "định mức nguyên liệu pha chế",
+            "590",
+            "18",
+            "Tìm cách thiết lập định mức theo món"
+          ],
+          [
+            "kiểm kê kho quán cafe",
+            "390",
+            "16",
+            "Tìm quy trình kiểm kê và đối soát"
+          ],
+          [
+            "phần mềm quản lý kho F&B",
+            "260",
+            "28",
+            "So sánh giải pháp phần mềm cho cơ sở F&B"
+          ],
+          [
+            "cảnh báo tồn kho nguyên vật liệu",
+            "170",
+            "12",
+            "Tìm cách nhận cảnh báo tồn kho"
+          ],
+          [
+            "cách giảm thất thoát nguyên liệu",
+            "480",
+            "21",
+            "Tìm biện pháp kiểm soát thất thoát"
+          ],
+          [
+            "mẫu file quản lý kho nguyên liệu",
+            "1300",
+            "29",
+            "Tìm biểu mẫu Excel miễn phí"
+          ],
+          [
+            "phần mềm quản lý bán hàng",
+            "12100",
+            "72",
+            "So sánh phần mềm bán hàng nhiều ngành"
+          ],
+          [
+            "công thức pha chế trà sữa",
+            "18100",
+            "58",
+            "Tìm công thức làm đồ uống"
+          ],
+          [
+            "mở quán cafe cần chuẩn bị gì",
+            "6600",
+            "45",
+            "Tìm hướng dẫn mở quán mới"
+          ],
+          [
+            "quản lý nhà hàng",
+            "4400",
+            "64",
+            "Tìm kiến thức quản trị nhà hàng tổng quát"
+          ]
+        ],
+        "editable": false
+      },
+      {
+        "id": "marketing-content-brief",
+        "title": "Thông tin tính năng và giới hạn nội dung · Dữ liệu mô phỏng",
+        "kind": "table",
+        "columns": [
+          "Hạng mục",
+          "Thông tin"
+        ],
+        "rows": [
+          [
+            "Khách hàng",
+            "Chủ quán cafe, trà sữa hoặc cơ sở F&B vừa và nhỏ; người trực tiếp quản lý nguyên liệu và chi phí."
+          ],
+          [
+            "Tính năng chuẩn bị ra mắt",
+            "Thiết lập định mức theo món; trừ kho theo đơn; cảnh báo khi chạm mức tồn tối thiểu do quán đặt; ghi nhận nhập/xuất và kiểm kê."
+          ],
+          [
+            "Nỗi đau",
+            "Thất thoát khó đối chiếu, không rõ mức tiêu hao, hết nguyên liệu giờ cao điểm, kiểm kho thủ công tốn thời gian."
+          ],
+          [
+            "Giới hạn thông tin",
+            "Chưa có giá bán hoặc case study của tính năng mới. Không tự tạo tên khách hàng, tỷ lệ tiết kiệm, cam kết tăng doanh thu hay chứng thực."
+          ],
+          [
+            "CTA",
+            "Có thể mời đăng ký nhận tư vấn/dùng thử khi tính năng mở; không hứa khả năng chưa được mô tả."
+          ],
+          [
+            "Chỉ số SEO",
+            "Volume và KD trong bảng là số liệu giả định cho bài tập, không phải dữ liệu đo từ công cụ SEO thực tế."
+          ]
+        ],
+        "editable": false
+      }
+    ]
+  }
+}

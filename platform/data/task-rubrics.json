@@ -2,8 +2,8 @@
   "schema_version": "2.0",
   "project": "Ready2Work",
   "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit?tab=t.a9gvxnc5ma1m",
-  "source_version": "20261017",
-  "document_purpose": "Đề bài và tiêu chí chấm theo nguyên bản nguồn; điểm mâu thuẫn chưa được tự thay đổi.",
+  "source_version": "20261019",
+  "document_purpose": "Đề và barem theo Docs cập nhật 19/10/2026; dữ liệu còn thiếu và điểm chưa khớp được bổ sung theo ủy quyền của chủ dự án.",
   "industries": [
     {
       "industry_id": "MKT",
@@ -15,9 +15,9 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
-          "source_version": "20261017",
-          "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "source_version": "20261019",
+          "source_policy": "document_with_authorized_supplements",
+          "content_revision": "20261019-simulations",
           "source_block": 285,
           "context": "Tình huống: Local Brand thời trang bán qua Fanpage (18.000 follower) và Shopee, sắp ra mắt BST Thu-Đông cho sinh viên (hoodie “Campus Fleece”). Engagement rate giảm 30% (3,0% → 2,1%); 10 bài gần nhất là ảnh sản phẩm nền trắng, chưa có kế hoạch nội dung và video ngắn.\n\nRàng buộc: team 2 người, không thuê KOL/studio, quay bằng điện thoại; khách hàng Gen Z 18–22 tuổi.",
           "requirements": [
@@ -96,7 +96,14 @@
             }
           ],
           "hard_constraints": [],
-          "input_artifacts": [],
+          "input_artifacts": [
+            {
+              "artifact_id": "MKT-01-DATA-01",
+              "type": "simulated_source_data",
+              "description": "Dữ liệu đầu vào mô phỏng được chủ dự án cho phép bổ sung.",
+              "required": true
+            }
+          ],
           "public_materials": [
             {
               "id": "intern-plan",
@@ -169,15 +176,75 @@
                 ]
               ],
               "editable": true
+            },
+            {
+              "id": "marketing-product-brief",
+              "title": "Product Brief Campus Fleece · Dữ liệu mô phỏng",
+              "kind": "table",
+              "columns": [
+                "Hạng mục",
+                "Thông tin"
+              ],
+              "rows": [
+                [
+                  "Sản phẩm",
+                  "Hoodie Campus Fleece, dáng unisex; khách hàng sinh viên 18–22 tuổi."
+                ],
+                [
+                  "Chất liệu",
+                  "Nỉ bông 300 gsm; 65% cotton, 35% polyester; mặt trong chải lông. Không quảng cáo chống nước hoặc công nghệ giữ nhiệt."
+                ],
+                [
+                  "Màu và cỡ",
+                  "Kem, xám, xanh navy; S, M, L, XL."
+                ],
+                [
+                  "Giá niêm yết",
+                  "399.000 đồng/áo."
+                ],
+                [
+                  "Ưu đãi ra mắt",
+                  "359.000 đồng/áo trong đúng 48 giờ kể từ 09:00 ngày mở bán (ngày 3 của kế hoạch). Sau đó trở lại 399.000 đồng. Không cộng dồn ưu đãi khác."
+                ],
+                [
+                  "Kênh mua",
+                  "Fanpage và gian hàng Shopee của thương hiệu."
+                ],
+                [
+                  "Brand Voice",
+                  "Xưng Shop – Cậu; gần gũi, năng động, tinh nghịch vừa phải; câu ngắn, không miệt thị hoặc hứa hẹn quá mức."
+                ],
+                [
+                  "Thông điệp",
+                  "Ấm vừa đủ cho ngày lên lớp, dễ phối đồ và vừa ngân sách sinh viên."
+                ],
+                [
+                  "Nguồn lực",
+                  "Hai thành viên; quay/chụp bằng điện thoại, không KOL hoặc studio. Nhạc phải có quyền dùng thương mại."
+                ],
+                [
+                  "Lịch triển khai",
+                  "Ngày 1–2 giới thiệu/teaser; ngày 3 mở bán. Từ ngày 4 tăng nội dung trải nghiệm, phối đồ và tương tác; ghi đúng thời điểm kết thúc ưu đãi."
+                ],
+                [
+                  "Nguồn dữ liệu",
+                  "Bộ dữ kiện giả định cho bài mô phỏng; không phải thông số của một sản phẩm đang bán."
+                ]
+              ],
+              "editable": false
             }
           ],
           "source_rubric_text": "",
-          "grading_ready": false,
+          "grading_ready": true,
           "source_conflicts": [],
           "source_total_points": 100,
-          "missing_source_inputs": [
-            "Product Brief: chất liệu, giá, ưu đãi 48 giờ"
-          ]
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "root",
+            "table_index": 4,
+            "row_index": null
+          },
+          "supplemental_source": "source/marketing-inputs-20261019.json"
         },
         {
           "position_id": "MKT-02",
@@ -185,9 +252,9 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
-          "source_version": "20261017",
-          "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "source_version": "20261019",
+          "source_policy": "document_with_authorized_supplements",
+          "content_revision": "20261019-simulations",
           "source_block": 291,
           "context": "Tình huống: Trung tâm tiếng Anh giao tiếp, mục tiêu 100 lead trong 14 ngày. 3 ngày đầu chi 5.000.000đ, hiển thị 62.500 (CPM 80.000đ), 500 lượt nhấp (CTR 0,8%, CPC 10.000đ), 8 lead (chuyển đổi 1,6%), CPL 625.000đ so với mục tiêu tối đa 200.000đ.\n\nNgân sách còn lại: 15.000.000đ cho 11 ngày tiếp theo.",
           "requirements": [
@@ -266,15 +333,170 @@
             }
           ],
           "hard_constraints": [],
-          "input_artifacts": [],
-          "public_materials": [],
+          "input_artifacts": [
+            {
+              "artifact_id": "MKT-02-DATA-01",
+              "type": "simulated_source_data",
+              "description": "Dữ liệu đầu vào mô phỏng được chủ dự án cho phép bổ sung.",
+              "required": true
+            }
+          ],
+          "public_materials": [
+            {
+              "id": "marketing-ad-data",
+              "title": "Báo cáo quảng cáo 3 ngày đầu · Dữ liệu mô phỏng",
+              "kind": "table",
+              "columns": [
+                "Nhóm quảng cáo",
+                "Chi tiêu (đồng)",
+                "Lượt hiển thị",
+                "Lượt nhấp",
+                "Lead"
+              ],
+              "rows": [
+                [
+                  "A",
+                  "3000000",
+                  "40000",
+                  "240",
+                  "3"
+                ],
+                [
+                  "B",
+                  "2000000",
+                  "22500",
+                  "260",
+                  "5"
+                ],
+                [
+                  "Tổng",
+                  "5000000",
+                  "62500",
+                  "500",
+                  "8"
+                ]
+              ],
+              "editable": false
+            },
+            {
+              "id": "marketing-ad-settings",
+              "title": "Thiết lập nhóm quảng cáo · Dữ liệu mô phỏng",
+              "kind": "table",
+              "columns": [
+                "Nhóm",
+                "Đối tượng",
+                "Nội dung quảng cáo"
+              ],
+              "rows": [
+                [
+                  "A",
+                  "18–55 tuổi tại TP.HCM; sở thích rộng liên quan giáo dục, học tập; chưa chia nhóm theo mục tiêu học.",
+                  "Ảnh stock và thông điệp chung “Tiếng Anh cho mọi người”; cùng một mẫu cho toàn bộ đối tượng."
+                ],
+                [
+                  "B",
+                  "18–30 tuổi, sinh viên/người mới đi làm trong bán kính 5 km quanh trung tâm; quan tâm tiếng Anh giao tiếp.",
+                  "Video lớp học 20 giây, nêu tình huống giao tiếp thực tế và CTA đăng ký tư vấn."
+                ]
+              ],
+              "editable": false
+            },
+            {
+              "id": "marketing-landing-data",
+              "title": "Trang đích và biểu mẫu · Dữ liệu mô phỏng",
+              "kind": "table",
+              "columns": [
+                "Hạng mục",
+                "Dữ kiện"
+              ],
+              "rows": [
+                [
+                  "Thời gian tải trang trên di động",
+                  "5,2 giây trong phép thử mô phỏng."
+                ],
+                [
+                  "Số trường bắt buộc",
+                  "7: họ tên, số điện thoại, email, độ tuổi, trình độ hiện tại, mục tiêu học và cơ sở muốn học."
+                ],
+                [
+                  "Luồng chuyển đổi",
+                  "Cả hai nhóm dẫn về cùng trang; Lead là một lượt gửi biểu mẫu thành công, đã loại trùng trong 3 ngày."
+                ],
+                [
+                  "Tracking",
+                  "Pixel và sự kiện gửi form đã được kiểm tra hoạt động; chưa có báo cáo chất lượng hoặc doanh thu theo lead."
+                ],
+                [
+                  "Ngân sách và mục tiêu",
+                  "Còn 15.000.000 đồng cho 11 ngày; cần đạt tổng 100 lead trong 14 ngày. Trình bày rõ giả định, không khẳng định kế hoạch chắc chắn đạt KPI."
+                ],
+                [
+                  "Nguồn dữ liệu",
+                  "Tất cả số liệu và thiết lập phục vụ bài mô phỏng; chỉ dùng để phân tích và đề xuất thử nghiệm."
+                ]
+              ],
+              "editable": false
+            },
+            {
+              "id": "marketing-budget-plan",
+              "title": "Bảng kế hoạch ngân sách",
+              "kind": "table",
+              "columns": [
+                "Giai đoạn / ngày",
+                "Nhóm / kênh",
+                "Ngân sách (đồng)",
+                "KPI lead",
+                "KPI CPL (đồng)",
+                "Giả định / quy tắc dừng"
+              ],
+              "rows": [
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ],
+                [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  ""
+                ]
+              ],
+              "editable": true
+            }
+          ],
           "source_rubric_text": "",
-          "grading_ready": false,
+          "grading_ready": true,
           "source_conflicts": [],
           "source_total_points": 100,
-          "missing_source_inputs": [
-            "Dữ liệu phân nhóm quảng cáo và trang đích"
-          ]
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "root",
+            "table_index": 5,
+            "row_index": null
+          },
+          "supplemental_source": "source/marketing-inputs-20261019.json"
         },
         {
           "position_id": "MKT-03",
@@ -282,9 +504,9 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "specified",
-          "source_version": "20261017",
-          "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "source_version": "20261019",
+          "source_policy": "document_with_authorized_supplements",
+          "content_revision": "20261019-simulations",
           "source_block": 297,
           "context": "Tình huống: Công ty SaaS quản lý bán hàng F&B vừa và nhỏ sắp ra mắt tính năng “Tự động quản lý nguyên vật liệu & cảnh báo tồn kho”. Organic traffic ~1.200 lượt/tháng (chủ yếu tìm tên thương hiệu), blog 8 bài chủ yếu là tin công ty, website yếu về uy tín tìm kiếm (DR ≈12).\n\nMục tiêu & nguồn lực: 5.000 lượt organic/tháng và 100 lead dùng thử/tháng trong 3 tháng; 1 người viết, 6 bài/tháng.",
           "requirements": [
@@ -363,7 +585,14 @@
             }
           ],
           "hard_constraints": [],
-          "input_artifacts": [],
+          "input_artifacts": [
+            {
+              "artifact_id": "MKT-03-DATA-01",
+              "type": "simulated_source_data",
+              "description": "Dữ liệu đầu vào mô phỏng được chủ dự án cho phép bổ sung.",
+              "required": true
+            }
+          ],
           "public_materials": [
             {
               "id": "content-plan",
@@ -428,15 +657,141 @@
                 ]
               ],
               "editable": true
+            },
+            {
+              "id": "marketing-keyword-data",
+              "title": "Bảng 12 từ khóa SEO · Dữ liệu mô phỏng",
+              "kind": "table",
+              "columns": [
+                "Từ khóa",
+                "Lượt tìm kiếm/tháng (giả định)",
+                "KD (0–100, giả định)",
+                "Search intent"
+              ],
+              "rows": [
+                [
+                  "cách tính giá vốn đồ uống",
+                  "1600",
+                  "24",
+                  "Tìm hiểu cách tính và kiểm soát chi phí"
+                ],
+                [
+                  "quản lý nguyên liệu quán cafe",
+                  "720",
+                  "22",
+                  "Tìm cách vận hành kho nguyên liệu"
+                ],
+                [
+                  "định mức nguyên liệu pha chế",
+                  "590",
+                  "18",
+                  "Tìm cách thiết lập định mức theo món"
+                ],
+                [
+                  "kiểm kê kho quán cafe",
+                  "390",
+                  "16",
+                  "Tìm quy trình kiểm kê và đối soát"
+                ],
+                [
+                  "phần mềm quản lý kho F&B",
+                  "260",
+                  "28",
+                  "So sánh giải pháp phần mềm cho cơ sở F&B"
+                ],
+                [
+                  "cảnh báo tồn kho nguyên vật liệu",
+                  "170",
+                  "12",
+                  "Tìm cách nhận cảnh báo tồn kho"
+                ],
+                [
+                  "cách giảm thất thoát nguyên liệu",
+                  "480",
+                  "21",
+                  "Tìm biện pháp kiểm soát thất thoát"
+                ],
+                [
+                  "mẫu file quản lý kho nguyên liệu",
+                  "1300",
+                  "29",
+                  "Tìm biểu mẫu Excel miễn phí"
+                ],
+                [
+                  "phần mềm quản lý bán hàng",
+                  "12100",
+                  "72",
+                  "So sánh phần mềm bán hàng nhiều ngành"
+                ],
+                [
+                  "công thức pha chế trà sữa",
+                  "18100",
+                  "58",
+                  "Tìm công thức làm đồ uống"
+                ],
+                [
+                  "mở quán cafe cần chuẩn bị gì",
+                  "6600",
+                  "45",
+                  "Tìm hướng dẫn mở quán mới"
+                ],
+                [
+                  "quản lý nhà hàng",
+                  "4400",
+                  "64",
+                  "Tìm kiến thức quản trị nhà hàng tổng quát"
+                ]
+              ],
+              "editable": false
+            },
+            {
+              "id": "marketing-content-brief",
+              "title": "Thông tin tính năng và giới hạn nội dung · Dữ liệu mô phỏng",
+              "kind": "table",
+              "columns": [
+                "Hạng mục",
+                "Thông tin"
+              ],
+              "rows": [
+                [
+                  "Khách hàng",
+                  "Chủ quán cafe, trà sữa hoặc cơ sở F&B vừa và nhỏ; người trực tiếp quản lý nguyên liệu và chi phí."
+                ],
+                [
+                  "Tính năng chuẩn bị ra mắt",
+                  "Thiết lập định mức theo món; trừ kho theo đơn; cảnh báo khi chạm mức tồn tối thiểu do quán đặt; ghi nhận nhập/xuất và kiểm kê."
+                ],
+                [
+                  "Nỗi đau",
+                  "Thất thoát khó đối chiếu, không rõ mức tiêu hao, hết nguyên liệu giờ cao điểm, kiểm kho thủ công tốn thời gian."
+                ],
+                [
+                  "Giới hạn thông tin",
+                  "Chưa có giá bán hoặc case study của tính năng mới. Không tự tạo tên khách hàng, tỷ lệ tiết kiệm, cam kết tăng doanh thu hay chứng thực."
+                ],
+                [
+                  "CTA",
+                  "Có thể mời đăng ký nhận tư vấn/dùng thử khi tính năng mở; không hứa khả năng chưa được mô tả."
+                ],
+                [
+                  "Chỉ số SEO",
+                  "Volume và KD trong bảng là số liệu giả định cho bài tập, không phải dữ liệu đo từ công cụ SEO thực tế."
+                ]
+              ],
+              "editable": false
             }
           ],
           "source_rubric_text": "",
-          "grading_ready": false,
+          "grading_ready": true,
           "source_conflicts": [],
           "source_total_points": 100,
-          "missing_source_inputs": [
-            "Bảng 12 từ khóa SEO"
-          ]
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "root",
+            "table_index": 6,
+            "row_index": null
+          },
+          "supplemental_source": "source/marketing-inputs-20261019.json"
         }
       ]
     },
@@ -783,9 +1138,9 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
-          "source_version": "20261017",
+          "source_version": "20261019",
           "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "content_revision": "20261019-simulations",
           "source_block": 398,
           "context": "1. Bạn là Kế toán tổng hợp (Chuyên bán lẻ đồ điện tử). Công ty áp dụng chế độ kế toán theo Thông tư 200/2014/TT-BTC, kê khai thuế GTGT theo phương pháp khấu trừ. Hôm nay là ngày 31/12/2026, bạn cần rà soát và hạch toán lô chứng từ cuối cùng để khóa sổ lập Báo cáo tài chính.\n\n2. Dữ liệu cung cấp (Inputs): Bộ phận mua hàng và ngân hàng gửi đến cho bạn 3 chứng từ sau:\n\n1. Chứng từ 1: Hóa đơn GTGT mua 1 chiếc ô tô 9 chỗ ngồi phục vụ cho việc đi lại của Giám đốc. Giá chưa thuế GTGT: 2.500.000.000 VNĐ, Thuế GTGT 10%: 250.000.000 VNĐ.\n\n2. Chứng từ 2: Hóa đơn GTGT tiếp khách tại nhà hàng sang trọng, tổng thanh toán 22.000.000 VNĐ (đã bao gồm 10% VAT). Tuy nhiên, trên hóa đơn bị sai một chữ số trong Mã số thuế của công ty Alpha. (Thanh toán bằng thẻ tín dụng công ty).\n\n3. Chứng từ 3: Giấy báo Có của Ngân hàng Vietcombank về việc nhận được thanh toán từ khách hàng nước ngoài (Công ty X). Số tiền nhận: 50.000 USD.\n\n4. Biết rằng: Khoản phải thu của khách hàng X đang có số dư trên sổ kế toán là: 50.000 USD, tỷ giá ghi sổ là 24.200 VNĐ/USD.\n\n5. Tỷ giá mua chuyển khoản của Vietcombank ngày 31/12/2026 là 25.100 VNĐ/USD.\n\n6. Ngân hàng nước ngoài đã thu phí chuyển tiền trực tiếp từ số tiền này là 50 USD (Công ty Alpha chịu phí theo hợp đồng). Thực tế tiền vào tài khoản chỉ là 49.950 USD.",
           "requirements": [
@@ -811,12 +1166,12 @@
               "criterion_id": "C2",
               "criterion_name": "Định khoản Ô tô 9 chỗ",
               "max_points": 35,
-              "description": "2. Định khoản Ô tô 9 chỗ (35đ):\nNhận định đúng luật: Ô tô dưới 9 chỗ không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).\nHạch toán đúng Nợ TK 211 (Nguyên giá = 2,5 tỷ + phần VAT không được khấu trừ 90 triệu = 2.590.000.000đ) (10đ).\nHạch toán đúng Nợ TK 1332 (160 triệu) / Có TK 331 (2,75 tỷ) (10đ).",
+              "description": "2. Định khoản Ô tô 9 chỗ (35đ):\nNhận định đúng luật: Ô tô từ 9 chỗ trở xuống không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).\nHạch toán đúng Nợ TK 211 (Nguyên giá = 2,5 tỷ + phần VAT không được khấu trừ 90 triệu = 2.590.000.000đ) (10đ).\nHạch toán đúng Nợ TK 1332 (160 triệu) / Có TK 331 (2,75 tỷ) (10đ).",
               "source_max_points": 35,
               "checklist": [
                 {
                   "checklist_id": "KK-01-C2-1",
-                  "text": "Nhận định đúng luật: Ô tô dưới 9 chỗ không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).",
+                  "text": "Nhận định đúng luật: Ô tô từ 9 chỗ trở xuống không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).",
                   "points": 15,
                   "scoring_source": "ai"
                 },
@@ -871,10 +1226,16 @@
           "hard_constraints": [],
           "input_artifacts": [],
           "public_materials": [],
-          "source_rubric_text": "1. Xử lý Chứng từ 2 (20đ): Nêu đúng thủ tục xử lý hóa đơn điện tử sai sót (Lập biên bản điều chỉnh/Thông báo mẫu 04/SS-HĐĐT, yêu cầu xuất hóa đơn điều chỉnh). Khẳng định được: Khi chưa điều chỉnh thì chưa được khấu trừ thuế và tính chi phí hợp lệ (20đ).\n2. Định khoản Ô tô 9 chỗ (35đ):\nNhận định đúng luật: Ô tô dưới 9 chỗ không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).\nHạch toán đúng Nợ TK 211 (Nguyên giá = 2,5 tỷ + phần VAT không được khấu trừ 90 triệu = 2.590.000.000đ) (10đ).\nHạch toán đúng Nợ TK 1332 (160 triệu) / Có TK 331 (2,75 tỷ) (10đ).\n3. Hạch toán chênh lệch tỷ giá & Phí ngân hàng (45đ):\nGhi nhận đúng phí ngân hàng: Nợ TK 642: 50 USD x 25.100 (10đ).\nGhi nhận đúng tiền thực nhận: Nợ TK 1122: 49.950 USD x 25.100 (10đ).\nXóa sổ công nợ: Có TK 131: 50.000 USD x 24.200 (10đ).\nGhi nhận Lãi chênh lệch tỷ giá: Có TK 515: Phần chênh lệch (15đ).",
+          "source_rubric_text": "1. Xử lý Chứng từ 2 (20đ): Nêu đúng thủ tục xử lý hóa đơn điện tử sai sót (Lập biên bản điều chỉnh/Thông báo mẫu 04/SS-HĐĐT, yêu cầu xuất hóa đơn điều chỉnh). Khẳng định được: Khi chưa điều chỉnh thì chưa được khấu trừ thuế và tính chi phí hợp lệ (20đ).\n\n2. Định khoản Ô tô 9 chỗ (35đ):\n\n- Nhận định đúng luật: Ô tô từ 9 chỗ trở xuống không kinh doanh vận tải chỉ được khấu trừ VAT phần trị giá 1,6 tỷ (VAT = 160 triệu) (15đ).\n\n- Hạch toán đúng Nợ TK 211 (Nguyên giá = 2,5 tỷ + phần VAT không được khấu trừ 90 triệu = 2.590.000.000đ) (10đ).\n\n- Hạch toán đúng Nợ TK 1332 (160 triệu) / Có TK 331 (2,75 tỷ) (10đ).\n\n3. Hạch toán chênh lệch tỷ giá & Phí ngân hàng (45đ):\n\n- Ghi nhận đúng phí ngân hàng: Nợ TK 642: 50 USD x 25.100 (10đ).\n\n- Ghi nhận đúng tiền thực nhận: Nợ TK 1122: 49.950 USD x 25.100 (10đ).\n\n- Xóa sổ công nợ: Có TK 131: 50.000 USD x 24.200 (10đ).\n\n- Ghi nhận Lãi chênh lệch tỷ giá: Có TK 515: Phần chênh lệch (15đ).",
           "grading_ready": true,
           "source_conflicts": [],
-          "source_total_points": 100
+          "source_total_points": 100,
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "t.xbcvi0hm43q",
+            "table_index": 40,
+            "row_index": 1
+          }
         },
         {
           "position_id": "KK-02",
@@ -1101,26 +1462,32 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
-          "source_version": "20261017",
-          "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "source_version": "20261019",
+          "source_policy": "document_with_authorized_supplements",
+          "content_revision": "20261019-simulations",
           "source_block": 441,
-          "context": "Bạn là Chuyên viên Phân tích Tài chính của Chuỗi bán lẻ Đại Dương (cửa hàng tiện lợi, hàng tiêu dùng nhanh). Doanh thu tăng liên tục 4 quý gần nhất nhưng lợi nhuận sau thuế lại giảm. Ban Giám đốc cần biết nguyên nhân và phương án xử lý trước kỳ họp đầu quý sau. Bạn được cung cấp 1 bộ hồ sơ\n\n1. Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)\n\n2. Chỉ số vận hành\n\n3. Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
+          "context": "Bạn là Chuyên viên Phân tích Tài chính của Chuỗi bán lẻ Đại Dương (cửa hàng tiện lợi, hàng tiêu dùng nhanh). Doanh thu tăng liên tục 4 quý gần nhất nhưng lợi nhuận sau thuế lại giảm. Ban Giám đốc cần biết nguyên nhân và phương án xử lý trước kỳ họp đầu quý sau. Bạn được cung cấp 1 bộ hồ sơ\n\n- Báo cáo kết quả kinh doanh theo quý (đơn vị: triệu đồng)\n\n- Chỉ số vận hành\n\n- Vốn lưu động (đơn vị: triệu đồng, số dư cuối quý)",
           "requirements": [
-            "Nhiệm vụ 1: Điền vào Bảng Thẩm định cho sẵn và Đánh giá chất lượng dòng tiền của doanh nghiệp\n\nNhiệm vụ 2:\n\n- Xác định 4 nguyên nhân gốc rễ khiến lợi nhuận giảm, xếp theo mức độ ảnh hưởng, mỗi nguyên nhân có phân tích định lượng.\n\n- Đưa ra ít nhất 4 nhận định có số liệu chứng minh, kèm hàm ý chiến lược cho mỗi nhận định.\n\nNhiệm vụ 3: Đề xuất 3 giải pháp cải thiện hiệu quả kinh doanh, mỗi giải pháp có hành động cụ thể, thời gian thực hiện và chỉ tiêu mục tiêu (KPI)."
+            "Nhiệm vụ 1: Điền vào Bảng Thẩm định cho sẵn và Đánh giá chất lượng dòng tiền của doanh nghiệp\n\nNhiệm vụ 2:\n\n- Xác định 5 nguyên nhân gốc rễ khiến lợi nhuận giảm, xếp theo mức độ ảnh hưởng, mỗi nguyên nhân có phân tích định lượng.\n\n- Đưa ra ít nhất 5 nhận định có số liệu chứng minh, kèm hàm ý chiến lược cho mỗi nhận định.\n\nNhiệm vụ 3: Đề xuất 3 giải pháp cải thiện hiệu quả kinh doanh, mỗi giải pháp có hành động cụ thể, thời gian thực hiện và chỉ tiêu mục tiêu (KPI)."
           ],
           "rubric": [
             {
               "criterion_id": "C1",
               "criterion_name": "NHIỆM VỤ 1 –",
               "max_points": 30,
-              "description": "NHIỆM VỤ 1 – (30 điểm)\n- Tỉnh đúng bảng chỉ số (20đ).\n- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (15đ)",
               "source_max_points": 30,
+              "description": "NHIỆM VỤ 1 – (30 điểm)\n- Tỉnh đúng bảng chỉ số (20đ).\n- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (10đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-01-C1-1",
-                  "text": "NHIỆM VỤ 1 – (30 điểm)\n- Tỉnh đúng bảng chỉ số (20đ).\n- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (15đ)",
-                  "points": 30,
+                  "text": "- Tỉnh đúng bảng chỉ số (20đ).",
+                  "points": 20,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-01-C1-2",
+                  "text": "- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (10đ)",
+                  "points": 10,
                   "scoring_source": "ai"
                 }
               ]
@@ -1128,14 +1495,26 @@
             {
               "criterion_id": "C2",
               "criterion_name": "NHIỆM VỤ 2 –",
-              "max_points": 42,
-              "description": "NHIỆM VỤ 2 – (42 điểm)\n- Nêu được 4 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên ngân x 4đ)\n- Nêu được 4 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (4 nhận đinh x 5đ)\n- Mỗi nhận định nêu 1 hàm ý hành động (4 nhận định x 3đ)",
-              "source_max_points": 42,
+              "max_points": 30,
+              "source_max_points": 30,
+              "description": "NHIỆM VỤ 2 – (30 điểm)\n- Nêu được 5 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên nhân x2đ)\n- Nêu được 5 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (5 nhận định x2đ)\n- Mỗi nhận định nêu 1 hàm ý hành động (5 nhận định x2đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-01-C2-1",
-                  "text": "NHIỆM VỤ 2 – (42 điểm)\n- Nêu được 4 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên ngân x 4đ)\n- Nêu được 4 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (4 nhận đinh x 5đ)\n- Mỗi nhận định nêu 1 hàm ý hành động (4 nhận định x 3đ)",
-                  "points": 42,
+                  "text": "- Nêu được 5 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên nhân x2đ)",
+                  "points": 10,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-01-C2-2",
+                  "text": "- Nêu được 5 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (5 nhận định x2đ)",
+                  "points": 10,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-01-C2-3",
+                  "text": "- Mỗi nhận định nêu 1 hàm ý hành động (5 nhận định x2đ)",
+                  "points": 10,
                   "scoring_source": "ai"
                 }
               ]
@@ -1144,14 +1523,26 @@
               "criterion_id": "C3",
               "criterion_name": "NHIỆM VỤ 3 -",
               "max_points": 30,
-              "description": "NHIỆM VỤ 3 - (30đ)\n- Nêu được 3 giải pháp (mỗi giải pháp 6 điểm): Nhắm đúng nguyên nhân đã nêu + hành động cụ thể + thời gian + KPI.",
               "source_max_points": 30,
+              "description": "NHIỆM VỤ 3 - (30đ)\n- Nêu được 3 giải pháp (mỗi giải pháp 10 điểm): Nhắm đúng nguyên nhân đã nêu + hành động cụ thể + thời gian + KPI.\nMỗi giải pháp 10 điểm: gắn nguyên nhân 2; hành động cụ thể/khả thi 4; thời gian 2; KPI đo được 2.",
               "checklist": [
                 {
                   "checklist_id": "TCNH-01-C3-1",
-                  "text": "NHIỆM VỤ 3 - (30đ)\n- Nêu được 3 giải pháp (mỗi giải pháp 6 điểm): Nhắm đúng nguyên nhân đã nêu + hành động cụ thể + thời gian + KPI.",
-                  "points": 30,
-                  "scoring_source": "ai"
+                  "points": 10,
+                  "scoring_source": "ai",
+                  "text": "Giải pháp 1: nhắm đúng nguyên nhân đã phân tích (2đ), hành động cụ thể và khả thi (4đ), thời gian thực hiện (2đ), KPI đo được (2đ). Không cộng điểm chỉ vì liệt kê tên giải pháp."
+                },
+                {
+                  "checklist_id": "TCNH-01-C3-2",
+                  "points": 10,
+                  "scoring_source": "ai",
+                  "text": "Giải pháp 2: nhắm đúng nguyên nhân đã phân tích (2đ), hành động cụ thể và khả thi (4đ), thời gian thực hiện (2đ), KPI đo được (2đ). Không cộng điểm chỉ vì liệt kê tên giải pháp."
+                },
+                {
+                  "checklist_id": "TCNH-01-C3-3",
+                  "points": 10,
+                  "scoring_source": "ai",
+                  "text": "Giải pháp 3: nhắm đúng nguyên nhân đã phân tích (2đ), hành động cụ thể và khả thi (4đ), thời gian thực hiện (2đ), KPI đo được (2đ). Không cộng điểm chỉ vì liệt kê tên giải pháp."
                 }
               ]
             },
@@ -1159,8 +1550,8 @@
               "criterion_id": "C4",
               "criterion_name": "TRÌNH BÀY",
               "max_points": 10,
-              "description": "TRÌNH BÀY (10đ)",
               "source_max_points": 10,
+              "description": "TRÌNH BÀY (10đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-01-C4-1",
@@ -1328,20 +1719,33 @@
               "href": "/materials/source-20261017/13.png"
             }
           ],
-          "source_rubric_text": "NHIỆM VỤ 1 – (30 điểm)\n- Tỉnh đúng bảng chỉ số (20đ).\n- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (15đ)\nNHIỆM VỤ 2 – (42 điểm)\n- Nêu được 4 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên ngân x 4đ)\n- Nêu được 4 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (4 nhận đinh x 5đ)\n- Mỗi nhận định nêu 1 hàm ý hành động (4 nhận định x 3đ)\nNHIỆM VỤ 3 - (30đ)\n- Nêu được 3 giải pháp (mỗi giải pháp 6 điểm): Nhắm đúng nguyên nhân đã nêu + hành động cụ thể + thời gian + KPI.\nTRÌNH BÀY (10đ)",
-          "grading_ready": false,
-          "source_conflicts": [
+          "source_rubric_text": "NHIỆM VỤ 1 – (30 điểm)\n\n- Tỉnh đúng bảng chỉ số (20đ).\n\n- Đánh giá đúng chất lượng dòng tiền “Tăng trưởng chưa bền vững” và có minh chứng số liệu (10đ)\n\nNHIỆM VỤ 2 – (30 điểm)\n\n- Nêu được 5 nguyên nhân, xếp đúng thứ tự ảnh hưởng và phân tích (5 nguyên nhân x2đ)\n\n- Nêu được 5 nhận định từ danh sách tham chiếu ở bảng NV1 hoặc nhận định khác hợp lệ. (5 nhận định x2đ)\n\n- Mỗi nhận định nêu 1 hàm ý hành động (5 nhận định x2đ)\n\nNHIỆM VỤ 3 - (30đ)\n\n- Nêu được 3 giải pháp (mỗi giải pháp 10 điểm): Nhắm đúng nguyên nhân đã nêu + hành động cụ thể + thời gian + KPI.\n\nTRÌNH BÀY (10đ)",
+          "grading_ready": true,
+          "source_conflicts": [],
+          "source_total_points": 100,
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "t.a9gvxnc5ma1m",
+            "table_index": 53,
+            "row_index": 2
+          },
+          "source_adjustments": [
             {
-              "criterion": "C1",
-              "sourceNominal": 30,
-              "explicitSubpointTotal": 35
-            },
-            {
-              "kind": "task_total_conflict",
-              "sourceTotal": 112
+              "position_id": "TCNH-01",
+              "criterion_id": "C3",
+              "source_heading_points": 30,
+              "source_points_per_solution": 6,
+              "solution_count": 3,
+              "approved_points_per_solution": 10,
+              "reason": "Ba giải pháp phải cộng đủ 30 điểm của nhiệm vụ, giữ tổng đề 100.",
+              "components": {
+                "addresses_cause": 2,
+                "concrete_action": 4,
+                "timeline": 2,
+                "measurable_kpi": 2
+              }
             }
-          ],
-          "source_total_points": 112
+          ]
         },
         {
           "position_id": "TCNH-02",
@@ -1349,11 +1753,11 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
-          "source_version": "20261017",
+          "source_version": "20261019",
           "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "content_revision": "20261019-simulations",
           "source_block": 441,
-          "context": "Bạn là Chuyên viên Thẩm định Tín dụng SME tại Ngân hàng TMCP Đại Dương. CTCP Con Sứa đề nghị vay 5 tỷ đồng để mua dây chuyền. Trưởng phòng yêu cầu bạn hoàn thành tờ trình thẩm định tín dụng trước cuộc họp thẩm định, dựa trên hồ sơ được cung cấp.\n\n1. Thông tin doanh nghiệp\n\n2. Lịch sử tín dụng\n\n3. Báo cáo tài chính 2023–2025\n\n4. Tài sản đảm bảo đề xuất\n\n5. Phương án sử dụng vốn\n\n6. Chính sách tín dụng SME của Ngân hàng Đại Dương",
+          "context": "Bạn là Chuyên viên Thẩm định Tín dụng SME tại Ngân hàng TMCP Đại Dương. CTCP Con Sứa đề nghị vay 5 tỷ đồng để mua dây chuyền. Trưởng phòng yêu cầu bạn hoàn thành tờ trình thẩm định tín dụng trước cuộc họp thẩm định, dựa trên hồ sơ được cung cấp.\n\n- Thông tin doanh nghiệp\n\n- Lịch sử tín dụng\n\n- Báo cáo tài chính 2023–2025\n\n- Tài sản đảm bảo đề xuất\n\n- Phương án sử dụng vốn\n\n- Chính sách tín dụng SME của Ngân hàng Đại Dương",
           "requirements": [
             "Nhiệm vụ 1: Điền vào Bảng Thẩm định cho sẵn và Đánh giá chất lượng dòng tiền của doanh nghiệp\n\nNhiệm vụ 2: Đánh giá khả năng trả nợ, nguồn trả nợ, và đối chiếu khoản vay với chính sách tín dụng của Ngân hàng. Xác định 3 rủi ro tín dụng trọng yếu nhất, xếp theo mức độ quan trọng.\n\nNhiệm vụ 3: Quyết định Có/Không cấp tín dụng. Nếu có, đề xuất cụ thể: hạn mức, kỳ hạn, lãi suất và điều kiện đi kèm. Nếu không, nêu lý do và điều kiện để Ngân hàng xem xét lại."
           ],
@@ -1362,8 +1766,8 @@
               "criterion_id": "C1",
               "criterion_name": "NHIỆM VỤ 1 –",
               "max_points": 35,
-              "description": "NHIỆM VỤ 1 – (35 điểm)\n- Tính 5 chỉ số × 3 năm (20đ): 4đ/chỉ số khi đúng cả 3 năm; đúng 2/3 năm 2,5đ; 1/3 năm 1đ; sai công thức nhưng nhất quán tối đa 50%.\n- Đánh giá đúng chất lượng dòng tiền (15đ)",
               "source_max_points": 35,
+              "description": "NHIỆM VỤ 1 – (35 điểm)\n- Tính 5 chỉ số × 3 năm (20đ): 4đ/chỉ số khi đúng cả 3 năm; đúng 2/3 năm 2,5đ; 1/3 năm 1đ; sai công thức nhưng nhất quán tối đa 50%.\n- Đánh giá đúng chất lượng dòng tiền (15đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-02-C1-1",
@@ -1383,13 +1787,19 @@
               "criterion_id": "C2",
               "criterion_name": "NHIỆM VỤ 2 –",
               "max_points": 25,
-              "description": "NHIỆM VỤ 2 – (25 điểm)\n- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ.\n- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên",
               "source_max_points": 25,
+              "description": "NHIỆM VỤ 2 – (25 điểm)\n- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ.\n- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên (15đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-02-C2-1",
-                  "text": "NHIỆM VỤ 2 – (25 điểm)\n- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ.\n- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên",
-                  "points": 25,
+                  "text": "- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ.",
+                  "points": 10,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-02-C2-2",
+                  "text": "- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên (15đ)",
+                  "points": 15,
                   "scoring_source": "ai"
                 }
               ]
@@ -1398,13 +1808,19 @@
               "criterion_id": "C3",
               "criterion_name": "NHIỆM VỤ 3 -",
               "max_points": 30,
-              "description": "NHIỆM VỤ 3 - (30đ)\n- Quyết định tín dụng (12đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 4đ\n+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ.\n+ Từ chối, nêu căn cứ và lộ trình xem xét lại.\n- Điều kiện kèm theo (8đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro",
               "source_max_points": 30,
+              "description": "NHIỆM VỤ 3 - (30đ)\n- Quyết định tín dụng (20đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 5đ\n+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ.\n+ Từ chối, nêu căn cứ và lộ trình xem xét lại.\n- Điều kiện kèm theo (10đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro",
               "checklist": [
                 {
                   "checklist_id": "TCNH-02-C3-1",
-                  "text": "NHIỆM VỤ 3 - (30đ)\n- Quyết định tín dụng (12đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 4đ\n+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ.\n+ Từ chối, nêu căn cứ và lộ trình xem xét lại.\n- Điều kiện kèm theo (8đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro",
-                  "points": 30,
+                  "text": "- Quyết định tín dụng (20đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 5đ\n+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ.\n+ Từ chối, nêu căn cứ và lộ trình xem xét lại.",
+                  "points": 20,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-02-C3-2",
+                  "text": "- Điều kiện kèm theo (10đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro",
+                  "points": 10,
                   "scoring_source": "ai"
                 }
               ]
@@ -1413,8 +1829,8 @@
               "criterion_id": "C4",
               "criterion_name": "TRÌNH BÀY",
               "max_points": 10,
-              "description": "TRÌNH BÀY (10đ)",
               "source_max_points": 10,
+              "description": "TRÌNH BÀY (10đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-02-C4-1",
@@ -1603,21 +2019,16 @@
               "href": "/materials/source-20261017/credit-table-2.png"
             }
           ],
-          "source_rubric_text": "NHIỆM VỤ 1 – (35 điểm)\n- Tính 5 chỉ số × 3 năm (20đ): 4đ/chỉ số khi đúng cả 3 năm; đúng 2/3 năm 2,5đ; 1/3 năm 1đ; sai công thức nhưng nhất quán tối đa 50%.\n- Đánh giá đúng chất lượng dòng tiền (15đ)\nNHIỆM VỤ 2 – (25 điểm)\n- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ.\n- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên\nNHIỆM VỤ 3 - (30đ)\n- Quyết định tín dụng (12đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 4đ\n+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ.\n+ Từ chối, nêu căn cứ và lộ trình xem xét lại.\n- Điều kiện kèm theo (8đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro\nTRÌNH BÀY (10đ)",
-          "grading_ready": false,
-          "source_conflicts": [
-            {
-              "criterion": "C2",
-              "sourceNominal": 25,
-              "explicitSubpointTotal": 10
-            },
-            {
-              "criterion": "C3",
-              "sourceNominal": 30,
-              "explicitSubpointTotal": 20
-            }
-          ],
-          "source_total_points": 100
+          "source_rubric_text": "NHIỆM VỤ 1 – (35 điểm)\n\n- Tính 5 chỉ số × 3 năm (20đ): 4đ/chỉ số khi đúng cả 3 năm; đúng 2/3 năm 2,5đ; 1/3 năm 1đ; sai công thức nhưng nhất quán tối đa 50%.\n\n- Đánh giá đúng chất lượng dòng tiền (15đ)\n\nNHIỆM VỤ 2 – (25 điểm)\n\n- Khả năng trả nợ & tuân thủ chính sách (10đ): Đánh giá proforma vay 5 tỷ qua D/E, ICR, Nợ vay/EBITDA, tỷ lệ tài trợ và TSBĐ; so sánh phương án vay 3 tỷ.\n\n- Nêu 3 rủi ro có số liệu, xếp theo mức độ ưu tiên (15đ)\n\nNHIỆM VỤ 3 - (30đ)\n\n- Quyết định tín dụng (20đ): Quyết định cho vay/từ chối nhất quán với phân tích. Thiếu giải thích: tối đa 5đ\n\n+ Cấp tín dụng: Đề xuất hạn mức ≤ 4,9 tỷ, kỳ hạn ≤ 60 tháng, ân hạn khoảng 12 tháng, lãi suất 9–10% và nguồn trả nợ.\n\n+ Từ chối, nêu căn cứ và lộ trình xem xét lại.\n\n- Điều kiện kèm theo (10đ): Đề xuất ít nhất 4 điều kiện phù hợp với rủi ro\n\nTRÌNH BÀY (10đ)",
+          "grading_ready": true,
+          "source_conflicts": [],
+          "source_total_points": 100,
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "t.a9gvxnc5ma1m",
+            "table_index": 53,
+            "row_index": 1
+          }
         },
         {
           "position_id": "TCNH-03",
@@ -1625,11 +2036,11 @@
           "level": "Fresher/Junior",
           "time_limit_minutes": 60,
           "time_limit_source": "not_specified",
-          "source_version": "20261017",
+          "source_version": "20261019",
           "source_policy": "document_only",
-          "content_revision": "20261017-doc-only",
+          "content_revision": "20261019-simulations",
           "source_block": 441,
-          "context": "Bạn là chuyên viên phân tích rủi ro tín dụng tại Ngân hàng Đáy Biển. Phòng Quan hệ khách hàng đề xuất khoản vay trung hạn 400 tỷ đồng cho Công ty Cổ phần Con Cua xây dựng giai đoạn 2 nhà máy thép tại Hưng Yên. Trước biến động giá nguyên liệu và cạnh tranh từ thép nhập khẩu, bạn cần phân tích hồ sơ, đánh giá rủi ro và đưa ra ý kiến độc lập trình Hội đồng Tín dụng\n\n1. Hồ sơ đề xuất cấp tín dụng và thông tin dự án\n\n2. Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)\n\n3. Bản tin ngành thép và chỉ số trung vị ngành (số liệu mô phỏng)\n\n4. Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
+          "context": "Bạn là chuyên viên phân tích rủi ro tín dụng tại Ngân hàng Đáy Biển. Phòng Quan hệ khách hàng đề xuất khoản vay trung hạn 400 tỷ đồng cho Công ty Cổ phần Con Cua xây dựng giai đoạn 2 nhà máy thép tại Hưng Yên. Trước biến động giá nguyên liệu và cạnh tranh từ thép nhập khẩu, bạn cần phân tích hồ sơ, đánh giá rủi ro và đưa ra ý kiến độc lập trình Hội đồng Tín dụng\n\n- Hồ sơ đề xuất cấp tín dụng và thông tin dự án\n\n- Báo cáo tài chính tóm tắt năm 2025 (đơn vị: tỷ đồng)\n\n- Bản tin ngành thép và chỉ số trung vị ngành (số liệu mô phỏng)\n\n- Chính sách và khẩu vị rủi ro tín dụng của Ngân hàng Đại Dương",
           "requirements": [
             "Nhiệm vụ 1: Điền vào bảng cho sẵn và nhận xét D/E (trước và sau giải ngân), hệ số thanh toán hiện hành, các biên lợi nhuận, khả năng trả lãi (ICR) và Nợ vay/EBITDA; so sánh với trung vị ngành và khẩu vị rủi ro của Ngân hàng; kết luận mức rủi ro tổng hợp (cao, trung bình hoặc thấp).\n\nNhiệm vụ 2:\n\n- Phân tích rủi ro về ngành, yếu tố vĩ mô và đặc thù của dự án.\n\n- Đề xuất ít nhất 3 biện pháp bảo vệ Ngân hàng và giải thích cơ chế bảo vệ của từng biện pháp.\n\nNhiệm vụ 3:\n\n- Viết báo cáo ngắn (tối đa 200 từ) gửi Hội đồng Tín dụng với kết luận: Đồng ý cho vay, Cho vay có điều kiện hoặc Từ chối. Nêu lý do kèm số liệu.\n\nBáo cáo 200 từ được đếm theo số từ tách bởi khoảng trắng; khung nhập báo cáo có bộ đếm từ."
           ],
@@ -1637,14 +2048,44 @@
             {
               "criterion_id": "C1",
               "criterion_name": "NHIỆM VỤ 1 –",
-              "max_points": 35,
-              "description": "NHIỆM VỤ 1 – (35 điểm)\n- D/E (8đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ.\n- Thanh khoản (6đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp.\n- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành.\n- Khả năng trả nợ (8đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất.\n- Kết luận mức rủi ro lập luận từ chỉ số (4đ)\n⇒ đáp án bảng\n- Đánh giá đúng chất lượng dòng tiền (15đ)",
-              "source_max_points": 35,
+              "max_points": 30,
+              "source_max_points": 30,
+              "description": "NHIỆM VỤ 1 – (30 điểm)\n- D/E (4đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ.\n- Thanh khoản (4đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp.\n- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành.\n- Khả năng trả nợ (4đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất.\n- Kết luận mức rủi ro lập luận từ chỉ số (4đ)\n⇒ đáp án bảng\n- Đánh giá đúng chất lượng dòng tiền (10đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-03-C1-1",
-                  "text": "NHIỆM VỤ 1 – (35 điểm)\n- D/E (8đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ.\n- Thanh khoản (6đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp.\n- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành.\n- Khả năng trả nợ (8đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất.\n- Kết luận mức rủi ro lập luận từ chỉ số (4đ)\n⇒ đáp án bảng\n- Đánh giá đúng chất lượng dòng tiền (15đ)",
-                  "points": 35,
+                  "text": "- D/E (4đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ.",
+                  "points": 4,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C1-2",
+                  "text": "- Thanh khoản (4đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp.",
+                  "points": 4,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C1-3",
+                  "text": "- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành.",
+                  "points": 4,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C1-4",
+                  "text": "- Khả năng trả nợ (4đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất.",
+                  "points": 4,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C1-5",
+                  "text": "- Kết luận mức rủi ro lập luận từ chỉ số (4đ)\n⇒ đáp án bảng",
+                  "points": 4,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C1-6",
+                  "text": "- Đánh giá đúng chất lượng dòng tiền (10đ)",
+                  "points": 10,
                   "scoring_source": "ai"
                 }
               ]
@@ -1653,13 +2094,25 @@
               "criterion_id": "C2",
               "criterion_name": "NHIỆM VỤ 2 –",
               "max_points": 30,
-              "description": "NHIỆM VỤ 2 – (30 điểm)\n- Nếu được 3 rủi ro ngành (10đ):\nBiến động giá quặng sắt, than cốc ép biên\nCạnh tranh thép nhập khẩu giá rẻ\ncông suất ngành vượt cầu\nphụ thuộc đầu tư công và bất động sản\nlãi suất 8–9% tăng chi phí vay thả nổi.\n- Nêu được 3 rủi ro dự án (10đ)\nVốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.\n24 tháng xây dựng chưa có dòng tiền dự án.\nTài sản đảm bảo chỉ hình thành dần\nTập trung ngành: 7,5% → 7,96% sát trần 8%.\nNợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%\n- Nêu cơ chế bảo vệ ngân hàng và giải thích (20đ):\nNêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …\nChỉ nêu tên không chỉ ra cơ chế: 3đ/ biện",
               "source_max_points": 30,
+              "description": "NHIỆM VỤ 2 – (30 điểm)\n- Nếu được 3 rủi ro ngành (10đ):\nBiến động giá quặng sắt, than cốc ép biên\nCạnh tranh thép nhập khẩu giá rẻ\ncông suất ngành vượt cầu\nphụ thuộc đầu tư công và bất động sản\nlãi suất 8–9% tăng chi phí vay thả nổi.\n- Nêu được 3 rủi ro dự án (10đ)\nVốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.\n24 tháng xây dựng chưa có dòng tiền dự án.\nTài sản đảm bảo chỉ hình thành dần\nTập trung ngành: 7,5% → 7,96% sát trần 8%.\nNợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%\n- Nêu cơ chế bảo vệ ngân hàng và giải thích (10đ):\nNêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …\nChỉ nêu tên không chỉ ra cơ chế: 3đ/ biện",
               "checklist": [
                 {
                   "checklist_id": "TCNH-03-C2-1",
-                  "text": "NHIỆM VỤ 2 – (30 điểm)\n- Nếu được 3 rủi ro ngành (10đ):\nBiến động giá quặng sắt, than cốc ép biên\nCạnh tranh thép nhập khẩu giá rẻ\ncông suất ngành vượt cầu\nphụ thuộc đầu tư công và bất động sản\nlãi suất 8–9% tăng chi phí vay thả nổi.\n- Nêu được 3 rủi ro dự án (10đ)\nVốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.\n24 tháng xây dựng chưa có dòng tiền dự án.\nTài sản đảm bảo chỉ hình thành dần\nTập trung ngành: 7,5% → 7,96% sát trần 8%.\nNợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%\n- Nêu cơ chế bảo vệ ngân hàng và giải thích (20đ):\nNêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …\nChỉ nêu tên không chỉ ra cơ chế: 3đ/ biện",
-                  "points": 30,
+                  "text": "- Nếu được 3 rủi ro ngành (10đ):\nBiến động giá quặng sắt, than cốc ép biên\nCạnh tranh thép nhập khẩu giá rẻ\ncông suất ngành vượt cầu\nphụ thuộc đầu tư công và bất động sản\nlãi suất 8–9% tăng chi phí vay thả nổi.",
+                  "points": 10,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C2-2",
+                  "text": "- Nêu được 3 rủi ro dự án (10đ)\nVốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.\n24 tháng xây dựng chưa có dòng tiền dự án.\nTài sản đảm bảo chỉ hình thành dần\nTập trung ngành: 7,5% → 7,96% sát trần 8%.\nNợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%",
+                  "points": 10,
+                  "scoring_source": "ai"
+                },
+                {
+                  "checklist_id": "TCNH-03-C2-3",
+                  "text": "- Nêu cơ chế bảo vệ ngân hàng và giải thích (10đ):\nNêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …\nChỉ nêu tên không chỉ ra cơ chế: 3đ/ biện",
+                  "points": 10,
                   "scoring_source": "ai"
                 }
               ]
@@ -1668,8 +2121,8 @@
               "criterion_id": "C3",
               "criterion_name": "NHIỆM VỤ 3 - Viết báo",
               "max_points": 30,
-              "description": "NHIỆM VỤ 3 - Viết báo  (30đ)\n- Cấu trúc báo cáo (10đ): Có tiêu đề, người nhận, mở đầu và kết thúc.\n- Khuyến nghị rõ (5đ): đồng ý, có điều kiện, từ chối.\n- Lý do có số liệu (10đ):Lý do khớp phần phân tích, có số liệu\n- Súc tích (tối đa 200 từ) (5đ): Đúng giới hạn, không lan man.",
               "source_max_points": 30,
+              "description": "NHIỆM VỤ 3 - Viết báo  (30đ)\n- Cấu trúc báo cáo (10đ): Có tiêu đề, người nhận, mở đầu và kết thúc.\n- Khuyến nghị rõ (5đ): đồng ý, có điều kiện, từ chối.\n- Lý do có số liệu (10đ):Lý do khớp phần phân tích, có số liệu\n- Súc tích (tối đa 200 từ) (5đ): Đúng giới hạn, không lan man.",
               "checklist": [
                 {
                   "checklist_id": "TCNH-03-C3-1",
@@ -1701,8 +2154,8 @@
               "criterion_id": "C4",
               "criterion_name": "TRÌNH BÀY",
               "max_points": 10,
-              "description": "TRÌNH BÀY (10đ)",
               "source_max_points": 10,
+              "description": "TRÌNH BÀY (10đ)",
               "checklist": [
                 {
                   "checklist_id": "TCNH-03-C4-1",
@@ -1817,25 +2270,16 @@
               "href": "/materials/source-20261017/19.png"
             }
           ],
-          "source_rubric_text": "NHIỆM VỤ 1 – (35 điểm)\n- D/E (8đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ.\n- Thanh khoản (6đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp.\n- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành.\n- Khả năng trả nợ (8đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất.\n- Kết luận mức rủi ro lập luận từ chỉ số (4đ)\n⇒ đáp án bảng\n- Đánh giá đúng chất lượng dòng tiền (15đ)\nNHIỆM VỤ 2 – (30 điểm)\n- Nếu được 3 rủi ro ngành (10đ):\nBiến động giá quặng sắt, than cốc ép biên\nCạnh tranh thép nhập khẩu giá rẻ\ncông suất ngành vượt cầu\nphụ thuộc đầu tư công và bất động sản\nlãi suất 8–9% tăng chi phí vay thả nổi.\n- Nêu được 3 rủi ro dự án (10đ)\nVốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.\n24 tháng xây dựng chưa có dòng tiền dự án.\nTài sản đảm bảo chỉ hình thành dần\nTập trung ngành: 7,5% → 7,96% sát trần 8%.\nNợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%\n- Nêu cơ chế bảo vệ ngân hàng và giải thích (20đ):\nNêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …\nChỉ nêu tên không chỉ ra cơ chế: 3đ/ biện\nNHIỆM VỤ 3 - Viết báo  (30đ)\n- Cấu trúc báo cáo (10đ): Có tiêu đề, người nhận, mở đầu và kết thúc.\n- Khuyến nghị rõ (5đ): đồng ý, có điều kiện, từ chối.\n- Lý do có số liệu (10đ):Lý do khớp phần phân tích, có số liệu\n- Súc tích (tối đa 200 từ) (5đ): Đúng giới hạn, không lan man.\nTRÌNH BÀY (10đ)",
-          "grading_ready": false,
-          "source_conflicts": [
-            {
-              "criterion": "C1",
-              "sourceNominal": 35,
-              "explicitSubpointTotal": 45
-            },
-            {
-              "criterion": "C2",
-              "sourceNominal": 30,
-              "explicitSubpointTotal": 40
-            },
-            {
-              "kind": "task_total_conflict",
-              "sourceTotal": 105
-            }
-          ],
-          "source_total_points": 105
+          "source_rubric_text": "NHIỆM VỤ 1 – (30 điểm)\n\n- D/E (4đ): D/E 4,2 (kiểm tra 1.680/400) vượt ngưỡng 3,0 và gấp đôi trung vị ngành 2,0. Sau giải ngân 5,2 (2.080/400). Nếu tăng vốn 150 tỷ: 3,78, vẫn vượt ngưỡng. Nhận xét khả năng chịu thêm nợ.\n\n- Thanh khoản (4đ):Hệ số 0,85 (1.020/1.200) < 1,0; thiếu hụt vốn lưu động 180 tỷ; dưới trung vị ngành 1,1; nợ vay ngắn hạn 780 tỷ phải tái cấp.\n\n- Biên lợi nhuận (4đ): Biên gộp 12,4% và EBITDA 9,8% cao hơn trung vị ngành (11,0% và 8,0%), nhưng biên ròng 2,1% thấp hơn trung vị 3,0%: vấn đề nằm ở chi phí tài chính chứ không ở hiệu quả vận hành.\n\n- Khả năng trả nợ (4đ): ICR = 183/118 = 1,55 (dưới 2,0), lãi vay ăn khoảng 64% EBIT; sau khoản vay trong giai đoạn xây dựng ICR còn khoảng 1,20; Nợ vay/EBITDA 6,86 → 8,49 (ngưỡng 4,5), còn khoảng 6,0 khi dự án đạt công suất.\n\n- Kết luận mức rủi ro lập luận từ chỉ số (4đ)\n\n⇒ đáp án bảng\n\n- Đánh giá đúng chất lượng dòng tiền (10đ)\n\nNHIỆM VỤ 2 – (30 điểm)\n\n- Nếu được 3 rủi ro ngành (10đ):\n\n- Biến động giá quặng sắt, than cốc ép biên\n\n- Cạnh tranh thép nhập khẩu giá rẻ\n\n- công suất ngành vượt cầu\n\n- phụ thuộc đầu tư công và bất động sản\n\n- lãi suất 8–9% tăng chi phí vay thả nổi.\n\n- Nêu được 3 rủi ro dự án (10đ)\n\n- Vốn đối ứng 150 tỷ chưa góp, chưa có bảo lãnh.\n\n- 24 tháng xây dựng chưa có dòng tiền dự án.\n\n- Tài sản đảm bảo chỉ hình thành dần\n\n- Tập trung ngành: 7,5% → 7,96% sát trần 8%.\n\n- Nợ xấu danh mục thép 2,0% nhưng nếu khoản 400 tỷ vỡ nợ thì tăng lên khoảng 8,1%\n\n- Nêu cơ chế bảo vệ ngân hàng và giải thích (10đ):\n\n- Nêu ít nhất 3 biện pháp + cơ chế. Ví dụ: giải ngân theo tiến độ, trả thẳng nhà cung cấp; tài sản đảm bảo bổ sung và LTV theo từng đợt, …\n\n- Chỉ nêu tên không chỉ ra cơ chế: 3đ/ biện\n\nNHIỆM VỤ 3 - Viết báo  (30đ)\n\n- Cấu trúc báo cáo (10đ): Có tiêu đề, người nhận, mở đầu và kết thúc.\n\n- Khuyến nghị rõ (5đ): đồng ý, có điều kiện, từ chối.\n\n- Lý do có số liệu (10đ):Lý do khớp phần phân tích, có số liệu\n\n- Súc tích (tối đa 200 từ) (5đ): Đúng giới hạn, không lan man.\n\nTRÌNH BÀY (10đ)",
+          "grading_ready": true,
+          "source_conflicts": [],
+          "source_total_points": 100,
+          "source_snapshot": "source/simulations-20261019.json",
+          "source_location": {
+            "tab_id": "t.a9gvxnc5ma1m",
+            "table_index": 53,
+            "row_index": 3
+          }
         }
       ]
     },

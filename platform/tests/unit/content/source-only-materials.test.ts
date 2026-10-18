@@ -4,18 +4,14 @@ import { describe, expect, it } from "vitest";
 import tasks from "@/data/task-rubrics.json";
 
 describe("document-only task materials", () => {
-  it("removes the generated Marketing supplement from runtime inputs and marks its genuinely missing source inputs", async () => {
-    await expect(access(resolve(process.cwd(), "data/source/marketing-inputs-20261017.json"))).rejects.toMatchObject({ code: "ENOENT" });
+  it("adds explicitly authorized Marketing inputs with simulated-data labels and no missing-input blocker", async () => {
+    await expect(access(resolve(process.cwd(), "data/source/marketing-inputs-20261019.json"))).resolves.toBeUndefined();
     const marketing = tasks.industries.find((industry) => industry.industry_id === "MKT")!;
     for (const task of marketing.tasks) {
-      expect(task.grading_ready, task.position_id).toBe(false);
-      expect("missing_source_inputs" in task && Array.isArray(task.missing_source_inputs) && task.missing_source_inputs.length > 0, task.position_id).toBe(true);
-      expect(task.public_materials.some((material) => material.id.startsWith("marketing-")), task.position_id).toBe(false);
-      const serialized = JSON.stringify(task.public_materials);
-      expect(serialized).not.toContain("65% sợi bông");
-      expect(serialized).not.toContain("399.000");
-      expect(serialized).not.toContain("359.000");
-      expect(serialized).not.toContain('"1.300","22"');
+      expect(task.grading_ready, task.position_id).toBe(true);
+      expect("missing_source_inputs" in task).toBe(false);
+      expect(task.source_policy).toBe("document_with_authorized_supplements");
+      expect(task.public_materials.some((material) => material.id.startsWith("marketing-") && material.title.includes("Dữ liệu mô phỏng"))).toBe(true);
     }
   });
 

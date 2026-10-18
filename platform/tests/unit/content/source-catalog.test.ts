@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isCurrentDocumentOnlySource, isPublishedBusinessContent, isSourceInterview, isSourceSimulation, sourceSimulationSlugs } from "@/lib/content/source-catalog";
+import { isCurrentSourceRevision, isPublishedBusinessContent, isSourceInterview, isSourceSimulation, sourceSimulationSlugs } from "@/lib/content/source-catalog";
 import { sourceInterviewSlugs } from "@/lib/content/interview-catalog";
 
 const legacySimulations = ["audit-receivables-review", "cost-variance-analysis", "credit-appraisal-sme", "equity-valuation-note", "churn-dashboard-spec", "bug-triage-api", "inventory-optimisation", "shipment-delay-escalation", "brand-repositioning-brief", "campaign-launch-plan"];
@@ -31,11 +31,11 @@ describe("candidate source catalog boundaries", () => {
     expect(isPublishedBusinessContent({ slug, is_available: false })).toBe(false);
   });
 
-  it("requires the exact document-only content revision rather than only a historical source version", () => {
-    const current = { source_version: "20261017", source_policy: "document_only", content_revision: "20261017-doc-only" };
-    expect(isCurrentDocumentOnlySource(current)).toBe(true);
+  it("requires the exact per-position source content revision rather than only a historical source version", () => {
+    const current = { position_id: "IT-01", source_version: "20261017", source_policy: "document_only", content_revision: "20261017-doc-only" };
+    expect(isCurrentSourceRevision(current)).toBe(true);
     for (const value of [null, {}, { source_version: "20261017" }, { ...current, source_policy: "generated_supplement" }, { ...current, content_revision: "20261017" }]) {
-      expect(isCurrentDocumentOnlySource(value)).toBe(false);
+      expect(isCurrentSourceRevision(value)).toBe(false);
     }
   });
 });

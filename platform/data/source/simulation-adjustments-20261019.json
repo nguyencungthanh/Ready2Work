@@ -1,0 +1,21 @@
+{
+  "approved_on": "2026-10-19",
+  "authorization": "Chủ dự án yêu cầu: “Cái gì bất hợp lí bạn hãy chỉnh sao cho nó hợp lí nhất là được”.",
+  "adjustments": [
+    {
+      "position_id": "TCNH-01",
+      "criterion_id": "C3",
+      "source_heading_points": 30,
+      "source_points_per_solution": 6,
+      "solution_count": 3,
+      "approved_points_per_solution": 10,
+      "reason": "Ba giải pháp phải cộng đủ 30 điểm của nhiệm vụ, giữ tổng đề 100.",
+      "components": {
+        "addresses_cause": 2,
+        "concrete_action": 4,
+        "timeline": 2,
+        "measurable_kpi": 2
+      }
+    }
+  ]
+}
