@@ -6,7 +6,7 @@ Product requirements: [Ready2Work.pdf](docs/requirements/Ready2Work.pdf). Scope 
 
 ## Run
 
-Use Node.js 22.12 or newer.
+Use Node.js 22.13 or newer (Vercel uses Node.js 24).
 
 ```sh
 npm ci
@@ -54,9 +54,9 @@ The three new migrations begin with `20261016`. They add the CV/business/mentor 
 
 Three logistics interview sets are intentionally unavailable because their supplied first-round questions are missing. No questions were invented. The source also has no interview set for Content Marketing Specialist. Missing mentor scores, voice/body-language measurements, and hired-candidate benchmark data are explicitly shown as unavailable.
 
-CV analysis uses the supplied Golden Profile weights and certification priorities. Without a configured AI key, CV matching offers a clearly labeled keyword preview. Simulation/interview AI scoring requires a configured provider; a provider failure does not produce a fabricated score. `GEMINI_MODEL` selects the direct Google model. For Vilao, set `AI_BASE_URL=https://api.vilao.ai/v1` and `AI_MODEL=sba/ag/gemini-3.8-flash` in the `ready2-work` Vercel project, then redeploy. Set the purchased key in server-only `AI_API_KEY`, or retain it in the existing `GEMINI_API_KEY` variable. A configured gateway uses Responses for chat, JSON scoring and PDF OCR; failures do not fall back to Google. The CV consent names the configured provider.
+CV analysis uses the supplied Golden Profile weights and certification priorities. Without a configured AI key, CV matching offers a clearly labeled keyword preview. Simulation/interview AI scoring requires a configured provider; a provider failure does not produce a fabricated score. `GEMINI_MODEL` selects the direct Google model. For Vilao, set `AI_BASE_URL=https://api.vilao.ai/v1` and `AI_MODEL=sba/ag/gemini-3.8-flash` in the `ready2-work` Vercel project, then redeploy. Set the purchased key in server-only `AI_API_KEY`, or retain it in the existing `GEMINI_API_KEY` variable. A configured gateway uses Responses for text requests. Vilao document/image requests use its chat/completions endpoint with ordered page images rendered locally; failures do not fall back to Google. The CV consent names the configured provider.
 
-CV file uploads accept **PDF only**, up to 3 MiB and 15 pages. File-picker and drag-and-drop checks are repeated on the server, which verifies the PDF structure and rejects encrypted or broken documents. PDFs with images, unreadable text layers, or local parser failures are sent in full to the configured AI provider for OCR after consent; readable text-only PDFs stay local for extraction. Pasted CV text remains available. OCR has a dedicated 45-second request timeout, and CV Server Actions have a 180-second execution budget. Temporary provider HTTP 503 responses are retried once; quota failures are not retried; invalid analysis output shares a single corrective retry budget. Failures are never replaced with invented results. No new analysis is saved after an extraction or analysis failure.
+CV file uploads accept **PDF only**, up to 3 MiB and 15 pages. File-picker and drag-and-drop checks are repeated on the server, which verifies the PDF structure and rejects encrypted or broken documents. PDFs with images, unreadable text layers, or local parser failures are recognized across all pages by the configured AI provider after consent; readable text-only PDFs stay local for extraction. Pasted CV text remains available. OCR has a dedicated 45-second request timeout, and CV Server Actions have a 180-second execution budget. Temporary provider HTTP 503 responses are retried once; quota failures are not retried; invalid analysis output shares a single corrective retry budget. Failures are never replaced with invented results. No new analysis is saved after an extraction or analysis failure.
 
 ## Validate only what changed
 

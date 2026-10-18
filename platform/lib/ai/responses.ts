@@ -1,6 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import { responsesConfig } from "./config";
+import { pdfPageImages } from "./pdf-images";
 import type { ChatTurn, InlineAttachment } from "./gemini";
 
 const envelope = z.object({
@@ -9,6 +10,7 @@ const envelope = z.object({
     type: z.string(), role: z.string().optional(),
     content: z.array(z.object({ type: z.string(), text: z.string().optional() })).optional(),
   })).optional(),
+  choices: z.array(z.object({ finish_reason: z.string().nullable().optional(), message: z.object({ content: z.string().nullable().optional(), refusal: z.string().nullable().optional() }) })).optional(),
 });
 
 function parseJSON(text: string): unknown {
@@ -28,10 +30,11 @@ function strictSchema(value: unknown): unknown {
   return schema;
 }
 
-async function request(body: object, timeoutMs = 25_000): Promise<string> {
+async function request(body: object, timeoutMs = 25_000, chat = false): Promise<string> {
   const config = responsesConfig();
   if (!config) throw new Error("AI gateway is not configured.");
-  const response = await fetch(config.endpoint, {
+  const endpoint = chat ? config.endpoint.replace(/\/responses$/, "/chat/completions") : config.endpoint;
+  const response = await fetch(endpoint, {
     method: "POST", redirect: "error", cache: "no-store",
     headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
     signal: AbortSignal.timeout(timeoutMs),
@@ -46,6 +49,13 @@ async function request(body: object, timeoutMs = 25_000): Promise<string> {
   if (!parsed.success) throw new SyntaxError("AI provider returned an invalid response.");
   const result = parsed.data;
   if (result.error || (result.status && result.status !== "completed")) throw new SyntaxError("AI provider did not complete the response.");
+  if (chat) {
+    const choice = result.choices?.[0];
+    if (choice?.message.refusal) throw new Error("AI provider declined the request.");
+    if (choice?.finish_reason && choice.finish_reason !== "stop") throw new SyntaxError("AI provider did not complete the response.");
+    if (!choice?.message.content?.trim()) throw new SyntaxError("AI provider returned an empty response.");
+    return choice.message.content;
+  }
   const messages = result.output?.filter((item) => item.type === "message" && (!item.role || item.role === "assistant")) ?? [];
   if (messages.some((item) => item.content?.some((part) => part.type === "refusal"))) throw new Error("AI provider declined the request.");
   const text = result.output_text ?? messages.flatMap((item) => item.content ?? [])
@@ -55,12 +65,27 @@ async function request(body: object, timeoutMs = 25_000): Promise<string> {
 }
 
 export async function structuredResponse(prompt: string, schema: object, documents: InlineAttachment[], timeoutMs?: number): Promise<unknown> {
+  const config = responsesConfig();
+  if (config && new URL(config.endpoint).hostname === "api.vilao.ai" && documents.length) {
+    const content: object[] = [{ type: "text", text: prompt }];
+    for (const document of documents) {
+      const images = document.mimeType === "application/pdf" ? await pdfPageImages(document.data) : [document];
+      for (const image of images) content.push({ type: "image_url", image_url: { url: `data:${image.mimeType};base64,${image.data}` } });
+    }
+    const text = await request({
+      messages: [{ role: "system", content: `Return only one JSON object matching this schema, with no commentary: ${JSON.stringify(schema)}` }, { role: "user", content }],
+      response_format: { type: "json_schema", json_schema: { name: "ready2work_result", strict: true, schema: strictSchema(schema) } },
+    }, timeoutMs, true);
+    // This gateway may wrap JSON in one Markdown fence. Accept only that exact
+    // wrapper; never salvage free-form prose or incomplete generated JSON.
+    return parseJSON(text.trim().replace(/^```(?:json)?\s*\n?([\s\S]*?)\n?```$/, "$1"));
+  }
   const content: object[] = [{ type: "input_text", text: prompt }];
   documents.forEach((document, index) => content.push(document.mimeType === "application/pdf"
     ? { type: "input_file", filename: `document-${index}.pdf`, file_data: `data:application/pdf;base64,${document.data}` }
     : { type: "input_image", image_url: `data:${document.mimeType};base64,${document.data}` }));
   const text = await request({
-    input: [{ role: "user", content }],
+    input: documents.length ? [{ role: "user", content }] : prompt,
     text: { format: { type: "json_schema", name: "ready2work_result", strict: true, schema: strictSchema(schema) } },
   }, timeoutMs);
   return parseJSON(text);

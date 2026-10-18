@@ -2,6 +2,17 @@
 
 ## Vilao Responses integration — 19/10/2026
 
+The earlier authentication/compatibility failures below are superseded by this verified follow-up:
+
+- The owner added sensitive `AI_API_KEY` entries for Production/Preview in `ready2-work` and redeployed. A synthetic chat request through the deployed provider configuration passed. No credential was exposed or copied.
+- With the real gateway, structured text requests using array input returned HTTP 400, while string input with the same schema worked. The adapter now sends structured text as a Responses input string. PDF `input_file` requests also failed; Vilao attachments now use its `/chat/completions` endpoint with ordered page images. The provider and exact model are unchanged.
+- All PDF pages are rendered locally with PDF.js/native canvas, preserving text and image sections in page order. Rendering bounds dimensions, total image bytes, page count and elapsed time. No temporary document images are persisted. Native Google and standard Responses PDF handling remain supported.
+- Verified deployment `dpl_GqyzkpGEMbGtbozunBRxjWNTXRwN` passed Supabase Auth/database/storage and two live synthetic CV checks: text analysis (11.4 s), and mixed PDF OCR plus analysis (34.6 s). The latter retained both `PostgreSQL` and the native `EDUCATION` heading, covered all 25 source requirements and reconstructed every nonmissing quote from the original extracted text. It produced 11 partial findings; the test accepts supported partial evidence rather than demanding a full-proficiency judgment from a short synthetic CV.
+- Local validation: 354 unit checks, TypeScript, lint and production build passed. Build tracing includes the PDF worker, native canvas binding, standard fonts, CMaps and WASM data. Vercel remains Node.js 24; the local minimum is now 22.13 to match PDF.js.
+- No personal CV or account data was sent to Vilao during these checks. No cloud test account, CV upload or saved result was created, so a fresh authenticated upload/save on the public form is not claimed as live-tested.
+
+Historical first attempt:
+
 - The shared AI adapter supports the owner's supplied `https://api.vilao.ai/v1` Responses endpoint and exact model `sba/ag/gemini-3.8-flash`. It covers chat, structured grading/analysis, images and PDF OCR. Gateway failures do not fall back to Google.
 - `AI_BASE_URL` and `AI_MODEL` are configured in `ready2-work` Production/Preview. The adapter prefers server-only `AI_API_KEY`, falling back to the existing protected `GEMINI_API_KEY` when a gateway is explicitly configured. No key was exposed or copied.
 - Local unit checks, TypeScript, lint, production build and the isolated Chromium CV retry flow passed. HTTP 401/403 now produces a configuration/authentication message, distinct from quota 429; neither failed extraction nor analysis saves a result.

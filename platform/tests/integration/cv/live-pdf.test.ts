@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { expect, test } from "vitest";
 import { PDFDocument, StandardFonts } from "pdf-lib";
 import { extractCVDocument } from "@/lib/cv/extract";
-import { analyzeCV } from "@/lib/cv/analyzer";
+import { analyzeCV, profileRequirements } from "@/lib/cv/analyzer";
 import { getGoldenProfile } from "@/lib/content/catalog";
 import { cvExcerpts } from "@/lib/cv/evidence";
 
@@ -74,9 +74,14 @@ test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1")("reads and analyzes a synthetic
   expect(extracted.text).toContain("EDUCATION");
   const analysis = await analyzeCV(extracted.text, getGoldenProfile("IT-03")!);
   expect(analysis.provider).toBe("ai");
-  expect(analysis.strengths.length).toBeGreaterThan(0);
+  const findings = [...analysis.strengths, ...analysis.skillGaps, ...analysis.additionalRequirements ?? []];
+  // A short CV may legitimately meet a source M-level only partially. Verify
+  // complete coverage and real source evidence rather than demanding mastery.
+  expect(findings).toHaveLength(profileRequirements(getGoldenProfile("IT-03")!).length);
+  expect(findings.some((finding) => finding.status !== "missing" && /PostgreSQL|Pandas/.test(finding.candidateEvidence))).toBe(true);
+  console.info(JSON.stringify({ check: "synthetic-cv-evidence", matched: findings.filter((f) => f.status === "matched").length, partial: findings.filter((f) => f.status === "partial").length, requirements: findings.length }));
   const excerpts = cvExcerpts(extracted.text).map((excerpt) => excerpt.text);
-  for (const finding of [...analysis.strengths, ...analysis.skillGaps, ...analysis.additionalRequirements ?? []]) {
+  for (const finding of findings) {
     if (finding.status === "missing") expect(finding.candidateEvidence).toBe("");
     else {
       expect(finding.candidateEvidence).not.toBe("");

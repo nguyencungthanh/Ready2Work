@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 const google = vi.hoisted(() => vi.fn());
+const renderPdf = vi.hoisted(() => vi.fn());
+vi.mock("@/lib/ai/pdf-images", () => ({ pdfPageImages: renderPdf }));
 vi.mock("@google/genai", () => ({ GoogleGenAI: class { constructor() { google(); } } }));
 import { generateChatReply, generateStructured } from "@/lib/ai/gemini";
 import { aiProviderLabel, hasAIKey, responsesConfig } from "@/lib/ai/config";
@@ -15,15 +17,17 @@ beforeEach(() => {
   vi.stubGlobal("fetch", fetchMock);
   fetchMock.mockReset().mockImplementation(() => Promise.resolve(success()));
   google.mockClear();
+  renderPdf.mockReset().mockResolvedValue([{ mimeType: "image/jpeg", data: "page-one" }, { mimeType: "image/jpeg", data: "page-two" }]);
 });
 afterEach(() => { vi.unstubAllEnvs(); vi.unstubAllGlobals(); });
 
 describe("Responses gateway routing", () => {
   it("sends ordered PDF/image inputs and strict nested schemas to the selected endpoint", async () => {
+    vi.stubEnv("AI_BASE_URL", "https://gateway.example/v1");
     const original = JSON.stringify(schema);
     expect(await generateStructured("CV synthetic", schema, [{ data: "AQ==", mimeType: "application/pdf" }, { data: "Ag==", mimeType: "image/png" }], { timeoutMs: 45_000 })).toEqual({ ok: true });
     const [url, init] = fetchMock.mock.calls[0]!;
-    expect(url).toBe("https://api.vilao.ai/v1/responses");
+    expect(url).toBe("https://gateway.example/v1/responses");
     expect(init).toMatchObject({ method: "POST", redirect: "error", cache: "no-store", headers: { Authorization: "Bearer gateway-test-key" } });
     expect(init.signal).toBeInstanceOf(AbortSignal);
     const body = JSON.parse(init.body);
@@ -31,6 +35,33 @@ describe("Responses gateway routing", () => {
     expect(body.text.format).toMatchObject({ type: "json_schema", strict: true, schema: { additionalProperties: false, required: ["ok", "rows"], properties: { rows: { items: { additionalProperties: false, required: ["text"] } } } } });
     expect(JSON.stringify(schema)).toBe(original);
     expect(google).not.toHaveBeenCalled();
+  });
+
+  it("uses string input for structured text requests accepted by Vilao", async () => {
+    await generateStructured("Synthetic text CV", schema);
+    expect(JSON.parse(fetchMock.mock.calls[0]![1].body).input).toBe("Synthetic text CV");
+    expect(renderPdf).not.toHaveBeenCalled();
+  });
+  it("sends every rendered PDF page and source image in order through Vilao chat", async () => {
+    fetchMock.mockResolvedValue(new Response(JSON.stringify({ choices: [{ finish_reason: "stop", message: { content: '```json\n{"ok":true}\n```' } }] })));
+    expect(await generateStructured("Read all pages", schema, [{ mimeType: "application/pdf", data: "pdf-source" }, { mimeType: "image/png", data: "source-image" }])).toEqual({ ok: true });
+    expect(renderPdf).toHaveBeenCalledWith("pdf-source");
+    const [url, init] = fetchMock.mock.calls[0]!;
+    expect(url).toBe("https://api.vilao.ai/v1/chat/completions");
+    const body = JSON.parse(init.body);
+    expect(body.messages[1].content).toEqual([{ type: "text", text: "Read all pages" }, { type: "image_url", image_url: { url: "data:image/jpeg;base64,page-one" } }, { type: "image_url", image_url: { url: "data:image/jpeg;base64,page-two" } }, { type: "image_url", image_url: { url: "data:image/png;base64,source-image" } }]);
+    expect(body.response_format).toMatchObject({ type: "json_schema", json_schema: { strict: true } });
+    expect(google).not.toHaveBeenCalled();
+  });
+  it.each([
+    { finish_reason: "length", message: { content: '{"ok":true}' } },
+    { finish_reason: "stop", message: { content: 'Here is JSON: {"ok":true}' } },
+    { finish_reason: "stop", message: { content: '```json\n{"ok":' } },
+    { finish_reason: "stop", message: { refusal: "private refusal" } },
+  ])("rejects incomplete, refused or free-form chat output (%#)", async (choice) => {
+    fetchMock.mockResolvedValue(new Response(JSON.stringify({ choices: [choice] })));
+    await expect(generateStructured("Synthetic", schema, { mimeType: "image/png", data: "AQ==" })).rejects.toThrow(/^AI provider /);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it("preserves conversation roles, system instructions and output limits", async () => {
