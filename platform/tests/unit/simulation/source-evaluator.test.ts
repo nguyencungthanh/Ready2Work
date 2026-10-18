@@ -14,6 +14,20 @@ function output(points = 2.5) { return { summary: "Cần bổ sung bằng chứn
 ], criterionFeedback: [{ criterionId: "C1", feedback: "Cần bổ sung năm còn thiếu." }, { criterionId: "C2", feedback: "Chưa nêu lập luận." }] }; }
 beforeEach(() => vi.clearAllMocks());
 describe("current source rubric grading", () => {
+  it("sends source context once without dropping requirements or unique private reference data", async () => {
+    const source = tasks.industries.map((i) => i.tasks).flat().find((t) => t.position_id === "MKT-02")!;
+    const valid = { summary: "Chưa có bằng chứng.", checklists: source.rubric.flatMap((c) => c.checklist).map((row) => ({ checklistId: row.checklist_id, awardedPoints: 0, evidence: "", reason: "Chưa thực hiện yêu cầu." })), criterionFeedback: source.rubric.map((c) => ({ criterionId: c.criterion_id, feedback: "Cần bổ sung bài làm." })) };
+    vi.mocked(generateStructured).mockReset().mockResolvedValue(valid);
+    const instructions = [source.context, ...source.requirements].join("\n\n");
+    await evaluateCurrentSource("Bài làm giả.", source.context, instructions, { ...source, private_calculation: { value: 123456 } }, 20);
+    const prompt = vi.mocked(generateStructured).mock.calls[0]![0];
+    expect(prompt.split(source.context)).toHaveLength(2);
+    for (const requirement of source.requirements) expect(prompt).toContain(requirement);
+    const referenceText = prompt.split("Dữ kiện tham chiếu riêng để chấm: ")[1]!.split("\nBài làm:")[0]!;
+    expect(JSON.parse(referenceText)).toMatchObject({ private_calculation: { value: 123456 }, public_materials: source.public_materials });
+    expect(JSON.parse(referenceText)).not.toHaveProperty("context");
+    expect(JSON.parse(referenceText)).not.toHaveProperty("requirements");
+  });
   it("preserves fractional source awards rather than quarter-point status bands", () => {
     const result = scoreCurrentSourceEvaluation(output(), task, "Có dữ kiện hai năm", 30);
     expect(result.criteria[0]?.score).toBe(2.5);

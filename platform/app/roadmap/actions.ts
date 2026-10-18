@@ -14,22 +14,18 @@ export async function generateRoadmapAction(careerId: string): Promise<void> {
   const user = await requireUser();
   const supabase = await createServerSupabaseClient();
 
-  const { data: existing } = await supabase
+  const [{ data: existing }, { data: career }] = await Promise.all([supabase
     .from("roadmaps")
     .select("id")
     .eq("user_id", user.id)
     .eq("career_id", careerId)
-    .maybeSingle();
+    .maybeSingle(),
+    supabase.from("careers").select("title, industry, key_skills, entry_roles").eq("id", careerId).maybeSingle(),
+  ]);
 
   if (existing) {
     redirect(`/roadmap/${existing.id}`);
   }
-
-  const { data: career } = await supabase
-    .from("careers")
-    .select("title, industry, key_skills, entry_roles")
-    .eq("id", careerId)
-    .maybeSingle();
 
   if (!career) {
     throw new Error("That career could not be found.");
@@ -173,6 +169,7 @@ export async function sendRoadmapChatMessageAction(
   if (message.length === 0) {
     return { error: "Write a message before sending." };
   }
+  if (message.length > 2_000) return { error: "Keep your message under 2,000 characters." };
 
   const supabase = await createServerSupabaseClient();
 
@@ -202,11 +199,14 @@ export async function sendRoadmapChatMessageAction(
       .from("roadmap_chat_messages")
       .select("role, content")
       .eq("roadmap_id", roadmapId)
-      .order("created_at"),
+      .order("created_at", { ascending: false })
+      // Each saved user/assistant pair shares a transaction timestamp.
+      .order("role", { ascending: true })
+      .limit(10),
   ]);
 
   const history: RoadmapChatMessage[] = [
-    ...(priorMessages ?? []).map((m) => ({
+    ...(priorMessages ?? []).reverse().map((m) => ({
       role: m.role as "user" | "assistant",
       content: m.content,
     })),

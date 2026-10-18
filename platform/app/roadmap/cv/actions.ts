@@ -23,6 +23,11 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
   let stage: "read" | "analyze" | "upload" | "save" = "read";
   const requestId = crypto.randomUUID();
   const started = Date.now();
+  let stageStarted = started;
+  const recordStage = () => {
+    logger.info("cv_stage_completed", { request_id: requestId, route: "/roadmap/cv", operation: stage, duration_ms: Date.now() - stageStarted });
+    stageStarted = Date.now();
+  };
   try {
     let cvText = String(formData.get("cvText") ?? "").trim();
     let extractionMethod: CVAnalysis["extractionMethod"] = "pasted";
@@ -32,14 +37,17 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
       extractionMethod = extracted.method;
     }
     if (cvText.length < 40 || cvText.length > 40_000) return { error: "Nội dung CV cần từ 40 đến 40.000 ký tự." };
+    recordStage();
     stage = "analyze";
     const result = { ...await analyzeCV(cvText, profile), extractionMethod };
+    recordStage();
     stage = "upload";
     if (file instanceof File && file.size) {
       path = `${user.id}/${crypto.randomUUID()}/cv.pdf`;
       const { error } = await supabase.storage.from("candidate-cvs").upload(path, file, { upsert: false, contentType: "application/pdf" });
       if (error) throw new Error("Không lưu được tệp CV. Vui lòng thử lại.");
     }
+    recordStage();
     stage = "save";
     const admin = createServiceRoleClient();
     const { error } = await admin.from("cv_analyses").insert({
@@ -48,6 +56,7 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
       result,
     });
     if (error) throw new Error("Không lưu được kết quả. Vui lòng kiểm tra migration và thử lại.");
+    recordStage();
     revalidatePath("/roadmap/cv");
     revalidatePath("/dashboard");
     revalidatePath("/report");

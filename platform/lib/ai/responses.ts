@@ -1,7 +1,6 @@
 import "server-only";
 import { z } from "zod";
 import { responsesConfig } from "./config";
-import { pdfPageImages } from "./pdf-images";
 import type { ChatTurn, InlineAttachment } from "./gemini";
 
 const envelope = z.object({
@@ -73,9 +72,11 @@ async function request(body: object, timeoutMs = 25_000, chat = false): Promise<
 export async function structuredResponse(prompt: string, schema: object, documents: InlineAttachment[], timeoutMs?: number): Promise<unknown> {
   const config = responsesConfig();
   if (config && new URL(config.endpoint).hostname === "api.vilao.ai" && documents.length) {
+    const { pdfPageImages } = documents.some((document) => document.mimeType === "application/pdf")
+      ? await import("./pdf-images") : { pdfPageImages: undefined };
     const content: object[] = [{ type: "text", text: prompt }];
     for (const document of documents) {
-      const images = document.mimeType === "application/pdf" ? await pdfPageImages(document.data) : [document];
+      const images = document.mimeType === "application/pdf" ? await pdfPageImages!(document.data) : [document];
       for (const image of images) content.push({ type: "image_url", image_url: { url: `data:${image.mimeType};base64,${image.data}` } });
     }
     const text = await request({

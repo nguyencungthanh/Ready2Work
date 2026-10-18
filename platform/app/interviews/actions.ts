@@ -46,15 +46,13 @@ export async function submitInterviewAnswerAction(
   if (answerText.length > 20_000) return { error: "Câu trả lời tối đa 20.000 ký tự." };
   const supabase = await createServerSupabaseClient();
   const { data: session } = await supabase.from("interview_sessions")
-    .select("id, user_id, set_id, completed_at, interview_sets(is_available)").eq("id", sessionId).maybeSingle();
+    .select("id, user_id, set_id, completed_at, interview_sets(slug, is_available)").eq("id", sessionId).maybeSingle();
   if (!session || session.user_id !== user.id || session.completed_at) {
     return { error: "Buổi phỏng vấn không khả dụng hoặc đã hoàn thành." };
   }
-  const { data: set } = await supabase.from("interview_sets").select("slug, is_available").eq("id", session.set_id).maybeSingle();
+  const sourceSet = session.interview_sets as unknown as { slug: string; is_available: boolean } | { slug: string; is_available: boolean }[] | null;
+  const set = Array.isArray(sourceSet) ? sourceSet[0] : sourceSet;
   if (!set?.is_available || !(isSourceInterview(set) || isPublishedBusinessContent(set))) return { error: "Bộ câu hỏi này đã được lưu trữ hoặc đang chờ xác nhận tiêu chí. Hãy chọn bộ câu hỏi hiện tại để luyện tập." };
-  const sourceSet = session.interview_sets as unknown as { is_available: boolean } | { is_available: boolean }[] | null;
-  const availability = Array.isArray(sourceSet) ? sourceSet[0] : sourceSet;
-  if (availability?.is_available === false) return { error: "Bộ đề này chưa mở chấm hoặc đã được thay bằng phiên bản mới. Câu trả lời đã lưu vẫn được giữ trong lịch sử." };
   const [{ data: questions }, { data: answers }] = await Promise.all([
     createServiceRoleClient().from("interview_questions").select("id, prompt, guidance, reference_answer, keywords, rubric, grading_rubric, round_number, position")
       .eq("set_id", session.set_id).order("round_number").order("position"),

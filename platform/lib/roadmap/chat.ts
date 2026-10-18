@@ -1,5 +1,6 @@
 import "server-only";
 import { generateChatReply, type ChatTurn } from "@/lib/ai/gemini";
+import { assistantRequestHistory } from "@/lib/assistant/limits";
 
 export interface RoadmapChatCareer {
   title: string;
@@ -66,5 +67,7 @@ export async function replyToRoadmapChat(
     text: message.content,
   }));
 
-  return generateChatReply(systemContext, turns);
+  const question = turns.at(-1);
+  if (!question || question.role !== "user") throw new Error("Chat history must end with a user turn.");
+  return generateChatReply(systemContext, assistantRequestHistory(turns.slice(0, -1), question.text), { maxOutputTokens: 1200 });
 }

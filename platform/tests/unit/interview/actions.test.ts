@@ -44,7 +44,7 @@ describe("interview action authorization", () => {
   });
   it("does not accept a foreign or out-of-order question id supplied by the browser", async () => {
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
-      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : table === "interview_sets" ? query(currentSet) : query([]));
+      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: currentSet }) : query([]));
     mocks.serviceFrom.mockReturnValue(query([{ id: "expected", prompt: "The real question", rubric: [], round_number: 1, position: 1 }]));
     expect((await submitInterviewAnswerAction({}, form())).error).toContain("chưa trả lời tiếp theo");
     expect(mocks.serviceFrom.mock.calls.map((call) => call[0])).toEqual(["interview_questions"]);
@@ -67,7 +67,7 @@ describe("interview answer submission regressions from feedback", () => {
   function arrange(saveError: unknown = null, questionOverrides: Record<string, unknown> = {}, set = currentSet) {
     const saved = query(null, saveError);
     mocks.userFrom.mockImplementation((table: string) => table === "interview_sessions"
-      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null }) : table === "interview_sets" ? query(set) : query([]));
+      ? query({ id: "session", user_id: "owner", set_id: "set", completed_at: null, interview_sets: set }) : query([]));
     mocks.serviceFrom.mockImplementation((table: string) => table === "interview_questions"
       ? query([{ id: "question", prompt: "Bạn hãy phân biệt Testing và Quality Assurance", grading_rubric: [criterion], reference_answer: "Hướng dẫn riêng để chấm.", round_number: 1, position: 2, ...questionOverrides }]) : saved);
     return saved;

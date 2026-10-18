@@ -11,7 +11,7 @@ vi.mock("@/lib/content/catalog", () => ({ getGoldenProfile: mocks.profile }));
 vi.mock("@/lib/cv/extract", () => ({ extractCVDocument: mocks.extract }));
 vi.mock("@/lib/cv/analyzer", () => ({ analyzeCV: mocks.analyze }));
 vi.mock("next/cache", () => ({ revalidatePath: mocks.revalidate }));
-vi.mock("@/lib/observability/logger", () => ({ logger: { error: mocks.log }, hashUserId: () => "owner-hash" }));
+vi.mock("@/lib/observability/logger", () => ({ logger: { error: mocks.log, info: vi.fn() }, hashUserId: () => "owner-hash" }));
 import { analyzeCVAction } from "@/app/roadmap/cv/actions";
 import { CVAnalysisError } from "@/lib/cv/errors";
 

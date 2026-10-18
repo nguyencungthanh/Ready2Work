@@ -5,6 +5,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { ReferenceIcon } from "./icon";
 import { ASSISTANT_FEATURE_PATHS, ASSISTANT_MAX_REPLY_TEXT, ASSISTANT_MAX_USER_TEXT, assistantRequestHistory, type AssistantTurn } from "@/lib/assistant/limits";
+import { readAssistantReply } from "@/lib/assistant/read-stream";
 
 interface Message extends AssistantTurn { id: number }
 class AssistantResponseError extends Error {}
@@ -26,6 +27,7 @@ export function DashboardAssistant({ name }: { name: string }) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [draft, setDraft] = useState("");
   const [pending, setPending] = useState(false);
+  const [streamingText, setStreamingText] = useState("");
   const [error, setError] = useState("");
   const [failedRequest, setFailedRequest] = useState<AssistantTurn[] | null>(null);
   const sequence = useRef(0);
@@ -35,11 +37,11 @@ export function DashboardAssistant({ name }: { name: string }) {
   const form = useRef<HTMLFormElement>(null);
 
   useEffect(() => () => { controller.current?.abort(); }, []);
-  useEffect(() => { if (log.current) log.current.scrollTop = log.current.scrollHeight; }, [messages, pending, error]);
+  useEffect(() => { if (log.current) log.current.scrollTop = log.current.scrollHeight; }, [messages, pending, error, streamingText]);
 
   async function requestReply(history: AssistantTurn[], retry = false) {
     if (inFlight.current) return;
-    inFlight.current = true; setPending(true); setError(""); setFailedRequest(null);
+    inFlight.current = true; setPending(true); setStreamingText(""); setError(""); setFailedRequest(null);
     if (!retry) {
       const completed = messages.at(-1)?.role === "user" ? messages.slice(0, -1) : messages;
       setMessages([...completed.slice(-10), { ...history.at(-1)!, id: ++sequence.current }]);
@@ -47,14 +49,19 @@ export function DashboardAssistant({ name }: { name: string }) {
     const abort = new AbortController(); controller.current = abort;
     const timer = window.setTimeout(() => abort.abort(), 35_000);
     try {
-      const response = await fetch("/api/assistant", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: history }), signal: abort.signal });
-      const result: unknown = await response.json();
-      if (!response.ok) {
-        const message = result && typeof result === "object" && "error" in result && typeof result.error === "string" && result.error.length <= 500 ? result.error : connectionError;
-        throw new AssistantResponseError(message);
+      const response = await fetch("/api/assistant", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json", Accept: "application/x-ndjson" }, body: JSON.stringify({ messages: history }), signal: abort.signal });
+      let reply: string;
+      if (response.ok && response.body && response.headers.get("content-type")?.includes("application/x-ndjson")) {
+        reply = await readAssistantReply(response.body, setStreamingText);
+      } else {
+        const result: unknown = await response.json();
+        if (!response.ok) {
+          const message = result && typeof result === "object" && "error" in result && typeof result.error === "string" && result.error.length <= 500 ? result.error : connectionError;
+          throw new AssistantResponseError(message);
+        }
+        if (!result || typeof result !== "object" || !("reply" in result) || typeof result.reply !== "string" || !result.reply.trim() || result.reply.length > ASSISTANT_MAX_REPLY_TEXT) throw new AssistantResponseError(connectionError);
+        reply = result.reply.trim();
       }
-      if (!result || typeof result !== "object" || !("reply" in result) || typeof result.reply !== "string" || !result.reply.trim() || result.reply.length > ASSISTANT_MAX_REPLY_TEXT) throw new AssistantResponseError(connectionError);
-      const reply = result.reply.trim();
       const replyMessage: Message = { role: "model", text: reply, id: ++sequence.current };
       setMessages((previous) => [...previous, replyMessage].slice(-12));
       setDraft("");
@@ -62,7 +69,7 @@ export function DashboardAssistant({ name }: { name: string }) {
       setFailedRequest(history);
       setError(failure instanceof AssistantResponseError ? failure.message : abort.signal.aborted ? "AI phản hồi lâu hơn dự kiến. Tin nhắn vẫn được giữ; bạn có thể thử gửi lại." : connectionError);
     } finally {
-      window.clearTimeout(timer); controller.current = null; inFlight.current = false; setPending(false);
+      window.clearTimeout(timer); controller.current = null; inFlight.current = false; setPending(false); setStreamingText("");
     }
   }
 
@@ -82,7 +89,7 @@ export function DashboardAssistant({ name }: { name: string }) {
     <div className="d-ai-msg"><span className="d-ai-avatar"><ReferenceIcon name="ai" size={22}/></span><p>{name || "Bạn"} ơi, bạn cần gì hãy để tớ giúp!</p></div>
     {messages.length > 0 && <div ref={log} role="log" aria-label="Cuộc trò chuyện với R2W AI" aria-live="polite" aria-relevant="additions text" className="mb-4 max-h-96 space-y-3 overflow-y-auto pr-1 text-sm leading-6">
       {messages.map((message) => <article key={message.id} className={`max-w-[95%] rounded-xl p-3 break-words ${message.role === "user" ? "ml-auto border border-border bg-white" : "mr-auto bg-white/70"}`}><p className="mb-1 text-xs font-semibold text-muted">{message.role === "user" ? "Bạn" : "R2W AI"}</p>{message.role === "user" ? <p className="whitespace-pre-wrap">{message.text}</p> : <AssistantReply text={message.text}/>}</article>)}
-      {pending && <p role="status" className="px-3 py-2 text-muted">R2W AI đang trả lời…</p>}
+      {pending && (streamingText ? <article className="mr-auto max-w-[95%] rounded-xl bg-white/70 p-3 break-words"><p className="mb-1 text-xs font-semibold text-muted">R2W AI</p><p className="whitespace-pre-wrap">{streamingText}</p><span role="status" className="text-xs text-muted">Đang trả lời…</span></article> : <p role="status" className="px-3 py-2 text-muted">R2W AI đang trả lời…</p>)}
     </div>}
     {error && <div className="mb-3"><p role="alert" className="auth-error">{error}</p>{failedRequest && <button type="button" className="reference-link mt-2" disabled={pending} onClick={() => void requestReply(failedRequest, true)}>Thử gửi lại</button>}</div>}
     <form ref={form} method="post" className="d-ai-input-row" onSubmit={send}>

@@ -1,8 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const mocks = vi.hoisted(() => ({ user: vi.fn(), reply: vi.fn(), info: vi.fn(), error: vi.fn() }));
+const mocks = vi.hoisted(() => ({ user: vi.fn(), reply: vi.fn(), stream: vi.fn(), info: vi.fn(), error: vi.fn() }));
 vi.mock("@/lib/auth/session", () => ({ getSessionUser: mocks.user }));
 vi.mock("@/lib/ai/gemini", () => ({ generateChatReply: mocks.reply }));
+vi.mock("@/lib/ai/chat-stream", () => ({ streamChatReply: mocks.stream }));
 vi.mock("@/lib/observability/logger", () => ({ logger: { info: mocks.info, error: mocks.error } }));
 import { POST } from "@/app/api/assistant/route";
 
@@ -29,6 +30,24 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllEnvs());
 
 describe("dashboard Gemini chat API", () => {
+  it("streams incremental replies for opted-in clients while retaining JSON compatibility", async () => {
+    mocks.stream.mockImplementation(async function* () { yield "Xin "; yield "chào"; });
+    const response = await POST(request(question, { Accept: "application/x-ndjson" }));
+    expect(response.headers.get("Content-Type")).toContain("application/x-ndjson");
+    expect(await response.text()).toBe('{"delta":"Xin "}\n{"delta":"chào"}\n{"done":true}\n');
+    expect(mocks.reply).not.toHaveBeenCalled();
+  });
+  it("does not mark a broken stream as a completed reply or expose its provider error", async () => {
+    mocks.stream.mockImplementation(async function* () { yield "Partial"; throw new Error("private-provider-detail"); });
+    const response = await POST(request(question, { Accept: "application/x-ndjson" }));
+    const body = await response.text();
+    expect(body).toContain('"error":'); expect(body).not.toContain('"done":true');
+    expect(body).not.toContain("private-provider-detail");
+  });
+  it("preserves quota errors before sending the first stream event", async () => {
+    mocks.stream.mockImplementation(async function* () { throw Object.assign(new Error("private-provider-detail"), { status: 429 }); yield ""; });
+    await expectError(await POST(request(question, { Accept: "application/x-ndjson" })), 429, "AI_RATE_LIMITED");
+  });
   it("requires a verified account before reading input or calling Gemini", async () => {
     mocks.user.mockResolvedValue(null);
     const malformed = new Request(endpoint, { method: "POST", body: "not JSON" });

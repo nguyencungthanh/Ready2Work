@@ -42,7 +42,7 @@ export default async function RoadmapPage({
       .from("roadmap_chat_messages")
       .select("id, role, content")
       .eq("roadmap_id", roadmapId)
-      .order("created_at"),
+      .order("created_at").order("role", { ascending: false }),
   ]);
 
   const allSteps = steps ?? [];
