@@ -1,3 +1,4 @@
+import { hasAIKey } from "@/lib/ai/config";
 import "server-only";
 import { z } from "zod";
 import type { GoldenProfile } from "@/lib/content/catalog";
@@ -94,7 +95,7 @@ export function analyzeCVWithRules(cvText: string, profile: GoldenProfile): CVAn
 }
 
 export async function analyzeCV(cvText: string, profile: GoldenProfile): Promise<CVAnalysis> {
-  if (!process.env.GEMINI_API_KEY) return analyzeCVWithRules(cvText, profile);
+  if (!hasAIKey()) return analyzeCVWithRules(cvText, profile);
   const requirements = profileRequirements(profile);
   const excerpts = cvExcerpts(cvText);
   const evidenceById = new Map(excerpts.map((excerpt) => [excerpt.id, excerpt.text]));

@@ -1,3 +1,4 @@
+import { hasAIKey } from "@/lib/ai/config";
 import "server-only";
 import { z } from "zod";
 import { generateStructured } from "@/lib/ai/gemini";
@@ -6,7 +7,7 @@ import { MAX_CV_CHARACTERS, MIN_CV_CHARACTERS } from "./validation";
 
 /** Read all pages of a validated PDF, including image and mixed-content pages. */
 export async function recognizePdfText(buffer: Uint8Array): Promise<string> {
-  if (!process.env.GEMINI_API_KEY) {
+  if (!hasAIKey()) {
     throw new Error("Tệp PDF này cần nhận dạng chữ bằng AI nhưng dịch vụ chưa được cấu hình. Vui lòng dán nội dung CV hoặc dùng PDF có văn bản.");
   }
   try {
@@ -29,6 +30,9 @@ export async function recognizePdfText(buffer: Uint8Array): Promise<string> {
     if (!hasReadableCVText(text)) throw new Error("Unreadable OCR result");
     return text;
   } catch (error) {
+    if (typeof error === "object" && error !== null && "status" in error && (error.status === 401 || error.status === 403)) {
+      throw Object.assign(new Error("Không đọc được CV vì dịch vụ AI chưa xác thực được kết nối."), { status: error.status });
+    }
     // Never include provider details, PDF bytes or extracted personal data in the error.
     if (typeof error === "object" && error !== null && "status" in error && error.status === 429) {
       throw new Error("Không đọc được CV lúc này vì dịch vụ AI đang đạt giới hạn yêu cầu. Vui lòng thử lại sau; chưa có kết quả mới được lưu.");

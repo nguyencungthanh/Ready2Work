@@ -12,6 +12,7 @@ export function cvErrorDetails(error: unknown): { error_code: string; status?: n
   if (error instanceof CVAnalysisError) return { error_code: error.code };
   const status = typeof error === "object" && error !== null && "status" in error && typeof error.status === "number"
     ? error.status : undefined;
+  if (status === 401 || status === 403) return { error_code: "CV_AI_AUTH", status };
   if (status === 429) return { error_code: "CV_AI_QUOTA", status };
   if (status === 503) return { error_code: "CV_AI_UNAVAILABLE", status };
   if (status === 504 || (error instanceof Error && /^(AbortError|TimeoutError)$/.test(error.name))) {

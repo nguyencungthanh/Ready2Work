@@ -1,5 +1,6 @@
 import "server-only";
 import { GoogleGenAI } from "@google/genai";
+import { chatResponse, structuredResponse } from "./responses";
 
 const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
 let sharedClient: GoogleGenAI | undefined;
@@ -14,10 +15,8 @@ function getClient(): GoogleGenAI {
 }
 
 /**
- * Calls Gemini with a JSON schema and returns the parsed response. No
- * redaction/quota infrastructure here by design (early-stage, free tier) -
- * callers are responsible for validating the shape with Zod before trusting
- * it (plan section 19.5: never show unvalidated AI output).
+ * Calls the configured provider with a JSON schema. Callers validate the
+ * parsed result with Zod before trusting or displaying AI output.
  */
 export async function generateStructured(
   prompt: string,
@@ -25,8 +24,9 @@ export async function generateStructured(
   document?: InlineAttachment | InlineAttachment[],
   options?: { timeoutMs?: number },
 ): Promise<unknown> {
-  const client = getClient();
   const documents = document ? Array.isArray(document) ? document : [document] : [];
+  if (process.env.AI_BASE_URL?.trim()) return structuredResponse(prompt, responseSchema, documents, options?.timeoutMs);
+  const client = getClient();
 
   const response = await client.models.generateContent({
     model: MODEL,
@@ -53,12 +53,15 @@ export interface ChatTurn {
   text: string;
 }
 
-/** Calls Gemini for a plain-text conversational reply (roadmap chatbot). */
+/** Calls the configured provider for a plain-text conversational reply (roadmap chatbot). */
 export async function generateChatReply(
   systemContext: string,
   history: ChatTurn[],
   options?: { maxOutputTokens?: number },
 ): Promise<string> {
+  const last = history[history.length - 1];
+  if (!last || last.role !== "user") throw new Error("Chat history must end with a user turn.");
+  if (process.env.AI_BASE_URL?.trim()) return chatResponse(systemContext, history, options?.maxOutputTokens);
   const client = getClient();
 
   const chat = client.chats.create({
@@ -72,11 +75,6 @@ export async function generateChatReply(
       ...(options?.maxOutputTokens ? { maxOutputTokens: options.maxOutputTokens } : {}),
     },
   });
-
-  const last = history[history.length - 1];
-  if (!last || last.role !== "user") {
-    throw new Error("Chat history must end with a user turn.");
-  }
 
   const response = await chat.sendMessage({ message: last.text });
   const text = response.text;

@@ -57,7 +57,7 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
     logger.error("cv_processing_failed", {
       request_id: requestId, user_id_hash: hashUserId(user.id), route: "/roadmap/cv", operation: stage,
       duration_ms: Date.now() - started, ...details,
-      error_code: stage === "analyze" ? details.error_code : `CV_${stage.toUpperCase()}_FAILED`,
+      error_code: (stage === "analyze" || details.error_code === "CV_AI_AUTH") ? details.error_code : `CV_${stage.toUpperCase()}_FAILED`,
     });
     if (path) {
       try {
@@ -67,6 +67,7 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
         logger.error("cv_cleanup_failed", { request_id: requestId, route: "/roadmap/cv", operation: "cleanup", error_code: "CV_CLEANUP_FAILED" });
       }
     }
+    if (details.error_code === "CV_AI_AUTH") return { error: "Dịch vụ AI chưa xác thực được kết nối. Vui lòng liên hệ quản trị viên kiểm tra cấu hình AI; chưa có kết quả mới được lưu." };
     if (stage === "analyze") {
       const messages: Record<string, string> = {
         CV_AI_QUOTA: "Đã đọc được CV nhưng dịch vụ AI đang đạt giới hạn lượt gọi. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",

@@ -3,7 +3,6 @@
 if (process.argv.includes("--if-enabled") && process.env.R2W_VERIFY_HOSTING !== "1") process.exit(0);
 
 const { createClient } = await import("@supabase/supabase-js");
-const { GoogleGenAI } = await import("@google/genai");
 const report = (check, fields) => console.info(JSON.stringify({ check, ...fields }));
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const publishable = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
@@ -30,6 +29,16 @@ const checks = await Promise.all([
 for (const { check, ...fields } of checks) report(check, fields);
 if (checks.some((check) => !check.ok)) process.exit(1);
 
+// The provider is checked through the application adapter, using synthetic data.
+if (process.env.R2W_CHECK_AI === "1") {
+  const { spawnSync } = await import("node:child_process");
+  const result = spawnSync("npm", ["exec", "--", "vitest", "run", "tests/integration/ai/live-provider.test.ts"], {
+    stdio: "inherit", env: { ...process.env, R2W_RUN_LIVE_AI: "1" },
+  });
+  report("hosting-ai-provider", { ok: result.status === 0 });
+  if (result.status !== 0) process.exit(1);
+}
+
 if (process.env.R2W_CHECK_CV === "1") {
   const { spawnSync } = await import("node:child_process");
   const result = spawnSync("npm", ["exec", "--", "vitest", "run", "tests/integration/cv/live-pdf.test.ts", "-t", "analyzes synthetic recognized|reads and analyzes"], {
@@ -37,17 +46,4 @@ if (process.env.R2W_CHECK_CV === "1") {
   });
   report("hosting-cv-provider", { ok: result.status === 0 });
   if (result.status !== 0) process.exit(1);
-}
-
-// This opt-in uses one synthetic request, only when checking a new provider
-// configuration. A provider outage does not disable non-AI site features.
-if (process.env.R2W_CHECK_GEMINI === "1") {
-  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
-  try {
-    const client = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY, httpOptions: { timeout: 15_000 } });
-    const response = await client.models.generateContent({ model, contents: "Synthetic deployment diagnostic. Reply OK." });
-    report("hosting-gemini", { ok: Boolean(response.text?.trim()), model });
-  } catch (error) {
-    report("hosting-gemini", { ok: false, model, status: typeof error?.status === "number" ? error.status : undefined });
-  }
 }

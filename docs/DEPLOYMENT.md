@@ -1,4 +1,12 @@
-# Deployment status — 18/10/2026
+# Deployment status — 19/10/2026
+
+## Vilao Responses integration — 19/10/2026
+
+- The shared AI adapter supports the owner's supplied `https://api.vilao.ai/v1` Responses endpoint and exact model `sba/ag/gemini-3.8-flash`. It covers chat, structured grading/analysis, images and PDF OCR. Gateway failures do not fall back to Google.
+- `AI_BASE_URL` and `AI_MODEL` are configured in `ready2-work` Production/Preview. The adapter prefers server-only `AI_API_KEY`, falling back to the existing protected `GEMINI_API_KEY` when a gateway is explicitly configured. No key was exposed or copied.
+- Local unit checks, TypeScript, lint, production build and the isolated Chromium CV retry flow passed. HTTP 401/403 now produces a configuration/authentication message, distinct from quota 429; neither failed extraction nor analysis saves a result.
+- Staged deployment `dpl_Ag32TD97c5UUhGWQMuuKjXifmshr` verified Supabase Auth/database/storage, then synthetic Vilao analysis returned HTTP 401. Its build intentionally stopped and was not promoted to the canonical domain. This proves a provider authentication failure, not quota exhaustion. Live PDF/schema compatibility and successful analysis remain unverified until the provider accepts the key.
+- The owner was asked to update `AI_API_KEY` in `ready2-work` for Production/Preview directly in Vercel, without sharing it in chat. A fresh deployment is required after that update. Opt-in preflight flags are `R2W_VERIFY_HOSTING=1`, `R2W_CHECK_AI=1` and `R2W_CHECK_CV=1`; only these explicitly requested checks make synthetic provider requests.
 
 ## Hosting consolidated on ready2-work — 18/10/2026
 
@@ -12,7 +20,7 @@ This section supersedes the older `ready2work-platform` hosting instructions bel
 - The workspace-root Vercel output override was removed: with Root Directory `platform`, `platform/.next` incorrectly resolved to `platform/platform/.next`. Both project-root and workspace-root deploys now use the Next.js default. `.vercelignore` excludes local credentials/tool settings from uploads.
 - Public checks after cutover returned HTTP 200 on the canonical and smoky domains for `/`, `/signin` and `/api/health`; the target project's generated production alias also passed `/signup`. These checks do not assert a new authenticated CV save or email round trip.
 - `ready2work-platform` is retained as a rollback reference, with its Git repository disconnected and both configured domains moved away. Future code deployments use `ready2-work`; the old project and its deployment history were not deleted.
-- `npm run check:hosting` in `platform` is an explicit production preflight. Normal builds skip it. Opt-in Vercel build variables are `R2W_VERIFY_HOSTING=1`, with optional `R2W_CHECK_GEMINI=1` or `R2W_CHECK_CV=1`; the latter provider checks consume quota and must be intentionally requested.
+- `npm run check:hosting` in `platform` is an explicit production preflight. Normal builds skip it. Opt-in Vercel build variables are `R2W_VERIFY_HOSTING=1`, with optional `R2W_CHECK_AI=1` or `R2W_CHECK_CV=1`; the latter provider checks consume quota and must be intentionally requested.
 
 ## PDF CV reading — 18/10/2026
 

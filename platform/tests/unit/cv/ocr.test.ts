@@ -38,6 +38,11 @@ describe("scanned CV recognition", () => {
     await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("Không đọc được chữ");
     expect(generateStructured).toHaveBeenCalledTimes(2);
   });
+  it.each([401, 403])("preserves authentication status %s without retrying or exposing provider text", async (status) => {
+    vi.mocked(generateStructured).mockRejectedValue({ status, message: "private provider response" });
+    await expect(recognizePdfText(new Uint8Array())).rejects.toMatchObject({ status, message: "Không đọc được CV vì dịch vụ AI chưa xác thực được kết nối." });
+    expect(generateStructured).toHaveBeenCalledOnce();
+  });
   it("reports exhausted AI quota without retrying or exposing the provider response", async () => {
     vi.mocked(generateStructured).mockRejectedValue({ status: 429, message: "private provider response" });
     await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("giới hạn yêu cầu");

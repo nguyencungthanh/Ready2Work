@@ -77,6 +77,8 @@ describe("CV read, analysis and save boundary", () => {
     expect(mocks.insert).not.toHaveBeenCalled();
   });
   it.each([
+    [{ status: 401, message: "private provider response" }, "chưa xác thực", "CV_AI_AUTH"],
+    [{ status: 403, message: "private provider response" }, "chưa xác thực", "CV_AI_AUTH"],
     [new CVAnalysisError("CV_INVALID_EVIDENCE", ["0"]), "bằng chứng hợp lệ", "CV_INVALID_EVIDENCE"],
     [new CVAnalysisError("CV_INCOMPLETE_ANALYSIS"), "đối chiếu đủ yêu cầu", "CV_INCOMPLETE_ANALYSIS"],
     [new CVAnalysisError("CV_INVALID_RESPONSE"), "đúng định dạng", "CV_INVALID_RESPONSE"],
@@ -94,6 +96,14 @@ describe("CV read, analysis and save boundary", () => {
     expect(log).not.toContain(text);
     expect(log).not.toContain("verified-owner");
     expect(log).not.toContain("private");
+    expect(mocks.upload).not.toHaveBeenCalled();
+    expect(mocks.insert).not.toHaveBeenCalled();
+  });
+  it("distinguishes OCR authentication failure without saving or leaking provider details", async () => {
+    mocks.extract.mockRejectedValue({ status: 401, message: "private provider response" });
+    expect((await analyzeCVAction({}, form())).error).toContain("chưa xác thực");
+    expect(mocks.log).toHaveBeenCalledWith("cv_processing_failed", expect.objectContaining({ operation: "read", error_code: "CV_AI_AUTH", status: 401 }));
+    expect(mocks.analyze).not.toHaveBeenCalled();
     expect(mocks.upload).not.toHaveBeenCalled();
     expect(mocks.insert).not.toHaveBeenCalled();
   });

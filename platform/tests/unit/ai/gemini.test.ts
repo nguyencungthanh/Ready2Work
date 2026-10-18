@@ -7,7 +7,7 @@ vi.mock("@google/genai", () => ({ GoogleGenAI: class {
 } }));
 import { generateStructured, generateChatReply } from "@/lib/ai/gemini";
 
-beforeEach(() => { vi.stubEnv("GEMINI_API_KEY", "unit-test-key"); mocks.generateContent.mockReset().mockResolvedValue({ text: '{"ok":true}' }); mocks.construct.mockClear(); mocks.createChat.mockReset().mockReturnValue({ sendMessage: mocks.sendMessage }); mocks.sendMessage.mockReset().mockResolvedValue({ text: "Hướng dẫn bằng tiếng Việt." }); });
+beforeEach(() => { vi.stubEnv("AI_BASE_URL", ""); vi.stubEnv("GEMINI_API_KEY", "unit-test-key"); mocks.generateContent.mockReset().mockResolvedValue({ text: '{"ok":true}' }); mocks.construct.mockClear(); mocks.createChat.mockReset().mockReturnValue({ sendMessage: mocks.sendMessage }); mocks.sendMessage.mockReset().mockResolvedValue({ text: "Hướng dẫn bằng tiếng Việt." }); });
 afterEach(() => vi.unstubAllEnvs());
 describe("Gemini structured multimodal request", () => {
   it("passes source images to the SDK in the same order as their prompt labels", async () => {

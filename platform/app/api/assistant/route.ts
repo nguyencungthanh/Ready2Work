@@ -1,3 +1,4 @@
+import { hasAIKey } from "@/lib/ai/config";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSessionUser } from "@/lib/auth/session";
@@ -46,13 +47,14 @@ export async function POST(request: Request) {
     return fail(413, "INPUT_TOO_LARGE", "Tin nhắn hoặc hội thoại quá dài. Hãy rút gọn trước khi gửi.");
   }
   if (messages.length % 2 === 0 || messages.some((turn, index) => turn.role !== (index % 2 === 0 ? "user" : "model"))) return fail(400, "INVALID_REQUEST", "Hội thoại chưa hợp lệ. Hãy gửi lại câu hỏi của bạn.");
-  if (!process.env.GEMINI_API_KEY) return fail(503, "AI_UNAVAILABLE", "Trợ lý AI chưa sẵn sàng lúc này. Vui lòng thử lại sau.");
+  if (!hasAIKey()) return fail(503, "AI_UNAVAILABLE", "Trợ lý AI chưa sẵn sàng lúc này. Vui lòng thử lại sau.");
   try {
     const raw = await generateChatReply(DASHBOARD_ASSISTANT_CONTEXT, messages, { maxOutputTokens: 1_200 });
     const reply = z.string().trim().min(1).max(ASSISTANT_MAX_REPLY_TEXT).parse(raw);
     return NextResponse.json({ reply }, { headers });
   } catch (error) {
     const status = error && typeof error === "object" && "status" in error ? error.status : undefined;
+    if (status === 401 || status === 403) return fail(503, "AI_CONFIGURATION", "Dịch vụ AI chưa xác thực được kết nối. Vui lòng liên hệ quản trị viên; tin nhắn vẫn được giữ.");
     if (status === 429) return fail(429, "AI_RATE_LIMITED", "AI đang nhận quá nhiều yêu cầu. Tin nhắn vẫn được giữ; hãy đợi một lúc rồi thử lại.");
     if (status === 503 || status === 504) return fail(503, "AI_UNAVAILABLE", "Dịch vụ AI tạm thời chưa phản hồi. Tin nhắn vẫn được giữ; vui lòng thử lại.");
     return fail(502, "AI_FAILED", "Chưa nhận được phản hồi từ AI. Tin nhắn vẫn được giữ; vui lòng thử lại.");

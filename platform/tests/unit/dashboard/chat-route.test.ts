@@ -117,7 +117,7 @@ describe("dashboard Gemini chat API", () => {
     expect(mocks.reply.mock.calls[0]![1]).toEqual([{ role: "user", text: "a".repeat(2000) }]);
   });
 
-  it.each([[429, 429, "AI_RATE_LIMITED"], [503, 503, "AI_UNAVAILABLE"], [400, 502, "AI_FAILED"]] as const)("maps provider status %i to a safe response without fabricating a reply", async (providerStatus, status, code) => {
+  it.each([[401, 503, "AI_CONFIGURATION"], [403, 503, "AI_CONFIGURATION"], [429, 429, "AI_RATE_LIMITED"], [503, 503, "AI_UNAVAILABLE"], [400, 502, "AI_FAILED"]] as const)("maps provider status %i to a safe response without fabricating a reply", async (providerStatus, status, code) => {
     mocks.reply.mockRejectedValue(Object.assign(new Error("private-provider-detail"), { status: providerStatus }));
     const payload = await expectError(await POST(request()), status, code);
     expect(payload).not.toHaveProperty("reply");

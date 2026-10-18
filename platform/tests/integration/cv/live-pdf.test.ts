@@ -46,7 +46,7 @@ async function syntheticPdf(kind: "scan" | "mixed" | "multi-page") {
 }
 
 test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1").each(["scan", "mixed", "multi-page"] as const)(
-  "reads a synthetic %s PDF through real Gemini without losing image sections",
+  "reads a synthetic %s PDF through the configured provider without losing image sections",
   async (kind) => {
     const started = Date.now();
     const extracted = await extractCVDocument(await syntheticPdf(kind));
@@ -58,7 +58,7 @@ test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1").each(["scan", "mixed", "multi-p
   }, 150_000,
 );
 
-test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1")("analyzes synthetic recognized CV text through real Gemini", async () => {
+test.skipIf(process.env.R2W_RUN_LIVE_CV !== "1")("analyzes synthetic recognized CV text through the configured provider", async () => {
   const profile = getGoldenProfile("IT-01");
   expect(profile).toBeDefined();
   const text = "SYNTHETIC CV - NO PERSONAL DATA. Technical skills: Python, SQL, PostgreSQL, Pandas, Excel. Built data pipelines using Pandas and SQL. Prepared monthly dashboards in Excel. Communicated findings to project stakeholders.";
