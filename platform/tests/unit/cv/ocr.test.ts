@@ -11,15 +11,15 @@ describe("scanned CV recognition", () => {
     vi.mocked(generateStructured).mockResolvedValue({ text });
     const pdf = new Uint8Array([37, 80, 68, 70, 45]);
     expect(await recognizePdfText(pdf)).toBe(text);
-    expect(generateStructured).toHaveBeenCalledWith(expect.any(String), expect.any(Object), { mimeType: "application/pdf", data: Buffer.from(pdf).toString("base64") });
+    expect(generateStructured).toHaveBeenCalledWith(expect.stringContaining("TOÀN BỘ"), expect.any(Object), { mimeType: "application/pdf", data: Buffer.from(pdf).toString("base64") }, { timeoutMs: 45_000 });
   });
   it("gives a useful scan-specific error when AI has not been configured", async () => {
     vi.stubEnv("GEMINI_API_KEY", "");
-    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("PDF này là dạng ảnh");
+    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("chưa được cấu hình");
     expect(generateStructured).not.toHaveBeenCalled();
   });
   it("rejects empty, malformed or oversized OCR output", async () => {
-    for (const raw of [{ text: "" }, { text: "x".repeat(40_001) }, { other: "unsupported" }]) {
+    for (const raw of [{ text: "" }, { text: "x".repeat(40_001) }, { other: "unsupported" }, { text: "(cid:123) ".repeat(30) }, { text: "\uFFFD".repeat(100) }]) {
       vi.mocked(generateStructured).mockResolvedValue(raw);
       await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("Không đọc được chữ");
     }
@@ -37,5 +37,10 @@ describe("scanned CV recognition", () => {
     vi.mocked(generateStructured).mockReset().mockRejectedValue({ status: 503 });
     await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("Không đọc được chữ");
     expect(generateStructured).toHaveBeenCalledTimes(2);
+  });
+  it("reports exhausted AI quota without retrying or exposing the provider response", async () => {
+    vi.mocked(generateStructured).mockRejectedValue({ status: 429, message: "private provider response" });
+    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("giới hạn yêu cầu");
+    expect(generateStructured).toHaveBeenCalledOnce();
   });
 });

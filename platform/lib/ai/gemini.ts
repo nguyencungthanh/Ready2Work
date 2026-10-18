@@ -23,6 +23,7 @@ export async function generateStructured(
   prompt: string,
   responseSchema: object,
   document?: InlineAttachment | InlineAttachment[],
+  options?: { timeoutMs?: number },
 ): Promise<unknown> {
   const client = getClient();
   const documents = document ? Array.isArray(document) ? document : [document] : [];
@@ -33,6 +34,7 @@ export async function generateStructured(
     config: {
       responseMimeType: "application/json",
       responseSchema,
+      ...(options?.timeoutMs ? { httpOptions: { timeout: options.timeoutMs } } : {}),
     },
   });
 

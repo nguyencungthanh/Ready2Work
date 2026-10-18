@@ -32,9 +32,8 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
     const result = { ...await analyzeCV(cvText, profile), extractionMethod };
     stage = "save";
     if (file instanceof File && file.size) {
-      const extension = file.name.split(".").pop()?.toLowerCase();
-      path = `${user.id}/${crypto.randomUUID()}/cv.${extension}`;
-      const { error } = await supabase.storage.from("candidate-cvs").upload(path, file, { upsert: false });
+      path = `${user.id}/${crypto.randomUUID()}/cv.pdf`;
+      const { error } = await supabase.storage.from("candidate-cvs").upload(path, file, { upsert: false, contentType: "application/pdf" });
       if (error) throw new Error("Không lưu được tệp CV. Vui lòng thử lại.");
     }
     const admin = createServiceRoleClient();
@@ -50,6 +49,9 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
     return { success: "Đã lưu phân tích vào tài khoản của bạn." };
   } catch (error) {
     if (path) await supabase.storage.from("candidate-cvs").remove([path]);
+    if (stage === "analyze" && typeof error === "object" && error !== null && "status" in error && error.status === 429) {
+      return { error: "Đã đọc được CV nhưng dịch vụ AI đang đạt giới hạn lượt gọi. Vui lòng thử lại sau; chưa có kết quả mới được lưu." };
+    }
     // Parser errors are safe to present; do not expose database/provider internals.
     const message = error instanceof Error ? error.message : "";
     return { error: /^(Tệp|CV |Chỉ hỗ trợ|Không đọc|Nội dung CV|Không lưu)/.test(message)

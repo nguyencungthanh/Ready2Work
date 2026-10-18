@@ -56,6 +56,8 @@ Three logistics interview sets are intentionally unavailable because their suppl
 
 CV analysis uses the supplied Golden Profile weights and certification priorities. Without `GEMINI_API_KEY`, CV matching offers a clearly labeled keyword preview. Simulation/interview AI scoring requires a configured provider; a provider failure does not produce a fabricated score. `GEMINI_MODEL` can override the base project's model.
 
+CV file uploads accept **PDF only**, up to 3 MiB and 15 pages. File-picker and drag-and-drop checks are repeated on the server, which verifies the PDF structure and rejects encrypted or broken documents. PDFs with images, unreadable text layers, or local parser failures are sent in full to Gemini OCR after consent; readable text-only PDFs stay local for extraction. Pasted CV text remains available. OCR has a dedicated 45-second request timeout, and CV Server Actions have a 180-second execution budget. Temporary provider HTTP 503 responses are retried once; quota and invalid-output failures are not retried or replaced with invented results. No new analysis is saved after an extraction or analysis failure.
+
 ## Validate only what changed
 
 Do not run every suite after each small change. Follow the change-based policy in [Master Plan §9](career_platform_ai_agent_master_plan.md#9-kiểm-tra-vừa-đủ-có-điểm-dừng).

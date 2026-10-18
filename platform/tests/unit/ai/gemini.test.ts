@@ -24,6 +24,13 @@ describe("Gemini structured multimodal request", () => {
     await generateStructured("Barem nguồn", { type: "object" });
     expect(mocks.generateContent.mock.calls[0]?.[0].contents).toBe("Barem nguồn");
   });
+  it("extends only an explicitly opted-in document request timeout", async () => {
+    await generateStructured("Đọc CV", { type: "object" }, { data: "JVBERi0=", mimeType: "application/pdf" }, { timeoutMs: 45_000 });
+    expect(mocks.generateContent.mock.calls[0]?.[0].config.httpOptions).toEqual({ timeout: 45_000 });
+    mocks.generateContent.mockClear();
+    await generateStructured("Barem nguồn", { type: "object" });
+    expect(mocks.generateContent.mock.calls[0]?.[0].config.httpOptions).toBeUndefined();
+  });
 });
 
 describe("Gemini conversational adapter", () => {

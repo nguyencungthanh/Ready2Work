@@ -1,5 +1,14 @@
 # Deployment status — 18/10/2026
 
+## PDF CV reading — 18/10/2026
+
+- CV uploads now accept PDF only in the file picker, drag-and-drop validation and server reader. The existing 3 MiB/15-page limits and pasted-text option are retained. Uploaded PDFs receive an explicit `application/pdf` content type; existing history is preserved.
+- Image-containing and mixed-content PDFs are recognized in full. Each text-only page is checked for readable text, and valid PDFs recover through OCR if their local parser fails. Corrupt/encrypted files receive specific errors before an AI request.
+- OCR uses a dedicated 45-second provider timeout, and the CV page declares a 180-second Server Action budget. Vercel's existing project configuration was confirmed to have Fluid compute enabled; no project settings or environment values changed.
+- Temporary HTTP 503 responses receive one retry in CV analysis. Provider quota failures are shown separately from PDF parsing failures and do not save a new result.
+- Validation: 287 unit checks, production build/TypeScript and lint passed. Three synthetic PDF formats passed real Gemini OCR without losing image text or native headings. Separate live analysis reached the test provider's free-tier daily quota (20 requests/day), so a complete live analysis success is not claimed. No personal CV or account data was sent in these checks.
+- Details and opt-in reproduction: [CV PDF verification](validation/cv-pdf-20261018.md).
+
 ## Authentication and email follow-up — 18/10/2026
 
 - Auth fixes in `c90ff12` are deployed. Vercel deployment `dpl_FLTQRWyyJJck5QnfvCv3qpQS2EnX` is Ready and owns `ready-2work.vercel.app`; functions remain in `sin1`.
