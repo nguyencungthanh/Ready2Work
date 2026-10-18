@@ -6,7 +6,8 @@
 - Image-containing and mixed-content PDFs are recognized in full. Each text-only page is checked for readable text, and valid PDFs recover through OCR if their local parser fails. Corrupt/encrypted files receive specific errors before an AI request.
 - OCR uses a dedicated 45-second provider timeout, and the CV page declares a 180-second Server Action budget. Vercel's existing project configuration was confirmed to have Fluid compute enabled; no project settings or environment values changed.
 - Temporary HTTP 503 responses receive one retry in CV analysis. Provider quota failures are shown separately from PDF parsing failures and do not save a new result.
-- Validation: 287 unit checks, production build/TypeScript and lint passed. Three synthetic PDF formats passed real Gemini OCR without losing image text or native headings. Separate live analysis reached the test provider's free-tier daily quota (20 requests/day), so a complete live analysis success is not claimed. No personal CV or account data was sent in these checks.
+- Business assignment reading is separate from the CV reader, preserving its existing PDF/DOCX/TXT formats and the editor's generated TXT documents. The full browser suite identified this shared-reader coupling; focused format-boundary regression checks were added before the follow-up publication.
+- Validation: 292 unit checks, production build/TypeScript and lint passed. Three synthetic PDF formats passed real Gemini OCR without losing image text or native headings. Separate live analysis reached the test provider's free-tier daily quota (20 requests/day), so a complete live analysis success is not claimed. No personal CV or account data was sent in these checks.
 - Details and opt-in reproduction: [CV PDF verification](validation/cv-pdf-20261018.md).
 
 ## Authentication and email follow-up — 18/10/2026

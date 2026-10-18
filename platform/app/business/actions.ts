@@ -4,7 +4,7 @@ import { z } from "zod";
 import { requireUser, hasRole } from "@/lib/auth/session";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { createServiceRoleClient } from "@/lib/supabase/service-role-client";
-import { extractCVText } from "@/lib/cv/extract";
+import { readBusinessAssignment } from "@/lib/business/read-assignment";
 import { getGoldenProfile } from "@/lib/content/catalog";
 import { rubricSchema, interviewAssignmentSchema, interviewRubricSchema } from "@/lib/content/business-schema";
 
@@ -51,7 +51,7 @@ export async function uploadBusinessContentAction(_previous: BusinessState, form
   try {
     const rubricText = await rubric.text();
     const rubricData = kind === "simulation" ? rubricSchema.parse(JSON.parse(rubricText)) : interviewRubricSchema.parse(JSON.parse(rubricText));
-    const assignmentData = kind === "interview" ? interviewAssignmentSchema.parse(JSON.parse(await assignment.text())) : await extractCVText(assignment);
+    const assignmentData = kind === "interview" ? interviewAssignmentSchema.parse(JSON.parse(await assignment.text())) : await readBusinessAssignment(assignment);
     if (typeof assignmentData !== "string") {
       const interviewRubric = interviewRubricSchema.parse(rubricData);
       const expected = assignmentData.rounds.flatMap((r) => r.questions.map((_, index) => `${r.roundNumber}-${index + 1}`));

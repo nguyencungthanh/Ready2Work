@@ -13,7 +13,7 @@ vi.mock("@/lib/auth/session", () => ({
 }));
 vi.mock("@/lib/supabase/server", () => ({ createServerSupabaseClient: vi.fn(async () => ({ from: mocks.userFrom, storage: { from: mocks.storageFrom } })) }));
 vi.mock("@/lib/supabase/service-role-client", () => ({ createServiceRoleClient: vi.fn(() => ({ from: mocks.serviceFrom, rpc: mocks.rpc })) }));
-vi.mock("@/lib/cv/extract", () => ({ extractCVText: mocks.extract }));
+vi.mock("@/lib/business/read-assignment", () => ({ readBusinessAssignment: mocks.extract }));
 vi.mock("next/cache", () => ({ revalidatePath: mocks.revalidate }));
 
 import { publishBusinessContentAction, saveCompanyAction, uploadBusinessContentAction } from "@/app/business/actions";
