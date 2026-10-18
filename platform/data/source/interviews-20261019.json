@@ -1,0 +1,4197 @@
+{
+  "source_url": "https://docs.google.com/document/d/1ZFGI1saTmmqJuiVLM0SZ0CeYSMW6BtxHIMilRcRNgto/edit?usp=sharing",
+  "retrieved_on": "2026-10-19",
+  "scope": "Only interview questions, scoring criteria and round structures from the five source tabs. Excludes CVs, feedback submissions, simulation assignments and personal data.",
+  "export_options": {
+    "format": "html",
+    "include_tabs_content": true
+  },
+  "export_sha256": "ed9a26d0250921263ebb7aa5a47ff688539178519519134b738a78237d574dcc",
+  "sets": {
+    "marketing-intern": {
+      "position_id": "MKT-01",
+      "tab_id": "root",
+      "tables": [
+        {
+          "table_index": 8,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi · điểm (TC1 / TC2 / TC3)"
+                }
+              ],
+              [
+                {
+                  "text": "Marketing Intern"
+                }
+              ],
+              [
+                {
+                  "text": "Digital Marketing Executive"
+                }
+              ],
+              [
+                {
+                  "text": "Content Marketing Specialist"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân & lý do chọn vị trí · 30đ (12 thông tin / 10 lý do / 8 điểm mạnh)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: học nghề từ thực chiến, tiếp xúc nhiều mảng, định hướng sau thực tập (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: thích làm việc với số liệu, tối ưu hiệu quả quảng cáo và chi phí, định hướng chuyên môn (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: thích viết và kể chuyện, hiểu khách hàng, tạo nội dung có giá trị (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Kỹ năng quan trọng của vị trí · 35đ (12 / 15 / 8 với Intern; 15 / 12 / 8 với DME, CMS)"
+                }
+              ],
+              [
+                {
+                  "text": "- Chủ động học hỏi: hỏi, nhận phản hồi, tự học công cụ (12)"
+                },
+                {
+                  "text": "- Kỹ năng nghề ≥3: viết nội dung, Canva, nghiên cứu, xu hướng, lịch nội dung (15)"
+                },
+                {
+                  "text": "- Kỹ năng làm việc: thời gian, giao tiếp, nhóm, tỉ mỉ (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Quảng cáo & đo lường: Meta/Google/TikTok, CTR, CPC, CPL, CPA, ROAS (15) - Tư duy dữ liệu & thử nghiệm: quyết định bằng số, A/B, tối ưu chuyển đổi (12)  - Quản trị & phối hợp: ngân sách, báo cáo, content/design/sales (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Sáng tạo & viết: copywriting, storytelling, SEO (15)"
+                },
+                {
+                  "text": "- Chiến lược & insight: hiểu khách hàng, hành trình mua, kế hoạch theo mục tiêu (12)"
+                },
+                {
+                  "text": "- Đo lường & phối hợp: đọc chỉ số, làm việc với design/performance (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Công việc/quy trình của vị trí · 35đ (15 / 12 / 8 với Intern; 12 / 15 / 8 với DME, CMS)"
+                }
+              ],
+              [
+                {
+                  "text": "- ≥3 nhiệm vụ hỗ trợ chiến dịch: nội dung, đăng bài, nghiên cứu đối thủ, KOL/sự kiện (15)"
+                },
+                {
+                  "text": "-  Quy trình: brief → thực hiện → xin duyệt → đăng → theo dõi (12)"
+                },
+                {
+                  "text": "- ≥2 chỉ số: reach, engagement, CTR + báo cáo ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Thiết lập chiến dịch: KPI, đối tượng, ngân sách, creative, landing page (12)"
+                },
+                {
+                  "text": "- Theo dõi & tối ưu: tracking, chỉ số theo ngày, tắt/tăng ngân sách, thử nghiệm (15)"
+                },
+                {
+                  "text": "- Báo cáo định kỳ: số liệu, nguyên nhân, bước tiếp theo (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Lập kế hoạch (câu hỏi “công việc trong 1 tháng”): mục tiêu, content pillar, editorial calendar (12)"
+                },
+                {
+                  "text": "- Sản xuất & phân phối: viết/biên tập, SEO on-page, đa kênh, repurposing (15)"
+                },
+                {
+                  "text": "- Đo lường & cải tiến: chỉ số, báo cáo, điều chỉnh (8)"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 9,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Điểm"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 2"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 3"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-1. Chọn một sản phẩm/thương hiệu: xác định khách hàng mục tiêu và thông điệp theo STP/4P"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Chân dung cụ thể: nhân khẩu, hành vi, nhu cầu; không nói chung chung"
+                }
+              ],
+              [
+                {
+                  "text": "(12) Lợi ích khác biệt và 1 thông điệp chính phù hợp khách hàng mục tiêu"
+                }
+              ],
+              [
+                {
+                  "text": "(8) Gắn ≥2 yếu tố 4P hỗ trợ thông điệp"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-2. Bài Fanpage reach/engagement rất thấp: xử lý thế nào"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "(12) Xem số liệu: reach, engagement rate, CTR, giờ đăng; không cảm tính"
+                }
+              ],
+              [
+                {
+                  "text": "(10) ≥3 nguyên nhân (hook, hình ảnh, khung giờ, sai insight), so với bài hiệu quả/đối thủ"
+                }
+              ],
+              [
+                {
+                  "text": "(8) Thử nghiệm cụ thể (A/B hình/tiêu đề), báo cáo và xin ý kiến Mentor"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-3. Cập nhật xu hướng mạng xã hội và đưa vào bài thương hiệu"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Nguồn theo dõi thực tế: TikTok, nhóm cộng đồng, báo ngành"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Kiểm tra trend với Brand Voice, tệp khách hàng, thời điểm"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Lồng ghép sản phẩm khéo; nhận thức rủi ro nhạy cảm/phản cảm khi đu trend"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V3-1. Bài đã duyệt và đăng; sau 2 giờ phát hiện mức giảm giá sai brief mới, khách đã hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Báo ngay Mentor/quản lý, nhận trách nhiệm, không giấu lỗi"
+                }
+              ],
+              [
+                {
+                  "text": "(20) Xác minh với bộ phận liên quan trước khi sửa; chỉnh sửa/đính chính; trả lời bình luận theo nội dung đã duyệt; đánh giá mức ảnh hưởng"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Đối chiếu brief mới nhất, checklist (giá, ưu đãi, thời hạn), một nguồn thông tin duy nhất"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V3-2. Mentor muốn bài ngắn, trẻ trung; trưởng nhóm muốn đủ thông tin, chuyên nghiệp"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Làm rõ mục tiêu đằng sau mỗi phản hồi, không tự chọn bên"
+                }
+              ],
+              [
+                {
+                  "text": "(20) 1–2 phương án dung hòa (VD bản ngắn kèm link chi tiết); trao đổi cả hai hoặc nhờ Mentor kết nối; không tự quyết"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Ghi lại thống nhất, áp dụng cho bài sau, thái độ cầu thị"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "digital-marketing": {
+      "position_id": "MKT-02",
+      "tab_id": "root",
+      "tables": [
+        {
+          "table_index": 8,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi · điểm (TC1 / TC2 / TC3)"
+                }
+              ],
+              [
+                {
+                  "text": "Marketing Intern"
+                }
+              ],
+              [
+                {
+                  "text": "Digital Marketing Executive"
+                }
+              ],
+              [
+                {
+                  "text": "Content Marketing Specialist"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân & lý do chọn vị trí · 30đ (12 thông tin / 10 lý do / 8 điểm mạnh)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: học nghề từ thực chiến, tiếp xúc nhiều mảng, định hướng sau thực tập (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: thích làm việc với số liệu, tối ưu hiệu quả quảng cáo và chi phí, định hướng chuyên môn (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: thích viết và kể chuyện, hiểu khách hàng, tạo nội dung có giá trị (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Kỹ năng quan trọng của vị trí · 35đ (12 / 15 / 8 với Intern; 15 / 12 / 8 với DME, CMS)"
+                }
+              ],
+              [
+                {
+                  "text": "- Chủ động học hỏi: hỏi, nhận phản hồi, tự học công cụ (12)"
+                },
+                {
+                  "text": "- Kỹ năng nghề ≥3: viết nội dung, Canva, nghiên cứu, xu hướng, lịch nội dung (15)"
+                },
+                {
+                  "text": "- Kỹ năng làm việc: thời gian, giao tiếp, nhóm, tỉ mỉ (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Quảng cáo & đo lường: Meta/Google/TikTok, CTR, CPC, CPL, CPA, ROAS (15) - Tư duy dữ liệu & thử nghiệm: quyết định bằng số, A/B, tối ưu chuyển đổi (12)  - Quản trị & phối hợp: ngân sách, báo cáo, content/design/sales (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Sáng tạo & viết: copywriting, storytelling, SEO (15)"
+                },
+                {
+                  "text": "- Chiến lược & insight: hiểu khách hàng, hành trình mua, kế hoạch theo mục tiêu (12)"
+                },
+                {
+                  "text": "- Đo lường & phối hợp: đọc chỉ số, làm việc với design/performance (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Công việc/quy trình của vị trí · 35đ (15 / 12 / 8 với Intern; 12 / 15 / 8 với DME, CMS)"
+                }
+              ],
+              [
+                {
+                  "text": "- ≥3 nhiệm vụ hỗ trợ chiến dịch: nội dung, đăng bài, nghiên cứu đối thủ, KOL/sự kiện (15)"
+                },
+                {
+                  "text": "-  Quy trình: brief → thực hiện → xin duyệt → đăng → theo dõi (12)"
+                },
+                {
+                  "text": "- ≥2 chỉ số: reach, engagement, CTR + báo cáo ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Thiết lập chiến dịch: KPI, đối tượng, ngân sách, creative, landing page (12)"
+                },
+                {
+                  "text": "- Theo dõi & tối ưu: tracking, chỉ số theo ngày, tắt/tăng ngân sách, thử nghiệm (15)"
+                },
+                {
+                  "text": "- Báo cáo định kỳ: số liệu, nguyên nhân, bước tiếp theo (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Lập kế hoạch (câu hỏi “công việc trong 1 tháng”): mục tiêu, content pillar, editorial calendar (12)"
+                },
+                {
+                  "text": "- Sản xuất & phân phối: viết/biên tập, SEO on-page, đa kênh, repurposing (15)"
+                },
+                {
+                  "text": "- Đo lường & cải tiến: chỉ số, báo cáo, điều chỉnh (8)"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 10,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Điểm"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 2"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 3"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-1. CPL tăng gấp đôi so với tuần trước: kiểm tra và phân tích theo trình tự nào"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Kiểm tra tracking/form, trạng thái duyệt quảng cáo, thay đổi gần đây (ngân sách, đối tượng, creative)"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Phân tích theo phễu: tần suất & đối tượng (trùng lặp, bão hòa), CTR/CPC (creative), tỷ lệ chuyển đổi trang đích"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Nguyên nhân chính bằng số liệu, hành động ưu tiên, trình bày có quy trình"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-2. Hai creative sát nhau sau 2 ngày, ngân sách nhỏ: quyết định và thiết kế A/B test"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "(12) Chỉ 1 biến, có giả thuyết, chia ngân sách và thời gian công bằng"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Nhận ra mẫu nhỏ chưa đủ ý nghĩa thống kê; ngưỡng dừng, chỉ số quyết định (CPL/CPA/CTR)"
+                }
+              ],
+              [
+                {
+                  "text": "(8) Kéo dài test hoặc tăng ngân sách dần cho phương án thắng; không đổi nhiều biến"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-3. Ngân sách bị cắt 30% nhưng mục tiêu lead không đổi"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "(12) CPL phải giảm ~30% (hiệu quả chi tiêu tăng ~43%) hoặc điều chỉnh mục tiêu"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Tắt nhóm kém, dồn ngân sách nhóm hiệu quả, remarketing tệp ấm, tối ưu landing page/form"
+                }
+              ],
+              [
+                {
+                  "text": "(8) Báo rủi ro, đề xuất đàm phán lại KPI hoặc thời hạn"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V3-1. Mùa Mega Sale, 1 tài khoản quảng cáo bị khóa"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "(20) Xác định nguyên nhân, kháng nghị; chuyển ngân sách sang tài khoản/kênh dự phòng; bảo vệ kênh doanh thu chính"
+                }
+              ],
+              [
+                {
+                  "text": "(20) Phân loại việc theo mức khẩn và tác động doanh thu; kiểm tra ngân sách, duyệt, tracking; dashboard thời gian thực (ROAS, chi tiêu)"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Báo ngay quản lý/bên liên quan; bài học phòng ngừa (tài khoản dự phòng, tuân thủ chính sách)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V3-2. Lead đạt CPL mục tiêu nhưng Sales báo chất lượng thấp, tỷ lệ chốt rất thấp"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Nhận ra CPL tốt chưa đủ; xem chất lượng lead, tỷ lệ liên hệ/chốt, CPA/ROAS"
+                }
+              ],
+              [
+                {
+                  "text": "(20) Lấy phản hồi từ Sales; kiểm tra targeting, câu hỏi sàng lọc trên form, thông điệp thu hút sai đối tượng"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Thêm bước sàng lọc, đổi đối tượng/thông điệp; KPI mới (CPA/ROAS); báo cáo"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "content-marketing": {
+      "position_id": "MKT-03",
+      "tab_id": "root",
+      "tables": [
+        {
+          "table_index": 8,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi · điểm (TC1 / TC2 / TC3)"
+                }
+              ],
+              [
+                {
+                  "text": "Marketing Intern"
+                }
+              ],
+              [
+                {
+                  "text": "Digital Marketing Executive"
+                }
+              ],
+              [
+                {
+                  "text": "Content Marketing Specialist"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân & lý do chọn vị trí · 30đ (12 thông tin / 10 lý do / 8 điểm mạnh)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: học nghề từ thực chiến, tiếp xúc nhiều mảng, định hướng sau thực tập (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: thích làm việc với số liệu, tối ưu hiệu quả quảng cáo và chi phí, định hướng chuyên môn (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Ngành học, thực tập/dự án Marketing (12)"
+                },
+                {
+                  "text": "- Lý do: thích viết và kể chuyện, hiểu khách hàng, tạo nội dung có giá trị (10)"
+                },
+                {
+                  "text": "-  ≥2 điểm mạnh kèm ví dụ ngắn (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Kỹ năng quan trọng của vị trí · 35đ (12 / 15 / 8 với Intern; 15 / 12 / 8 với DME, CMS)"
+                }
+              ],
+              [
+                {
+                  "text": "- Chủ động học hỏi: hỏi, nhận phản hồi, tự học công cụ (12)"
+                },
+                {
+                  "text": "- Kỹ năng nghề ≥3: viết nội dung, Canva, nghiên cứu, xu hướng, lịch nội dung (15)"
+                },
+                {
+                  "text": "- Kỹ năng làm việc: thời gian, giao tiếp, nhóm, tỉ mỉ (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Quảng cáo & đo lường: Meta/Google/TikTok, CTR, CPC, CPL, CPA, ROAS (15) - Tư duy dữ liệu & thử nghiệm: quyết định bằng số, A/B, tối ưu chuyển đổi (12)  - Quản trị & phối hợp: ngân sách, báo cáo, content/design/sales (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Sáng tạo & viết: copywriting, storytelling, SEO (15)"
+                },
+                {
+                  "text": "- Chiến lược & insight: hiểu khách hàng, hành trình mua, kế hoạch theo mục tiêu (12)"
+                },
+                {
+                  "text": "- Đo lường & phối hợp: đọc chỉ số, làm việc với design/performance (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Công việc/quy trình của vị trí · 35đ (15 / 12 / 8 với Intern; 12 / 15 / 8 với DME, CMS)"
+                }
+              ],
+              [
+                {
+                  "text": "- ≥3 nhiệm vụ hỗ trợ chiến dịch: nội dung, đăng bài, nghiên cứu đối thủ, KOL/sự kiện (15)"
+                },
+                {
+                  "text": "-  Quy trình: brief → thực hiện → xin duyệt → đăng → theo dõi (12)"
+                },
+                {
+                  "text": "- ≥2 chỉ số: reach, engagement, CTR + báo cáo ngắn (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Thiết lập chiến dịch: KPI, đối tượng, ngân sách, creative, landing page (12)"
+                },
+                {
+                  "text": "- Theo dõi & tối ưu: tracking, chỉ số theo ngày, tắt/tăng ngân sách, thử nghiệm (15)"
+                },
+                {
+                  "text": "- Báo cáo định kỳ: số liệu, nguyên nhân, bước tiếp theo (8)"
+                }
+              ],
+              [
+                {
+                  "text": "- Lập kế hoạch (câu hỏi “công việc trong 1 tháng”): mục tiêu, content pillar, editorial calendar (12)"
+                },
+                {
+                  "text": "- Sản xuất & phân phối: viết/biên tập, SEO on-page, đa kênh, repurposing (15)"
+                },
+                {
+                  "text": "- Đo lường & cải tiến: chỉ số, báo cáo, điều chỉnh (8)"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 11,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Điểm"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 2"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 3"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-1. Áp dụng phễu TOFU – MOFU – BOFU cho chiến lược nội dung sản phẩm mới"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Vai trò: TOFU nhận biết, MOFU nuôi dưỡng và cân nhắc, BOFU chuyển đổi"
+                }
+              ],
+              [
+                {
+                  "text": "(12) Định dạng theo tầng: bài giáo dục (TOFU), so sánh/case study (MOFU), dùng thử/review (BOFU)"
+                }
+              ],
+              [
+                {
+                  "text": "(8) Mỗi tầng có chỉ số đo phù hợp; trình bày mạch lạc, có hệ thống"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-2. Bài viết vừa chuẩn SEO vừa hấp dẫn, giữ chân người đọc"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "(12) Hiểu search intent: chọn từ khóa theo ý định tìm kiếm"
+                }
+              ],
+              [
+                {
+                  "text": "(10) On-page tự nhiên: từ khóa trong H1/H2, meta description, alt ảnh; không nhồi nhét"
+                }
+              ],
+              [
+                {
+                  "text": "(8) Giải quyết đúng nỗi đau, cấu trúc dễ đọc; engagement time hoặc scroll depth"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V2-3. Đánh giá hiệu quả chiến dịch Content Marketing bằng KPI nào"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "(15) KPI theo mục tiêu: nhận biết (traffic, pageviews), nuôi dưỡng (thời gian tương tác, scroll, chia sẻ), chuyển đổi (lead, tỷ lệ chuyển đổi)"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Công cụ: GA4, Google Search Console, Facebook Insights; đọc số liệu theo bài"
+                }
+              ],
+              [
+                {
+                  "text": "(10) Từ số liệu đến hành động (cập nhật bài, đổi tiêu đề, đổi kênh), gắn mục tiêu kinh doanh"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V3-1. Blog chuẩn SEO đăng 6 tuần, traffic tự nhiên thấp, gần như không có lead"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "(15) GA4/Search Console: hiển thị, thứ hạng, CTR, thời gian tương tác → bài “không được thấy” hay “được thấy nhưng không đọc/không chuyển đổi”"
+                }
+              ],
+              [
+                {
+                  "text": "(20) Kiểm tra search intent, tiêu đề/meta, heading, internal link, so với bài xếp hạng cao; xem vị trí và nội dung CTA; đề xuất cập nhật cụ thể"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Mốc theo dõi sau cập nhật (2–4 tuần), báo cáo quản lý, rút bài học cho bài sau"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "V3-2. Sản phẩm đổi tính năng, nhiều bài blog/social vẫn mô tả tính năng cũ"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Rà soát bài/kênh nhắc tính năng cũ, ưu tiên theo lượng truy cập và mức sai lệch"
+                }
+              ],
+              [
+                {
+                  "text": "(20) Xác minh với Sản phẩm trước khi sửa; cập nhật kèm ghi chú ngày, xử lý ảnh/liên kết/bài social; đưa vào editorial calendar"
+                }
+              ],
+              [
+                {
+                  "text": "(15) Đầu mối nhận thông báo thay đổi từ Sản phẩm; rà soát nội dung định kỳ"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "business-analyst": {
+      "position_id": "IT-01",
+      "tab_id": "t.ns3fz05dop68",
+      "tables": [
+        {
+          "table_index": 28,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và lý do bạn muốn theo đuổi vị trí Business Analyst"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1- Nền tảng chuyên môn liên quan (12đ): Nêu cụ thể ngành học/dự án đã làm liên quan trực tiếp đến phân tích nghiệp vụ, không nói chung chung."
+                },
+                {
+                  "text": "Tiêu chí 2 - Lý do chọn nghề đúng bản chất (10đ): Phải chỉ ra đúng đặc thù công việc Business Analyst là phân tích vấn đề kinh doanh và làm cầu nối với đội kỹ thuật, không phải lý do chung chung như “yêu thích công nghệ”."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, có dùng một số thuật ngữ cơ bản (yêu cầu nghiệp vụ/requirement, stakeholder)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hiểu vai trò của một Business Analyst trong dự án phần mềm là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Xác định đúng vai trò cầu nối (15đ): Nêu rõ Business Analyst là người trung gian giữa khách hàng/doanh nghiệp và đội phát triển, KHÔNG lẫn với Project Manager - Quản lý dự án (quản lý tiến độ, nguồn lực) hay Dev (viết code)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: thu thập yêu cầu, phân tích nghiệp vụ, viết tài liệu đặc tả (BRD/SRS), kiểm soát phạm vi (scope), hỗ trợ nghiệm thu (UAT)."
+                },
+                {
+                  "text": "Tiêu chí 3 -Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Requirement, Stakeholder, Scope, UAT, BRD/SRS."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích nghiệp vụ chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời “chưa có kinh nghiệm” chung chung - phải nêu tên/bối cảnh dự án hoặc bài tập cụ thể, vai trò đảm nhận rõ ràng."
+                },
+                {
+                  "text": "Tiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation) → Nhiệm vụ (Task) → Hành động cụ thể (Action) → Kết quả đo lường được (Result)."
+                },
+                {
+                  "text": "Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra được 1 bài học nghiệp vụ cụ thể, ví dụ: “phải xác nhận lại yêu cầu bằng văn bản trước khi triển khai”."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 29,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Phân biệt yêu cầu chức năng (Functional) và phi chức năng (Non-functional), cho ví dụ"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Định nghĩa đúng Functional Requirement (15đ): Là yêu cầu mô tả HỆ THỐNG LÀM GÌ (VD: “cho phép đăng nhập bằng email”), kèm ví dụ cụ thể không chung chung."
+                },
+                {
+                  "text": "Tiêu chí 2 - Định nghĩa đúng Non-functional Requirement (12đ): Là yêu cầu mô tả hệ thống VẬN HÀNH TỐT ĐẾN MỨC NÀO (hiệu năng, bảo mật, khả dụng), kèm ví dụ có số liệu cụ thể (VD: “xử lý 1.000 người dùng đồng thời”)."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng các thuật ngữ Functional/Non-functional Requirement, Performance, Security, Availability."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn sẽ dùng phương pháp nào để thu thập yêu cầu từ khách hàng (phỏng vấn, workshop, khảo sát...)?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Khi nào dùng Phỏng vấn 1-1 (15đ): Dùng khi cần đào sâu nghiệp vụ với người có chuyên môn cao, hoặc chủ đề nhạy cảm cần trao đổi riêng."
+                },
+                {
+                  "text": "Tiêu chí 2 - Khi nào dùng Workshop (12đ): Dùng khi có nhiều stakeholder với quan điểm khác nhau cần thống nhất trong cùng buổi họp để tiết kiệm thời gian, tránh yêu cầu mâu thuẫn."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng các thuật ngữ Stakeholder, Workshop, Elicitation (khai thác yêu cầu)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Trình bày các thành phần chính trong một tài liệu SRS/BRD"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Liệt kê đủ thành phần cốt lõi (18đ): Nêu tối thiểu 4/5: mục tiêu & phạm vi, yêu cầu chức năng chi tiết, yêu cầu phi chức năng, ràng buộc/giả định, tiêu chí nghiệm thu (acceptance criteria)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Giải thích đúng vai trò Acceptance Criteria (10đ): Nêu được đây là căn cứ để xác nhận sản phẩm đạt yêu cầu trước khi khách hàng nghiệm thu, tránh tranh cãi sau này."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng các thuật ngữ SRS, BRD, Acceptance Criteria, Constraint."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 30,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Khách hàng liên tục thay đổi yêu cầu giữa dự án, bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Đề xuất đúng quy trình Change Request (20đ): Không phản đối/chấp nhận cảm tính, mà đề xuất ghi nhận yêu cầu bằng văn bản qua quy trình Change Request chính thức."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đánh giá tác động trước khi quyết định (20đ): Nêu được cần đánh giá impact lên phạm vi (scope), thời gian, chi phí trước khi chấp nhận, và trao đổi lại với các bên liên quan (Project Manager, Dev) chứ không tự ý quyết định một mình."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng các thuật ngữ Change Request, Scope Creep, Impact Analysis."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Đội Dev và khách hàng bất đồng về một yêu cầu, là Business Analyst bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Đóng vai trò trung gian dựa trên tài liệu gốc (20đ): Đề xuất quay lại tài liệu yêu cầu đã được khách hàng ký duyệt để làm rõ ý định ban đầu, KHÔNG đứng hẳn về phía Dev hay khách hàng theo cảm tính."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đề xuất giải pháp cụ thể để thống nhất (20đ): Nêu hành động cụ thể như tổ chức họp ba bên, hoặc làm prototype/wireframe để minh hoạ trực quan giúp cả hai bên cùng hình dung."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng các thuật ngữ Traceability, Prototype, Sign-off."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "qa-tester": {
+      "position_id": "IT-02",
+      "tab_id": "t.ns3fz05dop68",
+      "tables": [
+        {
+          "table_index": 31,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn chọn nghề Tester/Quality Assurance (QA)"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu cụ thể kinh nghiệm/dự án đã từng kiểm thử, không nói chung chung."
+                },
+                {
+                  "text": "Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đặc thù công việc là tìm lỗi, đảm bảo chất lượng, tư duy phản biện - không nhầm với công việc lập trình."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trả lời mạch lạc, dùng được thuật ngữ Bug/Defect, Quality cơ bản."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hãy phân biệt Testing và Quality Assurance"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Định nghĩa đúng Testing (15đ): Là hoạt động PHÁT HIỆN lỗi trên sản phẩm cụ thể đã hoàn thành một phần - mang tính phản ứng (reactive)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Định nghĩa đúng QA (12đ): Là tập hợp hoạt động đảm bảo QUY TRÌNH được thực hiện đúng chuẩn để PHÒNG NGỪA lỗi từ đầu - mang tính chủ động (proactive), ví dụ review tài liệu yêu cầu."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ Reactive/Proactive, Quality Assurance/Quality Control."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Hãy kể tên các loại kiểm thử bạn biết (Manual, Automation, Unit, Integration...)"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Liệt kê đủ các loại (20đ): Nêu tối thiểu 5/6: Manual, Automation, Unit, Integration, System, UAT."
+                },
+                {
+                  "text": "Tiêu chí 2 - Giải thích đúng ai thực hiện loại nào, phân biệt rõ trách nhiệm từng vai trò (10đ):"
+                },
+                {
+                  "text": "Unit Testing thường do Developer (Dev) thực hiện - kiểm tra từng hàm/đơn vị code nhỏ nhất"
+                },
+                {
+                  "text": "Integration Testing do Developer hoặc Tester thực hiện - kiểm tra khi các module ghép nối với nhau"
+                },
+                {
+                  "text": "System Testing do Tester/Quality Assurance (QA) thực hiện - kiểm tra toàn bộ hệ thống hoàn chỉnh, mô phỏng cách người dùng thật sẽ dùng"
+                },
+                {
+                  "text": "Manual Testing do Tester/Quality Assurance (QA) thực hiện - thực hiện thủ công, dùng tay click/nhập liệu theo test case"
+                },
+                {
+                  "text": "Automation Testing do Tester/QA (chuyên về Automation) hoặc Software Development Engineer in Test (SDET) thực hiện - viết script để máy tự chạy test lặp đi lặp lại"
+                },
+                {
+                  "text": "UAT (User Acceptance Testing) do người dùng cuối/khách hàng thực hiện - đây là bước nghiệm thu cuối cùng, khách hàng tự tay dùng thử để xác nhận sản phẩm đúng ý trước khi nhận bàn giao"
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Dùng đúng thuật ngữ tiếng Anh: Unit, Integration, System, UAT."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 32,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Quy trình viết test case gồm những bước nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Liệt kê đủ thành phần cốt lõi (18đ): ID/tiêu đề, điều kiện tiền đề (pre-condition), dữ liệu đầu vào, các bước thực hiện, kết quả mong đợi (expected result)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Trình bày theo trình tự logic (10đ): Các bước phải theo đúng thứ tự thực hiện thực tế, không đảo lộn."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ Pre-condition, Expected Result, Actual Result, Test Steps."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Phân biệt Black-box và White-box testing"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Định nghĩa đúng Black-box (15đ): Kiểm thử dựa trên CHỨC NĂNG/đầu vào-đầu ra, KHÔNG cần biết code bên trong - do Tester thực hiện."
+                },
+                {
+                  "text": "Tiêu chí 2 - Định nghĩa đúng White-box (10đ): Kiểm thử dựa trên CẤU TRÚC CODE bên trong (nhánh, điều kiện) - thường do Developer thực hiện qua Unit Test."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Dùng đúng thuật ngữ Black-box/White-box Testing, Code Coverage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bug life cycle gồm những trạng thái nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Liệt kê đúng thứ tự trạng thái chính (20đ): New → Assigned → Fixed → Retest → Closed (kèm nhánh Reopen nếu Retest fail)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Nêu được trạng thái phụ (10đ): Rejected (không phải bug thật) hoặc Deferred (hoãn xử lý sang bản sau)."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Trình bày logic, đúng trình tự, mạch lạc, không dài dòng."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 33,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Bạn phát hiện bug nghiêm trọng sát ngày release, bạn xử lý ra sao?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Đánh giá đúng mức độ ưu tiên trước khi hành động (20đ): Đánh giá Severity (mức độ nghiêm trọng kỹ thuật) và Priority (mức độ cần xử lý gấp) trước khi quyết định, KHÔNG báo cáo hoảng loạn hoặc im lặng bỏ qua."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đề xuất phương án cụ thể theo mức độ (20đ): Nếu ảnh hưởng luồng nghiệp vụ chính → đề xuất hoãn release hoặc hotfix khẩn; nếu ảnh hưởng nhỏ → release đúng hạn kèm ghi chú và lên kế hoạch fix bản sau."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ Severity, Priority, Hotfix, Critical Bug."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Dev không đồng ý đây là bug, bạn thuyết phục thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Cung cấp bằng chứng có thể tái hiện (20đ): Nêu cần cung cấp Steps to Reproduce, ảnh chụp/video, log lỗi cụ thể - KHÔNG tranh cãi bằng lời nói suông."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đối chiếu với tài liệu yêu cầu gốc (20đ): Chỉ ra cách chứng minh hành vi hiện tại sai khác với đặc tả đã thống nhất, mời Business Analyst/Project Manager xác nhận nếu cần."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ Steps to Reproduce, Log, Specification."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "data-analyst": {
+      "position_id": "IT-03",
+      "tab_id": "t.ns3fz05dop68",
+      "tables": [
+        {
+          "table_index": 34,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn theo đuổi Data Analyst"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Nền tảng liên quan cụ thể (14đ): Nêu ngành học/dự án cụ thể có liên quan đến xử lý số liệu, không nói chung chung."
+                },
+                {
+                  "text": "Tiêu chí 2 - Lý do đúng bản chất nghề (11đ): Chỉ ra đặc thù công việc là tìm insight từ dữ liệu để hỗ trợ ra quyết định kinh doanh, không nhầm với Data Engineer (xây hệ thống dữ liệu) hay Data Scientist (xây mô hình dự đoán)."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Chia sẻ được về Insight, Data-driven decision."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Quy trình phân tích dữ liệu cơ bản gồm những bước nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Liệt kê đúng thứ tự các bước (20đ): Thu thập → làm sạch → phân tích → trực quan hoá → kết luận/đề xuất."
+                },
+                {
+                  "text": "Tiêu chí 2 - Giải thích đúng vai trò bước làm sạch dữ liệu (10đ): Nhấn mạnh đây là bước quan trọng nhất quyết định độ tin cậy của toàn bộ phân tích sau đó."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Dùng đúng các thuật ngữ Data Cleaning, Data Visualization, Insight."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn thành thạo công cụ nào (Excel, SQL, Power BI, Python...)?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Nêu công cụ kèm mục đích rõ ràng (18đ): SQL để truy vấn dữ liệu từ database, Excel/Power BI để xử lý và trực quan hoá - không liệt kê tên công cụ suông mà không giải thích dùng để làm gì."
+                },
+                {
+                  "text": "Tiêu chí 2 - Có ví dụ cụ thể đã áp dụng (10đ): Mô tả một tình huống thực tế đã dùng công cụ đó để giải quyết vấn đề gì, kết quả ra sao."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng tên công cụ/hàm cụ thể: Pivot Table, VLOOKUP, JOIN."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 35,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Hãy viết câu SQL JOIN 2 bảng để lấy dữ liệu theo điều kiện cho trước"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Viết đúng cú pháp và chạy được (20đ): Câu lệnh đúng cú pháp chuẩn (SELECT...FROM...JOIN...ON...WHERE), không lỗi cú pháp cơ bản."
+                },
+                {
+                  "text": "Tiêu chí 2 - Chọn đúng loại JOIN theo đề bài (10đ): Giải thích được vì sao chọn loại JOIN đó, ví dụ: dùng INNER JOIN vì chỉ cần dữ liệu khớp cả hai bảng."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Gọi đúng tên các mệnh đề SQL: SELECT, FROM, JOIN, ON, WHERE."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hãy phân biệt các loại JOIN (INNER, LEFT, RIGHT, FULL)"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Giải thích đúng bản chất INNER và LEFT JOIN (15đ): INNER JOIN chỉ lấy dữ liệu khớp ở cả hai bảng; LEFT JOIN lấy toàn bộ bảng trái kèm dữ liệu khớp bên phải (NULL nếu không khớp)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Có ví dụ đúng ngữ cảnh kinh doanh (10đ): Ví dụ dùng LEFT JOIN để lấy TẤT CẢ khách hàng kể cả người chưa từng mua hàng."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (5đ): Dùng đúng tên bốn loại JOIN bằng tiếng Anh."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Hãy chỉ ra cách xử lý dữ liệu missing/outlier trong tập dữ liệu"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Đề xuất đúng theo tỉ lệ dữ liệu thiếu (18đ): Tỉ lệ thiếu lớn → cân nhắc loại bỏ; tỷ lệ thiếu nhỏ và dữ liệu quan trọng → điền giá trị thay thế (mean/median/mode)."
+                },
+                {
+                  "text": "Tiêu chí 2 - Nêu đúng phương pháp phát hiện outlier (10đ): Dùng Boxplot hoặc IQR (Interquartile Range) để phát hiện, và cân nhắc bối cảnh nghiệp vụ trước khi loại bỏ."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng các thuật ngữ Missing Data, Outlier, IQR, Mean/Median/Mode."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 36,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Cấp trên yêu cầu báo cáo insight nhưng dữ liệu bị thiếu/không sạch, bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Xử lý dữ liệu trước khi báo cáo (20đ): Đề xuất làm sạch/bổ sung nguồn dữ liệu trước khi phân tích, KHÔNG báo cáo ngay trên dữ liệu thô chưa qua xử lý."
+                },
+                {
+                  "text": "Tiêu chí 2 - Minh bạch về độ tin cậy kết quả (20đ): Báo cáo trung thực với sếp về giới hạn/độ tin cậy của số liệu (phần nào chắc chắn, phần nào cần thận trọng), KHÔNG che giấu hạn chế của dữ liệu."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng các thuật ngữ  Data Quality, Confidence Level, Data Cleaning."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Sau khi phân tích xong, bạn phát hiện ra kết quả phân tích trái với kỳ vọng của cấp trên, bạn sẽ trình bày thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Giữ nguyên kết quả khách quan (20đ): Khẳng định KHÔNG điều chỉnh số liệu để vừa ý cấp trên, trình bày đúng như dữ liệu thể hiện."
+                },
+                {
+                  "text": "Tiêu chí 2 - Có chiến lược truyền đạt thuyết phục (20đ): Đề xuất dùng biểu đồ trực quan và giải thích rõ phương pháp phân tích để sếp hiểu và tin tưởng kết quả, đồng thời cởi mở lắng nghe góc nhìn khác."
+                },
+                {
+                  "text": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng các thuật ngữ Data Integrity, Data Storytelling, Objective."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "ke-toan-vien": {
+      "position_id": "KK-01",
+      "tab_id": "t.xbcvi0hm43q",
+      "tables": [
+        {
+          "table_index": 41,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1.  Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc kế toán?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1- Giới thiệu đúng thông tin cá nhân  (12đ): Nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán."
+                },
+                {
+                  "text": "Tiêu chí 2 - Lý do chọn nghề đúng bản chất (10đ): Nêu được lý do cụ thể như yêu thích số liệu, quan tâm đến tài chính - kế toán hoặc muốn phát triển chuyên môn."
+                },
+                {
+                  "text": "Tiêu chí 3 - Liên hệ điểm mạnh với công việc (8đ): Nêu tối thiểu 2 điểm mạnh phù hợp như cẩn thận, chính xác, trung thực, trách nhiệm và giải thích được sự phù hợp."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Theo bạn, một kế toán viên cần có những kỹ năng quan trọng nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Chính xác và cẩn thận (15đ): Hiểu rằng kế toán thường xuyên làm việc với số liệu, hóa đơn và chứng từ nên cần hạn chế sai sót."
+                },
+                {
+                  "text": "Tiêu chí 2 - Kiến thức chuyên môn (12đ): Đề cập được hạch toán, chứng từ, sổ sách, doanh thu - chi phí hoặc nghiệp vụ kế toán cơ bản."
+                },
+                {
+                  "text": "Tiêu chí 3 - Trung thực và trách nhiệm (8đ): Hiểu trách nhiệm của kế toán đối với số liệu và không cố tình làm sai lệch thông tin."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Theo bạn, công việc của một kế toán viên trong doanh nghiệp thường bao gồm những nhiệm vụ gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Kiểm tra chứng từ (15đ): Nêu được việc tiếp nhận, kiểm tra hóa đơn và chứng từ liên quan."
+                },
+                {
+                  "text": "Tiêu chí 2 - Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh. (12d)"
+                },
+                {
+                  "text": "Tiêu chí 3 - Đối chiếu số liệu (8đ): Biết cần đối chiếu giữa chứng từ, sổ sách và các nguồn dữ liệu liên quan."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 42,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Khi phát hiện số liệu trên hóa đơn và chứng từ không khớp, bạn sẽ xử lý như thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Kiểm tra và đối chiếu (15đ): Đối chiếu hóa đơn với hợp đồng, phiếu nhập/xuất, biên bản giao nhận hoặc chứng từ thanh toán."
+                },
+                {
+                  "text": "Tiêu chí 2 - Xác định nguyên nhân (12đ): Xác định chênh lệch về số tiền, số lượng, thông tin, thời điểm hoặc chứng từ."
+                },
+                {
+                  "text": "Tiêu chí 3 - Xử lý đúng quy trình (8đ): Điều chỉnh/bổ sung chứng từ theo quy định trước khi ghi nhận chính thức."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Hãy phân biệt doanh thu, chi phí và lợi nhuận trong hoạt động của doanh nghiệp."
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Hiểu doanh thu (10đ): Giải thích đúng bản chất doanh thu từ hoạt động kinh doanh."
+                },
+                {
+                  "text": "Tiêu chí 2 - Hiểu chi phí (12đ): Nêu được chi phí là các khoản phát sinh liên quan đến hoạt động tạo doanh thu."
+                },
+                {
+                  "text": "Tiêu chí 3 - Hiểu lợi nhuận (8đ): Hiểu lợi nhuận được xác định dựa trên doanh thu và chi phí."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn sẽ làm gì nếu phát hiện một nghiệp vụ đã được ghi nhận sai?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Xác định sai sót (18đ): Kiểm tra sai tài khoản, số tiền, thời điểm hoặc nội dung nghiệp vụ."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đánh giá ảnh hưởng (7đ): Xem xét ảnh hưởng đến tài khoản, doanh thu/chi phí, thuế hoặc báo cáo."
+                },
+                {
+                  "text": "Tiêu chí 3 - Điều chỉnh đúng quy trình  (10đ): Thực hiện bút toán điều chỉnh hoặc xử lý chứng từ theo quy định."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 43,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Cuối ngày, bạn phát hiện một chứng từ quan trọng có sai sót nhưng quản lý đang yêu cầu hoàn thành báo cáo gấp. Bạn sẽ xử lý như thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Trung thực, không che giấu (20đ): Thông báo về sai sót, không bỏ qua hoặc cố tình sửa số liệu."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đánh giá mức độ ảnh hưởng (20đ): Xác định chứng từ ảnh hưởng đến phần nào của báo cáo."
+                },
+                {
+                  "text": "Tiêu chí 3 - Ưu tiên công việc (10đ): Có thể hoàn thành phần báo cáo không bị ảnh hưởng trong khi xử lý sai sót."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Nếu đồng nghiệp đề nghị bạn bỏ qua một sai sót nhỏ trong chứng từ để kịp thời hạn báo cáo, bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Nhận diện rủi ro (20đ): Hiểu rằng sai sót nhỏ vẫn có thể gây ảnh hưởng nếu không được xử lý."
+                },
+                {
+                  "text": "Tiêu chí 2 - Trao đổi với đồng nghiệp (20đ): Giải thích lý do cần xử lý thay vì bỏ qua"
+                },
+                {
+                  "text": "Tiêu chí 3 - Tính trung thực (10đ): Đặt tính chính xác và trung thực của số liệu lên trên việc đối phó với deadline."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "kiem-toan-vien": {
+      "position_id": "KK-02",
+      "tab_id": "t.xbcvi0hm43q",
+      "tables": [
+        {
+          "table_index": 44,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc kiểm toán."
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Giới thiệu bản thân (12đ): Nêu được ngành học, thực tập hoặc kinh nghiệm liên quan."
+                },
+                {
+                  "text": "Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Nêu lý do cụ thể như yêu thích phân tích, kiểm tra số liệu, tìm hiểu hoạt động doanh nghiệp."
+                },
+                {
+                  "text": "Tiêu chí 3 - Hiểu công việc kiểm toán (8đ): Hiểu kiểm toán liên quan đến việc thu thập bằng chứng và đánh giá thông tin tài chính."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Theo bạn, một kiểm toán viên cần có những phẩm chất và kỹ năng nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Tư duy phân tích (15đ): Hiểu cần phân tích số liệu và tìm nguyên nhân của biến động."
+                },
+                {
+                  "text": "Tiêu chí 2 - Khách quan và độc lập (12đ): Hiểu kiểm toán viên cần đưa ra đánh giá dựa trên bằng chứng, không thiên vị."
+                },
+                {
+                  "text": "Tiêu chí 3 - Cẩn thận (8đ): Nhận thức được việc kiểm tra hồ sơ và bằng chứng cần chính xác."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Theo bạn, sự khác nhau cơ bản giữa kế toán và kiểm toán là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Hiểu vai trò kế toán (20đ): Nêu đúng kế toán thực hiện ghi nhận và tổng hợp các nghiệp vụ."
+                },
+                {
+                  "text": "Tiêu chí 2 - Hiểu vai trò kiểm toán (10đ): Nêu đúng kiểm toán kiểm tra và đánh giá thông tin tài chính."
+                },
+                {
+                  "text": "Tiêu chí 3 - Ví dụ minh họa (5đ): Có thể đưa ra ví dụ thực tế để phân biệt."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 45,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Theo bạn, mục tiêu chính của một cuộc kiểm toán báo cáo tài chính là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Xác định đúng mục tiêu (18đ): Nêu được mục tiêu đưa ra ý kiến về báo cáo tài chính dựa trên kết quả kiểm toán."
+                },
+                {
+                  "text": "Tiêu chí 2 - Sai sót trọng yếu (10đ): Hiểu kiểm toán tập trung vào những sai sót có thể ảnh hưởng đáng kể đến người sử dụng báo cáo."
+                },
+                {
+                  "text": "Tiêu chí 3 - Bằng chứng kiểm toán (7đ): Hiểu cần thu thập bằng chứng kiểm toán thích hợp."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Nếu phát hiện một giao dịch có giá trị bất thường gần ngày kết thúc năm tài chính, bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Nhận diện rủi ro (15đ): Nhận thấy giao dịch lớn và gần ngày khóa sổ có thể có rủi ro ghi nhận sai kỳ hoặc bất thường."
+                },
+                {
+                  "text": "Tiêu chí 2 - Kiểm tra hồ sơ (10đ): Kiểm tra hợp đồng, hóa đơn, phiếu xuất kho, biên bản giao nhận và thanh toán."
+                },
+                {
+                  "text": "Tiêu chí 3 - Kiểm tra thời điểm ghi nhận  (5đ): Đối chiếu ngày giao hàng/chuyển giao với ngày ghi nhận doanh thu/chi phí."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn sẽ đánh giá rủi ro của một khoản mục như thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Tìm hiểu khoản mục (20đ): Hiểu bản chất và nguồn gốc phát sinh."
+                },
+                {
+                  "text": "Tiêu chí 2 - Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan (10đ): So sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan."
+                },
+                {
+                  "text": "Tiêu chí 3 - Xác định khả năng sai sót (5đ): Xem xét ghi nhận sai, thiếu chứng từ, định giá sai hoặc gian lận."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 46,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Nếu khách hàng không cung cấp đầy đủ bằng chứng kiểm toán, bạn sẽ xử lý như thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Xác định bằng chứng thiếu (20đ): Xác định tài liệu nào chưa được cung cấp và liên quan khoản mục nào."
+                },
+                {
+                  "text": "Tiêu chí 2 - Yêu cầu khách hàng bổ sung (20đ): Chủ động liên hệ và nêu rõ tài liệu cần cung cấp."
+                },
+                {
+                  "text": "Tiêu chí 3 - Tìm bằng chứng thay thế (10đ): Có thể tìm xác nhận bên ngoài, chứng từ ngân hàng hoặc hồ sơ liên quan."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Khách hàng đưa ra lời giải thích nhưng bằng chứng không hoàn toàn phù hợp với lời giải thích đó. Bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Không chấp nhận ngay lời giải thích (20đ): Hiểu rằng lời giải thích bằng miệng không thay thế hoàn toàn bằng chứng kiểm toán."
+                },
+                {
+                  "text": "Tiêu chí 2 - Kiểm tra thêm bằng chứng (20đ): Đối chiếu hợp đồng, hóa đơn, thanh toán, giao nhận hoặc nguồn độc lập"
+                },
+                {
+                  "text": "Tiêu chí 3 - Đánh giá rủi ro (10đ): Xem xét có dấu hiệu sai sót hoặc gian lận hay không."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "tro-ly-thue": {
+      "position_id": "KK-03",
+      "tab_id": "t.xbcvi0hm43q",
+      "tables": [
+        {
+          "table_index": 47,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn theo đuổi công việc Trợ lý thuế?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Giới thiệu đúng trọng tâm (14đ): Nêu ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan."
+                },
+                {
+                  "text": "Tiêu chí 2 - Lý do chọn thuế (11đ): Nêu được lý do cụ thể như quan tâm chính sách thuế, thích số liệu và quy định"
+                },
+                {
+                  "text": "Tiêu chí 3 - Trình bày (5đ): Rõ ràng, có cấu trúc, không lan man."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Theo bạn, trợ lý thuế cần có những kỹ năng quan trọng nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Kiến thức thuế cơ bản (20đ): Hiểu sự cần thiết của kiến thức về các sắc thuế và quy định liên quan."
+                },
+                {
+                  "text": "Tiêu chí 2 - Kiểm tra chứng từ (10đ): Biết kiểm tra hóa đơn, chứng từ và đối chiếu số liệu."
+                },
+                {
+                  "text": "Tiêu chí 3 - Cập nhật quy định (5đ): Nhận thức chính sách thuế có thể thay đổi."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Vì sao việc cập nhật các quy định thuế lại quan trọng đối với một trợ lý thuế?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Nhận thức về thay đổi chính sách (18đ): Hiểu quy định thuế có thể được cập nhật/thay đổi."
+                },
+                {
+                  "text": "Tiêu chí 2 - Ảnh hưởng đến công việc (10đ): Biết thay đổi chính sách có thể ảnh hưởng đến cách kê khai và xử lý hồ sơ"
+                },
+                {
+                  "text": "Tiêu chí 3 - Chủ động cập nhật (7đ): Nêu được cách cập nhật từ nguồn chính thống, tài liệu chuyên môn hoặc hướng dẫn của doanh nghiệp."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 48,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Khi kiểm tra hồ sơ thuế của doanh nghiệp, bạn sẽ kiểm tra hóa đơn và đối chiếu chứng từ như thế nào để đảm bảo tính chính xác trước khi kê khai thuế?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Kiểm tra hóa đơn (20đ): Kiểm tra tên, mã số thuế, số tiền, thuế suất, ngày và nội dung."
+                },
+                {
+                  "text": "Tiêu chí 2 - Đối chiếu chứng từ (10đ): So sánh với hợp đồng, phiếu nhập/xuất, biên bản giao nhận và sổ kế toán."
+                },
+                {
+                  "text": "Tiêu chí 3 - Xử lý trước khi kê khai (5đ): Trao đổi với người phụ trách/khách hàng và xử lý theo quy định."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Nếu số liệu trên sổ kế toán không khớp với số liệu dùng để kê khai thuế, bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Đối chiếu số liệu (15đ): So sánh sổ kế toán, hóa đơn, bảng kê và hồ sơ khai thuế."
+                },
+                {
+                  "text": "Tiêu chí 2 - Xác định nguyên nhân (10đ): Kiểm tra lỗi nhập liệu, thiếu hóa đơn, sai kỳ hoặc xử lý chưa phù hợp."
+                },
+                {
+                  "text": "Tiêu chí 3 - Báo cáo và xử lý (5đ): Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Khi kiểm tra hồ sơ thuế, bạn phát hiện số liệu doanh thu giữa hóa đơn và bảng tổng hợp không khớp. Bạn sẽ kiểm tra những gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 – Kiểm tra hóa đơn (18đ): Đối chiếu số lượng hóa đơn, số hóa đơn, ngày lập, giá trị trước thuế, thuế GTGT và tổng giá trị hóa đơn."
+                },
+                {
+                  "text": "Tiêu chí 2 – Đối chiếu bảng tổng hợp (10đ): Kiểm tra dữ liệu nhập liệu, công thức tính toán, các hóa đơn bị thiếu hoặc trùng và tính đầy đủ, chính xác của số liệu tổng hợp."
+                },
+                {
+                  "text": "Tiêu chí 3 – Xử lý chênh lệch (7đ): Xác định nguyên nhân sai lệch, đối chiếu với chứng từ liên quan, báo cáo người phụ trách và đề xuất điều chỉnh theo quy định trước khi kê khai thuế."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 49,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Gần đến hạn nộp hồ sơ thuế nhưng khách hàng chưa cung cấp đầy đủ chứng từ. Bạn sẽ xử lý như thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Xác định chứng từ thiếu (20đ): Lập danh sách hóa đơn, chứng từ hoặc thông tin còn thiếu."
+                },
+                {
+                  "text": "Tiêu chí 2 - Chủ động liên hệ (20đ): Nhắc khách hàng về tài liệu và thời hạn cần cung cấp."
+                },
+                {
+                  "text": "Tiêu chí 3 - Không tự ý kê khai (10đ): Không tự tạo số liệu hoặc kê khai khi chưa có đủ cơ sở."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Khách hàng yêu cầu bạn đưa một khoản chi phí vào hồ sơ thuế nhưng chứng từ cung cấp chưa đủ để xác định khoản chi phí đó có phù hợp hay không. Bạn sẽ làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Kiểm tra chứng từ (20đ): Kiểm tra hóa đơn và các tài liệu liên quan."
+                },
+                {
+                  "text": "Tiêu chí 2 - Yêu cầu bổ sung (20đ): Chủ động yêu cầu khách hàng cung cấp tài liệu còn thiếu."
+                },
+                {
+                  "text": "Tiêu chí 3 - Trao đổi người phụ trách (10đ): Báo cáo nếu chưa thể xác định cách xử lý."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "credit-analyst": {
+      "position_id": "TCNH-02",
+      "tab_id": "t.a9gvxnc5ma1m",
+      "tables": [
+        {
+          "table_index": 54,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và lý do bạn muốn theo đuổi vị trí Credit Analyst"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (12đ) - Nền tảng chuyên môn: Nêu ngành học, dự án liên quan đến tài chính, ngân hàng hoặc phân tích số liệu."
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Lý do chọn nghề: Hiểu đúng vai trò Credit Analyst là phân tích khả năng trả nợ, sức khỏe tài chính và mức độ tín nhiệm của khách hàng."
+                },
+                {
+                  "text": "Tiêu chí 3 (8đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hiểu vai trò của một Credit Analyst là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Vai trò cầu nối: Hiểu Credit Analyst phân tích thông tin tài chính và phi tài chính để hỗ trợ quyết định cấp tín dụng."
+                },
+                {
+                  "text": "Tiêu chí 2 (12đ) - Nghiệp vụ cốt lõi: Nêu ít nhất 3 nội dung: phân tích BCTC, đánh giá dòng tiền, lịch sử tín dụng, khả năng trả nợ và xác định rủi ro tín dụng."
+                },
+                {
+                  "text": "Tiêu chí 3 (8đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích tài chính chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Dự án cụ thể: Nêu tên dự án/bài tập và vai trò đảm nhận, không trả lời “chưa có kinh nghiệm”."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Cấu trúc STAR: (Situation), (Task), (Action), (Result)."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Bài học kinh nghiệm: Rút ra bài học nghiệp vụ cụ thể, ví dụ: xác nhận yêu cầu bằng văn bản trước khi triển khai."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 55,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Khi phân tích khả năng trả nợ của một doanh nghiệp, bạn sẽ xem xét những chỉ tiêu nào ?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (12đ) - Nêu được các nhóm chỉ tiêu chính: thanh khoản, đòn bẩy, khả năng sinh lời, dòng tiền"
+                },
+                {
+                  "text": "Tiêu chí 2 (12đ) - Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)"
+                },
+                {
+                  "text": "Tiêu chí 3 (6đ) - Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Trình bày quy trình thẩm định tín dụng một khách hàng doanh nghiệp"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ)- Liệt kê đủ các bước:"
+                },
+                {
+                  "text": "→  Thu thập hồ sơ"
+                },
+                {
+                  "text": "→ Phân tích tài chính/phi tài chính"
+                },
+                {
+                  "text": "→ Đánh giá tài sản bảo đảm"
+                },
+                {
+                  "text": "→ Xếp hạng tín dụng"
+                },
+                {
+                  "text": "→ Đề xuất cấp tín dụng"
+                },
+                {
+                  "text": "→ Giám sát sau vay."
+                },
+                {
+                  "text": "Tiêu chí 2 (12đ) - Giải thích mục đích từng bước"
+                },
+                {
+                  "text": "Tiêu chí 3 (8đ) - Từ vựng & Sự tự tin. Dùng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Làm thế nào để đánh giá tài sản bảo đảm và tỷ lệ LTV (Loan-to-Value ratio) ?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Định nghĩa: Hiểu đúng LTV là tỷ lệ dư nợ trên giá trị tài sản bảo đảm, ảnh hưởng đến hạn mức vay; nêu đúng khái niệm và vai trò của tài sản bảo đảm."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Quy trình đánh giá: Nêu đủ các bước: kiểm tra pháp lý, định giá độc lập và đánh giá tính thanh khoản của tài sản."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 56,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Khách hàng có tài sản bảo đảm tốt nhưng dòng tiền yếu, bạn có đề xuất cho vay không?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (20đ) - Khả năng trả nợ: Phân tích dòng tiền và nguồn trả nợ của khách hàng, không chỉ dựa vào tài sản bảo đảm để quyết định cho vay."
+                },
+                {
+                  "text": "Tiêu chí 2 (20đ) - Giảm thiểu rủi ro: Nêu ít nhất 3/4 phương án và giải thích tác dụng:"
+                },
+                {
+                  "text": "Giảm hạn mức"
+                },
+                {
+                  "text": "Tăng tài sản bảo đảm"
+                },
+                {
+                  "text": "Thêm điều kiện covenant"
+                },
+                {
+                  "text": "Giám sát chặt chẽ hơn."
+                },
+                {
+                  "text": "Tiêu chí 3 (10đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Cấp trên yêu cầu bạn nhanh chóng phê duyệt một khoản vay lớn nhưng hồ sơ tài chính còn thiếu thông tin. Bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Làm rõ TH:"
+                },
+                {
+                  "text": "Xác định lý do khẩn cấp, thời hạn và thông tin còn thiếu"
+                },
+                {
+                  "text": "Phản ứng đồng ý hay từ chối ngay (0đ)"
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Tuân thủ nguyên tắc tín dụng: Không bỏ qua thẩm định thiết yếu; đảm bảo kiểm soát chéo, đúng quy trình và trách nhiệm cá nhân."
+                },
+                {
+                  "text": "Tiêu chí 3 (15đ) - Giải pháp xử lý: Nêu ít nhất 2/3 giải pháp: bổ sung nhanh thông tin, phê duyệt có điều kiện, giảm hạn mức hoặc giải ngân từng đợt."
+                },
+                {
+                  "text": "Tiêu chí 4 (5đ) - Từ vựng và sự tự tin: Trình bày rõ ràng, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "financial-analyst": {
+      "position_id": "TCNH-01",
+      "tab_id": "t.a9gvxnc5ma1m",
+      "tables": [
+        {
+          "table_index": 57,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn chọn nghề Financial Analyst"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (12đ) - Nền tảng chuyên môn: Nêu ngành học/dự án liên quan đến phân tích tài chính, BCTC,"
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Hiểu đúng nghề: Nêu vai trò phân tích dữ liệu tài chính, đánh giá hiệu quả kinh doanh và hỗ trợ quyết định đầu tư/ngân sách"
+                },
+                {
+                  "text": "Tiêu chí 3 (8đ) - Từ vựng và sự tự tin: Trình bày mạch lạc, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hiểu vai trò của một Chuyên viên Phân tích Tài chính trong doanh nghiệp/ngân hàng là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Vai trò công việc: Hiểu đúng vai trò phân tích BCTC, xây dựng mô hình, dự báo, đánh giá hiệu quả và hỗ trợ ra quyết định"
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Nghiệp vụ cốt lõi: Nêu ít nhất 3/5 đầu việc: thu thập dữ liệu tài chính, phân tích tỷ số, dự báo, lập ngân sách, báo cáo biến động."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích tài chính chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Dự án cụ thể: Nêu tên dự án/bài tập và vai trò đảm nhận, không trả lời “chưa có kinh nghiệm”."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Cấu trúc STAR: (Situation), (Task), (Action), (Result)."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Bài học kinh nghiệm: Rút ra bài học nghiệp vụ cụ thể"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 58,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Các nhóm chỉ số tài chính quan trọng thường dùng để phân tích doanh nghiệp là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (12đ) - Nêu đủ 5 nhóm: thanh khoản, cơ cấu vốn và nợ, hiệu quả hoạt động, khả năng sinh lời, định giá thị trường."
+                },
+                {
+                  "text": "Tiêu chí 2 (12đ) - Ý nghĩa và ví dụ: Giải thích ý nghĩa các chỉ số và cách sử dụng."
+                },
+                {
+                  "text": "Tiêu chí 3 (6đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Quy trình xây dựng một mô hình dự báo tài chính đơn giản gồm những bước nào?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (20đ) - Quy trình lập dự phóng: Nêu đúng thứ tự 6 bước: xác định mục tiêu, thu thập dữ liệu lịch sử, đặt giả định, dự phóng doanh thu/chi phí, lập báo cáo dự phóng và kiểm tra độ nhạy."
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Trình bày và thuật ngữ: Trình bày rõ ràng, đúng thứ tự; sử dụng chính xác các thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Trình bày 3 báo cáo tài chính chính và mối liên hệ giữa chúng"
+                }
+              ],
+              [
+                {
+                  "text": "40"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Ba báo cáo tài chính: Nêu đúng tên, bản chất và thành phần của bảng"
+                },
+                {
+                  "text": "Tiêu chí 2 (20đ) -Giải thích ít nhất 4 mối liên hệ"
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 59,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Sếp yêu cầu báo cáo tài chính gấp nhưng số liệu từ các phòng ban không khớp, bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (25đ) - Xác định nguyên nhân và đối chiếu: Đánh giá mức độ trọng yếu; nêu ít nhất 3 nguyên nhân"
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Minh bạch: Báo cáo cấp trên, đề xuất thời hạn xử lý và đánh dấu các số liệu chưa chắc chắn."
+                },
+                {
+                  "text": "Tiêu chí 3 (10đ) - Trung thực: Không tự ý điều chỉnh số liệu"
+                },
+                {
+                  "text": "Tiêu chí 4 - Từ vựng & Sự tự tin (5đ): Dùng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Kết quả phân tích cho thấy dự án thua lỗ nhưng sếp muốn tiếp tục, bạn làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1(20đ) - Kiểm chứng phân tích và tìm hiểu lý do của sếp: Rà lại giả định, dữ liệu; hỏi để hiểu lý do của sếp"
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Phân tích số liệu: Nêu mức lỗ, thời gian hoàn vốn, điều kiện để dự án có lãi."
+                },
+                {
+                  "text": "Tiêu chí 3 (10đ) - Phương án tiếp tục: Đề xuất ít nhất 3 phương án kèm chỉ số cắt lỗ: Tiêu chí 4 (10đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "risk-analyst": {
+      "position_id": "TCNH-03",
+      "tab_id": "t.a9gvxnc5ma1m",
+      "tables": [
+        {
+          "table_index": 60,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn theo đuổi Risk Analyst"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Nền tảng chuyên môn: Nêu ngành học/dự án tài chính, quản trị rủi ro, thống kê, phân tích dữ liệu."
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Hiểu đúng nghề: Nêu vai trò nhận diện, đo lường và kiểm soát rủi ro."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng & Sự tự tin. Dùng được các thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Vai trò của Risk Analyst trong ngân hàng là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1(15đ) - Xác định đúng vai trò: Nhận diện rủi ro tín dụng, thị trường, vận hành; đo lường, mô hình hóa, báo cáo và đề xuất biện pháp."
+                },
+                {
+                  "text": "Tiêu chí 2(15đ) -Liệt kê đủ đầu việc cốt lõi:"
+                },
+                {
+                  "text": "Thu thập dữ liệu"
+                },
+                {
+                  "text": "Tính toán chỉ số"
+                },
+                {
+                  "text": "Stress test,"
+                },
+                {
+                  "text": "Báo cáo rủi ro"
+                },
+                {
+                  "text": "Giám sát hạn mức."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng & Sự tự tin. Dùng được các thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng tham gia dự án/bài tập nào liên quan đến quản trị rủi ro chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Dự án cụ thể: Nêu tên dự án/bài tập và vai trò đảm nhận, không trả lời “chưa có kinh nghiệm”."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Cấu trúc STAR: (Situation), (Task), (Action), (Result)."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Bài học kinh nghiệm: Rút ra bài học nghiệp vụ cụ thể"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 61,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Phân biệt các loại rủi ro chính trong ngân hàng"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Phân loại rủi ro: Nêu đúng 4/6 loại: rủi ro tín dụng, thị trường, thanh khoản, vận hành, lãi suất và tỷ giá."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Giải thích và ví dụ: Giải thích đặc điểm, đưa ra ví dụ thực tế cho từng loại rủi ro được nêu."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Các chỉ số đo lường rủi ro tín dụng thường dùng là gì"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Chỉ số rủi ro td: Nêu đúng 5 chỉ số: NPL, PD, LGD, EAD, EL."
+                },
+                {
+                  "text": "Tiêu chí 2 (10đ) - Ý nghĩa và cách dùng: Giải thích đúng ý nghĩa và ứng dụng của chỉ số trong đánh giá rủi ro tín dụng."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Thuật ngữ và sự tự tin: Trình bày tự tin, sử dụng đúng tên viết tắt và thuật ngữ tiếng Anh."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3.  Stress testing là gì? Quy trình cơ bản gồm những bước nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (15đ) - Định nghĩa: Hiểu Stress Test là phương pháp đánh giá danh mục dưới các kịch bản bất lợi."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Quy trình: Nêu đúng 5 bước: chọn kịch bản, xác định biến số, chạy mô hình, đánh giá vốn, báo cáo kết quả."
+                },
+                {
+                  "text": "Tiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 62,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Phát hiện khoản vay lớn có dấu hiệu suy giảm, bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 (20đ) - Nhận diện, đánh giá: Nêu ít nhất 3 dấu hiệu rủi ro (VD: chậm trả, dòng tiền, chỉ số tài chính, CIC,...) và đánh giá mức độ trọng yếu."
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Báo cáo và xử lý: Báo cáo đúng quy trình, làm việc với khách hàng, rà soát tài sản bảo đảm, phân loại nợ, dự phòng và đề xuất phương án phù hợp."
+                },
+                {
+                  "text": "Tiêu chí 3 (10đ) - Tuân thủ và trung thực: Không che giấu, làm sai lệch phân loại nợ"
+                },
+                {
+                  "text": "Tiêu chí 4 (5đ) - Từ vựng và sự tự tin: Sử dụng đúng thuật ngữ"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Mô hình rủi ro cho kết quả khác thực tế, bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí 1 - Kiểm tra dữ liệu/giả định (20đ): Dùng backtesting hoặc so sánh dự báo/thực tế. Rà soát dữ liệu đầu vào"
+                },
+                {
+                  "text": "Tiêu chí 2 (15đ) - Báo cáo và hiệu chỉnh: Báo cáo đúng đầu mối, đánh giá tác động, áp dụng biện pháp tạm thời có kiểm soát; hiệu chỉnh hoặc xây lại mô hình"
+                },
+                {
+                  "text": "Tiêu chí 3 (10đ) - Tuân thủ và trung thực: Ghi nhận thay đổi, người phê duyệt; không tự ý chỉnh tham số để khớp kết quả"
+                },
+                {
+                  "text": "Tiêu chí 4 (5đ) - Từ vựng và sự tự tin: Sử dụng đúng thuật ngữ"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "logistics-ops": {
+      "position_id": "LOG-01",
+      "tab_id": "t.v3f3tiwcx8a",
+      "tables": [
+        {
+          "table_index": 67,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn chọn theo đuổi vị trí Chuyên viên Vận hành Logistics?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu cụ thể ngành học/dự án/kinh nghiệm làm việc thực tế liên quan trực tiếp đến giao nhận, điều phối vận tải, quản lý kho bãi hoặc xử lý chứng từ logistics."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù công việc Logistics Operations là theo dõi đơn hàng, điều phối hiện trường, xử lý sự cố phát sinh và quản lý luồng hàng; không nhầm với Nhân viên Kinh doanh cước (Sales Logistics) hay Thu mua."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ cơ bản: SLA, Lead Time, POD, Inbound/Outbound, Carrier"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hiểu vai trò của một Chuyên viên Vận hành Logistics trong doanh nghiệp là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là cầu nối trung tâm giữa Kho - Nhà vận chuyển - Tài xế - Khách hàng để đảm bảo hàng hóa luân chuyển đúng tiến độ, an toàn và đúng quy trình SOP."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: Theo dõi trạng thái đơn hàng, kiểm tra/lưu trữ chứng từ (Bill/POD), điều phối xe bốc xếp, xử lý ngoại lệ (trễ/hỏng xe), theo dõi chi phí & hiệu suất."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SOP, 3PL, Exception Handling, Dispatch, Tracking."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng tham gia bài tập/dự án hoặc trải nghiệm thực tế nào liên quan đến điều phối và vận hành hàng hóa chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời \"chưa có kinh nghiệm\" chung chung — nêu tên/bối cảnh bài tập mô phỏng, dự án sinh viên hoặc đợt thực tập cụ thể, vai trò đảm nhận rõ ràng."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động cụ thể (Action)  Kết quả đo lường được (Result)."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học nghiệp vụ thực tế, ví dụ: \"phải kiểm tra chéo chứng từ trước khi xuất kho và luôn nhận phản hồi xác nhận từ tài xế\"."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 68,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Trình bày các bước trong quy trình vận hành đơn hàng (Order Fulfillment Cycle) từ khi nhận yêu cầu đến khi hoàn tất giao hàng?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Liệt kê đúng trình tự các bước (12đ): Tiếp nhận yêu cầu  Kiểm tra tồn kho & chứng từ  Điều phối kho/xe bốc xếp  Theo dõi hành trình  Xác nhận giao hàng (POD)."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Giải thích điểm kiểm soát SOP (12đ): Nêu rõ nguyên tắc không xuất hàng khi lệch chứng từ và chỉ đánh dấu hoàn tất khi nhận được bằng chứng giao hàng (POD)."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: Order Processing, Dispatch, Cross-docking, Proof of Delivery (POD)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Khi nào nên chọn điều kiện giao hàng Incoterms FOB và CIF trong xuất nhập khẩu hàng hóa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Lựa chọn đúng theo bản chất (18đ): Bán CIF cho hàng xuất nông sản/giá trị thấp để chủ động cước tàu & chuỗi lạnh; Mua FOB cho hàng nhập điện tử/giá trị cao để tự chủ bảo hiểm và chỉ định nhà vận chuyển uy tín tại Việt Nam."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Giải thích chuyển giao rủi ro & chi phí (10đ): Giải thích đúng điểm chuyển giao rủi ro hàng hóa và nghĩa vụ trả cước tàu/bảo hiểm theo Incoterms 2020."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Freight, Insurance, Port of Loading, Port of Discharge, Risk Transfer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn làm thế nào để kiểm soát chi phí vận hành và rủi ro trễ hạn cam kết giao hàng (SLA)?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Biện pháp kiểm soát SLA (15đ): Thiết lập đệm thời gian (Buffer time), theo dõi vị trí xe định kỳ và giám sát mốc thời gian bốc xếp tại kho."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Tuân thủ thẩm quyền chi phí (12đ): Nhấn mạnh nguyên tắc không tự ý xác nhận các khoản phụ phí phát sinh vượt ngưỡng quy định (VD: > 200.000đ) khi chưa được Quản lý phê duyệt."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SLA Margin, Buffer Time, Surcharge, Escalation, Cost Control."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 69,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Nhân viên kho báo Phiếu giao hàng ghi 30 thùng nhưng Đơn hàng (PO) ghi 32 thùng, xe chở hàng đang chờ rời kho, bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Xác minh & Tuân thủ SOP (20đ): Lập tức ra lệnh tạm dừng xuất hàng; không tự ý sửa số liệu; yêu cầu Kho kiểm đếm thực tế và đối chiếu PO/Biên bản."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Xử lý chứng từ & Thông báo (20đ): Yêu cầu in lại phiếu giao đúng số lượng thực xuất trước khi cho xe rời kho; cập nhật thông tin minh bạch cho các bên liên quan."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Document Discrepancy, Hold Shipment, PO Reconciliation, Packing List."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Xe chở hàng gặp sự cố hỏng trên đường có nguy cơ trễ SLA 1 tiếng. Xe thay thế ngoài có thể giao đúng hạn nhưng phát sinh phụ phí 350.000đ (vượt hạn mức tự duyệt 200.000đ), bạn làm gì?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Tuân thủ thẩm quyền & Khẩn cấp (20đ): Liên hệ Quản lý ngay lập tức để trình duyệt khoản phụ phí 350.000đ trước hạn báo giá của nhà xe (VD: trước 09:35) để đảm bảo SLA."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Phương án dự phòng (20đ): Nếu Quản lý không duyệt chi phí, chủ động liên hệ ngay với Khách hàng để thông báo rủi ro trễ tiến độ và xin gia hạn thời gian giao."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Escalation, Emergency Transport, SLA Violation, Contingency Plan."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "supply-chain": {
+      "position_id": "LOG-02",
+      "tab_id": "t.v3f3tiwcx8a",
+      "tables": [
+        {
+          "table_index": 70,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn chọn định hướng trở thành Supply Chain Analyst?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án phân tích dữ liệu, hệ thống thông tin, mô hình hóa dữ liệu bằng Excel, SQL, Power BI hoặc Python liên quan đến chuỗi cung ứng."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Hiểu rõ vai trò Analyst là khai thác dữ liệu, phát hiện bất thường, tìm nguyên nhân gốc rễ và đề xuất giải pháp tối ưu; phân biệt với nhân sự vận hành thuần túy."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Data Analytics, Inventory Optimization, Supply-Demand, Forecasting."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hiểu vai trò của một Supply Chain Analyst trong doanh nghiệp là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là người biến dữ liệu thô trong chuỗi cung ứng thành thông tin quản trị (Actionable Insights) giúp cải thiện hiệu suất và giảm chi phí."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 công việc: Phân tích tồn kho (DOI/Safety Stock), dự báo nhu cầu (Demand Forecasting), đánh giá KPI nhà cung cấp (OTIF), phân tích chi phí vận chuyển/lưu kho, tìm nguyên nhân gốc rễ đứt gãy."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: DOI, Safety Stock, OTIF, Lead Time, Actionable Insights."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng thực hiện dự án hoặc bài tập phân tích dữ liệu chuỗi cung ứng nào chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên bài tập/dự án cụ thể (phân tích tồn kho, dự báo bán hàng, đánh giá nhà cung cấp...), mô tả nguồn dữ liệu và vai trò đảm nhận."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động phân tích dữ liệu (Action)  Kết quả đo lường được (Result)."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Bài học kinh nghiệm (8đ): Chỉ ra 1 bài học nghiệp vụ, ví dụ: \"phải làm sạch dữ liệu và kiểm tra tính toàn vẹn trước khi đưa ra nhận định\"."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 71,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giải thích Hiệu ứng Bullwhip (Cái roi da) trong chuỗi cung ứng và đề xuất giải pháp cốt lõi để khắc phục?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Phân tích đúng nguyên nhân (12đ): Chỉ ra biến động nhu cầu ảo bị khuếch đại qua các tầng (Siêu thị  Đại lý  Nhà máy) do hoảng loạn ngắn hạn và thiếu chia sẻ thông tin."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Giải pháp dựa trên Dữ liệu (12đ): Đề xuất thu thập dữ liệu bán hàng thực tế tại điểm bán (POS Data) và chia sẻ tồn kho minh bạch toàn chuỗi (VMI/CPFR)."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: Bullwhip Effect, Panic Buying, Point of Sale (POS) Data, VMI, CPFR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Các nhóm chỉ số quan trọng thường dùng để phân tích hiệu suất tồn kho và nhà cung cấp là gì?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Liệt kê đủ nhóm chỉ số (18đ): Số ngày tồn kho (DOI), Điểm đặt hàng lại (ROP), Tồn an toàn (Safety Stock), Tỷ lệ giao đúng hạn đủ lượng (OTIF), Lead Time."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Giải thích ý nghĩa nghiệp vụ (10đ): Giải thích DOI cao gây ứ đọng vốn, OTIF thấp cảnh báo nguy cơ đứt gãy cung ứng; nêu được mối quan hệ giữa Lead Time và ROP."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Days of Inventory (DOI), Reorder Point (ROP), OTIF, Lead Time, Working Capital."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Khi phát hiện chỉ số DOI của một SKU tăng vọt lên 90 ngày (gấp 6 lần định mức 14 ngày), bạn phân tích nguyên nhân và đề xuất xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Chẩn đoán nguyên nhân gốc rễ (15đ): Đối soát dữ liệu ROP, lịch sử đặt hàng, sai lệch dự báo (Over-forecasting) và xu hướng sụt giảm sức mua thực tế."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Đề xuất giải pháp hành động (12đ): Lập tức tạm ngưng đặt mua mới  Đề xuất chương trình bán kèm (Bundling), khuyến mãi kích cầu hoặc điều chuyển hàng nội bộ để giải phóng kho."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Excess Stock, Over-forecasting, Bundling, Inventory Transfer, Root Cause Analysis."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 72,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Chi phí Logistics tháng này tăng vọt 40%. Sếp yêu cầu bạn giải thích nhanh bằng lời (Data Storytelling) mà không đọc file Excel 1.000 dòng, bạn trình bày thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Ngôn ngữ Kinh doanh đơn giản (20đ): Tuyệt đối không dùng thuật ngữ kỹ thuật rườm rà (Outliers, MAPE); dùng ngôn ngữ tài chính/kinh doanh (Doanh số, Tồn kho, Phí lưu bãi)."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Tìm đúng nguyên nhân có con số (20đ): Giải thích logic: Sales dự báo vượt thực tế làm hàng phơi kho ngoài  phát sinh 40% chi phí lưu kho."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Storytelling, Storage Cost, Forecast Error, Executive Summary."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Dữ liệu trích xuất từ hệ thống ERP bị thiếu hụt thông tin Lead Time của một số nhà cung cấp, bạn làm gì trước khi đưa ra báo cáo phân tích?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Bảo toàn tính toàn vẹn dữ liệu (20đ): Tuyệt đối không tự bịa số liệu; tiến hành đối soát chéo với Bộ phận Thu mua/Kho để làm sạch dữ liệu."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Minh bạch giả định & Cảnh báo (20đ): Đánh dấu rõ vùng dữ liệu chưa chắc chắn, ghi chú giả định (Assumptions) và nêu rõ mức độ ảnh hưởng đến kết quả phân tích."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Cleaning, Data Integrity, Cross-validation, Assumptions."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "purchasing": {
+      "position_id": "LOG-03",
+      "tab_id": "t.v3f3tiwcx8a",
+      "tables": [
+        {
+          "table_index": 73,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Giới thiệu bản thân và vì sao bạn chọn theo đuổi nghề Thu mua (Purchasing/Procurement)?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án/kinh nghiệm thực tế liên quan đến thương mại, đàm phán báo giá, đánh giá nhà cung cấp hoặc quản lý hợp đồng."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù nghề Thu mua là tối ưu tổng chi phí (Landed Cost), quản lý rủi ro nhà cung cấp và đảm bảo nguồn cung đúng SLA; không nhầm với Sales hay Kế toán."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Procurement, Landed Cost, Vendor Management, PO, PR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Bạn hiểu vai trò của Chuyên viên Thu mua trong doanh nghiệp là gì và làm sao để đảm bảo tính minh bạch, chống rủi ro \"bắt tay ngầm\" (Kickback)?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Đầu mối tìm kiếm, đàm phán điều khoản thương mại và quản lý luồng PR-PO đảm bảo mua đúng chất lượng, đúng giá và đúng thời điểm."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Biện pháp chống rủi ro minh bạch (12đ): Tuân thủ quy trình 3-Quote (tối thiểu 3 báo giá độc lập); phân tách vai trò (Thu mua tìm giá, QA/QC test hàng mẫu); dùng bảng Vendor Scorecard trình Sếp duyệt."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: 3-Quote, RFQ, Vendor Scorecard, Anti-Kickback, Transparency."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Bạn đã từng tham gia bài tập/dự án nào liên quan đến tìm kiếm hoặc đàm phán với nhà cung cấp chưa?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên dự án/bài tập cụ thể (Sourcing bao bì, đàm phán báo giá vật tư, thay thế NCC kém chất lượng...), mô tả vai trò rõ ràng."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động đàm phán/sourcing (Action)  Kết quả tiết kiệm chi phí/đảm bảo tiến độ (Result)."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học thực tế, ví dụ: \"phải so sánh Tổng chi phí thực tế (Landed Cost) chứ không chỉ nhìn vào đơn giá rẻ nhất\"."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 74,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Trình bày quy trình Sourcing nhà cung cấp mới từ khi nhận Yêu cầu mua hàng (PR) đến khi hoàn tất ký hợp đồng/PO?"
+                }
+              ],
+              [
+                {
+                  "text": "30"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Liệt kê đủ các bước chuẩn (12đ): Tiếp nhận PR  Tìm nguồn cung  Gửi RFQ cho  bên  Bảng so sánh giá (Cost Matrix)  Test mẫu (Sample Audit)  Đàm phán  Trình duyệt & Ký PO/Hợp đồng."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Nắm vững quy định SOP (12đ): Nhấn mạnh mọi đơn hàng trên hạn mức (VD: > 100 triệu) bắt buộc phải lập Tờ trình xin ý kiến Trưởng phòng phê duyệt trước khi phát hành PO."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: PR, PO, RFQ, Cost Comparison Matrix, Sample Audit, Contract."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Khái niệm Tổng chi phí thực tế (Landed Cost) là gì và làm thế nào để lựa chọn giữa các báo giá có điều kiện khác nhau?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Nêu đúng công thức Landed Cost (18đ): Landed Cost = Đơn giá có VAT + Vận chuyển/Bảo hiểm + Lưu kho/Thủ tục phát sinh"
+                },
+                {
+                  "text": "- Tiêu chí 2 - Phân tích Đánh đổi Thương mại (10đ): Lựa chọn NCC có Landed Cost hợp lý, đáp ứng SLA và cho trả chậm 30 ngày (tối ưu dòng tiền) hơn là chọn NCC giá rẻ nhưng bắt trả trước 100% hoặc trễ SLA."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Landed Cost, VAT, Working Capital, Trade-off, Payment Terms."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "3. Khi nhà cung cấp giao lô hàng bị lỗi kỹ thuật 20%, bạn phối hợp xử lý như thế nào để đảm bảo không gián đoạn sản xuất?"
+                }
+              ],
+              [
+                {
+                  "text": "35"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Lập biên bản & Căn cứ (15đ): Yêu cầu biên bản kiểm hàng từ Kho/QA-QC; gửi thư khiếu nại chính thức cho NCC kèm số liệu sản phẩm lỗi cụ thể."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Đề xuất phương án kiên quyết (12đ): Yêu cầu NCC đổi bù đủ hàng đạt chuẩn trong 48h HOẶC cấn trừ giá trị hàng lỗi trực tiếp vào công nợ đơn sau."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Defect Rate, Quality Claim, Debit Note, Replacement, SOP."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "table_index": 75,
+          "rows": [
+            [
+              [
+                {
+                  "text": "Câu hỏi"
+                }
+              ],
+              [
+                {
+                  "text": "Số điểm/100"
+                }
+              ],
+              [
+                {
+                  "text": "Tiêu chí đạt điểm"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "1. Nhà cung cấp lâu năm bất ngờ thông báo tăng giá 15% bắt đầu từ đơn hàng sáng mai do giá bột giấy tăng, nếu không đồng ý họ sẽ ngưng cấp hàng, bạn xử lý thế nào?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Giữ bình tĩnh & Dùng hợp đồng (20đ): Không nổi cáu hay bỏ cuộc ngay; yêu cầu văn bản thông báo chính thức kèm chứng từ chứng minh; dùng điều khoản Hợp đồng (báo trước 15-30 ngày) để bắt buộc giữ giá cũ cho đơn sáng mai."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Đàm phán Đổi giá trị / Trade-off (20đ): Nếu bắt buộc tăng giá đợt sau, thương lượng tăng thời hạn công nợ (30  60 ngày) hoặc cam kết sản lượng (Volume) lớn hơn để khống chế mức tăng giá ở 5% thay vì 15%."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Price Increase Notice, Contract Clause, Trade-off, BATNA, Payment Terms."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "text": "2. Giữa NCC A (Giá rẻ hơn 5%, trả trước 100%) và NCC B (Giá nhỉnh hơn 5%, trả chậm 30 ngày, giao sớm 2 ngày), bạn chọn bên nào và lập luận trình Sếp ra sao?"
+                }
+              ],
+              [
+                {
+                  "text": "50"
+                }
+              ],
+              [
+                {
+                  "text": "- Tiêu chí 1 - Lựa chọn & Lập luận tối ưu (20đ): Đề xuất chọn NCC B; chứng minh chênh lệch 5% giá được bù đắp hoàn toàn bởi việc giao hàng sớm 2 ngày (đảm bảo an toàn SLA sản xuất) và trả chậm 30 ngày (tối ưu dòng tiền)."
+                },
+                {
+                  "text": "- Tiêu chí 2 - Chỉ ra rủi ro của NCC A (20đ): Phân tích rủi ro giam vốn khi trả trước 100% và rủi ro chậm tiến độ giao hàng của NCC A."
+                },
+                {
+                  "text": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Working Capital, Cash Flow Risk, SLA Margin, Executive Proposal."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "marketing_round_structure": {
+    "table_index": 7,
+    "rows": [
+      [
+        [
+          {
+            "text": "Vòng"
+          }
+        ],
+        [
+          {
+            "text": "Thời lượng"
+          }
+        ],
+        [
+          {
+            "text": "Mục tiêu"
+          }
+        ],
+        [
+          {
+            "text": "Cấu trúc điểm (mỗi vòng 100)"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Vòng 1 – Tổng quan"
+          }
+        ],
+        [
+          {
+            "text": "15’"
+          }
+        ],
+        [
+          {
+            "text": "Động cơ chọn vị trí, hiểu kỹ năng cần có và công việc/quy trình của vị trí"
+          }
+        ],
+        [
+          {
+            "text": "3 câu: 30 / 35 / 35"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Vòng 2 – Chuyên môn"
+          }
+        ],
+        [
+          {
+            "text": "20’"
+          }
+        ],
+        [
+          {
+            "text": "Kiến thức nền, nguyên tắc nghiệp vụ của vị trí"
+          }
+        ],
+        [
+          {
+            "text": "3 câu: 35 / 30 / 35"
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "text": "Vòng 3 – Tình huống"
+          }
+        ],
+        [
+          {
+            "text": "10’"
+          }
+        ],
+        [
+          {
+            "text": "Xử lý tình huống thực tế: phản ứng, khắc phục, phối hợp và phòng ngừa"
+          }
+        ],
+        [
+          {
+            "text": "2 câu: 50 / 50"
+          }
+        ]
+      ]
+    ]
+  }
+}

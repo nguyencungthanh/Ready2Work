@@ -1,28 +1,28 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { buildPreparedContent, readPreparedSources, renderMigration, renderDocumentOnlyMigration, renderSimulationRefreshMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName } from "./import-content.mjs";
+import { buildPreparedContent, readPreparedSources, renderMigration, renderDocumentOnlyMigration, renderSimulationRefreshMigration, publicArtifact, sqlText, stableId, businessTemplates, migrationName, renderInterviewRefreshMigration, interviewMigrationName } from "./import-content.mjs";
 
 const source = await readPreparedSources();
 const content = buildPreparedContent(source);
 
 test("prepared source has 15 matching profiles/tasks and preserves fifteen complete source question sets", () => {
   assert.deepEqual(content.validation.errors, []);
-  assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120, incompleteInterviews: 8, checklistItems: 115, artifacts: 7 });
+  assert.deepEqual(content.validation.counts, { profiles: 15, simulations: 15, interviewSets: 15, interviewQuestions: 120, incompleteInterviews: 0, checklistItems: 115, artifacts: 7 });
   assert.equal(new Set(content.simulations.map((item) => item.position_id)).size, 15);
   assert.equal(content.simulations.filter((item) => item.is_available).length, 15);
   for (const industry of source.tasks.industries) assert.equal(industry.tasks.length, 3);
   assert.ok(content.interviewSets.every((item) => /^(TCNH|MKT|IT|KK|LOG)-\d{2}$/.test(item.position_id)));
 });
 
-test("unresolved source points remain explicit while all three rounds are present", () => {
-  const disabled = content.interviewSets.filter((item) => !item.is_available);
-  assert.deepEqual(disabled.map((item) => item.position_id).sort(), ["IT-01", "KK-01", "KK-03", "LOG-01", "LOG-02", "LOG-03", "TCNH-01", "TCNH-02"]);
-  assert.ok(disabled.every((item) => item.unavailable_reason.includes("nguồn")));
-  assert.equal(content.questions.filter((item) => disabled.some((set) => item.set_slug === set.slug)).length, 64);
-  assert.ok(content.interviewSets.every((item) => item.slug.endsWith("-20261017")));
-  const unknown = source.interviews["ke-toan-vien"].rounds["1"].questions[2].scoringCriteria[1];
-  assert.equal(unknown.maxScore, null); // Preserve the missing source value rather than invent twelve points.
+test("all fifteen current interview sets are ready after the reviewed source refresh", () => {
+  assert.equal(content.interviewSets.filter(item => item.is_available).length, 15);
+  assert.equal(content.interviewSets.filter(item => item.slug.endsWith("-20261019")).length, 9);
+  assert.equal(content.questions.filter(item => item.set_slug.endsWith("-20261019")).length, 72);
+  const criterion = source.interviews["ke-toan-vien"].rounds["1"].questions[2].scoringCriteria[1];
+  assert.equal(criterion.maxScore, 12);
+  assert.match(criterion.description, /12d/);
+  assert.ok(Object.values(source.interviews).every(set => set.grading_ready && !set.source_conflicts.length));
 });
 
 test("each task preserves full checklist scoring privately, with only rubric metadata public", () => {
@@ -104,7 +104,7 @@ test("SQL safely quotes source strings and upserts without deleting catalog IDs 
   assert.match(sql, /update public.interview_sets set is_available = false/);
   assert.match(sql, /superseded_at/);
   assert.match(sql, /coalesce\(s.reference_data->>'source_version', ''\) <> '20261017'/);
-  assert.ok(content.interviewSets.every((item) => item.id !== stableId("interview-set", item.slug.replace(/^r2w-/, "").replace(/-20261017$/, ""))));
+  assert.ok(content.interviewSets.every((item) => item.id !== stableId("interview-set", item.slug.replace(/^r2w-/, "").replace(/-\d{8}$/, ""))));
   const patch = renderSimulationRefreshMigration(content);
   assert.equal(patch, await readFile(new URL(`../supabase/migrations/${migrationName}`, import.meta.url), "utf8"));
   assert.equal((patch.match(/update public\.simulations set brief = /g) ?? []).length, 7);
@@ -115,6 +115,13 @@ test("SQL safely quotes source strings and upserts without deleting catalog IDs 
   assert.match(historical, /campaign-launch-plan/);
   assert.throws(() => renderDocumentOnlyMigration(content), /document-only source policy/);
   assert.doesNotMatch(patch, /update public\.interview_questions|delete from|truncate/i);
+  const interviews = renderInterviewRefreshMigration(content);
+  assert.equal(interviews, await readFile(new URL(`../supabase/migrations/${interviewMigrationName}`, import.meta.url), "utf8"));
+  assert.equal((interviews.match(/insert into public.interview_sets/g) ?? []).length, 9);
+  assert.equal((interviews.match(/insert into public.interview_questions/g) ?? []).length, 72);
+  assert.doesNotMatch(interviews, /update public.interview_questions|delete from|truncate|simulation_attempts|simulation_submissions/i);
+  assert.match(interviews, /do nothing/);
+
 });
 
 test("current exercises use reviewed source plus explicitly authorized, labeled supplements", () => {

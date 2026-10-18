@@ -65,3 +65,12 @@ if (process.env.R2W_CHECK_SOURCE === "1") {
   report("hosting-source-provider", { ok: result.status === 0 });
   if (result.status !== 0) process.exit(1);
 }
+
+if (process.env.R2W_CHECK_INTERVIEW_REFRESH === "1") {
+  const { spawnSync } = await import("node:child_process");
+  const result = spawnSync("npm", ["exec", "--", "vitest", "run", "tests/integration/content/live-interview-refresh.test.ts", "--bail", "1"], {
+    stdio: "inherit", env: { ...process.env, R2W_RUN_LIVE_INTERVIEW_REFRESH: "1" },
+  });
+  report("hosting-interview-refresh", { ok: result.status === 0 });
+  if (result.status !== 0) process.exit(1);
+}

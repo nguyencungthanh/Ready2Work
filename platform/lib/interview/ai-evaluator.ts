@@ -14,18 +14,23 @@ export interface InterviewRubricCriterion {
 const responseSchema = z.object({
   criteria: z.array(z.object({ id: z.string(), score: z.number().finite().min(0), note: z.string().min(1).max(1000) })),
 });
+export class InterviewEvaluationError extends Error {
+  constructor(public readonly code: "INVALID_IDS" | "EXCESS_POINTS", message: string) {
+    super(message); this.name = "InterviewEvaluationError";
+  }
+}
 
 export function validateInterviewEvaluation(raw: unknown, rubric: InterviewRubricCriterion[]) {
   const parsed = responseSchema.parse(raw);
   const ids = new Set(parsed.criteria.map((criterion) => criterion.id));
   if (rubric.length === 0 || ids.size !== rubric.length || parsed.criteria.length !== rubric.length ||
       rubric.some((criterion) => !ids.has(criterion.id))) {
-    throw new Error("The evaluation did not cover the exact interview rubric.");
+    throw new InterviewEvaluationError("INVALID_IDS", "The evaluation did not cover the exact interview rubric.");
   }
   const criteria = rubric.map((criterion) => {
     const result = parsed.criteria.find((row) => row.id === criterion.id)!;
     const maxScore = criterion.maxScore ?? criterion.weight;
-    if (!(maxScore > 0) || result.score > maxScore) throw new Error("The evaluation exceeded a rubric score limit.");
+    if (!(maxScore > 0) || result.score > maxScore) throw new InterviewEvaluationError("EXCESS_POINTS", "The evaluation exceeded a rubric score limit.");
     return { criterionId: criterion.id, label: criterion.label, skill: criterion.skill,
       score: result.score, maxScore, note: result.note };
   });
@@ -50,18 +55,27 @@ Nhận xét bằng tiếng Việt, ngắn gọn và cụ thể theo câu trả l
 Câu hỏi: ${question}
 Hướng dẫn tham chiếu riêng để chấm: ${guidance}
 Tiêu chí và giới hạn điểm: ${JSON.stringify(normalizedRubric)}
-Câu trả lời: ${JSON.stringify(answer)}`;
+Câu trả lời: ${JSON.stringify(answer)}
+Trả duy nhất JSON {"criteria":[{"id":"id tiêu chí","score":0,"note":"Nhận xét tiếng Việt"}]}, không thêm điểm tổng hay nội dung ngoài JSON.`;
   const schema = {
     type: "object",
     properties: { criteria: { type: "array", minItems: rubric.length, maxItems: rubric.length, items: { type: "object", properties: {
       id: { type: "string", enum: rubric.map((criterion) => criterion.id) }, score: { type: "number", minimum: 0, maximum: Math.max(...normalizedRubric.map((criterion) => criterion.maxScore)) }, note: { type: "string" },
     }, required: ["id", "score", "note"] } } }, required: ["criteria"],
   };
-  let raw: unknown;
-  try { raw = await generateStructured(prompt, schema); }
-  catch (error) {
-    if (typeof error !== "object" || error === null || !("status" in error) || error.status !== 503) throw error;
-    raw = await generateStructured(prompt, schema);
+  let correction = "";
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      return validateInterviewEvaluation(await generateStructured(prompt + correction, schema), rubric);
+    } catch (error) {
+      const status = error && typeof error === "object" && "status" in error ? error.status : undefined;
+      const code = error instanceof InterviewEvaluationError ? error.code : error instanceof SyntaxError ? "INVALID_JSON"
+        : error instanceof z.ZodError ? "INVALID_SCHEMA" : status === 503 ? "UNAVAILABLE"
+          : error instanceof Error && /^(TimeoutError|AbortError)$/.test(error.name) ? "TIMEOUT" : undefined;
+      if (attempt || !code) throw error;
+      // One shared retry budget; never feed raw provider output back as instructions.
+      correction = `\nThử lại sau kiểm tra ${code}. Trả đúng criteria, mỗi id xuất hiện một lần. score không vượt maxScore riêng của id đó. Không có bằng chứng thì chấm 0 và giải thích ngắn trong note. Không trả thang 100 cho từng tiêu chí. Giới hạn: ${JSON.stringify(normalizedRubric.map(c => ({ id: c.id, maxScore: c.maxScore })))}.`;
+    }
   }
-  return validateInterviewEvaluation(raw, rubric);
+  throw new Error("Interview evaluation did not complete.");
 }

@@ -4,6 +4,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import assert from "node:assert/strict";
+import { buildPreparedContent, readPreparedSources } from "./import-content.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const db = new PGlite();
@@ -32,6 +33,7 @@ try {
   let changedAssignmentAttempt;
   let unchangedAssignmentAttempt;
   let originalCompletedResults;
+  let preservedInterviewQuestions, preservedInterviewSessions, preservedInterviewAnswers;
   for (const file of migrations) {
     if (file.startsWith("20261016") && !legacySeeded) {
       await db.exec(`
@@ -60,6 +62,11 @@ try {
       unchangedAssignmentAttempt = (await db.query("insert into simulation_attempts(user_id,simulation_id) select '33333333-3333-4333-8333-333333333333',id from simulations where slug='r2w-it-03' returning id")).rows[0];
       originalCompletedResults = (await db.query("select * from simulation_submissions order by id")).rows;
     }
+    if (file === "20261019000300_interview_source_refresh.sql") {
+      preservedInterviewQuestions = (await db.query("select * from interview_questions order by id")).rows;
+      preservedInterviewSessions = (await db.query("select * from interview_sessions order by id")).rows;
+      preservedInterviewAnswers = (await db.query("select * from interview_answers order by id")).rows;
+    }
     try { await db.exec(await readFile(path.join(root, "supabase/migrations", file), "utf8")); }
     catch (error) { console.error(`Migration failed: ${file}`); throw error; }
     console.log(`Applied ${file}`);
@@ -70,7 +77,7 @@ try {
   assert.equal((await one("select email from profiles where id='33333333-3333-4333-8333-333333333333'")).email, "existing@example.test");
   assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%'")).count), 15);
   assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017'")).count), 15);
-  assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017' and not is_available")).count), 8);
+  assert.equal(Number((await one("select count(*) from interview_sets where slug like 'r2w-%20261017' and not is_available")).count), 9);
   const sourceTasks = JSON.parse(await readFile(path.join(root, "data/task-rubrics.json"), "utf8")).industries.flatMap((industry) => industry.tasks);
   for (const task of sourceTasks) {
     const published = await one("select reference_data,is_available from simulations where slug=$1", [`r2w-${task.position_id.toLowerCase()}`]);
@@ -82,7 +89,34 @@ try {
   assert.equal(Number((await one("select count(*) from simulations where slug like 'r2w-%' and is_available")).count), 15);
   assert.equal(Number((await one("select count(*) from simulations where position_id is null and is_available and slug not like 'company-%' and slug <> 'legacy-existing'")).count), 0);
   assert.equal(Number((await one("select count(*) from interview_sets where position_id is null and is_available and slug not like 'company-%'")).count), 0);
-  assert.deepEqual((await db.query("select id,set_id,position,prompt,reference_answer,grading_rubric from interview_questions order by id")).rows, originalQuestions);
+  assert.deepEqual((await db.query("select id,set_id,position,prompt,reference_answer,grading_rubric from interview_questions where id=any($1::uuid[]) order by id", [originalQuestions.map(q => q.id)])).rows, originalQuestions);
+  assert.deepEqual((await db.query("select * from interview_questions where id=any($1::uuid[]) order by id", [preservedInterviewQuestions.map(q => q.id)])).rows, preservedInterviewQuestions);
+  assert.deepEqual((await db.query("select * from interview_sessions order by id")).rows, preservedInterviewSessions);
+  assert.deepEqual((await db.query("select * from interview_answers order by id")).rows, preservedInterviewAnswers);
+  const currentContent = buildPreparedContent(await readPreparedSources());
+  const currentSlugs = currentContent.interviewSets.map(s => s.slug);
+  assert.equal(Number((await one("select count(*) from interview_sets where slug=any($1::text[]) and is_available", [currentSlugs])).count), 15);
+  assert.equal(Number((await one("select count(*) from interview_questions q join interview_sets s on s.id=q.set_id where s.slug=any($1::text[])", [currentSlugs])).count), 120);
+  for (const expected of currentContent.questions) {
+    const actual = await one("select id,position,round_number,max_score,prompt,guidance,keywords,rubric,grading_rubric,reference_answer from interview_questions where id=$1", [expected.id]);
+    const fields = Object.fromEntries(Object.entries(expected).filter(([key]) => !["source_id", "set_slug"].includes(key)));
+    assert.deepEqual(actual, fields);
+  }
+  // Complete the nine reviewed sets one by one against actual database guards.
+  const reviewedSets = currentContent.interviewSets.filter(s => s.slug.endsWith('-20261019'));
+  for (const set of reviewedSets) {
+    const session = await one("insert into interview_sessions(user_id,set_id) values ('33333333-3333-4333-8333-333333333333',$1) returning id", [set.id]);
+    const questions = currentContent.questions.filter(q => q.set_slug === set.slug);
+    assert.deepEqual([1,2,3].map(round => questions.filter(q => q.round_number === round).length), [3,3,2]);
+    for (const q of questions) await db.query("insert into interview_answers(session_id,question_id,answer_text,score) values ($1,$2,'Synthetic half-rubric answer',50)", [session.id, q.id]);
+    await db.query("update interview_sessions set completed_at=now(),overall_score=1 where id=$1", [session.id]);
+    const graded = await one("select overall_score,round_scores from interview_sessions where id=$1", [session.id]);
+    assert.equal(graded.overall_score, 50);
+    assert.ok(graded.round_scores.every(r => r.score === 50));
+  }
+  const beforeReplay = (await db.query("select * from interview_questions order by id")).rows;
+  await db.exec(await readFile(path.join(root, "supabase/migrations/20261019000300_interview_source_refresh.sql"), "utf8"));
+  assert.deepEqual((await db.query("select * from interview_questions order by id")).rows, beforeReplay);
   assert.ok((await one("select superseded_at from simulation_attempts where id=$1", [previousSourceAttempt.id])).superseded_at);
   await assert.rejects(db.query("select finalize_simulation_attempt($1,'33333333-3333-4333-8333-333333333333','Previous inputs',70,'Proficient','{}','{}',now())", [previousSourceAttempt.id]), /source changed/);
   assert.equal((await one("select prompt from interview_questions where id=$1", [oldQuestion.id])).prompt, oldQuestion.prompt);

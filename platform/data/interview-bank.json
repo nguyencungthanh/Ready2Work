@@ -5,7 +5,7 @@
     "positionTitle": "Business Analyst",
     "industryId": "IT",
     "industryName": "Công nghệ thông tin",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Nền tảng chuyên môn liên quan",
       "Lý do chọn nghề đúng bản chất",
@@ -34,8 +34,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "IT-01-V20261017-R1-Q1",
-            "positionId": "business-analyst",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Giới thiệu bản thân và lý do bạn muốn theo đuổi vị trí Business Analyst",
@@ -64,18 +62,23 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 28,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R1-Q1",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1- Nền tảng chuyên môn liên quan (12đ): Nêu cụ thể ngành học/dự án đã làm liên quan trực tiếp đến phân tích nghiệp vụ, không nói chung chung.\nTiêu chí 2 - Lý do chọn nghề đúng bản chất (10đ): Phải chỉ ra đúng đặc thù công việc Business Analyst là phân tích vấn đề kinh doanh và làm cầu nối với đội kỹ thuật, không phải lý do chung chung như “yêu thích công nghệ”.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, có dùng một số thuật ngữ cơ bản (yêu cầu nghiệp vụ/requirement, stakeholder).",
             "skills": [
               "Nền tảng chuyên môn liên quan",
               "Lý do chọn nghề đúng bản chất",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 359
+            "answerType": "both"
           },
           {
-            "id": "IT-01-V20261017-R1-Q2",
-            "positionId": "business-analyst",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Bạn hiểu vai trò của một Business Analyst trong dự án phần mềm là gì?",
@@ -104,18 +107,23 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 28,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R1-Q2",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Xác định đúng vai trò cầu nối (15đ): Nêu rõ Business Analyst là người trung gian giữa khách hàng/doanh nghiệp và đội phát triển, KHÔNG lẫn với Project Manager - Quản lý dự án (quản lý tiến độ, nguồn lực) hay Dev (viết code).\nTiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: thu thập yêu cầu, phân tích nghiệp vụ, viết tài liệu đặc tả (BRD/SRS), kiểm soát phạm vi (scope), hỗ trợ nghiệm thu (UAT).\nTiêu chí 3 -Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Requirement, Stakeholder, Scope, UAT, BRD/SRS.",
             "skills": [
               "Xác định đúng vai trò cầu nối",
               "Liệt kê đủ đầu việc cốt lõi",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 359
+            "answerType": "both"
           },
           {
-            "id": "IT-01-V20261017-R1-Q3",
-            "positionId": "business-analyst",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích nghiệp vụ chưa?",
@@ -144,14 +152,21 @@
                 "skill": "Rút ra bài học cụ thể"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 28,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R1-Q3",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời “chưa có kinh nghiệm” chung chung - phải nêu tên/bối cảnh dự án hoặc bài tập cụ thể, vai trò đảm nhận rõ ràng.\nTiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation) → Nhiệm vụ (Task) → Hành động cụ thể (Action) → Kết quả đo lường được (Result).\nTiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra được 1 bài học nghiệp vụ cụ thể, ví dụ: “phải xác nhận lại yêu cầu bằng văn bản trước khi triển khai”.",
             "skills": [
               "Ví dụ dự án cụ thể",
               "Trình bày có ý theo cấu trúc STAR",
               "Rút ra bài học cụ thể"
             ],
-            "answerType": "both",
-            "source_block": 359
+            "answerType": "both"
           }
         ]
       },
@@ -162,8 +177,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "IT-01-V20261017-R2-Q1",
-            "positionId": "business-analyst",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Phân biệt yêu cầu chức năng (Functional) và phi chức năng (Non-functional), cho ví dụ",
@@ -192,18 +205,23 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 29,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R2-Q1",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Định nghĩa đúng Functional Requirement (15đ): Là yêu cầu mô tả HỆ THỐNG LÀM GÌ (VD: “cho phép đăng nhập bằng email”), kèm ví dụ cụ thể không chung chung.\nTiêu chí 2 - Định nghĩa đúng Non-functional Requirement (12đ): Là yêu cầu mô tả hệ thống VẬN HÀNH TỐT ĐẾN MỨC NÀO (hiệu năng, bảo mật, khả dụng), kèm ví dụ có số liệu cụ thể (VD: “xử lý 1.000 người dùng đồng thời”).\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng các thuật ngữ Functional/Non-functional Requirement, Performance, Security, Availability.",
             "skills": [
               "Định nghĩa đúng Functional Requirement",
               "Định nghĩa đúng Non-functional Requirement",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 361
+            "answerType": "both"
           },
           {
-            "id": "IT-01-V20261017-R2-Q2",
-            "positionId": "business-analyst",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Bạn sẽ dùng phương pháp nào để thu thập yêu cầu từ khách hàng (phỏng vấn, workshop, khảo sát...)?",
@@ -232,18 +250,25 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 29,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "scoreNormalization": "criterion_total_to_question_maximum",
+            "sourceCriteriaTotal": 35.0,
+            "id": "IT-01-V20261019-R2-Q2",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Khi nào dùng Phỏng vấn 1-1 (15đ): Dùng khi cần đào sâu nghiệp vụ với người có chuyên môn cao, hoặc chủ đề nhạy cảm cần trao đổi riêng.\nTiêu chí 2 - Khi nào dùng Workshop (12đ): Dùng khi có nhiều stakeholder với quan điểm khác nhau cần thống nhất trong cùng buổi họp để tiết kiệm thời gian, tránh yêu cầu mâu thuẫn.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng các thuật ngữ Stakeholder, Workshop, Elicitation (khai thác yêu cầu).",
             "skills": [
               "Khi nào dùng Phỏng vấn 1-1",
               "Khi nào dùng Workshop",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 361
+            "answerType": "both"
           },
           {
-            "id": "IT-01-V20261017-R2-Q3",
-            "positionId": "business-analyst",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Trình bày các thành phần chính trong một tài liệu SRS/BRD",
@@ -272,14 +297,21 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 29,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R2-Q3",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Liệt kê đủ thành phần cốt lõi (18đ): Nêu tối thiểu 4/5: mục tiêu & phạm vi, yêu cầu chức năng chi tiết, yêu cầu phi chức năng, ràng buộc/giả định, tiêu chí nghiệm thu (acceptance criteria).\nTiêu chí 2 - Giải thích đúng vai trò Acceptance Criteria (10đ): Nêu được đây là căn cứ để xác nhận sản phẩm đạt yêu cầu trước khi khách hàng nghiệm thu, tránh tranh cãi sau này.\nTiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng các thuật ngữ SRS, BRD, Acceptance Criteria, Constraint.",
             "skills": [
               "Liệt kê đủ thành phần cốt lõi",
               "Giải thích đúng vai trò Acceptance Criteria",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 361
+            "answerType": "both"
           }
         ]
       },
@@ -290,8 +322,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "IT-01-V20261017-R3-Q1",
-            "positionId": "business-analyst",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Khách hàng liên tục thay đổi yêu cầu giữa dự án, bạn xử lý thế nào?",
@@ -320,18 +350,23 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 30,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R3-Q1",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Đề xuất đúng quy trình Change Request (20đ): Không phản đối/chấp nhận cảm tính, mà đề xuất ghi nhận yêu cầu bằng văn bản qua quy trình Change Request chính thức.\nTiêu chí 2 - Đánh giá tác động trước khi quyết định (20đ): Nêu được cần đánh giá impact lên phạm vi (scope), thời gian, chi phí trước khi chấp nhận, và trao đổi lại với các bên liên quan (Project Manager, Dev) chứ không tự ý quyết định một mình.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng các thuật ngữ Change Request, Scope Creep, Impact Analysis.",
             "skills": [
               "Đề xuất đúng quy trình Change Request",
               "Đánh giá tác động trước khi quyết định",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 363
+            "answerType": "both"
           },
           {
-            "id": "IT-01-V20261017-R3-Q2",
-            "positionId": "business-analyst",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Đội Dev và khách hàng bất đồng về một yêu cầu, là Business Analyst bạn sẽ làm gì?",
@@ -360,27 +395,38 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.ns3fz05dop68",
+              "table_index": 30,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "IT-01-V20261019-R3-Q2",
+            "positionId": "business-analyst",
             "referenceAnswer": "Tiêu chí 1 - Đóng vai trò trung gian dựa trên tài liệu gốc (20đ): Đề xuất quay lại tài liệu yêu cầu đã được khách hàng ký duyệt để làm rõ ý định ban đầu, KHÔNG đứng hẳn về phía Dev hay khách hàng theo cảm tính.\nTiêu chí 2 - Đề xuất giải pháp cụ thể để thống nhất (20đ): Nêu hành động cụ thể như tổ chức họp ba bên, hoặc làm prototype/wireframe để minh hoạ trực quan giúp cả hai bên cùng hình dung.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng các thuật ngữ Traceability, Prototype, Sign-off.",
             "skills": [
               "Đóng vai trò trung gian dựa trên tài liệu gốc",
               "Đề xuất giải pháp cụ thể để thống nhất",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 363
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": [
       {
-        "kind": "question_maximum_conflict",
         "set": "business-analyst",
         "round": 2,
         "question": 2,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
+        "question_maximum": 30,
+        "criterion_total": 35,
+        "policy": "criterion_total_to_question_maximum",
+        "reason": "Keep the source criterion maxima 15/12/8 and source question weight 30. Evaluate the ratio of earned criterion points to 35, then apply the question weight 30 when aggregating the round. No authored criterion points or question weights are invented."
       }
     ]
   },
@@ -1140,7 +1186,7 @@
     "positionTitle": "Kế toán viên",
     "industryId": "KK",
     "industryName": "Kế toán - Kiểm toán",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Giới thiệu đúng thông tin cá nhân",
       "Lý do chọn nghề đúng bản chất",
@@ -1175,8 +1221,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "KK-01-V20261017-R1-Q1",
-            "positionId": "ke-toan-vien",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc kế toán?",
@@ -1187,7 +1231,7 @@
                 "id": "criterion_1",
                 "name": "Giới thiệu đúng thông tin cá nhân",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 1- Giới thiệu đúng thông tin cá nhân  (12đ): Nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán.",
+                "description": "Tiêu chí 1- Giới thiệu đúng thông tin cá nhân  (12đ): Nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán.",
                 "skill": "Giới thiệu đúng thông tin cá nhân"
               },
               {
@@ -1205,18 +1249,23 @@
                 "skill": "Liên hệ điểm mạnh với công việc"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1- Giới thiệu đúng thông tin cá nhân  (12đ): Nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán.\nTiêu chí 2 - Lý do chọn nghề đúng bản chất (10đ): Nêu được lý do cụ thể như yêu thích số liệu, quan tâm đến tài chính - kế toán hoặc muốn phát triển chuyên môn.\nTiêu chí 3 - Liên hệ điểm mạnh với công việc (8đ): Nêu tối thiểu 2 điểm mạnh phù hợp như cẩn thận, chính xác, trung thực, trách nhiệm và giải thích được sự phù hợp.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 41,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R1-Q1",
+            "positionId": "ke-toan-vien",
+            "referenceAnswer": "Tiêu chí 1- Giới thiệu đúng thông tin cá nhân  (12đ): Nêu được ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan đến kế toán.\nTiêu chí 2 - Lý do chọn nghề đúng bản chất (10đ): Nêu được lý do cụ thể như yêu thích số liệu, quan tâm đến tài chính - kế toán hoặc muốn phát triển chuyên môn.\nTiêu chí 3 - Liên hệ điểm mạnh với công việc (8đ): Nêu tối thiểu 2 điểm mạnh phù hợp như cẩn thận, chính xác, trung thực, trách nhiệm và giải thích được sự phù hợp.",
             "skills": [
               "Giới thiệu đúng thông tin cá nhân",
               "Lý do chọn nghề đúng bản chất",
               "Liên hệ điểm mạnh với công việc"
             ],
-            "answerType": "both",
-            "source_block": 405
+            "answerType": "both"
           },
           {
-            "id": "KK-01-V20261017-R1-Q2",
-            "positionId": "ke-toan-vien",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Theo bạn, một kế toán viên cần có những kỹ năng quan trọng nào?",
@@ -1245,18 +1294,23 @@
                 "skill": "Trung thực và trách nhiệm"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 41,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R1-Q2",
+            "positionId": "ke-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Chính xác và cẩn thận (15đ): Hiểu rằng kế toán thường xuyên làm việc với số liệu, hóa đơn và chứng từ nên cần hạn chế sai sót.\nTiêu chí 2 - Kiến thức chuyên môn (12đ): Đề cập được hạch toán, chứng từ, sổ sách, doanh thu - chi phí hoặc nghiệp vụ kế toán cơ bản.\nTiêu chí 3 - Trung thực và trách nhiệm (8đ): Hiểu trách nhiệm của kế toán đối với số liệu và không cố tình làm sai lệch thông tin.",
             "skills": [
               "Chính xác và cẩn thận",
               "Kiến thức chuyên môn",
               "Trung thực và trách nhiệm"
             ],
-            "answerType": "both",
-            "source_block": 405
+            "answerType": "both"
           },
           {
-            "id": "KK-01-V20261017-R1-Q3",
-            "positionId": "ke-toan-vien",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Theo bạn, công việc của một kế toán viên trong doanh nghiệp thường bao gồm những nhiệm vụ gì?",
@@ -1273,8 +1327,8 @@
               {
                 "id": "criterion_2",
                 "name": "Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh.",
-                "maxScore": null,
-                "description": "Tiêu chí 2 - Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh.",
+                "maxScore": 12.0,
+                "description": "Tiêu chí 2 - Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh. (12d)",
                 "skill": "Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh."
               },
               {
@@ -1285,14 +1339,21 @@
                 "skill": "Đối chiếu số liệu"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Kiểm tra chứng từ (15đ): Nêu được việc tiếp nhận, kiểm tra hóa đơn và chứng từ liên quan.\nTiêu chí 2 - Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh.\nTiêu chí 3 - Đối chiếu số liệu (8đ): Biết cần đối chiếu giữa chứng từ, sổ sách và các nguồn dữ liệu liên quan.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 41,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R1-Q3",
+            "positionId": "ke-toan-vien",
+            "referenceAnswer": "Tiêu chí 1 - Kiểm tra chứng từ (15đ): Nêu được việc tiếp nhận, kiểm tra hóa đơn và chứng từ liên quan.\nTiêu chí 2 - Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh. (12d)\nTiêu chí 3 - Đối chiếu số liệu (8đ): Biết cần đối chiếu giữa chứng từ, sổ sách và các nguồn dữ liệu liên quan.",
             "skills": [
               "Kiểm tra chứng từ",
               "Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh.",
               "Đối chiếu số liệu"
             ],
-            "answerType": "both",
-            "source_block": 405
+            "answerType": "both"
           }
         ]
       },
@@ -1303,8 +1364,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "KK-01-V20261017-R2-Q1",
-            "positionId": "ke-toan-vien",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Khi phát hiện số liệu trên hóa đơn và chứng từ không khớp, bạn sẽ xử lý như thế nào?",
@@ -1333,18 +1392,23 @@
                 "skill": "Xử lý đúng quy trình"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 42,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R2-Q1",
+            "positionId": "ke-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Kiểm tra và đối chiếu (15đ): Đối chiếu hóa đơn với hợp đồng, phiếu nhập/xuất, biên bản giao nhận hoặc chứng từ thanh toán.\nTiêu chí 2 - Xác định nguyên nhân (12đ): Xác định chênh lệch về số tiền, số lượng, thông tin, thời điểm hoặc chứng từ.\nTiêu chí 3 - Xử lý đúng quy trình (8đ): Điều chỉnh/bổ sung chứng từ theo quy định trước khi ghi nhận chính thức.",
             "skills": [
               "Kiểm tra và đối chiếu",
               "Xác định nguyên nhân",
               "Xử lý đúng quy trình"
             ],
-            "answerType": "both",
-            "source_block": 407
+            "answerType": "both"
           },
           {
-            "id": "KK-01-V20261017-R2-Q2",
-            "positionId": "ke-toan-vien",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Hãy phân biệt doanh thu, chi phí và lợi nhuận trong hoạt động của doanh nghiệp.",
@@ -1354,8 +1418,8 @@
               {
                 "id": "criterion_1",
                 "name": "Hiểu doanh thu",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Hiểu doanh thu (15đ): Giải thích đúng bản chất doanh thu từ hoạt động kinh doanh.",
+                "maxScore": 10.0,
+                "description": "Tiêu chí 1 - Hiểu doanh thu (10đ): Giải thích đúng bản chất doanh thu từ hoạt động kinh doanh.",
                 "skill": "Hiểu doanh thu"
               },
               {
@@ -1373,18 +1437,23 @@
                 "skill": "Hiểu lợi nhuận"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Hiểu doanh thu (15đ): Giải thích đúng bản chất doanh thu từ hoạt động kinh doanh.\nTiêu chí 2 - Hiểu chi phí (12đ): Nêu được chi phí là các khoản phát sinh liên quan đến hoạt động tạo doanh thu.\nTiêu chí 3 - Hiểu lợi nhuận (8đ): Hiểu lợi nhuận được xác định dựa trên doanh thu và chi phí.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 42,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R2-Q2",
+            "positionId": "ke-toan-vien",
+            "referenceAnswer": "Tiêu chí 1 - Hiểu doanh thu (10đ): Giải thích đúng bản chất doanh thu từ hoạt động kinh doanh.\nTiêu chí 2 - Hiểu chi phí (12đ): Nêu được chi phí là các khoản phát sinh liên quan đến hoạt động tạo doanh thu.\nTiêu chí 3 - Hiểu lợi nhuận (8đ): Hiểu lợi nhuận được xác định dựa trên doanh thu và chi phí.",
             "skills": [
               "Hiểu doanh thu",
               "Hiểu chi phí",
               "Hiểu lợi nhuận"
             ],
-            "answerType": "both",
-            "source_block": 407
+            "answerType": "both"
           },
           {
-            "id": "KK-01-V20261017-R2-Q3",
-            "positionId": "ke-toan-vien",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Bạn sẽ làm gì nếu phát hiện một nghiệp vụ đã được ghi nhận sai?",
@@ -1409,18 +1478,25 @@
                 "id": "criterion_3",
                 "name": "Điều chỉnh đúng quy trình",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Điều chỉnh đúng quy trình  (10đ): Thực hiện bút toán điều chỉnh hoặc xử lý chứng từ theo quy định.",
+                "description": "Tiêu chí 3 - Điều chỉnh đúng quy trình  (10đ): Thực hiện bút toán điều chỉnh hoặc xử lý chứng từ theo quy định.",
                 "skill": "Điều chỉnh đúng quy trình"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Xác định sai sót (18đ): Kiểm tra sai tài khoản, số tiền, thời điểm hoặc nội dung nghiệp vụ.\nTiêu chí 2 - Đánh giá ảnh hưởng (7đ): Xem xét ảnh hưởng đến tài khoản, doanh thu/chi phí, thuế hoặc báo cáo.\nTiêu chí 3 - Điều chỉnh đúng quy trình  (10đ): Thực hiện bút toán điều chỉnh hoặc xử lý chứng từ theo quy định.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 42,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R2-Q3",
+            "positionId": "ke-toan-vien",
+            "referenceAnswer": "Tiêu chí 1 - Xác định sai sót (18đ): Kiểm tra sai tài khoản, số tiền, thời điểm hoặc nội dung nghiệp vụ.\nTiêu chí 2 - Đánh giá ảnh hưởng (7đ): Xem xét ảnh hưởng đến tài khoản, doanh thu/chi phí, thuế hoặc báo cáo.\nTiêu chí 3 - Điều chỉnh đúng quy trình  (10đ): Thực hiện bút toán điều chỉnh hoặc xử lý chứng từ theo quy định.",
             "skills": [
               "Xác định sai sót",
               "Đánh giá ảnh hưởng",
               "Điều chỉnh đúng quy trình"
             ],
-            "answerType": "both",
-            "source_block": 407
+            "answerType": "both"
           }
         ]
       },
@@ -1431,8 +1507,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "KK-01-V20261017-R3-Q1",
-            "positionId": "ke-toan-vien",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Cuối ngày, bạn phát hiện một chứng từ quan trọng có sai sót nhưng quản lý đang yêu cầu hoàn thành báo cáo gấp. Bạn sẽ xử lý như thế nào?",
@@ -1461,18 +1535,23 @@
                 "skill": "Ưu tiên công việc"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 43,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R3-Q1",
+            "positionId": "ke-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Trung thực, không che giấu (20đ): Thông báo về sai sót, không bỏ qua hoặc cố tình sửa số liệu.\nTiêu chí 2 - Đánh giá mức độ ảnh hưởng (20đ): Xác định chứng từ ảnh hưởng đến phần nào của báo cáo.\nTiêu chí 3 - Ưu tiên công việc (10đ): Có thể hoàn thành phần báo cáo không bị ảnh hưởng trong khi xử lý sai sót.",
             "skills": [
               "Trung thực, không che giấu",
               "Đánh giá mức độ ảnh hưởng",
               "Ưu tiên công việc"
             ],
-            "answerType": "both",
-            "source_block": 409
+            "answerType": "both"
           },
           {
-            "id": "KK-01-V20261017-R3-Q2",
-            "positionId": "ke-toan-vien",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Nếu đồng nghiệp đề nghị bạn bỏ qua một sai sót nhỏ trong chứng từ để kịp thời hạn báo cáo, bạn sẽ làm gì?",
@@ -1501,45 +1580,30 @@
                 "skill": "Tính trung thực"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 43,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-01-V20261019-R3-Q2",
+            "positionId": "ke-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Nhận diện rủi ro (20đ): Hiểu rằng sai sót nhỏ vẫn có thể gây ảnh hưởng nếu không được xử lý.\nTiêu chí 2 - Trao đổi với đồng nghiệp (20đ): Giải thích lý do cần xử lý thay vì bỏ qua\nTiêu chí 3 - Tính trung thực (10đ): Đặt tính chính xác và trung thực của số liệu lên trên việc đối phó với deadline.",
             "skills": [
               "Nhận diện rủi ro",
               "Trao đổi với đồng nghiệp",
               "Tính trung thực"
             ],
-            "answerType": "both",
-            "source_block": 409
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
-      {
-        "kind": "missing_criterion_points",
-        "set": "ke-toan-vien",
-        "round": 1,
-        "question": 3,
-        "criterion": 2,
-        "text": "Tiêu chí 2 - Hiểu việc nhập liệu và hạch toán các nghiệp vụ phát sinh."
-      },
-      {
-        "kind": "question_maximum_conflict",
-        "set": "ke-toan-vien",
-        "round": 1,
-        "question": 3,
-        "sourceMaximum": 35,
-        "criterionTotal": 23.0
-      },
-      {
-        "kind": "question_maximum_conflict",
-        "set": "ke-toan-vien",
-        "round": 2,
-        "question": 2,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
-      }
-    ]
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "kiem-toan-vien": {
     "positionId": "kiem-toan-vien",
@@ -1547,7 +1611,7 @@
     "positionTitle": "Kiểm toán viên",
     "industryId": "KK",
     "industryName": "Kế toán - Kiểm toán",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Giới thiệu bản thân",
       "Lý do đúng bản chất nghề",
@@ -1565,7 +1629,7 @@
       "Kiểm tra hồ sơ",
       "Kiểm tra thời điểm ghi nhận",
       "Tìm hiểu khoản mục",
-      "Hiểu bản chất và nguồn gốc phát sinh",
+      "Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan",
       "Xác định khả năng sai sót",
       "Xác định bằng chứng thiếu",
       "Yêu cầu khách hàng bổ sung",
@@ -1582,8 +1646,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "KK-02-V20261017-R1-Q1",
-            "positionId": "kiem-toan-vien",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn công việc kiểm toán.",
@@ -1612,18 +1674,23 @@
                 "skill": "Hiểu công việc kiểm toán"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 44,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R1-Q1",
+            "positionId": "kiem-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Giới thiệu bản thân (12đ): Nêu được ngành học, thực tập hoặc kinh nghiệm liên quan.\nTiêu chí 2 - Lý do đúng bản chất nghề (10đ): Nêu lý do cụ thể như yêu thích phân tích, kiểm tra số liệu, tìm hiểu hoạt động doanh nghiệp.\nTiêu chí 3 - Hiểu công việc kiểm toán (8đ): Hiểu kiểm toán liên quan đến việc thu thập bằng chứng và đánh giá thông tin tài chính.",
             "skills": [
               "Giới thiệu bản thân",
               "Lý do đúng bản chất nghề",
               "Hiểu công việc kiểm toán"
             ],
-            "answerType": "both",
-            "source_block": 413
+            "answerType": "both"
           },
           {
-            "id": "KK-02-V20261017-R1-Q2",
-            "positionId": "kiem-toan-vien",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Theo bạn, một kiểm toán viên cần có những phẩm chất và kỹ năng nào?",
@@ -1652,18 +1719,23 @@
                 "skill": "Cẩn thận"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 44,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R1-Q2",
+            "positionId": "kiem-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Tư duy phân tích (15đ): Hiểu cần phân tích số liệu và tìm nguyên nhân của biến động.\nTiêu chí 2 - Khách quan và độc lập (12đ): Hiểu kiểm toán viên cần đưa ra đánh giá dựa trên bằng chứng, không thiên vị.\nTiêu chí 3 - Cẩn thận (8đ): Nhận thức được việc kiểm tra hồ sơ và bằng chứng cần chính xác.",
             "skills": [
               "Tư duy phân tích",
               "Khách quan và độc lập",
               "Cẩn thận"
             ],
-            "answerType": "both",
-            "source_block": 413
+            "answerType": "both"
           },
           {
-            "id": "KK-02-V20261017-R1-Q3",
-            "positionId": "kiem-toan-vien",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Theo bạn, sự khác nhau cơ bản giữa kế toán và kiểm toán là gì?",
@@ -1692,14 +1764,21 @@
                 "skill": "Ví dụ minh họa"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 44,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R1-Q3",
+            "positionId": "kiem-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Hiểu vai trò kế toán (20đ): Nêu đúng kế toán thực hiện ghi nhận và tổng hợp các nghiệp vụ.\nTiêu chí 2 - Hiểu vai trò kiểm toán (10đ): Nêu đúng kiểm toán kiểm tra và đánh giá thông tin tài chính.\nTiêu chí 3 - Ví dụ minh họa (5đ): Có thể đưa ra ví dụ thực tế để phân biệt.",
             "skills": [
               "Hiểu vai trò kế toán",
               "Hiểu vai trò kiểm toán",
               "Ví dụ minh họa"
             ],
-            "answerType": "both",
-            "source_block": 413
+            "answerType": "both"
           }
         ]
       },
@@ -1710,8 +1789,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "KK-02-V20261017-R2-Q1",
-            "positionId": "kiem-toan-vien",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Theo bạn, mục tiêu chính của một cuộc kiểm toán báo cáo tài chính là gì?",
@@ -1740,18 +1817,23 @@
                 "skill": "Bằng chứng kiểm toán"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 45,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R2-Q1",
+            "positionId": "kiem-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Xác định đúng mục tiêu (18đ): Nêu được mục tiêu đưa ra ý kiến về báo cáo tài chính dựa trên kết quả kiểm toán.\nTiêu chí 2 - Sai sót trọng yếu (10đ): Hiểu kiểm toán tập trung vào những sai sót có thể ảnh hưởng đáng kể đến người sử dụng báo cáo.\nTiêu chí 3 - Bằng chứng kiểm toán (7đ): Hiểu cần thu thập bằng chứng kiểm toán thích hợp.",
             "skills": [
               "Xác định đúng mục tiêu",
               "Sai sót trọng yếu",
               "Bằng chứng kiểm toán"
             ],
-            "answerType": "both",
-            "source_block": 415
+            "answerType": "both"
           },
           {
-            "id": "KK-02-V20261017-R2-Q2",
-            "positionId": "kiem-toan-vien",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Nếu phát hiện một giao dịch có giá trị bất thường gần ngày kết thúc năm tài chính, bạn sẽ làm gì?",
@@ -1776,22 +1858,27 @@
                 "id": "criterion_3",
                 "name": "Kiểm tra thời điểm ghi nhận",
                 "maxScore": 5.0,
-                "description": "Tiêu chí 3 - Kiểm tra thời điểm ghi nhận  (5đ): Đối chiếu ngày giao hàng/chuyển giao với ngày ghi nhận doanh thu/chi phí.",
+                "description": "Tiêu chí 3 - Kiểm tra thời điểm ghi nhận  (5đ): Đối chiếu ngày giao hàng/chuyển giao với ngày ghi nhận doanh thu/chi phí.",
                 "skill": "Kiểm tra thời điểm ghi nhận"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Nhận diện rủi ro (15đ): Nhận thấy giao dịch lớn và gần ngày khóa sổ có thể có rủi ro ghi nhận sai kỳ hoặc bất thường.\nTiêu chí 2 - Kiểm tra hồ sơ (10đ): Kiểm tra hợp đồng, hóa đơn, phiếu xuất kho, biên bản giao nhận và thanh toán.\nTiêu chí 3 - Kiểm tra thời điểm ghi nhận  (5đ): Đối chiếu ngày giao hàng/chuyển giao với ngày ghi nhận doanh thu/chi phí.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 45,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R2-Q2",
+            "positionId": "kiem-toan-vien",
+            "referenceAnswer": "Tiêu chí 1 - Nhận diện rủi ro (15đ): Nhận thấy giao dịch lớn và gần ngày khóa sổ có thể có rủi ro ghi nhận sai kỳ hoặc bất thường.\nTiêu chí 2 - Kiểm tra hồ sơ (10đ): Kiểm tra hợp đồng, hóa đơn, phiếu xuất kho, biên bản giao nhận và thanh toán.\nTiêu chí 3 - Kiểm tra thời điểm ghi nhận  (5đ): Đối chiếu ngày giao hàng/chuyển giao với ngày ghi nhận doanh thu/chi phí.",
             "skills": [
               "Nhận diện rủi ro",
               "Kiểm tra hồ sơ",
               "Kiểm tra thời điểm ghi nhận"
             ],
-            "answerType": "both",
-            "source_block": 415
+            "answerType": "both"
           },
           {
-            "id": "KK-02-V20261017-R2-Q3",
-            "positionId": "kiem-toan-vien",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Bạn sẽ đánh giá rủi ro của một khoản mục như thế nào?",
@@ -1807,10 +1894,10 @@
               },
               {
                 "id": "criterion_2",
-                "name": "Hiểu bản chất và nguồn gốc phát sinh",
+                "name": "Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Hiểu bản chất và nguồn gốc phát sinh (10đ): So sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan.",
-                "skill": "Hiểu bản chất và nguồn gốc phát sinh"
+                "description": "Tiêu chí 2 - Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan (10đ): So sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan.",
+                "skill": "Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan"
               },
               {
                 "id": "criterion_3",
@@ -1820,14 +1907,21 @@
                 "skill": "Xác định khả năng sai sót"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Tìm hiểu khoản mục (20đ): Hiểu bản chất và nguồn gốc phát sinh.\nTiêu chí 2 - Hiểu bản chất và nguồn gốc phát sinh (10đ): So sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan.\nTiêu chí 3 - Xác định khả năng sai sót (5đ): Xem xét ghi nhận sai, thiếu chứng từ, định giá sai hoặc gian lận.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 45,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R2-Q3",
+            "positionId": "kiem-toan-vien",
+            "referenceAnswer": "Tiêu chí 1 - Tìm hiểu khoản mục (20đ): Hiểu bản chất và nguồn gốc phát sinh.\nTiêu chí 2 - Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan (10đ): So sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan.\nTiêu chí 3 - Xác định khả năng sai sót (5đ): Xem xét ghi nhận sai, thiếu chứng từ, định giá sai hoặc gian lận.",
             "skills": [
               "Tìm hiểu khoản mục",
-              "Hiểu bản chất và nguồn gốc phát sinh",
+              "Phân tích biến động và so sánh với kỳ trước, kế hoạch hoặc các khoản mục liên quan",
               "Xác định khả năng sai sót"
             ],
-            "answerType": "both",
-            "source_block": 415
+            "answerType": "both"
           }
         ]
       },
@@ -1838,8 +1932,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "KK-02-V20261017-R3-Q1",
-            "positionId": "kiem-toan-vien",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Nếu khách hàng không cung cấp đầy đủ bằng chứng kiểm toán, bạn sẽ xử lý như thế nào?",
@@ -1868,18 +1960,23 @@
                 "skill": "Tìm bằng chứng thay thế"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 46,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R3-Q1",
+            "positionId": "kiem-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Xác định bằng chứng thiếu (20đ): Xác định tài liệu nào chưa được cung cấp và liên quan khoản mục nào.\nTiêu chí 2 - Yêu cầu khách hàng bổ sung (20đ): Chủ động liên hệ và nêu rõ tài liệu cần cung cấp.\nTiêu chí 3 - Tìm bằng chứng thay thế (10đ): Có thể tìm xác nhận bên ngoài, chứng từ ngân hàng hoặc hồ sơ liên quan.",
             "skills": [
               "Xác định bằng chứng thiếu",
               "Yêu cầu khách hàng bổ sung",
               "Tìm bằng chứng thay thế"
             ],
-            "answerType": "both",
-            "source_block": 417
+            "answerType": "both"
           },
           {
-            "id": "KK-02-V20261017-R3-Q2",
-            "positionId": "kiem-toan-vien",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Khách hàng đưa ra lời giải thích nhưng bằng chứng không hoàn toàn phù hợp với lời giải thích đó. Bạn sẽ làm gì?",
@@ -1908,20 +2005,30 @@
                 "skill": "Đánh giá rủi ro"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 46,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-02-V20261019-R3-Q2",
+            "positionId": "kiem-toan-vien",
             "referenceAnswer": "Tiêu chí 1 - Không chấp nhận ngay lời giải thích (20đ): Hiểu rằng lời giải thích bằng miệng không thay thế hoàn toàn bằng chứng kiểm toán.\nTiêu chí 2 - Kiểm tra thêm bằng chứng (20đ): Đối chiếu hợp đồng, hóa đơn, thanh toán, giao nhận hoặc nguồn độc lập\nTiêu chí 3 - Đánh giá rủi ro (10đ): Xem xét có dấu hiệu sai sót hoặc gian lận hay không.",
             "skills": [
               "Không chấp nhận ngay lời giải thích",
               "Kiểm tra thêm bằng chứng",
               "Đánh giá rủi ro"
             ],
-            "answerType": "both",
-            "source_block": 417
+            "answerType": "both"
           }
         ]
       }
     },
     "grading_ready": true,
-    "source_conflicts": []
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "tro-ly-thue": {
     "positionId": "tro-ly-thue",
@@ -1929,7 +2036,7 @@
     "positionTitle": "Trợ lý thuế",
     "industryId": "KK",
     "industryName": "Kế toán - Kiểm toán",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Giới thiệu đúng trọng tâm",
       "Lý do chọn thuế",
@@ -1946,8 +2053,8 @@
       "Đối chiếu số liệu",
       "Xác định nguyên nhân",
       "Báo cáo và xử lý",
-      "Đối chiếu số lượng và giá trị các hóa đơn",
-      "Xử lý đúng quy trình",
+      "Đối chiếu bảng tổng hợp",
+      "Xử lý chênh lệch",
       "Xác định chứng từ thiếu",
       "Chủ động liên hệ",
       "Không tự ý kê khai",
@@ -1962,11 +2069,9 @@
         "duration": 15,
         "questions": [
           {
-            "id": "KK-03-V20261017-R1-Q1",
-            "positionId": "tro-ly-thue",
             "round": 1,
             "questionNumber": 1,
-            "questionText": "Xem xét có dấu hiệu sai sót hoặc gian lận hay không.",
+            "questionText": "Hãy giới thiệu ngắn gọn về bản thân và lý do bạn lựa chọn theo đuổi công việc Trợ lý thuế?",
             "sourceMaxScore": 30,
             "maxScore": 30,
             "scoringCriteria": [
@@ -1992,18 +2097,23 @@
                 "skill": "Trình bày"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 47,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R1-Q1",
+            "positionId": "tro-ly-thue",
             "referenceAnswer": "Tiêu chí 1 - Giới thiệu đúng trọng tâm (14đ): Nêu ngành học, kinh nghiệm/thực tập hoặc hoạt động liên quan.\nTiêu chí 2 - Lý do chọn thuế (11đ): Nêu được lý do cụ thể như quan tâm chính sách thuế, thích số liệu và quy định\nTiêu chí 3 - Trình bày (5đ): Rõ ràng, có cấu trúc, không lan man.",
             "skills": [
               "Giới thiệu đúng trọng tâm",
               "Lý do chọn thuế",
               "Trình bày"
             ],
-            "answerType": "both",
-            "source_block": 420
+            "answerType": "both"
           },
           {
-            "id": "KK-03-V20261017-R1-Q2",
-            "positionId": "tro-ly-thue",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Theo bạn, trợ lý thuế cần có những kỹ năng quan trọng nào?",
@@ -2032,18 +2142,23 @@
                 "skill": "Cập nhật quy định"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 47,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R1-Q2",
+            "positionId": "tro-ly-thue",
             "referenceAnswer": "Tiêu chí 1 - Kiến thức thuế cơ bản (20đ): Hiểu sự cần thiết của kiến thức về các sắc thuế và quy định liên quan.\nTiêu chí 2 - Kiểm tra chứng từ (10đ): Biết kiểm tra hóa đơn, chứng từ và đối chiếu số liệu.\nTiêu chí 3 - Cập nhật quy định (5đ): Nhận thức chính sách thuế có thể thay đổi.",
             "skills": [
               "Kiến thức thuế cơ bản",
               "Kiểm tra chứng từ",
               "Cập nhật quy định"
             ],
-            "answerType": "both",
-            "source_block": 420
+            "answerType": "both"
           },
           {
-            "id": "KK-03-V20261017-R1-Q3",
-            "positionId": "tro-ly-thue",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Vì sao việc cập nhật các quy định thuế lại quan trọng đối với một trợ lý thuế?",
@@ -2054,7 +2169,7 @@
                 "id": "criterion_1",
                 "name": "Nhận thức về thay đổi chính sách",
                 "maxScore": 18.0,
-                "description": "Tiêu chí 1 - Nhận thức về thay đổi chính sách (18đ): Hiểu quy định thuế có thể được cập nhật/thay đổi. Hiểu quy định thuế có thể được cập nhật/thay đổi.",
+                "description": "Tiêu chí 1 - Nhận thức về thay đổi chính sách (18đ): Hiểu quy định thuế có thể được cập nhật/thay đổi.",
                 "skill": "Nhận thức về thay đổi chính sách"
               },
               {
@@ -2072,14 +2187,21 @@
                 "skill": "Chủ động cập nhật"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Nhận thức về thay đổi chính sách (18đ): Hiểu quy định thuế có thể được cập nhật/thay đổi. Hiểu quy định thuế có thể được cập nhật/thay đổi.\nTiêu chí 2 - Ảnh hưởng đến công việc (10đ): Biết thay đổi chính sách có thể ảnh hưởng đến cách kê khai và xử lý hồ sơ\nTiêu chí 3 - Chủ động cập nhật (7đ): Nêu được cách cập nhật từ nguồn chính thống, tài liệu chuyên môn hoặc hướng dẫn của doanh nghiệp.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 47,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R1-Q3",
+            "positionId": "tro-ly-thue",
+            "referenceAnswer": "Tiêu chí 1 - Nhận thức về thay đổi chính sách (18đ): Hiểu quy định thuế có thể được cập nhật/thay đổi.\nTiêu chí 2 - Ảnh hưởng đến công việc (10đ): Biết thay đổi chính sách có thể ảnh hưởng đến cách kê khai và xử lý hồ sơ\nTiêu chí 3 - Chủ động cập nhật (7đ): Nêu được cách cập nhật từ nguồn chính thống, tài liệu chuyên môn hoặc hướng dẫn của doanh nghiệp.",
             "skills": [
               "Nhận thức về thay đổi chính sách",
               "Ảnh hưởng đến công việc",
               "Chủ động cập nhật"
             ],
-            "answerType": "both",
-            "source_block": 420
+            "answerType": "both"
           }
         ]
       },
@@ -2090,11 +2212,9 @@
         "duration": 20,
         "questions": [
           {
-            "id": "KK-03-V20261017-R2-Q1",
-            "positionId": "tro-ly-thue",
             "round": 2,
             "questionNumber": 1,
-            "questionText": "Nêu được cách cập nhật từ nguồn chính thống, tài liệu chuyên môn hoặc hướng dẫn của doanh nghiệp.",
+            "questionText": "Khi kiểm tra hồ sơ thuế của doanh nghiệp, bạn sẽ kiểm tra hóa đơn và đối chiếu chứng từ như thế nào để đảm bảo tính chính xác trước khi kê khai thuế?",
             "sourceMaxScore": 35,
             "maxScore": 35,
             "scoringCriteria": [
@@ -2120,18 +2240,23 @@
                 "skill": "Xử lý trước khi kê khai"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 48,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R2-Q1",
+            "positionId": "tro-ly-thue",
             "referenceAnswer": "Tiêu chí 1 - Kiểm tra hóa đơn (20đ): Kiểm tra tên, mã số thuế, số tiền, thuế suất, ngày và nội dung.\nTiêu chí 2 - Đối chiếu chứng từ (10đ): So sánh với hợp đồng, phiếu nhập/xuất, biên bản giao nhận và sổ kế toán.\nTiêu chí 3 - Xử lý trước khi kê khai (5đ): Trao đổi với người phụ trách/khách hàng và xử lý theo quy định.",
             "skills": [
               "Kiểm tra hóa đơn",
               "Đối chiếu chứng từ",
               "Xử lý trước khi kê khai"
             ],
-            "answerType": "both",
-            "source_block": 422
+            "answerType": "both"
           },
           {
-            "id": "KK-03-V20261017-R2-Q2",
-            "positionId": "tro-ly-thue",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Nếu số liệu trên sổ kế toán không khớp với số liệu dùng để kê khai thuế, bạn sẽ làm gì?",
@@ -2156,22 +2281,27 @@
                 "id": "criterion_3",
                 "name": "Báo cáo và xử lý",
                 "maxScore": 5.0,
-                "description": "Tiêu chí 3 - Báo cáo và xử lý (5đ): Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần. Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần.",
+                "description": "Tiêu chí 3 - Báo cáo và xử lý (5đ): Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần.",
                 "skill": "Báo cáo và xử lý"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Đối chiếu số liệu (15đ): So sánh sổ kế toán, hóa đơn, bảng kê và hồ sơ khai thuế.\nTiêu chí 2 - Xác định nguyên nhân (10đ): Kiểm tra lỗi nhập liệu, thiếu hóa đơn, sai kỳ hoặc xử lý chưa phù hợp.\nTiêu chí 3 - Báo cáo và xử lý (5đ): Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần. Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 48,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R2-Q2",
+            "positionId": "tro-ly-thue",
+            "referenceAnswer": "Tiêu chí 1 - Đối chiếu số liệu (15đ): So sánh sổ kế toán, hóa đơn, bảng kê và hồ sơ khai thuế.\nTiêu chí 2 - Xác định nguyên nhân (10đ): Kiểm tra lỗi nhập liệu, thiếu hóa đơn, sai kỳ hoặc xử lý chưa phù hợp.\nTiêu chí 3 - Báo cáo và xử lý (5đ): Trao đổi với người phụ trách và thực hiện điều chỉnh/bổ sung nếu cần.",
             "skills": [
               "Đối chiếu số liệu",
               "Xác định nguyên nhân",
               "Báo cáo và xử lý"
             ],
-            "answerType": "both",
-            "source_block": 422
+            "answerType": "both"
           },
           {
-            "id": "KK-03-V20261017-R2-Q3",
-            "positionId": "tro-ly-thue",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Khi kiểm tra hồ sơ thuế, bạn phát hiện số liệu doanh thu giữa hóa đơn và bảng tổng hợp không khớp. Bạn sẽ kiểm tra những gì?",
@@ -2182,32 +2312,39 @@
                 "id": "criterion_1",
                 "name": "Kiểm tra hóa đơn",
                 "maxScore": 18.0,
-                "description": "Tiêu chí 1 - Kiểm tra hóa đơn (18đ): Đối chiếu số lượng và giá trị các hóa đơn.",
+                "description": "Tiêu chí 1 – Kiểm tra hóa đơn (18đ): Đối chiếu số lượng hóa đơn, số hóa đơn, ngày lập, giá trị trước thuế, thuế GTGT và tổng giá trị hóa đơn.",
                 "skill": "Kiểm tra hóa đơn"
               },
               {
                 "id": "criterion_2",
-                "name": "Đối chiếu số lượng và giá trị các hóa đơn",
+                "name": "Đối chiếu bảng tổng hợp",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Đối chiếu số lượng và giá trị các hóa đơn (10đ): Kiểm tra công thức, dữ liệu nhập và các khoản đã tổng hợp.",
-                "skill": "Đối chiếu số lượng và giá trị các hóa đơn"
+                "description": "Tiêu chí 2 – Đối chiếu bảng tổng hợp (10đ): Kiểm tra dữ liệu nhập liệu, công thức tính toán, các hóa đơn bị thiếu hoặc trùng và tính đầy đủ, chính xác của số liệu tổng hợp.",
+                "skill": "Đối chiếu bảng tổng hợp"
               },
               {
                 "id": "criterion_3",
-                "name": "Xử lý đúng quy trình",
+                "name": "Xử lý chênh lệch",
                 "maxScore": 7.0,
-                "description": "Tiêu chí 3 - Xử lý đúng quy trình (7đ): Báo cáo người phụ trách và điều chỉnh khi xác định được nguyên nhân.",
-                "skill": "Xử lý đúng quy trình"
+                "description": "Tiêu chí 3 – Xử lý chênh lệch (7đ): Xác định nguyên nhân sai lệch, đối chiếu với chứng từ liên quan, báo cáo người phụ trách và đề xuất điều chỉnh theo quy định trước khi kê khai thuế.",
+                "skill": "Xử lý chênh lệch"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Kiểm tra hóa đơn (18đ): Đối chiếu số lượng và giá trị các hóa đơn.\nTiêu chí 2 - Đối chiếu số lượng và giá trị các hóa đơn (10đ): Kiểm tra công thức, dữ liệu nhập và các khoản đã tổng hợp.\nTiêu chí 3 - Xử lý đúng quy trình (7đ): Báo cáo người phụ trách và điều chỉnh khi xác định được nguyên nhân.",
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 48,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R2-Q3",
+            "positionId": "tro-ly-thue",
+            "referenceAnswer": "Tiêu chí 1 – Kiểm tra hóa đơn (18đ): Đối chiếu số lượng hóa đơn, số hóa đơn, ngày lập, giá trị trước thuế, thuế GTGT và tổng giá trị hóa đơn.\nTiêu chí 2 – Đối chiếu bảng tổng hợp (10đ): Kiểm tra dữ liệu nhập liệu, công thức tính toán, các hóa đơn bị thiếu hoặc trùng và tính đầy đủ, chính xác của số liệu tổng hợp.\nTiêu chí 3 – Xử lý chênh lệch (7đ): Xác định nguyên nhân sai lệch, đối chiếu với chứng từ liên quan, báo cáo người phụ trách và đề xuất điều chỉnh theo quy định trước khi kê khai thuế.",
             "skills": [
               "Kiểm tra hóa đơn",
-              "Đối chiếu số lượng và giá trị các hóa đơn",
-              "Xử lý đúng quy trình"
+              "Đối chiếu bảng tổng hợp",
+              "Xử lý chênh lệch"
             ],
-            "answerType": "both",
-            "source_block": 422
+            "answerType": "both"
           }
         ]
       },
@@ -2218,8 +2355,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "KK-03-V20261017-R3-Q1",
-            "positionId": "tro-ly-thue",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Gần đến hạn nộp hồ sơ thuế nhưng khách hàng chưa cung cấp đầy đủ chứng từ. Bạn sẽ xử lý như thế nào?",
@@ -2248,18 +2383,23 @@
                 "skill": "Không tự ý kê khai"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 49,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R3-Q1",
+            "positionId": "tro-ly-thue",
             "referenceAnswer": "Tiêu chí 1 - Xác định chứng từ thiếu (20đ): Lập danh sách hóa đơn, chứng từ hoặc thông tin còn thiếu.\nTiêu chí 2 - Chủ động liên hệ (20đ): Nhắc khách hàng về tài liệu và thời hạn cần cung cấp.\nTiêu chí 3 - Không tự ý kê khai (10đ): Không tự tạo số liệu hoặc kê khai khi chưa có đủ cơ sở.",
             "skills": [
               "Xác định chứng từ thiếu",
               "Chủ động liên hệ",
               "Không tự ý kê khai"
             ],
-            "answerType": "both",
-            "source_block": 424
+            "answerType": "both"
           },
           {
-            "id": "KK-03-V20261017-R3-Q2",
-            "positionId": "tro-ly-thue",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Khách hàng yêu cầu bạn đưa một khoản chi phí vào hồ sơ thuế nhưng chứng từ cung cấp chưa đủ để xác định khoản chi phí đó có phù hợp hay không. Bạn sẽ làm gì?",
@@ -2288,23 +2428,30 @@
                 "skill": "Trao đổi người phụ trách"
               }
             ],
+            "source_location": {
+              "tab_id": "t.xbcvi0hm43q",
+              "table_index": 49,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "KK-03-V20261019-R3-Q2",
+            "positionId": "tro-ly-thue",
             "referenceAnswer": "Tiêu chí 1 - Kiểm tra chứng từ (20đ): Kiểm tra hóa đơn và các tài liệu liên quan.\nTiêu chí 2 - Yêu cầu bổ sung (20đ): Chủ động yêu cầu khách hàng cung cấp tài liệu còn thiếu.\nTiêu chí 3 - Trao đổi người phụ trách (10đ): Báo cáo nếu chưa thể xác định cách xử lý.",
             "skills": [
               "Kiểm tra chứng từ",
               "Yêu cầu bổ sung",
               "Trao đổi người phụ trách"
             ],
-            "answerType": "both",
-            "source_block": 424
+            "answerType": "both"
           }
         ]
       }
     },
-    "source_content_issues": [
-      "Một số ô câu hỏi Trợ lý thuế chứa nội dung tiêu chí của câu khác (bảng 420 và 422); cần xác nhận câu hỏi gốc trước khi chấm."
-    ],
-    "grading_ready": false,
-    "source_conflicts": []
+    "source_content_issues": [],
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_normalizations": []
   },
   "credit-analyst": {
     "positionId": "credit-analyst",
@@ -2312,7 +2459,7 @@
     "positionTitle": "Credit Analyst",
     "industryId": "TCNH",
     "industryName": "Tài chính - Ngân hàng",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Nền tảng chuyên môn",
       "Lý do chọn nghề",
@@ -2323,7 +2470,7 @@
       "Cấu trúc STAR",
       "Bài học kinh nghiệm",
       "Nêu được các nhóm chỉ tiêu chính",
-      "Liên hệ chỉ tiêu với khả năng trả nợ",
+      "Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)",
       "Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ",
       "Liệt kê đủ các bước",
       "Giải thích mục đích từng bước",
@@ -2344,8 +2491,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "TCNH-02-V20261017-R1-Q1",
-            "positionId": "credit-analyst",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Giới thiệu bản thân và lý do bạn muốn theo đuổi vị trí Credit Analyst",
@@ -2374,18 +2519,23 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 54,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R1-Q1",
+            "positionId": "credit-analyst",
             "referenceAnswer": "Tiêu chí 1 (12đ) - Nền tảng chuyên môn: Nêu ngành học, dự án liên quan đến tài chính, ngân hàng hoặc phân tích số liệu.\nTiêu chí 2 (10đ) - Lý do chọn nghề: Hiểu đúng vai trò Credit Analyst là phân tích khả năng trả nợ, sức khỏe tài chính và mức độ tín nhiệm của khách hàng.\nTiêu chí 3 (8đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
             "skills": [
               "Nền tảng chuyên môn",
               "Lý do chọn nghề",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 446
+            "answerType": "both"
           },
           {
-            "id": "TCNH-02-V20261017-R1-Q2",
-            "positionId": "credit-analyst",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Bạn hiểu vai trò của một Credit Analyst là gì?",
@@ -2414,18 +2564,23 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 54,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R1-Q2",
+            "positionId": "credit-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Vai trò cầu nối: Hiểu Credit Analyst phân tích thông tin tài chính và phi tài chính để hỗ trợ quyết định cấp tín dụng.\nTiêu chí 2 (12đ) - Nghiệp vụ cốt lõi: Nêu ít nhất 3 nội dung: phân tích BCTC, đánh giá dòng tiền, lịch sử tín dụng, khả năng trả nợ và xác định rủi ro tín dụng.\nTiêu chí 3 (8đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
             "skills": [
               "Vai trò cầu nối",
               "Nghiệp vụ cốt lõi",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 446
+            "answerType": "both"
           },
           {
-            "id": "TCNH-02-V20261017-R1-Q3",
-            "positionId": "credit-analyst",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích tài chính chưa?",
@@ -2454,14 +2609,21 @@
                 "skill": "Bài học kinh nghiệm"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 54,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R1-Q3",
+            "positionId": "credit-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Dự án cụ thể: Nêu tên dự án/bài tập và vai trò đảm nhận, không trả lời “chưa có kinh nghiệm”.\nTiêu chí 2 (15đ) - Cấu trúc STAR: (Situation), (Task), (Action), (Result).\nTiêu chí 3 (5đ) - Bài học kinh nghiệm: Rút ra bài học nghiệp vụ cụ thể, ví dụ: xác nhận yêu cầu bằng văn bản trước khi triển khai.",
             "skills": [
               "Dự án cụ thể",
               "Cấu trúc STAR",
               "Bài học kinh nghiệm"
             ],
-            "answerType": "both",
-            "source_block": 446
+            "answerType": "both"
           }
         ]
       },
@@ -2472,8 +2634,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "TCNH-02-V20261017-R2-Q1",
-            "positionId": "credit-analyst",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Khi phân tích khả năng trả nợ của một doanh nghiệp, bạn sẽ xem xét những chỉ tiêu nào ?",
@@ -2483,37 +2643,42 @@
               {
                 "id": "criterion_1",
                 "name": "Nêu được các nhóm chỉ tiêu chính",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 1 (15đ) - Nêu được các nhóm chỉ tiêu chính: thanh khoản, đòn bẩy, khả năng sinh lời, dòng tiền",
+                "maxScore": 12.0,
+                "description": "Tiêu chí 1 (12đ) - Nêu được các nhóm chỉ tiêu chính: thanh khoản, đòn bẩy, khả năng sinh lời, dòng tiền",
                 "skill": "Nêu được các nhóm chỉ tiêu chính"
               },
               {
                 "id": "criterion_2",
-                "name": "Liên hệ chỉ tiêu với khả năng trả nợ",
+                "name": "Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)",
                 "maxScore": 12.0,
                 "description": "Tiêu chí 2 (12đ) - Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)",
-                "skill": "Liên hệ chỉ tiêu với khả năng trả nợ"
+                "skill": "Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ",
-                "maxScore": 8.0,
-                "description": "Tiêu chí 3 (8đ) - Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ",
+                "maxScore": 6.0,
+                "description": "Tiêu chí 3 (6đ) - Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ",
                 "skill": "Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 (15đ) - Nêu được các nhóm chỉ tiêu chính: thanh khoản, đòn bẩy, khả năng sinh lời, dòng tiền\nTiêu chí 2 (12đ) - Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)\nTiêu chí 3 (8đ) - Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ",
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 55,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R2-Q1",
+            "positionId": "credit-analyst",
+            "referenceAnswer": "Tiêu chí 1 (12đ) - Nêu được các nhóm chỉ tiêu chính: thanh khoản, đòn bẩy, khả năng sinh lời, dòng tiền\nTiêu chí 2 (12đ) - Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)\nTiêu chí 3 (6đ) - Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ",
             "skills": [
               "Nêu được các nhóm chỉ tiêu chính",
-              "Liên hệ chỉ tiêu với khả năng trả nợ",
+              "Liên hệ chỉ tiêu với khả năng trả nợ ( ko đọc mỗi số liệu)",
               "Từ vựng & Sự tự tin. Dùng đúng các thuật ngữ"
             ],
-            "answerType": "both",
-            "source_block": 448
+            "answerType": "both"
           },
           {
-            "id": "TCNH-02-V20261017-R2-Q2",
-            "positionId": "credit-analyst",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Trình bày quy trình thẩm định tín dụng một khách hàng doanh nghiệp",
@@ -2524,7 +2689,7 @@
                 "id": "criterion_1",
                 "name": "Liệt kê đủ các bước",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 (15đ)- Liệt kê đủ các bước:\n→  Thu thập hồ sơ\n→ Phân tích tài chính/phi tài chính\n→ Đánh giá tài sản bảo đảm\n→ Xếp hạng tín dụng\n→ Đề xuất cấp tín dụng\n→ Giám sát sau vay.",
+                "description": "Tiêu chí 1 (15đ)- Liệt kê đủ các bước:\n→  Thu thập hồ sơ\n→ Phân tích tài chính/phi tài chính\n→ Đánh giá tài sản bảo đảm\n→ Xếp hạng tín dụng\n→ Đề xuất cấp tín dụng\n→ Giám sát sau vay.",
                 "skill": "Liệt kê đủ các bước"
               },
               {
@@ -2542,18 +2707,23 @@
                 "skill": "Từ vựng & Sự tự tin. Dùng đúng thuật ngữ"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 (15đ)- Liệt kê đủ các bước:\n→  Thu thập hồ sơ\n→ Phân tích tài chính/phi tài chính\n→ Đánh giá tài sản bảo đảm\n→ Xếp hạng tín dụng\n→ Đề xuất cấp tín dụng\n→ Giám sát sau vay.\nTiêu chí 2 (12đ) - Giải thích mục đích từng bước\nTiêu chí 3 (8đ) - Từ vựng & Sự tự tin. Dùng đúng thuật ngữ",
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 55,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R2-Q2",
+            "positionId": "credit-analyst",
+            "referenceAnswer": "Tiêu chí 1 (15đ)- Liệt kê đủ các bước:\n→  Thu thập hồ sơ\n→ Phân tích tài chính/phi tài chính\n→ Đánh giá tài sản bảo đảm\n→ Xếp hạng tín dụng\n→ Đề xuất cấp tín dụng\n→ Giám sát sau vay.\nTiêu chí 2 (12đ) - Giải thích mục đích từng bước\nTiêu chí 3 (8đ) - Từ vựng & Sự tự tin. Dùng đúng thuật ngữ",
             "skills": [
               "Liệt kê đủ các bước",
               "Giải thích mục đích từng bước",
               "Từ vựng & Sự tự tin. Dùng đúng thuật ngữ"
             ],
-            "answerType": "both",
-            "source_block": 448
+            "answerType": "both"
           },
           {
-            "id": "TCNH-02-V20261017-R2-Q3",
-            "positionId": "credit-analyst",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Làm thế nào để đánh giá tài sản bảo đảm và tỷ lệ LTV (Loan-to-Value ratio) ?",
@@ -2582,14 +2752,21 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 55,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R2-Q3",
+            "positionId": "credit-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Định nghĩa: Hiểu đúng LTV là tỷ lệ dư nợ trên giá trị tài sản bảo đảm, ảnh hưởng đến hạn mức vay; nêu đúng khái niệm và vai trò của tài sản bảo đảm.\nTiêu chí 2 (15đ) - Quy trình đánh giá: Nêu đủ các bước: kiểm tra pháp lý, định giá độc lập và đánh giá tính thanh khoản của tài sản.\nTiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
             "skills": [
               "Định nghĩa",
               "Quy trình đánh giá",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 448
+            "answerType": "both"
           }
         ]
       },
@@ -2600,8 +2777,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "TCNH-02-V20261017-R3-Q1",
-            "positionId": "credit-analyst",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Khách hàng có tài sản bảo đảm tốt nhưng dòng tiền yếu, bạn có đề xuất cho vay không?",
@@ -2630,18 +2805,23 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 56,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R3-Q1",
+            "positionId": "credit-analyst",
             "referenceAnswer": "Tiêu chí 1 (20đ) - Khả năng trả nợ: Phân tích dòng tiền và nguồn trả nợ của khách hàng, không chỉ dựa vào tài sản bảo đảm để quyết định cho vay.\nTiêu chí 2 (20đ) - Giảm thiểu rủi ro: Nêu ít nhất 3/4 phương án và giải thích tác dụng:\nGiảm hạn mức\nTăng tài sản bảo đảm\nThêm điều kiện covenant\nGiám sát chặt chẽ hơn.\nTiêu chí 3 (10đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
             "skills": [
               "Khả năng trả nợ",
               "Giảm thiểu rủi ro",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 452
+            "answerType": "both"
           },
           {
-            "id": "TCNH-02-V20261017-R3-Q2",
-            "positionId": "credit-analyst",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Cấp trên yêu cầu bạn nhanh chóng phê duyệt một khoản vay lớn nhưng hồ sơ tài chính còn thiếu thông tin. Bạn xử lý thế nào?",
@@ -2677,6 +2857,14 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 56,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "TCNH-02-V20261019-R3-Q2",
+            "positionId": "credit-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Làm rõ TH:\nXác định lý do khẩn cấp, thời hạn và thông tin còn thiếu\nPhản ứng đồng ý hay từ chối ngay (0đ)\nTiêu chí 2 (15đ) - Tuân thủ nguyên tắc tín dụng: Không bỏ qua thẩm định thiết yếu; đảm bảo kiểm soát chéo, đúng quy trình và trách nhiệm cá nhân.\nTiêu chí 3 (15đ) - Giải pháp xử lý: Nêu ít nhất 2/3 giải pháp: bổ sung nhanh thông tin, phê duyệt có điều kiện, giảm hạn mức hoặc giải ngân từng đợt.\nTiêu chí 4 (5đ) - Từ vựng và sự tự tin: Trình bày rõ ràng, sử dụng đúng thuật ngữ",
             "skills": [
               "Làm rõ TH",
@@ -2684,23 +2872,16 @@
               "Giải pháp xử lý",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 452
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
-      {
-        "kind": "question_maximum_conflict",
-        "set": "credit-analyst",
-        "round": 2,
-        "question": 1,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
-      }
-    ]
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "financial-analyst": {
     "positionId": "financial-analyst",
@@ -2708,7 +2889,7 @@
     "positionTitle": "Financial Analyst",
     "industryId": "TCNH",
     "industryName": "Tài chính - Ngân hàng",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Nền tảng chuyên môn",
       "Hiểu đúng nghề",
@@ -2740,8 +2921,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "TCNH-01-V20261017-R1-Q1",
-            "positionId": "financial-analyst",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Giới thiệu bản thân và vì sao bạn chọn nghề Financial Analyst",
@@ -2770,18 +2949,23 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 57,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R1-Q1",
+            "positionId": "financial-analyst",
             "referenceAnswer": "Tiêu chí 1 (12đ) - Nền tảng chuyên môn: Nêu ngành học/dự án liên quan đến phân tích tài chính, BCTC,\nTiêu chí 2 (10đ) - Hiểu đúng nghề: Nêu vai trò phân tích dữ liệu tài chính, đánh giá hiệu quả kinh doanh và hỗ trợ quyết định đầu tư/ngân sách\nTiêu chí 3 (8đ) - Từ vựng và sự tự tin: Trình bày mạch lạc, sử dụng đúng thuật ngữ",
             "skills": [
               "Nền tảng chuyên môn",
               "Hiểu đúng nghề",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 457
+            "answerType": "both"
           },
           {
-            "id": "TCNH-01-V20261017-R1-Q2",
-            "positionId": "financial-analyst",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Bạn hiểu vai trò của một Chuyên viên Phân tích Tài chính trong doanh nghiệp/ngân hàng là gì?",
@@ -2810,18 +2994,23 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 57,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R1-Q2",
+            "positionId": "financial-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Vai trò công việc: Hiểu đúng vai trò phân tích BCTC, xây dựng mô hình, dự báo, đánh giá hiệu quả và hỗ trợ ra quyết định\nTiêu chí 2 (15đ) - Nghiệp vụ cốt lõi: Nêu ít nhất 3/5 đầu việc: thu thập dữ liệu tài chính, phân tích tỷ số, dự báo, lập ngân sách, báo cáo biến động.\nTiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ",
             "skills": [
               "Vai trò công việc",
               "Nghiệp vụ cốt lõi",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 457
+            "answerType": "both"
           },
           {
-            "id": "TCNH-01-V20261017-R1-Q3",
-            "positionId": "financial-analyst",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Bạn đã từng tham gia dự án/bài tập nào liên quan đến phân tích tài chính chưa?",
@@ -2850,14 +3039,21 @@
                 "skill": "Bài học kinh nghiệm"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 57,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R1-Q3",
+            "positionId": "financial-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Dự án cụ thể: Nêu tên dự án/bài tập và vai trò đảm nhận, không trả lời “chưa có kinh nghiệm”.\nTiêu chí 2 (15đ) - Cấu trúc STAR: (Situation), (Task), (Action), (Result).\nTiêu chí 3 (5đ) - Bài học kinh nghiệm: Rút ra bài học nghiệp vụ cụ thể",
             "skills": [
               "Dự án cụ thể",
               "Cấu trúc STAR",
               "Bài học kinh nghiệm"
             ],
-            "answerType": "both",
-            "source_block": 457
+            "answerType": "both"
           }
         ]
       },
@@ -2868,8 +3064,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "TCNH-01-V20261017-R2-Q1",
-            "positionId": "financial-analyst",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Các nhóm chỉ số tài chính quan trọng thường dùng để phân tích doanh nghiệp là gì?",
@@ -2879,37 +3073,42 @@
               {
                 "id": "criterion_1",
                 "name": "Nêu đủ 5 nhóm",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 1 (15đ) - Nêu đủ 5 nhóm: thanh khoản, cơ cấu vốn và nợ, hiệu quả hoạt động, khả năng sinh lời, định giá thị trường.",
+                "maxScore": 12.0,
+                "description": "Tiêu chí 1 (12đ) - Nêu đủ 5 nhóm: thanh khoản, cơ cấu vốn và nợ, hiệu quả hoạt động, khả năng sinh lời, định giá thị trường.",
                 "skill": "Nêu đủ 5 nhóm"
               },
               {
                 "id": "criterion_2",
                 "name": "Ý nghĩa và ví dụ",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 2 (15đ) - Ý nghĩa và ví dụ: Giải thích ý nghĩa các chỉ số và cách sử dụng.",
+                "maxScore": 12.0,
+                "description": "Tiêu chí 2 (12đ) - Ý nghĩa và ví dụ: Giải thích ý nghĩa các chỉ số và cách sử dụng.",
                 "skill": "Ý nghĩa và ví dụ"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng và sự tự tin",
-                "maxScore": 5.0,
-                "description": "Tiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ",
+                "maxScore": 6.0,
+                "description": "Tiêu chí 3 (6đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ",
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 (15đ) - Nêu đủ 5 nhóm: thanh khoản, cơ cấu vốn và nợ, hiệu quả hoạt động, khả năng sinh lời, định giá thị trường.\nTiêu chí 2 (15đ) - Ý nghĩa và ví dụ: Giải thích ý nghĩa các chỉ số và cách sử dụng.\nTiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ",
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 58,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R2-Q1",
+            "positionId": "financial-analyst",
+            "referenceAnswer": "Tiêu chí 1 (12đ) - Nêu đủ 5 nhóm: thanh khoản, cơ cấu vốn và nợ, hiệu quả hoạt động, khả năng sinh lời, định giá thị trường.\nTiêu chí 2 (12đ) - Ý nghĩa và ví dụ: Giải thích ý nghĩa các chỉ số và cách sử dụng.\nTiêu chí 3 (6đ) - Từ vựng và sự tự tin: Trình bày tự tin, dùng đúng thuật ngữ",
             "skills": [
               "Nêu đủ 5 nhóm",
               "Ý nghĩa và ví dụ",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 459
+            "answerType": "both"
           },
           {
-            "id": "TCNH-01-V20261017-R2-Q2",
-            "positionId": "financial-analyst",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Quy trình xây dựng một mô hình dự báo tài chính đơn giản gồm những bước nào?",
@@ -2931,17 +3130,22 @@
                 "skill": "Trình bày và thuật ngữ"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 58,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R2-Q2",
+            "positionId": "financial-analyst",
             "referenceAnswer": "Tiêu chí 1 (20đ) - Quy trình lập dự phóng: Nêu đúng thứ tự 6 bước: xác định mục tiêu, thu thập dữ liệu lịch sử, đặt giả định, dự phóng doanh thu/chi phí, lập báo cáo dự phóng và kiểm tra độ nhạy.\nTiêu chí 2 (10đ) - Trình bày và thuật ngữ: Trình bày rõ ràng, đúng thứ tự; sử dụng chính xác các thuật ngữ",
             "skills": [
               "Quy trình lập dự phóng",
               "Trình bày và thuật ngữ"
             ],
-            "answerType": "both",
-            "source_block": 459
+            "answerType": "both"
           },
           {
-            "id": "TCNH-01-V20261017-R2-Q3",
-            "positionId": "financial-analyst",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Trình bày 3 báo cáo tài chính chính và mối liên hệ giữa chúng",
@@ -2970,14 +3174,21 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 58,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R2-Q3",
+            "positionId": "financial-analyst",
             "referenceAnswer": "Tiêu chí 1 (15đ) - Ba báo cáo tài chính: Nêu đúng tên, bản chất và thành phần của bảng\nTiêu chí 2 (20đ) -Giải thích ít nhất 4 mối liên hệ\nTiêu chí 3 (5đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
             "skills": [
               "Ba báo cáo tài chính",
               "Giải thích ít nhất 4 mối liên hệ",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 459
+            "answerType": "both"
           }
         ]
       },
@@ -2988,8 +3199,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "TCNH-01-V20261017-R3-Q1",
-            "positionId": "financial-analyst",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Sếp yêu cầu báo cáo tài chính gấp nhưng số liệu từ các phòng ban không khớp, bạn xử lý thế nào?",
@@ -2999,8 +3208,8 @@
               {
                 "id": "criterion_1",
                 "name": "Xác định nguyên nhân và đối chiếu",
-                "maxScore": 35.0,
-                "description": "Tiêu chí 1 (35đ) - Xác định nguyên nhân và đối chiếu: Đánh giá mức độ trọng yếu; nêu ít nhất 3 nguyên nhân",
+                "maxScore": 25.0,
+                "description": "Tiêu chí 1 (25đ) - Xác định nguyên nhân và đối chiếu: Đánh giá mức độ trọng yếu; nêu ít nhất 3 nguyên nhân",
                 "skill": "Xác định nguyên nhân và đối chiếu"
               },
               {
@@ -3025,19 +3234,24 @@
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 (35đ) - Xác định nguyên nhân và đối chiếu: Đánh giá mức độ trọng yếu; nêu ít nhất 3 nguyên nhân\nTiêu chí 2 (10đ) - Minh bạch: Báo cáo cấp trên, đề xuất thời hạn xử lý và đánh dấu các số liệu chưa chắc chắn.\nTiêu chí 3 (10đ) - Trung thực: Không tự ý điều chỉnh số liệu\nTiêu chí 4 - Từ vựng & Sự tự tin (5đ): Dùng đúng thuật ngữ",
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 59,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R3-Q1",
+            "positionId": "financial-analyst",
+            "referenceAnswer": "Tiêu chí 1 (25đ) - Xác định nguyên nhân và đối chiếu: Đánh giá mức độ trọng yếu; nêu ít nhất 3 nguyên nhân\nTiêu chí 2 (10đ) - Minh bạch: Báo cáo cấp trên, đề xuất thời hạn xử lý và đánh dấu các số liệu chưa chắc chắn.\nTiêu chí 3 (10đ) - Trung thực: Không tự ý điều chỉnh số liệu\nTiêu chí 4 - Từ vựng & Sự tự tin (5đ): Dùng đúng thuật ngữ",
             "skills": [
               "Xác định nguyên nhân và đối chiếu",
               "Minh bạch",
               "Trung thực",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 462
+            "answerType": "both"
           },
           {
-            "id": "TCNH-01-V20261017-R3-Q2",
-            "positionId": "financial-analyst",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Kết quả phân tích cho thấy dự án thua lỗ nhưng sếp muốn tiếp tục, bạn làm gì?",
@@ -3054,8 +3268,8 @@
               {
                 "id": "criterion_2",
                 "name": "Phân tích số liệu",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 2 (15đ) - Phân tích số liệu: Nêu mức lỗ, thời gian hoàn vốn, điều kiện để dự án có lãi.",
+                "maxScore": 10.0,
+                "description": "Tiêu chí 2 (10đ) - Phân tích số liệu: Nêu mức lỗ, thời gian hoàn vốn, điều kiện để dự án có lãi.",
                 "skill": "Phân tích số liệu"
               },
               {
@@ -3073,46 +3287,31 @@
                 "skill": "Từ vựng và sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1(20đ) - Kiểm chứng phân tích và tìm hiểu lý do của sếp: Rà lại giả định, dữ liệu; hỏi để hiểu lý do của sếp\nTiêu chí 2 (15đ) - Phân tích số liệu: Nêu mức lỗ, thời gian hoàn vốn, điều kiện để dự án có lãi.\nTiêu chí 3 (10đ) - Phương án tiếp tục: Đề xuất ít nhất 3 phương án kèm chỉ số cắt lỗ:\nTiêu chí 4 (10đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
+            "source_location": {
+              "tab_id": "t.a9gvxnc5ma1m",
+              "table_index": 59,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "TCNH-01-V20261019-R3-Q2",
+            "positionId": "financial-analyst",
+            "referenceAnswer": "Tiêu chí 1(20đ) - Kiểm chứng phân tích và tìm hiểu lý do của sếp: Rà lại giả định, dữ liệu; hỏi để hiểu lý do của sếp\nTiêu chí 2 (10đ) - Phân tích số liệu: Nêu mức lỗ, thời gian hoàn vốn, điều kiện để dự án có lãi.\nTiêu chí 3 (10đ) - Phương án tiếp tục: Đề xuất ít nhất 3 phương án kèm chỉ số cắt lỗ:\nTiêu chí 4 (10đ) - Từ vựng và sự tự tin: Trình bày tự tin, sử dụng đúng thuật ngữ",
             "skills": [
               "Kiểm chứng phân tích và tìm hiểu lý do của sếp",
               "Phân tích số liệu",
               "Phương án tiếp tục",
               "Từ vựng và sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 462
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
-      {
-        "kind": "question_maximum_conflict",
-        "set": "financial-analyst",
-        "round": 2,
-        "question": 1,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
-      },
-      {
-        "kind": "question_maximum_conflict",
-        "set": "financial-analyst",
-        "round": 3,
-        "question": 1,
-        "sourceMaximum": 50,
-        "criterionTotal": 60.0
-      },
-      {
-        "kind": "question_maximum_conflict",
-        "set": "financial-analyst",
-        "round": 3,
-        "question": 2,
-        "sourceMaximum": 50,
-        "criterionTotal": 55.0
-      }
-    ]
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "risk-analyst": {
     "positionId": "risk-analyst",
@@ -3515,7 +3714,7 @@
     "positionTitle": "Logistics Operations Executive",
     "industryId": "LOG",
     "industryName": "Logistics",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Nền tảng liên quan cụ thể",
       "Lý do đúng bản chất nghề",
@@ -3544,8 +3743,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "LOG-01-V20261017-R1-Q1",
-            "positionId": "logistics-ops",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Giới thiệu bản thân và vì sao bạn chọn theo đuổi vị trí Chuyên viên Vận hành Logistics?",
@@ -3556,36 +3753,41 @@
                 "id": "criterion_1",
                 "name": "Nền tảng liên quan cụ thể",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu cụ thể ngành học/dự án/kinh nghiệm làm việc thực tế liên quan trực tiếp đến giao nhận, điều phối vận tải, quản lý kho bãi hoặc xử lý chứng từ logistics.",
+                "description": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu cụ thể ngành học/dự án/kinh nghiệm làm việc thực tế liên quan trực tiếp đến giao nhận, điều phối vận tải, quản lý kho bãi hoặc xử lý chứng từ logistics.",
                 "skill": "Nền tảng liên quan cụ thể"
               },
               {
                 "id": "criterion_2",
                 "name": "Lý do đúng bản chất nghề",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù công việc Logistics Operations là theo dõi đơn hàng, điều phối hiện trường, xử lý sự cố phát sinh và quản lý luồng hàng; không nhầm với Nhân viên Kinh doanh cước (Sales Logistics) hay Thu mua.",
+                "description": "- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù công việc Logistics Operations là theo dõi đơn hàng, điều phối hiện trường, xử lý sự cố phát sinh và quản lý luồng hàng; không nhầm với Nhân viên Kinh doanh cước (Sales Logistics) hay Thu mua.",
                 "skill": "Lý do đúng bản chất nghề"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ cơ bản: SLA, Lead Time, POD, Inbound/Outbound, Carrier",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ cơ bản: SLA, Lead Time, POD, Inbound/Outbound, Carrier",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu cụ thể ngành học/dự án/kinh nghiệm làm việc thực tế liên quan trực tiếp đến giao nhận, điều phối vận tải, quản lý kho bãi hoặc xử lý chứng từ logistics.\nTiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù công việc Logistics Operations là theo dõi đơn hàng, điều phối hiện trường, xử lý sự cố phát sinh và quản lý luồng hàng; không nhầm với Nhân viên Kinh doanh cước (Sales Logistics) hay Thu mua.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ cơ bản: SLA, Lead Time, POD, Inbound/Outbound, Carrier",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 67,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R1-Q1",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu cụ thể ngành học/dự án/kinh nghiệm làm việc thực tế liên quan trực tiếp đến giao nhận, điều phối vận tải, quản lý kho bãi hoặc xử lý chứng từ logistics.\n- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù công việc Logistics Operations là theo dõi đơn hàng, điều phối hiện trường, xử lý sự cố phát sinh và quản lý luồng hàng; không nhầm với Nhân viên Kinh doanh cước (Sales Logistics) hay Thu mua.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ cơ bản: SLA, Lead Time, POD, Inbound/Outbound, Carrier",
             "skills": [
               "Nền tảng liên quan cụ thể",
               "Lý do đúng bản chất nghề",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 496
+            "answerType": "both"
           },
           {
-            "id": "LOG-01-V20261017-R1-Q2",
-            "positionId": "logistics-ops",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Bạn hiểu vai trò của một Chuyên viên Vận hành Logistics trong doanh nghiệp là gì?",
@@ -3596,36 +3798,41 @@
                 "id": "criterion_1",
                 "name": "Xác định đúng vai trò",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là cầu nối trung tâm giữa Kho - Nhà vận chuyển - Tài xế - Khách hàng để đảm bảo hàng hóa luân chuyển đúng tiến độ, an toàn và đúng quy trình SOP.",
+                "description": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là cầu nối trung tâm giữa Kho - Nhà vận chuyển - Tài xế - Khách hàng để đảm bảo hàng hóa luân chuyển đúng tiến độ, an toàn và đúng quy trình SOP.",
                 "skill": "Xác định đúng vai trò"
               },
               {
                 "id": "criterion_2",
                 "name": "Liệt kê đủ đầu việc cốt lõi",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: Theo dõi trạng thái đơn hàng, kiểm tra/lưu trữ chứng từ (Bill/POD), điều phối xe bốc xếp, xử lý ngoại lệ (trễ/hỏng xe), theo dõi chi phí & hiệu suất.",
+                "description": "- Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: Theo dõi trạng thái đơn hàng, kiểm tra/lưu trữ chứng từ (Bill/POD), điều phối xe bốc xếp, xử lý ngoại lệ (trễ/hỏng xe), theo dõi chi phí & hiệu suất.",
                 "skill": "Liệt kê đủ đầu việc cốt lõi"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SOP, 3PL, Exception Handling, Dispatch, Tracking.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SOP, 3PL, Exception Handling, Dispatch, Tracking.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là cầu nối trung tâm giữa Kho - Nhà vận chuyển - Tài xế - Khách hàng để đảm bảo hàng hóa luân chuyển đúng tiến độ, an toàn và đúng quy trình SOP.\nTiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: Theo dõi trạng thái đơn hàng, kiểm tra/lưu trữ chứng từ (Bill/POD), điều phối xe bốc xếp, xử lý ngoại lệ (trễ/hỏng xe), theo dõi chi phí & hiệu suất.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SOP, 3PL, Exception Handling, Dispatch, Tracking.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 67,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R1-Q2",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là cầu nối trung tâm giữa Kho - Nhà vận chuyển - Tài xế - Khách hàng để đảm bảo hàng hóa luân chuyển đúng tiến độ, an toàn và đúng quy trình SOP.\n- Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 đầu việc: Theo dõi trạng thái đơn hàng, kiểm tra/lưu trữ chứng từ (Bill/POD), điều phối xe bốc xếp, xử lý ngoại lệ (trễ/hỏng xe), theo dõi chi phí & hiệu suất.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SOP, 3PL, Exception Handling, Dispatch, Tracking.",
             "skills": [
               "Xác định đúng vai trò",
               "Liệt kê đủ đầu việc cốt lõi",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 496
+            "answerType": "both"
           },
           {
-            "id": "LOG-01-V20261017-R1-Q3",
-            "positionId": "logistics-ops",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Bạn đã từng tham gia bài tập/dự án hoặc trải nghiệm thực tế nào liên quan đến điều phối và vận hành hàng hóa chưa?",
@@ -3636,32 +3843,39 @@
                 "id": "criterion_1",
                 "name": "Ví dụ dự án cụ thể",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời \"chưa có kinh nghiệm\" chung chung — nêu tên/bối cảnh bài tập mô phỏng, dự án sinh viên hoặc đợt thực tập cụ thể, vai trò đảm nhận rõ ràng.",
+                "description": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời \"chưa có kinh nghiệm\" chung chung — nêu tên/bối cảnh bài tập mô phỏng, dự án sinh viên hoặc đợt thực tập cụ thể, vai trò đảm nhận rõ ràng.",
                 "skill": "Ví dụ dự án cụ thể"
               },
               {
                 "id": "criterion_2",
                 "name": "Trình bày có ý theo cấu trúc STAR",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động cụ thể (Action)  Kết quả đo lường được (Result).",
+                "description": "- Tiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động cụ thể (Action)  Kết quả đo lường được (Result).",
                 "skill": "Trình bày có ý theo cấu trúc STAR"
               },
               {
                 "id": "criterion_3",
                 "name": "Rút ra bài học cụ thể",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học nghiệp vụ thực tế, ví dụ: \"phải kiểm tra chéo chứng từ trước khi xuất kho và luôn nhận phản hồi xác nhận từ tài xế\".",
+                "description": "- Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học nghiệp vụ thực tế, ví dụ: \"phải kiểm tra chéo chứng từ trước khi xuất kho và luôn nhận phản hồi xác nhận từ tài xế\".",
                 "skill": "Rút ra bài học cụ thể"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời \"chưa có kinh nghiệm\" chung chung — nêu tên/bối cảnh bài tập mô phỏng, dự án sinh viên hoặc đợt thực tập cụ thể, vai trò đảm nhận rõ ràng.\nTiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động cụ thể (Action)  Kết quả đo lường được (Result).\nTiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học nghiệp vụ thực tế, ví dụ: \"phải kiểm tra chéo chứng từ trước khi xuất kho và luôn nhận phản hồi xác nhận từ tài xế\".",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 67,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R1-Q3",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Không trả lời \"chưa có kinh nghiệm\" chung chung — nêu tên/bối cảnh bài tập mô phỏng, dự án sinh viên hoặc đợt thực tập cụ thể, vai trò đảm nhận rõ ràng.\n- Tiêu chí 2 - Trình bày có ý theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động cụ thể (Action)  Kết quả đo lường được (Result).\n- Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học nghiệp vụ thực tế, ví dụ: \"phải kiểm tra chéo chứng từ trước khi xuất kho và luôn nhận phản hồi xác nhận từ tài xế\".",
             "skills": [
               "Ví dụ dự án cụ thể",
               "Trình bày có ý theo cấu trúc STAR",
               "Rút ra bài học cụ thể"
             ],
-            "answerType": "both",
-            "source_block": 496
+            "answerType": "both"
           }
         ]
       },
@@ -3672,8 +3886,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "LOG-01-V20261017-R2-Q1",
-            "positionId": "logistics-ops",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Trình bày các bước trong quy trình vận hành đơn hàng (Order Fulfillment Cycle) từ khi nhận yêu cầu đến khi hoàn tất giao hàng?",
@@ -3683,37 +3895,42 @@
               {
                 "id": "criterion_1",
                 "name": "Liệt kê đúng trình tự các bước",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Liệt kê đúng trình tự các bước (15đ): Tiếp nhận yêu cầu  Kiểm tra tồn kho & chứng từ  Điều phối kho/xe bốc xếp  Theo dõi hành trình  Xác nhận giao hàng (POD).",
+                "maxScore": 12.0,
+                "description": "- Tiêu chí 1 - Liệt kê đúng trình tự các bước (12đ): Tiếp nhận yêu cầu  Kiểm tra tồn kho & chứng từ  Điều phối kho/xe bốc xếp  Theo dõi hành trình  Xác nhận giao hàng (POD).",
                 "skill": "Liệt kê đúng trình tự các bước"
               },
               {
                 "id": "criterion_2",
                 "name": "Giải thích điểm kiểm soát SOP",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Giải thích điểm kiểm soát SOP (12đ): Nêu rõ nguyên tắc không xuất hàng khi lệch chứng từ và chỉ đánh dấu hoàn tất khi nhận được bằng chứng giao hàng (POD).",
+                "description": "- Tiêu chí 2 - Giải thích điểm kiểm soát SOP (12đ): Nêu rõ nguyên tắc không xuất hàng khi lệch chứng từ và chỉ đánh dấu hoàn tất khi nhận được bằng chứng giao hàng (POD).",
                 "skill": "Giải thích điểm kiểm soát SOP"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
-                "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Order Processing, Dispatch, Cross-docking, Proof of Delivery (POD).",
+                "maxScore": 6.0,
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: Order Processing, Dispatch, Cross-docking, Proof of Delivery (POD).",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Liệt kê đúng trình tự các bước (15đ): Tiếp nhận yêu cầu  Kiểm tra tồn kho & chứng từ  Điều phối kho/xe bốc xếp  Theo dõi hành trình  Xác nhận giao hàng (POD).\nTiêu chí 2 - Giải thích điểm kiểm soát SOP (12đ): Nêu rõ nguyên tắc không xuất hàng khi lệch chứng từ và chỉ đánh dấu hoàn tất khi nhận được bằng chứng giao hàng (POD).\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Order Processing, Dispatch, Cross-docking, Proof of Delivery (POD).",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 68,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R2-Q1",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Liệt kê đúng trình tự các bước (12đ): Tiếp nhận yêu cầu  Kiểm tra tồn kho & chứng từ  Điều phối kho/xe bốc xếp  Theo dõi hành trình  Xác nhận giao hàng (POD).\n- Tiêu chí 2 - Giải thích điểm kiểm soát SOP (12đ): Nêu rõ nguyên tắc không xuất hàng khi lệch chứng từ và chỉ đánh dấu hoàn tất khi nhận được bằng chứng giao hàng (POD).\n- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: Order Processing, Dispatch, Cross-docking, Proof of Delivery (POD).",
             "skills": [
               "Liệt kê đúng trình tự các bước",
               "Giải thích điểm kiểm soát SOP",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 498
+            "answerType": "both"
           },
           {
-            "id": "LOG-01-V20261017-R2-Q2",
-            "positionId": "logistics-ops",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Khi nào nên chọn điều kiện giao hàng Incoterms FOB và CIF trong xuất nhập khẩu hàng hóa?",
@@ -3724,36 +3941,41 @@
                 "id": "criterion_1",
                 "name": "Lựa chọn đúng theo bản chất",
                 "maxScore": 18.0,
-                "description": "Tiêu chí 1 - Lựa chọn đúng theo bản chất (18đ): Bán CIF cho hàng xuất nông sản/giá trị thấp để chủ động cước tàu & chuỗi lạnh; Mua FOB cho hàng nhập điện tử/giá trị cao để tự chủ bảo hiểm và chỉ định nhà vận chuyển uy tín tại Việt Nam.",
+                "description": "- Tiêu chí 1 - Lựa chọn đúng theo bản chất (18đ): Bán CIF cho hàng xuất nông sản/giá trị thấp để chủ động cước tàu & chuỗi lạnh; Mua FOB cho hàng nhập điện tử/giá trị cao để tự chủ bảo hiểm và chỉ định nhà vận chuyển uy tín tại Việt Nam.",
                 "skill": "Lựa chọn đúng theo bản chất"
               },
               {
                 "id": "criterion_2",
                 "name": "Giải thích chuyển giao rủi ro & chi phí",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Giải thích chuyển giao rủi ro & chi phí (10đ): Giải thích đúng điểm chuyển giao rủi ro hàng hóa và nghĩa vụ trả cước tàu/bảo hiểm theo Incoterms 2020.",
+                "description": "- Tiêu chí 2 - Giải thích chuyển giao rủi ro & chi phí (10đ): Giải thích đúng điểm chuyển giao rủi ro hàng hóa và nghĩa vụ trả cước tàu/bảo hiểm theo Incoterms 2020.",
                 "skill": "Giải thích chuyển giao rủi ro & chi phí"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 7.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Freight, Insurance, Port of Loading, Port of Discharge, Risk Transfer.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Freight, Insurance, Port of Loading, Port of Discharge, Risk Transfer.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Lựa chọn đúng theo bản chất (18đ): Bán CIF cho hàng xuất nông sản/giá trị thấp để chủ động cước tàu & chuỗi lạnh; Mua FOB cho hàng nhập điện tử/giá trị cao để tự chủ bảo hiểm và chỉ định nhà vận chuyển uy tín tại Việt Nam.\nTiêu chí 2 - Giải thích chuyển giao rủi ro & chi phí (10đ): Giải thích đúng điểm chuyển giao rủi ro hàng hóa và nghĩa vụ trả cước tàu/bảo hiểm theo Incoterms 2020.\nTiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Freight, Insurance, Port of Loading, Port of Discharge, Risk Transfer.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 68,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R2-Q2",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Lựa chọn đúng theo bản chất (18đ): Bán CIF cho hàng xuất nông sản/giá trị thấp để chủ động cước tàu & chuỗi lạnh; Mua FOB cho hàng nhập điện tử/giá trị cao để tự chủ bảo hiểm và chỉ định nhà vận chuyển uy tín tại Việt Nam.\n- Tiêu chí 2 - Giải thích chuyển giao rủi ro & chi phí (10đ): Giải thích đúng điểm chuyển giao rủi ro hàng hóa và nghĩa vụ trả cước tàu/bảo hiểm theo Incoterms 2020.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Freight, Insurance, Port of Loading, Port of Discharge, Risk Transfer.",
             "skills": [
               "Lựa chọn đúng theo bản chất",
               "Giải thích chuyển giao rủi ro & chi phí",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 498
+            "answerType": "both"
           },
           {
-            "id": "LOG-01-V20261017-R2-Q3",
-            "positionId": "logistics-ops",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Bạn làm thế nào để kiểm soát chi phí vận hành và rủi ro trễ hạn cam kết giao hàng (SLA)?",
@@ -3764,32 +3986,39 @@
                 "id": "criterion_1",
                 "name": "Biện pháp kiểm soát SLA",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Biện pháp kiểm soát SLA (15đ): Thiết lập đệm thời gian (Buffer time), theo dõi vị trí xe định kỳ và giám sát mốc thời gian bốc xếp tại kho.",
+                "description": "- Tiêu chí 1 - Biện pháp kiểm soát SLA (15đ): Thiết lập đệm thời gian (Buffer time), theo dõi vị trí xe định kỳ và giám sát mốc thời gian bốc xếp tại kho.",
                 "skill": "Biện pháp kiểm soát SLA"
               },
               {
                 "id": "criterion_2",
                 "name": "Tuân thủ thẩm quyền chi phí",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Tuân thủ thẩm quyền chi phí (12đ): Nhấn mạnh nguyên tắc không tự ý xác nhận các khoản phụ phí phát sinh vượt ngưỡng quy định (VD: > 200.000đ) khi chưa được Quản lý phê duyệt.",
+                "description": "- Tiêu chí 2 - Tuân thủ thẩm quyền chi phí (12đ): Nhấn mạnh nguyên tắc không tự ý xác nhận các khoản phụ phí phát sinh vượt ngưỡng quy định (VD: > 200.000đ) khi chưa được Quản lý phê duyệt.",
                 "skill": "Tuân thủ thẩm quyền chi phí"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SLA Margin, Buffer Time, Surcharge, Escalation, Cost Control.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SLA Margin, Buffer Time, Surcharge, Escalation, Cost Control.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Biện pháp kiểm soát SLA (15đ): Thiết lập đệm thời gian (Buffer time), theo dõi vị trí xe định kỳ và giám sát mốc thời gian bốc xếp tại kho.\nTiêu chí 2 - Tuân thủ thẩm quyền chi phí (12đ): Nhấn mạnh nguyên tắc không tự ý xác nhận các khoản phụ phí phát sinh vượt ngưỡng quy định (VD: > 200.000đ) khi chưa được Quản lý phê duyệt.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SLA Margin, Buffer Time, Surcharge, Escalation, Cost Control.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 68,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R2-Q3",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Biện pháp kiểm soát SLA (15đ): Thiết lập đệm thời gian (Buffer time), theo dõi vị trí xe định kỳ và giám sát mốc thời gian bốc xếp tại kho.\n- Tiêu chí 2 - Tuân thủ thẩm quyền chi phí (12đ): Nhấn mạnh nguyên tắc không tự ý xác nhận các khoản phụ phí phát sinh vượt ngưỡng quy định (VD: > 200.000đ) khi chưa được Quản lý phê duyệt.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: SLA Margin, Buffer Time, Surcharge, Escalation, Cost Control.",
             "skills": [
               "Biện pháp kiểm soát SLA",
               "Tuân thủ thẩm quyền chi phí",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 498
+            "answerType": "both"
           }
         ]
       },
@@ -3800,8 +4029,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "LOG-01-V20261017-R3-Q1",
-            "positionId": "logistics-ops",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Nhân viên kho báo Phiếu giao hàng ghi 30 thùng nhưng Đơn hàng (PO) ghi 32 thùng, xe chở hàng đang chờ rời kho, bạn xử lý thế nào?",
@@ -3812,36 +4039,41 @@
                 "id": "criterion_1",
                 "name": "Xác minh & Tuân thủ SOP",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 1 - Xác minh & Tuân thủ SOP (20đ): Lập tức ra lệnh tạm dừng xuất hàng; không tự ý sửa số liệu; yêu cầu Kho kiểm đếm thực tế và đối chiếu PO/Biên bản.",
+                "description": "- Tiêu chí 1 - Xác minh & Tuân thủ SOP (20đ): Lập tức ra lệnh tạm dừng xuất hàng; không tự ý sửa số liệu; yêu cầu Kho kiểm đếm thực tế và đối chiếu PO/Biên bản.",
                 "skill": "Xác minh & Tuân thủ SOP"
               },
               {
                 "id": "criterion_2",
                 "name": "Xử lý chứng từ & Thông báo",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 2 - Xử lý chứng từ & Thông báo (20đ): Yêu cầu in lại phiếu giao đúng số lượng thực xuất trước khi cho xe rời kho; cập nhật thông tin minh bạch cho các bên liên quan.",
+                "description": "- Tiêu chí 2 - Xử lý chứng từ & Thông báo (20đ): Yêu cầu in lại phiếu giao đúng số lượng thực xuất trước khi cho xe rời kho; cập nhật thông tin minh bạch cho các bên liên quan.",
                 "skill": "Xử lý chứng từ & Thông báo"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Document Discrepancy, Hold Shipment, PO Reconciliation, Packing List.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Document Discrepancy, Hold Shipment, PO Reconciliation, Packing List.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Xác minh & Tuân thủ SOP (20đ): Lập tức ra lệnh tạm dừng xuất hàng; không tự ý sửa số liệu; yêu cầu Kho kiểm đếm thực tế và đối chiếu PO/Biên bản.\nTiêu chí 2 - Xử lý chứng từ & Thông báo (20đ): Yêu cầu in lại phiếu giao đúng số lượng thực xuất trước khi cho xe rời kho; cập nhật thông tin minh bạch cho các bên liên quan.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Document Discrepancy, Hold Shipment, PO Reconciliation, Packing List.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 69,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R3-Q1",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Xác minh & Tuân thủ SOP (20đ): Lập tức ra lệnh tạm dừng xuất hàng; không tự ý sửa số liệu; yêu cầu Kho kiểm đếm thực tế và đối chiếu PO/Biên bản.\n- Tiêu chí 2 - Xử lý chứng từ & Thông báo (20đ): Yêu cầu in lại phiếu giao đúng số lượng thực xuất trước khi cho xe rời kho; cập nhật thông tin minh bạch cho các bên liên quan.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Document Discrepancy, Hold Shipment, PO Reconciliation, Packing List.",
             "skills": [
               "Xác minh & Tuân thủ SOP",
               "Xử lý chứng từ & Thông báo",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 500
+            "answerType": "both"
           },
           {
-            "id": "LOG-01-V20261017-R3-Q2",
-            "positionId": "logistics-ops",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Xe chở hàng gặp sự cố hỏng trên đường có nguy cơ trễ SLA 1 tiếng. Xe thay thế ngoài có thể giao đúng hạn nhưng phát sinh phụ phí 350.000đ (vượt hạn mức tự duyệt 200.000đ), bạn làm gì?",
@@ -3852,47 +4084,48 @@
                 "id": "criterion_1",
                 "name": "Tuân thủ thẩm quyền & Khẩn cấp",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 1 - Tuân thủ thẩm quyền & Khẩn cấp (20đ): Liên hệ Quản lý ngay lập tức để trình duyệt khoản phụ phí 350.000đ trước hạn báo giá của nhà xe (VD: trước 09:35) để đảm bảo SLA.",
+                "description": "- Tiêu chí 1 - Tuân thủ thẩm quyền & Khẩn cấp (20đ): Liên hệ Quản lý ngay lập tức để trình duyệt khoản phụ phí 350.000đ trước hạn báo giá của nhà xe (VD: trước 09:35) để đảm bảo SLA.",
                 "skill": "Tuân thủ thẩm quyền & Khẩn cấp"
               },
               {
                 "id": "criterion_2",
                 "name": "Phương án dự phòng",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 2 - Phương án dự phòng (20đ): Nếu Quản lý không duyệt chi phí, chủ động liên hệ ngay với Khách hàng để thông báo rủi ro trễ tiến độ và xin gia hạn thời gian giao.",
+                "description": "- Tiêu chí 2 - Phương án dự phòng (20đ): Nếu Quản lý không duyệt chi phí, chủ động liên hệ ngay với Khách hàng để thông báo rủi ro trễ tiến độ và xin gia hạn thời gian giao.",
                 "skill": "Phương án dự phòng"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Escalation, Emergency Transport, SLA Violation, Contingency Plan.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Escalation, Emergency Transport, SLA Violation, Contingency Plan.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Tuân thủ thẩm quyền & Khẩn cấp (20đ): Liên hệ Quản lý ngay lập tức để trình duyệt khoản phụ phí 350.000đ trước hạn báo giá của nhà xe (VD: trước 09:35) để đảm bảo SLA.\nTiêu chí 2 - Phương án dự phòng (20đ): Nếu Quản lý không duyệt chi phí, chủ động liên hệ ngay với Khách hàng để thông báo rủi ro trễ tiến độ và xin gia hạn thời gian giao.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Escalation, Emergency Transport, SLA Violation, Contingency Plan.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 69,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-01-V20261019-R3-Q2",
+            "positionId": "logistics-ops",
+            "referenceAnswer": "- Tiêu chí 1 - Tuân thủ thẩm quyền & Khẩn cấp (20đ): Liên hệ Quản lý ngay lập tức để trình duyệt khoản phụ phí 350.000đ trước hạn báo giá của nhà xe (VD: trước 09:35) để đảm bảo SLA.\n- Tiêu chí 2 - Phương án dự phòng (20đ): Nếu Quản lý không duyệt chi phí, chủ động liên hệ ngay với Khách hàng để thông báo rủi ro trễ tiến độ và xin gia hạn thời gian giao.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Escalation, Emergency Transport, SLA Violation, Contingency Plan.",
             "skills": [
               "Tuân thủ thẩm quyền & Khẩn cấp",
               "Phương án dự phòng",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 500
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
-      {
-        "kind": "question_maximum_conflict",
-        "set": "logistics-ops",
-        "round": 2,
-        "question": 1,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
-      }
-    ]
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "supply-chain": {
     "positionId": "supply-chain",
@@ -3900,7 +4133,7 @@
     "positionTitle": "Supply Chain Analyst",
     "industryId": "LOG",
     "industryName": "Logistics",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Nền tảng liên quan cụ thể",
       "Lý do đúng bản chất nghề",
@@ -3929,8 +4162,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "LOG-02-V20261017-R1-Q1",
-            "positionId": "supply-chain",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Giới thiệu bản thân và vì sao bạn chọn định hướng trở thành Supply Chain Analyst?",
@@ -3941,36 +4172,41 @@
                 "id": "criterion_1",
                 "name": "Nền tảng liên quan cụ thể",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án phân tích dữ liệu, hệ thống thông tin, mô hình hóa dữ liệu bằng Excel, SQL, Power BI hoặc Python liên quan đến chuỗi cung ứng.",
+                "description": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án phân tích dữ liệu, hệ thống thông tin, mô hình hóa dữ liệu bằng Excel, SQL, Power BI hoặc Python liên quan đến chuỗi cung ứng.",
                 "skill": "Nền tảng liên quan cụ thể"
               },
               {
                 "id": "criterion_2",
                 "name": "Lý do đúng bản chất nghề",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Hiểu rõ vai trò Analyst là khai thác dữ liệu, phát hiện bất thường, tìm nguyên nhân gốc rễ và đề xuất giải pháp tối ưu; phân biệt với nhân sự vận hành thuần túy.",
+                "description": "- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Hiểu rõ vai trò Analyst là khai thác dữ liệu, phát hiện bất thường, tìm nguyên nhân gốc rễ và đề xuất giải pháp tối ưu; phân biệt với nhân sự vận hành thuần túy.",
                 "skill": "Lý do đúng bản chất nghề"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Data Analytics, Inventory Optimization, Supply-Demand, Forecasting.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Data Analytics, Inventory Optimization, Supply-Demand, Forecasting.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án phân tích dữ liệu, hệ thống thông tin, mô hình hóa dữ liệu bằng Excel, SQL, Power BI hoặc Python liên quan đến chuỗi cung ứng.\nTiêu chí 2 - Lý do đúng bản chất nghề (10đ): Hiểu rõ vai trò Analyst là khai thác dữ liệu, phát hiện bất thường, tìm nguyên nhân gốc rễ và đề xuất giải pháp tối ưu; phân biệt với nhân sự vận hành thuần túy.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Data Analytics, Inventory Optimization, Supply-Demand, Forecasting.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 70,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R1-Q1",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án phân tích dữ liệu, hệ thống thông tin, mô hình hóa dữ liệu bằng Excel, SQL, Power BI hoặc Python liên quan đến chuỗi cung ứng.\n- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Hiểu rõ vai trò Analyst là khai thác dữ liệu, phát hiện bất thường, tìm nguyên nhân gốc rễ và đề xuất giải pháp tối ưu; phân biệt với nhân sự vận hành thuần túy.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Data Analytics, Inventory Optimization, Supply-Demand, Forecasting.",
             "skills": [
               "Nền tảng liên quan cụ thể",
               "Lý do đúng bản chất nghề",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 504
+            "answerType": "both"
           },
           {
-            "id": "LOG-02-V20261017-R1-Q2",
-            "positionId": "supply-chain",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Bạn hiểu vai trò của một Supply Chain Analyst trong doanh nghiệp là gì?",
@@ -3981,36 +4217,41 @@
                 "id": "criterion_1",
                 "name": "Xác định đúng vai trò",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là người biến dữ liệu thô trong chuỗi cung ứng thành thông tin quản trị (Actionable Insights) giúp cải thiện hiệu suất và giảm chi phí.",
+                "description": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là người biến dữ liệu thô trong chuỗi cung ứng thành thông tin quản trị (Actionable Insights) giúp cải thiện hiệu suất và giảm chi phí.",
                 "skill": "Xác định đúng vai trò"
               },
               {
                 "id": "criterion_2",
                 "name": "Liệt kê đủ đầu việc cốt lõi",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 công việc: Phân tích tồn kho (DOI/Safety Stock), dự báo nhu cầu (Demand Forecasting), đánh giá KPI nhà cung cấp (OTIF), phân tích chi phí vận chuyển/lưu kho, tìm nguyên nhân gốc rễ đứt gãy.",
+                "description": "- Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 công việc: Phân tích tồn kho (DOI/Safety Stock), dự báo nhu cầu (Demand Forecasting), đánh giá KPI nhà cung cấp (OTIF), phân tích chi phí vận chuyển/lưu kho, tìm nguyên nhân gốc rễ đứt gãy.",
                 "skill": "Liệt kê đủ đầu việc cốt lõi"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: DOI, Safety Stock, OTIF, Lead Time, Actionable Insights.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: DOI, Safety Stock, OTIF, Lead Time, Actionable Insights.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là người biến dữ liệu thô trong chuỗi cung ứng thành thông tin quản trị (Actionable Insights) giúp cải thiện hiệu suất và giảm chi phí.\nTiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 công việc: Phân tích tồn kho (DOI/Safety Stock), dự báo nhu cầu (Demand Forecasting), đánh giá KPI nhà cung cấp (OTIF), phân tích chi phí vận chuyển/lưu kho, tìm nguyên nhân gốc rễ đứt gãy.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: DOI, Safety Stock, OTIF, Lead Time, Actionable Insights.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 70,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R1-Q2",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Nêu rõ đây là người biến dữ liệu thô trong chuỗi cung ứng thành thông tin quản trị (Actionable Insights) giúp cải thiện hiệu suất và giảm chi phí.\n- Tiêu chí 2 - Liệt kê đủ đầu việc cốt lõi (12đ): Nêu tối thiểu 3/5 công việc: Phân tích tồn kho (DOI/Safety Stock), dự báo nhu cầu (Demand Forecasting), đánh giá KPI nhà cung cấp (OTIF), phân tích chi phí vận chuyển/lưu kho, tìm nguyên nhân gốc rễ đứt gãy.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: DOI, Safety Stock, OTIF, Lead Time, Actionable Insights.",
             "skills": [
               "Xác định đúng vai trò",
               "Liệt kê đủ đầu việc cốt lõi",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 504
+            "answerType": "both"
           },
           {
-            "id": "LOG-02-V20261017-R1-Q3",
-            "positionId": "supply-chain",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Bạn đã từng thực hiện dự án hoặc bài tập phân tích dữ liệu chuỗi cung ứng nào chưa?",
@@ -4021,32 +4262,39 @@
                 "id": "criterion_1",
                 "name": "Ví dụ dự án cụ thể",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên bài tập/dự án cụ thể (phân tích tồn kho, dự báo bán hàng, đánh giá nhà cung cấp...), mô tả nguồn dữ liệu và vai trò đảm nhận.",
+                "description": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên bài tập/dự án cụ thể (phân tích tồn kho, dự báo bán hàng, đánh giá nhà cung cấp...), mô tả nguồn dữ liệu và vai trò đảm nhận.",
                 "skill": "Ví dụ dự án cụ thể"
               },
               {
                 "id": "criterion_2",
                 "name": "Trình bày theo cấu trúc STAR",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động phân tích dữ liệu (Action)  Kết quả đo lường được (Result).",
+                "description": "- Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động phân tích dữ liệu (Action)  Kết quả đo lường được (Result).",
                 "skill": "Trình bày theo cấu trúc STAR"
               },
               {
                 "id": "criterion_3",
                 "name": "Bài học kinh nghiệm",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Bài học kinh nghiệm (8đ): Chỉ ra 1 bài học nghiệp vụ, ví dụ: \"phải làm sạch dữ liệu và kiểm tra tính toàn vẹn trước khi đưa ra nhận định\".",
+                "description": "- Tiêu chí 3 - Bài học kinh nghiệm (8đ): Chỉ ra 1 bài học nghiệp vụ, ví dụ: \"phải làm sạch dữ liệu và kiểm tra tính toàn vẹn trước khi đưa ra nhận định\".",
                 "skill": "Bài học kinh nghiệm"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên bài tập/dự án cụ thể (phân tích tồn kho, dự báo bán hàng, đánh giá nhà cung cấp...), mô tả nguồn dữ liệu và vai trò đảm nhận.\nTiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động phân tích dữ liệu (Action)  Kết quả đo lường được (Result).\nTiêu chí 3 - Bài học kinh nghiệm (8đ): Chỉ ra 1 bài học nghiệp vụ, ví dụ: \"phải làm sạch dữ liệu và kiểm tra tính toàn vẹn trước khi đưa ra nhận định\".",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 70,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R1-Q3",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên bài tập/dự án cụ thể (phân tích tồn kho, dự báo bán hàng, đánh giá nhà cung cấp...), mô tả nguồn dữ liệu và vai trò đảm nhận.\n- Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động phân tích dữ liệu (Action)  Kết quả đo lường được (Result).\n- Tiêu chí 3 - Bài học kinh nghiệm (8đ): Chỉ ra 1 bài học nghiệp vụ, ví dụ: \"phải làm sạch dữ liệu và kiểm tra tính toàn vẹn trước khi đưa ra nhận định\".",
             "skills": [
               "Ví dụ dự án cụ thể",
               "Trình bày theo cấu trúc STAR",
               "Bài học kinh nghiệm"
             ],
-            "answerType": "both",
-            "source_block": 504
+            "answerType": "both"
           }
         ]
       },
@@ -4057,8 +4305,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "LOG-02-V20261017-R2-Q1",
-            "positionId": "supply-chain",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Giải thích Hiệu ứng Bullwhip (Cái roi da) trong chuỗi cung ứng và đề xuất giải pháp cốt lõi để khắc phục?",
@@ -4068,37 +4314,42 @@
               {
                 "id": "criterion_1",
                 "name": "Phân tích đúng nguyên nhân",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Phân tích đúng nguyên nhân (15đ): Chỉ ra biến động nhu cầu ảo bị khuếch đại qua các tầng (Siêu thị  Đại lý  Nhà máy) do hoảng loạn ngắn hạn và thiếu chia sẻ thông tin.",
+                "maxScore": 12.0,
+                "description": "- Tiêu chí 1 - Phân tích đúng nguyên nhân (12đ): Chỉ ra biến động nhu cầu ảo bị khuếch đại qua các tầng (Siêu thị  Đại lý  Nhà máy) do hoảng loạn ngắn hạn và thiếu chia sẻ thông tin.",
                 "skill": "Phân tích đúng nguyên nhân"
               },
               {
                 "id": "criterion_2",
                 "name": "Giải pháp dựa trên Dữ liệu",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Giải pháp dựa trên Dữ liệu (12đ): Đề xuất thu thập dữ liệu bán hàng thực tế tại điểm bán (POS Data) và chia sẻ tồn kho minh bạch toàn chuỗi (VMI/CPFR).",
+                "description": "- Tiêu chí 2 - Giải pháp dựa trên Dữ liệu (12đ): Đề xuất thu thập dữ liệu bán hàng thực tế tại điểm bán (POS Data) và chia sẻ tồn kho minh bạch toàn chuỗi (VMI/CPFR).",
                 "skill": "Giải pháp dựa trên Dữ liệu"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
-                "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Bullwhip Effect, Panic Buying, Point of Sale (POS) Data, VMI, CPFR.",
+                "maxScore": 6.0,
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: Bullwhip Effect, Panic Buying, Point of Sale (POS) Data, VMI, CPFR.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Phân tích đúng nguyên nhân (15đ): Chỉ ra biến động nhu cầu ảo bị khuếch đại qua các tầng (Siêu thị  Đại lý  Nhà máy) do hoảng loạn ngắn hạn và thiếu chia sẻ thông tin.\nTiêu chí 2 - Giải pháp dựa trên Dữ liệu (12đ): Đề xuất thu thập dữ liệu bán hàng thực tế tại điểm bán (POS Data) và chia sẻ tồn kho minh bạch toàn chuỗi (VMI/CPFR).\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Bullwhip Effect, Panic Buying, Point of Sale (POS) Data, VMI, CPFR.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 71,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R2-Q1",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Phân tích đúng nguyên nhân (12đ): Chỉ ra biến động nhu cầu ảo bị khuếch đại qua các tầng (Siêu thị  Đại lý  Nhà máy) do hoảng loạn ngắn hạn và thiếu chia sẻ thông tin.\n- Tiêu chí 2 - Giải pháp dựa trên Dữ liệu (12đ): Đề xuất thu thập dữ liệu bán hàng thực tế tại điểm bán (POS Data) và chia sẻ tồn kho minh bạch toàn chuỗi (VMI/CPFR).\n- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: Bullwhip Effect, Panic Buying, Point of Sale (POS) Data, VMI, CPFR.",
             "skills": [
               "Phân tích đúng nguyên nhân",
               "Giải pháp dựa trên Dữ liệu",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 506
+            "answerType": "both"
           },
           {
-            "id": "LOG-02-V20261017-R2-Q2",
-            "positionId": "supply-chain",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Các nhóm chỉ số quan trọng thường dùng để phân tích hiệu suất tồn kho và nhà cung cấp là gì?",
@@ -4109,36 +4360,41 @@
                 "id": "criterion_1",
                 "name": "Liệt kê đủ nhóm chỉ số",
                 "maxScore": 18.0,
-                "description": "Tiêu chí 1 - Liệt kê đủ nhóm chỉ số (18đ): Số ngày tồn kho (DOI), Điểm đặt hàng lại (ROP), Tồn an toàn (Safety Stock), Tỷ lệ giao đúng hạn đủ lượng (OTIF), Lead Time.",
+                "description": "- Tiêu chí 1 - Liệt kê đủ nhóm chỉ số (18đ): Số ngày tồn kho (DOI), Điểm đặt hàng lại (ROP), Tồn an toàn (Safety Stock), Tỷ lệ giao đúng hạn đủ lượng (OTIF), Lead Time.",
                 "skill": "Liệt kê đủ nhóm chỉ số"
               },
               {
                 "id": "criterion_2",
                 "name": "Giải thích ý nghĩa nghiệp vụ",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Giải thích ý nghĩa nghiệp vụ (10đ): Giải thích DOI cao gây ứ đọng vốn, OTIF thấp cảnh báo nguy cơ đứt gãy cung ứng; nêu được mối quan hệ giữa Lead Time và ROP.",
+                "description": "- Tiêu chí 2 - Giải thích ý nghĩa nghiệp vụ (10đ): Giải thích DOI cao gây ứ đọng vốn, OTIF thấp cảnh báo nguy cơ đứt gãy cung ứng; nêu được mối quan hệ giữa Lead Time và ROP.",
                 "skill": "Giải thích ý nghĩa nghiệp vụ"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 7.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Days of Inventory (DOI), Reorder Point (ROP), OTIF, Lead Time, Working Capital.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Days of Inventory (DOI), Reorder Point (ROP), OTIF, Lead Time, Working Capital.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Liệt kê đủ nhóm chỉ số (18đ): Số ngày tồn kho (DOI), Điểm đặt hàng lại (ROP), Tồn an toàn (Safety Stock), Tỷ lệ giao đúng hạn đủ lượng (OTIF), Lead Time.\nTiêu chí 2 - Giải thích ý nghĩa nghiệp vụ (10đ): Giải thích DOI cao gây ứ đọng vốn, OTIF thấp cảnh báo nguy cơ đứt gãy cung ứng; nêu được mối quan hệ giữa Lead Time và ROP.\nTiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Days of Inventory (DOI), Reorder Point (ROP), OTIF, Lead Time, Working Capital.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 71,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R2-Q2",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Liệt kê đủ nhóm chỉ số (18đ): Số ngày tồn kho (DOI), Điểm đặt hàng lại (ROP), Tồn an toàn (Safety Stock), Tỷ lệ giao đúng hạn đủ lượng (OTIF), Lead Time.\n- Tiêu chí 2 - Giải thích ý nghĩa nghiệp vụ (10đ): Giải thích DOI cao gây ứ đọng vốn, OTIF thấp cảnh báo nguy cơ đứt gãy cung ứng; nêu được mối quan hệ giữa Lead Time và ROP.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Days of Inventory (DOI), Reorder Point (ROP), OTIF, Lead Time, Working Capital.",
             "skills": [
               "Liệt kê đủ nhóm chỉ số",
               "Giải thích ý nghĩa nghiệp vụ",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 506
+            "answerType": "both"
           },
           {
-            "id": "LOG-02-V20261017-R2-Q3",
-            "positionId": "supply-chain",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Khi phát hiện chỉ số DOI của một SKU tăng vọt lên 90 ngày (gấp 6 lần định mức 14 ngày), bạn phân tích nguyên nhân và đề xuất xử lý thế nào?",
@@ -4149,32 +4405,39 @@
                 "id": "criterion_1",
                 "name": "Chẩn đoán nguyên nhân gốc rễ",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Chẩn đoán nguyên nhân gốc rễ (15đ): Đối soát dữ liệu ROP, lịch sử đặt hàng, sai lệch dự báo (Over-forecasting) và xu hướng sụt giảm sức mua thực tế.",
+                "description": "- Tiêu chí 1 - Chẩn đoán nguyên nhân gốc rễ (15đ): Đối soát dữ liệu ROP, lịch sử đặt hàng, sai lệch dự báo (Over-forecasting) và xu hướng sụt giảm sức mua thực tế.",
                 "skill": "Chẩn đoán nguyên nhân gốc rễ"
               },
               {
                 "id": "criterion_2",
                 "name": "Đề xuất giải pháp hành động",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Đề xuất giải pháp hành động (12đ): Lập tức tạm ngưng đặt mua mới  Đề xuất chương trình bán kèm (Bundling), khuyến mãi kích cầu hoặc điều chuyển hàng nội bộ để giải phóng kho.",
+                "description": "- Tiêu chí 2 - Đề xuất giải pháp hành động (12đ): Lập tức tạm ngưng đặt mua mới  Đề xuất chương trình bán kèm (Bundling), khuyến mãi kích cầu hoặc điều chuyển hàng nội bộ để giải phóng kho.",
                 "skill": "Đề xuất giải pháp hành động"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Excess Stock, Over-forecasting, Bundling, Inventory Transfer, Root Cause Analysis.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Excess Stock, Over-forecasting, Bundling, Inventory Transfer, Root Cause Analysis.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Chẩn đoán nguyên nhân gốc rễ (15đ): Đối soát dữ liệu ROP, lịch sử đặt hàng, sai lệch dự báo (Over-forecasting) và xu hướng sụt giảm sức mua thực tế.\nTiêu chí 2 - Đề xuất giải pháp hành động (12đ): Lập tức tạm ngưng đặt mua mới  Đề xuất chương trình bán kèm (Bundling), khuyến mãi kích cầu hoặc điều chuyển hàng nội bộ để giải phóng kho.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Excess Stock, Over-forecasting, Bundling, Inventory Transfer, Root Cause Analysis.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 71,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R2-Q3",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Chẩn đoán nguyên nhân gốc rễ (15đ): Đối soát dữ liệu ROP, lịch sử đặt hàng, sai lệch dự báo (Over-forecasting) và xu hướng sụt giảm sức mua thực tế.\n- Tiêu chí 2 - Đề xuất giải pháp hành động (12đ): Lập tức tạm ngưng đặt mua mới  Đề xuất chương trình bán kèm (Bundling), khuyến mãi kích cầu hoặc điều chuyển hàng nội bộ để giải phóng kho.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Excess Stock, Over-forecasting, Bundling, Inventory Transfer, Root Cause Analysis.",
             "skills": [
               "Chẩn đoán nguyên nhân gốc rễ",
               "Đề xuất giải pháp hành động",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 506
+            "answerType": "both"
           }
         ]
       },
@@ -4185,8 +4448,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "LOG-02-V20261017-R3-Q1",
-            "positionId": "supply-chain",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Chi phí Logistics tháng này tăng vọt 40%. Sếp yêu cầu bạn giải thích nhanh bằng lời (Data Storytelling) mà không đọc file Excel 1.000 dòng, bạn trình bày thế nào?",
@@ -4197,36 +4458,41 @@
                 "id": "criterion_1",
                 "name": "Ngôn ngữ Kinh doanh đơn giản",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 1 - Ngôn ngữ Kinh doanh đơn giản (20đ): Tuyệt đối không dùng thuật ngữ kỹ thuật rườm rà (Outliers, MAPE); dùng ngôn ngữ tài chính/kinh doanh (Doanh số, Tồn kho, Phí lưu bãi).",
+                "description": "- Tiêu chí 1 - Ngôn ngữ Kinh doanh đơn giản (20đ): Tuyệt đối không dùng thuật ngữ kỹ thuật rườm rà (Outliers, MAPE); dùng ngôn ngữ tài chính/kinh doanh (Doanh số, Tồn kho, Phí lưu bãi).",
                 "skill": "Ngôn ngữ Kinh doanh đơn giản"
               },
               {
                 "id": "criterion_2",
                 "name": "Tìm đúng nguyên nhân có con số",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 2 - Tìm đúng nguyên nhân có con số (20đ): Giải thích logic: Sales dự báo vượt thực tế làm hàng phơi kho ngoài  phát sinh 40% chi phí lưu kho.",
+                "description": "- Tiêu chí 2 - Tìm đúng nguyên nhân có con số (20đ): Giải thích logic: Sales dự báo vượt thực tế làm hàng phơi kho ngoài  phát sinh 40% chi phí lưu kho.",
                 "skill": "Tìm đúng nguyên nhân có con số"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Storytelling, Storage Cost, Forecast Error, Executive Summary.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Storytelling, Storage Cost, Forecast Error, Executive Summary.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Ngôn ngữ Kinh doanh đơn giản (20đ): Tuyệt đối không dùng thuật ngữ kỹ thuật rườm rà (Outliers, MAPE); dùng ngôn ngữ tài chính/kinh doanh (Doanh số, Tồn kho, Phí lưu bãi).\nTiêu chí 2 - Tìm đúng nguyên nhân có con số (20đ): Giải thích logic: Sales dự báo vượt thực tế làm hàng phơi kho ngoài  phát sinh 40% chi phí lưu kho.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Storytelling, Storage Cost, Forecast Error, Executive Summary.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 72,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R3-Q1",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Ngôn ngữ Kinh doanh đơn giản (20đ): Tuyệt đối không dùng thuật ngữ kỹ thuật rườm rà (Outliers, MAPE); dùng ngôn ngữ tài chính/kinh doanh (Doanh số, Tồn kho, Phí lưu bãi).\n- Tiêu chí 2 - Tìm đúng nguyên nhân có con số (20đ): Giải thích logic: Sales dự báo vượt thực tế làm hàng phơi kho ngoài  phát sinh 40% chi phí lưu kho.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Storytelling, Storage Cost, Forecast Error, Executive Summary.",
             "skills": [
               "Ngôn ngữ Kinh doanh đơn giản",
               "Tìm đúng nguyên nhân có con số",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 508
+            "answerType": "both"
           },
           {
-            "id": "LOG-02-V20261017-R3-Q2",
-            "positionId": "supply-chain",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Dữ liệu trích xuất từ hệ thống ERP bị thiếu hụt thông tin Lead Time của một số nhà cung cấp, bạn làm gì trước khi đưa ra báo cáo phân tích?",
@@ -4237,47 +4503,48 @@
                 "id": "criterion_1",
                 "name": "Bảo toàn tính toàn vẹn dữ liệu",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 1 - Bảo toàn tính toàn vẹn dữ liệu (20đ): Tuyệt đối không tự bịa số liệu; tiến hành đối soát chéo với Bộ phận Thu mua/Kho để làm sạch dữ liệu.",
+                "description": "- Tiêu chí 1 - Bảo toàn tính toàn vẹn dữ liệu (20đ): Tuyệt đối không tự bịa số liệu; tiến hành đối soát chéo với Bộ phận Thu mua/Kho để làm sạch dữ liệu.",
                 "skill": "Bảo toàn tính toàn vẹn dữ liệu"
               },
               {
                 "id": "criterion_2",
                 "name": "Minh bạch giả định & Cảnh báo",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 2 - Minh bạch giả định & Cảnh báo (20đ): Đánh dấu rõ vùng dữ liệu chưa chắc chắn, ghi chú giả định (Assumptions) và nêu rõ mức độ ảnh hưởng đến kết quả phân tích.",
+                "description": "- Tiêu chí 2 - Minh bạch giả định & Cảnh báo (20đ): Đánh dấu rõ vùng dữ liệu chưa chắc chắn, ghi chú giả định (Assumptions) và nêu rõ mức độ ảnh hưởng đến kết quả phân tích.",
                 "skill": "Minh bạch giả định & Cảnh báo"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Cleaning, Data Integrity, Cross-validation, Assumptions.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Cleaning, Data Integrity, Cross-validation, Assumptions.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Bảo toàn tính toàn vẹn dữ liệu (20đ): Tuyệt đối không tự bịa số liệu; tiến hành đối soát chéo với Bộ phận Thu mua/Kho để làm sạch dữ liệu.\nTiêu chí 2 - Minh bạch giả định & Cảnh báo (20đ): Đánh dấu rõ vùng dữ liệu chưa chắc chắn, ghi chú giả định (Assumptions) và nêu rõ mức độ ảnh hưởng đến kết quả phân tích.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Cleaning, Data Integrity, Cross-validation, Assumptions.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 72,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-02-V20261019-R3-Q2",
+            "positionId": "supply-chain",
+            "referenceAnswer": "- Tiêu chí 1 - Bảo toàn tính toàn vẹn dữ liệu (20đ): Tuyệt đối không tự bịa số liệu; tiến hành đối soát chéo với Bộ phận Thu mua/Kho để làm sạch dữ liệu.\n- Tiêu chí 2 - Minh bạch giả định & Cảnh báo (20đ): Đánh dấu rõ vùng dữ liệu chưa chắc chắn, ghi chú giả định (Assumptions) và nêu rõ mức độ ảnh hưởng đến kết quả phân tích.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Data Cleaning, Data Integrity, Cross-validation, Assumptions.",
             "skills": [
               "Bảo toàn tính toàn vẹn dữ liệu",
               "Minh bạch giả định & Cảnh báo",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 508
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
-      {
-        "kind": "question_maximum_conflict",
-        "set": "supply-chain",
-        "round": 2,
-        "question": 1,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
-      }
-    ]
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "purchasing": {
     "positionId": "purchasing",
@@ -4285,7 +4552,7 @@
     "positionTitle": "Purchasing Executive",
     "industryId": "LOG",
     "industryName": "Logistics",
-    "contentVersion": "20261017",
+    "contentVersion": "20261019",
     "skills": [
       "Nền tảng liên quan cụ thể",
       "Lý do đúng bản chất nghề",
@@ -4314,8 +4581,6 @@
         "duration": 15,
         "questions": [
           {
-            "id": "LOG-03-V20261017-R1-Q1",
-            "positionId": "purchasing",
             "round": 1,
             "questionNumber": 1,
             "questionText": "Giới thiệu bản thân và vì sao bạn chọn theo đuổi nghề Thu mua (Purchasing/Procurement)?",
@@ -4326,36 +4591,41 @@
                 "id": "criterion_1",
                 "name": "Nền tảng liên quan cụ thể",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án/kinh nghiệm thực tế liên quan đến thương mại, đàm phán báo giá, đánh giá nhà cung cấp hoặc quản lý hợp đồng.",
+                "description": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án/kinh nghiệm thực tế liên quan đến thương mại, đàm phán báo giá, đánh giá nhà cung cấp hoặc quản lý hợp đồng.",
                 "skill": "Nền tảng liên quan cụ thể"
               },
               {
                 "id": "criterion_2",
                 "name": "Lý do đúng bản chất nghề",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù nghề Thu mua là tối ưu tổng chi phí (Landed Cost), quản lý rủi ro nhà cung cấp và đảm bảo nguồn cung đúng SLA; không nhầm với Sales hay Kế toán.",
+                "description": "- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù nghề Thu mua là tối ưu tổng chi phí (Landed Cost), quản lý rủi ro nhà cung cấp và đảm bảo nguồn cung đúng SLA; không nhầm với Sales hay Kế toán.",
                 "skill": "Lý do đúng bản chất nghề"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Procurement, Landed Cost, Vendor Management, PO, PR.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Procurement, Landed Cost, Vendor Management, PO, PR.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án/kinh nghiệm thực tế liên quan đến thương mại, đàm phán báo giá, đánh giá nhà cung cấp hoặc quản lý hợp đồng.\nTiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù nghề Thu mua là tối ưu tổng chi phí (Landed Cost), quản lý rủi ro nhà cung cấp và đảm bảo nguồn cung đúng SLA; không nhầm với Sales hay Kế toán.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Procurement, Landed Cost, Vendor Management, PO, PR.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 73,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R1-Q1",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Nền tảng liên quan cụ thể (12đ): Nêu ngành học/dự án/kinh nghiệm thực tế liên quan đến thương mại, đàm phán báo giá, đánh giá nhà cung cấp hoặc quản lý hợp đồng.\n- Tiêu chí 2 - Lý do đúng bản chất nghề (10đ): Chỉ ra đúng đặc thù nghề Thu mua là tối ưu tổng chi phí (Landed Cost), quản lý rủi ro nhà cung cấp và đảm bảo nguồn cung đúng SLA; không nhầm với Sales hay Kế toán.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Trình bày mạch lạc, dùng đúng thuật ngữ: Procurement, Landed Cost, Vendor Management, PO, PR.",
             "skills": [
               "Nền tảng liên quan cụ thể",
               "Lý do đúng bản chất nghề",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 511
+            "answerType": "both"
           },
           {
-            "id": "LOG-03-V20261017-R1-Q2",
-            "positionId": "purchasing",
             "round": 1,
             "questionNumber": 2,
             "questionText": "Bạn hiểu vai trò của Chuyên viên Thu mua trong doanh nghiệp là gì và làm sao để đảm bảo tính minh bạch, chống rủi ro \"bắt tay ngầm\" (Kickback)?",
@@ -4366,36 +4636,41 @@
                 "id": "criterion_1",
                 "name": "Xác định đúng vai trò",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Xác định đúng vai trò (15đ): Đầu mối tìm kiếm, đàm phán điều khoản thương mại và quản lý luồng PR-PO đảm bảo mua đúng chất lượng, đúng giá và đúng thời điểm.",
+                "description": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Đầu mối tìm kiếm, đàm phán điều khoản thương mại và quản lý luồng PR-PO đảm bảo mua đúng chất lượng, đúng giá và đúng thời điểm.",
                 "skill": "Xác định đúng vai trò"
               },
               {
                 "id": "criterion_2",
                 "name": "Biện pháp chống rủi ro minh bạch",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Biện pháp chống rủi ro minh bạch (12đ): Tuân thủ quy trình 3-Quote (tối thiểu 3 báo giá độc lập); phân tách vai trò (Thu mua tìm giá, QA/QC test hàng mẫu); dùng bảng Vendor Scorecard trình Sếp duyệt.",
+                "description": "- Tiêu chí 2 - Biện pháp chống rủi ro minh bạch (12đ): Tuân thủ quy trình 3-Quote (tối thiểu 3 báo giá độc lập); phân tách vai trò (Thu mua tìm giá, QA/QC test hàng mẫu); dùng bảng Vendor Scorecard trình Sếp duyệt.",
                 "skill": "Biện pháp chống rủi ro minh bạch"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: 3-Quote, RFQ, Vendor Scorecard, Anti-Kickback, Transparency.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: 3-Quote, RFQ, Vendor Scorecard, Anti-Kickback, Transparency.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Xác định đúng vai trò (15đ): Đầu mối tìm kiếm, đàm phán điều khoản thương mại và quản lý luồng PR-PO đảm bảo mua đúng chất lượng, đúng giá và đúng thời điểm.\nTiêu chí 2 - Biện pháp chống rủi ro minh bạch (12đ): Tuân thủ quy trình 3-Quote (tối thiểu 3 báo giá độc lập); phân tách vai trò (Thu mua tìm giá, QA/QC test hàng mẫu); dùng bảng Vendor Scorecard trình Sếp duyệt.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: 3-Quote, RFQ, Vendor Scorecard, Anti-Kickback, Transparency.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 73,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R1-Q2",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Xác định đúng vai trò (15đ): Đầu mối tìm kiếm, đàm phán điều khoản thương mại và quản lý luồng PR-PO đảm bảo mua đúng chất lượng, đúng giá và đúng thời điểm.\n- Tiêu chí 2 - Biện pháp chống rủi ro minh bạch (12đ): Tuân thủ quy trình 3-Quote (tối thiểu 3 báo giá độc lập); phân tách vai trò (Thu mua tìm giá, QA/QC test hàng mẫu); dùng bảng Vendor Scorecard trình Sếp duyệt.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: 3-Quote, RFQ, Vendor Scorecard, Anti-Kickback, Transparency.",
             "skills": [
               "Xác định đúng vai trò",
               "Biện pháp chống rủi ro minh bạch",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 511
+            "answerType": "both"
           },
           {
-            "id": "LOG-03-V20261017-R1-Q3",
-            "positionId": "purchasing",
             "round": 1,
             "questionNumber": 3,
             "questionText": "Bạn đã từng tham gia bài tập/dự án nào liên quan đến tìm kiếm hoặc đàm phán với nhà cung cấp chưa?",
@@ -4406,32 +4681,39 @@
                 "id": "criterion_1",
                 "name": "Ví dụ dự án cụ thể",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên dự án/bài tập cụ thể (Sourcing bao bì, đàm phán báo giá vật tư, thay thế NCC kém chất lượng...), mô tả vai trò rõ ràng.",
+                "description": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên dự án/bài tập cụ thể (Sourcing bao bì, đàm phán báo giá vật tư, thay thế NCC kém chất lượng...), mô tả vai trò rõ ràng.",
                 "skill": "Ví dụ dự án cụ thể"
               },
               {
                 "id": "criterion_2",
                 "name": "Trình bày theo cấu trúc STAR",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động đàm phán/sourcing (Action)  Kết quả tiết kiệm chi phí/đảm bảo tiến độ (Result).",
+                "description": "- Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động đàm phán/sourcing (Action)  Kết quả tiết kiệm chi phí/đảm bảo tiến độ (Result).",
                 "skill": "Trình bày theo cấu trúc STAR"
               },
               {
                 "id": "criterion_3",
                 "name": "Rút ra bài học cụ thể",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học thực tế, ví dụ: \"phải so sánh Tổng chi phí thực tế (Landed Cost) chứ không chỉ nhìn vào đơn giá rẻ nhất\".",
+                "description": "- Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học thực tế, ví dụ: \"phải so sánh Tổng chi phí thực tế (Landed Cost) chứ không chỉ nhìn vào đơn giá rẻ nhất\".",
                 "skill": "Rút ra bài học cụ thể"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên dự án/bài tập cụ thể (Sourcing bao bì, đàm phán báo giá vật tư, thay thế NCC kém chất lượng...), mô tả vai trò rõ ràng.\nTiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động đàm phán/sourcing (Action)  Kết quả tiết kiệm chi phí/đảm bảo tiến độ (Result).\nTiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học thực tế, ví dụ: \"phải so sánh Tổng chi phí thực tế (Landed Cost) chứ không chỉ nhìn vào đơn giá rẻ nhất\".",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 73,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R1-Q3",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Ví dụ dự án cụ thể (15đ): Nêu tên dự án/bài tập cụ thể (Sourcing bao bì, đàm phán báo giá vật tư, thay thế NCC kém chất lượng...), mô tả vai trò rõ ràng.\n- Tiêu chí 2 - Trình bày theo cấu trúc STAR (12đ): Bối cảnh (Situation)  Nhiệm vụ (Task)  Hành động đàm phán/sourcing (Action)  Kết quả tiết kiệm chi phí/đảm bảo tiến độ (Result).\n- Tiêu chí 3 - Rút ra bài học cụ thể (8đ): Chỉ ra 1 bài học thực tế, ví dụ: \"phải so sánh Tổng chi phí thực tế (Landed Cost) chứ không chỉ nhìn vào đơn giá rẻ nhất\".",
             "skills": [
               "Ví dụ dự án cụ thể",
               "Trình bày theo cấu trúc STAR",
               "Rút ra bài học cụ thể"
             ],
-            "answerType": "both",
-            "source_block": 511
+            "answerType": "both"
           }
         ]
       },
@@ -4442,8 +4724,6 @@
         "duration": 20,
         "questions": [
           {
-            "id": "LOG-03-V20261017-R2-Q1",
-            "positionId": "purchasing",
             "round": 2,
             "questionNumber": 1,
             "questionText": "Trình bày quy trình Sourcing nhà cung cấp mới từ khi nhận Yêu cầu mua hàng (PR) đến khi hoàn tất ký hợp đồng/PO?",
@@ -4453,37 +4733,42 @@
               {
                 "id": "criterion_1",
                 "name": "Liệt kê đủ các bước chuẩn",
-                "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Liệt kê đủ các bước chuẩn (15đ): Tiếp nhận PR  Tìm nguồn cung  Gửi RFQ cho  bên  Bảng so sánh giá (Cost Matrix)  Test mẫu (Sample Audit)  Đàm phán  Trình duyệt & Ký PO/Hợp đồng.",
+                "maxScore": 12.0,
+                "description": "- Tiêu chí 1 - Liệt kê đủ các bước chuẩn (12đ): Tiếp nhận PR  Tìm nguồn cung  Gửi RFQ cho  bên  Bảng so sánh giá (Cost Matrix)  Test mẫu (Sample Audit)  Đàm phán  Trình duyệt & Ký PO/Hợp đồng.",
                 "skill": "Liệt kê đủ các bước chuẩn"
               },
               {
                 "id": "criterion_2",
                 "name": "Nắm vững quy định SOP",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Nắm vững quy định SOP (12đ): Nhấn mạnh mọi đơn hàng trên hạn mức (VD: > 100 triệu) bắt buộc phải lập Tờ trình xin ý kiến Trưởng phòng phê duyệt trước khi phát hành PO.",
+                "description": "- Tiêu chí 2 - Nắm vững quy định SOP (12đ): Nhấn mạnh mọi đơn hàng trên hạn mức (VD: > 100 triệu) bắt buộc phải lập Tờ trình xin ý kiến Trưởng phòng phê duyệt trước khi phát hành PO.",
                 "skill": "Nắm vững quy định SOP"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
-                "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: PR, PO, RFQ, Cost Comparison Matrix, Sample Audit, Contract.",
+                "maxScore": 6.0,
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: PR, PO, RFQ, Cost Comparison Matrix, Sample Audit, Contract.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Liệt kê đủ các bước chuẩn (15đ): Tiếp nhận PR  Tìm nguồn cung  Gửi RFQ cho  bên  Bảng so sánh giá (Cost Matrix)  Test mẫu (Sample Audit)  Đàm phán  Trình duyệt & Ký PO/Hợp đồng.\nTiêu chí 2 - Nắm vững quy định SOP (12đ): Nhấn mạnh mọi đơn hàng trên hạn mức (VD: > 100 triệu) bắt buộc phải lập Tờ trình xin ý kiến Trưởng phòng phê duyệt trước khi phát hành PO.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: PR, PO, RFQ, Cost Comparison Matrix, Sample Audit, Contract.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 74,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R2-Q1",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Liệt kê đủ các bước chuẩn (12đ): Tiếp nhận PR  Tìm nguồn cung  Gửi RFQ cho  bên  Bảng so sánh giá (Cost Matrix)  Test mẫu (Sample Audit)  Đàm phán  Trình duyệt & Ký PO/Hợp đồng.\n- Tiêu chí 2 - Nắm vững quy định SOP (12đ): Nhấn mạnh mọi đơn hàng trên hạn mức (VD: > 100 triệu) bắt buộc phải lập Tờ trình xin ý kiến Trưởng phòng phê duyệt trước khi phát hành PO.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (6đ): Dùng đúng thuật ngữ: PR, PO, RFQ, Cost Comparison Matrix, Sample Audit, Contract.",
             "skills": [
               "Liệt kê đủ các bước chuẩn",
               "Nắm vững quy định SOP",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 513
+            "answerType": "both"
           },
           {
-            "id": "LOG-03-V20261017-R2-Q2",
-            "positionId": "purchasing",
             "round": 2,
             "questionNumber": 2,
             "questionText": "Khái niệm Tổng chi phí thực tế (Landed Cost) là gì và làm thế nào để lựa chọn giữa các báo giá có điều kiện khác nhau?",
@@ -4494,36 +4779,41 @@
                 "id": "criterion_1",
                 "name": "Nêu đúng công thức Landed Cost",
                 "maxScore": 18.0,
-                "description": "Tiêu chí 1 - Nêu đúng công thức Landed Cost (18đ): Landed Cost = Đơn giá có VAT + Vận chuyển/Bảo hiểm + Lưu kho/Thủ tục phát sinh",
+                "description": "- Tiêu chí 1 - Nêu đúng công thức Landed Cost (18đ): Landed Cost = Đơn giá có VAT + Vận chuyển/Bảo hiểm + Lưu kho/Thủ tục phát sinh",
                 "skill": "Nêu đúng công thức Landed Cost"
               },
               {
                 "id": "criterion_2",
                 "name": "Phân tích Đánh đổi Thương mại",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 2 - Phân tích Đánh đổi Thương mại (10đ): Lựa chọn NCC có Landed Cost hợp lý, đáp ứng SLA và cho trả chậm 30 ngày (tối ưu dòng tiền) hơn là chọn NCC giá rẻ nhưng bắt trả trước 100% hoặc trễ SLA.",
+                "description": "- Tiêu chí 2 - Phân tích Đánh đổi Thương mại (10đ): Lựa chọn NCC có Landed Cost hợp lý, đáp ứng SLA và cho trả chậm 30 ngày (tối ưu dòng tiền) hơn là chọn NCC giá rẻ nhưng bắt trả trước 100% hoặc trễ SLA.",
                 "skill": "Phân tích Đánh đổi Thương mại"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 7.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Landed Cost, VAT, Working Capital, Trade-off, Payment Terms.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Landed Cost, VAT, Working Capital, Trade-off, Payment Terms.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Nêu đúng công thức Landed Cost (18đ): Landed Cost = Đơn giá có VAT + Vận chuyển/Bảo hiểm + Lưu kho/Thủ tục phát sinh\nTiêu chí 2 - Phân tích Đánh đổi Thương mại (10đ): Lựa chọn NCC có Landed Cost hợp lý, đáp ứng SLA và cho trả chậm 30 ngày (tối ưu dòng tiền) hơn là chọn NCC giá rẻ nhưng bắt trả trước 100% hoặc trễ SLA.\nTiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Landed Cost, VAT, Working Capital, Trade-off, Payment Terms.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 74,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R2-Q2",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Nêu đúng công thức Landed Cost (18đ): Landed Cost = Đơn giá có VAT + Vận chuyển/Bảo hiểm + Lưu kho/Thủ tục phát sinh\n- Tiêu chí 2 - Phân tích Đánh đổi Thương mại (10đ): Lựa chọn NCC có Landed Cost hợp lý, đáp ứng SLA và cho trả chậm 30 ngày (tối ưu dòng tiền) hơn là chọn NCC giá rẻ nhưng bắt trả trước 100% hoặc trễ SLA.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (7đ): Dùng đúng thuật ngữ: Landed Cost, VAT, Working Capital, Trade-off, Payment Terms.",
             "skills": [
               "Nêu đúng công thức Landed Cost",
               "Phân tích Đánh đổi Thương mại",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 513
+            "answerType": "both"
           },
           {
-            "id": "LOG-03-V20261017-R2-Q3",
-            "positionId": "purchasing",
             "round": 2,
             "questionNumber": 3,
             "questionText": "Khi nhà cung cấp giao lô hàng bị lỗi kỹ thuật 20%, bạn phối hợp xử lý như thế nào để đảm bảo không gián đoạn sản xuất?",
@@ -4534,32 +4824,39 @@
                 "id": "criterion_1",
                 "name": "Lập biên bản & Căn cứ",
                 "maxScore": 15.0,
-                "description": "Tiêu chí 1 - Lập biên bản & Căn cứ (15đ): Yêu cầu biên bản kiểm hàng từ Kho/QA-QC; gửi thư khiếu nại chính thức cho NCC kèm số liệu sản phẩm lỗi cụ thể.",
+                "description": "- Tiêu chí 1 - Lập biên bản & Căn cứ (15đ): Yêu cầu biên bản kiểm hàng từ Kho/QA-QC; gửi thư khiếu nại chính thức cho NCC kèm số liệu sản phẩm lỗi cụ thể.",
                 "skill": "Lập biên bản & Căn cứ"
               },
               {
                 "id": "criterion_2",
                 "name": "Đề xuất phương án kiên quyết",
                 "maxScore": 12.0,
-                "description": "Tiêu chí 2 - Đề xuất phương án kiên quyết (12đ): Yêu cầu NCC đổi bù đủ hàng đạt chuẩn trong 48h HOẶC cấn trừ giá trị hàng lỗi trực tiếp vào công nợ đơn sau.",
+                "description": "- Tiêu chí 2 - Đề xuất phương án kiên quyết (12đ): Yêu cầu NCC đổi bù đủ hàng đạt chuẩn trong 48h HOẶC cấn trừ giá trị hàng lỗi trực tiếp vào công nợ đơn sau.",
                 "skill": "Đề xuất phương án kiên quyết"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 8.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Defect Rate, Quality Claim, Debit Note, Replacement, SOP.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Defect Rate, Quality Claim, Debit Note, Replacement, SOP.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Lập biên bản & Căn cứ (15đ): Yêu cầu biên bản kiểm hàng từ Kho/QA-QC; gửi thư khiếu nại chính thức cho NCC kèm số liệu sản phẩm lỗi cụ thể.\nTiêu chí 2 - Đề xuất phương án kiên quyết (12đ): Yêu cầu NCC đổi bù đủ hàng đạt chuẩn trong 48h HOẶC cấn trừ giá trị hàng lỗi trực tiếp vào công nợ đơn sau.\nTiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Defect Rate, Quality Claim, Debit Note, Replacement, SOP.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 74,
+              "row_index": 3,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R2-Q3",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Lập biên bản & Căn cứ (15đ): Yêu cầu biên bản kiểm hàng từ Kho/QA-QC; gửi thư khiếu nại chính thức cho NCC kèm số liệu sản phẩm lỗi cụ thể.\n- Tiêu chí 2 - Đề xuất phương án kiên quyết (12đ): Yêu cầu NCC đổi bù đủ hàng đạt chuẩn trong 48h HOẶC cấn trừ giá trị hàng lỗi trực tiếp vào công nợ đơn sau.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (8đ): Dùng đúng thuật ngữ: Defect Rate, Quality Claim, Debit Note, Replacement, SOP.",
             "skills": [
               "Lập biên bản & Căn cứ",
               "Đề xuất phương án kiên quyết",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 513
+            "answerType": "both"
           }
         ]
       },
@@ -4570,8 +4867,6 @@
         "duration": 10,
         "questions": [
           {
-            "id": "LOG-03-V20261017-R3-Q1",
-            "positionId": "purchasing",
             "round": 3,
             "questionNumber": 1,
             "questionText": "Nhà cung cấp lâu năm bất ngờ thông báo tăng giá 15% bắt đầu từ đơn hàng sáng mai do giá bột giấy tăng, nếu không đồng ý họ sẽ ngưng cấp hàng, bạn xử lý thế nào?",
@@ -4582,36 +4877,41 @@
                 "id": "criterion_1",
                 "name": "Giữ bình tĩnh & Dùng hợp đồng",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 1 - Giữ bình tĩnh & Dùng hợp đồng (20đ): Không nổi cáu hay bỏ cuộc ngay; yêu cầu văn bản thông báo chính thức kèm chứng từ chứng minh; dùng điều khoản Hợp đồng (báo trước 15-30 ngày) để bắt buộc giữ giá cũ cho đơn sáng mai.",
+                "description": "- Tiêu chí 1 - Giữ bình tĩnh & Dùng hợp đồng (20đ): Không nổi cáu hay bỏ cuộc ngay; yêu cầu văn bản thông báo chính thức kèm chứng từ chứng minh; dùng điều khoản Hợp đồng (báo trước 15-30 ngày) để bắt buộc giữ giá cũ cho đơn sáng mai.",
                 "skill": "Giữ bình tĩnh & Dùng hợp đồng"
               },
               {
                 "id": "criterion_2",
                 "name": "Đàm phán Đổi giá trị / Trade-off",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 2 - Đàm phán Đổi giá trị / Trade-off (20đ): Nếu bắt buộc tăng giá đợt sau, thương lượng tăng thời hạn công nợ (30  60 ngày) hoặc cam kết sản lượng (Volume) lớn hơn để khống chế mức tăng giá ở 5% thay vì 15%.",
+                "description": "- Tiêu chí 2 - Đàm phán Đổi giá trị / Trade-off (20đ): Nếu bắt buộc tăng giá đợt sau, thương lượng tăng thời hạn công nợ (30  60 ngày) hoặc cam kết sản lượng (Volume) lớn hơn để khống chế mức tăng giá ở 5% thay vì 15%.",
                 "skill": "Đàm phán Đổi giá trị / Trade-off"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Price Increase Notice, Contract Clause, Trade-off, BATNA, Payment Terms.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Price Increase Notice, Contract Clause, Trade-off, BATNA, Payment Terms.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Giữ bình tĩnh & Dùng hợp đồng (20đ): Không nổi cáu hay bỏ cuộc ngay; yêu cầu văn bản thông báo chính thức kèm chứng từ chứng minh; dùng điều khoản Hợp đồng (báo trước 15-30 ngày) để bắt buộc giữ giá cũ cho đơn sáng mai.\nTiêu chí 2 - Đàm phán Đổi giá trị / Trade-off (20đ): Nếu bắt buộc tăng giá đợt sau, thương lượng tăng thời hạn công nợ (30  60 ngày) hoặc cam kết sản lượng (Volume) lớn hơn để khống chế mức tăng giá ở 5% thay vì 15%.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Price Increase Notice, Contract Clause, Trade-off, BATNA, Payment Terms.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 75,
+              "row_index": 1,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R3-Q1",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Giữ bình tĩnh & Dùng hợp đồng (20đ): Không nổi cáu hay bỏ cuộc ngay; yêu cầu văn bản thông báo chính thức kèm chứng từ chứng minh; dùng điều khoản Hợp đồng (báo trước 15-30 ngày) để bắt buộc giữ giá cũ cho đơn sáng mai.\n- Tiêu chí 2 - Đàm phán Đổi giá trị / Trade-off (20đ): Nếu bắt buộc tăng giá đợt sau, thương lượng tăng thời hạn công nợ (30  60 ngày) hoặc cam kết sản lượng (Volume) lớn hơn để khống chế mức tăng giá ở 5% thay vì 15%.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Price Increase Notice, Contract Clause, Trade-off, BATNA, Payment Terms.",
             "skills": [
               "Giữ bình tĩnh & Dùng hợp đồng",
               "Đàm phán Đổi giá trị / Trade-off",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 516
+            "answerType": "both"
           },
           {
-            "id": "LOG-03-V20261017-R3-Q2",
-            "positionId": "purchasing",
             "round": 3,
             "questionNumber": 2,
             "questionText": "Giữa NCC A (Giá rẻ hơn 5%, trả trước 100%) và NCC B (Giá nhỉnh hơn 5%, trả chậm 30 ngày, giao sớm 2 ngày), bạn chọn bên nào và lập luận trình Sếp ra sao?",
@@ -4622,47 +4922,48 @@
                 "id": "criterion_1",
                 "name": "Lựa chọn & Lập luận tối ưu",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 1 - Lựa chọn & Lập luận tối ưu (20đ): Đề xuất chọn NCC B; chứng minh chênh lệch 5% giá được bù đắp hoàn toàn bởi việc giao hàng sớm 2 ngày (đảm bảo an toàn SLA sản xuất) và trả chậm 30 ngày (tối ưu dòng tiền).",
+                "description": "- Tiêu chí 1 - Lựa chọn & Lập luận tối ưu (20đ): Đề xuất chọn NCC B; chứng minh chênh lệch 5% giá được bù đắp hoàn toàn bởi việc giao hàng sớm 2 ngày (đảm bảo an toàn SLA sản xuất) và trả chậm 30 ngày (tối ưu dòng tiền).",
                 "skill": "Lựa chọn & Lập luận tối ưu"
               },
               {
                 "id": "criterion_2",
                 "name": "Chỉ ra rủi ro của NCC A",
                 "maxScore": 20.0,
-                "description": "Tiêu chí 2 - Chỉ ra rủi ro của NCC A (20đ): Phân tích rủi ro giam vốn khi trả trước 100% và rủi ro chậm tiến độ giao hàng của NCC A.",
+                "description": "- Tiêu chí 2 - Chỉ ra rủi ro của NCC A (20đ): Phân tích rủi ro giam vốn khi trả trước 100% và rủi ro chậm tiến độ giao hàng của NCC A.",
                 "skill": "Chỉ ra rủi ro của NCC A"
               },
               {
                 "id": "criterion_3",
                 "name": "Từ vựng & Sự tự tin",
                 "maxScore": 10.0,
-                "description": "Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Working Capital, Cash Flow Risk, SLA Margin, Executive Proposal.",
+                "description": "- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Working Capital, Cash Flow Risk, SLA Margin, Executive Proposal.",
                 "skill": "Từ vựng & Sự tự tin"
               }
             ],
-            "referenceAnswer": "Tiêu chí 1 - Lựa chọn & Lập luận tối ưu (20đ): Đề xuất chọn NCC B; chứng minh chênh lệch 5% giá được bù đắp hoàn toàn bởi việc giao hàng sớm 2 ngày (đảm bảo an toàn SLA sản xuất) và trả chậm 30 ngày (tối ưu dòng tiền).\nTiêu chí 2 - Chỉ ra rủi ro của NCC A (20đ): Phân tích rủi ro giam vốn khi trả trước 100% và rủi ro chậm tiến độ giao hàng của NCC A.\nTiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Working Capital, Cash Flow Risk, SLA Margin, Executive Proposal.",
+            "source_location": {
+              "tab_id": "t.v3f3tiwcx8a",
+              "table_index": 75,
+              "row_index": 2,
+              "column_index": 0
+            },
+            "id": "LOG-03-V20261019-R3-Q2",
+            "positionId": "purchasing",
+            "referenceAnswer": "- Tiêu chí 1 - Lựa chọn & Lập luận tối ưu (20đ): Đề xuất chọn NCC B; chứng minh chênh lệch 5% giá được bù đắp hoàn toàn bởi việc giao hàng sớm 2 ngày (đảm bảo an toàn SLA sản xuất) và trả chậm 30 ngày (tối ưu dòng tiền).\n- Tiêu chí 2 - Chỉ ra rủi ro của NCC A (20đ): Phân tích rủi ro giam vốn khi trả trước 100% và rủi ro chậm tiến độ giao hàng của NCC A.\n- Tiêu chí 3 - Từ vựng & Sự tự tin (10đ): Dùng đúng thuật ngữ: Working Capital, Cash Flow Risk, SLA Margin, Executive Proposal.",
             "skills": [
               "Lựa chọn & Lập luận tối ưu",
               "Chỉ ra rủi ro của NCC A",
               "Từ vựng & Sự tự tin"
             ],
-            "answerType": "both",
-            "source_block": 516
+            "answerType": "both"
           }
         ]
       }
     },
-    "grading_ready": false,
-    "source_conflicts": [
-      {
-        "kind": "question_maximum_conflict",
-        "set": "purchasing",
-        "round": 2,
-        "question": 1,
-        "sourceMaximum": 30,
-        "criterionTotal": 35.0
-      }
-    ]
+    "grading_ready": true,
+    "source_conflicts": [],
+    "source_snapshot": "source/interviews-20261019.json",
+    "source_content_issues": [],
+    "source_normalizations": []
   },
   "marketing-intern": {
     "positionId": "marketing-intern",

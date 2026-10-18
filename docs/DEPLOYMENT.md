@@ -1,5 +1,16 @@
 # Deployment status — 19/10/2026
 
+## Interview completion — 19/10/2026
+
+- Re-read all five public source tabs using the full HTML export. The interview-only snapshot and reviewed point normalization are checked in separately from the unchanged Golden Profiles and simulation inputs.
+- Completed the eight pending interview sets and updated one Auditing criterion. All 15 current sets are open, with 120 questions in 3/3/2 rounds. Nine revised sets use new IDs; six unchanged sets retain their IDs. Historical questions, sessions, answers and grades remain intact.
+- BA R2 Q2 retains its 30-point question weight and raw 15/12/8 criterion maxima. The criterion ratio is normalized before applying the question weight; this is recorded explicitly rather than silently changing source points.
+- Validation passed: 399 unit checks, 11 importer checks, reproducible source generation, TypeScript/lint, isolated PostgreSQL checks across 14 migrations, and Chromium checks for all 15 catalog links plus existing deadline/deletion behavior. Database tests completed each revised set sequentially and verified historical/replay stability.
+- Live provider checks passed sequentially for the eight pending sets plus the revised Auditing question, followed by an unrelated-answer check. Only synthetic answers were sent, with no account creation or database writes. The first staged check stopped safely before publishing; explicit JSON instructions and a single bounded corrective retry now keep malformed/over-limit results from being displayed or saved.
+- Verified source-check deployment: `dpl_27b845J7jVrARKKHaEVTj2pURPk2`; final unrelated-answer/build deployment: `dpl_8nBpbtbBByCL9dEXWnKfYbb3hbgS`. Normal builds do not call the provider; these were explicit preflight opt-ins.
+- Applied only `20261019000300_interview_source_refresh.sql` after dry-run to the existing Supabase project. Read-only cloud comparison found 15/15 exact set matches, 120/120 exact question/prompt/reference/rubric matches, 15 available sets and zero mismatches. Existing one-hour deadlines and owner-only history deletion are unchanged.
+
+
 ## Simulation source refresh — 19/10/2026
 
 - Re-read the complete Google Docs export using `include_tabs_content=true`; the default export only contains the overview. The simulation-only snapshot is `platform/data/source/simulations-20261019.json`. All fifteen assignments were compared, including table cells, requirement subparts, rubric points and original input links. All twenty original public files were downloaded again and retained identical SHA-256 hashes; no feedback/CV images were imported.

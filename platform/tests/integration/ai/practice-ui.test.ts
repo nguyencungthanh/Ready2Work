@@ -1,11 +1,14 @@
 import path from "node:path";
 import { expect, test } from "vitest";
+import bank from "@/data/interview-bank.json";
 
 // Real forms and timer, with synthetic actions and no account/provider writes.
 test.skipIf(process.env.R2W_RUN_PRACTICE_UI !== "1")("locks both practice flows at one hour and exposes owner-history deletion", async () => {
   const { createServer } = await import("vite");
   const { default: react } = await import("@vitejs/plugin-react");
   const { chromium, expect: ui } = await import("@playwright/test");
+  const catalog = Object.entries(bank).map(([slug, set]) => ({ id: slug, slug: `r2w-${slug}-${set.contentVersion}`,
+    industry: set.industryName, position_title: set.positionTitle, is_available: set.grading_ready, unavailable_reason: null }));
   const server = await createServer({
     configFile: false, root: process.cwd(), logLevel: "error", appType: "custom",
     resolve: { alias: { "@/app/interviews/actions": "virtual:actions", "../../actions": "virtual:actions", "../actions": "virtual:actions", "next/link": "virtual:link", "next/image": "virtual:image", "@": process.cwd() } },
@@ -24,7 +27,7 @@ test.skipIf(process.env.R2W_RUN_PRACTICE_UI !== "1")("locks both practice flows 
           import {InterviewCatalog} from ${JSON.stringify(path.join(process.cwd(), "components/reference/interview-catalog.tsx"))};
           const params=new URLSearchParams(location.search);const startedAt=params.get("start");const view=params.get("view");
           const activity=[{id:"session-to-delete",set_id:"set",created_at:startedAt,completed_at:null,overall_score:null,round_scores:null}];
-          const component=view==="interview"?React.createElement(AnswerForm,{sessionId:"session",questionId:"question",prompt:"Câu hỏi giả",round:1,index:0,total:3,startedAt}):view==="history"?React.createElement(InterviewCatalog,{items:[],activity}):React.createElement(SubmissionForm,{simulationId:"simulation",attemptId:"attempt",startedAt,minutes:30,title:"Đề giả",industry:"IT",instructions:"Đề giả",timeLimitSpecified:false});
+          const component=view==="library"?React.createElement(InterviewCatalog,{items:${JSON.stringify(catalog)},filtered:true}):view==="interview"?React.createElement(AnswerForm,{sessionId:"session",questionId:"question",prompt:"Câu hỏi giả",round:1,index:0,total:3,startedAt}):view==="history"?React.createElement(InterviewCatalog,{items:[],activity}):React.createElement(SubmissionForm,{simulationId:"simulation",attemptId:"attempt",startedAt,minutes:30,title:"Đề giả",industry:"IT",instructions:"Đề giả",timeLimitSpecified:false});
           createRoot(document.getElementById("root")).render(component);`;
       },
     }],
@@ -73,6 +76,11 @@ test.skipIf(process.env.R2W_RUN_PRACTICE_UI !== "1")("locks both practice flows 
     await page.getByRole("button", { name: "Xóa buổi phỏng vấn" }).click();
     await page.waitForFunction(() => (window as unknown as {deleted?:string}).deleted === "session-to-delete");
     await page.waitForFunction(() => sessionStorage.getItem("r2w:answer:session-to-delete:question") === null);
+    await page.goto(url + "&view=library");
+    await ui(page.locator(".catalog-entry")).toHaveCount(15);
+    await ui(page.locator(".iv-unavailable")).toHaveCount(0);
+    const links = await page.locator(".catalog-entry").evaluateAll(nodes => nodes.map(node => node.getAttribute("href")));
+    expect(links.sort()).toEqual(catalog.map(set => `/interviews/${set.slug}`).sort());
     expect(errors).toEqual([]);
   } finally { await browser?.close(); await server.close(); }
 }, 40_000);

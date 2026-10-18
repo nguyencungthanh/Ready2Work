@@ -97,7 +97,7 @@ out=Path(tempfile.mkdtemp(prefix='r2w-content-'));out.mkdir(exist_ok=True)
 (out/'interview-bank.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n')
 (out/'issues.json').write_text(json.dumps(issues,ensure_ascii=False,indent=2)+'\n')
 print('profiles',sum(len(i['positions']) for i in profiles['industries']),'sets',len(bank),'questions',sum(len(r['questions']) for s in bank.values() for r in s['rounds'].values()))
-for i in issues:print(i)
+print('Historical baseline issues:',len(issues),'(reviewed interview overlay applied below)')
 # Tasks: preserve source paragraphs and list grouping, never import grading text as a candidate input.
 public=json.loads((root/'platform/data/source/materials-20261017.json').read_text())['by_position']
 profilemap={p['position_id']:p for i in profiles['industries'] for p in i['positions']}
@@ -199,6 +199,9 @@ for slug,item in bank.items():
  conflicts=[i for i in issues if i.get('set')==slug]
  item['grading_ready']=not bool(conflicts) and not bool(item.get('source_content_issues'))
  item['source_conflicts']=conflicts
+from interview_refresh import refresh_interviews
+bank=refresh_interviews(bank)
+print('Reviewed interviews ready:',sum(bool(s['grading_ready']) for s in bank.values()),'of',len(bank))
 (out/'interview-bank.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n')
 for pid in ['TCNH-01','TCNH-02','TCNH-03']:
  (out/(pid+'-DATA-01.json')).write_text(json.dumps({'artifact_id':pid+'-DATA-01','position_id':pid,'source_version':'20261017','documents':finance[pid],'source_inconsistencies':finance.get('source_inconsistencies',[]) if pid=='TCNH-02' else []},ensure_ascii=False,indent=2)+'\n')

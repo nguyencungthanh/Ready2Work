@@ -29,4 +29,21 @@ describe("interview AI output validation", () => {
     expect(result.score).toBe(13);
     expect(vi.mocked(generateStructured).mock.calls.at(-1)?.[0]).toContain(answer);
   });
+  it("corrects an over-limit reply once while retaining strict maxima and not echoing the invalid output", async () => {
+    const provider = vi.mocked(generateStructured).mockReset();
+    provider.mockResolvedValueOnce({ criteria: [{ id: "a", score: 100, note: "PRIVATE_INVALID_OUTPUT" }, { id: "b", score: 100, note: "bad" }] })
+      .mockResolvedValueOnce({ criteria: [{ id: "a", score: 5, note: "Đạt một phần." }, { id: "b", score: 15, note: "Đạt một phần." }] });
+    expect((await evaluateInterviewWithAI("Câu trả lời giả", "Câu hỏi", "Tham chiếu", rubric)).score).toBe(50);
+    expect(provider).toHaveBeenCalledTimes(2);
+    expect(provider.mock.calls[1]![0]).toContain("EXCESS_POINTS");
+    expect(provider.mock.calls[1]![0]).not.toContain("PRIVATE_INVALID_OUTPUT");
+    provider.mockReset().mockResolvedValue({ criteria: [] });
+    await expect(evaluateInterviewWithAI("Giả", "Câu hỏi", "Tham chiếu", rubric)).rejects.toThrow("exact interview rubric");
+    expect(provider).toHaveBeenCalledTimes(2);
+  });
+  it.each([401, 429])("does not retry HTTP %s or invent a grade", async (status) => {
+    const provider = vi.mocked(generateStructured).mockReset().mockRejectedValue({ status });
+    await expect(evaluateInterviewWithAI("Giả", "Câu hỏi", "Tham chiếu", rubric)).rejects.toMatchObject({ status });
+    expect(provider).toHaveBeenCalledOnce();
+  });
 });

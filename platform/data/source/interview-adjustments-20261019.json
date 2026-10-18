@@ -1,0 +1,26 @@
+{
+  "source_snapshot": "interviews-20261019.json",
+  "authorization": "Owner instructed that missing or unreasonable source details may be completed or corrected reasonably, and requested completion of all eight pending interview sets.",
+  "normalizations": [
+    {
+      "set": "business-analyst",
+      "round": 2,
+      "question": 2,
+      "question_maximum": 30,
+      "criterion_total": 35,
+      "policy": "criterion_total_to_question_maximum",
+      "reason": "Keep the source criterion maxima 15/12/8 and source question weight 30. Evaluate the ratio of earned criterion points to 35, then apply the question weight 30 when aggregating the round. No authored criterion points or question weights are invented."
+    }
+  ],
+  "notation_repairs": [
+    {
+      "set": "ke-toan-vien",
+      "round": 1,
+      "question": 3,
+      "criterion": 2,
+      "source_annotation": "(12d)",
+      "value": 12,
+      "reason": "The current source explicitly supplies 12 points using Latin d instead of Vietnamese đ. Preserve the source text and read the numeric value."
+    }
+  ]
+}
