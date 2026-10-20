@@ -55,7 +55,7 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
       file_path: path, file_name: file instanceof File && file.size ? file.name.slice(0, 200) : null,
       result,
     });
-    if (error) throw new Error("Không lưu được kết quả. Vui lòng kiểm tra migration và thử lại.");
+    if (error) throw new Error("Không lưu được kết quả phân tích CV. Vui lòng thử lại.");
     recordStage();
     revalidatePath("/roadmap/cv");
     revalidatePath("/dashboard");
@@ -76,17 +76,17 @@ export async function analyzeCVAction(_previous: CVFormState, formData: FormData
         logger.error("cv_cleanup_failed", { request_id: requestId, route: "/roadmap/cv", operation: "cleanup", error_code: "CV_CLEANUP_FAILED" });
       }
     }
-    if (details.error_code === "CV_AI_AUTH") return { error: "Dịch vụ AI chưa xác thực được kết nối. Vui lòng liên hệ quản trị viên kiểm tra cấu hình AI; chưa có kết quả mới được lưu." };
+    if (details.error_code === "CV_AI_AUTH") return { error: "R2W AI tạm thời chưa sẵn sàng phân tích CV. Vui lòng thử lại sau hoặc liên hệ hỗ trợ; chưa có kết quả mới được lưu." };
     if (stage === "analyze") {
       const messages: Record<string, string> = {
-        CV_AI_QUOTA: "Đã đọc được CV nhưng dịch vụ AI đang đạt giới hạn lượt gọi. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",
-        CV_AI_UNAVAILABLE: "Đã đọc được CV nhưng dịch vụ AI đang tạm thời quá tải. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",
-        CV_AI_TIMEOUT: "Đã đọc được CV nhưng dịch vụ AI phản hồi quá lâu. Vui lòng thử lại; chưa có kết quả mới được lưu.",
-        CV_INVALID_RESPONSE: "Đã đọc được CV nhưng kết quả AI trả về chưa đúng định dạng sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
-        CV_INCOMPLETE_ANALYSIS: "Đã đọc được CV nhưng AI chưa đối chiếu đủ yêu cầu sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
-        CV_INVALID_EVIDENCE: "Đã đọc được CV nhưng AI chưa chọn được bằng chứng hợp lệ sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
+        CV_AI_QUOTA: "Đã đọc được CV nhưng R2W AI đang bận xử lý nhiều yêu cầu. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",
+        CV_AI_UNAVAILABLE: "Đã đọc được CV nhưng R2W AI đang tạm thời quá tải. Vui lòng thử lại sau; chưa có kết quả mới được lưu.",
+        CV_AI_TIMEOUT: "Đã đọc được CV nhưng R2W AI cần thêm thời gian để hoàn tất phân tích. Vui lòng thử lại; chưa có kết quả mới được lưu.",
+        CV_INVALID_RESPONSE: "Đã đọc được CV nhưng kết quả phân tích chưa hợp lệ sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
+        CV_INCOMPLETE_ANALYSIS: "Đã đọc được CV nhưng R2W AI chưa đối chiếu đủ yêu cầu sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
+        CV_INVALID_EVIDENCE: "Đã đọc được CV nhưng R2W AI chưa chọn được bằng chứng hợp lệ sau khi thử lại. Vui lòng thử phân tích lại; chưa có kết quả mới được lưu.",
       };
-      return { error: messages[details.error_code] ?? "Đã đọc được CV nhưng AI chưa hoàn tất phân tích. Vui lòng thử lại sau; chưa có kết quả mới được lưu." };
+      return { error: messages[details.error_code] ?? "Đã đọc được CV nhưng R2W AI chưa hoàn tất phân tích. Vui lòng thử lại sau; chưa có kết quả mới được lưu." };
     }
     // Parser errors are safe to present; do not expose database/provider internals.
     const message = error instanceof Error ? error.message : "";

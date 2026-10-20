@@ -1,6 +1,7 @@
 import "server-only";
 import { generateChatReply, type ChatTurn } from "@/lib/ai/gemini";
 import { assistantRequestHistory } from "@/lib/assistant/limits";
+import { ASSISTANT_VOICE } from "@/lib/assistant/voice";
 
 export interface RoadmapChatCareer {
   title: string;
@@ -42,6 +43,7 @@ function buildSystemContext(career: RoadmapChatCareer, steps: RoadmapStepSummary
         ];
 
   return [
+    ASSISTANT_VOICE,
     "You are a career coach helping a student follow their personalized roadmap toward a target career.",
     `Target career: ${career.title} (${career.industry}).`,
     `Key skills for this career: ${career.key_skills.join(", ")}.`,

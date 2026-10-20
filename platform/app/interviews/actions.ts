@@ -72,7 +72,7 @@ export async function submitInterviewAnswerAction(
     result = await evaluateInterviewWithAI(answerText, question.prompt, [question.guidance, question.reference_answer].filter(Boolean).join("\n\n"), rubric);
   } catch (error) {
     logger.error("interview_evaluation_failed", { operation: "submitInterviewAnswerAction", domain: "interviews", error_code: error instanceof Error ? error.name : "UNKNOWN" });
-    return { error: "AI chưa đánh giá được câu trả lời lúc này. Nội dung vẫn được giữ; vui lòng thử lại." };
+    return { error: "R2W AI chưa đánh giá được câu trả lời lúc này. Nội dung vẫn được giữ; vui lòng thử lại." };
   }
   // Grades are server-only writes. Ownership and set membership were verified above.
   const { error } = await createServiceRoleClient().from("interview_answers").insert({

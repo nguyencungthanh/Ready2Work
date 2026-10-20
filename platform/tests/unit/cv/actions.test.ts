@@ -56,7 +56,7 @@ describe("CV read, analysis and save boundary", () => {
   it("distinguishes analysis failure from a PDF reading failure without fabricating saved results", async () => {
     mocks.analyze.mockRejectedValue(new Error("private provider response"));
     const result = await analyzeCVAction({}, form());
-    expect(result.error).toContain("Đã đọc được CV nhưng AI chưa hoàn tất phân tích");
+    expect(result.error).toContain("Đã đọc được CV nhưng R2W AI chưa hoàn tất phân tích");
     expect(result.error).not.toContain("private");
     expect(mocks.upload).not.toHaveBeenCalled();
     expect(mocks.insert).not.toHaveBeenCalled();
@@ -71,19 +71,19 @@ describe("CV read, analysis and save boundary", () => {
     mocks.analyze.mockRejectedValue({ status: 429, message: "private provider details" });
     const result = await analyzeCVAction({}, form());
     expect(result.error).toContain("Đã đọc được CV");
-    expect(result.error).toContain("giới hạn lượt gọi");
+    expect(result.error).toContain("đang bận xử lý nhiều yêu cầu");
     expect(result.error).not.toContain("private");
     expect(mocks.upload).not.toHaveBeenCalled();
     expect(mocks.insert).not.toHaveBeenCalled();
   });
   it.each([
-    [{ status: 401, message: "private provider response" }, "chưa xác thực", "CV_AI_AUTH"],
-    [{ status: 403, message: "private provider response" }, "chưa xác thực", "CV_AI_AUTH"],
+    [{ status: 401, message: "private provider response" }, "chưa sẵn sàng", "CV_AI_AUTH"],
+    [{ status: 403, message: "private provider response" }, "chưa sẵn sàng", "CV_AI_AUTH"],
     [new CVAnalysisError("CV_INVALID_EVIDENCE", ["0"]), "bằng chứng hợp lệ", "CV_INVALID_EVIDENCE"],
     [new CVAnalysisError("CV_INCOMPLETE_ANALYSIS"), "đối chiếu đủ yêu cầu", "CV_INCOMPLETE_ANALYSIS"],
-    [new CVAnalysisError("CV_INVALID_RESPONSE"), "đúng định dạng", "CV_INVALID_RESPONSE"],
+    [new CVAnalysisError("CV_INVALID_RESPONSE"), "kết quả phân tích chưa hợp lệ", "CV_INVALID_RESPONSE"],
     [{ status: 503, message: "private provider response" }, "tạm thời quá tải", "CV_AI_UNAVAILABLE"],
-    [new DOMException("private timeout", "TimeoutError"), "phản hồi quá lâu", "CV_AI_TIMEOUT"],
+    [new DOMException("private timeout", "TimeoutError"), "cần thêm thời gian", "CV_AI_TIMEOUT"],
   ])("distinguishes analysis failures and logs only safe metadata: %s", async (error, message, code) => {
     mocks.analyze.mockRejectedValue(error);
     const result = await analyzeCVAction({}, form());
@@ -101,7 +101,7 @@ describe("CV read, analysis and save boundary", () => {
   });
   it("distinguishes OCR authentication failure without saving or leaking provider details", async () => {
     mocks.extract.mockRejectedValue({ status: 401, message: "private provider response" });
-    expect((await analyzeCVAction({}, form())).error).toContain("chưa xác thực");
+    expect((await analyzeCVAction({}, form())).error).toContain("chưa sẵn sàng");
     expect(mocks.log).toHaveBeenCalledWith("cv_processing_failed", expect.objectContaining({ operation: "read", error_code: "CV_AI_AUTH", status: 401 }));
     expect(mocks.analyze).not.toHaveBeenCalled();
     expect(mocks.upload).not.toHaveBeenCalled();

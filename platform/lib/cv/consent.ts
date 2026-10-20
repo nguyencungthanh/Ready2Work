@@ -1,0 +1,1 @@
+export const CV_ANALYSIS_CONSENT = "Tôi đồng ý để Ready2Work lưu CV trong tài khoản và sử dụng R2W AI để phân tích năng lực. Khi dùng R2W AI, văn bản CV được gửi đến dịch vụ AI tích hợp để xử lý; nếu PDF có ảnh hoặc lớp chữ không đọc được, nội dung toàn bộ các trang PDF được gửi để nhận dạng chữ.";

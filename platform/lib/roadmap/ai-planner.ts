@@ -1,4 +1,5 @@
 import "server-only";
+import { ASSISTANT_VOICE } from "@/lib/assistant/voice";
 import { z } from "zod";
 import { generateStructured } from "@/lib/ai/gemini";
 import { ROADMAP_STAGES, type CareerForRoadmap, type RoadmapStepTemplate } from "./generator";
@@ -38,7 +39,8 @@ const RESPONSE_SCHEMA = {
 };
 
 function buildPrompt(career: CareerForRoadmap): string {
-  return `You are a career coach creating a personalized development roadmap for a student targeting the role "${career.title}" in the "${career.industry}" industry.
+  return `${ASSISTANT_VOICE}
+You are a career coach creating a personalized development roadmap for a student targeting the role "${career.title}" in the "${career.industry}" industry.
 
 Key skills for this role: ${career.key_skills.join(", ") || "none listed"}.
 Typical entry roles: ${career.entry_roles.join(", ") || career.title}.

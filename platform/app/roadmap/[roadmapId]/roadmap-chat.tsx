@@ -54,16 +54,16 @@ export function RoadmapChat({
           <header className="flex items-start justify-between gap-4 border-b border-border bg-surface px-5 py-4">
             <div>
               <h2 id="roadmap-chat-title" className="font-semibold text-foreground">
-                Ask Ready2Work
+                Trò chuyện với R2W AI
               </h2>
               <p className="mt-0.5 text-xs text-muted">
-                Ask about a step or how to adjust your roadmap.
+                Mình cùng bạn tìm cách thực hiện từng bước trong lộ trình.
               </p>
             </div>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              aria-label="Close Ready2Work chat"
+              aria-label="Đóng trò chuyện với R2W AI"
               className="rounded-md p-1 text-muted transition-colors hover:bg-background hover:text-foreground"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
@@ -81,7 +81,7 @@ export function RoadmapChat({
           <div ref={messagesRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
             {messages.length === 0 && (
               <div className="rounded-xl bg-surface p-4 text-sm text-muted">
-                Ask why a step matters, what to do first, or how to adapt your roadmap.
+                Bạn muốn bắt đầu từ đâu? Mình có thể giải thích từng bước và gợi ý cách rèn luyện phù hợp.
               </div>
             )}
             {messages.map((message) => (
@@ -102,7 +102,7 @@ export function RoadmapChat({
             ))}
             {pending && (
               <div className="max-w-[92%] rounded-xl bg-surface px-3 py-2 text-sm text-muted">
-                Ready2Work is thinking…
+                Mình đang chuẩn bị câu trả lời…
               </div>
             )}
           </div>
@@ -126,7 +126,7 @@ export function RoadmapChat({
                 required
                 rows={2}
                 maxLength={2_000}
-                placeholder="Ask about your roadmap…"
+                placeholder="Hỏi R2W AI về lộ trình của bạn…"
                 className="max-h-32 min-h-11 flex-1 resize-y rounded-md border border-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
               <button
@@ -134,7 +134,7 @@ export function RoadmapChat({
                 disabled={pending}
                 className="h-11 rounded-md bg-primary px-4 text-sm font-medium text-white transition-all hover:bg-primary-hover disabled:opacity-60"
               >
-                {pending ? "Sending…" : "Send"}
+                {pending ? "Đang gửi…" : "Gửi"}
               </button>
             </form>
           </div>
@@ -146,7 +146,7 @@ export function RoadmapChat({
         onClick={() => setOpen((current) => !current)}
         aria-expanded={open}
         aria-controls="roadmap-chat-panel"
-        aria-label={open ? "Close Ready2Work chat" : "Open Ready2Work chat"}
+        aria-label={open ? "Đóng trò chuyện với R2W AI" : "Mở trò chuyện với R2W AI"}
         className="fixed bottom-6 right-4 z-50 flex h-14 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-primary-hover hover:shadow-2xl sm:right-6"
       >
         {open ? (
@@ -170,7 +170,7 @@ export function RoadmapChat({
             />
           </svg>
         )}
-        {open ? "Close" : "Ask Ready2Work"}
+        {open ? "Đóng" : "Trò chuyện với R2W AI"}
       </button>
     </>
   );

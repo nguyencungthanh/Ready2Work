@@ -6,12 +6,6 @@ export function hasAIKey(): boolean {
     : process.env.GEMINI_API_KEY);
 }
 
-export function aiProviderLabel(): string {
-  const base = process.env.AI_BASE_URL?.trim();
-  if (!base) return "Google Gemini";
-  return URL.canParse(base) && new URL(base).hostname === "api.vilao.ai" ? "Vilao AI" : "nhà cung cấp AI của Ready2Work";
-}
-
 export function responsesConfig() {
   const base = process.env.AI_BASE_URL?.trim();
   if (!base) return null;

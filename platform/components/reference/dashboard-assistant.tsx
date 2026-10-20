@@ -9,7 +9,7 @@ import { readAssistantReply } from "@/lib/assistant/read-stream";
 
 interface Message extends AssistantTurn { id: number }
 class AssistantResponseError extends Error {}
-const connectionError = "Chưa kết nối được trợ lý AI. Tin nhắn vẫn được giữ; vui lòng thử lại.";
+const connectionError = "Mình chưa thể trả lời lúc này. Tin nhắn của bạn vẫn được giữ; bạn thử lại nhé.";
 
 function AssistantReply({ text }: { text: string }) {
   return <ReactMarkdown components={{
@@ -67,7 +67,7 @@ export function DashboardAssistant({ name }: { name: string }) {
       setDraft("");
     } catch (failure) {
       setFailedRequest(history);
-      setError(failure instanceof AssistantResponseError ? failure.message : abort.signal.aborted ? "AI phản hồi lâu hơn dự kiến. Tin nhắn vẫn được giữ; bạn có thể thử gửi lại." : connectionError);
+      setError(failure instanceof AssistantResponseError ? failure.message : abort.signal.aborted ? "Mình cần thêm thời gian để trả lời. Tin nhắn của bạn vẫn được giữ; bạn có thể thử gửi lại." : connectionError);
     } finally {
       window.clearTimeout(timer); controller.current = null; inFlight.current = false; setPending(false); setStreamingText("");
     }
@@ -86,7 +86,7 @@ export function DashboardAssistant({ name }: { name: string }) {
 
   return <section className="d-ai-box" aria-label="R2W AI">
     <div className="d-ai-header flex items-center justify-between gap-3"><span className="d-ai-label">R2W AI</span>{messages.length > 0 && <button type="button" disabled={pending} className="text-xs text-muted underline disabled:opacity-50" onClick={clearConversation}>Xóa hội thoại</button>}</div>
-    <div className="d-ai-msg"><span className="d-ai-avatar"><ReferenceIcon name="ai" size={22}/></span><p>{name || "Bạn"} ơi, bạn cần gì hãy để tớ giúp!</p></div>
+    <div className="d-ai-msg"><span className="d-ai-avatar"><ReferenceIcon name="ai" size={22}/></span><p>{name || "Bạn"} ơi, mình là R2W AI. Mình có thể giúp gì cho bạn hôm nay?</p></div>
     {messages.length > 0 && <div ref={log} role="log" aria-label="Cuộc trò chuyện với R2W AI" aria-live="polite" aria-relevant="additions text" className="mb-4 max-h-96 space-y-3 overflow-y-auto pr-1 text-sm leading-6">
       {messages.map((message) => <article key={message.id} className={`max-w-[95%] rounded-xl p-3 break-words ${message.role === "user" ? "ml-auto border border-border bg-white" : "mr-auto bg-white/70"}`}><p className="mb-1 text-xs font-semibold text-muted">{message.role === "user" ? "Bạn" : "R2W AI"}</p>{message.role === "user" ? <p className="whitespace-pre-wrap">{message.text}</p> : <AssistantReply text={message.text}/>}</article>)}
       {pending && (streamingText ? <article className="mr-auto max-w-[95%] rounded-xl bg-white/70 p-3 break-words"><p className="mb-1 text-xs font-semibold text-muted">R2W AI</p><p className="whitespace-pre-wrap">{streamingText}</p><span role="status" className="text-xs text-muted">Đang trả lời…</span></article> : <p role="status" className="px-3 py-2 text-muted">R2W AI đang trả lời…</p>)}

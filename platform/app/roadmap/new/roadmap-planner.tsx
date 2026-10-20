@@ -49,16 +49,16 @@ function PlanningChat({ careerId, onClose }: { careerId: string; onClose: () => 
       <header className="flex items-start justify-between gap-4 border-b border-border bg-surface px-5 py-4">
         <div>
           <h2 id="planning-chat-title" className="font-semibold text-foreground">
-            Ask Ready2Work
+            Trò chuyện với R2W AI
           </h2>
           <p className="mt-1 text-xs text-muted">
-            Uses your selected career as context. This preview conversation is not saved.
+            Mình tư vấn theo nghề nghiệp bạn đã chọn. Cuộc trò chuyện này chưa được lưu.
           </p>
         </div>
         <button
           type="button"
           onClick={onClose}
-          aria-label="Close Ready2Work chat"
+          aria-label="Đóng trò chuyện với R2W AI"
           className="rounded-md p-1 text-muted transition-colors hover:bg-background hover:text-foreground"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5">
@@ -76,8 +76,7 @@ function PlanningChat({ careerId, onClose }: { careerId: string; onClose: () => 
       <div ref={messagesRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
         {state.messages.length === 0 && (
           <div className="rounded-xl bg-surface p-4 text-sm text-muted">
-            Try asking: “What should I learn first?” or “Is this career suitable for an accounting
-            student?”
+            Bạn có thể hỏi mình: “Nên học gì trước?” hoặc “Nghề này có phù hợp với sinh viên kế toán không?”
           </div>
         )}
         {state.messages.map((message, index) => (
@@ -98,7 +97,7 @@ function PlanningChat({ careerId, onClose }: { careerId: string; onClose: () => 
         ))}
         {pending && (
           <div className="max-w-[92%] rounded-xl bg-surface px-3 py-2 text-sm text-muted">
-            Ready2Work is thinking…
+            Mình đang chuẩn bị câu trả lời…
           </div>
         )}
       </div>
@@ -123,7 +122,7 @@ function PlanningChat({ careerId, onClose }: { careerId: string; onClose: () => 
             required
             rows={2}
             maxLength={2_000}
-            placeholder="Ask about this career…"
+            placeholder="Hỏi R2W AI về nghề nghiệp này…"
             className="max-h-32 min-h-11 flex-1 resize-y rounded-md border border-border px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           />
           <button
@@ -131,7 +130,7 @@ function PlanningChat({ careerId, onClose }: { careerId: string; onClose: () => 
             disabled={pending}
             className="h-11 rounded-md bg-primary px-4 text-sm font-medium text-white transition-all hover:bg-primary-hover disabled:opacity-60"
           >
-            {pending ? "Sending…" : "Send"}
+            {pending ? "Đang gửi…" : "Gửi"}
           </button>
         </form>
       </div>
@@ -154,7 +153,7 @@ export function RoadmapPlanner({
       <form action={generateRoadmapFromFormAction} className="mt-8 space-y-4">
         <div>
           <label htmlFor="careerId" className="block text-sm font-medium text-foreground">
-            Target career
+            Nghề nghiệp mục tiêu
           </label>
           <select
             id="careerId"
@@ -177,7 +176,7 @@ export function RoadmapPlanner({
             disabled={!careerId}
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-md disabled:opacity-60"
           >
-            Generate Roadmap
+            Tạo lộ trình cùng R2W AI
           </button>
         </div>
       </form>
@@ -192,7 +191,7 @@ export function RoadmapPlanner({
         onClick={() => setChatOpen((current) => !current)}
         aria-expanded={chatOpen}
         aria-controls="planning-chat"
-        aria-label={chatOpen ? "Close Ready2Work chat" : "Open Ready2Work chat"}
+        aria-label={chatOpen ? "Đóng trò chuyện với R2W AI" : "Mở trò chuyện với R2W AI"}
         className="fixed bottom-6 right-4 z-50 flex h-14 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-primary-hover hover:shadow-2xl disabled:translate-y-0 disabled:opacity-60 sm:right-6"
       >
         {chatOpen ? (
@@ -216,7 +215,7 @@ export function RoadmapPlanner({
             />
           </svg>
         )}
-        {chatOpen ? "Close" : "Ask Ready2Work"}
+        {chatOpen ? "Đóng" : "Trò chuyện với R2W AI"}
       </button>
     </>
   );

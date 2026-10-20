@@ -102,7 +102,7 @@ export async function submitSimulationAction(
       domain: "simulations",
       error_code: err instanceof Error ? err.name : "UNKNOWN",
     });
-    return { error: "AI chưa chấm được bài làm lúc này. Nội dung vẫn được giữ; vui lòng thử lại." };
+    return { error: "R2W AI chưa chấm được bài làm lúc này. Nội dung vẫn được giữ; vui lòng thử lại." };
   }
 
   const { data: submission, error } = await createServiceRoleClient().rpc("finalize_simulation_attempt", {

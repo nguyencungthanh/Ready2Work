@@ -8,7 +8,7 @@ import { MAX_CV_CHARACTERS, MIN_CV_CHARACTERS } from "./validation";
 /** Read all pages of a validated PDF, including image and mixed-content pages. */
 export async function recognizePdfText(buffer: Uint8Array): Promise<string> {
   if (!hasAIKey()) {
-    throw new Error("Tệp PDF này cần nhận dạng chữ bằng AI nhưng dịch vụ chưa được cấu hình. Vui lòng dán nội dung CV hoặc dùng PDF có văn bản.");
+    throw new Error("Tệp PDF này cần nhận dạng chữ nhưng R2W AI chưa sẵn sàng. Vui lòng dán nội dung CV hoặc dùng PDF có văn bản.");
   }
   try {
     const recognize = () => generateStructured(
@@ -31,11 +31,11 @@ export async function recognizePdfText(buffer: Uint8Array): Promise<string> {
     return text;
   } catch (error) {
     if (typeof error === "object" && error !== null && "status" in error && (error.status === 401 || error.status === 403)) {
-      throw Object.assign(new Error("Không đọc được CV vì dịch vụ AI chưa xác thực được kết nối."), { status: error.status });
+      throw Object.assign(new Error("Không đọc được CV vì R2W AI tạm thời chưa sẵn sàng. Vui lòng thử lại sau hoặc liên hệ hỗ trợ."), { status: error.status });
     }
     // Never include provider details, PDF bytes or extracted personal data in the error.
     if (typeof error === "object" && error !== null && "status" in error && error.status === 429) {
-      throw new Error("Không đọc được CV lúc này vì dịch vụ AI đang đạt giới hạn yêu cầu. Vui lòng thử lại sau; chưa có kết quả mới được lưu.");
+      throw new Error("Không đọc được CV lúc này vì R2W AI đang bận xử lý nhiều yêu cầu. Vui lòng thử lại sau; chưa có kết quả mới được lưu.");
     }
     throw new Error("Không đọc được chữ trong PDF dạng ảnh lúc này. Vui lòng thử lại hoặc dán nội dung CV; hệ thống chưa tạo kết quả phân tích.");
   }

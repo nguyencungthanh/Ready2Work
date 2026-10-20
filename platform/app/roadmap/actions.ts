@@ -28,14 +28,14 @@ export async function generateRoadmapAction(careerId: string): Promise<void> {
   }
 
   if (!career) {
-    throw new Error("That career could not be found.");
+    throw new Error("Chưa tìm thấy nghề nghiệp bạn đã chọn. Vui lòng chọn lại.");
   }
 
   let steps;
   try {
     steps = await generateRoadmapSteps(career as CareerForRoadmap);
   } catch {
-    throw new Error("Could not generate your roadmap right now. Please try again.");
+    throw new Error("R2W AI chưa tạo được lộ trình lúc này. Bạn thử lại sau nhé.");
   }
 
   const { data: roadmap, error } = await supabase
@@ -45,7 +45,7 @@ export async function generateRoadmapAction(careerId: string): Promise<void> {
     .single();
 
   if (error || !roadmap) {
-    throw new Error("Could not create your roadmap. Please try again.");
+    throw new Error("Chưa lưu được lộ trình của bạn. Vui lòng thử lại.");
   }
 
   await supabase.from("roadmap_steps").insert(
@@ -67,7 +67,7 @@ export async function generateRoadmapAction(careerId: string): Promise<void> {
 export async function generateRoadmapFromFormAction(formData: FormData): Promise<void> {
   const careerId = formData.get("careerId");
   if (typeof careerId !== "string" || careerId.length === 0) {
-    throw new Error("Choose a career before generating your roadmap.");
+    throw new Error("Vui lòng chọn nghề nghiệp trước khi tạo lộ trình.");
   }
   await generateRoadmapAction(careerId);
 }
@@ -107,13 +107,13 @@ export async function sendPlanningChatMessageAction(
   const message = String(formData.get("message") ?? "").trim();
 
   if (!careerId) {
-    return { messages: previous.messages, error: "Choose a career first." };
+    return { messages: previous.messages, error: "Bạn chọn nghề nghiệp trước để mình tư vấn nhé." };
   }
   if (!message) {
-    return { messages: previous.messages, error: "Write a message before sending." };
+    return { messages: previous.messages, error: "Bạn nhập câu hỏi trước khi gửi nhé." };
   }
   if (message.length > 2_000) {
-    return { messages: previous.messages, error: "Keep your message under 2,000 characters." };
+    return { messages: previous.messages, error: "Tin nhắn tối đa 2.000 ký tự. Bạn rút gọn rồi gửi lại nhé." };
   }
 
   const supabase = await createServerSupabaseClient();
@@ -124,7 +124,7 @@ export async function sendPlanningChatMessageAction(
     .maybeSingle();
 
   if (!career) {
-    return { messages: previous.messages, error: "That career could not be found." };
+    return { messages: previous.messages, error: "Chưa tìm thấy nghề nghiệp bạn đã chọn. Vui lòng chọn lại." };
   }
 
   const safePreviousMessages = previous.messages
@@ -153,7 +153,7 @@ export async function sendPlanningChatMessageAction(
     });
     return {
       messages: previous.messages,
-      error: "Could not get a reply right now. Please try again.",
+      error: "Mình chưa thể trả lời lúc này. Bạn thử lại sau nhé.",
     };
   }
 }
@@ -167,9 +167,9 @@ export async function sendRoadmapChatMessageAction(
   const user = await requireUser();
   const message = String(formData.get("message") ?? "").trim();
   if (message.length === 0) {
-    return { error: "Write a message before sending." };
+    return { error: "Bạn nhập câu hỏi trước khi gửi nhé." };
   }
-  if (message.length > 2_000) return { error: "Keep your message under 2,000 characters." };
+  if (message.length > 2_000) return { error: "Tin nhắn tối đa 2.000 ký tự. Bạn rút gọn rồi gửi lại nhé." };
 
   const supabase = await createServerSupabaseClient();
 
@@ -180,7 +180,7 @@ export async function sendRoadmapChatMessageAction(
     .maybeSingle();
 
   if (!roadmap || roadmap.user_id !== user.id) {
-    return { error: "That roadmap could not be found." };
+    return { error: "Chưa tìm thấy lộ trình này trong tài khoản của bạn." };
   }
 
   const career = roadmap.careers as unknown as {
@@ -222,7 +222,7 @@ export async function sendRoadmapChatMessageAction(
       domain: "roadmap",
       error_code: err instanceof Error ? err.message : "UNKNOWN",
     });
-    return { error: "Could not get a reply right now. Please try again." };
+    return { error: "Mình chưa thể trả lời lúc này. Bạn thử lại sau nhé." };
   }
 
   const { error } = await supabase.from("roadmap_chat_messages").insert([
@@ -236,7 +236,7 @@ export async function sendRoadmapChatMessageAction(
       domain: "roadmap",
       error_code: error.code,
     });
-    return { error: "Your message could not be saved. Please try again." };
+    return { error: "Chưa lưu được tin nhắn của bạn. Vui lòng thử lại." };
   }
 
   revalidatePath(`/roadmap/${roadmapId}`);

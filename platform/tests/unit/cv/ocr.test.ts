@@ -15,7 +15,7 @@ describe("scanned CV recognition", () => {
   });
   it("gives a useful scan-specific error when AI has not been configured", async () => {
     vi.stubEnv("GEMINI_API_KEY", "");
-    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("chưa được cấu hình");
+    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("R2W AI chưa sẵn sàng");
     expect(generateStructured).not.toHaveBeenCalled();
   });
   it("rejects empty, malformed or oversized OCR output", async () => {
@@ -40,12 +40,12 @@ describe("scanned CV recognition", () => {
   });
   it.each([401, 403])("preserves authentication status %s without retrying or exposing provider text", async (status) => {
     vi.mocked(generateStructured).mockRejectedValue({ status, message: "private provider response" });
-    await expect(recognizePdfText(new Uint8Array())).rejects.toMatchObject({ status, message: "Không đọc được CV vì dịch vụ AI chưa xác thực được kết nối." });
+    await expect(recognizePdfText(new Uint8Array())).rejects.toMatchObject({ status, message: "Không đọc được CV vì R2W AI tạm thời chưa sẵn sàng. Vui lòng thử lại sau hoặc liên hệ hỗ trợ." });
     expect(generateStructured).toHaveBeenCalledOnce();
   });
   it("reports exhausted AI quota without retrying or exposing the provider response", async () => {
     vi.mocked(generateStructured).mockRejectedValue({ status: 429, message: "private provider response" });
-    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("giới hạn yêu cầu");
+    await expect(recognizePdfText(new Uint8Array())).rejects.toThrow("đang bận xử lý nhiều yêu cầu");
     expect(generateStructured).toHaveBeenCalledOnce();
   });
 });

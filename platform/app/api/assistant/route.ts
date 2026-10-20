@@ -37,7 +37,7 @@ export async function POST(request: Request) {
   try { user = await getSessionUser(); }
   catch { return fail(503, "AI_UNAVAILABLE", "Chưa xác minh được phiên đăng nhập. Vui lòng thử lại sau."); }
   if (!user) return fail(401, "AUTH_REQUIRED", "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại để trò chuyện.");
-  if (user.accountStatus === "suspended" || user.accountStatus === "deleted") return fail(403, "ACCOUNT_UNAVAILABLE", "Tài khoản hiện chưa thể sử dụng trợ lý AI.");
+  if (user.accountStatus === "suspended" || user.accountStatus === "deleted") return fail(403, "ACCOUNT_UNAVAILABLE", "Tài khoản hiện chưa thể trò chuyện với R2W AI.");
   if (request.headers.get("content-type")?.split(";")[0]?.trim().toLowerCase() !== "application/json") return fail(400, "INVALID_REQUEST", "Tin nhắn chưa hợp lệ. Vui lòng kiểm tra và gửi lại.");
   let body: unknown;
   try { body = await readBody(request); }
@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     return fail(413, "INPUT_TOO_LARGE", "Tin nhắn hoặc hội thoại quá dài. Hãy rút gọn trước khi gửi.");
   }
   if (messages.length % 2 === 0 || messages.some((turn, index) => turn.role !== (index % 2 === 0 ? "user" : "model"))) return fail(400, "INVALID_REQUEST", "Hội thoại chưa hợp lệ. Hãy gửi lại câu hỏi của bạn.");
-  if (!hasAIKey()) return fail(503, "AI_UNAVAILABLE", "Trợ lý AI chưa sẵn sàng lúc này. Vui lòng thử lại sau.");
+  if (!hasAIKey()) return fail(503, "AI_UNAVAILABLE", "Mình chưa sẵn sàng trả lời lúc này. Bạn thử lại sau nhé.");
   try {
     if (request.headers.get("accept")?.includes("application/x-ndjson")) {
       const started = Date.now();
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
             }
           } catch {
             if (abort.signal.aborted || request.signal.aborted) return;
-            controller.enqueue(encoder.encode(JSON.stringify({ error: "AI chưa hoàn tất câu trả lời. Tin nhắn vẫn được giữ; vui lòng thử lại." }) + "\n"));
+            controller.enqueue(encoder.encode(JSON.stringify({ error: "Mình chưa hoàn tất câu trả lời. Tin nhắn của bạn vẫn được giữ; bạn thử lại nhé." }) + "\n"));
             controller.close();
           }
         },
@@ -87,9 +87,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ reply }, { headers });
   } catch (error) {
     const status = error && typeof error === "object" && "status" in error ? error.status : undefined;
-    if (status === 401 || status === 403) return fail(503, "AI_CONFIGURATION", "Dịch vụ AI chưa xác thực được kết nối. Vui lòng liên hệ quản trị viên; tin nhắn vẫn được giữ.");
-    if (status === 429) return fail(429, "AI_RATE_LIMITED", "AI đang nhận quá nhiều yêu cầu. Tin nhắn vẫn được giữ; hãy đợi một lúc rồi thử lại.");
-    if (status === 503 || status === 504) return fail(503, "AI_UNAVAILABLE", "Dịch vụ AI tạm thời chưa phản hồi. Tin nhắn vẫn được giữ; vui lòng thử lại.");
-    return fail(502, "AI_FAILED", "Chưa nhận được phản hồi từ AI. Tin nhắn vẫn được giữ; vui lòng thử lại.");
+    if (status === 401 || status === 403) return fail(503, "AI_CONFIGURATION", "Mình tạm thời chưa thể trả lời. Tin nhắn của bạn vẫn được giữ; bạn thử lại sau hoặc liên hệ hỗ trợ nhé.");
+    if (status === 429) return fail(429, "AI_RATE_LIMITED", "Mình đang bận xử lý nhiều yêu cầu. Tin nhắn của bạn vẫn được giữ; bạn đợi một chút rồi thử lại nhé.");
+    if (status === 503 || status === 504) return fail(503, "AI_UNAVAILABLE", "Mình tạm thời chưa thể trả lời. Tin nhắn của bạn vẫn được giữ; bạn thử lại sau nhé.");
+    return fail(502, "AI_FAILED", "Mình chưa hoàn tất câu trả lời. Tin nhắn của bạn vẫn được giữ; bạn thử lại nhé.");
   }
 }

@@ -4,7 +4,7 @@ const renderPdf = vi.hoisted(() => vi.fn());
 vi.mock("@/lib/ai/pdf-images", () => ({ pdfPageImages: renderPdf }));
 vi.mock("@google/genai", () => ({ GoogleGenAI: class { constructor() { google(); } } }));
 import { generateChatReply, generateStructured } from "@/lib/ai/gemini";
-import { aiProviderLabel, hasAIKey, responsesConfig } from "@/lib/ai/config";
+import { hasAIKey, responsesConfig } from "@/lib/ai/config";
 
 const fetchMock = vi.fn();
 const success = (text = '{"ok":true}') => new Response(JSON.stringify({ status: "completed", output: [{ type: "message", role: "assistant", content: [{ type: "output_text", text }] }] }));
@@ -121,13 +121,11 @@ describe("server-only provider configuration", () => {
     vi.stubEnv("AI_API_KEY", "");
     expect(responsesConfig()?.apiKey).toBe("legacy-test-key");
     expect(hasAIKey()).toBe(true);
-    expect(aiProviderLabel()).toBe("Vilao AI");
     vi.stubEnv("AI_BASE_URL", "");
     vi.stubEnv("GEMINI_API_KEY", "");
     vi.stubEnv("AI_API_KEY", "gateway-only");
     expect(responsesConfig()).toBeNull();
     expect(hasAIKey()).toBe(false);
-    expect(aiProviderLabel()).toBe("Google Gemini");
   });
   it.each(["http://api.vilao.ai/v1", "https://user:password@api.vilao.ai/v1", "https://api.vilao.ai/v1?key=x", "https://api.vilao.ai/v1#fragment", "invalid"])("rejects invalid gateway configuration before sending credentials (%s)", async (base) => {
     vi.stubEnv("AI_BASE_URL", base);

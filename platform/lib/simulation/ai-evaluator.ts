@@ -1,4 +1,5 @@
 import "server-only";
+import { ASSISTANT_VOICE } from "@/lib/assistant/voice";
 import { z } from "zod";
 import { generateStructured } from "@/lib/ai/gemini";
 import { evaluateSourceChecklist } from "./checklist-evaluator";
@@ -87,7 +88,8 @@ function buildPrompt(
     .map((c) => `- id: ${c.id}\n  label: ${c.label}\n  description: ${c.description}\n  weight: ${c.weight}%\n  maxScore: ${c.maxScore ?? MAX_CRITERION_SCORE}`)
     .join("\n");
 
-  return `You are grading a candidate's response to a job simulation exercise. Score it against the rubric using only the content of the submission. Do not infer or comment on identity, accent, background, or writing style unrelated to the rubric.
+  return `${ASSISTANT_VOICE}
+You are grading a candidate's response to a job simulation exercise. Score it against the rubric using only the content of the submission. Do not infer or comment on identity, accent, background, or writing style unrelated to the rubric.
 
 Simulation brief:
 ${brief}
